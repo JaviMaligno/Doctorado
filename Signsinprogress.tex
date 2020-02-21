@@ -1,0 +1,61 @@
+	\documentclass[twoside]{article}
+\usepackage{estilo-ejercicios}
+\setcounter{section}{0}
+\newtheorem{defin}{Definition}[section]
+\newtheorem{lem}[defin]{Lemma}
+\newtheorem{propo}[defin]{Proposition}
+\newtheorem{thm}[defin]{Theorem}
+\newtheorem{eje}[defin]{Example}
+\newtheorem{obs}[defin]{Observación}
+\renewcommand{\baselinestretch}{1,3}
+%--------------------------------------------------------
+\begin{document}
+
+\title{Fucking signs}
+\author{Javier Aguilar Martín}
+\maketitle
+
+%\varprojlim
+%\varinjlim
+\section{Possible MSE question}
+
+I'm reading [this paper](https://arxiv.org/pdf/hep-th/9409063.pdf) (page 2) and I wanted to check an identity that the author says it's immediate. 
+
+**Definitions**
+
+I'm going to stick to operad notation but I'm interested in the standard example where $O(n)=Hom(V^{\otimes n},V)$ and for $f\in O(n)$ we write $|f|=n-1$. In this context, 
+
+$\gamma(f;1,\dots,1,g_1,1,\dots, 1, g_m,1,\dots, 1)=f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_m\otimes 1^{\otimes k_m})$
+
+and we define the brace $f\{g_1,\dots,g_m\}$ as the following sum over all ordering preserving insertions of the $g_i$'s
+
+$\sum (-1)^\epsilon \gamma(f;1,\dots,1,g_1,1,\dots, 1, g_m,1,\dots, 1)$
+
+where $\epsilon=\sum_{p=1}^m|g_p|i_p$, $i_p$ being the number of $1$'s in front of $g_p$.
+
+**Problem**
+
+So I want to check that equation (2) in the paper holds. My problem is only on the signs, so I basically want to know how to simplify an expession of the form
+
+$\sum (-1)^\epsilon\sum (-1)^\delta$
+
+to get only one sum with a sign, say $\mu$, depending on $\delta$ and $\epsilon$. In this case, looking at the lhs of equation (2), we have $x\{x_1,\dots, x_m\}\{y_1,\dots, y_n\}$, so I would compute $x\{x_1,\dots, x_m\}$ first, which by definition is
+
+$\sum (-1)^\epsilon \gamma(x;1,\dots,1,x_1,1,\dots, 1, x_m,1,\dots, 1)$
+
+Then $x\{x_1,\dots, x_m\}\{y_1,\dots, y_n\}$ is, applying linearity, 
+
+$\sum (-1)^\epsilon \sum(-1)^\delta\gamma(\gamma(x;1,\dots,1,x_1,1,\dots, 1, x_m,1,\dots, 1); 1,\dots, 1,y_1,1,\dots,1,y_n,1,\dots,1)$
+
+where $\delta$ is defined analogous to $\epsilon$ but in this case we're counting the number of $1$'s in front on the $y_i$'s (after the inner $\gamma$, so the $1$'s inside that $\gamma$ don't count).
+
+This composition can be rewritten using the associativity property of operads (see for instance *The geometry of iterated loops spaces* by P.May), so that it becomes something of the form
+
+$\gamma(x;\gamma(\cdots),\dots, \gamma(\dots))$
+
+This is really hard to write more clearly, since some $y_i$'s would be in place of some $1$'s (something like $\gamma(1;y_i)=y_i$ and others would be inside some $x_j$ (for example $\gamma(x_j;1,\dots, y_{i_1}, 1,\dots, 1,y_{i_j},1\dots,1)$)
+
+IT IS POSSIBLE THAT I END UP GETTING THE BRACES INSIDE THANKS TO THE SUM OUTSIDE, SINCE INSIDE WHAT I HAVE IS OPERADIC COMPOSITION, MAYBE THAT WAY I CAN GET RID OF SOME OF THE SIGNS
+
+
+\end{document}
