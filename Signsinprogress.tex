@@ -17,6 +17,18 @@
 
 %\varprojlim
 %\varinjlim
+
+\section{Signs to try}
+\begin{itemize}
+\item No signs: this does not satisfy the defining equation of brace algebra since no sign at all would appear
+\item With the notation of the draft of the derived Deligne conjecture, and $N=k_0+\cdots+k_n+n$, $g_0=f$:
+\[
+\varepsilon=\sum_{j<i}(a_i-1)(k_j+a_j-1)+\sum_{1\leq i}(N-i)q_i+\sum_{i\leq j<i}q_ia_j
+\]
+In the first subindex there are extra constrains $0\leq j<i\leq N$ but bah, $i$ can't always reach $N$, the same for the other indexes. With this sign we get that $f\{g\}$ is the first half of $[f,g]$ according to R-W.
+
+\item Try to come up with a sign that makes sense using the Koszul Rule. Problem with this: the degree of $f$ shouldn't appear only applying koszul, but it is in the bracket. Maybe after applying shifts or something that takes into account the arity and degree of $f$, as the $N$ in the formula above.
+\end{itemize}
 \section{Possible MSE question}
 
 I'm reading [this paper](https://arxiv.org/pdf/hep-th/9409063.pdf) (page 2) and I wanted to check an identity that the author says it's immediate. 
@@ -53,7 +65,12 @@ This composition can be rewritten using the associativity property of operads (s
 
 $\gamma(x;\gamma(\cdots),\dots, \gamma(\dots))$
 
-This is really hard to write more clearly, since some $y_i$'s would be in place of some $1$'s (something like $\gamma(1;y_i)=y_i$ and others would be inside some $x_j$ (for example $\gamma(x_j;1,\dots, y_{i_1}, 1,\dots, 1,y_{i_j},1\dots,1)$)
+This is really hard to write more clearly, since some $y_i$'s would be in place of some $1$'s (something like $\gamma(1;y_i)=y_i$ and others would be inside some $x_j$ (for example $\gamma(x_l;1,\dots, y_{i_l+1}, 1,\dots, 1,y_{j_l},1\dots,1)$, using the notation of G-V).
+
+So, say we have an operadic composition like that, which is afected by $\delta$ for each insertion of the $y$'s. Notice that before that $\gamma$ there is a number of $1$'s and som $y_{i_l}$. I want to introduce some signs so that it becomes a brace. I'm going to change the notation so that $i_p$ (the number of $1$'s in front of $x_p$) becomes $u^x_p$ and for the $1$'s in front of $y_q$ I'll use $u^y_q$. This way, I have to introduce in front of the operadic composition the sign prescribed by the number of $1$'s in front of each $y$ but inside the composition. So let $i_l+1\leq r\leq j_l$. For $y_r$ we count $u^y_{i_l+1}-u^y_{i_l}-(u^x_l-u^y_{i_l})=u^y_{i_l+1}-u^x_l$ (yes, I could've come up with the final difference without doint the previous steps because I am just substracting the ones in fron of the $x$). So the sign in front of this particular composition (there should be one analogue for each composition inside the big composition and after that the sign for the big composition to be a brace)
+$$\sum_{i_l+1\leq r\leq j_l}|y_r|(u^y_r-u^x_l)$$
+
+If I want to substract this sign from $\delta$ I'd better do it by counting the ones left rather than to the sum. For every $y_r$ inside $x_l$ the amount of $1$'s that are left in $\delta$ are those in front of $x_l$, i.e., $u^x_l$. So in $\delta$, for those $y_r$ inside $x_l$ we replace $u^y_r$ by $u^x_l$. Now let's see what happens after doing this for every $x_p$. 
 
 IT IS POSSIBLE THAT I END UP GETTING THE BRACES INSIDE THANKS TO THE SUM OUTSIDE, SINCE INSIDE WHAT I HAVE IS OPERADIC COMPOSITION, MAYBE THAT WAY I CAN GET RID OF SOME OF THE SIGNS
 
@@ -63,5 +80,5 @@ TO BE ABLE TO WRITE THINGS PROPERLY TRY USING A NOTATION FOR EVERY INPUT INCLUDI
 
 IT WOULDN'T BE SURPRISING THAT I HAD TO TAKE INTO ACCOUNT THE ARITY OF X SINCE DEPENDING ON IT THE NUMBER OF GAPS VARIES, IN PARTICULAR, THE NUMBER OF ONES IN FRONT OF SOME YI INSIDE XJ DEPENDS ON HOW MANY ARE OUTSIDE, WHICH DEPENDS ON THE ARITY OF X. MAYBE THAT'S WHERE THE DEGREE OF F IS GOING TO COME
 
-CONSIDER ALSO THE POSSIBILITY OF DOING EVERYTHING WITHOUT SIGNS (THE ENDOMORPHISM OPERAD USUALLY DOESN'T HAVE SIGNS) TO SEE IF YOU GET EVERYTHING WITHOY SIGNS, SO THAT YOU COULD GET THE SIGNS BY SHIFTING. FOR THIS, ASK WHAT WAS THE BRACKET ``WITHOUT SIGNS" AND HOW I WOULD GET A SIGN RELATED TO F WHEN IT IS NOT SWAPPED
+CONSIDER ALSO THE POSSIBILITY OF DOING EVERYTHING WITHOUT SIGNS (THE ENDOMORPHISM OPERAD USUALLY DOESN'T HAVE SIGNS) TO SEE IF YOU GET EVERYTHING WITHOUT SIGNS, SO THAT YOU COULD GET THE SIGNS BY SHIFTING. FOR THIS, ASK WHAT WAS THE BRACKET ``WITHOUT SIGNS" AND HOW I WOULD GET A SIGN RELATED TO F WHEN IT IS NOT SWAPPED
 \end{document}
