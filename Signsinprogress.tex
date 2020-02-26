@@ -70,9 +70,19 @@ This is really hard to write more clearly, since some $y_i$'s would be in place 
 So, say we have an operadic composition like that, which is afected by $\delta$ for each insertion of the $y$'s. Notice that before that $\gamma$ there is a number of $1$'s and som $y_{i_l}$. I want to introduce some signs so that it becomes a brace. I'm going to change the notation so that $i_p$ (the number of $1$'s in front of $x_p$) becomes $u^x_p$ and for the $1$'s in front of $y_q$ I'll use $u^y_q$. This way, I have to introduce in front of the operadic composition the sign prescribed by the number of $1$'s in front of each $y$ but inside the composition. So let $i_l+1\leq r\leq j_l$. For $y_r$ we count $u^y_{i_l+1}-u^y_{i_l}-(u^x_l-u^y_{i_l})=u^y_{i_l+1}-u^x_l$ (yes, I could've come up with the final difference without doint the previous steps because I am just substracting the ones in fron of the $x$). So the sign in front of this particular composition (there should be one analogue for each composition inside the big composition and after that the sign for the big composition to be a brace)
 $$\sum_{i_l+1\leq r\leq j_l}|y_r|(u^y_r-u^x_l)$$
 
-If I want to substract this sign from $\delta$ I'd better do it by counting the ones left rather than to the sum. For every $y_r$ inside $x_l$ the amount of $1$'s that are left in $\delta$ are those in front of $x_l$, i.e., $u^x_l$. So in $\delta$, for those $y_r$ inside $x_l$ we replace $u^y_r$ by $u^x_l$. Now let's see what happens after doing this for every $x_p$. 
+If I want to substract this sign from $\delta$ I'd better do it by counting the ones left rather than to the sum. For every $y_r$ inside $x_l$ the amount of $1$'s that are left in $\delta$ are those in front of $x_l$, i.e., $u^x_l$. So in $\delta$, for those $y_r$ inside $x_l$ we replace $u^y_r$ by $u^x_l$. Now let's see what happens after doing this for every $x_l$. We have the following sum 
 
-IT IS POSSIBLE THAT I END UP GETTING THE BRACES INSIDE THANKS TO THE SUM OUTSIDE, SINCE INSIDE WHAT I HAVE IS OPERADIC COMPOSITION, MAYBE THAT WAY I CAN GET RID OF SOME OF THE SIGNS
+$$\delta_1=\sum_{l=1}^m\sum_{i_l+1\leq r\leq j_l}|y_r|u^x_l$$
+
+But we still have the $y$'s that are outside every $x_l$. Using the notation of G-V, where $j_0=0$ and $i_{m+1}=n$, we have also the sum
+
+$$\delta_2=\sum_{l=1}^{m+1}\sum_{j_{l-1}+1\leq r\leq i_l}|y_r|u^y_r$$
+
+So let us rename $\delta=\delta_1+\delta_2$.
+
+Now for the external brace I need the $1$'s in front of the $y$'s that are outside, but only the $1$'s outside the $x_l$. I would also need the ones in fron of the $x_l$ which are in $\epsilon$, but at this point I'm not sure how to introduce it. I think the sums can be interchanged since, as can be seen in the operadic composition, the position of the $y$'s are independent of the position of the $x$'s. But that was at the beginning, now I've done things that depend on how the $y$'s are inserted in the $x$'s. So maybe I should do that in the opposite order, since the sign of the external brace requires the whole $\epsilon$ and only part of $\delta$, which might be introduced later by distributivity I guess.
+
+IT IS POSSIBLE THAT I END UP GETTING THE BRACES INSIDE THANKS TO THE SUM OUTSIDE, SINCE INSIDE WHAT I HAVE IS OPERADIC COMPOSITION, MAYBE THAT WAY I CAN GET RID OF SOME OF THE SIGNS. I ALSO NEED TO TAKE SOMES SIGNS OUTSIDE TO GET A BIG BRACE OUTSIDE.
 
 TO COUNT THE ONES INSIDE XI IN FRONT OF YJ (ALREADY ASSUMING I'M COUNTING ONE YJ THAT IS INSIDE) I HAVE TO SUBSTRACT TO THE NUMBER OF ARGUMENTS (NOT ONLY ONES) THE NUMBER OF YS IN FRONT OF YJ TOGETHER WITH THE ONES
 
