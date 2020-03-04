@@ -91,4 +91,46 @@ TO BE ABLE TO WRITE THINGS PROPERLY TRY USING A NOTATION FOR EVERY INPUT INCLUDI
 IT WOULDN'T BE SURPRISING THAT I HAD TO TAKE INTO ACCOUNT THE ARITY OF X SINCE DEPENDING ON IT THE NUMBER OF GAPS VARIES, IN PARTICULAR, THE NUMBER OF ONES IN FRONT OF SOME YI INSIDE XJ DEPENDS ON HOW MANY ARE OUTSIDE, WHICH DEPENDS ON THE ARITY OF X. MAYBE THAT'S WHERE THE DEGREE OF F IS GOING TO COME
 
 CONSIDER ALSO THE POSSIBILITY OF DOING EVERYTHING WITHOUT SIGNS (THE ENDOMORPHISM OPERAD USUALLY DOESN'T HAVE SIGNS) TO SEE IF YOU GET EVERYTHING WITHOUT SIGNS, SO THAT YOU COULD GET THE SIGNS BY SHIFTING. FOR THIS, ASK WHAT WAS THE BRACKET ``WITHOUT SIGNS" AND HOW I WOULD GET A SIGN RELATED TO F WHEN IT IS NOT SWAPPED
+
+\section{Sign with consistent explanation}
+
+Let's use the same strategy as R-W for the signs of the bracket $[f,g]$. Let $V$ be a graded vector space and $f\in C^{N,i}(V,V)=\hom(C^{\otimes N},V)^i$. Let $S(V)$ the graded vector space with $S(V)^v=V^{v+1}$, and so the suspension map $S:V\to S(V)$ given by the identity map has internal degree $-1$. Define $\sigma(f)$ as the map making the following diagram commutative
+\[
+\begin{tikzcd}
+S(V)^{\otimes N}\arrow[r, "\sigma(f)"]\arrow[d, "(S^{-1})^{\otimes N}"'] & S(V)\\
+V^{\otimes N}\arrow[r,"f"] & V\arrow[u, "S"']
+\end{tikzcd}
+\]
+
+Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in C^{N,i+N-1}(V,V)$. 
+
+In R-W there is a sign in front of $f$ but it seems to be irrelevant for this purpose. 
+
+Notice that, by the Koszul sign rule $(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^N j}1=(-1)^{\frac{N(N-1)}{2}}1=(-1)^{\binom{N}{2}}1$, so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in C^{m,j}(S(V),S(V))$, we have
+\[
+\sigma^{-1}(F)=(-1)^{\binom{m}{2}}S^{-1}\circ F\circ S^{\otimes m}\in C^{m,j-m+1}(V,V).
+\]
+
+For $g_j\in C^{a_j,q_j}(V,V)$, let $$f[g_1,\dots, g_n]=\sum_{k_0+\cdots+k_n=N-n}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})\in C^{N-n+\sum a_j, i+\sum q_j}(V,V).$$
+
+We define $f\{g_1,\dots, g_n\}=\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])\in C^{N-n+\sum a_j, i+N-1+\sum (q_j+a_j-1)}(V,V).$
+
+This is the same as $f[g_1,dots, g_n]$ up to sign, so let us compute the sign.
+\[
+\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ (\sigma(f)(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+\]
+\[
+=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ S\circ f\circ (S^{-1})^{\otimes N}\circ (1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes 1^{\otimes k_1}\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+\]
+\[
+=(-1)^{\binom{N-n+\sum a_j}{2}}f\circ (S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\circ(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+\]
+
+
+
+Now we move each $1^{\otimes k_{j-1}}\otimes (S\circ g_j\circ (S^{-1})^{a_j}$ to apply $(S^{-1})^{k_{j-1}}\otimes S^{-1}$ to it. Doing this to all of them produces a sign
+
+
+\section{With inverse of the tensor to avoid some binomial coefficients}
+Now define $\sigma(f)=S\circ f\circ (S^{\otimes N})^{-1}$. Now the inverse is $\sigma^{-1}(F)=S^{-1}\circ F\circ S^{\otimes m}$.
 \end{document}
