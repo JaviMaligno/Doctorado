@@ -115,22 +115,71 @@ For $g_j\in C^{a_j,q_j}(V,V)$, let $$f[g_1,\dots, g_n]=\sum_{k_0+\cdots+k_n=N-n}
 
 We define $f\{g_1,\dots, g_n\}=\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])\in C^{N-n+\sum a_j, i+N-1+\sum (q_j+a_j-1)}(V,V).$
 
-This is the same as $f[g_1,dots, g_n]$ up to sign, so let us compute the sign.
+This is the same as $f[g_1,\dots, g_n]$ up to sign, so let us compute the sign.
 \[
-\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ (\sigma(f)(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ (\sigma(f)(1^{\otimes k_0}\otimes \sigma(g_1)\otimes 1^{\otimes k_1}\otimes\cdots\otimes \sigma(g_n)\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
 \]
 \[
 =(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ S\circ f\circ (S^{-1})^{\otimes N}\circ (1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes 1^{\otimes k_1}\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
 \]
+\begin{align*}
+&=(-1)^{\binom{N-n+\sum a_j}{2}}f\circ ((S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\\ &\circ(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+\end{align*}
+
+
+
+
+Now we move each $1^{\otimes k_{j-1}}\otimes S\circ g_j\circ (S^{-1})^{a_j}$ to apply $(S^{-1})^{k_{j-1}}\otimes S^{-1}$ to it. Doing this to all of them produces a sign
+
 \[
-=(-1)^{\binom{N-n+\sum a_j}{2}}f\circ (S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\circ(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+(-1)^{(a_1+q_1-1)(n-1+\sum k_l)+(a_2+q_2-1)(n-2+\sum_2^n k_l)+\cdots+(a_n+q_n-1)k_n}=(-1)^{\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)}
+\]
+ which we call $(-1)^{\varepsilon}$ in the meantime. So now we have, decomposing $S^{\otimes N-n+\sum a_j}$
+ 
+ \[
+ (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon}f\circ((S^{-1})^{k_0}\otimes  g_1\circ (S^{-1})^{\otimes a_1}\otimes\cdots \otimes  g_n\circ (S^{-1})^{\otimes a_n}\otimes  (S^{-1})^{k_n})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n})
+ \]
+ 
+ Now we turn the tensor of inverses into inverses of tensors by introducing the appropriate signs. More precisely we introduce the sign
+ \[
+ (-1)^{\delta}=(-1)^{\binom{k_0}{2}+\sum(\binom{a_j}{2}+\binom{k_j}{2})}
+ \]
+ 
+  
+So we now have
+\[
+ (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon+\delta}f\circ((S^{k_0})^{-1}\otimes  g_1\circ (S^{\otimes a_1})^{-1}\otimes\cdots \otimes  g_n\circ (S^{\otimes a_n})^{-1}\otimes  (S^{k_n})^{-1})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n})
+ \]
+ And the next step is moving each component of the last tensor product in front of its inverse. This will produce the sign $(-1)^\gamma$, where
+ 
+ $$\gamma=-k_0\sum_1^n(k_j+a_j+q_j)-a_1(\sum_1^n k_j+\sum_2^n (a_j+q_j))-\cdots -a_nk_n\equiv \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l))$$
+ 
+ THIS MIGHT BE BETTER WRITTEN IN A DIFFERENT WAY TAKING INTO ACCOUNT WHICH INDICES RUN THROUGH THE SAME NUMBERS AND/OR WHICH SUMS APPEAR IN DIFFERENT PLACES
+ 
+ So in the end we have
+ \[
+ f\{g_1,\dots,g_n\}=\sum_{k_0+\cdots+k_n=N-n} (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon+\delta+\gamma}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})
+ \]
+ We are confident about this sign satisfying the brace algebra relation, but we shoul try to simplify the sign to get rid of the binomial coefficients. An alternative that doesn't produce those coefficients is in the next section.
+\section{With inverse of the tensor to avoid some binomial coefficients}
+Now define $\sigma(f)=S\circ f\circ (S^{\otimes N})^{-1}$. Now the inverse is just $\sigma^{-1}(F)=S^{-1}\circ F\circ S^{\otimes m}$. The process is now very similar to the previous case, but with less signs since there are no binomial coefficientes. This means that
+\[
+\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])=S^{-1}\circ (\sigma(f)(1^{\otimes k_0}\otimes \sigma(g_1)\otimes 1^{\otimes k_1}\otimes\cdots\otimes \sigma(g_n)\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+\]
+\[
+=S^{-1}\circ S\circ f\circ (S^{\otimes N})^{-1}\circ (1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{\otimes a_1})^{-1})\otimes 1^{\otimes k_1}\otimes\cdots\otimes (S\circ g_n\circ (S^{\otimes a_n})^{-1})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
 \]
 
+Now we can decompose $(S^{\otimes N})^{-1}=(S^{k_0}\otimes  S\otimes\cdots \otimes  S\otimes  S^{k_n})^{-1}$, but to have the inverses inside we will need some signs with binomial coefficients again. More precisely
 
+\[
+(S^{\otimes N})^{-1}=(-1)^{\binom{N}{2}}(S^{-1})^{\otimes N}=(-1)^{\binom{N}{2}}(S^{-1})^{\otimes k_0}\otimes S^{-1}\otimes\cdots\otimes S^{-1}\otimes (S^{-1})^{k_n}=
+\]
+\[
+(-1)^{\binom{N}{2}+\sum_0^n\binom{k_j}{2}}(S^{\otimes k_0})^{-1}\otimes S^{-1}\otimes\cdots\otimes S^{-1}\otimes (S^{k_n})^{-1}
+\]
 
-Now we move each $1^{\otimes k_{j-1}}\otimes (S\circ g_j\circ (S^{-1})^{a_j}$ to apply $(S^{-1})^{k_{j-1}}\otimes S^{-1}$ to it. Doing this to all of them produces a sign
-
-
-\section{With inverse of the tensor to avoid some binomial coefficients}
-Now define $\sigma(f)=S\circ f\circ (S^{\otimes N})^{-1}$. Now the inverse is $\sigma^{-1}(F)=S^{-1}\circ F\circ S^{\otimes m}$.
+%\begin{align*}
+%&=f\circ ((S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\\ &\circ(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+%\end{align*}
 \end{document}
