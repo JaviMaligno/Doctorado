@@ -179,6 +179,20 @@ Now we can decompose $(S^{\otimes N})^{-1}=(S^{k_0}\otimes  S\otimes\cdots \otim
 (-1)^{\binom{N}{2}+\sum_0^n\binom{k_j}{2}}(S^{\otimes k_0})^{-1}\otimes S^{-1}\otimes\cdots\otimes S^{-1}\otimes (S^{k_n})^{-1}
 \]
 
+Therefore we have
+\begin{align*}
+(-1)^{\binom{N}{2}+\sum_0^n\binom{k_j}{2}}f&\circ ((S^{\otimes k_0})^{-1}\otimes S^{-1}\otimes\cdots\otimes S^{-1}\otimes (S^{k_n})^{-1})\\ &\circ (1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{\otimes a_1})^{-1})\otimes 1^{\otimes k_1}\otimes\cdots\otimes (S\circ g_n\circ (S^{\otimes a_n})^{-1})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+\end{align*}
+
+Now the process is identical to the previous convention, so we use the same notation an write
+\[
+(-1)^{\binom{N}{2}+\sum_0^n\binom{k_j}{2}+\varepsilon}f\circ((S^{-1})^{k_0}\otimes  g_1\circ (S^{-1})^{\otimes a_1}\otimes\cdots \otimes  g_n\circ (S^{-1})^{\otimes a_n}\otimes  (S^{-1})^{k_n})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n})
+ \]
+ And finally
+  \[
+ f\{g_1,\dots,g_n\}=\sum_{k_0+\cdots+k_n=N-n} (-1)^{\binom{N}{2}+\sum_0^n\binom{k_j}{2}+\varepsilon+\gamma}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})
+ \]
+The difference between this signs and the other is that $\binom{N-n+\sum a_j}{2}$ is replaced by $\binom{N}{2}$ (which is definitely simple) and there is only a part of $\delta$, which is $\sum_0^n\binom{k_j}{2}$, so there are less terms.
 %\begin{align*}
 %&=f\circ ((S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\\ &\circ(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
 %\end{align*}
