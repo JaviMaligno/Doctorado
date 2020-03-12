@@ -160,7 +160,13 @@ So we now have
  \[
  f\{g_1,\dots,g_n\}=\sum_{k_0+\cdots+k_n=N-n} (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon+\delta+\gamma}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})
  \]
- We are confident about this sign satisfying the brace algebra relation, but we shoul try to simplify the sign to get rid of the binomial coefficients. An alternative that doesn't produce those coefficients is in the next section.
+ I think I'm going to call this sign $(-1)^{\sigma}$ at the moment. We are confident about this sign satisfying the brace algebra relation, but we shoul try to simplify the sign to get rid of the binomial coefficients. An alternative that doesn't produce those coefficients is in the next section. 
+ 
+ \begin{nota}
+If anything that goes at the top of a binomial coefficient is less that 2, then the coefficient is 0. In the case of arities or $k_j$ this is because $(S^{-1})^{\otimes 1}=(S^{\otimes 1})^{-1}$ (and if the tensor is taken 0 times then it is the identity and the equality also holds, so there are no signs).
+\end{nota}
+\section{Simplifying sign}
+
 \section{With inverse of the tensor to avoid some binomial coefficients}
 Now define $\sigma(f)=S\circ f\circ (S^{\otimes N})^{-1}$. Now the inverse is just $\sigma^{-1}(F)=S^{-1}\circ F\circ S^{\otimes m}$. The process is now very similar to the previous case, but with less signs since there are no binomial coefficientes. This means that
 \[
@@ -196,4 +202,68 @@ The difference between this signs and the other is that $\binom{N-n+\sum a_j}{2}
 %\begin{align*}
 %&=f\circ ((S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\\ &\circ(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
 %\end{align*}
+
+
+\begin{itemize}
+\item One idea is to try to express the binomials in terms of the number above. I know that $\binom{m}{2}=0\mod 2$ iff $m\equiv 0,1\mod 4$ (so it is 1 otherwise).
+\item Another idea that I am more confident about is trying to develop the binomials and do something similar to R-W, where the computation was just cancelling stuff and the notice that $m^2\equiv m\mod 2$. 
+\end{itemize}
+
+\section{Check brace equation}
+I'll try to check it first without simplying the sign because some shifts should cancel and the signs appearing all come from the Koszul rule, so I guess the final sign would be that one. An I might not even need to use the sign I got because I will be getting a sign when I do all the process
+
+\[
+x\{x_1,\dots,x_m\}\{y_1,\dots,y_n\}=\sigma^{-1}(\sigma(x\{x_1,\dots,x_m\})[\sigma(y_1),\dots,\sigma(y_n)])=
+\]
+\[
+\sigma^{-1}(\sigma(\sigma^{-1}(\sigma(x)[\sigma(x_1),\dots, \sigma(x_m)]))[\sigma(y_1),\dots,\sigma(y_n)])=\sigma^{-1}(\sigma(x)[\sigma(x_1),\dots, \sigma(x_m)][\sigma(y_1),\dots,\sigma(y_n)])
+\]
+
+\section{Lemma 2.2 Derived Conjecture}
+
+We define $x\cdot y=(-1)^{\sigma}m\{x,y\}$ where $m\in C^{2,0}(V,V)$ such that $m\circ m=m\{m\}=m(1,m)-m(m,1)=0$ I MIGHT PUT A MINUS SIGN IN FRONT JUST TO GET $M(M,1)-M(1,M)$ INSTEAD  and $\sigma$ is the sign corresponding to the definition of the brace. More precisely, we have
+
+$$\sigma=\binom{a(x)+a(y)}{2}+a(x)+q(x)-1+\binom{a(x)}{2}+\binom{a(y)}{2}+a(x)(a(y)+q(y))$$
+
+The binomial coefficients can be simplified mod 2 to $a(x)a(y)$, which cancels mod 2 with one of the terms, leaving
+
+$$\sigma=a(x)+q(x)-1+a(y)q(y)$$
+
+\begin{lemma}
+$x\cdot y$ is associative.
+\end{lemma}
+\begin{proof}
+Up to sign, $(x\cdot y)\cdot z$ is $m\{m\{x,y\},z\}$ and $x\cdot (y\cdot z)$ is $m\{x,m\{y,z\}\}$. More precisely, we have
+
+\begin{align*}
+(x\cdot y)\cdot z=(-1)^{a(x)+q(x)-1+a(y)q(y)+a(x)+a(y)+q(x)+q(y)-1+a(z)q(z)}m\{m\{x,y\},z\}=\\(-1)^{a(y)q(y)+a(y)+q(y)+a(z)q(z)}m\{m\{x,y\},z\}
+\end{align*}
+and
+
+\begin{align*}x\cdot (y\cdot z)=(-1)^{a(x)+q(x)-1+(a(y)+a(z))(q(y)+q(z))+a(y)+q(y)-1+a(z)q(z)}m\{x,m\{y,z\}\}=\\
+(-1)^{a(x)+q(x)+a(y)q(y)+a(y)q(z)+a(z)q(y)+a(y)+q(y)}m\{x,m\{y,z\}\}
+\end{align*}
+
+The brace equation, using that $m\{m\}=0$ and the degree of $m$ is 0, is exactly
+
+$$0=m\{m\}\{x,y,z\}=m\{m\{x,y\},z\}+m\{x,m\{y,z\}\}$$
+
+I'M FACING A PROBLEM HERE. THE SIGN IS SO THAT IT CANCELS AND GIVES YOU LITERALLY $M(X,Y)$, BUT WITH THIS BRACE EQUATION YOU DON'T GET THE MINUS SIGN THAT YOU NEED IN ONE TERM
+
+I KNOW THAT $m\{m\}=m(1,m)-m(m,1)$, so let us compute $m(1,m)\{x,y,z\}$ and the other term too, which has the same sign. There is only one posibility of insertion that is $m(x,m(y,z))=x(yz)$, which comes with the sign
+
+$$\binom{a(x)+a(y)+a(z)}{2}+a(x)+q(x)-1+\binom{a(x)}{2}+\binom{a(y)}{2}+\binom{a(z)}{2}-a(x)(a(y)+q(y)+a(z)+q(z))-a(y)(a(z)+q(z))\equiv$$
+$$a(x)+q(x)-1+a(x)a(y)+a(x)a(z)+a(y)a(z)+a(x)a(y)+a(x)q(y)+a(x)a(z)+a(x)q(z)+a(y)a(z)+a(y)q(z)=$$
+$$a(x)+q(x)-1+a(y)a(z)+a(x)q(y)+a(x)q(z)+a(y)a(z)+a(y)q(z)$$
+
+ACTUALLY I DON'T CARE ABOUT WHAT THIS SIGN IS, THE OTHER TERM WILL HAVE THE SAME SINCE I AM INSERTING 3 ELEMENTS IN THE 3 AVAILABLE SPACES, THIS MEANS THAT THE ASSOCIATIVITY RELATION HOLDS USING THAT, BUT THEN THE BRACE RELATION IS PROBLEMATIC
+
+I THINK I'M GOING TO CHECK WHAT IS THE SIGN THAT I GET IN THIS CASE WHEN TRYING TO EVALUATE THE BRACE EQUATION ON BOTH SIDES
+
+So 
+
+$$m\{m\}\{x,y,z\}=(-1)^{a(x)+q(x)-1+a(y)a(z)+a(x)q(y)+a(x)q(z)+a(y)a(z)+a(y)q(z)}(m(x,m(y,z))-m(m(x,y),z)))$$
+
+On the other hand, the koszul sign here is positive because $m$ has degree 0
+\end{proof}
 \end{document}
