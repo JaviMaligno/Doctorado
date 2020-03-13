@@ -221,9 +221,11 @@ x\{x_1,\dots,x_m\}\{y_1,\dots,y_n\}=\sigma^{-1}(\sigma(x\{x_1,\dots,x_m\})[\sigm
 
 \section{Lemma 2.2 Derived Conjecture}
 
-We define $x\cdot y=(-1)^{\sigma}m\{x,y\}$ where $m\in C^{2,0}(V,V)$ such that $m\circ m=m\{m\}=m(1,m)-m(m,1)=0$ I MIGHT PUT A MINUS SIGN IN FRONT JUST TO GET $M(M,1)-M(1,M)$ INSTEAD  and $\sigma$ is the sign corresponding to the definition of the brace. More precisely, we have
+We define $x\cdot y=(-1)^{\sigma}m\{x,y\}$ where $m\in C^{2,0}(V,V)$ such that $m\circ m=m\{m\}=m(1,m)-m(m,1)=0$ I MIGHT PUT A MINUS SIGN IN FRONT JUST TO GET $M(M,1)-M(1,M)$  INSTEAD BUT WHAT I GOT IS WHAT CONSTANZE HAS and $\sigma$ is the sign corresponding to the definition of the brace. More precisely, we have
 
 $$\sigma=\binom{a(x)+a(y)}{2}+a(x)+q(x)-1+\binom{a(x)}{2}+\binom{a(y)}{2}+a(x)(a(y)+q(y))$$
+
+SHOULD I REALLY USE THIS SIGN? G-V DON'T USE THE SIGN OF THEIR BRACE, BUT THEIR SIGN DOESN'T GIVE ME ASSOCIATIVITY EITHER WHEN COMPUTING THE TWO PRODUCTS DIRECTLY, AND FOR THIS CASE I'M NOT OBTAINING THE BRACE EQUATION EITHER
 
 The binomial coefficients can be simplified mod 2 to $a(x)a(y)$, which cancels mod 2 with one of the terms, leaving
 
@@ -243,6 +245,9 @@ and
 \begin{align*}x\cdot (y\cdot z)=(-1)^{a(x)+q(x)-1+(a(y)+a(z))(q(y)+q(z))+a(y)+q(y)-1+a(z)q(z)}m\{x,m\{y,z\}\}=\\
 (-1)^{a(x)+q(x)+a(y)q(y)+a(y)q(z)+a(z)q(y)+a(y)+q(y)}m\{x,m\{y,z\}\}
 \end{align*}
+I DIDN'T GET THESE SIGNS ON PAPER, I GOT THE ONES THAT MAKE THE BRACE EQUATION HOLD, SO CHECK THIS (I KNOW I DID IT BY EXTRACTING THE SIMPLIFIED SIGN HERE AND BY SIMPLIFYING IT AFTERWARDS ON PAPER)
+
+ACTUALLY, WHATEVER THE SIGNS ARE, SINCE THEY ARE CHOSEN TO CANCEL THE SIGN THAT APPEARS WITH THE BRACKETS, IN THE END I WOULD GET $M(X,M(Y,Z))$ ON ONE SIDE AND $M(M(X,Y),Z)$ ON THE OTHER, WHICH ARE EQUAL BY THE PROPERTIES OF $M$.
 
 The brace equation, using that $m\{m\}=0$ and the degree of $m$ is 0, is exactly
 
