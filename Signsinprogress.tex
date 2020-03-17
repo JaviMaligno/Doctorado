@@ -166,6 +166,10 @@ So we now have
 If anything that goes at the top of a binomial coefficient is less that 2, then the coefficient is 0. In the case of arities or $k_j$ this is because $(S^{-1})^{\otimes 1}=(S^{\otimes 1})^{-1}$ (and if the tensor is taken 0 times then it is the identity and the equality also holds, so there are no signs).
 \end{nota}
 \section{Simplifying sign}
+\begin{itemize}
+\item One idea is to try to express the binomials in terms of the number above. I know that $\binom{m}{2}=0\mod 2$ iff $m\equiv 0,1\mod 4$ (so it is 1 otherwise).
+\item Another idea that I am more confident about is trying to develop the binomials and do something similar to R-W, where the computation was just cancelling stuff and the notice that $m^2\equiv m\mod 2$. 
+\end{itemize}
 
 \section{With inverse of the tensor to avoid some binomial coefficients}
 Now define $\sigma(f)=S\circ f\circ (S^{\otimes N})^{-1}$. Now the inverse is just $\sigma^{-1}(F)=S^{-1}\circ F\circ S^{\otimes m}$. The process is now very similar to the previous case, but with less signs since there are no binomial coefficientes. This means that
@@ -199,15 +203,17 @@ Now the process is identical to the previous convention, so we use the same nota
  f\{g_1,\dots,g_n\}=\sum_{k_0+\cdots+k_n=N-n} (-1)^{\binom{N}{2}+\sum_0^n\binom{k_j}{2}+\varepsilon+\gamma}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})
  \]
 The difference between this signs and the other is that $\binom{N-n+\sum a_j}{2}$ is replaced by $\binom{N}{2}$ (which is definitely simple) and there is only a part of $\delta$, which is $\sum_0^n\binom{k_j}{2}$, so there are less terms.
+
+WITH THIS SIGN I DON'T GET THAT $M\{M\}=0$ IMPLIES ASSOCIATIVITY OF $M$ BECAUSE I GET PLUS SIGNS ON BOTH TERMS
+
+I DON'T GET THE BRACE EQUATION EITHER SINCE THE SECOND TERM DIFFERS BY $(-1)^{a(x)+q(x)}$ WHICH COULD BE A KOSZUL SIGN IF $M$ HAD DEGREE ONE, BUT IT'S NOT THE CASE
+
 %\begin{align*}
 %&=f\circ ((S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\\ &\circ(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
 %\end{align*}
 
 
-\begin{itemize}
-\item One idea is to try to express the binomials in terms of the number above. I know that $\binom{m}{2}=0\mod 2$ iff $m\equiv 0,1\mod 4$ (so it is 1 otherwise).
-\item Another idea that I am more confident about is trying to develop the binomials and do something similar to R-W, where the computation was just cancelling stuff and the notice that $m^2\equiv m\mod 2$. 
-\end{itemize}
+
 
 \section{Check brace equation}
 I'll try to check it first without simplying the sign because some shifts should cancel and the signs appearing all come from the Koszul rule, so I guess the final sign would be that one. An I might not even need to use the sign I got because I will be getting a sign when I do all the process
@@ -229,23 +235,28 @@ SHOULD I REALLY USE THIS SIGN? G-V DON'T USE THE SIGN OF THEIR BRACE, BUT THEIR 
 
 The binomial coefficients can be simplified mod 2 to $a(x)a(y)$, which cancels mod 2 with one of the terms, leaving
 
-$$\sigma=a(x)+q(x)-1+a(y)q(y)$$
+$$\sigma=a(x)+q(x)-1+a(x)q(y)$$
 
 \begin{lemma}
 $x\cdot y$ is associative.
 \end{lemma}
 \begin{proof}
+THIS IS THE PROOF IF I FINALLY CHOOSE THIS SIGN
+
+Since $x\cdot y$ is by definition $m(x,y)$, the lemma follows from the associativy of $m$ provided that $m\circ m=0$. 
+
+QED
+
 Up to sign, $(x\cdot y)\cdot z$ is $m\{m\{x,y\},z\}$ and $x\cdot (y\cdot z)$ is $m\{x,m\{y,z\}\}$. More precisely, we have
 
 \begin{align*}
-(x\cdot y)\cdot z=(-1)^{a(x)+q(x)-1+a(y)q(y)+a(x)+a(y)+q(x)+q(y)-1+a(z)q(z)}m\{m\{x,y\},z\}=\\(-1)^{a(y)q(y)+a(y)+q(y)+a(z)q(z)}m\{m\{x,y\},z\}
+(x\cdot y)\cdot z=(-1)^{a(x)+q(x)-1+a(x)q(y)+a(x)+a(y)+q(x)+q(y)-1+a(x)q(z)+a(y)q(z)}m\{m\{x,y\},z\}=\\(-1)^{a(y)+q(y)+a(x)q(y)+a(x)q(z)+a(y)q(z)}m\{m\{x,y\},z\}
 \end{align*}
 and
 
-\begin{align*}x\cdot (y\cdot z)=(-1)^{a(x)+q(x)-1+(a(y)+a(z))(q(y)+q(z))+a(y)+q(y)-1+a(z)q(z)}m\{x,m\{y,z\}\}=\\
-(-1)^{a(x)+q(x)+a(y)q(y)+a(y)q(z)+a(z)q(y)+a(y)+q(y)}m\{x,m\{y,z\}\}
+\begin{align*}x\cdot (y\cdot z)=(-1)^{a(x)+q(x)-1+a(x)(q(y)+q(z))+a(y)+q(y)-1+a(y)q(z)}m\{x,m\{y,z\}\}=\\
+(-1)^{a(x)+q(x)+a(x)q(y)+a(x)q(z)+a(y)+q(y)+a(y)q(z)}m\{x,m\{y,z\}\}
 \end{align*}
-I DIDN'T GET THESE SIGNS ON PAPER, I GOT THE ONES THAT MAKE THE BRACE EQUATION HOLD, SO CHECK THIS (I KNOW I DID IT BY EXTRACTING THE SIMPLIFIED SIGN HERE AND BY SIMPLIFYING IT AFTERWARDS ON PAPER)
 
 ACTUALLY, WHATEVER THE SIGNS ARE, SINCE THEY ARE CHOSEN TO CANCEL THE SIGN THAT APPEARS WITH THE BRACKETS, IN THE END I WOULD GET $M(X,M(Y,Z))$ ON ONE SIDE AND $M(M(X,Y),Z)$ ON THE OTHER, WHICH ARE EQUAL BY THE PROPERTIES OF $M$.
 
@@ -257,18 +268,45 @@ I'M FACING A PROBLEM HERE. THE SIGN IS SO THAT IT CANCELS AND GIVES YOU LITERALL
 
 I KNOW THAT $m\{m\}=m(1,m)-m(m,1)$, so let us compute $m(1,m)\{x,y,z\}$ and the other term too, which has the same sign. There is only one posibility of insertion that is $m(x,m(y,z))=x(yz)$, which comes with the sign
 
-$$\binom{a(x)+a(y)+a(z)}{2}+a(x)+q(x)-1+\binom{a(x)}{2}+\binom{a(y)}{2}+\binom{a(z)}{2}-a(x)(a(y)+q(y)+a(z)+q(z))-a(y)(a(z)+q(z))\equiv$$
-$$a(x)+q(x)-1+a(x)a(y)+a(x)a(z)+a(y)a(z)+a(x)a(y)+a(x)q(y)+a(x)a(z)+a(x)q(z)+a(y)a(z)+a(y)q(z)=$$
-$$a(x)+q(x)-1+a(y)a(z)+a(x)q(y)+a(x)q(z)+a(y)a(z)+a(y)q(z)$$
+$$\binom{a(x)+a(y)+a(z)}{2}+a(y)+q(y)-1+\binom{a(x)}{2}+\binom{a(y)}{2}+\binom{a(z)}{2}-a(x)(a(y)+q(y)+a(z)+q(z))-a(y)(a(z)+q(z))\equiv$$
+$$a(y)+q(y)-1+a(x)a(y)+a(x)a(z)+a(y)a(z)+a(x)a(y)+a(x)q(y)+a(x)a(z)+a(x)q(z)+a(y)a(z)+a(y)q(z)=$$
+$$a(y)+q(y)-1+a(x)q(y)+a(x)q(z)+a(y)q(z)$$
 
 ACTUALLY I DON'T CARE ABOUT WHAT THIS SIGN IS, THE OTHER TERM WILL HAVE THE SAME SINCE I AM INSERTING 3 ELEMENTS IN THE 3 AVAILABLE SPACES, THIS MEANS THAT THE ASSOCIATIVITY RELATION HOLDS USING THAT, BUT THEN THE BRACE RELATION IS PROBLEMATIC
+
+%WHAT IF THE GOOD KOSZUL SIGN HERE IS THE ANTISYMMETRIC? IF I MULTIPLY BY THE SIGN OF THE PERMUTATION I GET THE MINUS SIGN I NEED
 
 I THINK I'M GOING TO CHECK WHAT IS THE SIGN THAT I GET IN THIS CASE WHEN TRYING TO EVALUATE THE BRACE EQUATION ON BOTH SIDES
 
 So 
 
-$$m\{m\}\{x,y,z\}=(-1)^{a(x)+q(x)-1+a(y)a(z)+a(x)q(y)+a(x)q(z)+a(y)a(z)+a(y)q(z)}(m(x,m(y,z))-m(m(x,y),z)))$$
+$$m\{m\}\{x,y,z\}=(-1)^{a(y)+q(y)-1+a(x)q(y)+a(x)q(z)+a(y)q(z)}(m(x,m(y,z))-m(m(x,y),z)))$$
 
-On the other hand, the koszul sign here is positive because $m$ has degree 0
+THE TERM $M(M(X,Y),Z)$ HAS THE SAME SIGN (INCLUDING THE MINUS SIGN IN FRONT) AS IN THE BRACE $M\{M\{X,Y\},Z\}$ BUT THE OTHER TERM DIFFERS IN THE $-1$ HERE BEING $A(X)+Q(X)$, SO IT'S LIKE THE KOSZUL RULE SHOULD BE APPLIED AS IF THE ARITIES WERE THE SAME AND THE DEGREES WHERE SHIFTED, I.E. SWAPING $M$ AND $X$ YIELD $(A(M)+Q(M)-1)(A(X)+Q(X)-1)\equiv A(X)+Q(X)-1$ (COULD MAKE SENSE WITH THE FACT THAT THE SIGNS COME FROM A SHIFT OF DEGREES AND THE ARITIES PLAY A ROLE IN THAT SHIFT, MORE PRECISELY, THIS IS THE SIGN COMING FROM SWAPING $S\circ m\circ (S^{-1})^{a(m)}$ WITH $S\circ x\circ (S^{-1})^{a(x)}$)
+
+So the actual brace equation for this is 
+$$0=m\{m\}\{x,y,z\}=m\{m\{x,y\},z\}+(-1)^{(a(m)+q(m)-1)(a(x)+q(x)-1)}m\{x,m\{y,z\}\}$$
+
+and in general the sign should be that kind of sign.
+\end{proof}
+
+For $f\in C^{n,i}(V,V)$ and $g\in C^{m,j}(V,V)$ we define the bracket $[f,g]=f\circ g-(-1)^kg\circ f$, where $k=(n+i-1)(m+j-1)$ is the koszul sign of the shift $S$ as in R-W. Then, in a brace algebra with multiplication, define $d(x)=[m,x]=m\circ x-(-1)^{a(x)+q(x)-1}x\circ m$.
+
+\begin{lemma}
+$d(d)=0$. 
+\end{lemma}
+\begin{proof}
+TRY TO UNDERSTAND THE (GRADED) PRE-LIE STRUCTURE IN THIS CASE \url{https://en.wikipedia.org/wiki/Pre-Lie_algebra}
+$$d(d(x))=d(x\{m\}-(-1)^{a(x)+q(x)-1}m\{x\})=$$ 
+$$m\{x\{m\}\}-(-1)^{q(x)}x\{m\}\{m\}-(-1)^{a(x)+q(x)-1}m\{m\{x\}\}+m\{x\}\{m\}$$
+
+
+
+
+The second summand is 
+$x\{m\}\{m\}=-x\{m,m\}+x\{m\{m\}\}+x\{m,m\}=0$.
+
+The last summad is
+$m\{x\}\{m\}=(-1)^{a(x)+q(x)-1}m\{m,x\}+m\{x\{m\}\}+m\{x,m\}$.
 \end{proof}
 \end{document}
