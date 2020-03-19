@@ -106,7 +106,7 @@ Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in C^{N,i+N-1}(V,V)$.
 
 In R-W there is a sign in front of $f$ but it seems to be irrelevant for this purpose. 
 
-Notice that, by the Koszul sign rule $(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^N j}1=(-1)^{\frac{N(N-1)}{2}}1=(-1)^{\binom{N}{2}}1$, so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in C^{m,j}(S(V),S(V))$, we have
+Notice that, by the Koszul sign rule $(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^N j}1=(-1)^{\frac{N(N-1)}{2}}1=(-1)^{\binom{N}{2}}Id$ (this equality used that $N+1\equiv N-1\mod 2$ and we prefer to write $\binom{N}{2}$ instead of $\binom{N+1}{2}$), so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in C^{m,j}(S(V),S(V))$, we have
 \[
 \sigma^{-1}(F)=(-1)^{\binom{m}{2}}S^{-1}\circ F\circ S^{\otimes m}\in C^{m,j-m+1}(V,V).
 \]
@@ -171,6 +171,39 @@ If anything that goes at the top of a binomial coefficient is less that 2, then 
 \item Another idea that I am more confident about is trying to develop the binomials and do something similar to R-W, where the computation was just cancelling stuff and the notice that $m^2\equiv m\mod 2$. 
 \end{itemize}
 
+Notice that $N-n+\sum a_j=\sum k_i +\sum a_j$. In general, consider a finite sum $\sum b_i$. We can simplify $\mod 2$ the binomial coefficients
+
+$$\binom{\sum b_i}{2}+\sum\binom{b_i}{2}$$
+
+in the followin way. Note that all terms will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator, so the result in our sign is
+
+$$\sum_{0\leq i<l\leq n}k_ik_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{i,j}k_ia_j$$
+
+Recall $\gamma$ in the sign
+
+$$\gamma=-k_0\sum_1^n(k_j+a_j+q_j)-a_1(\sum_1^n k_j+\sum_2^n (a_j+q_j))-\cdots -a_nk_n\equiv \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l))$$
+
+As we see, all the sums in the previous simplification appear in $\gamma$ so we can cancel them. Let's rewrite $\gamma$ in a way that it becomes more clear:
+
+$$\sum_{0\leq j<l\leq n}k_jk_l+\sum_{0\leq j<l\leq n}k_ja_l+\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j\leq l\leq n}a_jk_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{1\leq j<l\leq n}a_jq_l$$
+
+So after simplifying we have only the term that include the internal degrees, i.e.
+$$\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l$$
+
+Let's move now to the $\epsilon$ term in the sign. 
+$$\varepsilon=\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)=\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l$$
+
+We may stop here, in such a way that the brace sign is 
+
+$$\sigma=\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l$$
+
+IF I WANT TO TRY TO MAKE IT SIMPLER WORKING ON EPSILON
+
+Let's focus on the second summad. 
+$$\sum_{1\leq j\leq l\leq n}(a_j+q_j-1)k_l=\sum_{1\leq j\leq l\leq n}a_jk_l+\sum_{1\leq j\leq l\leq n}q_jk_l+\sum_{1\leq j\leq l\leq n}k_l$$
+
+The second summand can be added to one that we had before and the last summand equals $\sum_{j=1}^njk_j$.
+
 \section{With inverse of the tensor to avoid some binomial coefficients}
 Now define $\sigma(f)=S\circ f\circ (S^{\otimes N})^{-1}$. Now the inverse is just $\sigma^{-1}(F)=S^{-1}\circ F\circ S^{\otimes m}$. The process is now very similar to the previous case, but with less signs since there are no binomial coefficientes. This means that
 \[
@@ -179,6 +212,8 @@ Now define $\sigma(f)=S\circ f\circ (S^{\otimes N})^{-1}$. Now the inverse is ju
 \[
 =S^{-1}\circ S\circ f\circ (S^{\otimes N})^{-1}\circ (1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{\otimes a_1})^{-1})\otimes 1^{\otimes k_1}\otimes\cdots\otimes (S\circ g_n\circ (S^{\otimes a_n})^{-1})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
 \]
+
+ANOTHER POSSIBLE SIGN IS JUST $A(X)+Q(X)-1$, WHICH CORRESPOND TO THE KOSZUL SIGN THAT I USE, OR EVEN WITHOUT THE $-1$ SINCE IT CANCELS. BOTH GIVE ASSOCIATIVITY OF THE PRODUCT BUT LESS OBVIOUSLY BECAUSE ONE HAS TO CHECK THE SIGNS LEFT.
 
 Now we can decompose $(S^{\otimes N})^{-1}=(S^{k_0}\otimes  S\otimes\cdots \otimes  S\otimes  S^{k_n})^{-1}$, but to have the inverses inside we will need some signs with binomial coefficients again. More precisely
 
@@ -227,35 +262,37 @@ x\{x_1,\dots,x_m\}\{y_1,\dots,y_n\}=\sigma^{-1}(\sigma(x\{x_1,\dots,x_m\})[\sigm
 
 \section{Lemma 2.2 Derived Conjecture}
 
-We define $x\cdot y=(-1)^{\sigma}m\{x,y\}$ where $m\in C^{2,0}(V,V)$ such that $m\circ m=m\{m\}=m(1,m)-m(m,1)=0$ I MIGHT PUT A MINUS SIGN IN FRONT JUST TO GET $M(M,1)-M(1,M)$  INSTEAD BUT WHAT I GOT IS WHAT CONSTANZE HAS and $\sigma$ is the sign corresponding to the definition of the brace. More precisely, we have
+We define $x\cdot y=(-1)^{a(x)+q(x)-1}m\{x,y\}$ where $m\in C^{2,0}(V,V)$ such that $m\circ m=m\{m\}=m(1,m)-m(m,1)=0$  and %I MIGHT PUT A MINUS SIGN IN FRONT JUST TO GET $M(M,1)-M(1,M)$  INSTEAD BUT WHAT I GOT IS WHAT CONSTANZE HAS and $\sigma$ is the sign corresponding to the definition of the brace. More precisely, we have
 
-$$\sigma=\binom{a(x)+a(y)}{2}+a(x)+q(x)-1+\binom{a(x)}{2}+\binom{a(y)}{2}+a(x)(a(y)+q(y))$$
+%$$\sigma=\binom{a(x)+a(y)}{2}+a(x)+q(x)-1+\binom{a(x)}{2}+\binom{a(y)}{2}+a(x)(a(y)+q(y))$$
+%
+%SHOULD I REALLY USE THIS SIGN? G-V DON'T USE THE SIGN OF THEIR BRACE, BUT THEIR SIGN DOESN'T GIVE ME ASSOCIATIVITY EITHER WHEN COMPUTING THE TWO PRODUCTS DIRECTLY, AND FOR THIS CASE I'M NOT OBTAINING THE BRACE EQUATION EITHER
 
-SHOULD I REALLY USE THIS SIGN? G-V DON'T USE THE SIGN OF THEIR BRACE, BUT THEIR SIGN DOESN'T GIVE ME ASSOCIATIVITY EITHER WHEN COMPUTING THE TWO PRODUCTS DIRECTLY, AND FOR THIS CASE I'M NOT OBTAINING THE BRACE EQUATION EITHER
-
-The binomial coefficients can be simplified mod 2 to $a(x)a(y)$, which cancels mod 2 with one of the terms, leaving
-
-$$\sigma=a(x)+q(x)-1+a(x)q(y)$$
+%The binomial coefficients can be simplified mod 2 to $a(x)a(y)$, which cancels mod 2 with one of the terms, leaving
+%
+%$$\sigma=a(x)+q(x)-1+a(x)q(y)$$
 
 \begin{lemma}
 $x\cdot y$ is associative.
 \end{lemma}
 \begin{proof}
-THIS IS THE PROOF IF I FINALLY CHOOSE THIS SIGN
+%THIS IS THE PROOF IF I FINALLY CHOOSE THIS SIGN
+%
+%Since $x\cdot y$ is by definition $m(x,y)$, the lemma follows from the associativy of $m$ provided that $m\circ m=0$. 
+%
+%QED
+We will use that $m\{x,y\}=(-1)^{a(x)+q(x)-1+a(x)q(y)}m(x,y)$.
 
-Since $x\cdot y$ is by definition $m(x,y)$, the lemma follows from the associativy of $m$ provided that $m\circ m=0$. 
-
-QED
-
-Up to sign, $(x\cdot y)\cdot z$ is $m\{m\{x,y\},z\}$ and $x\cdot (y\cdot z)$ is $m\{x,m\{y,z\}\}$. More precisely, we have
+Up to sign, $(x\cdot y)\cdot z$ is $m(m(x,y),z)$ and $x\cdot (y\cdot z)$ is $m(x,m(y,z)$. More precisely, we have
 
 \begin{align*}
-(x\cdot y)\cdot z=(-1)^{a(x)+q(x)-1+a(x)q(y)+a(x)+a(y)+q(x)+q(y)-1+a(x)q(z)+a(y)q(z)}m\{m\{x,y\},z\}=\\(-1)^{a(y)+q(y)+a(x)q(y)+a(x)q(z)+a(y)q(z)}m\{m\{x,y\},z\}
+(x\cdot y)\cdot z=&(-1)^{a(y)+q(y)}m\{m\{x,y\},z\}=\\
+&(-1)^{a(x)q(y)+a(x)q(z)+a(y)q(z)}m(m(x,y),z)
 \end{align*}
 and
 
-\begin{align*}x\cdot (y\cdot z)=(-1)^{a(x)+q(x)-1+a(x)(q(y)+q(z))+a(y)+q(y)-1+a(y)q(z)}m\{x,m\{y,z\}\}=\\
-(-1)^{a(x)+q(x)+a(x)q(y)+a(x)q(z)+a(y)+q(y)+a(y)q(z)}m\{x,m\{y,z\}\}
+\begin{align*}x\cdot (y\cdot z)=(-1)^{a(x)+q(x)+a(y)+q(y)}m\{x,m\{y,z\}\}=\\
+(-1)^{a(x)q(y)+a(x)q(z)+a(y)q(z)}m(x,m(y,z))
 \end{align*}
 
 ACTUALLY, WHATEVER THE SIGNS ARE, SINCE THEY ARE CHOSEN TO CANCEL THE SIGN THAT APPEARS WITH THE BRACKETS, IN THE END I WOULD GET $M(X,M(Y,Z))$ ON ONE SIDE AND $M(M(X,Y),Z)$ ON THE OTHER, WHICH ARE EQUAL BY THE PROPERTIES OF $M$.
@@ -297,16 +334,70 @@ $d(d)=0$.
 \end{lemma}
 \begin{proof}
 TRY TO UNDERSTAND THE (GRADED) PRE-LIE STRUCTURE IN THIS CASE \url{https://en.wikipedia.org/wiki/Pre-Lie_algebra}
-$$d(d(x))=d(x\{m\}-(-1)^{a(x)+q(x)-1}m\{x\})=$$ 
-$$m\{x\{m\}\}-(-1)^{q(x)}x\{m\}\{m\}-(-1)^{a(x)+q(x)-1}m\{m\{x\}\}+m\{x\}\{m\}$$
+$$d(d(x))=d(m\{x\}-(-1)^{a(x)+q(x)-1}x\{m\})=$$ 
+$$m\{m\{x\}\}-(-1)^{a(x)+q(x)}m\{x\}\{m\}-(-1)^{a(x)+q(x)-1}(m\{x\{m\}\}-(-1)^{a(x)+q(x)}x\{m\}\{m\})$$
 
 
 
 
 The second summand is 
-$x\{m\}\{m\}=-x\{m,m\}+x\{m\{m\}\}+x\{m,m\}=0$.
+$m\{x\}\{m\}=(-1)^{a(x)+q(x)-1}m\{m,x\}+m\{x\{m\}\}+m\{x,m\}$. Notice that the second term here cancels the third summand. 
+
 
 The last summad is
-$m\{x\}\{m\}=(-1)^{a(x)+q(x)-1}m\{m,x\}+m\{x\{m\}\}+m\{x,m\}$.
+$x\{m\}\{m\}=-x\{m,m\}+x\{m\{m\}\}+x\{m,m\}=0$ since $m\{m\}=0$.
+
+So we are left with
+
+$$m\{m\{x\}\}+(-1)^{a(x)+q(x)-1}m\{x,m\}+m\{m,x\}=m\{m\}\{x\}=0$$
+
+where the first equality is the brace equation CHECK THE BRACE EQUATION FOR THIS PARTICULAR CASE (NOT URGENT, THERE ARE MORE CASES HERE SO IT WOULD BE LONG, JUST DO IT IN THE FUTURE IF YOU CAN'T PROVE IT IN GENERAL)
+\end{proof}
+
+\begin{lemma}
+$d$ and $\cdot$ satisfy the Leibniz rule I STILL HAVE TO FIGURE OUT WHAT SIGN APPEARS IN THE LEIBNIZ RULE, BUT LET'S TRY WITH THE SAME I'VE BEEN USING. NOTICE THAT ARITY(D)=DEGREE(D)=1, SO THE SIGN IS NEGATIVE THIS MEANS THAT I'M GOING TO TRY WITH $d(x\cdot y)=d(x)\cdot y+(-1)^{a(x)+q(x)-1}x\cdot d(y)$
+I GOT THE IDENTITY WITHOUT THE $-1$ IN THE SIGN THERE USING FOR THE PRODUCT THE ALTERNATIVE SIGN. I'LL CHECK WITH THE BRACE SIGN, BUT I'LL STICK TO WHATEVER I GET
+\end{lemma}
+\begin{proof}
+USING $A(X)+Q(X)-1$ IN THE PRODUCT
+
+$$d(x\cdot y)=d((-1)^{a(x)+q(x)-1}m\{x,y\})=(-1)^{a(x)+q(x)-1}(m\{m\{x,y\}\}-(-1)^{a(x)+q(x)+a(y)+q(y)-1}m\{x,y\}\{m\})$$
+
+$$d(x)\cdot y=(m\{x\}-(-1)^{a(x)+q(x)-1}x\{m\})\cdot y=(-1)^{a(x)+q(x)}(m\{m\{x\},y\}-(-1)^{a(x)+q(x)-1}m\{x\{m\},y\})$$
+
+$$x\cdot d(y)=x\cdot(m\{y\}-(-1)^{a(y)+q(y)-1}y\{m\})=(-1)^{a(x)+q(x)-1}(m\{x,m\{y\}\}-(-1)^{a(y)+q(y)-1}m\{x,y\{m\}\})$$
+
+On the first equation use the brace equation to note that
+
+$$m\{x,y\}\{m\}=m\{x,y\{m\}\}+(-1)^{a(y)+q(y)-1}m\{x\{m\},y\}$$
+
+and also, since $m\{m\}\{x,y\}=0$, the brace equation gives us for the first equation that
+
+$$m\{m\{x,y\}\}=-m\{m\{x\},y\}-(-1)^{a(x)+q(x)-1}m\{x,m\{y\}\}$$
+
+With this in mind, let's compare the first equation with the other two. We have $(-1)^{a(x)+q(x)}m\{m\{x\},y\}$ on the first equation and the same on the second equation. On the first equation we have $-(-1)^{-1}m\{x\{m\},y\}$ and the same on the second equation.
+
+We have $-m\{x,m\{y\}\}$ on the first equation and $(-1)^{a(x)+q(x)-1}m\{x,m\{y\}\}$ on the third, so the difference is $(-1)^{a(x)+q(x)}$. Finally we have $(-1)^{a(y)+q(y)}m\{x,y\{m\}\}$ and on the third equation $(-1)^{a(x)+q(y)+a(y)+q(y)}m\{x,y\{m\}\}$ so again the difference is $(-1)^{a(x)+q(x)}$. So we have the Leibniz rule
+
+$$d(x\cdot y)=d(x)\cdot y+(-1)^{a(x)+q(x)}x\cdot d(y)$$
+
+
+WITH THE SIGN OF THE BRACE IT DOESN'T WORK, NEITHER IT DOES DELETING THE $-1$
+
+%USING THE SIGN OF THE BRACE FOR THE PRODUCT
+%
+%$$d(x\cdot y)=(-1)^{a(x)+q(x)-1+a(x)q(y)}(m\{m\{x,y\}\}-(-1)^{a(x)+q(x)+a(y)+q(y)-1}m\{x,y\}\{m\})$$
+%
+%$$d(x)\cdot y=(-1)^{a(x)+q(x)+(a(x)+1)q(y)}(m\{m\{x\},y\}-(-1)^{a(x)+q(x)-1}m\{x\{m\},y\})$$
+%
+%$$x\cdot d(y)=(-1)^{a(x)+q(x)-1 +a(x)q(y)}(m\{x,m\{y\}\}-(-1)^{a(y)+q(y)-1}m\{x,y\{m\}\})$$
+%
+%On the first equation use the brace equation to note that
+%
+%$$m\{x,y\}\{m\}=m\{x,y\{m\}\}+(-1)^{a(y)+q(y)-1}m\{x\{m\},y\}$$
+%
+%and also, since $m\{m\}\{x,y\}=0$, the brace equation gives us for the first equation that
+%
+%$$m\{m\{x,y\}\}=-m\{m\{x\},y\}-(-1)^{a(x)+q(x)-1}m\{x,m\{y\}\}$$
 \end{proof}
 \end{document}
