@@ -8,10 +8,13 @@
 \newtheorem{eje}[defin]{Example}
 \newtheorem{obs}[defin]{Observación}
 \renewcommand{\baselinestretch}{1,3}
+
+\usepackage{empheq}
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
 %--------------------------------------------------------
 \begin{document}
 
-\title{Fucking signs}
+\title{ signs}
 \author{Javier Aguilar Martín}
 \maketitle
 
@@ -93,6 +96,7 @@ IT WOULDN'T BE SURPRISING THAT I HAD TO TAKE INTO ACCOUNT THE ARITY OF X SINCE D
 CONSIDER ALSO THE POSSIBILITY OF DOING EVERYTHING WITHOUT SIGNS (THE ENDOMORPHISM OPERAD USUALLY DOESN'T HAVE SIGNS) TO SEE IF YOU GET EVERYTHING WITHOUT SIGNS, SO THAT YOU COULD GET THE SIGNS BY SHIFTING. FOR THIS, ASK WHAT WAS THE BRACKET ``WITHOUT SIGNS" AND HOW I WOULD GET A SIGN RELATED TO F WHEN IT IS NOT SWAPPED
 
 \section{Sign with consistent explanation}
+I WILL PROBABLY CHANGE THE NOTATION TO $\{-\}_n$ WHEN THE ARGUMENTS ARE NOT INSIDE SO THAT THERE IS NO CONFUSION ABOUT HOW MANY ARE WE GOING TO PUT INSIDE. THIS WILL BE NECESSARY LATER
 
 Let's use the same strategy as R-W for the signs of the bracket $[f,g]$. Let $V$ be a graded vector space and $f\in C^{N,i}(V,V)=\hom(C^{\otimes N},V)^i$. Let $S(V)$ the graded vector space with $S(V)^v=V^{v+1}$, and so the suspension map $S:V\to S(V)$ given by the identity map has internal degree $-1$. Define $\sigma(f)$ as the map making the following diagram commutative
 \[
@@ -106,7 +110,7 @@ Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in C^{N,i+N-1}(V,V)$.
 
 In R-W there is a sign in front of $f$ but it seems to be irrelevant for this purpose. 
 
-Notice that, by the Koszul sign rule $(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^N j}1=(-1)^{\frac{N(N-1)}{2}}1=(-1)^{\binom{N}{2}}Id$ (this equality used that $N+1\equiv N-1\mod 2$ and we prefer to write $\binom{N}{2}$ instead of $\binom{N+1}{2}$), so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in C^{m,j}(S(V),S(V))$, we have
+Notice that, by the Koszul sign rule $(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^{N-1} j}1=(-1)^{\frac{N(N-1)}{2}}1=(-1)^{\binom{N}{2}}Id$, so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in C^{m,j}(S(V),S(V))$, we have
 \[
 \sigma^{-1}(F)=(-1)^{\binom{m}{2}}S^{-1}\circ F\circ S^{\otimes m}\in C^{m,j-m+1}(V,V).
 \]
@@ -154,7 +158,7 @@ So we now have
  
  $$\gamma=-k_0\sum_1^n(k_j+a_j+q_j)-a_1(\sum_1^n k_j+\sum_2^n (a_j+q_j))-\cdots -a_nk_n\equiv \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l))$$
  
- THIS MIGHT BE BETTER WRITTEN IN A DIFFERENT WAY TAKING INTO ACCOUNT WHICH INDICES RUN THROUGH THE SAME NUMBERS AND/OR WHICH SUMS APPEAR IN DIFFERENT PLACES
+
  
  So in the end we have
  \[
@@ -168,7 +172,7 @@ If anything that goes at the top of a binomial coefficient is less that 2, then 
 \section{Simplifying sign}
 \begin{itemize}
 \item One idea is to try to express the binomials in terms of the number above. I know that $\binom{m}{2}=0\mod 2$ iff $m\equiv 0,1\mod 4$ (so it is 1 otherwise).
-\item Another idea that I am more confident about is trying to develop the binomials and do something similar to R-W, where the computation was just cancelling stuff and the notice that $m^2\equiv m\mod 2$. 
+\item Another idea that I am more confident about is trying to develop the binomials and do something similar to R-W, where the computation was just cancelling stuff and then notice that $m^2\equiv m\mod 2$. 
 \end{itemize}
 
 Notice that $N-n+\sum a_j=\sum k_i +\sum a_j$. In general, consider a finite sum $\sum b_i$. We can simplify $\mod 2$ the binomial coefficients
@@ -197,6 +201,7 @@ We may stop here, in such a way that the brace sign is
 
 $$\sigma=\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l$$
 
+
 IF I WANT TO TRY TO MAKE IT SIMPLER WORKING ON EPSILON
 
 Let's focus on the second summad. 
@@ -213,7 +218,7 @@ Now define $\sigma(f)=S\circ f\circ (S^{\otimes N})^{-1}$. Now the inverse is ju
 =S^{-1}\circ S\circ f\circ (S^{\otimes N})^{-1}\circ (1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{\otimes a_1})^{-1})\otimes 1^{\otimes k_1}\otimes\cdots\otimes (S\circ g_n\circ (S^{\otimes a_n})^{-1})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
 \]
 
-ANOTHER POSSIBLE SIGN IS JUST $A(X)+Q(X)-1$, WHICH CORRESPOND TO THE KOSZUL SIGN THAT I USE, OR EVEN WITHOUT THE $-1$ SINCE IT CANCELS. BOTH GIVE ASSOCIATIVITY OF THE PRODUCT BUT LESS OBVIOUSLY BECAUSE ONE HAS TO CHECK THE SIGNS LEFT.
+
 
 Now we can decompose $(S^{\otimes N})^{-1}=(S^{k_0}\otimes  S\otimes\cdots \otimes  S\otimes  S^{k_n})^{-1}$, but to have the inverses inside we will need some signs with binomial coefficients again. More precisely
 
@@ -239,9 +244,11 @@ Now the process is identical to the previous convention, so we use the same nota
  \]
 The difference between this signs and the other is that $\binom{N-n+\sum a_j}{2}$ is replaced by $\binom{N}{2}$ (which is definitely simple) and there is only a part of $\delta$, which is $\sum_0^n\binom{k_j}{2}$, so there are less terms.
 
-WITH THIS SIGN I DON'T GET THAT $M\{M\}=0$ IMPLIES ASSOCIATIVITY OF $M$ BECAUSE I GET PLUS SIGNS ON BOTH TERMS
+The problem with this sign is that for a multiplication $m$ (see later) we have that $m\{m\}=0$ implies $m(1,m)+m(m,1)=0$ and this is not exactly the same as associativity.
 
-I DON'T GET THE BRACE EQUATION EITHER SINCE THE SECOND TERM DIFFERS BY $(-1)^{a(x)+q(x)}$ WHICH COULD BE A KOSZUL SIGN IF $M$ HAD DEGREE ONE, BUT IT'S NOT THE CASE
+
+
+%I DON'T GET THE BRACE EQUATION EITHER SINCE THE SECOND TERM DIFFERS BY $(-1)^{a(x)+q(x)}$ WHICH COULD BE A KOSZUL SIGN IF $M$ HAD DEGREE ONE, BUT IT'S NOT THE CASE
 
 %\begin{align*}
 %&=f\circ ((S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\\ &\circ(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
@@ -251,8 +258,28 @@ I DON'T GET THE BRACE EQUATION EITHER SINCE THE SECOND TERM DIFFERS BY $(-1)^{a(
 
 
 \section{Check brace equation}
-I'll try to check it first without simplying the sign because some shifts should cancel and the signs appearing all come from the Koszul rule, so I guess the final sign would be that one. An I might not even need to use the sign I got because I will be getting a sign when I do all the process
+I'll try to check it first without simplying the sign because some shifts should cancel and the signs appearing all come from the Koszul rule, so I guess the final sign would be that one. An I might not even need to use the sign I got because I will be getting a sign when I do all the process.
 
+Let's start by computing an example where the koszul sign that we need becomes apparent. We know that $m\{m\}=m(1,m)-m(m,1)$, so let us compute $m(1,m)\{x,y,z\}$ and the other term too, which has the same sign. There is only one posibility of insertion that is $m(x,m(y,z))=x(yz)$, which comes with the sign
+
+$$\binom{a(x)+a(y)+a(z)}{2}+a(y)+q(y)-1+\binom{a(x)}{2}+\binom{a(y)}{2}+\binom{a(z)}{2}-a(x)(a(y)+q(y)+a(z)+q(z))-a(y)(a(z)+q(z))\equiv$$
+$$a(y)+q(y)-1+a(x)a(y)+a(x)a(z)+a(y)a(z)+a(x)a(y)+a(x)q(y)+a(x)a(z)+a(x)q(z)+a(y)a(z)+a(y)q(z)=$$
+$$a(y)+q(y)-1+a(x)q(y)+a(x)q(z)+a(y)q(z)$$
+
+So 
+$$m\{m\}\{x,y,z\}=(-1)^{a(y)+q(y)-1+a(x)q(y)+a(x)q(z)+a(y)q(z)}(m(x,m(y,z))-m(m(x,y),z)))$$
+
+Similarly, we can see that the sign produced by $m\{m\{x,y\},z\}$ is given by the exponent $a(y)+q(y)+a(x)q(y)+a(x)q(z)+a(y)q(z)$ which is the same that appears above. And in the case of $m\{x,m\{y,z\}\}$ the exponent is $a(x)+q(x)+a(y)+q(y)+a(x)q(y)+a(x)q(z)+q(y)q(z)$, so the difference is $a(x)+q(x)-1$. 
+
+
+%THE TERM $M(M(X,Y),Z)$ HAS THE SAME SIGN (INCLUDING THE MINUS SIGN IN FRONT) AS IN THE BRACE $M\{M\{X,Y\},Z\}$ BUT THE OTHER TERM DIFFERS IN THE $-1$ HERE BEING $A(X)+Q(X)$, SO IT'S LIKE THE KOSZUL RULE SHOULD BE APPLIED AS IF THE ARITIES WERE THE SAME AND THE DEGREES WHERE SHIFTED, I.E. SWAPING $M$ AND $X$ YIELD $(A(M)+Q(M)-1)(A(X)+Q(X)-1)\equiv A(X)+Q(X)-1$ (COULD MAKE SENSE WITH THE FACT THAT THE SIGNS COME FROM A SHIFT OF DEGREES AND THE ARITIES PLAY A ROLE IN THAT SHIFT, MORE PRECISELY, THIS IS THE SIGN COMING FROM SWAPING $S\circ m\circ (S^{-1})^{a(m)}$ WITH $S\circ x\circ (S^{-1})^{a(x)}$)
+
+So the actual brace equation for this is 
+$$0=m\{m\}\{x,y,z\}=m\{m\{x,y\},z\}+(-1)^{(a(m)+q(m)-1)(a(x)+q(x)-1)}m\{x,m\{y,z\}\}$$
+
+and in general the sign should be that kind of sign, i.e. the total degree of $x$ here is given by $a(x)+q(x)-1$, which is the internal degree of the shift $S\circ x\circ (S^{-1})^{a(x)}$.
+
+Now let's try to prove this in general 
 \[
 x\{x_1,\dots,x_m\}\{y_1,\dots,y_n\}=\sigma^{-1}(\sigma(x\{x_1,\dots,x_m\})[\sigma(y_1),\dots,\sigma(y_n)])=
 \]
@@ -260,19 +287,23 @@ x\{x_1,\dots,x_m\}\{y_1,\dots,y_n\}=\sigma^{-1}(\sigma(x\{x_1,\dots,x_m\})[\sigm
 \sigma^{-1}(\sigma(\sigma^{-1}(\sigma(x)[\sigma(x_1),\dots, \sigma(x_m)]))[\sigma(y_1),\dots,\sigma(y_n)])=\sigma^{-1}(\sigma(x)[\sigma(x_1),\dots, \sigma(x_m)][\sigma(y_1),\dots,\sigma(y_n)])
 \]
 
+TRY TO COMPUTE ONE GENERAL TERM OF THIS SUM AND THE COMPARE WITH THE SAME TERM ON THE RHS OF THE BRACE EQUATION, JUST LIKE YOU DID IN THE PARTICULAR EXAMPLE, MAYBE TRY FIRST A PARTICULAR TERM FOR NOTATIONAL CONVENIENCE TO SEE HOW IT WORKS AND IF NECESSARY THEN TRY TO DO IT FOR THE GENERAL CASE
+
 \section{Lemma 2.2 Derived Conjecture}
 
-We define $x\cdot y=(-1)^{a(x)+q(x)-1}m\{x,y\}$ where $m\in C^{2,0}(V,V)$ such that $m\circ m=m\{m\}=m(1,m)-m(m,1)=0$  and %I MIGHT PUT A MINUS SIGN IN FRONT JUST TO GET $M(M,1)-M(1,M)$  INSTEAD BUT WHAT I GOT IS WHAT CONSTANZE HAS and $\sigma$ is the sign corresponding to the definition of the brace. More precisely, we have
+We define $x\cdot y=(-1)^{a(x)+q(x)-1}m\{x,y\}$ where $m\in C^{2,0}(V,V)$ such that $m\circ m=m\{m\}=m(1,m)-m(m,1)=0$ ($m$ is a multiplication). %I MIGHT PUT A MINUS SIGN IN FRONT JUST TO GET $M(M,1)-M(1,M)$  INSTEAD BUT WHAT I GOT IS WHAT CONSTANZE HAS and $\sigma$ is the sign corresponding to the definition of the brace. More precisely, we have
 
 %$$\sigma=\binom{a(x)+a(y)}{2}+a(x)+q(x)-1+\binom{a(x)}{2}+\binom{a(y)}{2}+a(x)(a(y)+q(y))$$
 %
 %SHOULD I REALLY USE THIS SIGN? G-V DON'T USE THE SIGN OF THEIR BRACE, BUT THEIR SIGN DOESN'T GIVE ME ASSOCIATIVITY EITHER WHEN COMPUTING THE TWO PRODUCTS DIRECTLY, AND FOR THIS CASE I'M NOT OBTAINING THE BRACE EQUATION EITHER
-
+%
+%ANOTHER POSSIBLE SIGN IS JUST $A(X)+Q(X)-1$, WHICH CORRESPOND TO THE KOSZUL SIGN THAT I USE, OR EVEN WITHOUT THE $-1$ SINCE IT CANCELS. BOTH GIVE ASSOCIATIVITY OF THE PRODUCT BUT LESS OBVIOUSLY BECAUSE ONE HAS TO CHECK THE SIGNS LEFT.
 %The binomial coefficients can be simplified mod 2 to $a(x)a(y)$, which cancels mod 2 with one of the terms, leaving
 %
 %$$\sigma=a(x)+q(x)-1+a(x)q(y)$$
 
 \begin{lemma}
+%WRONG, I FORGOT TO APPLY THE KOSZUL RULE IN $m(1,m)-m(m,1)=0$ SO IT'S NOT ASSOCIATIVE, IT IS IF I FORGET ABOUT THE SIGN IN FRONT OF THE PRODUCT 
 $x\cdot y$ is associative.
 \end{lemma}
 \begin{proof}
@@ -283,7 +314,7 @@ $x\cdot y$ is associative.
 %QED
 We will use that $m\{x,y\}=(-1)^{a(x)+q(x)-1+a(x)q(y)}m(x,y)$.
 
-Up to sign, $(x\cdot y)\cdot z$ is $m(m(x,y),z)$ and $x\cdot (y\cdot z)$ is $m(x,m(y,z)$. More precisely, we have
+Up to sign, $(x\cdot y)\cdot z$ is $m(m(x,y),z)$ and $x\cdot (y\cdot z)$ is $m(x,m(y,z))$. More precisely, we have
 
 \begin{align*}
 (x\cdot y)\cdot z=&(-1)^{a(y)+q(y)}m\{m\{x,y\},z\}=\\
@@ -295,36 +326,25 @@ and
 (-1)^{a(x)q(y)+a(x)q(z)+a(y)q(z)}m(x,m(y,z))
 \end{align*}
 
-ACTUALLY, WHATEVER THE SIGNS ARE, SINCE THEY ARE CHOSEN TO CANCEL THE SIGN THAT APPEARS WITH THE BRACKETS, IN THE END I WOULD GET $M(X,M(Y,Z))$ ON ONE SIDE AND $M(M(X,Y),Z)$ ON THE OTHER, WHICH ARE EQUAL BY THE PROPERTIES OF $M$.
+%ACTUALLY, WHATEVER THE SIGNS ARE, SINCE THEY ARE CHOSEN TO CANCEL THE SIGN THAT APPEARS WITH THE BRACKETS, IN THE END I WOULD GET $M(X,M(Y,Z))$ ON ONE SIDE AND $M(M(X,Y),Z)$ ON THE OTHER, WHICH ARE EQUAL BY THE PROPERTIES OF $M$.
 
-The brace equation, using that $m\{m\}=0$ and the degree of $m$ is 0, is exactly
+%The brace equation, using that $m\{m\}=0$ and the degree of $m$ is 0, is exactly
+%
+%$$0=m\{m\}\{x,y,z\}=m\{m\{x,y\},z\}+m\{x,m\{y,z\}\}$$
 
-$$0=m\{m\}\{x,y,z\}=m\{m\{x,y\},z\}+m\{x,m\{y,z\}\}$$
+%I'M FACING A PROBLEM HERE. THE SIGN IS SO THAT IT CANCELS AND GIVES YOU LITERALLY $M(X,Y)$, BUT WITH THIS BRACE EQUATION YOU DON'T GET THE MINUS SIGN THAT YOU NEED IN ONE TERM
 
-I'M FACING A PROBLEM HERE. THE SIGN IS SO THAT IT CANCELS AND GIVES YOU LITERALLY $M(X,Y)$, BUT WITH THIS BRACE EQUATION YOU DON'T GET THE MINUS SIGN THAT YOU NEED IN ONE TERM
 
-I KNOW THAT $m\{m\}=m(1,m)-m(m,1)$, so let us compute $m(1,m)\{x,y,z\}$ and the other term too, which has the same sign. There is only one posibility of insertion that is $m(x,m(y,z))=x(yz)$, which comes with the sign
 
-$$\binom{a(x)+a(y)+a(z)}{2}+a(y)+q(y)-1+\binom{a(x)}{2}+\binom{a(y)}{2}+\binom{a(z)}{2}-a(x)(a(y)+q(y)+a(z)+q(z))-a(y)(a(z)+q(z))\equiv$$
-$$a(y)+q(y)-1+a(x)a(y)+a(x)a(z)+a(y)a(z)+a(x)a(y)+a(x)q(y)+a(x)a(z)+a(x)q(z)+a(y)a(z)+a(y)q(z)=$$
-$$a(y)+q(y)-1+a(x)q(y)+a(x)q(z)+a(y)q(z)$$
-
-ACTUALLY I DON'T CARE ABOUT WHAT THIS SIGN IS, THE OTHER TERM WILL HAVE THE SAME SINCE I AM INSERTING 3 ELEMENTS IN THE 3 AVAILABLE SPACES, THIS MEANS THAT THE ASSOCIATIVITY RELATION HOLDS USING THAT, BUT THEN THE BRACE RELATION IS PROBLEMATIC
+%ACTUALLY I DON'T CARE ABOUT WHAT THIS SIGN IS, THE OTHER TERM WILL HAVE THE SAME SINCE I AM INSERTING 3 ELEMENTS IN THE 3 AVAILABLE SPACES, THIS MEANS THAT THE ASSOCIATIVITY RELATION HOLDS USING THAT, BUT THEN THE BRACE RELATION IS PROBLEMATIC
 
 %WHAT IF THE GOOD KOSZUL SIGN HERE IS THE ANTISYMMETRIC? IF I MULTIPLY BY THE SIGN OF THE PERMUTATION I GET THE MINUS SIGN I NEED
 
-I THINK I'M GOING TO CHECK WHAT IS THE SIGN THAT I GET IN THIS CASE WHEN TRYING TO EVALUATE THE BRACE EQUATION ON BOTH SIDES
+%I THINK I'M GOING TO CHECK WHAT IS THE SIGN THAT I GET IN THIS CASE WHEN TRYING TO EVALUATE THE BRACE EQUATION ON BOTH SIDES
 
-So 
 
-$$m\{m\}\{x,y,z\}=(-1)^{a(y)+q(y)-1+a(x)q(y)+a(x)q(z)+a(y)q(z)}(m(x,m(y,z))-m(m(x,y),z)))$$
 
-THE TERM $M(M(X,Y),Z)$ HAS THE SAME SIGN (INCLUDING THE MINUS SIGN IN FRONT) AS IN THE BRACE $M\{M\{X,Y\},Z\}$ BUT THE OTHER TERM DIFFERS IN THE $-1$ HERE BEING $A(X)+Q(X)$, SO IT'S LIKE THE KOSZUL RULE SHOULD BE APPLIED AS IF THE ARITIES WERE THE SAME AND THE DEGREES WHERE SHIFTED, I.E. SWAPING $M$ AND $X$ YIELD $(A(M)+Q(M)-1)(A(X)+Q(X)-1)\equiv A(X)+Q(X)-1$ (COULD MAKE SENSE WITH THE FACT THAT THE SIGNS COME FROM A SHIFT OF DEGREES AND THE ARITIES PLAY A ROLE IN THAT SHIFT, MORE PRECISELY, THIS IS THE SIGN COMING FROM SWAPING $S\circ m\circ (S^{-1})^{a(m)}$ WITH $S\circ x\circ (S^{-1})^{a(x)}$)
 
-So the actual brace equation for this is 
-$$0=m\{m\}\{x,y,z\}=m\{m\{x,y\},z\}+(-1)^{(a(m)+q(m)-1)(a(x)+q(x)-1)}m\{x,m\{y,z\}\}$$
-
-and in general the sign should be that kind of sign.
 \end{proof}
 
 For $f\in C^{n,i}(V,V)$ and $g\in C^{m,j}(V,V)$ we define the bracket $[f,g]=f\circ g-(-1)^kg\circ f$, where $k=(n+i-1)(m+j-1)$ is the koszul sign of the shift $S$ as in R-W. Then, in a brace algebra with multiplication, define $d(x)=[m,x]=m\circ x-(-1)^{a(x)+q(x)-1}x\circ m$.
@@ -333,7 +353,7 @@ For $f\in C^{n,i}(V,V)$ and $g\in C^{m,j}(V,V)$ we define the bracket $[f,g]=f\c
 $d(d)=0$. 
 \end{lemma}
 \begin{proof}
-TRY TO UNDERSTAND THE (GRADED) PRE-LIE STRUCTURE IN THIS CASE \url{https://en.wikipedia.org/wiki/Pre-Lie_algebra}
+
 $$d(d(x))=d(m\{x\}-(-1)^{a(x)+q(x)-1}x\{m\})=$$ 
 $$m\{m\{x\}\}-(-1)^{a(x)+q(x)}m\{x\}\{m\}-(-1)^{a(x)+q(x)-1}(m\{x\{m\}\}-(-1)^{a(x)+q(x)}x\{m\}\{m\})$$
 
@@ -352,14 +372,21 @@ So we are left with
 $$m\{m\{x\}\}+(-1)^{a(x)+q(x)-1}m\{x,m\}+m\{m,x\}=m\{m\}\{x\}=0$$
 
 where the first equality is the brace equation CHECK THE BRACE EQUATION FOR THIS PARTICULAR CASE (NOT URGENT, THERE ARE MORE CASES HERE SO IT WOULD BE LONG, JUST DO IT IN THE FUTURE IF YOU CAN'T PROVE IT IN GENERAL)
+
+TRY TO UNDERSTAND THE (GRADED) PRE-LIE STRUCTURE IN THIS CASE \url{https://en.wikipedia.org/wiki/Pre-Lie_algebra}
+
+THE EQUATION ABOVE IS NOT THE SAME AS FOR A PRE-LIE ALGEBRAS (LEFT OR RIGHT \url{http://math.univ-bpclermont.fr/~manchon/biblio/ESI-prelie2009.pdf} from nlab, GRADED PRE-LIE IN GERSTENHABER 1963) SINCE ABOVE $X$ APPEARS ONCE AND ONLY ONCE IN THE FIRST POSITION, AND THIS ONE REMAINS UNMOVED IN THE AXIOM OF PRE-LIE ALGEBRA, SO I DON'T KNOW HOW THIS FOLLOWS FROM THAT
+
+
 \end{proof}
 
 \begin{lemma}
-$d$ and $\cdot$ satisfy the Leibniz rule I STILL HAVE TO FIGURE OUT WHAT SIGN APPEARS IN THE LEIBNIZ RULE, BUT LET'S TRY WITH THE SAME I'VE BEEN USING. NOTICE THAT ARITY(D)=DEGREE(D)=1, SO THE SIGN IS NEGATIVE THIS MEANS THAT I'M GOING TO TRY WITH $d(x\cdot y)=d(x)\cdot y+(-1)^{a(x)+q(x)-1}x\cdot d(y)$
-I GOT THE IDENTITY WITHOUT THE $-1$ IN THE SIGN THERE USING FOR THE PRODUCT THE ALTERNATIVE SIGN. I'LL CHECK WITH THE BRACE SIGN, BUT I'LL STICK TO WHATEVER I GET
+$d$ and $\cdot$ satisfy the Leibniz rule 
+%I STILL HAVE TO FIGURE OUT WHAT SIGN APPEARS IN THE LEIBNIZ RULE, BUT LET'S TRY WITH THE SAME I'VE BEEN USING. NOTICE THAT ARITY(D)=DEGREE(D)=1, SO THE SIGN IS NEGATIVE THIS MEANS THAT I'M GOING TO TRY WITH $d(x\cdot y)=d(x)\cdot y+(-1)^{a(x)+q(x)-1}x\cdot d(y)$
+%I GOT THE IDENTITY WITHOUT THE $-1$ IN THE SIGN THERE USING FOR THE PRODUCT THE ALTERNATIVE SIGN. I'LL CHECK WITH THE BRACE SIGN, BUT I'LL STICK TO WHATEVER I GET
 \end{lemma}
 \begin{proof}
-USING $A(X)+Q(X)-1$ IN THE PRODUCT
+%USING $A(X)+Q(X)-1$ IN THE PRODUCT
 
 $$d(x\cdot y)=d((-1)^{a(x)+q(x)-1}m\{x,y\})=(-1)^{a(x)+q(x)-1}(m\{m\{x,y\}\}-(-1)^{a(x)+q(x)+a(y)+q(y)-1}m\{x,y\}\{m\})$$
 
@@ -382,7 +409,7 @@ We have $-m\{x,m\{y\}\}$ on the first equation and $(-1)^{a(x)+q(x)-1}m\{x,m\{y\
 $$d(x\cdot y)=d(x)\cdot y+(-1)^{a(x)+q(x)}x\cdot d(y)$$
 
 
-WITH THE SIGN OF THE BRACE IT DOESN'T WORK, NEITHER IT DOES DELETING THE $-1$
+%WITH THE SIGN OF THE BRACE IT DOESN'T WORK, NEITHER IT DOES DELETING THE $-1$
 
 %USING THE SIGN OF THE BRACE FOR THE PRODUCT
 %
@@ -400,4 +427,222 @@ WITH THE SIGN OF THE BRACE IT DOESN'T WORK, NEITHER IT DOES DELETING THE $-1$
 %
 %$$m\{m\{x,y\}\}=-m\{m\{x\},y\}-(-1)^{a(x)+q(x)-1}m\{x,m\{y\}\}$$
 \end{proof}
+
+FOR LEMMA 2.5 TO MAKE SENSE, I NEED TO SHOW THAT THE CONDITIONS OF DEF2(G-V) TRANSLATED TO MY VERSION MAKE SENSE, SO THAT THEY REALLY IMPLY THAT THE MAP RESPECTS THE PRODUCT AND THE DIFFERENTIAL. I THINK THE CONFUSION OF G-V IS THAT THERE'S THE $d$ IN THE COCHAIN COMPLEX AND THE DIFFERENTIAL WE USE IS $[m+d,]$ SO $D$ MANS THE LAST ONE
+
+%\section{Lemma 2.2 Alternative}
+
+
+
+\newpage
+
+\section{Skype}
+ \subsection{Notation and sign}
+ Same as Lada: $f\in\hom(V^{\otimes N},V)^i$, $g_j\in\hom(V^{\otimes a_i},V)^{q_i}$. In the brace we have a sum of terms like
+ 
+ \[
+ (-1)^{\sigma}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})
+ \]
+ 
+ $$\sigma=\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l$$
+ 
+ I will also write $a(x)$ and $q(x)$ to specify, respectively, the arity and degree of $x$.
+ 
+ I usually write braces as $x\{-\}$ but I might write also $x\{-\}_n$ or $b_n(x;-)$. The product given by $m$ is $x\cup y=(-1)^{a(x)+q(x)-1}m\{x,y\}$ because that's what made it associative and it's the same sign that appears in the Lie bracket (I tried other signs that didn't work, but still this one gave a weird Leibniz rule, so maybe it's still not the best one).
+ 
+ \subsection{Brace equation}
+ 
+ I wanted to check the brace equation (or brace relation) for $x\{y\}\{z_1,\dots, z_n\}=b_n(b_1(x;y);z_1,\dots, z_n)$ where $n=a(x)+a(y)-1$. First we compute $b_1(x;y)$. For a summand of the form
+ 
+ $$x(1^{k_0}\otimes y\otimes 1^{a(x)-k_0-1})$$
+ 
+ the sign is given by the exponent
+ 
+ $$k_0q(y)+(a(y)+q(y)-1)(a(x)-k_0-1)$$
+ 
+ Finally we compute $b_n(b_1(x;y);z_1,\dots, z_n)$. Taking into account the previous sign, a summand of the form
+ 
+ $$x(z_1\otimes\cdots\otimes z_{k_0}\otimes y(z_{k_0+1}\otimes\cdots\otimes z_{k_0+a(y)})\otimes\cdots z_n)$$
+ 
+ has a sign given by
+ 
+  $$\boxed{k_0q(y)+(a(y)+q(y)-1)(a(x)-k_0-1)+\sum_{1\leq j<l\leq n}a(z_j)q(z_l)+\sum_{j=1}^{a(x)+a(y)-1}(a(z_j)+q(z_j)-1)(a(x)+a(y)-1-j)}$$
+ 
+ 
+ Next, let's compute the sign of a similar summand on 
+ $$x\{z_1,\dots, z_{k_0},y\{z_{k_0+1},\dots, z_{k_0+a(y)}\},\dots, z_n\}$$
+ 
+ First, extract the sign corresponding to $y\{z_{k_0+1},\dots, z_{k_0+a(y)}\}$. This one is given by
+ 
+ $$\sum_{k_0+1\leq j<l\leq k_0+a(y)}a(z_j)q(z_l)+ \sum_{j=k_0+1}^{k_0+a(y)}(a(z_j)+q(z_j)-1)(a(y)+k_0-j)$$
+ 
+ Then, the full sign is given by
+  
+ \begin{subequations}
+\begin{empheq}[box=\widefbox]{align*}
+&\sum_{k_0+1\leq j<l\leq k_0+a(y)}a(z_j)q(z_l)+ \sum_{j=k_0+1}^{k_0+a(y)}(a(z_j)+q(z_j)-1)(a(y)+k_0-j)+\\
+& \sum_{j<l\leq k_0}a(z_j)q(z_l)+\sum_{j\leq k_0}a(z_j)(q(y)+q(z_{k_0+1})+\cdots+q(z_{k_0+a(y)}))+\sum_{j\leq k_0, l>k_0+a(y)}a(z_j)q(z_l)+\\
+&(a(z_{k_0+1})+\cdots+a(z_{k_0+a(y)}))\sum_{l<k_0+a(y)}q(z_l)+\sum_{k_0+a(y)<j<l}a(z_j)q(z_l)+\\
+&\sum_{j=1}^{k_0}(a(z_j)+q(z_j)-1)(a(x)+a(y)-1-j)+\sum_{j>k_0+a(y)}(a(z_j)+q(z_j)-1)(a(x)-j-1))+\\%\sum_{j>k_0+a(y)}(a(z_j)+q(z_j)-1)(a(x)+a(y)-(j-a(y)+1))
+&(q(y)-1)(a(x)+a(y)-k_0)+(a(x)+a(y)-k_0)\sum_{k_0+1}^{k_0+a(y)}(a(z_j)+q(z_j))
+\end{empheq}
+\end{subequations}
+
+Now we're going to cancel things that appear on both signs to see what the difference is. 
+
+Note that in the first sign we have the sum $\sum_{1\leq j<l\leq n}a(z_j)q(z_l)$, which cancels several sums in the second sign. So after these cancellations the first sign reduces to 
+ $$\boxed{k_0q(y)+(a(y)+q(y)-1)(a(x)-k_0-1)+\sum_{j=1}^{a(x)+a(y)-1}(a(z_j)+q(z_j)-1)(a(x)+a(y)-1-j)}$$
+ 
+ and the second sign to
+  \begin{subequations}
+\begin{empheq}[box=\widefbox]{align*}
+& \sum_{j=k_0+1}^{k_0+a(y)}(a(z_j)+q(z_j)-1)(a(y)+k_0-j)+ q(y)\sum_{j\leq k_0}a(z_j)+\\
+&\sum_{j=1}^{k_0}(a(z_j)+q(z_j)-1)(a(x)+a(y)-1-j)+\sum_{j>k_0+a(y)}(a(z_j)+q(z_j)-1)(a(x)-j-1))+\\%\sum_{j>k_0+a(y)}(a(z_j)+q(z_j)-1)(a(x)+a(y)-(j-a(y)+1))
+&(q(y)-1)(a(x)+a(y)-k_0)+(a(x)+a(y)-k_0)\sum_{k_0+1}^{k_0+a(y)}(a(z_j)+q(z_j))
+\end{empheq}
+\end{subequations}
+
+
+
+We now see that $q(y)k_0$ appears twice in the first sign so we can just cancel it and rewrite it as
+ $$\boxed{(a(y)-1)(a(x)-k_0-1)+q(y)(a(x)-1)+\sum_{j=1}^{a(x)+a(y)-1}(a(z_j)+q(z_j)-1)(a(x)+a(y)-1-j)}$$
+ 
+Now I notice that in the first sign, $q(y)$ is being multiplied by $(a(x)-1)$ while on the second sign it is multiplied by $a(x)+a(y)-k_0+\sum_{j\leq k_0}a(z_j)$. The difference bewteen them is not the Koszul sign. Since the Koszul sign was supposed to be $(a(y)+q(y)-1)\sum_{j=1}^{k_0}(a(z_j)+q(z_j)-1)$, meaning that in particular $q(y)$ is multiplied by $\sum_{j=1}^{k_0}(a(z_j)+q(z_j)-1)$, what I find is that the $q(z_j)$'s are missing and instead I have $a(x)+a(y)$. 
+
+\subsection{Problem with the sign in the product}
+
+Let $\Phi:V\to C^*(V,V)$ the map given by $\Phi(x)=\sum_{n\geq 0}b_n(x;-)$. The conditions in G-V for a brace algebra to be a homotopy G-alegebra should be read as ``$\Phi$ of the product equals the product of $\Phi$'s'' and ``$\Phi$ of the differential equals the differential of $\Phi$''.
+
+Without the signs everything works well. Let's try with the signs. For that, compute $\Phi(x)\cup\Phi(y)$.
+
+\begin{align*}
+\Phi(x)\cup\Phi(y)=\sum_{i}b_i(x;-)\cup \sum_{j}b_j(y;-)=\sum_i\sum_j b_i(x;-)\cup b_j(y;-)
+\end{align*}
+
+The condition in G-V is stated in terms of each fixed value of $i+j$, so the right hand side of the equation (before evaluation) should be
+
+\begin{align*}
+\sum_{n+m}b_n(x;-)\cup b_m(y;-)
+\end{align*}
+So apparently there is no sign before evaluation. However, let us compute $\Phi(x\cup y)$ in the same way Constanze did in Theorem 2.7.
+
+\begin{align*}
+&\Phi(x\cup y)=(-1)^{a(x)+q(x)-1}\Phi(b_2(m;x,y))=(-1)^{\varepsilon}\sum_n b_n(b_2(m;x,y);-)=\\
+&(-1)^{\varepsilon}\sum_n\sum_{i+j=n}b_2(b_i(x;-),b_j(y;-))=\sum_n\sum_{i+j=n}(-1)^{a(x)+i}b_i(x;-)\cup b_j(y;-)
+\end{align*}
+So there is a sign which by the way is not a Koszul sign since we are not evaluating.
+
+\section{More general perspective}
+We've been discussing signs from the perspective of the endomorphism operad, but let us figure out the signs in a general brace algebra. This way we might find other signs that suits as well and avoid the problems caused in the end.
+
+Let $|x|$ denote the degree of $x$ that is gonna be used on the sign ($|x|=a(x)+q(x)-1$ so far) and we write $|x||y|$ to mean a product which is not necessarily the product of integers but maybe some kind of dot product as in R-W. Before we studied the brace relation in the case of $m\{m\}\{x,y,z\}$ with the particular brace of the endomorphism operad. Let's now look at this without having any particular brace in mind. We have
+
+$$0=m\{m\}\{x,y,z\}=m\{m\{x,y\},z\}+(-1)^{|x||m|}m\{x,m\{y,z\}\}$$
+
+We want to define a product $x\cdot y=(-1)^{\varepsilon(x,y)}m\{x,y\}$ for which the brace relation above gives us associativity. Associativity means
+
+$$(-1)^{\varepsilon(x,y)+\varepsilon(xy,z)}m\{m\{x,y\},z\}=(-1)^{\varepsilon(x,yz)+\varepsilon(y,z)}m\{x,m\{y,z\}\}$$
+
+By the brace relation this implies $\mod 2$ 
+
+\begin{equation}\label{ass-sing}%\tag{5}
+\varepsilon(x,y)+\varepsilon(xy,z)=\varepsilon(x,yz)+\varepsilon(y,z)+|x||m|+1
+\end{equation}
+
+Putting $y=0$ this means that $|x||m|=1\mod 2$. This can be achieve precisely with a dot product like that in R-W, i.e., for $|x|=a(x)+q(x)-1$ and $|y|=a(y)+q(y)-1$ we define $|x||y|=a(x)a(y)+q(x)q(y)+1$. In particular, $|x||m|=2a(x)+0q(x)+1=1$. 
+
+I NOT REALLY SURE HOW THIS FOLLOWS. IF $Y=0$ THEN THE EQUATION BECOMES $0=0$ AND WE CAN PUT WHATEVER SIGNS WE WANT. 
+
+Being $|x||m|=1$, we can simply choose $\varepsilon(x,y)=0$ for all $x,y$ and the brace equation implies associativity. We will test this sign further a bit later. But whatever sign we choose, it's not going to be an analogue to G-V sign for the following reason. In the sign equation given by associativity, since this sign only depends on the first argument, we have
+
+$$\varepsilon(x)+\varepsilon(xy)=\varepsilon(x)+\varepsilon(y)+|x||m|+1$$
+
+I THINK CONSTANZE FORGOT TO TAKE INTO ACCOUNT THE BRACE RELATION HERE, BECAUSE SHE DIDN'T WRITE $|X||M|+1$ actually it is assuming $|x||m|=1$ IN ADDITION I THINK THERE NOT NEED TO BE A 1 FOR THE PRODUCT (AND IN CASE THERE IS, $\varepsilon(1)=0$ NO? IN THAT CASE WE HAVE $\varepsilon(x)=|x||m|+1$ (ALSO MENTION GETZLER WHERE THE PRODUCT IS DEFINED IN LEMMA 1.5 WITH THE SIGN DEPENDING ON THE FIRST ARGUMENT ONLY) WHICH NOT SO DISCOURAGING EVEN THOUGH IT DOESN'T FEEL SO TRUE
+
+THE BRACE EQUATION IN THE ENDORMORPHISM CASE DOES NOT DEPEND ON THE SIGN OF THE PRODUCT AND THE SIGN CHOSEN THERE WAS MADE SO THAT THE BRACE RELATION HOLDS. BUT IF $|X||M|=1$, THEN IT DOES NOT HOLD. 
+
+
+DOES IT STILL MAKE SENSE TO USE THE SIGN IN THE LIE BRACKET AS IN THE ENDOMORPHISM? IN THAT PARTICULAR CASE SHOULD BE THE SAME, BUT WITH DOT PRODUCT IS JUST 1. USING THE PREVIOUS SIGN THERE AND THE DOT PRODUCT IN THE BRACE RELATION I DON'T GET $D(D(X))=0$ (BECAUSE THE SIGN MUST BE CONSISTENT WITH THAT IN THE BRACE EQUATION, AND I'VE ALSO FOUND THAT IT IS NECESSARY THAT $|x||m|\equiv |m||m\circ x|+1$ WHICH IS NOT TRUE WITH THE DOT PRODUCT) OR THE LEIBNIZ RULE 
+
+OBVIOUSLY THE PRODDUCT ISSUE IS SOLVED SINCE THERE ARE NO SIGNS INVOLVED
+
+Let us define $d(x)=[m,x]=m\circ x-(-1)^{|x||m|}x\circ m$ and let's see what we need for this to be a diferential, i.e. $d^2=0$. 
+
+\begin{align*}
+&d(d(x))=d(m\circ x-(-1)^{|x||m|}x\circ m)=\\
+&m\circ (m\circ x)-(-1)^{|x||m|}m\circ(x\circ m)-(-1)^{|m||m\circ x|}(x\circ m)\circ m +(-1)^{|x||m|+|m||m\circ x|}(x\circ m)\circ m
+\end{align*}
+
+Using the brace relation and $m\circ m=0$:
+
+\begin{align*}
+(m\circ x)\circ m= m\{x,m\}+m\circ(x \circ m)+(-1)^{|m||x|}m\{m,x\}\\
+(x\circ m)\circ m=x\{m,m\}+x\circ (m\circ m)-x\{m,m\}=0
+\end{align*}
+In the last equation we have to assume $|m|\equiv 1$. Then $d(d(x))$ rewrites as
+ \[
+ m\circ (m\circ x)-(-1)^{|x||m|}m\circ(x\circ m)-(-1)^{|m||m\circ x|}(m\{x,m\}+m\circ(x \circ m)+(-1)^{|m||x|}m\{m,x\})
+ \]
+ We need $m\circ(x\circ m)$ to cancel, so we impose $|m||x|\equiv |m||m\circ x|+1$. This happens with my sign convention but not with a convention that implies $|m||x|=1$ for all $x$.
+ 
+ Now we use
+ 
+ $$0=m\{m\}\{x\}=m\{m,x\}+m\circ(m\circ x)+(-1)^{|m||x|}m\{x,m\}$$
+ To get
+ \[
+-m\{m,x\}-(-1)^{|m||x|}m\{x,m\}-(-1)^{|m||m\circ x|}(m\{x,m\}+(-1)^{|m||x|}m\{m,x\}=0
+ \]
+ 
+ Again, we're assuming  $|m||x|\equiv |m||m\circ x|+1$. WITH THE SIGN CONVENTION OF THE FOLLOWING DOT PRODUCT THIS EQUATION IS TRUE: $((a(x)-1)+q(x))((a(y)-1)+q(y))=(a(x)-1)(a(y)-1)+q(x)q(y)$ SO TRY THIS ONE TOO. THE REASON BEHIND THIS IS THAT THE $-1$ COMES FROM A SHIFT MAP AS WELL AS THE ARITY.
+ 
+Before studying the associativity of the product, note that if we don't put any sign, we depend on $|m||x|=1$, which as we saw caused some problems. But in addition, we will see that the Leibniz rule can't be satisfied in the absence of any sign in front of $m$. First of all, it is natural to assume $|d(x)|=|x|+1$. In the Leibiz rule $d(xy)$ would yield a $-m\{m\{x\},y\}$ coming from the fact that $m\{m\{x,y\}\}=-m\{m\{x\},y\}-(-1)^{|m||x|}m\{x\{m\},y\}$ due to the brace relation. On the other hand, $d(x)y$ produces $m\{m\{x\},y\}$ with positive sign, so whatever sign we include in $xy=(-1)^{\varepsilon(xy)}m\{x,y\}$, it is necessary that $\varepsilon(xy)\equiv\varepsilon(d(x)y)-1$. There are a number of obvious ways to do this is by chosing $\varepsilon(xy)=|x|,|x|+1,|x|+|y|, |x|+|y|+1,\dots$ But using equation \ref{ass-sing} we can discard those like $|x|+|y|$ because we would find that $|m\{x,y\}|$ has to depend on $z$. So we will check $|x|$ and $|x|+1$, being open to other alternatives. With both signs we conclude $|m\{x,y\}|=|m||x|+|y|+1$. Since we want this sign to particularise as the sign in R-W, I would expect $|m||x|=|x|$, so $|m\{x,y\}|=|x|+|y|+1$, but I will use this as little as possible, since with different notions of $|x|$ it could also be the case that $|m||x|=|x|-1$ or anything different and still coincide with the particular numbers in R-W.
+
+ABOUT THE WEIRD LEIBNIZ RULE: IN G-V PAGE 11 BEFORE COROLLARY 5 THERES AN EQUATION THAT BECOMES MY LEIBNIZ RULE WITH $X=M$. I MIGHT TRY TO PROVE IT WITH MY THINGS
+
+WITH $|X|-1$ THE LEIBNIZ RULE IS THE SAME, WRITE IT WITH $|X|$ BUT ALSO TRY TO DO IT WITH A MORE GENERAL SIGN TO SEE IF SOMETHING ELSE CAN BE TRIED
+
+So now let's move to the Leibniz rule. I'm going to check it first for $\varepsilon(xy)=|x|$ (it is analogous for $|x|-1$) and then I will try to do it for a general $\varepsilon(xy)$ satisfying the differential and associativity conditions.
+
+\[
+d(xy)=(-1)^{|x|}d(m\{x,y\})=(-1)^{|x|}(m\{m\{x,y\}\}-(-1)^{|m||m\{x,y\}|}m\{x,y\}\{m\})
+\]
+In the last term we use the breace relation to produce
+\[
+d(xy)=(-1)^{|x|}(m\{m\{x,y\}\}-(-1)^{|m||m\{x,y\}|}(m\{x,y\{m\}\}+(-1)^{|m||y|}m\{x\{m\},y\}))
+\]
+
+Also use the brace relation to rewrite $m\{m\{x,y\}\}$ and produce
+
+\[
+d(xy)=(-1)^{|x|}(-m\{m\{x\},y\}-(-1)^{|m||x|}m\{x,m\{y\}\}-(-1)^{|m||m\{x,y\}|}(m\{x,y\{m\}\}+(-1)^{|m||y|}m\{x\{m\},y\}))
+\]
+
+Now compute
+\[
+d(x)y=(-1)^{|x|-1}(m\{m\{x\},y\}-(-1)^{|m||x|}m\{x\{m\},y\})
+\]
+and
+\[
+xd(y)=(-1)^{|x|}(m\{x,m\{y\}\}-(-1)^{|m||y|}m\{x,y\{m\}\})
+\]
+
+Direct comparison of the terms using that $|m\{x,y\}|=|m||x|+|y|-1$ (also recall that $|m|^2=|m|\mod 2$) by associativity and the necessary fact $|m|=1$ shows that $d(xy)=d(x)y+(-1)^{|x|-1}xd(y)$ (in particular we can't get rid of the minus sign there at least with any sign depending only on $x$, but this is a particular case of the derivation property of the bracket with respect to the product according to G-V page 11).
+
+There's not a lot to change if we use instead some other sign $\varepsilon(xy)$, so let's compare terms. Since $\varepsilon(d(x)y)=\varepsilon(xy)-1$, $m\{m\{x\},y\}$ has the same sign on both sides. For $m\{x\{m\},y\}$ we need 
+
+\[
+\varepsilon(xy)+|m||x|=|m||y|+|m||m\{x,y\}|-1+\varepsilon(xy)
+\]
+
+
+
+As we can see $\varepsilon(xy)$ cancels and we are left with the same as before and the equation holds iff $|m|=1$, which happens in the degrees we've been using. 
+
+Now for $m\{x,m\{y\}\}$ we have on one side $\varepsilon(xy)+|m||x|-1$ and on the other side $\varepsilon(xy)$, so the difference is always $|m||x|-1$ (indeed $|x|$ cause $|m|=1$, whatever sign we use. Similarly, for $m\{x,y\{m\}\}$ we have $\varepsilon(xy)+|m||m\{x,y\}|-1$ on the one side and $\varepsilon(xy)+|m||y|-1$. Now the difference is $|m|(|x|+1)$, but using $|m|=1$ we have the same difference as before.
+
+\section{Generalization to $A_\infty$-algebras}
+
+\subsection{Alternative simpler structure}
+
+
 \end{document}
