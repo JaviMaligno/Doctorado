@@ -549,15 +549,15 @@ By the brace relation this implies $\mod 2$
 \varepsilon(x,y)+\varepsilon(xy,z)=\varepsilon(x,yz)+\varepsilon(y,z)+|x||m|+1
 \end{equation}
 
-Putting $y=0$ this means that $|x||m|=1\mod 2$. This can be achieve precisely with a dot product like that in R-W, i.e., for $|x|=a(x)+q(x)-1$ and $|y|=a(y)+q(y)-1$ we define $|x||y|=a(x)a(y)+q(x)q(y)+1$. In particular, $|x||m|=2a(x)+0q(x)+1=1$. 
-
-I NOT REALLY SURE HOW THIS FOLLOWS. IF $Y=0$ THEN THE EQUATION BECOMES $0=0$ AND WE CAN PUT WHATEVER SIGNS WE WANT. 
+%Putting $y=0$ this means that $|x||m|=1\mod 2$. This can be achieve precisely with a dot product like that in R-W, i.e., for $|x|=a(x)+q(x)-1$ and $|y|=a(y)+q(y)-1$ we define $|x||y|=a(x)a(y)+q(x)q(y)+1$. In particular, $|x||m|=2a(x)+0q(x)+1=1$. 
+%
+%I NOT REALLY SURE HOW THIS FOLLOWS. IF $Y=0$ THEN THE EQUATION BECOMES $0=0$ AND WE CAN PUT WHATEVER SIGNS WE WANT. 
 
 Being $|x||m|=1$, we can simply choose $\varepsilon(x,y)=0$ for all $x,y$ and the brace equation implies associativity. We will test this sign further a bit later. But whatever sign we choose, it's not going to be an analogue to G-V sign for the following reason. In the sign equation given by associativity, since this sign only depends on the first argument, we have
 
 $$\varepsilon(x)+\varepsilon(xy)=\varepsilon(x)+\varepsilon(y)+|x||m|+1$$
 
-I THINK CONSTANZE FORGOT TO TAKE INTO ACCOUNT THE BRACE RELATION HERE, BECAUSE SHE DIDN'T WRITE $|X||M|+1$ actually it is assuming $|x||m|=1$ IN ADDITION I THINK THERE NOT NEED TO BE A 1 FOR THE PRODUCT (AND IN CASE THERE IS, $\varepsilon(1)=0$ NO? IN THAT CASE WE HAVE $\varepsilon(x)=|x||m|+1$ (ALSO MENTION GETZLER WHERE THE PRODUCT IS DEFINED IN LEMMA 1.5 WITH THE SIGN DEPENDING ON THE FIRST ARGUMENT ONLY) WHICH NOT SO DISCOURAGING EVEN THOUGH IT DOESN'T FEEL SO TRUE
+I THINK CONSTANZE FORGOT TO TAKE INTO ACCOUNT THE BRACE RELATION HERE, BECAUSE SHE DIDN'T WRITE $|X||M|+1$ actually it is assuming $|x||m|=1$ IN ADDITION I THINK THERE NOT NEED TO BE A 1 FOR THE PRODUCT (AND IN CASE THERE IS, $\varepsilon(1)=0$ NO? IN THAT CASE WE HAVE $\varepsilon(x)=|x||m|+1$ %(ALSO MENTION GETZLER WHERE THE PRODUCT IS DEFINED IN LEMMA 1.5 WITH THE SIGN DEPENDING ON THE FIRST ARGUMENT ONLY) WHICH NOT SO DISCOURAGING EVEN THOUGH IT DOESN'T FEEL SO TRUE
 
 THE BRACE EQUATION IN THE ENDORMORPHISM CASE DOES NOT DEPEND ON THE SIGN OF THE PRODUCT AND THE SIGN CHOSEN THERE WAS MADE SO THAT THE BRACE RELATION HOLDS. BUT IF $|X||M|=1$, THEN IT DOES NOT HOLD. 
 
@@ -597,7 +597,7 @@ In the last equation we have to assume $|m|\equiv 1$. Then $d(d(x))$ rewrites as
  
 Before studying the associativity of the product, note that if we don't put any sign, we depend on $|m||x|=1$, which as we saw caused some problems. But in addition, we will see that the Leibniz rule can't be satisfied in the absence of any sign in front of $m$. First of all, it is natural to assume $|d(x)|=|x|+1$. In the Leibiz rule $d(xy)$ would yield a $-m\{m\{x\},y\}$ coming from the fact that $m\{m\{x,y\}\}=-m\{m\{x\},y\}-(-1)^{|m||x|}m\{x\{m\},y\}$ due to the brace relation. On the other hand, $d(x)y$ produces $m\{m\{x\},y\}$ with positive sign, so whatever sign we include in $xy=(-1)^{\varepsilon(xy)}m\{x,y\}$, it is necessary that $\varepsilon(xy)\equiv\varepsilon(d(x)y)-1$. There are a number of obvious ways to do this is by chosing $\varepsilon(xy)=|x|,|x|+1,|x|+|y|, |x|+|y|+1,\dots$ But using equation \ref{ass-sing} we can discard those like $|x|+|y|$ because we would find that $|m\{x,y\}|$ has to depend on $z$. So we will check $|x|$ and $|x|+1$, being open to other alternatives. With both signs we conclude $|m\{x,y\}|=|m||x|+|y|+1$. Since we want this sign to particularise as the sign in R-W, I would expect $|m||x|=|x|$, so $|m\{x,y\}|=|x|+|y|+1$, but I will use this as little as possible, since with different notions of $|x|$ it could also be the case that $|m||x|=|x|-1$ or anything different and still coincide with the particular numbers in R-W.
 
-ABOUT THE WEIRD LEIBNIZ RULE: IN G-V PAGE 11 BEFORE COROLLARY 5 THERES AN EQUATION THAT BECOMES MY LEIBNIZ RULE WITH $X=M$. I MIGHT TRY TO PROVE IT WITH MY THINGS
+ABOUT THE WEIRD LEIBNIZ RULE: IN G-V PAGE 5 BEFORE COROLLARY 5 THERES AN EQUATION THAT BECOMES MY LEIBNIZ RULE WITH $X=M$. I MIGHT TRY TO PROVE IT WITH MY THINGS
 
 WITH $|X|-1$ THE LEIBNIZ RULE IS THE SAME, WRITE IT WITH $|X|$ BUT ALSO TRY TO DO IT WITH A MORE GENERAL SIGN TO SEE IF SOMETHING ELSE CAN BE TRIED
 
@@ -643,6 +643,77 @@ Now for $m\{x,m\{y\}\}$ we have on one side $\varepsilon(xy)+|m||x|-1$ and on th
 \section{Generalization to $A_\infty$-algebras}
 
 \subsection{Alternative simpler structure}
+I propose as an alternative to the $A_\infty$-structre in the Derived Deligne Conjecture (and also G-V), a simpler family of maps: $M_n(x_1,\dots, x_n)=m_n\{x_1,\dots, x_n\}=b_n(m_n;x_1,\dots, x_n)$. Which is just the last term of the sum taking place in the references.
 
+The proof of Lemma 3.2 in Derived Deligne Conjecture is correct (at least up to signs), so I'm going to prove it just for the simplification (up to signs, as everything in this subsection).
 
+\begin{lemma} The above choice turns $\mathcal{O}$ into an $A_\infty$-algebra.
+\end{lemma}
+\begin{proof}
+We need to show that $M\circ M=0$. 
+
+\[
+\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}M_p(x_1,\dots, x_i, M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
+\]
+\[
+\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}b_p(m_p; x_1,\dots, x_i, b_q(m_q;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
+\]
+\[
+\sum_{k,p,q}b_k(b_1(m_p;m_q);x_1,\dots, x_k)=0
+\]
+because $\sum_{p,q}b_1(m_p;m_q)=0$ since $m\circ m=0$.
+
+IN THIS SIMPLER CASE I THINK IT CAN BE PROVED MORE DIRECTLY SINCE $M\circ M$ iff $\sum M_i\circ M_j=0$ iff $\sum m_i\circ m_j=0$. 
+\end{proof}
+
+The following theorem is not fully proved in the general case. This simpler case could serve as a base case, so let's try to prove it.
+
+\begin{theorem}
+The morphism $\Phi:\mathcal{O}=\prod_n\mathcal{O}(n)\to C^*(\mathcal{O},\mathcal{O})$ defined by $\Phi(x)=\sum b_n(x;-)$ is a (strict) morphism of $A_\infty$-algebras. 
+\end{theorem}
+
+\begin{proof}
+Write $j_n$ for the arity (degree? the definition of brace is in graded things, not things with arity, but in the hochschild complex the degree is given by the arity) of $x_n$. 
+
+\[
+\Phi(M_n(x_1,\dots, x_n))=\Phi(m_n\{x_1,\dots, x_n\})=\sum_i b_i(b_n(m_n;x_1,\dots, x_n);-)=
+\]
+\[
+\sum_{i=i_1+\cdots+i_n}b_n(m_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))
+\]
+where $i_p\leq j_p$. Note that since the arity of $m_n$ is $n$, there are no terms inserted between the $x_p$'s.
+
+\[
+\overline{M}_n(\Phi(x_1),\dots, \Phi(x_n))=\sum_{i_1+\cdots+i_n}\overline{M}_n(b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))=\sum_{i_1+\cdots+i_n}b_n(M_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))
+\] 
+
+Since the arity of $M_n$ is $n$, at least up to sign, this equals
+$$\sum_{i_1+\cdots+i_n}b_n(m_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))$$
+
+I'LL ASK CONSTANZE TO CHECK THIS. I THINK I MUST (AND CAN) ASSUME THAT THE BRACE IS OF THE KIND OF BRACE IN THE ENDOMORPHISM OPERAD. BUT IF A SIGN COMES ALONG TO DISTINGUISH BETWEEN EVALUATION AND BRACE, THE THEOREM MIGHT NOT BE TRUE ANYMORE. GENERALISING IT TO THE USUAL STRUCTURE WILL BE PROBLEMATIC TOO.
+\end{proof}
+
+\subsection{Things with signs}
+IN LEMMA 3.2 DON'T FORGET THE SIGN OF THE KOSZUL RULE WHEN EVALUATING, THIS PROBABLY CANCELS THE SIGNS IN THE BRACE RELATION
+
+I'm going to add the signs to the proof of Lemman 2.3 in the original setting (for the simplified version it is analogous).
+
+\begin{lemma}
+\end{lemma}
+\begin{proof}
+In the first line we omit any signs because the maps $M_s$ are not homogeneous.
+\[
+\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}M_p(x_1,\dots, x_i, M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
+\]
+\[
+\underset{0\leq i\leq k, s\geq p,t\geq q}{\sum_{p,q,k=p+q-1}}(-1)^{|m_t|\sum_{j=1}^i|x_j|}b_p(m_s;x_1,\dots, x_i, b_q(m_t;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)
+\]
+The sign above is precisely the koszul sign in the brace relation so this does indeed equal to 
+
+\[
+\sum_{k,s,t}b_k(b_1(m_s;m_t);x_1,\dots, x_k)=0.
+\]
+\end{proof}
+
+IN THE PROOF OF THEOREM 2.7 I GUESS THE SIGN USED FOR THE PRODUCT AND THE DIFFERENTIAL IN THE HOCHSCHILD COMPLEX IS THE ONE COMING FROM THE ENDOMORPHISM CASE, BUT I'LL TRY TO DO IT WITHOUT ASSUMING ANY PARTICULAR VALUE, PROBABLY I SHOULD ALSO CHECK WHAT SIGNS I NEED IN THE SAME WAY I DID WITH M IN ORDER TO GET A DGA IN C(A,A)
 \end{document}
