@@ -1,0 +1,136 @@
+	\documentclass[twoside]{article}
+\usepackage{estilo-ejercicios}
+\setcounter{section}{0}
+\newtheorem{defin}{Definition}[section]
+\newtheorem{lem}[defin]{Lemma}
+\newtheorem{propo}[defin]{Proposition}
+\newtheorem{thm}[defin]{Theorem}
+\newtheorem{eje}[defin]{Example}
+\newtheorem{obs}[defin]{Observación}
+\renewcommand{\baselinestretch}{1,3}
+
+\usepackage{empheq}
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+%--------------------------------------------------------
+\begin{document}
+
+\title{What happens with $\Phi$}
+\author{Javier Aguilar Martín}
+\maketitle
+
+\section{Preliminary considerations}
+
+Let $\mathcal{O}=\prod_n\OO(n)$ be an operad with an $A_\infty$-multiplication $m=m_1+m_2+\cdots$. We denote by $\OO(n)_p$ the degree $p$ component of $\OO(n)$ and define the \emph{total degree} of an element $f\in \OO(n)_p$ as $||f||=n+p=a(f)+\deg(f)$. We will refer to $a(f)$ as the \emph{(operadic) arity} of $f$ and to $\deg(f)$ as the \emph{internal degree} of $f$. We have to define things on arity 0, so may define $\OO(0)=k$ (the monoidal unit in case it would make sense to generalize this to non-linear operads). 
+
+\begin{nota}Ward demands that the insertion maps $\circ_i$ extend to $\OO(2)\otimes\OO(0)\to \OO(1)$ in such a way that $m_2\circ_i(-)$ is the operdic identity, but I don't know how I would extend this to $m$, and probably it's not necessary since he does so to be able to define some degenerancies that I'm not going to use.
+\end{nota}
+
+We've discussed two main ways to define an $A_\infty$-algebra structure on $C^*(\OO,\OO)$ from that of $\OO$:
+\begin{itemize}
+\item The short one: $M_n(x_1,\dots, x_n)=b_n(m_n;x_1,\dots, x_n)$
+\item The long one: $M_n(x_1,\dots, x_n)=\sum_{j\geq n}b_n(m_j;x_1,\dots, x_n)$
+\end{itemize}
+
+For both of them, $M_1(x)=[m,x]=\sum_{j\geq 1}b_1(m_j;x)+b_1(x;m_j)$. We can actually extend the above definition to $M_1$ instead, which is the first summand of the bracket, but if we want to use $M_1$ as the Hochschild differential, then we must to it as in this paragraph.
+
+This construction can be iterated to an $A_\infty$ structure on $C^*(\OO,\OO)$ with an analogue definition of maps $\overline{M}_i$ (again there will be two versions, short and long, but the short definition of $\overline{M}$ should correspond to the short definition of $M$ and the same for the long one).
+
+We have to make sure that $a(M_j)=j$ and $\deg(M_j)=2-j$, considering the operadic arity and the internal degree as those measured in $C^*(\OO,\OO)$. The first equality is clear. To show the second we compute $||M_j(x_1,\dots, x_j)||$ since the internal degree of $M_j$ depends on the grading of $\OO$, which we've defined a gradation on $\OO$ in terms of the total degree. To compute this quantity, let us define $M_j^l=b_j(m_l;x_1,\dots, x_j)$, which is a summand of $M_j(x_1,\dots, x_j)$. Now we have $a(M_j^l)=l-j+\sum_i a(x_i)$ and $\deg(M_j^l)=2-l+\sum_i \deg(x_i)$ (these are the operadic arity and internal degree in $\OO$), so $$||M_j^l||=2-j+\sum_i(a(x_i)+\deg(x_i))=2-j+\sum_i||x_i||,$$ which is independent of $l$, and therefore we see that $\deg(M_j)=2-j$.
+
+We can argue similarly about $\overline{M}_s$, so $a(\overline{M}_s)=s$ and $\deg(\overline{M}_s)=2-s$.\\
+
+Let $\Phi:\OO\to C^*(\OO,\OO)=\hom(\OO^*,\OO)$ be defined as $\Phi(x)=\sum_{n\geq 0}b_n(x;-)$, where $b_0(x)\in C^0(\OO,\OO)=\hom(k,\OO)$ is the ``nullary'' (because its operadic arity is 0) map that outputs $x$, i.e. that sends $1\in k\mapsto x$.  
+
+We may write $\Phi=\Phi_1+\Phi_2+\cdots$. Note that whatever is the arity of $x$, $\Phi_k(x)\in\CC^k(\OO,\OO)$. However, the internal degree of $\Phi_k$ depends of $x$: if $x\in\OO(n)_p$, then $\Phi_k(x)\in C^k_p(\OO,\OO)$, i.e. $\deg(\Phi_k)=\deg(x)$. 
+
+\subsection{Compositions involving $\Phi$}
+
+Consider now the compositión 
+
+\[
+\begin{tikzcd}
+\OO^{\otimes j}\arrow[r, "M_j"] & \OO=\prod_n\OO(n)\arrow[r,"\Phi"] &C^*=C^*(\OO,\OO)=\prod_n C^n(\OO,\OO)
+\end{tikzcd}
+\]
+
+Let us consider $M_j^l=b_j(m_l;x_1,\dots, x_j)$ again. We have that %$a(M_j^l)=l-j+\sum_i a(x_i)$, and that 
+$\deg(M_j^l)=2-l+\sum_i \deg(x_i)$. Then $\Phi_k(M_j^l)\in C^k_{2-l+\sum_i \deg(x_i)}$.
+
+Now consider the composition
+\[
+\begin{tikzcd}
+\OO^{\otimes j}\arrow[r,"\Phi^{\otimes j}"] &(C^*)^{\otimes j}\arrow[r, "\overline{M}_j"] & C^*
+\end{tikzcd}
+\]
+
+If we consider $\overline{M}_j(\Phi_{k_1}(x_1),\dots, \Phi_{k_j}(x_j))$, we may also split it into maps $\overline{M}_j^l(\Phi_{k_1,\dots, k_j})=b_j(M_l;\Phi_{k_1}(x_1),\dots, \Phi_{k_j}(x_j))$, for which the operadic arity is $l-j+k_1+\cdots+k_j$ and the internal degree is $2-l+\sum_i\deg(x_i)$. 
+
+As we see, the internal degree of $\overline{M}_j^l(\Phi_{k_1,\dots, k_j})$ matches that of $\Phi_k(M_j^l)$, but the arity of $\overline{M}_j^l(\Phi_{k_1,\dots, k_j})$ is $l-j+k_1+\cdots+k_j$, whilst the arity of $\Phi_k(M_j^l)$ is just $k$. We have to take that into account when proving that $\Phi$ is a morphism of $A_\infty$-algebras.
+
+This reasoning is valid for both the short and long definition of $M$, but for the short one simplifies to check the cases where $k=k_1+\dots+k_j$, which I already did in other file. Here it is clear the necessity of including $b_0(x)$ as part of the map $\Phi$, since otherwise we wouldn't ket for intance $1=k_1+\cdots+k_j$ for $j>1$. 
+
+\section{$\Phi$, $M_1$ and $\overline{M}_1$}
+
+To simplify this part, I'm going to consider the case where $m_i=0$ for $i>3$. The same kind of arguments should apply to the general case.
+
+Let us compute $\Phi(M_1(x))$ 
+
+$$\Phi(M_1(x))=\Phi([m,x])=\sum_j\Phi(b_1(m_j;x))+\sum_j\Phi(b_1(x;m_j))=$$
+$$\sum_j\sum_k b_k(b_1(m_j;x);-)+\sum_j\sum_k b_k(b_1(x;m_j);-)=A_1+A_2$$
+
+It is going to be convinient to split the sums so that we can easily treat each $m_j$ individually, so
+
+$$A_1=\sum_k (b_k(b_1(m_1;x);-)+b_k(b_1(m_2;x);-)+b_k(b_1(m_3;x);-))$$
+and
+$$A_2=\sum_k (b_k(b_1(x;m_1);-)+b_k(b_1(x;m_2);-)+b_k(b_1(x;m_3);-))$$
+
+Also note that $b_k(b_1(x;m_j);-)\in C^k_{2-j+\deg(x)}$ and the same is true for $b_k(b_1(m_j;x);-)$.
+
+Now applying the brace relation
+
+\begin{align*}
+A_1=&\sum_k ( b_1(m_1;b_k(x;-))+b_1(m_2;b_k(x;-))+b_2(m_2;-,b_{k-1}(x;-))+b_2(m_2;b_{k-1}(x;-),-)+\\
+&b_1(m_3;b_k(x;-))+b_2(m_3;-,b_{k-1}(x;-))+b_2(m_3;b_{k-1}(x;-),-)+\\
+& b_3(m_3;-,-,b_{k-2}(x;-))+b_3(m_3;-,b_{k-2}(x;-),-)+b_3(m_3;b_{k-2}(x;-),-,-)
+\end{align*}
+and
+$$A_2=$$
+
+
+Notice that $\Phi(M_1(x))$ does not depend on which definition (short of long) of $M_i$ we choose for $i>1$. But for $\overline{M}_1(\Phi(x))$ we will consider the two possible cases separately.
+
+\subsection{Short definition}
+
+Now we compute $\overline{M}_1(\Phi(x))$.
+
+$$\overline{M}_1(\Phi(x))=[M,\Phi(x)]=\sum_j b_1(M_j;\Phi(x))+\sum_j b_1(\Phi(x);M_j)$$
+
+Now we use that $b_1(M_j;\Phi(x))=\sum M_j(1,\dots, 1,\Phi(x),1,\dots, 1)$. But instead of 1's I'm writing spaces to make it clear that those empty places may receive arguments, so that the arities are those studied in the previous section. In our case we have
+
+$
+M_1(\Phi(x))=[m,\Phi(x)]=\sum_j b_1(m_j;\Phi(x))+\sum_j b_1(\Phi(x);m_j))=B_1+B_2
+$
+where
+
+\begin{align*}
+&B_1=\sum_j b_1(m_j;\Phi(x))=\sum_j\sum_k b_1(m_j;b_k(x;-))=\\
+&\sum_k(b_1(m_1;b_k(x;-))+b_1(m_2;b_k(x;-))+b_1(m_3;b_k(x;-)))
+\end{align*}
+and
+
+\begin{align*}
+&B_2=\sum_j b_1(\Phi(x);m_j))=\sum_j\sum_k b_1(b_k(x;-);m_j)=\\
+\end{align*}
+
+\begin{align*}
+&M_2(-,\Phi(x))+M_2(\Phi(x),-)=b_2(m_2;-,\Phi(x))+b_2(m_2;\Phi(x),-)=\\
+&\sum_k b_2(m_2; -,b_k(x;-))+\sum_k b_2(m_2;b_k(x;-),-)
+\end{align*}
+
+\begin{align*}
+&M_3(-,-,\Phi(x))+M_3(-,\Phi(x),-)+M_3(\Phi(x),-,-)=\\
+&b_3(m_3;-,-,\Phi(x))+b_3(m_3;-,\Phi(x),-)+b_3(m_3;\Phi(x),-,-)=\\
+&\sum_k (b_3(m_3; -,-,b_k(x;-))+ b_3(m_3;-,b_k(x;-),-)+b_3(m_3;b_k(x;-),-,-))
+\end{align*}
+\subsection{Long definition}
+\end{document}

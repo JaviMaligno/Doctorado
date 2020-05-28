@@ -14,7 +14,7 @@
 %--------------------------------------------------------
 \begin{document}
 
-\title{Proof}
+\title{Sign conventions}
 \author{Javier Aguilar Martín}
 \maketitle
 
@@ -172,7 +172,7 @@ Since $\varepsilon(d(x)y)=\varepsilon(xy)-1$, $m\{m\{x\},y\}$ has the same sign 
 %It can be defined in the first way so I can assume it is associative, but I have to say it explicitely
 
 
-As we can see $\varepsilon(xy)$ cancels so we get a condicion on the degrees, namely, $|m||m\{x,y\}|=|m||x|+|m||y|+1$. Taking into account that $|m||m|=1$, assuming distributiviy of the product, this rewrites nicely as 
+As we can see $\varepsilon(xy)$ cancels so we get a condition on the degrees, namely, $|m||m\{x,y\}|=|m||x|+|m||y|+1$. Taking into account that $|m||m|=1$, assuming distributiviy of the product, this rewrites nicely as 
 
 $$|m\{x,y\}|=|m|+|x|+|y|.$$
 
@@ -207,6 +207,7 @@ The proof of Lemma 3.2 in Derived Deligne Conjecture is correct (at least up to 
 
 \begin{lemma} The above choice turns $\mathcal{O}$ into an $A_\infty$-algebra.
 \end{lemma}
+IN THIS PROOF AND ITS EQUIVALENT IN THE GENERAL CASE WE SHOULD SEPARATE WHEN $M_1$ IS SOME OF THE MAPS BECAUSE IN THAT CASE IT IS DEFINED DIFFERENTLY
 \begin{proof}
 We need to show that $M\circ M=0$. 
 
@@ -231,7 +232,7 @@ The morphism $\Phi:\mathcal{O}=\prod_n\mathcal{O}(n)\to C^*(\mathcal{O},\mathcal
 \end{theorem}
 
 \begin{proof}
-Write $j_n$ for the arity %(degree? the definition of brace is in graded things, not things with arity, but in the hochschild complex the degree is given by the arity) 
+Let $n\geq 2$. Write $j_n$ for the arity %(degree? the definition of brace is in graded things, not things with arity, but in the hochschild complex the degree is given by the arity) 
 of $x_n$. 
 
 \[
@@ -248,6 +249,8 @@ where $i_p\leq j_p$. Note that since the arity of $m_n$ is $n$, there are no ter
 
 Since the arity of $M_n$ is $n$, at least up to sign, this equals
 $$\sum_{i_1+\cdots+i_n}b_n(m_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))$$
+
+%For $n=1$ $M_1$ and $\overline{M}$ are defined slightly differently, but we can use the argument above on each summand and that proves $\Phi(M_1)=\overline{M}_1(\Phi)$. 
 
 %I'LL ASK CONSTANZE TO CHECK THIS. I THINK I MUST (AND CAN) ASSUME THAT THE BRACE IS OF THE KIND OF BRACE IN THE ENDOMORPHISM OPERAD. BUT IF A SIGN COMES ALONG TO DISTINGUISH BETWEEN EVALUATION AND BRACE, THE THEOREM MIGHT NOT BE TRUE ANYMORE. GENERALISING IT TO THE USUAL STRUCTURE WILL BE PROBLEMATIC TOO.
 \end{proof}
