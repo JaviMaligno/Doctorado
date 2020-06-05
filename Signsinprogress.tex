@@ -533,188 +533,276 @@ So apparently there is no sign before evaluation. However, let us compute $\Phi(
 \end{align*}
 So there is a sign which by the way is not a Koszul sign since we are not evaluating.
 
-\section{More general perspective}
-We've been discussing signs from the perspective of the endomorphism operad, but let us figure out the signs in a general brace algebra. This way we might find other signs that suits as well and avoid the problems caused in the end.
-
-Let $|x|$ denote the degree of $x$ that is gonna be used on the sign ($|x|=a(x)+q(x)-1$ so far) and we write $|x||y|$ to mean a product which is not necessarily the product of integers but maybe some kind of dot product as in R-W. Before we studied the brace relation in the case of $m\{m\}\{x,y,z\}$ with the particular brace of the endomorphism operad. Let's now look at this without having any particular brace in mind. We have
-
-$$0=m\{m\}\{x,y,z\}=m\{m\{x,y\},z\}+(-1)^{|x||m|}m\{x,m\{y,z\}\}$$
-
-We want to define a product $x\cdot y=(-1)^{\varepsilon(x,y)}m\{x,y\}$ for which the brace relation above gives us associativity. Associativity means
-
-$$(-1)^{\varepsilon(x,y)+\varepsilon(xy,z)}m\{m\{x,y\},z\}=(-1)^{\varepsilon(x,yz)+\varepsilon(y,z)}m\{x,m\{y,z\}\}$$
-
-By the brace relation this implies $\mod 2$ 
-
-\begin{equation}\label{ass-sing}%\tag{5}
-\varepsilon(x,y)+\varepsilon(xy,z)=\varepsilon(x,yz)+\varepsilon(y,z)+|x||m|+1
-\end{equation}
-
-%Putting $y=0$ this means that $|x||m|=1\mod 2$. This can be achieve precisely with a dot product like that in R-W, i.e., for $|x|=a(x)+q(x)-1$ and $|y|=a(y)+q(y)-1$ we define $|x||y|=a(x)a(y)+q(x)q(y)+1$. In particular, $|x||m|=2a(x)+0q(x)+1=1$. 
+%\section{More general perspective}
+%We've been discussing signs from the perspective of the endomorphism operad, but let us figure out the signs in a general brace algebra. This way we might find other signs that suits as well and avoid the problems caused in the end.
 %
-%I NOT REALLY SURE HOW THIS FOLLOWS. IF $Y=0$ THEN THE EQUATION BECOMES $0=0$ AND WE CAN PUT WHATEVER SIGNS WE WANT. 
-
-Being $|x||m|=1$, we can simply choose $\varepsilon(x,y)=0$ for all $x,y$ and the brace equation implies associativity. We will test this sign further a bit later. But whatever sign we choose, it's not going to be an analogue to G-V sign for the following reason. In the sign equation given by associativity, since this sign only depends on the first argument, we have
-
-$$\varepsilon(x)+\varepsilon(xy)=\varepsilon(x)+\varepsilon(y)+|x||m|+1$$
-
-I THINK CONSTANZE FORGOT TO TAKE INTO ACCOUNT THE BRACE RELATION HERE, BECAUSE SHE DIDN'T WRITE $|X||M|+1$ actually it is assuming $|x||m|=1$ IN ADDITION I THINK THERE NOT NEED TO BE A 1 FOR THE PRODUCT (AND IN CASE THERE IS, $\varepsilon(1)=0$ NO? IN THAT CASE WE HAVE $\varepsilon(x)=|x||m|+1$ %(ALSO MENTION GETZLER WHERE THE PRODUCT IS DEFINED IN LEMMA 1.5 WITH THE SIGN DEPENDING ON THE FIRST ARGUMENT ONLY) WHICH NOT SO DISCOURAGING EVEN THOUGH IT DOESN'T FEEL SO TRUE
-
-THE BRACE EQUATION IN THE ENDORMORPHISM CASE DOES NOT DEPEND ON THE SIGN OF THE PRODUCT AND THE SIGN CHOSEN THERE WAS MADE SO THAT THE BRACE RELATION HOLDS. BUT IF $|X||M|=1$, THEN IT DOES NOT HOLD. 
-
-
-DOES IT STILL MAKE SENSE TO USE THE SIGN IN THE LIE BRACKET AS IN THE ENDOMORPHISM? IN THAT PARTICULAR CASE SHOULD BE THE SAME, BUT WITH DOT PRODUCT IS JUST 1. USING THE PREVIOUS SIGN THERE AND THE DOT PRODUCT IN THE BRACE RELATION I DON'T GET $D(D(X))=0$ (BECAUSE THE SIGN MUST BE CONSISTENT WITH THAT IN THE BRACE EQUATION, AND I'VE ALSO FOUND THAT IT IS NECESSARY THAT $|x||m|\equiv |m||m\circ x|+1$ WHICH IS NOT TRUE WITH THE DOT PRODUCT) OR THE LEIBNIZ RULE 
-
-OBVIOUSLY THE PRODDUCT ISSUE IS SOLVED SINCE THERE ARE NO SIGNS INVOLVED
-
-Let us define $d(x)=[m,x]=m\circ x-(-1)^{|x||m|}x\circ m$ and let's see what we need for this to be a diferential, i.e. $d^2=0$. 
-
-\begin{align*}
-&d(d(x))=d(m\circ x-(-1)^{|x||m|}x\circ m)=\\
-&m\circ (m\circ x)-(-1)^{|x||m|}m\circ(x\circ m)-(-1)^{|m||m\circ x|}(x\circ m)\circ m +(-1)^{|x||m|+|m||m\circ x|}(x\circ m)\circ m
-\end{align*}
-
-Using the brace relation and $m\circ m=0$:
-
-\begin{align*}
-(m\circ x)\circ m= m\{x,m\}+m\circ(x \circ m)+(-1)^{|m||x|}m\{m,x\}\\
-(x\circ m)\circ m=x\{m,m\}+x\circ (m\circ m)-x\{m,m\}=0
-\end{align*}
-In the last equation we have to assume $|m|\equiv 1$. Then $d(d(x))$ rewrites as
- \[
- m\circ (m\circ x)-(-1)^{|x||m|}m\circ(x\circ m)-(-1)^{|m||m\circ x|}(m\{x,m\}+m\circ(x \circ m)+(-1)^{|m||x|}m\{m,x\})
- \]
- We need $m\circ(x\circ m)$ to cancel, so we impose $|m||x|\equiv |m||m\circ x|+1$. This happens with my sign convention but not with a convention that implies $|m||x|=1$ for all $x$.
- 
- Now we use
- 
- $$0=m\{m\}\{x\}=m\{m,x\}+m\circ(m\circ x)+(-1)^{|m||x|}m\{x,m\}$$
- To get
- \[
--m\{m,x\}-(-1)^{|m||x|}m\{x,m\}-(-1)^{|m||m\circ x|}(m\{x,m\}+(-1)^{|m||x|}m\{m,x\}=0
- \]
- 
- Again, we're assuming  $|m||x|\equiv |m||m\circ x|+1$. WITH THE SIGN CONVENTION OF THE FOLLOWING DOT PRODUCT THIS EQUATION IS TRUE: $((a(x)-1)+q(x))((a(y)-1)+q(y))=(a(x)-1)(a(y)-1)+q(x)q(y)$ SO TRY THIS ONE TOO. THE REASON BEHIND THIS IS THAT THE $-1$ COMES FROM A SHIFT MAP AS WELL AS THE ARITY.
- 
-Before studying the associativity of the product, note that if we don't put any sign, we depend on $|m||x|=1$, which as we saw caused some problems. But in addition, we will see that the Leibniz rule can't be satisfied in the absence of any sign in front of $m$. First of all, it is natural to assume $|d(x)|=|x|+1$. In the Leibiz rule $d(xy)$ would yield a $-m\{m\{x\},y\}$ coming from the fact that $m\{m\{x,y\}\}=-m\{m\{x\},y\}-(-1)^{|m||x|}m\{x\{m\},y\}$ due to the brace relation. On the other hand, $d(x)y$ produces $m\{m\{x\},y\}$ with positive sign, so whatever sign we include in $xy=(-1)^{\varepsilon(xy)}m\{x,y\}$, it is necessary that $\varepsilon(xy)\equiv\varepsilon(d(x)y)-1$. There are a number of obvious ways to do this is by chosing $\varepsilon(xy)=|x|,|x|+1,|x|+|y|, |x|+|y|+1,\dots$ But using equation \ref{ass-sing} we can discard those like $|x|+|y|$ because we would find that $|m\{x,y\}|$ has to depend on $z$. So we will check $|x|$ and $|x|+1$, being open to other alternatives. With both signs we conclude $|m\{x,y\}|=|m||x|+|y|+1$. Since we want this sign to particularise as the sign in R-W, I would expect $|m||x|=|x|$, so $|m\{x,y\}|=|x|+|y|+1$, but I will use this as little as possible, since with different notions of $|x|$ it could also be the case that $|m||x|=|x|-1$ or anything different and still coincide with the particular numbers in R-W.
-
-ABOUT THE WEIRD LEIBNIZ RULE: IN G-V PAGE 5 BEFORE COROLLARY 5 THERES AN EQUATION THAT BECOMES MY LEIBNIZ RULE WITH $X=M$. I MIGHT TRY TO PROVE IT WITH MY THINGS
-
-WITH $|X|-1$ THE LEIBNIZ RULE IS THE SAME, WRITE IT WITH $|X|$ BUT ALSO TRY TO DO IT WITH A MORE GENERAL SIGN TO SEE IF SOMETHING ELSE CAN BE TRIED
-
-So now let's move to the Leibniz rule. I'm going to check it first for $\varepsilon(xy)=|x|$ (it is analogous for $|x|-1$) and then I will try to do it for a general $\varepsilon(xy)$ satisfying the differential and associativity conditions.
-
-\[
-d(xy)=(-1)^{|x|}d(m\{x,y\})=(-1)^{|x|}(m\{m\{x,y\}\}-(-1)^{|m||m\{x,y\}|}m\{x,y\}\{m\})
-\]
-In the last term we use the breace relation to produce
-\[
-d(xy)=(-1)^{|x|}(m\{m\{x,y\}\}-(-1)^{|m||m\{x,y\}|}(m\{x,y\{m\}\}+(-1)^{|m||y|}m\{x\{m\},y\}))
-\]
-
-Also use the brace relation to rewrite $m\{m\{x,y\}\}$ and produce
-
-\[
-d(xy)=(-1)^{|x|}(-m\{m\{x\},y\}-(-1)^{|m||x|}m\{x,m\{y\}\}-(-1)^{|m||m\{x,y\}|}(m\{x,y\{m\}\}+(-1)^{|m||y|}m\{x\{m\},y\}))
-\]
-
-Now compute
-\[
-d(x)y=(-1)^{|x|-1}(m\{m\{x\},y\}-(-1)^{|m||x|}m\{x\{m\},y\})
-\]
-and
-\[
-xd(y)=(-1)^{|x|}(m\{x,m\{y\}\}-(-1)^{|m||y|}m\{x,y\{m\}\})
-\]
-
-Direct comparison of the terms using that $|m\{x,y\}|=|m||x|+|y|-1$ (also recall that $|m|^2=|m|\mod 2$) by associativity and the necessary fact $|m|=1$ shows that $d(xy)=d(x)y+(-1)^{|x|-1}xd(y)$ (in particular we can't get rid of the minus sign there at least with any sign depending only on $x$, but this is a particular case of the derivation property of the bracket with respect to the product according to G-V page 11).
-
-There's not a lot to change if we use instead some other sign $\varepsilon(xy)$, so let's compare terms. Since $\varepsilon(d(x)y)=\varepsilon(xy)-1$, $m\{m\{x\},y\}$ has the same sign on both sides. For $m\{x\{m\},y\}$ we need 
-
-\[
-\varepsilon(xy)+|m||x|=|m||y|+|m||m\{x,y\}|-1+\varepsilon(xy)
-\]
-
-
-
-As we can see $\varepsilon(xy)$ cancels and we are left with the same as before and the equation holds iff $|m|=1$, which happens in the degrees we've been using. 
-
-Now for $m\{x,m\{y\}\}$ we have on one side $\varepsilon(xy)+|m||x|-1$ and on the other side $\varepsilon(xy)$, so the difference is always $|m||x|-1$ (indeed $|x|$ cause $|m|=1$, whatever sign we use. Similarly, for $m\{x,y\{m\}\}$ we have $\varepsilon(xy)+|m||m\{x,y\}|-1$ on the one side and $\varepsilon(xy)+|m||y|-1$. Now the difference is $|m|(|x|+1)$, but using $|m|=1$ we have the same difference as before.
+%Let $|x|$ denote the degree of $x$ that is gonna be used on the sign ($|x|=a(x)+q(x)-1$ so far) and we write $|x||y|$ to mean a product which is not necessarily the product of integers but maybe some kind of dot product as in R-W. Before we studied the brace relation in the case of $m\{m\}\{x,y,z\}$ with the particular brace of the endomorphism operad. Let's now look at this without having any particular brace in mind. We have
+%
+%$$0=m\{m\}\{x,y,z\}=m\{m\{x,y\},z\}+(-1)^{|x||m|}m\{x,m\{y,z\}\}$$
+%
+%We want to define a product $x\cdot y=(-1)^{\varepsilon(x,y)}m\{x,y\}$ for which the brace relation above gives us associativity. Associativity means
+%
+%$$(-1)^{\varepsilon(x,y)+\varepsilon(xy,z)}m\{m\{x,y\},z\}=(-1)^{\varepsilon(x,yz)+\varepsilon(y,z)}m\{x,m\{y,z\}\}$$
+%
+%By the brace relation this implies $\mod 2$ 
+%
+%\begin{equation}\label{ass-sing}%\tag{5}
+%\varepsilon(x,y)+\varepsilon(xy,z)=\varepsilon(x,yz)+\varepsilon(y,z)+|x||m|+1
+%\end{equation}
+%
+%%Putting $y=0$ this means that $|x||m|=1\mod 2$. This can be achieve precisely with a dot product like that in R-W, i.e., for $|x|=a(x)+q(x)-1$ and $|y|=a(y)+q(y)-1$ we define $|x||y|=a(x)a(y)+q(x)q(y)+1$. In particular, $|x||m|=2a(x)+0q(x)+1=1$. 
+%%
+%%I NOT REALLY SURE HOW THIS FOLLOWS. IF $Y=0$ THEN THE EQUATION BECOMES $0=0$ AND WE CAN PUT WHATEVER SIGNS WE WANT. 
+%
+%Being $|x||m|=1$, we can simply choose $\varepsilon(x,y)=0$ for all $x,y$ and the brace equation implies associativity. We will test this sign further a bit later. But whatever sign we choose, it's not going to be an analogue to G-V sign for the following reason. In the sign equation given by associativity, since this sign only depends on the first argument, we have
+%
+%$$\varepsilon(x)+\varepsilon(xy)=\varepsilon(x)+\varepsilon(y)+|x||m|+1$$
+%
+%I THINK CONSTANZE FORGOT TO TAKE INTO ACCOUNT THE BRACE RELATION HERE, BECAUSE SHE DIDN'T WRITE $|X||M|+1$ actually it is assuming $|x||m|=1$ IN ADDITION I THINK THERE NOT NEED TO BE A 1 FOR THE PRODUCT (AND IN CASE THERE IS, $\varepsilon(1)=0$ NO? IN THAT CASE WE HAVE $\varepsilon(x)=|x||m|+1$ %(ALSO MENTION GETZLER WHERE THE PRODUCT IS DEFINED IN LEMMA 1.5 WITH THE SIGN DEPENDING ON THE FIRST ARGUMENT ONLY) WHICH NOT SO DISCOURAGING EVEN THOUGH IT DOESN'T FEEL SO TRUE
+%
+%THE BRACE EQUATION IN THE ENDORMORPHISM CASE DOES NOT DEPEND ON THE SIGN OF THE PRODUCT AND THE SIGN CHOSEN THERE WAS MADE SO THAT THE BRACE RELATION HOLDS. BUT IF $|X||M|=1$, THEN IT DOES NOT HOLD. 
+%
+%
+%DOES IT STILL MAKE SENSE TO USE THE SIGN IN THE LIE BRACKET AS IN THE ENDOMORPHISM? IN THAT PARTICULAR CASE SHOULD BE THE SAME, BUT WITH DOT PRODUCT IS JUST 1. USING THE PREVIOUS SIGN THERE AND THE DOT PRODUCT IN THE BRACE RELATION I DON'T GET $D(D(X))=0$ (BECAUSE THE SIGN MUST BE CONSISTENT WITH THAT IN THE BRACE EQUATION, AND I'VE ALSO FOUND THAT IT IS NECESSARY THAT $|x||m|\equiv |m||m\circ x|+1$ WHICH IS NOT TRUE WITH THE DOT PRODUCT) OR THE LEIBNIZ RULE 
+%
+%OBVIOUSLY THE PRODDUCT ISSUE IS SOLVED SINCE THERE ARE NO SIGNS INVOLVED
+%
+%Let us define $d(x)=[m,x]=m\circ x-(-1)^{|x||m|}x\circ m$ and let's see what we need for this to be a diferential, i.e. $d^2=0$. 
+%
+%\begin{align*}
+%&d(d(x))=d(m\circ x-(-1)^{|x||m|}x\circ m)=\\
+%&m\circ (m\circ x)-(-1)^{|x||m|}m\circ(x\circ m)-(-1)^{|m||m\circ x|}(x\circ m)\circ m +(-1)^{|x||m|+|m||m\circ x|}(x\circ m)\circ m
+%\end{align*}
+%
+%Using the brace relation and $m\circ m=0$:
+%
+%\begin{align*}
+%(m\circ x)\circ m= m\{x,m\}+m\circ(x \circ m)+(-1)^{|m||x|}m\{m,x\}\\
+%(x\circ m)\circ m=x\{m,m\}+x\circ (m\circ m)-x\{m,m\}=0
+%\end{align*}
+%In the last equation we have to assume $|m|\equiv 1$. Then $d(d(x))$ rewrites as
+% \[
+% m\circ (m\circ x)-(-1)^{|x||m|}m\circ(x\circ m)-(-1)^{|m||m\circ x|}(m\{x,m\}+m\circ(x \circ m)+(-1)^{|m||x|}m\{m,x\})
+% \]
+% We need $m\circ(x\circ m)$ to cancel, so we impose $|m||x|\equiv |m||m\circ x|+1$. This happens with my sign convention but not with a convention that implies $|m||x|=1$ for all $x$.
+% 
+% Now we use
+% 
+% $$0=m\{m\}\{x\}=m\{m,x\}+m\circ(m\circ x)+(-1)^{|m||x|}m\{x,m\}$$
+% To get
+% \[
+%-m\{m,x\}-(-1)^{|m||x|}m\{x,m\}-(-1)^{|m||m\circ x|}(m\{x,m\}+(-1)^{|m||x|}m\{m,x\}=0
+% \]
+% 
+% Again, we're assuming  $|m||x|\equiv |m||m\circ x|+1$. WITH THE SIGN CONVENTION OF THE FOLLOWING DOT PRODUCT THIS EQUATION IS TRUE: $((a(x)-1)+q(x))((a(y)-1)+q(y))=(a(x)-1)(a(y)-1)+q(x)q(y)$ SO TRY THIS ONE TOO. THE REASON BEHIND THIS IS THAT THE $-1$ COMES FROM A SHIFT MAP AS WELL AS THE ARITY.
+% 
+%Before studying the associativity of the product, note that if we don't put any sign, we depend on $|m||x|=1$, which as we saw caused some problems. But in addition, we will see that the Leibniz rule can't be satisfied in the absence of any sign in front of $m$. First of all, it is natural to assume $|d(x)|=|x|+1$. In the Leibiz rule $d(xy)$ would yield a $-m\{m\{x\},y\}$ coming from the fact that $m\{m\{x,y\}\}=-m\{m\{x\},y\}-(-1)^{|m||x|}m\{x\{m\},y\}$ due to the brace relation. On the other hand, $d(x)y$ produces $m\{m\{x\},y\}$ with positive sign, so whatever sign we include in $xy=(-1)^{\varepsilon(xy)}m\{x,y\}$, it is necessary that $\varepsilon(xy)\equiv\varepsilon(d(x)y)-1$. There are a number of obvious ways to do this is by chosing $\varepsilon(xy)=|x|,|x|+1,|x|+|y|, |x|+|y|+1,\dots$ But using equation \ref{ass-sing} we can discard those like $|x|+|y|$ because we would find that $|m\{x,y\}|$ has to depend on $z$. So we will check $|x|$ and $|x|+1$, being open to other alternatives. With both signs we conclude $|m\{x,y\}|=|m||x|+|y|+1$. Since we want this sign to particularise as the sign in R-W, I would expect $|m||x|=|x|$, so $|m\{x,y\}|=|x|+|y|+1$, but I will use this as little as possible, since with different notions of $|x|$ it could also be the case that $|m||x|=|x|-1$ or anything different and still coincide with the particular numbers in R-W.
+%
+%ABOUT THE WEIRD LEIBNIZ RULE: IN G-V PAGE 5 BEFORE COROLLARY 5 THERES AN EQUATION THAT BECOMES MY LEIBNIZ RULE WITH $X=M$. I MIGHT TRY TO PROVE IT WITH MY THINGS
+%
+%WITH $|X|-1$ THE LEIBNIZ RULE IS THE SAME, WRITE IT WITH $|X|$ BUT ALSO TRY TO DO IT WITH A MORE GENERAL SIGN TO SEE IF SOMETHING ELSE CAN BE TRIED
+%
+%So now let's move to the Leibniz rule. I'm going to check it first for $\varepsilon(xy)=|x|$ (it is analogous for $|x|-1$) and then I will try to do it for a general $\varepsilon(xy)$ satisfying the differential and associativity conditions.
+%
+%\[
+%d(xy)=(-1)^{|x|}d(m\{x,y\})=(-1)^{|x|}(m\{m\{x,y\}\}-(-1)^{|m||m\{x,y\}|}m\{x,y\}\{m\})
+%\]
+%In the last term we use the breace relation to produce
+%\[
+%d(xy)=(-1)^{|x|}(m\{m\{x,y\}\}-(-1)^{|m||m\{x,y\}|}(m\{x,y\{m\}\}+(-1)^{|m||y|}m\{x\{m\},y\}))
+%\]
+%
+%Also use the brace relation to rewrite $m\{m\{x,y\}\}$ and produce
+%
+%\[
+%d(xy)=(-1)^{|x|}(-m\{m\{x\},y\}-(-1)^{|m||x|}m\{x,m\{y\}\}-(-1)^{|m||m\{x,y\}|}(m\{x,y\{m\}\}+(-1)^{|m||y|}m\{x\{m\},y\}))
+%\]
+%
+%Now compute
+%\[
+%d(x)y=(-1)^{|x|-1}(m\{m\{x\},y\}-(-1)^{|m||x|}m\{x\{m\},y\})
+%\]
+%and
+%\[
+%xd(y)=(-1)^{|x|}(m\{x,m\{y\}\}-(-1)^{|m||y|}m\{x,y\{m\}\})
+%\]
+%
+%Direct comparison of the terms using that $|m\{x,y\}|=|m||x|+|y|-1$ (also recall that $|m|^2=|m|\mod 2$) by associativity and the necessary fact $|m|=1$ shows that $d(xy)=d(x)y+(-1)^{|x|-1}xd(y)$ (in particular we can't get rid of the minus sign there at least with any sign depending only on $x$, but this is a particular case of the derivation property of the bracket with respect to the product according to G-V page 11).
+%
+%There's not a lot to change if we use instead some other sign $\varepsilon(xy)$, so let's compare terms. Since $\varepsilon(d(x)y)=\varepsilon(xy)-1$, $m\{m\{x\},y\}$ has the same sign on both sides. For $m\{x\{m\},y\}$ we need 
+%
+%\[
+%\varepsilon(xy)+|m||x|=|m||y|+|m||m\{x,y\}|-1+\varepsilon(xy)
+%\]
+%
+%
+%
+%As we can see $\varepsilon(xy)$ cancels and we are left with the same as before and the equation holds iff $|m|=1$, which happens in the degrees we've been using. 
+%
+%Now for $m\{x,m\{y\}\}$ we have on one side $\varepsilon(xy)+|m||x|-1$ and on the other side $\varepsilon(xy)$, so the difference is always $|m||x|-1$ (indeed $|x|$ cause $|m|=1$, whatever sign we use. Similarly, for $m\{x,y\{m\}\}$ we have $\varepsilon(xy)+|m||m\{x,y\}|-1$ on the one side and $\varepsilon(xy)+|m||y|-1$. Now the difference is $|m|(|x|+1)$, but using $|m|=1$ we have the same difference as before.
 
 \section{Generalization to $A_\infty$-algebras}
 
-\subsection{Alternative simpler structure}
-I propose as an alternative to the $A_\infty$-structre in the Derived Deligne Conjecture (and also G-V), a simpler family of maps: $M_n(x_1,\dots, x_n)=m_n\{x_1,\dots, x_n\}=b_n(m_n;x_1,\dots, x_n)$. Which is just the last term of the sum taking place in the references.
+On an operad $\OO$ with $A_\infty$-multiplication $m=m_1+m_2+\cdots$ define an $A_\infty$-algebra structure give by
 
-The proof of Lemma 3.2 in Derived Deligne Conjecture is correct (at least up to signs), so I'm going to prove it just for the simplification (up to signs, as everything in this subsection).
+$$M_n(x_1,\dots, x_n)=m\{x_1,\dots, x_n\}=\sum_{j\geq n}b_n(m_j;x_1,\dots, x_n)$$
+for $n>1$ and 
 
-\begin{lemma} The above choice turns $\mathcal{O}$ into an $A_\infty$-algebra.
-\end{lemma}
-\begin{proof}
-We need to show that $M\circ M=0$. 
+$$M_1(x)=[m,x]=m\circ x -(-1)^{|x|}x\circ m=\sum_{j\geq 1} b_1(m_j;x)-(-1)^{|x|}\sum_{j\geq 1}b_1(x;m_j)$$
 
-\[
-\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}M_p(x_1,\dots, x_i, M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
-\]
-\[
-\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}b_p(m_p; x_1,\dots, x_i, b_q(m_q;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
-\]
-\[
-\sum_{k,p,q}b_k(b_1(m_p;m_q);x_1,\dots, x_k)=0
-\]
-because $\sum_{p,q}b_1(m_p;m_q)=0$ since $m\circ m=0$.
-
-IN THIS SIMPLER CASE I THINK IT CAN BE PROVED MORE DIRECTLY SINCE $M\circ M$ iff $\sum M_i\circ M_j=0$ iff $\sum m_i\circ m_j=0$. 
-\end{proof}
-
-The following theorem is not fully proved in the general case. This simpler case could serve as a base case, so let's try to prove it.
-
-\begin{theorem}
-The morphism $\Phi:\mathcal{O}=\prod_n\mathcal{O}(n)\to C^*(\mathcal{O},\mathcal{O})$ defined by $\Phi(x)=\sum b_n(x;-)$ is a (strict) morphism of $A_\infty$-algebras. 
-\end{theorem}
-
-\begin{proof}
-Write $j_n$ for the arity (degree? the definition of brace is in graded things, not things with arity, but in the hochschild complex the degree is given by the arity) of $x_n$. 
-
-\[
-\Phi(M_n(x_1,\dots, x_n))=\Phi(m_n\{x_1,\dots, x_n\})=\sum_i b_i(b_n(m_n;x_1,\dots, x_n);-)=
-\]
-\[
-\sum_{i=i_1+\cdots+i_n}b_n(m_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))
-\]
-where $i_p\leq j_p$. Note that since the arity of $m_n$ is $n$, there are no terms inserted between the $x_p$'s.
-
-\[
-\overline{M}_n(\Phi(x_1),\dots, \Phi(x_n))=\sum_{i_1+\cdots+i_n}\overline{M}_n(b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))=\sum_{i_1+\cdots+i_n}b_n(M_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))
-\] 
-
-Since the arity of $M_n$ is $n$, at least up to sign, this equals
-$$\sum_{i_1+\cdots+i_n}b_n(m_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))$$
-
-I'LL ASK CONSTANZE TO CHECK THIS. I THINK I MUST (AND CAN) ASSUME THAT THE BRACE IS OF THE KIND OF BRACE IN THE ENDOMORPHISM OPERAD. BUT IF A SIGN COMES ALONG TO DISTINGUISH BETWEEN EVALUATION AND BRACE, THE THEOREM MIGHT NOT BE TRUE ANYMORE. GENERALISING IT TO THE USUAL STRUCTURE WILL BE PROBLEMATIC TOO.
-\end{proof}
-
-\subsection{Things with signs}
-IN LEMMA 3.2 DON'T FORGET THE SIGN OF THE KOSZUL RULE WHEN EVALUATING, THIS PROBABLY CANCELS THE SIGNS IN THE BRACE RELATION
-
-I'm going to add the signs to the proof of Lemman 2.3 in the original setting (for the simplified version it is analogous).
-
+Let us denote $M=M_1+M_2+\cdots$.
 \begin{lemma}
+$M\circ M=0$. 
 \end{lemma}
-\begin{proof}
-In the first line we omit any signs because the maps $M_s$ are not homogeneous.
-\[
-\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}M_p(x_1,\dots, x_i, M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
-\]
-\[
-\underset{0\leq i\leq k, s\geq p,t\geq q}{\sum_{p,q,k=p+q-1}}(-1)^{|m_t|\sum_{j=1}^i|x_j|}b_p(m_s;x_1,\dots, x_i, b_q(m_t;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)
-\]
-The sign above is precisely the koszul sign in the brace relation so this does indeed equal to 
+\begin{proof}[Proof without signs]
+Conceptually, this is the same proof Getzler gave, but this one is more detailed (except for the signs, that will come later).
 
-\[
-\sum_{k,s,t}b_k(b_1(m_s;m_t);x_1,\dots, x_k)=0.
-\]
+We already know that $M_1\circ M_1=[m,[m,-]]=0$, so let $k>1$ and let's compute $(M\circ M)(x_1,\dots, x_k)$. This equals
+
+\begin{align*}
+\sum_{p+q-1=k,0\leq i\leq k-1}M_p(x_1,\dots, x_i,M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
+\\
+M_1(M_k(x_1,\dots, x_k))+\sum_{0\leq i\leq k-1}M_k(x_1,\dots, x_i,M_1(x_{i+1}),x_{i+2},\dots, x_k)+\\\sum_{p,q>1,p+q-1=k,0\leq i\leq k-1}M_p(x_1,\dots, x_i,M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)
+\end{align*}
+
+Let us develop the last summand in the same way it is done in The Derived Deligne conjecture. 
+
+\begin{align*}
+S:=\underset{p,q>1}{\sum_{p+q-1=k,0\leq i\leq k-1}}M_p(x_1,\dots, x_i,M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=\\
+\underset{s\geq p, t\geq q,p,q>1}{\sum_{p+q-1=k,0\leq i\leq k-1}}b_p(m_s;x_1,\dots, x_i,b_q(m_t;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)
+\end{align*}
+
+Now focuts on the first two summands. The first one is
+
+\begin{align*}
+M_1(M_k(x_1,\dots, x_k))=[m, \sum_{t\geq k}b_k(m_t;x_1,\dots, x_k)]=A_1+B_1
+\end{align*}
+where
+
+$$A_1=\sum_{s\geq 1,t\geq k}b_1(m_s;b_k(m_t;x_1,\dots, x_k))$$
+
+and
+
+$$B_1=\sum_{s\geq 1,t\geq k}b_1(b_k(m_t;x_1,\dots,x_k);m_s))$$
+
+The second summand was 
+\begin{align*}
+\sum_{0\leq i\leq k-1}M_k(x_1,\dots, x_i,M_1(x_{i+1}),x_{i+2},\dots, x_k)&=\\
+\sum_{0\leq i\leq k-1}M_k(x_1,\dots, x_i,m\circ x_{i+1},x_{i+2},\dots, x_k)&+\sum_{0\leq i\leq k-1}M_k(x_1,\dots, x_i,x_{i+1}\circ m,x_{i+2},\dots, x_k)=\\
+\underset{s\geq k, t\geq 1}{\sum_{0\leq i\leq k-1}}b_k(m_s;x_1,\dots, x_i,b_1(m_t; x_{i+1}),x_{i+2},\dots, x_k)&+\underset{s\geq k, t\geq 1}{\sum_{0\leq i\leq k-1}}b_k(m_s;x_1,\dots, x_i,b_1(x_{i+1};m_t),x_{i+2},\dots, x_k)=\\
+A_2&+B_2
+\end{align*}
+
+We can now add $S+A_1+A_2$ to get what we had in the Derived Deligne conjecture:
+
+$$\underset{0\leq i\leq k-1,s\geq p,t\geq q}{\sum_{p,q,k=p+q-1}}b_p(m_s;x_1,\dots, x_i,b_q(m_t;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)$$
+
+but note that we cannot apply yet the brace relation, since when $q=0$ the above sum is 0 (because we haven't defined $M_0$, and if we did, it is usally defined to be 0), so we don't have the terms of the brace relation where nothing is inserted in $m_t$. However, if we sum $B_1+B_2$ and use the brace relation, we have precisely
+
+$$\sum_{0\leq i\leq k}b_{k+1}(m_s;x_1,\dots, x_i,m_t,x_{i+1},\dots, x_k)$$
+
+So now $S+A_1+A_2+B_1+B_2$ is indeed
+
+$$\sum_{s,t}b_k(b_1(m_s;m_t);x_1,\dots, x_k)=0.$$
 \end{proof}
+\begin{proof}[Proof with some signs]
+%Now we add the signs than come from the Koszul rule (including the brace relation). Not including any sign that could come from the definition of the braces in the endomorphism operad. IF I STAY AT THE LEVEL OF BRACES AND I DON'T EVALUATE, NO ENDOMORPHISM SIGNS WILL APPEAR. I AM FORCED TO USE EVALUATION AFTER THE CIRCLE, BUT THAT SIGN MUST BE THE SAME OF R-W SO I WILL ALOW MYSELF TO PUT THAT SIGN AFTERWARDS 
 
-IN THE PROOF OF THEOREM 2.7 I GUESS THE SIGN USED FOR THE PRODUCT AND THE DIFFERENTIAL IN THE HOCHSCHILD COMPLEX IS THE ONE COMING FROM THE ENDOMORPHISM CASE, BUT I'LL TRY TO DO IT WITHOUT ASSUMING ANY PARTICULAR VALUE, PROBABLY I SHOULD ALSO CHECK WHAT SIGNS I NEED IN THE SAME WAY I DID WITH M IN ORDER TO GET A DGA IN C(A,A)
+I CAN DO IT WITH ONLY THE KOSZUL SIGNS (INCLUDING BRACE RELATION), WHICH IS BASICALLY GETZLER, SO I THE EQUALITY IN THAT CASE HOLDS BECAUSE THE SIGNS IN GETZLER ARE CORRECT (remember $|m|=1$ and that the sign in the term with a minus sign in front should be given but the $D_i$ that are not there, so multiplying buy the sign in front of the last summand gives the signs you want)
+
+OR I CAN DO IT WITH ALSO THE SIGN OF THE CIRCLE OPERATION, WHICH IN THIS CASE IS EXACTLY THE $A_\infty$ SIGNT $RS+T$. FOR THAT, RECALL THAT NOW $m\circ m$ IS NOT JUST THE INSERTION BUT ALSO THAT SIGN. FOR THE SIGNS THAT ARE NOT EXACTLY THAT (COMING FROM $M_1$) JUST APPLY THE SIGN IN R-W. 
+
+
+The proof including only Koszul signs coming from evaluation is simply Getzler's proof, so the focus is now on the signs that appear on the definition of $\circ$ in the case of the endomorphism operad (which is the sign that we use in any operad of graded vector spaces). So this time I'm going to start with Getzler's approach but evaluating in everything in $1$ I MIGHT CHANGE THIS AND EVALUATE IN ARBITRARY ELEMENTS, so that the $A_\infty$ relation appears as it is usually stated. Then, for a fixed $k$ and each decomposition $k=r+s+t$
+
+\begin{align*}
+(M\circ M)(1^k)=&\sum_{r,t\geq 0, s\geq 1}(-1)^{rs+t}M_{r+1+t}(1^{ r}, M_s(1^{s}),1^t)=\\
+&\sum_{i\geq 1+r+t}\sum_{j\geq s}\sum_{r,t\geq 0, s\geq 1}(-1)^{rs+t}b_{r+1+t}(m_i;1^{ r}, b_s(m_j;1^{s}),1^t)+\\
+&\sum_{i\geq 1+r+t}\sum_{j\geq 1}\sum_{r,t\geq 0}(-1)^{r+t}b_{r+1+t}(m_i;1^{r}, b_1(1;m_j),1^t)+\\
+&\sum_{i\geq 1}\sum_{j\geq s}\sum_{s\geq 1}b_{1}(b_s(m_j;1^{s});m_i)
+\end{align*}
+
+TO BE CONTINUED
+
+NOW THE SUM OF THE LAST TWO TERMS IS NOT THE SAME AS IN THE PROOF WITHOUT SIGNS BECAUSE OF $(-1)^{r+t}$. THIS REMINDS ME OF THE SIGN THAT WE NEEDED IN $m_2$ TO MAKE IT AN ASSOCIATIVE PRODUCT, BUT I'M NOT SURE THAT THIS IS THE SAME KIND OF PROBLEM.
+
+IN ADDITION, THE SIGN $(-1)^{rs+t}$ AFFECTS $m_j$ FOR $j\geq s$ SO THIS DOESN'T LOOK LIKE WHAT I SHOULD GET
+\end{proof}
+%\subsection{Alternative simpler structure}
+%THIS TURNED OUT TO BE WRONG 
+%
+%I propose as an alternative to the $A_\infty$-structre in the Derived Deligne Conjecture (and also G-V), a simpler family of maps: $M_n(x_1,\dots, x_n)=m_n\{x_1,\dots, x_n\}=b_n(m_n;x_1,\dots, x_n)$. Which is just the last term of the sum taking place in the references.
+%
+%The proof of Lemma 3.2 in Derived Deligne Conjecture is correct (at least up to signs), so I'm going to prove it just for the simplification (up to signs, as everything in this subsection).
+%
+%\begin{lemma} The above choice turns $\mathcal{O}$ into an $A_\infty$-algebra.
+%\end{lemma}
+%\begin{proof}
+%We need to show that $M\circ M=0$. 
+%
+%\[
+%\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}M_p(x_1,\dots, x_i, M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
+%\]
+%\[
+%\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}b_p(m_p; x_1,\dots, x_i, b_q(m_q;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
+%\]
+%\[
+%\sum_{k,p,q}b_k(b_1(m_p;m_q);x_1,\dots, x_k)=0
+%\]
+%because $\sum_{p,q}b_1(m_p;m_q)=0$ since $m\circ m=0$.
+%
+%IN THIS SIMPLER CASE I THINK IT CAN BE PROVED MORE DIRECTLY SINCE $M\circ M$ iff $\sum M_i\circ M_j=0$ iff $\sum m_i\circ m_j=0$. 
+%\end{proof}
+%
+%The following theorem is not fully proved in the general case. This simpler case could serve as a base case, so let's try to prove it.
+%
+%\begin{theorem}
+%The morphism $\Phi:\mathcal{O}=\prod_n\mathcal{O}(n)\to C^*(\mathcal{O},\mathcal{O})$ defined by $\Phi(x)=\sum b_n(x;-)$ is a (strict) morphism of $A_\infty$-algebras. 
+%\end{theorem}
+%
+%\begin{proof}
+%Write $j_n$ for the arity (degree? the definition of brace is in graded things, not things with arity, but in the hochschild complex the degree is given by the arity) of $x_n$. 
+%
+%\[
+%\Phi(M_n(x_1,\dots, x_n))=\Phi(m_n\{x_1,\dots, x_n\})=\sum_i b_i(b_n(m_n;x_1,\dots, x_n);-)=
+%\]
+%\[
+%\sum_{i=i_1+\cdots+i_n}b_n(m_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))
+%\]
+%where $i_p\leq j_p$. Note that since the arity of $m_n$ is $n$, there are no terms inserted between the $x_p$'s.
+%
+%\[
+%\overline{M}_n(\Phi(x_1),\dots, \Phi(x_n))=\sum_{i_1+\cdots+i_n}\overline{M}_n(b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))=\sum_{i_1+\cdots+i_n}b_n(M_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))
+%\] 
+%
+%Since the arity of $M_n$ is $n$, at least up to sign, this equals
+%$$\sum_{i_1+\cdots+i_n}b_n(m_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))$$
+%
+%I'LL ASK CONSTANZE TO CHECK THIS. I THINK I MUST (AND CAN) ASSUME THAT THE BRACE IS OF THE KIND OF BRACE IN THE ENDOMORPHISM OPERAD. BUT IF A SIGN COMES ALONG TO DISTINGUISH BETWEEN EVALUATION AND BRACE, THE THEOREM MIGHT NOT BE TRUE ANYMORE. GENERALISING IT TO THE USUAL STRUCTURE WILL BE PROBLEMATIC TOO.
+%\end{proof}
+%
+%\subsection{Things with signs}
+%IN LEMMA 3.2 DON'T FORGET THE SIGN OF THE KOSZUL RULE WHEN EVALUATING, THIS PROBABLY CANCELS THE SIGNS IN THE BRACE RELATION
+%
+%I'm going to add the signs to the proof of Lemman 2.3 in the original setting (for the simplified version it is analogous).
+%
+%\begin{lemma}
+%THIS TURNED OUT TO BE WRONG
+%\end{lemma}
+%\begin{proof}
+%In the first line we omit any signs because the maps $M_s$ are not homogeneous.
+%\[
+%\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}M_p(x_1,\dots, x_i, M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
+%\]
+%\[
+%\underset{0\leq i\leq k, s\geq p,t\geq q}{\sum_{p,q,k=p+q-1}}(-1)^{|m_t|\sum_{j=1}^i|x_j|}b_p(m_s;x_1,\dots, x_i, b_q(m_t;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)
+%\]
+%The sign above is precisely the koszul sign in the brace relation so this does indeed equal to 
+%
+%\[
+%\sum_{k,s,t}b_k(b_1(m_s;m_t);x_1,\dots, x_k)=0.
+%\]
+%\end{proof}
+%
+%IN THE PROOF OF THEOREM 2.7 I GUESS THE SIGN USED FOR THE PRODUCT AND THE DIFFERENTIAL IN THE HOCHSCHILD COMPLEX IS THE ONE COMING FROM THE ENDOMORPHISM CASE, BUT I'LL TRY TO DO IT WITHOUT ASSUMING ANY PARTICULAR VALUE, PROBABLY I SHOULD ALSO CHECK WHAT SIGNS I NEED IN THE SAME WAY I DID WITH M IN ORDER TO GET A DGA IN C(A,A)
 \end{document}

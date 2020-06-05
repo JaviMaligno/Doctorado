@@ -122,7 +122,7 @@ where
 and
 
 \begin{align*}
-&B_2=\sum_j b_1(\Phi(x);m_j))=\sum_j\sum_k b_1(b_k(x;-);m_j)=\\
+&B_2=\sum_j b_1(\Phi(x);m_j))=\sum_j\sum_k b_1(b_k(x;-);m_j)
 \end{align*}
 
 We also have
@@ -137,7 +137,7 @@ and
 &\sum_k (b_3(m_3; -,-,b_k(x;-))+ b_3(m_3;-,b_k(x;-),-)+b_3(m_3;b_k(x;-),-,-))
 \end{align*}
 
-We still have one sum left, which is $\sum_j b_1(\Phi(x);M_j)$ coming from $[M_j,\Phi(x)]$, but I'm not treating that now.
+We still have one sum left, which is $\sum_j b_1(\Phi(x);M_j)$ coming from $[M,\Phi(x)]$, but I'm not treating that now.
 
 \subsubsection{Comparing sides}
 Let's now compare terms from $\Phi(M_1(x))$ with terms from $\overline{M}_1(\Phi(x))$. For now I'm comparing only  those where things are being inserted in some $m_i$, i.e terms of the form $b_k(m_i;something)$ (or maybe sums where $i$ is fixed). In $\Phi(M_1(x))$, the only such term involving $m_1$ is $\sum_k b_1(m_1;b_k(x;-))$. This is also the only such term involving $m_1$ in $\overline{M}_1(\Phi(x))$ so we're good. Now let's move to those involving $m_2$. 
@@ -166,7 +166,7 @@ Now we compute $\overline{M}_1(\Phi(x))$.
 
 $$\overline{M}_1(\Phi(x))=[M,\Phi(x)]=\sum_j b_1(M_j;\Phi(x))+\sum_j b_1(\Phi(x);M_j)$$
 
-We proceed in a similar fashion as in the short definition. Note that $M_1$ is the same for both of them, get the same $B_1+B_1$. I'll just write here $B_1$.
+We proceed in a similar fashion as in the short definition. Note that $M_1$ is the same for both of them, we get the same $B_1+B_2$. I'll just write here $B_1$.
 
 $$B_1=\sum_k(b_1(m_1;b_k(x;-))+b_1(m_2;b_k(x;-))+b_1(m_3;b_k(x;-)))$$
 
@@ -191,5 +191,62 @@ In this case, since we're assuming $m_i=0$ for $i>3$, we have the same $M_3$, an
 
 Since everything is the same as in the short definition with the exception of adding $b_2(m_3;\Phi(x),-)$ and $b_2(m_3;b_k(x;-),-)$, which were missing before, this seems to be the correct definition, although there are still some parts to be checked.
 
+\subsection{Last part}
+Now that we know that we have to use the long definition, we may finish the -up to signs- proof of $\Phi(M_1(x))=\overline{M}_1(\Phi(x))$. We're left with the terms where things are being inserted in $x$. 
+
+From $\Phi(M_1(x))$ we have only
+
+$$A_2=\sum_k (b_k(b_1(x;m_1);-)+b_k(b_1(x;m_2);-)+b_k(b_1(x;m_3);-)).$$
+
+
+From $\overline{M}_1(\Phi(x))$ we have
+
+$$B_2=\sum_j b_1(\Phi(x);m_j))=\sum_j\sum_k b_1(b_k(x;-);m_j)$$
+
+and
+
+\begin{align*}
+\sum_jb_1(\Phi(x);M_j)=&\sum_k (b_1(b_k(x;-);M_1(-))+b_1(b_k(x;-);M_2(-))+b_1(b_k(x;-);M_3(-)))=\\
+&\sum_k (D_1+D_2+D_3)
+\end{align*}
+
+Now we evaluate $D_1$, $D_2$ and $D_3$ on the corresponding amount of arguments to make them more explicit. For $k\geq 1$ we have
+
+\begin{align*}
+D_1(z_1,\dots, z_{k})=(\sum b_k(x;-,M_1(-),-))&(z_1,\dots, z_{k})=\sum_i b_k(x;z_1,\dots, z_i,M_1(z_{i+1}),\dots, z_{k})=\\
+&E_1+E_2
+\end{align*}
+where
+
+\begin{align*}
+E_1=\sum_i(b_k(x;z_1,\dots, z_i,b_1(m_1;z_{i+1}),\dots, z_{k})+b_k(x;z_1,\dots, z_i,b_1(m_2;z_{i+1}),\dots, z_{k})+\\b_k(x;z_1,\dots, z_i,b_1(m_3;z_{i+1}),\dots, z_{k}))
+\end{align*}
+ and
+ \begin{align*}
+E_2=\sum_i(b_k(x;z_1,\dots, z_i,b_1(z_{i+1};m_1),\dots, z_{k})+b_k(x;z_1,\dots, z_i,b_1(z_{i+1};m_2),\dots, z_{k})+\\ b_k(x;z_1,\dots, z_i,b_1(z_{i+1};m_3),\dots, z_{k}))
+\end{align*}
+
+Now we evaluate $D_2(z_1,\dots, z_{k})$ for $k\geq 2$ in a similar way
+
+\begin{align*}
+D_2(z_1,\dots, z_{k})=\sum_i(b_k(x;z_1,\dots, z_{i-1}, b_2(m_2;z_i,z_{i+1}),\dots,z_{k})+b_k(x;z_1,\dots, z_{i-1}, b_2(m_3;z_i,z_{i+1}),\dots,z_{k}))
+\end{align*}
+
+and finally for $k\geq 3$
+\begin{align*}
+D_3(z_1,\dots, z_{k})=\sum_ib_k(x;z_1,\dots, z_{i-2}, b_3(m_3;z_{i-1},z_i,z_{i+1}),\dots,z_{k})
+\end{align*}
+
+Next, we are going to focus on each $m_j$. In $A_2$ we have $b_k(b_1(x;m_j);-)$ which we may evaluate if we want in $(z_1,\dots, z_k)$. In $B_2$ we have by the brace relation
+
+\begin{align*}
+b_1(b_k(x;z_1,\dots, z_k);m_j)=\sum_ib_k(x;z_1,\dots, z_i, b_1(z_{i+1};m_j),\dots, z_k)+\sum_ib_{k+1}(x;z_1,\dots, z_i,m_j,z_{i+1},\dots, z_k)
+\end{align*}
+
+The first summand cancels with the similar summand in $E_2$. The second summand, in the case $j=1$, together with the correspoding term in $E_1$ adds up to $b_k(b_1(x;m_j);z_1,\dots, z_k)$. For $j=2$ we need a term from $E_1$ and another from $D_2$, and for $j=3$ we need a term from $E_1$, another from $D_2$ and the term from $D_3$. It is not hard to imagine how this would go in the general case where we have higher maps. 
+
+\begin{remark}
+The fact that on each evaluation we needed $k\geq 1,2,3$ just reflect the fact that applying the brace relation on $b_k(b_1(x;m_j);-)$ for lower values of $k$ doesn't produce the terms appearing in the other sums. 
+\end{remark}
 
 \end{document}

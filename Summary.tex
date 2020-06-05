@@ -197,89 +197,89 @@ under the assumption of distributy, which is true for the usual product and for 
 
 The following dot product in the endomorphism case satisfies some of the properties needed above, but I would still have to check it if necessary: $((a(x)-1)+q(x))((a(y)-1)+q(y))=(a(x)-1)(a(y)-1)+q(x)q(y)$. A reason to do this is that the $-1$ comes from a shift map as well as the arity, while the internal degree is independent of that. Thus, it make sense to put arity $-1$ together and separate the internal degree.
 
-\section{Generalization to $A_\infty$-algebras}
-I'll use the same notation as in the Derived Deligne Conjecture.
-
-\subsection{Alternative simpler structure}
-I propose as an alternative to the $A_\infty$-structre in the Derived Deligne Conjecture (and also G-V), a simpler family of maps: $M_n(x_1,\dots, x_n)=m_n\{x_1,\dots, x_n\}=b_n(m_n;x_1,\dots, x_n)$. Which is just the last term of the sum taking place in the references.
-
-The proof of Lemma 3.2 in Derived Deligne Conjecture is correct (at least up to signs), so I'm going to prove it just for the simplification (up to signs, as everything in this subsection).
-
-\begin{lemma} The above choice turns $\mathcal{O}$ into an $A_\infty$-algebra.
-\end{lemma}
-IN THIS PROOF AND ITS EQUIVALENT IN THE GENERAL CASE WE SHOULD SEPARATE WHEN $M_1$ IS SOME OF THE MAPS BECAUSE IN THAT CASE IT IS DEFINED DIFFERENTLY
-\begin{proof}
-We need to show that $M\circ M=0$. 
-
-\[
-\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}M_p(x_1,\dots, x_i, M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
-\]
-\[
-\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}b_p(m_p; x_1,\dots, x_i, b_q(m_q;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
-\]
-\[
-\sum_{k,p,q}b_k(b_1(m_p;m_q);x_1,\dots, x_k)=0
-\]
-because $\sum_{p,q}b_1(m_p;m_q)=0$ since $m\circ m=0$.
-
-IN THIS SIMPLER CASE I THINK IT CAN BE PROVED MORE DIRECTLY SINCE $M\circ M$ iff $\sum M_i\circ M_j=0$ iff $\sum m_i\circ m_j=0$. 
-\end{proof}
-
-The following theorem is not fully proved in the general case. This simpler case could serve as a base case, so let's try to prove it.
-
-\begin{theorem}
-The morphism $\Phi:\mathcal{O}=\prod_n\mathcal{O}(n)\to C^*(\mathcal{O},\mathcal{O})$ defined by $\Phi(x)=\sum b_n(x;-)$ is a (strict) morphism of $A_\infty$-algebras. 
-\end{theorem}
-
-\begin{proof}
-Let $n\geq 2$. Write $j_n$ for the arity %(degree? the definition of brace is in graded things, not things with arity, but in the hochschild complex the degree is given by the arity) 
-of $x_n$. 
-
-\[
-\Phi(M_n(x_1,\dots, x_n))=\Phi(b_n(m_n;x_1,\dots, x_n))=\sum_i b_i(b_n(m_n;x_1,\dots, x_n);-)=
-\]
-\[
-\sum_{i=i_1+\cdots+i_n}b_n(m_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))
-\]
-where $i_p\leq j_p$. Note that since the arity of $m_n$ is $n$, there are no terms inserted between the $x_p$'s.
-
-\[
-\overline{M}_n(\Phi(x_1),\dots, \Phi(x_n))=\sum_{i_1+\cdots+i_n}\overline{M}_n(b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))=\sum_{i_1+\cdots+i_n}b_n(M_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))
-\] 
-
-Since the arity of $M_n$ is $n$, at least up to sign, this equals
-$$\sum_{i_1+\cdots+i_n}b_n(m_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))$$
-
-%For $n=1$ $M_1$ and $\overline{M}$ are defined slightly differently, but we can use the argument above on each summand and that proves $\Phi(M_1)=\overline{M}_1(\Phi)$. 
-
-%I'LL ASK CONSTANZE TO CHECK THIS. I THINK I MUST (AND CAN) ASSUME THAT THE BRACE IS OF THE KIND OF BRACE IN THE ENDOMORPHISM OPERAD. BUT IF A SIGN COMES ALONG TO DISTINGUISH BETWEEN EVALUATION AND BRACE, THE THEOREM MIGHT NOT BE TRUE ANYMORE. GENERALISING IT TO THE USUAL STRUCTURE WILL BE PROBLEMATIC TOO.
-\end{proof}
-
-\textbf{Comments:} It looks like this proof is highly dependent on the sign that appears in the brace for the endomorphism algebra. In particular, the difference between $M_n(x_1,...,x_n)$ and $b_n(M_n;x_1,\dots, x_n)$, which is just a sign, but it looks like in the proof should be exactly 1. 
-
-To generalise this to $M_n(x_1,\dots, x_n)=\sum b_n(m_i;x_1,\dots, x_n)$ we will probably have to write each summand down, because $b_n(M_s;x_1,\dots, x_n)=\sum \pm M_s(1,\dots, 1,x_1,1,\dots, 1,x_n,1\dots, 1)$, and we should check that each term appears on the other side of the equation.
-
-\subsection{Things with signs}
-IN LEMMA 3.2 DON'T FORGET THE SIGN OF THE KOSZUL RULE WHEN EVALUATING, THIS PROBABLY CANCELS THE SIGNS IN THE BRACE RELATION
-
-I'm going to add the signs to the proof of Lemman 2.3 in the original setting (for the simplified version it is analogous).
-
-\begin{lemma}
-\end{lemma}
-\begin{proof}
-In the first line we omit any signs because the maps $M_s$ are not homogeneous.
-\[
-\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}M_p(x_1,\dots, x_i, M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
-\]
-\[
-\underset{0\leq i\leq k, s\geq p,t\geq q}{\sum_{p,q,k=p+q-1}}(-1)^{|m_t|\sum_{j=1}^i|x_j|}b_p(m_s;x_1,\dots, x_i, b_q(m_t;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)
-\]
-The sign above is precisely the koszul sign in the brace relation so this does indeed equal to 
-
-\[
-\sum_{k,s,t}b_k(b_1(m_s;m_t);x_1,\dots, x_k)=0.
-\]
-\end{proof}
-
-IN THE PROOF OF THEOREM 2.7 I GUESS THE SIGN USED FOR THE PRODUCT AND THE DIFFERENTIAL IN THE HOCHSCHILD COMPLEX IS THE ONE COMING FROM THE ENDOMORPHISM CASE, BUT I'LL TRY TO DO IT WITHOUT ASSUMING ANY PARTICULAR VALUE, PROBABLY I SHOULD ALSO CHECK WHAT SIGNS I NEED IN THE SAME WAY I DID WITH M IN ORDER TO GET A DGA IN C(A,A)
+%\section{Generalization to $A_\infty$-algebras}
+%I'll use the same notation as in the Derived Deligne Conjecture.
+%
+%\subsection{Alternative simpler structure}
+%I propose as an alternative to the $A_\infty$-structre in the Derived Deligne Conjecture (and also G-V), a simpler family of maps: $M_n(x_1,\dots, x_n)=m_n\{x_1,\dots, x_n\}=b_n(m_n;x_1,\dots, x_n)$. Which is just the last term of the sum taking place in the references.
+%
+%The proof of Lemma 3.2 in Derived Deligne Conjecture is correct (at least up to signs), so I'm going to prove it just for the simplification (up to signs, as everything in this subsection).
+%
+%\begin{lemma} The above choice turns $\mathcal{O}$ into an $A_\infty$-algebra.
+%\end{lemma}
+%IN THIS PROOF AND ITS EQUIVALENT IN THE GENERAL CASE WE SHOULD SEPARATE WHEN $M_1$ IS SOME OF THE MAPS BECAUSE IN THAT CASE IT IS DEFINED DIFFERENTLY
+%\begin{proof}
+%We need to show that $M\circ M=0$. 
+%
+%\[
+%\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}M_p(x_1,\dots, x_i, M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
+%\]
+%\[
+%\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}b_p(m_p; x_1,\dots, x_i, b_q(m_q;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
+%\]
+%\[
+%\sum_{k,p,q}b_k(b_1(m_p;m_q);x_1,\dots, x_k)=0
+%\]
+%because $\sum_{p,q}b_1(m_p;m_q)=0$ since $m\circ m=0$.
+%
+%IN THIS SIMPLER CASE I THINK IT CAN BE PROVED MORE DIRECTLY SINCE $M\circ M$ iff $\sum M_i\circ M_j=0$ iff $\sum m_i\circ m_j=0$. 
+%\end{proof}
+%
+%The following theorem is not fully proved in the general case. This simpler case could serve as a base case, so let's try to prove it.
+%
+%\begin{theorem}
+%The morphism $\Phi:\mathcal{O}=\prod_n\mathcal{O}(n)\to C^*(\mathcal{O},\mathcal{O})$ defined by $\Phi(x)=\sum b_n(x;-)$ is a (strict) morphism of $A_\infty$-algebras. 
+%\end{theorem}
+%
+%\begin{proof}
+%Let $n\geq 2$. Write $j_n$ for the arity %(degree? the definition of brace is in graded things, not things with arity, but in the hochschild complex the degree is given by the arity) 
+%of $x_n$. 
+%
+%\[
+%\Phi(M_n(x_1,\dots, x_n))=\Phi(b_n(m_n;x_1,\dots, x_n))=\sum_i b_i(b_n(m_n;x_1,\dots, x_n);-)=
+%\]
+%\[
+%\sum_{i=i_1+\cdots+i_n}b_n(m_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))
+%\]
+%where $i_p\leq j_p$. Note that since the arity of $m_n$ is $n$, there are no terms inserted between the $x_p$'s.
+%
+%\[
+%\overline{M}_n(\Phi(x_1),\dots, \Phi(x_n))=\sum_{i_1+\cdots+i_n}\overline{M}_n(b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))=\sum_{i_1+\cdots+i_n}b_n(M_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))
+%\] 
+%
+%Since the arity of $M_n$ is $n$, at least up to sign, this equals
+%$$\sum_{i_1+\cdots+i_n}b_n(m_n;b_{i_1}(x_1;-),\dots, b_{i_n}(x_n;-))$$
+%
+%%For $n=1$ $M_1$ and $\overline{M}$ are defined slightly differently, but we can use the argument above on each summand and that proves $\Phi(M_1)=\overline{M}_1(\Phi)$. 
+%
+%%I'LL ASK CONSTANZE TO CHECK THIS. I THINK I MUST (AND CAN) ASSUME THAT THE BRACE IS OF THE KIND OF BRACE IN THE ENDOMORPHISM OPERAD. BUT IF A SIGN COMES ALONG TO DISTINGUISH BETWEEN EVALUATION AND BRACE, THE THEOREM MIGHT NOT BE TRUE ANYMORE. GENERALISING IT TO THE USUAL STRUCTURE WILL BE PROBLEMATIC TOO.
+%\end{proof}
+%
+%\textbf{Comments:} It looks like this proof is highly dependent on the sign that appears in the brace for the endomorphism algebra. In particular, the difference between $M_n(x_1,...,x_n)$ and $b_n(M_n;x_1,\dots, x_n)$, which is just a sign, but it looks like in the proof should be exactly 1. 
+%
+%To generalise this to $M_n(x_1,\dots, x_n)=\sum b_n(m_i;x_1,\dots, x_n)$ we will probably have to write each summand down, because $b_n(M_s;x_1,\dots, x_n)=\sum \pm M_s(1,\dots, 1,x_1,1,\dots, 1,x_n,1\dots, 1)$, and we should check that each term appears on the other side of the equation.
+%
+%\subsection{Things with signs}
+%IN LEMMA 3.2 DON'T FORGET THE SIGN OF THE KOSZUL RULE WHEN EVALUATING, THIS PROBABLY CANCELS THE SIGNS IN THE BRACE RELATION
+%
+%I'm going to add the signs to the proof of Lemman 2.3 in the original setting (for the simplified version it is analogous).
+%
+%\begin{lemma}
+%\end{lemma}
+%\begin{proof}
+%In the first line we omit any signs because the maps $M_s$ are not homogeneous.
+%\[
+%\underset{0\leq i\leq k}{\sum_{p,q,k=p+q-1}}M_p(x_1,\dots, x_i, M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=
+%\]
+%\[
+%\underset{0\leq i\leq k, s\geq p,t\geq q}{\sum_{p,q,k=p+q-1}}(-1)^{|m_t|\sum_{j=1}^i|x_j|}b_p(m_s;x_1,\dots, x_i, b_q(m_t;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)
+%\]
+%The sign above is precisely the koszul sign in the brace relation so this does indeed equal to 
+%
+%\[
+%\sum_{k,s,t}b_k(b_1(m_s;m_t);x_1,\dots, x_k)=0.
+%\]
+%\end{proof}
+%
+%IN THE PROOF OF THEOREM 2.7 I GUESS THE SIGN USED FOR THE PRODUCT AND THE DIFFERENTIAL IN THE HOCHSCHILD COMPLEX IS THE ONE COMING FROM THE ENDOMORPHISM CASE, BUT I'LL TRY TO DO IT WITHOUT ASSUMING ANY PARTICULAR VALUE, PROBABLY I SHOULD ALSO CHECK WHAT SIGNS I NEED IN THE SAME WAY I DID WITH M IN ORDER TO GET A DGA IN C(A,A)
 \end{document}
