@@ -249,4 +249,37 @@ The first summand cancels with the similar summand in $E_2$. The second summand,
 The fact that on each evaluation we needed $k\geq 1,2,3$ just reflect the fact that applying the brace relation on $b_k(b_1(x;m_j);-)$ for lower values of $k$ doesn't produce the terms appearing in the other sums. 
 \end{remark}
 
+\section{$\Phi(M_1(x))=\overline{M}(\Phi(x))$}
+Now we're generalizing the previous arguments to an arbitrary $A_\infty$-multiplication $m=m_1+m_2+\cdots$.
+
+As we did before, let us first focus on insertions in $m$. Recall that 
+
+$$\Phi(M_1(x))=\Phi([m,x])=\Phi(b_1(m;x))+\Phi(b_1(x;m))$$
+
+so we focus on the first summand. 
+
+\begin{align*}
+\Phi(b_1(m;x))=&\sum_k b_k(b_1(m;x);-)=\sum_k \underset{k-i\geq 1}{\sum_i} \sum b_{k-i+1}(m;-, b_i(x;-),-)=\\
+&\underset{k-i\geq 1}{\sum_{k,i}}\sum b_{k-i+1}(m;-, b_i(x;-),-)
+\end{align*}
+
+where the sum with no limits runs over all the positions in which $b_i(x;-)$ can be inserted (from $1$ to $k-i+1$ in this case).
+
+On the other hand, 
+
+$$\overline{M}_1(\Phi(x))=b_1(M;\Phi(x))+b_1(\Phi(x);M)$$
+
+and again we're focusing now on the first summand, but with the exception of the part of $M_1$ that corresponds to $b_1(\Phi(x);m)$. 
+
+We now look at the index $k-i+1=l$ what determines the arity of the map $b_{k-i+1}(m;\dots)$. We show that for each value of $l$, $b_1(M_{k-i+1};\Phi(x))$ produces exactly the terms involving $b_{k-i+1}(m;\dots)$. 
+
+\begin{align*}
+b_1(M_{k-i+1};\Phi(x))=&\sum M_{k-i+1}(-,\Phi(x),-)=\sum_j\sum M_{k-i+1}(-,b_j(x;-),-)=\\
+&\sum_j\sum b_{k-i+1}(m;-,b_j(x;-),-)
+\end{align*}
+Again, the sum without limits runs over the possible insertions. Note that we have fixed the value $k+i-1$, but not $k$ or $i$, so for each $j$ we can chose $i$ and and a value $k'$ of $k$ for which $k'-j+i=k-i+1$. This can be done thanks to the fact that $k$ runs over all natural numbers (including 0). So we may simply rewrite the above sum as
+
+$$\underset{k-i+1=l}{\sum_{k,i}}\sum b_{k-i+1}(m;-,b_i(x;-),-)$$
+
+which is precisely what we had before for each fixed value of $k-i+1$. 
 \end{document}
