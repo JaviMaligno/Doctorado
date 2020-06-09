@@ -43,7 +43,7 @@ We can argue similarly about $\overline{M}_s$, so $a(\overline{M}_s)=s$ and $\de
 
 Let $\Phi:\OO\to C^*(\OO,\OO)=\hom(\OO^*,\OO)$ be defined as $\Phi(x)=\sum_{n\geq 0}b_n(x;-)$, where $b_0(x)\in C^0(\OO,\OO)=\hom(k,\OO)$ is the ``nullary'' (because its operadic arity is 0) map that outputs $x$, i.e. that sends $1\in k\mapsto x$.  
 
-We may write $\Phi=\Phi_1+\Phi_2+\cdots$. Note that whatever is the arity of $x$, $\Phi_k(x)\in\CC^k(\OO,\OO)$. However, the internal degree of $\Phi_k$ depends of $x$: if $x\in\OO(n)_p$, then $\Phi_k(x)\in C^k_p(\OO,\OO)$, i.e. $\deg(\Phi_k)=\deg(x)$. 
+We may write $\Phi=\Phi_0+\Phi_1+\Phi_2+\cdots$. Note that whatever is the arity of $x$, $\Phi_k(x)\in\CC^k(\OO,\OO)$. However, the internal degree of $\Phi_k$ depends of $x$: if $x\in\OO(n)_p$, then $\Phi_k(x)\in C^k_p(\OO,\OO)$, i.e. $\deg(\Phi_k)=\deg(x)$. 
 
 
 \subsection{Compositions involving $\Phi$}
@@ -70,7 +70,7 @@ If we consider $\overline{M}_j(\Phi_{k_1}(x_1),\dots, \Phi_{k_j}(x_j))$, we may 
 
 As we see, the internal degree of $\overline{M}_j^l(\Phi_{k_1,\dots, k_j})$ matches that of $\Phi_k(M_j^l)$, but the arity of $\overline{M}_j^l(\Phi_{k_1,\dots, k_j})$ is $l-j+k_1+\cdots+k_j$, whilst the arity of $\Phi_k(M_j^l)$ is just $k$. We have to take that into account when proving that $\Phi$ is a morphism of $A_\infty$-algebras.
 
-This reasoning is valid for both the short and long definition of $M$, but for the short one simplifies to check the cases where $k=k_1+\dots+k_j$, which I already did in other file. Here it is clear the necessity of including $b_0(x)$ as part of the map $\Phi$, since otherwise we wouldn't ket for intance $1=k_1+\cdots+k_j$ for $j>1$. 
+This reasoning is valid for both the short and long definition of $M$, but for the short one simplifies to check the cases where $k=k_1+\dots+k_j$, which I already did in other file. Here it is clear the necessity of including $b_0(x)$ as part of the map $\Phi$, since otherwise we wouldn't get for intance $1=k_1+\cdots+k_j$ for $j>1$. 
 
 \section{$\Phi$, $M_1$ and $\overline{M}_1$}
 
@@ -96,8 +96,6 @@ A_1=&\sum_k ( b_1(m_1;b_k(x;-))+b_1(m_2;b_k(x;-))+b_2(m_2;-,b_{k-1}(x;-))+b_2(m_
 &b_1(m_3;b_k(x;-))+b_2(m_3;-,b_{k-1}(x;-))+b_2(m_3;b_{k-1}(x;-),-)+\\
 & b_3(m_3;-,-,b_{k-2}(x;-))+b_3(m_3;-,b_{k-2}(x;-),-)+b_3(m_3;b_{k-2}(x;-),-,-)
 \end{align*}
-and
-$$A_2=$$
 
 
 Notice that $\Phi(M_1(x))$ does not depend on which definition (short of long) of $M_i$ we choose for $i>1$. But for $\overline{M}_1(\Phi(x))$ we will consider the two possible cases separately.
@@ -243,11 +241,13 @@ Next, we are going to focus on each $m_j$. In $A_2$ we have $b_k(b_1(x;m_j);-)$ 
 b_1(b_k(x;z_1,\dots, z_k);m_j)=\sum_ib_k(x;z_1,\dots, z_i, b_1(z_{i+1};m_j),\dots, z_k)+\sum_ib_{k+1}(x;z_1,\dots, z_i,m_j,z_{i+1},\dots, z_k)
 \end{align*}
 
-The first summand cancels with the similar summand in $E_2$. The second summand, in the case $j=1$, together with the correspoding term in $E_1$ adds up to $b_k(b_1(x;m_j);z_1,\dots, z_k)$. For $j=2$ we need a term from $E_1$ and another from $D_2$, and for $j=3$ we need a term from $E_1$, another from $D_2$ and the term from $D_3$. It is not hard to imagine how this would go in the general case where we have higher maps. 
+The first summand cancels with $E_2$. The second summand, in the case $j=1$, together with the correspoding term in $E_1$ adds up to $b_k(b_1(x;m_j);z_1,\dots, z_k)$. For $j=2$ we need a term from $E_1$ and another from $D_2$, and for $j=3$ we need a term from $E_1$, another from $D_2$ and the term from $D_3$. It is not hard to imagine how this would go in the general case where we have higher maps. 
 
 \begin{remark}
 The fact that on each evaluation we needed $k\geq 1,2,3$ just reflect the fact that applying the brace relation on $b_k(b_1(x;m_j);-)$ for lower values of $k$ doesn't produce the terms appearing in the other sums. 
 \end{remark}
+
+I SHOULD RECHECK THE INDICES, IT WAS PROBABLY BETTER TO KEEP $K+1,2,3$ BECAUSE I'M KEEPING $B_K$ OR MAYBE CHANGE THE SUBINDEX OF $B_K$ (BETTER NOT CHANGE THE SUBINDEX BECAUSE THE ARITY OF EACH SUMMAND IN $D_N$ IS $K+N$, BUT I COULD SHIFT TO $K-N$ OR SOMETHING TO EVALUATE EVERYTHING WITH THE SAME ARITY)
 
 \section{$\Phi(M_1(x))=\overline{M}(\Phi(x))$}
 Now we're generalizing the previous arguments to an arbitrary $A_\infty$-multiplication $m=m_1+m_2+\cdots$.
@@ -260,7 +260,7 @@ so we focus on the first summand.
 
 \begin{align*}
 \Phi(b_1(m;x))=&\sum_k b_k(b_1(m;x);-)=\sum_k \underset{k-i\geq 1}{\sum_i} \sum b_{k-i+1}(m;-, b_i(x;-),-)=\\
-&\underset{k-i\geq 1}{\sum_{k,i}}\sum b_{k-i+1}(m;-, b_i(x;-),-)
+&\underset{k-i+1> 0}{\sum_{k,i}}\sum b_{k-i+1}(m;-, b_i(x;-),-)
 \end{align*}
 
 where the sum with no limits runs over all the positions in which $b_i(x;-)$ can be inserted (from $1$ to $k-i+1$ in this case).
@@ -271,7 +271,7 @@ $$\overline{M}_1(\Phi(x))=b_1(M;\Phi(x))+b_1(\Phi(x);M)$$
 
 and again we're focusing now on the first summand, but with the exception of the part of $M_1$ that corresponds to $b_1(\Phi(x);m)$. 
 
-We now look at the index $k-i+1=l$ what determines the arity of the map $b_{k-i+1}(m;\dots)$. We show that for each value of $l$, $b_1(M_{k-i+1};\Phi(x))$ produces exactly the terms involving $b_{k-i+1}(m;\dots)$. 
+We now look at the index $k-i+1> 0$ what determines the arity of the map $b_{k-i+1}(m;\dots)$. We show that for each value of $l$, $b_1(M_{k-i+1};\Phi(x))$ produces exactly the terms involving $b_{k-i+1}(m;\dots)$. 
 
 \begin{align*}
 b_1(M_{k-i+1};\Phi(x))=&\sum M_{k-i+1}(-,\Phi(x),-)=\sum_j\sum M_{k-i+1}(-,b_j(x;-),-)=\\
@@ -281,5 +281,39 @@ Again, the sum without limits runs over the possible insertions. Note that we ha
 
 $$\underset{k-i+1=l}{\sum_{k,i}}\sum b_{k-i+1}(m;-,b_i(x;-),-)$$
 
-which is precisely what we had before for each fixed value of $k-i+1$. 
+which is precisely what we had before for each fixed value of $k-i+1$. %Since there's no $M_0$, we have to treat the case $l=0$ separately. In that case
+
+It is worth treating the case $k=0$ separately since in that case we have $b_0(b_1(m;x))=b_1(m;x)$, where we can't apply the brace relation. This term equals $b_1(M_1;b_0(x))$ so we're done. Notice that the terms that $b_1(M_i;x)$ produces for $i>1$ appear using the brace relation in $b_k(b_1(m;x);-)$ when $k>0$, more precisely, in the summand $b_k(b_1(m_i;x);-)$. 
+
+\subsection{The other part}
+
+\section{$\Phi(M_s)=\overline{M}_s(\Phi)$}
+
+I'm going to use a similar strategy to the first part of the case $M_1$ to show $\Phi(M_s)=\overline{M}_s(\Phi)$ for $s>1$. Let $x_1,\dots, x_s\in\OO$. We have on the one hand
+
+\begin{align*}
+\Phi(M_s(x_1,\dots, x_s))=&\Phi(b_s(m;x_1,\dots, x_s))=\sum_k b_k(b_s(m;x_1,\dots, x_s);-)=\\
+&\sum_k\sum_l\sum b_l(m; -, b_{i_1}(x_i;-),\cdots,b_{i_s}(x;-),-)
+\end{align*}
+where $l=k-(i_1+\cdots+i_s)+s$. Note that $l\geq s$. Now, fix some value of $l$ and let's compute
+
+\begin{align*}
+\overline{M}_s(\Phi(x_1),\dots, \Phi(x_s))=b_s(M;\Phi(x_1),\dots, \Phi(x_s))
+\end{align*}
+
+but focus on the $M_l$ component, i.e. $b_s(M_l;\Phi(x_1),\dots, \Phi(x_s))$. As we know, this equals
+
+\begin{align*}
+\sum M_l(-,\Phi(x_1),\cdots, \Phi(x_s),-)=&\sum_{i_1,\dots, i_s}\sum M_l(-,b_{i_1}(x;-),\cdots,b_{i_s}(x;-),-)=\\
+&\sum_{i_1,\dots, i_s}\sum b_l(m;-,b_{i_1}(x;-),\cdots,b_{i_s}(x;-),-)
+\end{align*}
+For each tuple $(i_1,\dots, i_s)$ we can choose $k$ such that $k-(i_1+\cdots+i_s)+s=l$, so the above sum equals
+
+$$\underset{k-(i_1+\cdots+i_s)+s=l}{\sum_{k,i_1,\dots, i_s}}\sum b_l(m;-,b_{i_1}(x;-),\cdots,b_{i_s}(x;-),-)$$
+
+So each $M_l$ component for $l\geq s$ produces precisely the terms $b_l(m;\dots)$ coming from $\Phi(M_s)$, and we have the equality $\Phi(M_s)=\overline{M}_s(\Phi)$ for all $s$.
+
+
+TELL CONSTANZE THAT I'VE ABBREVIATING WRITING ONLY $m$ BUT SOME OF THE TERMS WILL BE ZERO FOR ARITY REASONS
+
 \end{document}
