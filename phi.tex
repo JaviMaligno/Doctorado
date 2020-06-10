@@ -227,12 +227,12 @@ E_2=\sum_i(b_k(x;z_1,\dots, z_i,b_1(z_{i+1};m_1),\dots, z_{k})+b_k(x;z_1,\dots, 
 Now we evaluate $D_2(z_1,\dots, z_{k})$ for $k\geq 2$ in a similar way
 
 \begin{align*}
-D_2(z_1,\dots, z_{k})=\sum_i(b_k(x;z_1,\dots, z_{i-1}, b_2(m_2;z_i,z_{i+1}),\dots,z_{k})+b_k(x;z_1,\dots, z_{i-1}, b_2(m_3;z_i,z_{i+1}),\dots,z_{k}))
+D_2(z_1,\dots, z_{k})=\sum_ib_{k-1}(x;z_1,\dots, z_{i-1}, b_2(m_2;z_i,z_{i+1}),\dots,z_{k})+b_k(x;z_1,\dots, z_{i-1}, b_2(m_3;z_i,z_{i+1}),\dots,z_{k}))
 \end{align*}
 
 and finally for $k\geq 3$
 \begin{align*}
-D_3(z_1,\dots, z_{k})=\sum_ib_k(x;z_1,\dots, z_{i-2}, b_3(m_3;z_{i-1},z_i,z_{i+1}),\dots,z_{k})
+D_3(z_1,\dots, z_{k})=\sum_ib_{k-2}(x;z_1,\dots, z_{i-2}, b_3(m_3;z_{i-1},z_i,z_{i+1}),\dots,z_{k})
 \end{align*}
 
 Next, we are going to focus on each $m_j$. In $A_2$ we have $b_k(b_1(x;m_j);-)$ which we may evaluate if we want in $(z_1,\dots, z_k)$. In $B_2$ we have by the brace relation
@@ -247,9 +247,14 @@ The first summand cancels with $E_2$. The second summand, in the case $j=1$, tog
 The fact that on each evaluation we needed $k\geq 1,2,3$ just reflect the fact that applying the brace relation on $b_k(b_1(x;m_j);-)$ for lower values of $k$ doesn't produce the terms appearing in the other sums. 
 \end{remark}
 
-I SHOULD RECHECK THE INDICES, IT WAS PROBABLY BETTER TO KEEP $K+1,2,3$ BECAUSE I'M KEEPING $B_K$ OR MAYBE CHANGE THE SUBINDEX OF $B_K$ (BETTER NOT CHANGE THE SUBINDEX BECAUSE THE ARITY OF EACH SUMMAND IN $D_N$ IS $K+N$, BUT I COULD SHIFT TO $K-N$ OR SOMETHING TO EVALUATE EVERYTHING WITH THE SAME ARITY)
+%I SHOULD RECHECK THE INDICES, IT WAS PROBABLY BETTER TO KEEP $K+1,2,3$ BECAUSE I'M KEEPING $B_K$ OR MAYBE CHANGE THE SUBINDEX OF $B_K$ (BETTER NOT CHANGE THE SUBINDEX BECAUSE THE ARITY OF EACH SUMMAND IN $D_N$ IS $K+N$, BUT I COULD SHIFT TO $K-N$ OR SOMETHING TO EVALUATE EVERYTHING WITH THE SAME ARITY)
 
-\section{$\Phi(M_1(x))=\overline{M}(\Phi(x))$}
+%I DECIDED TO SHIF THE INDICES
+
+
+%FOR THE GENERALIZATION, $E_2$ WILL ALWAYS CANCEL WITH THAT PART OF $B_2$
+
+\section{$\Phi(M_1(x))=\overline{M}_1(\Phi(x))$}
 Now we're generalizing the previous arguments to an arbitrary $A_\infty$-multiplication $m=m_1+m_2+\cdots$.
 
 As we did before, let us first focus on insertions in $m$. Recall that 
@@ -287,6 +292,46 @@ It is worth treating the case $k=0$ separately since in that case we have $b_0(b
 
 \subsection{The other part}
 
+And now, let's study the insertions in $x$. From $\Phi(M_1(x))$ we had 
+
+$$\Phi(b_1(x;m))=\sum_k b_k(b_1(x;m);-).$$
+
+We already know what this looks like after evaluating each component on $(z_1,\dots, z_k)$ due to the brace relation, so I'm not going to write it but I'll use it afterwards. 
+
+From $\overline{M}_1(\Phi(x))=b_1(M;\Phi(x))+b_1(\Phi(x);M)$.  On the left summand we have $b_1(M_1;\Phi(x))=M_1(\Phi(x))$, which produces 
+
+$$b_1(\Phi(x);m)=\sum_k b_1(b_k(x;-);m)$$. 
+
+Each component can be evaluated on $(z_1,\dots, z_k)$ to produce
+
+\begin{align*}
+b_1(b_k(x;z_1, \dots, z_k);m)&=\sum_{i=1}^k b_k(x;z_1,\dots, b_1(z_i;m),\dots, z_k)+\sum_{i=0}^k b_{k+1}(z_1,\dots, z_i,m,z_{i+1},\dots, z_k)\\
+&=A_1+B_1
+\end{align*}
+
+Now, from the right summnad 
+
+\begin{align*}
+b_1(\Phi(x);M)=&\sum_l b_1(b_l(x;-);M)=\sum_l\sum b_l(x;-,M,-) \\
+=&\sum_{j\geq 1} \sum_l\sum b_l(x;-,b_j(m;-),-)+\sum_l\sum b_l(x;-,b_1(-;m),-)
+\end{align*}
+ we're going to evaluate on $(z_1,\dots, z_k)$ to make this map more explicit, namely, for each $k$ used in the previous maps, take $l$ and $j$ such that $l+j-1=k$ and evaluate on $(z_1,\dots, z_k)$ to produce
+ 
+ \begin{align*}
+ \sum_{l+j=k+1}\sum_{i=0}^{k-j} b_l(x;z_1,\dots, z_i,b_j(m;z_{i+1},\dots, z_{i+j}),\dots, z_k)&+\sum_{i=0}^{k-1} b_1(x;z_1,\dots, z_i,b_1(z_{i+1};m),\dots, z_k)\\
+ =B_2&+A_2
+ \end{align*}
+ Not that $A_2=A_1$ so we are going to assume that they cancel (this will have to be checked with signs at some point).
+ 
+ So to finish we only have to notice that 
+ 
+ $$B_1+B_2=b_k(b_1(x;m);z_1,\dots, z_k).$$
+ 
+ 
+ We may also treat the case $k=0$, where there's no brace relation, just $b_1(x;m)$ coming from $\Phi(b_1(x;m))$. On the other hand we had $b_1(\Phi(x);m)$, which already produces $b_1(x;m)$ in arity 0. We also had $b_1(\Phi(x);M)$. Here, unlike in $b_1(\Phi(x);m)$, we cannot do the brace $b_1$ for $b_0(x)$ since this map has arity 0, and $b_1$ needs maps of arity at least 1, so this does not produce anything and we have the equality $b_1(x;m)=b_1(x;m)$. To understad why we can't just write $b_1(x;M)$, recall the arity considerations. In $b_1(\Phi(x);M)$ we're inserting the map $M$ into the map $\Phi$, producing a map of arity $a(\Phi)+a(M)-1$. But in $b_1(\Phi(x);m)$, $m$ is an element of the operad, and the map receiving arguments is just $\Phi(x)$, meaning that this brace is done after evaluation, and the other brace is done before evaluation. In actuallity, the brace $b_1$ in $b_1(\Phi(x);M)$ is a brace on the endomorphism operad of the underlying operad, while the brace $b_1(x;m)$ is the brace in the underlying operad, a fact that shows a slight but convenient abuse of notation.
+
+
+
 \section{$\Phi(M_s)=\overline{M}_s(\Phi)$}
 
 I'm going to use a similar strategy to the first part of the case $M_1$ to show $\Phi(M_s)=\overline{M}_s(\Phi)$ for $s>1$. Let $x_1,\dots, x_s\in\OO$. We have on the one hand
@@ -314,6 +359,6 @@ $$\underset{k-(i_1+\cdots+i_s)+s=l}{\sum_{k,i_1,\dots, i_s}}\sum b_l(m;-,b_{i_1}
 So each $M_l$ component for $l\geq s$ produces precisely the terms $b_l(m;\dots)$ coming from $\Phi(M_s)$, and we have the equality $\Phi(M_s)=\overline{M}_s(\Phi)$ for all $s$.
 
 
-TELL CONSTANZE THAT I'VE ABBREVIATING WRITING ONLY $m$ BUT SOME OF THE TERMS WILL BE ZERO FOR ARITY REASONS
+%TELL CONSTANZE THAT I'VE ABBREVIATING WRITING ONLY $m$ BUT SOME OF THE TERMS WILL BE ZERO FOR ARITY REASONS
 
 \end{document}
