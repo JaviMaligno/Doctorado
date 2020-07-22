@@ -668,7 +668,7 @@ M_1(M_k(x_1,\dots, x_k))+\sum_{0\leq i\leq k-1}M_k(x_1,\dots, x_i,M_1(x_{i+1}),x
 Let us develop the last summand in the same way it is done in The Derived Deligne conjecture. 
 
 \begin{align*}
-S:=\underset{p,q>1}{\sum_{p+q-1=k,0\leq i\leq k-1}}M_p(x_1,\dots, x_i,M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=\\
+S\coloneqq\underset{p,q>1}{\sum_{p+q-1=k,0\leq i\leq k-1}}M_p(x_1,\dots, x_i,M_q(x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)=\\
 \underset{s\geq p, t\geq q,p,q>1}{\sum_{p+q-1=k,0\leq i\leq k-1}}b_p(m_s;x_1,\dots, x_i,b_q(m_t;x_{i+1},\dots, x_{i+q}),x_{i+q+1},\dots, x_k)
 \end{align*}
 
@@ -689,7 +689,7 @@ The second summand was
 \begin{align*}
 \sum_{0\leq i\leq k-1}M_k(x_1,\dots, x_i,M_1(x_{i+1}),x_{i+2},\dots, x_k)&=\\
 \sum_{0\leq i\leq k-1}M_k(x_1,\dots, x_i,m\circ x_{i+1},x_{i+2},\dots, x_k)&+\sum_{0\leq i\leq k-1}M_k(x_1,\dots, x_i,x_{i+1}\circ m,x_{i+2},\dots, x_k)=\\
-\underset{s\geq k, t\geq 1}{\sum_{0\leq i\leq k-1}}b_k(m_s;x_1,\dots, x_i,b_1(m_t; x_{i+1}),x_{i+2},\dots, x_k)&+\underset{s\geq k, t\geq 1}{\sum_{0\leq i\leq k-1}}b_k(m_s;x_1,\dots, x_i,b_1(x_{i+1};m_t),x_{i+2},\dots, x_k)=\\
+\underset{s\geq k, t\geq 1}{\sum_{0\leq i\leq k-1}}b_k(m_s;x_1,\dots, x_i,b_1(m_t; x_{i+1}),x_{i+2},\dots, x_k)&+\underset{s\geq k, t\geq 1}{\sum_{0\leq i\leq k-1}}b_k(m_s;x_1,\dots, x_i,b_1(x_{i+1};m_t),x_{i+2},\dots, x_k)\coloneqq=\\
 A_2&+B_2
 \end{align*}
 
@@ -811,4 +811,5 @@ IF NOTHING WORKS, MAYBE JUST ADMIT THAT THE BRACE THAT PRODUCES THE SIGN IS NOT 
 %\end{proof}
 %
 %IN THE PROOF OF THEOREM 2.7 I GUESS THE SIGN USED FOR THE PRODUCT AND THE DIFFERENTIAL IN THE HOCHSCHILD COMPLEX IS THE ONE COMING FROM THE ENDOMORPHISM CASE, BUT I'LL TRY TO DO IT WITHOUT ASSUMING ANY PARTICULAR VALUE, PROBABLY I SHOULD ALSO CHECK WHAT SIGNS I NEED IN THE SAME WAY I DID WITH M IN ORDER TO GET A DGA IN C(A,A)
+
 \end{document}
