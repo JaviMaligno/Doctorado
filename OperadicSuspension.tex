@@ -43,7 +43,7 @@ We may identify the elements of $\mathcal{O}$ with the elements the elements of 
 
 \begin{align*}
 \mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
-&\xrightarrow{\circ_i\otimes\circ_i} O(m+n-1)\otimes \Lambda(n+m-1)=\mathfrak{s}\OO(n+m-1).
+&\xrightarrow{\circ_i\otimes\circ_i} \OO(m+n-1)\otimes \Lambda(n+m-1)=\mathfrak{s}\OO(n+m-1).
 \end{align*}
 
 The symmetric monoidal structure produces the sign $(-1)^{(n-1)\deg(b)}$ and the operadic structure of $\Lambda$ produces the sign $(-1)^{(n-i)(m-1)}$, so 
@@ -58,7 +58,7 @@ so we conclude
 
 $$a\tilde{\circ}_ib=(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}a\circ_i b.$$
 
-This is exactly the sign from R-W and differs from Ward's (also Gerstenhaber's) sign in $(-1)^{(n-1)(m-1)}$. We can show these two alternative supensions to be isomorphic as operads. For that purpuse we need to find an automorphism $f$ of $\OO$ such that 
+This is exactly the sign from R-W and differs from Ward's (also Gerstenhaber's, which implies Keller's) sign in $(-1)^{(n-1)(m-1)}$. We can show these two alternative supensions to be isomorphic as operads. For that purpuse we need to find an automorphism $f$ of $\OO$ such that 
 
 $$f(a\circ_i b)=(-1)^{(n-1)(m-1)}f(a)\circ_i f(b).$$
 
@@ -67,11 +67,51 @@ It can be checked that $f(a)=(-1)^{\frac{n(n+1)}{2}+1}a$ is such an automorphism
 \begin{theorem}[Operads in Algebra, Topology and Physics]
 Given a graded vector space $A$, there is an isomorphism of operads $End_{\Sigma A}\cong \mathfrak{s}^{-1}End_A$, where $End_A$ is the endomorphism operad of $A$.
 \end{theorem}
-In the case of our operadic suspension, the isomorphism is given by $$\sigma^{-1}:End_{\Sigma A}\to\mathfrak{s}^{-1}End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}\Sigma^{-1}\circ F\circ \Sigma^{\otimes n}$ for $F\in End_{\Sigma A}(n)$. I CAN BE MORE EXPLICIT ABOUT THIS, MAYBE WRITE IT LATER, AT LEAST THE INSERTION, ASK ABOUT THE PERMUTATION ACTION Note that we are using the identification of elements of $End_A$ with those in $\mathfrak{s}^{-1}End_A$. The notation $\sigma^{-1}$ comes from R-W. In the case of Ward's suspension, the isomorphism is given by $(-1)^{\binom{n}{2}}\sigma^{-1}$ (the same map but without the sign).
+The proof in the original reference is not very explicit, but in the case of our operadic suspension, the isomorphism is given by $$\sigma^{-1}:End_{\Sigma A}\to\mathfrak{s}^{-1}End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}\Sigma^{-1}\circ F\circ \Sigma^{\otimes n}$ for $F\in End_{\Sigma A}(n)$. %I CAN BE MORE EXPLICIT ABOUT THIS, MAYBE WRITE IT LATER, AT LEAST THE INSERTION, ASK ABOUT THE PERMUTATION ACTION 
+Note that we are using the identification of elements of $End_A$ with those in $\mathfrak{s}^{-1}End_A$. The notation $\sigma^{-1}$ comes from R-W. In the case of Ward's suspension, the isomorphism is given by $(-1)^{\binom{n}{2}}\sigma^{-1}$ (the same map but without the sign).
 
 In R-W the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $End_A$ to $End_{\Sigma A}$ via $\sigma$ (but only as graded vector spaces, not as operads) and then applying the isomorphism $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}End_A$, which is what was done at the beginning to obtain the sign.
+\subsection{Braces}
+We can define the braces using the operadic suspension via operadic composition. This way we will get the same sign as mimicking R-W's strategy. To do this, we must first look at the operadic composition on $\Lambda$. We are particulary interested in compositions of the form $f(1^{\otimes k_0}\otimes g_1\otimes 1^{k_1}\otimes\cdots\otimes g_n\otimes 1^{k_n})$ where $N-n=k_0+\cdots+k_n$, $f$ has (operadic) arity $N$ and each $g_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the operadic composition
 
-WRITE ABOUT THE BRACES
+\[
+\begin{tikzcd}
+\Lambda(N)\otimes\Lambda(1)^{k_0}\otimes\Lambda(a_1)\otimes\Lambda(1)^{\otimes k_1}\otimes\cdots\otimes\Lambda(a_n)\otimes\Lambda(1)^{k_n}\arrow[r] & \Lambda(N-n+\sum_{i=1}^na_i)
+\end{tikzcd}
+\]
 
-WRITE ABOUT THE $M_j$
+The composition can be described in terms of insertions in the obvious way, so we just have to find out the sign iterating the same argument as in the $i$-th insertion. If we were using Ward's suspension we would have to be more careful since counting backwards make other signs appear. But in this case, each $\Lambda(a_i)$ produces a sign given by the exponent $$(a_i-1)(N-k_0+\cdots+k_{i-1}-i).$$ 
+
+For this, recall that the degree of $\Lambda(n)$ is $n-1$. Now, since $N-n=k_0+\cdots+k_n$, we have that
+$$(a_i-1)(N-k_0+\cdots+k_{i-1}-i)=(a_i-1)(n-i+\sum_{l=i}^nk_l).$$
+
+Now we can compute the sign produced by a brace. For this, notice that the isomorphism $(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}$ does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
+
+$$\OO(N)\otimes\Lambda(N)\otimes (\OO(1)\otimes \Lambda(1))^{\otimes k_0}\bigotimes_{i=1}^n(\OO(a_i)\otimes\Lambda(a_i)\otimes(\OO(1)\otimes\Lambda(1))^{\otimes k_i}$$
+$$\cong \OO(N)\otimes(\bigotimes_{i=1}^n \OO(a_i))\otimes \Lambda(N)\otimes(\bigotimes_{i=1}^n \Lambda(a_i))$$
+is determined by the exponent
+
+$$(N-1)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.$$
+
+This equals
+$$(\sum_{j=0}^nk_j +n-1)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.$$
+
+After doing the composition 
+$$\OO(N)\otimes(\bigotimes_{i=1}^n \OO(a_i))\otimes \Lambda(N)\otimes(\bigotimes_{i=1}^n \Lambda(a_i))\longrightarrow \OO(N-n+\sum_{i=1}^na_i)\otimes \Lambda(N-n+\sum_{i=1}^na_i)$$
+
+we can add the sign coming from the suspension, so all in all the sign for the braces is
+
+$$(a_i-1)(n-i+\sum_{l=i}^nk_l)+(\sum_{j=0}^nk_j +n-1)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.$$
+
+Recall that the sign we obtained doing the analogue process of R-W was 
+
+$$\sigma=\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l.$$
+
+It is not hard to check that the two expressions are equal (not only mod 2, they have in fact the same value as integers).
+
+
+\subsection{What can we do with this?}
+First of all, we get an easier way to obtain the signs. In addition, this explanation fits better in the context of operads and feels more natural.
+
+In addition, since we have an isomorphism of operads $End_{\Sigma A}\cong \mathfrak{s}^{-1}End_A$, we will be able to translate the results of Getzler, who works in $End_{\Sigma A}$, to our situation, which is $\mathfrak{s}^{-1}End_A$. This could help us prove the lemmas that we had in mind. In principle, the desuspension has the same signs as the suspension, but if it's convenient we may use the backwards insertion from Ward to get the isomorphism $\mathfrak{s}\mathfrak{s}^{-1}\OO\cong\OO$ in a more straightforward way (recall that there was an non-identity automorphism of $\OO$ in this isomorphism).
 \end{document}
