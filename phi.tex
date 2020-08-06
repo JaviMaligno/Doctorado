@@ -50,7 +50,7 @@ $$\overline{M}_1(x)=[M,f]=B_1(M;f)+B_1(f;M)=\sum_{j\geq 1}B_1(M_j;f)+\sum_{j\geq
 
 \subsection{Degree and arity considerations}
 
-We have to make sure that $a(M_j)=j$ and $\deg(M_j)=2-j$, considering the operadic arity and the internal degree as those measured in $C^*(\OO,\OO)$. The first equality is clear. To show the second we compute $||M_j(x_1,\dots, x_j)||$ since the internal degree of $M_j$ depends on the grading of $\OO$, on which we have defined a grading on $\OO$ in terms of the total degree. To compute this quantity, let us define $M_j^l=b_j(m_l;x_1,\dots, x_j)$, which is a summand of $M_j(x_1,\dots, x_j)$. Now we have 
+We have to make sure that $a(M_j)=j$ and $\deg(M_j)=2-j$, considering the operadic arity and the internal degree as those measured in $C^*(\OO,\OO)$. The first equality is clear. To show the second we compute $||M_j(x_1,\dots, x_j)||$ since the internal degree of $M_j$ depends on the grading of $\OO$, on which we have defined a grading in terms of the total degree. To compute this quantity, let us define $M_j^l=b_j(m_l;x_1,\dots, x_j)$, which is a summand of $M_j(x_1,\dots, x_j)$. Now we have 
 
 $$a(M_j^l)=l-j+\sum_i a(x_i)$$
 
@@ -64,7 +64,7 @@ This is independent of $l$, and therefore we see that $\deg(M_j)=2-j$. Since $C^
 
 Let $\Phi:\OO\to C^*(\OO,\OO)=\hom(\OO^*,\OO)$ be defined as $\Phi(x)=\sum_{n\geq 0}b_n(x;-)$, where $$b_0(x)\in C^0(\OO,\OO)=\hom(k,\OO)$$ is the ``nullary'' (because its operadic arity is 0) map $b_0(x)(1)=x$.  
 
-We may write $\Phi=\Phi_0+\Phi_1+\Phi_2+\cdots$. Note that whatever the operadic arity of $x$ is, $\Phi_k(x)\in\CC^k(\OO,\OO)$. However, the internal degree of $\Phi_k$ depends on $x$: if $x\in\OO(n)_p$, then $\Phi_k(x)\in C^k_{p+n}(\OO,\OO)$, i.e. $\deg(\Phi_k(x))=||x||$. 
+We may write $\Phi=\Phi_0+\Phi_1+\Phi_2+\cdots$. Note that whatever the operadic arity of $x$ is, $\Phi_k(x)\in\CC^k(\OO,\OO)$. However, the internal degree of $\Phi_k$ depends on $x$: if $x\in\OO(n)_p$, then $\Phi_k(x)\in C^k_{p+n-k}(\OO,\OO)$, i.e. $\deg(\Phi_k(x))=||x||-k$. 
 
 
 \subsection{Compositions involving $\Phi$}
@@ -121,7 +121,7 @@ $$A_1=\sum_k (b_k(b_1(m_1;x);-)+b_k(b_1(m_2;x);-)+b_k(b_1(m_3;x);-))$$
 and
 $$A_2=\sum_k (b_k(b_1(x;m_1);-)+b_k(b_1(x;m_2);-)+b_k(b_1(x;m_3);-)).$$
 
-Also note that $b_k(b_1(x;m_j);-)\in C^k_{2-j+||x||}$ and the same is true for $b_k(b_1(m_j;x);-)$.
+Also note that $b_k(b_1(x;m_j);-)\in C^k_{||x||+1-k}$ and the same is true for $b_k(b_1(m_j;x);-)$. %the 1 comes from 2-1, 2 is the total degree of m and -1 because the arity of b1(x:m) is a(x)+a(m)-1
 
 Now applying the brace relation
 
@@ -200,7 +200,7 @@ Now we compute $\overline{M}_1(\Phi(x))$.
 \overline{M}_1(\Phi(x))=[M,\Phi(x)]=\sum_j B_1(M_j;\Phi(x))+\sum_j B_1(\Phi(x);M_j).
 \end{equation}
 
-Now we use that $B_1(M_j;\Phi(x))=\sum M_j(1,\dots, 1,\Phi(x),1,\dots, 1)$. But instead of 1's I'm writing spaces to make it clear that those empty places may receive arguments, so that the arities are those studied in the previous section, in other words, $$B_1(M_j;\Phi_k(x))\in C^{j+k-1}_{2-j+||x||}.$$ In our case we have then
+Now we use that $B_1(M_j;\Phi(x))=\sum M_j(1,\dots, 1,\Phi(x),1,\dots, 1)$. But instead of 1's I'm writing spaces to make it clear that those empty places may receive arguments, so that the arities are those studied in the previous section, in other words, $$B_1(M_j;\Phi_k(x))\in C^{j+k-1}_{2-j+||x||-k}.$$ In our case we have then
 
 $$
 B_1(M_1;\Phi(x))=M_1(\Phi(x))=[m,\Phi(x)]=\sum_j b_1(m_j;\Phi(x))+\sum_j b_1(\Phi(x);m_j))\coloneqq C_1+C_2
@@ -240,9 +240,9 @@ Similarly, $B_1(M_3;\Phi)$ equals the following.
 
 Note that $b_j(m_n;-,b_k(x;-),-)\in C^{j+k-1}_{2-j+||x||-k}$.
 
-\begin{remark}
-That last internal degree shouldn't be like that, the $k$ is bothering me, but I get it when I compute the operadic arity of $b_j(m_n;z_1,\dots,b_k(x;z_i,\dots, z_{i+k-1}),\dots z_k)$, which is $n+a(x)+\sum a(z_i)-j-k$. The internal degree is supposed to be $2-n+\deg(x)+\sum \deg(z_j)$. This means that the total degree is exactly $2+||x||-k+\sum ||z_i||$.
-\end{remark} 
+%\begin{remark}
+%That last internal degree shouldn't be like that, the $k$ is bothering me, but I get it when I compute the operadic arity of $b_j(m_n;z_1,\dots,b_k(x;z_i,\dots, z_{i+k-1}),\dots z_k)$, which is $n+a(x)+\sum a(z_i)-j-k$. The internal degree is supposed to be $2-n+\deg(x)+\sum \deg(z_j)$. This means that the total degree is exactly $2+||x||-k+\sum ||z_i||$.
+%\end{remark} 
 \subsection{Comparing sides}
 
 We can start now comparing both sides of the equation $\Phi(M_1(x))=\overline{M}_1(\Phi(x))$. First, we are going to compare the terms where insertions are performed on $m$, i.e. terms of the form $b_n(m_j;\dots)$. From $\Phi(M_1(x))$ we have
@@ -388,9 +388,9 @@ so we focus on the first summand.
 
 where the sum with no limits runs over all the positions in which $b_i(x;-)$ can be inserted (from $1$ to $k-i+1$ in this case). Note that $b_k(b_1(m;x);-)\in C^k_{2+||x||-k-1}$. 
 
-\begin{remark}
-That last internal degree shouldn't be like that, but I get it when I compute the operadic arity of $b_k(b_1(m_j;x);z_1,\dots,z_k)$, which is $j+a(x)+\sum a(z_i)-1-k$. The internal degree is supposed to be $2-j+\deg(x)+\sum \deg(z_j)$. This means that the total degree is exactly $2+||x||-k+\sum ||z_i||$.
-\end{remark}
+%\begin{remark}
+%That last internal degree shouldn't be like that, but I get it when I compute the operadic arity of $b_k(b_1(m_j;x);z_1,\dots,z_k)$, which is $j+a(x)+\sum a(z_i)-1-k$. The internal degree is supposed to be $2-j+\deg(x)+\sum \deg(z_j)$. This means that the total degree is exactly $2+||x||-k+\sum ||z_i||$.
+%\end{remark}
 
 On the other hand, 
 
@@ -398,13 +398,13 @@ $$\overline{M}_1(\Phi(x))=B_1(M;\Phi(x))+B_1(\Phi(x);M)$$
 
 and again we're focusing now on the first summand, but with the exception of the part of $M_1$ that corresponds to $b_1(\Phi(x);m)$. 
 
-We now look at the index $k-i+1> 0$ what determines the arity of the map $b_{k-i+1}(m;\dots)$. We show that for each value of $l$, $b_1(M_{k-i+1};\Phi(x))$ produces exactly the terms involving $b_{k-i+1}(m;\dots)$. 
+We now look at the index $l=k-i+1> 0$ that determines the arity of the map $b_{k-i+1}(m;\dots)$. We show that for each value of $l$, $B_1(M_{k-i+1};\Phi(x))$ produces exactly the terms involving $b_{k-i+1}(m;\dots)$. 
 
 \begin{align*}
 B_1(M_{k-i+1};\Phi(x))=&\sum M_{k-i+1}(-,\Phi(x),-)=\sum_j\sum M_{k-i+1}(-,b_j(x;-),-)=\\
 &\sum_j\sum b_{k-i+1}(m;-,b_j(x;-),-)
 \end{align*}
-Again, the sum without limits runs over the possible insertions. Note that we have fixed the value $k+i-1$, but not $k$ or $i$, so for each $j$ we can chose $i$ and and a value $k'$ of $k$ for which $k'-j+i=k-i+1$. This can be done thanks to the fact that $k$ runs over all natural numbers (including 0). So we may simply rewrite the above sum as
+Again, the sum without limits runs over the possible insertions. Note that we have fixed the value $l=k+i-1$, but not $k$ or $i$, so for each $j$ we can choose $i$ and and a value $k'$ of $k$ for which $k'-j+1=k-i+1$. This can be done thanks to the fact that $k$ runs over all natural numbers (including 0). So we may simply rewrite the above sum as
 
 $$\underset{k-i+1=l}{\sum_{k,i}}\sum b_{k-i+1}(m;-,b_i(x;-),-)$$
 
@@ -462,7 +462,7 @@ I'm going to use a similar strategy to the first part of the case $M_1$ to show 
 
 \begin{align*}
 \Phi(M_s(x_1,\dots, x_s))=&\Phi(b_s(m;x_1,\dots, x_s))=\sum_k b_k(b_s(m;x_1,\dots, x_s);-)=\\
-&\sum_k\sum_l\sum b_l(m; -, b_{i_1}(x_i;-),\cdots,b_{i_s}(x;-),-)
+&\sum_k\sum_l\sum b_l(m; -, b_{i_1}(x_1;-),\cdots,b_{i_s}(x_s;-),-)
 \end{align*}
 where $l=k-(i_1+\cdots+i_s)+s$. Note that $l\geq s$. Now, fix some value of $l$ and let's compute
 
@@ -473,12 +473,12 @@ where $l=k-(i_1+\cdots+i_s)+s$. Note that $l\geq s$. Now, fix some value of $l$ 
 but focus on the $M_l$ component, i.e. $B_s(M_l;\Phi(x_1),\dots, \Phi(x_s))$. As we know, this equals
 
 \begin{align*}
-\sum M_l(-,\Phi(x_1),\cdots, \Phi(x_s),-)=&\sum_{i_1,\dots, i_s}\sum M_l(-,b_{i_1}(x;-),\cdots,b_{i_s}(x;-),-)=\\
-&\sum_{i_1,\dots, i_s}\sum b_l(m;-,b_{i_1}(x;-),\cdots,b_{i_s}(x;-),-)
+\sum M_l(-,\Phi(x_1),\cdots, \Phi(x_s),-)=&\sum_{i_1,\dots, i_s}\sum M_l(-,b_{i_1}(x_1;-),\cdots,b_{i_s}(x_s;-),-)=\\
+&\sum_{i_1,\dots, i_s}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_s}(x_s;-),-)
 \end{align*}
 For each tuple $(i_1,\dots, i_s)$ we can choose $k$ such that $k-(i_1+\cdots+i_s)+s=l$, so the above sum equals
 
-$$\underset{k-(i_1+\cdots+i_s)+s=l}{\sum_{k,i_1,\dots, i_s}}\sum b_l(m;-,b_{i_1}(x;-),\cdots,b_{i_s}(x;-),-)$$
+$$\underset{k-(i_1+\cdots+i_s)+s=l}{\sum_{k,i_1,\dots, i_s}}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_s}(x_s;-),-)$$
 
 So each $M_l$ component for $l\geq s$ produces precisely the terms $b_l(m;\dots)$ coming from $\Phi(M_s)$, and we have the equality $\Phi(M_s)=\overline{M}_s(\Phi)$ for all $s$.
 

@@ -65,14 +65,22 @@ $$f(a\circ_i b)=(-1)^{(n-1)(m-1)}f(a)\circ_i f(b).$$
 It can be checked that $f(a)=(-1)^{\frac{n(n+1)}{2}+1}a$ is such an automorphism.
 
 \begin{theorem}[Operads in Algebra, Topology and Physics]
-Given a graded vector space $V$, there is an isomorphism of operads $End_{\Sigma V}\cong \mathfrak{s}^{-1}End_V$, where $End_V$ is the endomorphism operad of $v$.
+Given a graded vector space $V$, there is an isomorphism of operads $\End_{\Sigma V}\cong \mathfrak{s}^{-1}\End_V$, where $\End_V$ is the endomorphism operad of $v$.
 \end{theorem}
-The proof in the original reference is not very explicit, but in the case of our operadic suspension, the isomorphism is given by $$\sigma^{-1}:End_{\Sigma A}\to\mathfrak{s}^{-1}End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}\Sigma^{-1}\circ F\circ \Sigma^{\otimes n}$ for $F\in End_{\Sigma A}(n)$. %I CAN BE MORE EXPLICIT ABOUT THIS, MAYBE WRITE IT LATER, AT LEAST THE INSERTION, ASK ABOUT THE PERMUTATION ACTION 
-Note that we are using the identification of elements of $End_A$ with those in $\mathfrak{s}^{-1}End_A$. The notation $\sigma^{-1}$ comes from R-W. In the case of Ward's suspension, the isomorphism is given by $(-1)^{\binom{n}{2}}\sigma^{-1}$ (the same map but without the sign).
+The proof in the original reference is not very explicit, but in the case of our operadic suspension, the isomorphism is given by $$\sigma^{-1}:\End_{\Sigma A}\to\mathfrak{s}^{-1}\End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}\Sigma^{-1}\circ F\circ \Sigma^{\otimes n}$ for $F\in \End_{\Sigma A}(n)$. %I CAN BE MORE EXPLICIT ABOUT THIS, MAYBE WRITE IT LATER, AT LEAST THE INSERTION, ASK ABOUT THE PERMUTATION ACTION 
+Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from R-W. In the case of Ward's suspension, the isomorphism is given by $(-1)^{\binom{n}{2}}\sigma^{-1}$ (the same map but without the sign).
 
-In R-W the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $End_A$ to $End_{\Sigma A}$ via $\sigma$ (but only as graded vector spaces, not as operads) and then applying the isomorphism $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}End_A$, which is what was done at the beginning to obtain the sign.
+In R-W the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $\End_A$ to $\End_{\Sigma A}$ via $\sigma$ (but only as graded vector spaces, not as operads) and then applying the isomorphism $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what was done at the beginning to obtain the sign.
 \subsection{Braces}
-We can define the braces using the operadic suspension via operadic composition. This way we will get the same sign as mimicking R-W's strategy. To do this, we must first look at the operadic composition on $\Lambda$. We are particulary interested in compositions of the form $f(1^{\otimes k_0}\otimes g_1\otimes 1^{k_1}\otimes\cdots\otimes g_n\otimes 1^{k_n})$ where $N-n=k_0+\cdots+k_n$, $f$ has (operadic) arity $N$ and each $g_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the operadic composition
+We can define the braces using the operadic suspension via operadic composition. More precisely, we define the maps 
+$$b_n:\mathfrak{s}\OO(N)\otimes\mathfrak{s}\OO(a_1)\otimes\cdots\otimes\mathfrak{s}\OO(a_n)\to\mathfrak{s}\OO(N-\sum a_i)$$
+using the operadic composition $\gamma$ in $\mathfrak{s}\OO$ as
+
+$$b_n(f;g_1,\dots,g_n)=\sum\gamma(f;1,\dots,1,g_1,1,\dots,1,g_n,1\dots,1),$$
+
+where the sum runs over all possible ordering preserving insertions. 
+
+ This way we will get the same sign as mimicking R-W's strategy, with the advantage that now the brace relation follows immediatly from the associativity axiom of operadic composition. To obtain the signs that make this composition differ from the composition in $\OO$, we must first look at the operadic composition on $\Lambda$. In the case of the endomorphism operad, we are interested in compositions of the form $f(1^{\otimes k_0}\otimes g_1\otimes 1^{k_1}\otimes\cdots\otimes g_n\otimes 1^{k_n})$ where $N-n=k_0+\cdots+k_n$, $f$ has (operadic) arity $N$ and each $g_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the operadic composition
 
 \[
 \begin{tikzcd}
@@ -113,7 +121,7 @@ It is not hard to check that the two expressions are equal (not only mod 2, they
 \subsection{What can we do with this?}
 First of all, we get an easier way to obtain the signs. In addition, this explanation fits better in the context of operads and feels more natural.
 
-In addition, since we have an isomorphism of operads $End_{\Sigma A}\cong \mathfrak{s}^{-1}End_A$, we will be able to translate the results of Getzler, who works in $End_{\Sigma A}$, to our situation, which is $\mathfrak{s}^{-1}End_A$. This could help us prove the lemmas that we had in mind. In principle, the desuspension has the same signs as the suspension, but if it's convenient we may use the backwards insertion from Ward to get the isomorphism $\mathfrak{s}\mathfrak{s}^{-1}\OO\cong\OO$ in a more straightforward way (recall that there was an non-identity automorphism of $\OO$ in this isomorphism).
+In addition, since we have an isomorphism of operads $\End_{\Sigma A}\cong \mathfrak{s}^{-1}\End_A$, we will be able to translate the results of Getzler, who works in $\End_{\Sigma A}$, to our situation, which is $\mathfrak{s}^{-1}\End_A$. This could help us prove the lemmas that we had in mind. In principle, the desuspension has the same signs as the suspension, but if it's convenient we may use the backwards insertion from Ward to get the isomorphism $\mathfrak{s}\mathfrak{s}^{-1}\OO\cong\OO$ in a more straightforward way (recall that there was an non-identity automorphism of $\OO$ in this isomorphism).
 
 \section{Appendix: some proofs}
 
@@ -157,16 +165,16 @@ as wanted.
 Recall that we define the suspension of a graded vector space $V$ as the graded vector space $\Sigma V$ having degree components $(\Sigma V)^i=V^{i-1}$.
 
 \begin{theorem}
-There is an isomorphism of operads $End_{\Sigma V}\cong \mathfrak{s}^{-1}End_V$.
+There is an isomorphism of operads $\End_{\Sigma V}\cong \mathfrak{s}^{-1}\End_V$.
 \end{theorem}
 \begin{proof}
 For each $n$, we clearly have an isomorphism 
 
-$$End_{\Sigma V}=\Hom((\Sigma V)^{\otimes n},\Sigma V)\cong\Hom(V^{\otimes n},V)\otimes \Sigma^{n-1}sig_n= \mathfrak{s}^{-1}End_V$$
+$$\End_{\Sigma V}=\Hom((\Sigma V)^{\otimes n},\Sigma V)\cong\Hom(V^{\otimes n},V)\otimes \Sigma^{n-1}sig_n= \mathfrak{s}^{-1}\End_V$$
 
 given by the map $\sigma^{-1}$ defined before as $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}\Sigma^{-1}\circ F\circ\Sigma^{\otimes n}$. We must show that this map is an isomorphism of operads, in other words, it commutes with insertions and with the symmetric group action.
 
-Let us first check that $\sigma^{-1}$ commutes with insertions. Let $F\in End_{\Sigma V}(n)$ and $G\in End_{\Sigma V}(m)$. On the one had we have 
+Let us first check that $\sigma^{-1}$ commutes with insertions. Let $F\in \End_{\Sigma V}(n)$ and $G\in \End_{\Sigma V}(m)$. On the one had we have 
 
 $$\sigma^{-1}(F\circ_i G)=(-1)^{\binom{n+m-1}{2}+|G|(i-1)}\Sigma^{-1}\circ F(\Sigma^{\otimes i-1}\otimes G(\Sigma^{\otimes m})\otimes\Sigma^{\otimes n-i}),$$
 
@@ -185,7 +193,7 @@ $$|G|(i-1)=(n-1)(|G|+m-1)+(i-1)(m-1)+(|G|+m-1)(n-i)\mod 2,$$
 
 and this is straightforward.
 
-Now we are going to show that $\sigma^{-1}$ commutes with the action of th symmetric group. Recall that on $End_{\Sigma V}$ is the usual action, whilst on $\mathfrak{s}^{-1}End_V$ the action is twisted by the sign of the permutation. It is enough to show this for transpositions of the form $\tau=(i\ i+1)$ since they generate the symmetric group.
+Now we are going to show that $\sigma^{-1}$ commutes with the action of th symmetric group. Recall that on $\End_{\Sigma V}$ is the usual action, whilst on $\mathfrak{s}^{-1}\End_V$ the action is twisted by the sign of the permutation. It is enough to show this for transpositions of the form $\tau=(i\ i+1)$ since they generate the symmetric group.
 
 On the one hand, 
 
