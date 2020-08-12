@@ -19,7 +19,7 @@
 \maketitle
 
 \section{Operadic suspension}
-DEFINE A COMAND END TO WRITE END WITH MATHRM OR MATHOPERATOR
+
 Let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in degree 0. It comes with a natural action of the symmetriic group $S_n$. Let $\Lambda(n)=\Sigma^{n-1}sig_n$. This space can be realized as the one-dimensional vector space spanned by the exterior power $e_1\land\cdots\land e_n$ of degree $n-1$. Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the following insertion maps
 
 \[
@@ -217,5 +217,24 @@ which indeed coincide with the sign on the second map.
 %\url{https://mathoverflow.net/questions/366792/detailed-proof-of-mathfraks-1-mathrmend-v-cong-mathrmend-sigma-v}
 \end{proof}
 
+THE INTERLUDE FROM THE SUMMARY
+
+\begin{remark}
+
+Assuming $M_j\in \End_{\Sigma\mathfrak{s}\OO}$, I proved that I was able to define it so that $\deg(M)=2-j$ (and obviously the arity is $j$). So if I have to apply the Koszul rule here, the degree used is just $2-j$. If I get to define $M_j\in\mathfrak{s}\End_{\Sigma\mathfrak{s}\OO}$, then $M_j$ is actually $M_j\otimes e_J$ where $e_J=e_1\land\dots\land e_j$ has degree $j-1$. So 
+
+$$M_j\otimes e_J(x_1,\dots, x_j)=(-1)^{(j-1)(|x_1|+\cdots+|x_j|)}M_j(x_1,\dots, x_j)\otimes e_J$$
+being $|x|$ the total degree (the natural degree on $\Sigma\mathfrak{s}\OO$, recall that $M_j$ wa defined via composition on this odd operad). So passing by the $M_j$ component would yield a sign depending on its internal degree, i.e. $2-j$.
+
+For instance, if I get to define $M_2$ such that $$0=M_2\tilde{\circ}M_2=M_2\tilde{\circ}_2 M_2+M_2\tilde{\circ}_1 M_2$$ in the suspension, evaluating at $(x,y,z)$ gives us on the first summand
+
+$$(M_2\circ_2M_2)(x,y,z)=(M_2(1,M_2(1,1))\otimes (e_1\land e_2\land e_3))(x,y,z)=(-1)^{(|x|+|y|+|z|)(3-1)}M_2(x,M_2(y,z))$$
+
+and on the second summand
+$$(M_2\circ_1M_2)(x,y,z)=-(M_2(M_2(1,1),1)\otimes (e_1\land e_2\land e_3))(x,y,z)=-(-1)^{(|x|+|y|+|z|)(3-1)}M_2(x,M_2(y,z))$$
+
+Adding the two equals zero so we get the associativity condition $M_2(x,M_2(y,z))=M_2(M_2(x,y),z)$. Note that here $x$ is beeing permuted with $M_2$ but no extra signs appears, which is equivalent to apply the Koszul rule with the internal degree of $M_2$, which is $0$, and is in fact what we have done in the evaluation.
+
+\end{remark}
 
 \end{document}

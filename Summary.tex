@@ -193,6 +193,64 @@ under the assumption of distributy, which is true for the usual product and for 
 
 \end{itemize}
 
+\begin{remark}[On the odd Leibniz rule]
+The Leibniz rule on G-V (and originally in Gerstenhaber algebras) is an ``odd'' Leibniz rule in the sense that the sign is not the one expected if we only think of permutations of the variables. More precisely, the equation is
+
+$$[x,yz]=[x,y]z+(-1)^{|x|(|y|+1)}y[x,z].$$
+IT MUST BE THE FOLLOWING, NOT THE PREVIOUS
+
+$$[x,yz]=[x,y]z+(-1)^{(|x|+1)|y|}y[x,z].$$
+
+But the reason is just that the bracket has odd degree and $y$ is swapped by both $x$ and the bracket. It can be even more clear if we write $l(a,b)=[a,b]$ and $\mu(a,b)=ab$, and this will also allows to draw some conclusions. Thus, the lhs of the equation becomes $l(x,\mu(y,z))$ and on the rhs we have two terms: $\mu(l(x,y),z)$ and $\mu(y,l(x,z))$. Let us omit parentheses and commas to focus on the permutation of symbols. The first term is given by the permutation
+
+\[
+\begin{tikzcd}
+l\arrow[dr] & x\arrow[dr] & \mu\arrow[dll] & y & z\\
+\mu & l & x & y & z
+\end{tikzcd}
+\]
+
+So the sign should be given by $|\mu|(|x|+|l|)$. Since $\mu$ is of even degree, this sign vanishes (for operads, we have to take $\deg+arity-1$ but for maps being applied to elements only $\deg+arity$.
+
+The second term is given by the permutation
+\[
+\begin{tikzcd}
+l \arrow[drr]& x\arrow[drr] & \mu\arrow[dll] & y\arrow[dll] & z\\
+\mu & y & l & x & z
+\end{tikzcd}
+\]
+
+So the sign is given by $(|l|+|x|)(|\mu|+|y|)\equiv (|x|+1)|y|$. 
+
+If we applied this to $x=m$ (the element of the operad of total degree $2$ such that $m\circ m=0$) we should get
+
+$$[m,yz]=[m,y]z+(-1)^{|y|}y[m,z]$$
+
+which rewrites as
+
+$$d(yz)=d(y)z+(-1)^{|y|}yd(z)$$
+
+BUT I DID GET THE OTHER SIGN SO I HAVE TO REVISIT THAT. AN ALTERNATIVE COULD BE DEFININ $D=[,M]$. THIS WOULD INCLUDE THE SIGN IN FRONT OF THE FACTOR $M \circ X$, WHICH WOULD BE THE SAME AS IN THE ASSOCIATIVE PRODUCT DEFINED BY THE BRACE
+
+-----------------------------------------------------------
+
+AN INTERLUDE ABOUT OPERADIC SUSPENSION THAT I SHOULD WRITE ON THE OPERADIC SUSPENSION PART
+
+Assuming $M_j\in \End_{\Sigma\mathfrak{s}\OO}$, I proved that I was able to define it so that $\deg(M)=2-j$ (and obviously the arity is $j$). So if I have to apply the Koszul rule here, the degree used is just $2-j$. If I get to define $M_j\in\mathfrak{s}\End_{\Sigma\mathfrak{s}\OO}$, then $M_j$ is actually $M_j\otimes e_J$ where $e_J=e_1\land\dots\land e_j$ has degree $j-1$. So 
+
+$$M_j\otimes e_J(x_1,\dots, x_j)=(-1)^{(j-1)(|x_1|+\cdots+|x_j|)}M_j(x_1,\dots, x_j)\otimes e_J$$
+being $|x|$ the total degree (the natural degree on $\Sigma\mathfrak{s}\OO$, recall that $M_j$ wa defined via composition on this odd operad). So passing by the $M_j$ component would yield a sign depending on its internal degree, i.e. $2-j$.
+
+For instance, if I get to define $M_2$ such that $$0=M_2\tilde{\circ}M_2=M_2\tilde{\circ}_2 M_2+M_2\tilde{\circ}_1 M_2$$ in the suspension, evaluating at $(x,y,z)$ gives us on the first summand
+
+$$(M_2\circ_2M_2)(x,y,z)=(M_2(1,M_2(1,1))\otimes (e_1\land e_2\land e_3))(x,y,z)=(-1)^{(|x|+|y|+|z|)(3-1)}M_2(x,M_2(y,z))$$
+
+and on the second summand
+$$(M_2\circ_1M_2)(x,y,z)=-(M_2(M_2(1,1),1)\otimes (e_1\land e_2\land e_3))(x,y,z)=-(-1)^{(|x|+|y|+|z|)(3-1)}M_2(x,M_2(y,z))$$
+
+Adding the two equals zero so we get the associativity condition $M_2(x,M_2(y,z))=M_2(M_2(x,y),z)$. Note that here $x$ is beeing permuted with $M_2$ but no extra signs appears, which is equivalent to apply the Koszul rule with the internal degree of $M_2$, which is $0$, and is in fact what we have done in the evaluation.
+
+\end{remark}
 \subsection{Idea if my sign convention does not work}
 
 The following dot product in the endomorphism case satisfies some of the properties needed above, but I would still have to check it if necessary: $((a(x)-1)+q(x))((a(y)-1)+q(y))=(a(x)-1)(a(y)-1)+q(x)q(y)$. A reason to do this is that the $-1$ comes from a shift map as well as the arity, while the internal degree is independent of that. Thus, it make sense to put arity $-1$ together and separate the internal degree.
