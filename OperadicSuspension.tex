@@ -119,10 +119,41 @@ It is not hard to check that the two expressions are equal (not only mod 2, they
 
 
 \subsection{What can we do with this?}
-First of all, we get an easier way to obtain the signs. In addition, this explanation fits better in the context of operads and feels more natural.
+First of all, we get an easier way to obtain the signs and the brace relation follows easily. In addition, this explanation fits better in the context of operads and feels more natural.
 
-In addition, since we have an isomorphism of operads $\End_{\Sigma A}\cong \mathfrak{s}^{-1}\End_A$, we will be able to translate the results of Getzler, who works in $\End_{\Sigma A}$, to our situation, which is $\mathfrak{s}^{-1}\End_A$. This could help us prove the lemmas that we had in mind. In principle, the desuspension has the same signs as the suspension, but if it's convenient we may use the backwards insertion from Ward to get the isomorphism $\mathfrak{s}\mathfrak{s}^{-1}\OO\cong\OO$ in a more straightforward way (recall that there was an non-identity automorphism of $\OO$ in this isomorphism).
+Furthermore, since we have an isomorphism of operads $\End_{\Sigma A}\cong \mathfrak{s}^{-1}\End_A$, we will be able to translate the results of Getzler, who works in $\End_{\Sigma A}$, to $\mathfrak{s}^{-1}\End_A$, which is more similar to our situation. This could help us prove the lemmas that we had in mind. In principle, the desuspension has the same signs as the suspension, but if it's convenient we may use the backwards insertion from Ward to get the isomorphism $\mathfrak{s}\mathfrak{s}^{-1}\OO\cong\OO$ in a more straightforward way (recall that there was an non-identity automorphism of $\OO$ in this isomorphism).
 
+\section{$A_\infty$-structure on $\End_{\Sigma\mathfrak{s}\OO}$}
+
+For an element $x\in\Sigma\s\OO$ let us write $||x||$ for its total degree (the natural degree in this case, arity plus internal degree) and $|x|=||x||-1$ for its \emph{reduced degree} (which is the natural degree in $\s\OO$). We had defined the maps 
+
+$$M_j(x_1,\dots,x_j)=b_j(m;x_1,\dots, x_j)$$
+
+for $j>1$ and
+
+$$M_1(x)=b_1(m;x)-(-1)^{|x|}b_1(x;m).$$
+
+We know that $M_j$ must be defined on $\Sigma\s\OO$ to be of degree $2-j$, i.e. $M_j\in\End_{\Sigma\s\OO}$. By Getzler we know that these maps define an $A_\infty$-structure on $\End_{\Sigma\s\OO}$ in the sense of $M\circ M=0$ for the operadic composition on $\End_{\Sigma\s\OO}$ (without signs). If we use the operad isomorphism $\sigma^{-1}:\End_{\Sigma\s\OO}\cong\s^{-1}\End_{\s\OO}$ we can obtain the relation $\sigma^{-1}(M)\tilde{\circ}\sigma^{-1}(M)=0$ (now with the signs we normally use). But the problem is that if we want to define $A_\infty$-maps $\overline{M}_j$ on $\s^{-1}\End_{\s\OO}$, we face the problem of degree. Again, $\overline{M}_j$ must take the total degree when seen as a map on $\End_{\s\OO}$. But desuspending substrac the arity instead of adding it (and a shift up or down doesn't fix this). In addition, this solution is not totally satisfying since $\sigma^{-1}(M)$ is defined in terms of maps from other operad. 
+
+
+So the alternative is redefining the maps $M_j$ to obtain some maps $M_j'$ that satisfy $M'\tilde{\circ}M'=0$, so that $M_j'$ can be seen as elements of $\s\End_{\Sigma\OO}$ and the new map $\overline{M}_j$ can be defined on the shift of this operad.
+
+The strategy is similar to the sign twist in the dg-case, where the associative product was defined as $xy=(-1)^{|x|}b_2(m;x,y)$. In particular, $M_2'(x,y)=(-1)^{|x|}b_2(m;x,y)$.
+
+\begin{remark}
+Another possibility that I haven't really considered is sending the $\overline{M}_j$ defined on $\s^{-1}\End_{\s\OO}$ to a map defined on $\s\End_{\s\OO}$. The signs are the same and the map consists of adding some exterior products, so it doesn't really modify the map. Maybe this alternative is easier.
+\end{remark}
+
+\subsection{Redefining the maps}
+I'm going to use the notation $M_j$ for what I've called $M_j'$ before since we are going to be interested only in these new maps. $M_1$ remains unmodified and $M_2$ has already been defined as $M_2(x,y)=(-1)^{|x|}b_2(m;x,y)$. We want to define $M_j$ for $j\geq 3$ such that for each decomposition $n=r+s+t$ we have
+
+$$\sum_n (-1)^{rs+t}M_{r+1+t}(1^{\otimes r}\otimes M_s\otimes 1^{\otimes t})=0.$$
+
+For $n=1,2$ we already know that this relation is satisfied since only $M_1$ and $M_2$ are involved. We are going to look at the case $n=3$ to define $M_3$. Since we are going to modify $b_3(m;x,y,z)$ by a sign depending on the elements involved, we need to rewrite the above relation after applying it to elements. 
+
+THE SIGNS OF THE EXTERIOR PRODUCT THAT GOES AWAY BECAUSE IT'S ALWAYS THE SAME
+
+THE DEGREE FOR THE KOSZUL RULE IS THE TOTAL DEGREE
 \section{Appendix: some proofs}
 
 \begin{lemma}
