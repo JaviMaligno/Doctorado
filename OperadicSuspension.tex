@@ -20,7 +20,7 @@
 
 \section{Operadic suspension}
 
-Let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in degree 0. It comes with a natural action of the symmetriic group $S_n$. Let $\Lambda(n)=\Sigma^{n-1}sig_n$. This space can be realized as the one-dimensional vector space spanned by the exterior power $e_1\land\cdots\land e_n$ of degree $n-1$. Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the following insertion maps
+Let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in degree 0. It comes with a natural action of the symmetric group $S_n$. Let $\Lambda(n)=\Sigma^{n-1}sig_n$. This space can be realized as the one-dimensional vector space spanned by the exterior power $e_1\land\cdots\land e_n$ of degree $n-1$. Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the following insertion maps
 
 \[
 \begin{tikzcd}
@@ -37,7 +37,7 @@ In a similar way we can define $\Lambda^-(n)=\Sigma^{1-n}sig_n$, with the same c
 Let $\mathcal{O}$ be a graded linear operad. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of operads $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$. Similarly, we define the \emph{operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
 \end{definition}
 
-It can be checked that $\mathfrak{s}\mathfrak{s}^{-1}\OO\cong\OO$ using the automorphism $f_n:\OO(n)\to\OO(n)$ defined by $f_n(a)=(-1)^{\frac{n(n+1)}{2}+1}a$.
+%It can be checked that $\mathfrak{s}\mathfrak{s}^{-1}\OO\cong\OO$ using the automorphism $f_n:\OO(n)\to\OO(n)$ defined by $f_n(a)=(-1)^{\frac{n(n+1)}{2}+1}a$.
 
 We may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$. If we write $\circ_i$ for the operadic insertion on $\OO$ and $\tilde{\circ}_i$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. Let $a\in\OO(n)$ and $b\in\OO(m)$, and let us compute $a\tilde{\circ}_i b$.
 
@@ -58,11 +58,11 @@ so we conclude
 
 $$a\tilde{\circ}_ib=(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}a\circ_i b.$$
 
-This is exactly the sign from R-W and differs from Ward's (also Gerstenhaber's, which implies Keller's) sign by $(-1)^{(n-1)(m-1)}$. We can show these two alternative supensions to be isomorphic as operads. For that purpuse we need to find an automorphism $f$ of $\OO$ such that 
+%This is exactly the sign from R-W and differs from Ward's (also Gerstenhaber's, which implies Keller's) sign by $(-1)^{(n-1)(m-1)}$. We can show these two alternative supensions to be isomorphic as operads. For that purpuse we need to find an automorphism $f$ of $\OO$ such that 
 
-$$f(a\circ_i b)=(-1)^{(n-1)(m-1)}f(a)\circ_i f(b).$$
-
-It can be checked that $f(a)=(-1)^{\frac{n(n+1)}{2}+1}a$ is such an automorphism.
+%$$f(a\circ_i b)=(-1)^{(n-1)(m-1)}f(a)\circ_i f(b).$$
+%
+%It can be checked that $f(a)=(-1)^{\frac{n(n+1)}{2}+1}a$ is such an automorphism.
 
 \begin{theorem}[Operads in Algebra, Topology and Physics]
 Given a graded vector space $V$, there is an isomorphism of operads $\End_{\Sigma V}\cong \mathfrak{s}^{-1}\End_V$, where $\End_V$ is the endomorphism operad of $v$.
@@ -118,14 +118,14 @@ $$\sigma=\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n 
 It is not hard to check that the two expressions are equal (not only mod 2, they have in fact the same value as integers).
 
 
-\subsection{What can we do with this?}
+\subsection{Advantages of this approach}
 First of all, we get an easier way to obtain the signs and the brace relation follows easily. In addition, this explanation fits better in the context of operads and feels more natural.
 
-Furthermore, since we have an isomorphism of operads $\End_{\Sigma A}\cong \mathfrak{s}^{-1}\End_A$, we will be able to translate the results of Getzler, who works in $\End_{\Sigma A}$, to $\mathfrak{s}^{-1}\End_A$, which is more similar to our situation. This could help us prove the lemmas that we had in mind. In principle, the desuspension has the same signs as the suspension, but if it's convenient we may use the backwards insertion from Ward to get the isomorphism $\mathfrak{s}\mathfrak{s}^{-1}\OO\cong\OO$ in a more straightforward way (recall that there was an non-identity automorphism of $\OO$ in this isomorphism).
+Furthermore, since we have an isomorphism of operads $\End_{\Sigma A}\cong \mathfrak{s}^{-1}\End_A$, we can translate if needed, results from an operad to its desuspension, which has the same signs in composition as the suspension, but with opposite grading. We can also use this isomorphism if we define maps on $\s\End_{\Sigma A}$, since this is then isomorphic to $\End_A$, which is the naïve Hochschild complex.
 
 \section{$A_\infty$-structure on $\End_{\Sigma\mathfrak{s}\OO}$}
 
-For an element $x\in\Sigma\s\OO$ let us write $||x||$ for its total degree (the natural degree in this case, arity plus internal degree) and $|x|=||x||-1$ for its \emph{reduced degree} (which is the natural degree in $\s\OO$). We had defined the maps 
+Let $\Sigma\s\OO$ be the shift as a graded vector space of $\s\OO$. For an element $x\in\Sigma\s\OO$ let us write $||x||$ for its total degree (the natural degree in this case, arity plus internal degree) and $|x|=||x||-1$ for its \emph{reduced degree} (which is the natural degree in $\s\OO$). We had defined the maps 
 
 $$M_j(x_1,\dots,x_j)=b_j(m;x_1,\dots, x_j)$$
 
@@ -133,7 +133,7 @@ for $j>1$ and
 
 $$M_1(x)=b_1(m;x)-(-1)^{|x|}b_1(x;m).$$
 
-We know that $M_j$ must be defined on $\Sigma\s\OO$ to be of degree $2-j$, i.e. $M_j\in\End_{\Sigma\s\OO}$. By Getzler we know that these maps define an $A_\infty$-structure on $\End_{\Sigma\s\OO}$ in the sense of $M\circ M=0$ for the operadic composition on $\End_{\Sigma\s\OO}$ (without signs). If we use the operad isomorphism $\sigma^{-1}:\End_{\Sigma\s\OO}\cong\s^{-1}\End_{\s\OO}$ we can obtain the relation $\sigma^{-1}(M)\tilde{\circ}\sigma^{-1}(M)=0$ (now with the signs we normally use). But the problem is that if we want to define $A_\infty$-maps $\overline{M}_j$ on $\s^{-1}\End_{\s\OO}$, we face the problem of degree. Again, $\overline{M}_j$ must take the total degree when seen as a map on $\End_{\s\OO}$. But desuspending substrac the arity instead of adding it (and a shift up or down doesn't fix this). In addition, this solution is not totally satisfying since $\sigma^{-1}(M)$ is defined in terms of maps from other operad. 
+We know that $M_j$ must be defined on $\Sigma\s\OO$ to be of degree $2-j$, i.e. $M_j\in\End_{\Sigma\s\OO}$. By Getzler we know that these maps define an $A_\infty$-structure on $\End_{\Sigma\s\OO}$ in the sense of $M\circ M=0$ for the operadic composition on $\End_{\Sigma\s\OO}$ (without signs). If we use the operad isomorphism $\sigma^{-1}:\End_{\Sigma\s\OO}\cong\s^{-1}\End_{\s\OO}$ we can obtain the relation $\sigma^{-1}(M)\tilde{\circ}\sigma^{-1}(M)=0$ (now with the signs we normally use). But the problem is that if we want to define an $A_\infty$-structure on $\overline{M}_j$ on $\s^{-1}\End_{\s\OO}$, we face the problem of degree. Again, $\overline{M}_j$ must take the total degree. But desuspending substracts the arity instead of adding it (and a shift up or down doesn't fix this). In addition, this solution is not totally satisfying since $\sigma^{-1}(M)$ is defined in terms of maps from other operad. 
 
 
 So the alternative is redefining the maps $M_j$ to obtain some maps $M_j'$ that satisfy $M'\tilde{\circ}M'=0$, so that $M_j'$ can be seen as elements of $\s\End_{\Sigma\OO}$ and the new map $\overline{M}_j$ can be defined on the shift of this operad.
@@ -141,20 +141,100 @@ So the alternative is redefining the maps $M_j$ to obtain some maps $M_j'$ that 
 The strategy is similar to the sign twist in the dg-case, where the associative product was defined as $xy=(-1)^{|x|}b_2(m;x,y)$. In particular, $M_2'(x,y)=(-1)^{|x|}b_2(m;x,y)$.
 
 \begin{remark}
-Another possibility that I haven't really considered is sending the $\overline{M}_j$ defined on $\s^{-1}\End_{\s\OO}$ to a map defined on $\s\End_{\s\OO}$. The signs are the same and the map consists of adding some exterior products, so it doesn't really modify the map. Maybe this alternative is easier.
+Another possibility is sending $\sigma^{-1}(M_j)\in\s^{-1}\End_{\s\OO}$ to $\s\End_{\s\OO}$. The signs are the same and the map consists of adding some exterior products, so it doesn't really modify the map or the operadic composition. The problem is that it gives the opposite degree: if $\sigma^{-1}(M_j)$ has degree $2-j$ in $\s^{-1}\End_{\s\OO}$ then it has degree $j$ when defined on $\s\End_{\s\OO}$.
 \end{remark}
 
 \subsection{Redefining the maps}
-I'm going to use the notation $M_j$ for what I've called $M_j'$ before since we are going to be interested only in these new maps. $M_1$ remains unmodified and $M_2$ has already been defined as $M_2(x,y)=(-1)^{|x|}b_2(m;x,y)$. We want to define $M_j$ for $j\geq 3$ such that for each decomposition $n=r+s+t$ we have
+I am going to use the notation $M_j$ for what I've called $M_j'$ before since we are going to be interested only in these new maps. $M_1$ remains unmodified and $M_2$ has already been defined as $M_2(x,y)=(-1)^{|x|}b_2(m;x,y)$. We want to define $M_j$ for $j\geq 3$ such that for each decomposition $n=r+s+t$ we have
 
 $$\sum_n (-1)^{rs+t}M_{r+1+t}(1^{\otimes r}\otimes M_s\otimes 1^{\otimes t})=0.$$
 
 For $n=1,2$ we already know that this relation is satisfied since only $M_1$ and $M_2$ are involved. We are going to look at the case $n=3$ to define $M_3$. Since we are going to modify $b_3(m;x,y,z)$ by a sign depending on the elements involved, we need to rewrite the above relation after applying it to elements. 
 
-THE SIGNS OF THE EXTERIOR PRODUCT THAT GOES AWAY BECAUSE IT'S ALWAYS THE SAME
+\begin{remark}
+Let $\mathcal{P}=\s\End_{\Sigma\s\OO}$.  If $f\in\mathcal{P}(n)$, then $f=f'\otimes (e_1\land\cdots\land e_n)$, so $$f(x_1,\dots,x_n)=(-1)^{(n-1)\sum_i ||x_i||}f'(x_1,\dots,x_n)\otimes(e_1\land\cdots\land e_n).$$
 
-THE DEGREE FOR THE KOSZUL RULE IS THE TOTAL DEGREE
-\section{Appendix: some proofs}
+Fortunately, this sign is not gonna be relevant in our equations since it's the same for any two maps of the same arity and we will be able to cancel it. More precisely, for each fixed $n$,
+
+$$0=\sum_{r+s+t=n}(-1)^{rs+t}M_{r+1+s}(1^{\otimes r}\otimes M_s\otimes 1^{t})(x_1,\dots, x_n)=$$
+$$(-1)^{(n-1)\sum_i||x_i||}(-1)^{(2-s)\sum_{i=1}^r||x_i||}(-1)^{rs+t}M_{r+1+s}(x_1,\dots, x_r, M_s(x_{r+1},\dots, x_{r+s}), x_{r+s+1},\dots, x_n)$$
+
+so we can cancel the factor $(-1)^{(n-1)\sum_i||x_i||}$. Note that the Koszul rule applied here takes the total degree, since that is the degree on $\Sigma\s\OO$, where the maps are defined. In particular, the Leibniz rule takes the form of
+
+$$M_1(M_2(x,y))=M_2(x, M_1(x))+(-1)^{||x||}M_2(x,M_1(y)).$$
+
+The total degree in the sign is consistent with the oddity that we originally found.In particular, we already know that this relation holds, which is the $A_\infty$-equation for $n=2$. For $n=1$ it is just $M_1(M_1(x))=0$, that we also know. We have to be careful because the reduced degree is also going to appear in the operadic relations such as the brace relation.
+\end{remark}
+
+We are going to define $M_3(x,y,z)=(-1)^{\varepsilon(xyz)}b_3(m;x,y,z)$ and find necessary conditions that $\varepsilon(xyz)$ must satisfy. To do that we look at the $A_\infty$-equation for $n=3$. Before proceding, let us impose some previous conditions on $\varepsilon(xyz)$. It should depend only on the total or reduced degree of $x$, $y$ and $z$. In particular, it should not distinguish between $b_1(m;x)$ and $b_1(x;m)$, so we may define $\varepsilon(M_1(x)yz)$ and so on. We are going to denote 
+\begin{gather*}
+\varepsilon_1\coloneqq\varepsilon(M_1(x)yz),\\
+\varepsilon_2\coloneqq\varepsilon(xM_1(y)z),\\
+\varepsilon_3\coloneqq\varepsilon(xyM_1(z)).
+\varepsilon\coloneqq\varepsilon(xyz)
+\end{gather*}
+And now let us look at the $A_\infty$-equation for $n=3$, which is
+
+\begin{align*}
+M_3(M_1(x),y,z)+(-1)^{||x||}M_3(x,M_1(y),z)+(-1)^{||x||+||y||}M_3(x,y,M_1(z))\\
+-M_2(M_2(x,y),z)+M_2(x,M_2(y,z))+M_1(M_3(x,y,z))=0.
+\end{align*}
+
+First we apply the definitions of $M_1$ and $M_2$.
+\begin{align*}
+M_3(b_1(m;x),y,z)+(-1)^{||x||}M_3(x,b_1(m;y),z)+(-1)^{||x||+||y||}M_3(x,y,b_1(m;z))\\
+-(-1)^{|x|}M_3(b_1(x;m),y,z)-(-1)^{|y|+||x||}M_3(x,b_1(y;m),z)-(-1)^{|z|+||x||+||y||}M_3(x,y,b_1(m;z))\\
+-(-1)^{|y|+1}b_2(b_2(m;x,y),z)+(-1)^{|x|+|y|}b_2(m;x,b_2(m;y,z))\\+b_1(m;M_3(x,y,z))-(-1)^{|x|+|y|+|z|+1}b_1(M_3(x,y,z);m)=0.
+\end{align*}
+And now we apply the definition of $M_3(x,y,z)$.
+
+\begin{align*}
+(-1)^{\varepsilon_1}b_3(m;b_1(m;x),y,z)+(-1)^{||x||+\varepsilon_2}b_3(m;x,b_1(m;y),z)+(-1)^{||x||+||y||+\varepsilon_3}b_3(m;x,y,b_1(m;z))\\
+-(-1)^{|x|+\varepsilon_1}b_3(m;b_1(x;m),y,z)-(-1)^{|y|+||x||+\varepsilon_2}b_3(m;x,b_1(y;m),z)-(-1)^{|z|+||x||+||y||+\varepsilon_3}b_3(m;x,y,b_1(m;z))\\
++(-1)^{|y|}b_2(b_2(m;x,y),z)+(-1)^{|x|+|y|}b_2(m;x,b_2(m;y,z))\\+(-1)^{\varepsilon}b_1(m;b_3(m;x,y,z))+(-1)^{|x|+|y|+|z|+\varepsilon}b_1(b_3(m;x,y,z);m)=0.
+\end{align*}
+
+Following Getzler's proof of $M\circ M=0$, we next apply the brace relation to the last term $(-1)^{|x|+|y|+|z|+\varepsilon}b_1(b_3(m;x,y,z);m)$. We will after that impose the cancellation of the second line of the equation above to obtain some conditions on the signs.
+
+\begin{align*}
+(-1)^{|x|+|y|+|z|+\varepsilon}b_1(b_3(m;x,y,z);m)=
+&(-1)^{|x|+|y|+|z|+\varepsilon}b_4(m;x,y,z,m)+(-1)^{|x|+|y|+|z|+\varepsilon}b_3(m;x,y,b_1(z;m))\\
+&+(-1)^{|x|+|y|+\varepsilon}b_4(m;x,y,m,z)+(-1)^{|x|+|y|+\varepsilon}b_3(m;x,b_1(y;m),z)\\
+&+(-1)^{|x|+\varepsilon}b_4(m;x,m,y,z)+(-1)^{|x|+\varepsilon}b_3(m;b_1(x;m),y,z)\\
+&+(-1)^{\varepsilon}b_4(m;m,x,y,z).
+\end{align*}
+The conditions modulo 2 that we get from the cancellation condition are the following:
+
+\begin{gather}
+|x|+\varepsilon_1=|x|+\varepsilon\Rightarrow\varepsilon_1=\varepsilon\\
+|y|+||x||+\varepsilon_2=|x|+|y|+\varepsilon\Rightarrow \varepsilon_2=\varepsilon-1\\
+|z|+||x||+||y||+\varepsilon_3=|x|+|y|+|z|+\varepsilon\Rightarrow\varepsilon_3=\varepsilon
+\end{gather}
+From condition (1) and (3) we deduce $\varepsilon$ does not depend on the first and third argument, and from condition (2) we deduce $\varepsilon(xM_1(y)z)=\varepsilon(xyz)+1$. Therefore the natural way to define $\varepsilon$ is by $\varepsilon(xyz)=|y|$, because $|M_1(y)|=|y|+1$ (defining it as $||y||$ would also do the job, but sticking to $|y|$ will be more convenient).
+
+Thus, using $\varepsilon(xyz)=|y|$ in the $A_\infty$-equation together with the brace relation and some simplification of signs gives us
+
+\begin{align*}
+(-1)^{|y|}b_3(m;b_1(m;x),y,z)+(-1)^{|x|+|y|}b_3(m;x,b_1(m;y),z)+(-1)^{|x|}b_3(m;x,y,b_1(m;z))\\
++(-1)^{|y|}b_2(m;b_2(m;x,y),z)+(-1)^{|x|+|y|}b_2(m;x,b_2(m;y,z))+(-1)^{|y|}b_1(m;b_3(x,y,z))\\
++(-1)^{|x|+|z|}b_4(m;x,y,z,m)+(-1)^{|x|}b_4(m;x,y,m,z)\\
++(-1)^{|x|+|y|}b_4(m;x,m,y,z)+(-1)^{|y|}b_4(m;m,x,y,z)=0
+\end{align*}
+
+It can be checked using the brace relation that the above expression equals $(-1)^{|y|}b_3(b_1(m;m);x,y,z)$, so it is indeed 0 since we are assuming that $b_1(m;m)=0$. 
+
+This shows that $M_3(x,y,z)=(-1)^{|y|}b_3(m;x,y,z)$ is a good definition. The next step would be trying to generalize this to higher maps. So far, the pattern that can be observed is
+
+$$M_j(x_1,\dots,x_j)=(-1)^{|x_{j-1}|}b_j(m;x_1,\dots, x_j),$$
+
+but we will have to test it. If it fails, then I would try to use the $n=4$ case of the $A_\infty$-equation to deduce the conditions for the definition of $M_4$.
+
+%\appendix
+%\renewcommand{\appendixname}{Appendix:}
+\begin{appendices}
+\appendix
+\gdef\thesection{Appendix \Alph{section}}
+\section{Some proofs and details}
 
 \begin{lemma}
 $\mathfrak{s}^{-1}\mathfrak{s}\OO\cong\OO\cong\mathfrak{s}\mathfrak{s}^{-1}\OO$.
@@ -170,6 +250,10 @@ $$f(a\circ_i b)=(-1)^{(n-1)(m-1)}f(a)\circ_i f(b).$$
 
 It can be checked that $f(a)=(-1)^{\frac{n(n+1)}{2}+1}a$ is such an automorphism.
 \end{proof}
+
+Note that the sign produced by the operadic suspension defined here (the sign from R-W) differs from Ward's (also Gerstenhaber's, which implies Keller's) sign by $(-1)^{(n-1)(m-1)}$. Therefore, the same automorphism 
+$$f(a)=(-1)^{\frac{n(n+1)}{2}+1}a$$
+ can be used to show our suspension is isomorphic to Ward's suspension. 
 
 \begin{lemma}
 For any integers $n$ and $m$, the following equiality  holds mod 2:
@@ -193,7 +277,7 @@ as wanted.
 
 \end{proof}
 
-Recall that we define the suspension of a graded vector space $V$ as the graded vector space $\Sigma V$ having degree components $(\Sigma V)^i=V^{i-1}$.
+Recall that we define the \emph{suspension} or \emph{shift} of a graded vector space $V$ as the graded vector space $\Sigma V$ having degree components $(\Sigma V)^i=V^{i-1}$.
 
 \begin{theorem}
 There is an isomorphism of operads $\End_{\Sigma V}\cong \mathfrak{s}^{-1}\End_V$.
@@ -248,24 +332,24 @@ which indeed coincide with the sign on the second map.
 %\url{https://mathoverflow.net/questions/366792/detailed-proof-of-mathfraks-1-mathrmend-v-cong-mathrmend-sigma-v}
 \end{proof}
 
-THE INTERLUDE FROM THE SUMMARY
 
 \begin{remark}
 
 Assuming $M_j\in \End_{\Sigma\mathfrak{s}\OO}$, I proved that I was able to define it so that $\deg(M)=2-j$ (and obviously the arity is $j$). So if I have to apply the Koszul rule here, the degree used is just $2-j$. If I get to define $M_j\in\mathfrak{s}\End_{\Sigma\mathfrak{s}\OO}$, then $M_j$ is actually $M_j\otimes e_J$ where $e_J=e_1\land\dots\land e_j$ has degree $j-1$. So 
 
-$$M_j\otimes e_J(x_1,\dots, x_j)=(-1)^{(j-1)(|x_1|+\cdots+|x_j|)}M_j(x_1,\dots, x_j)\otimes e_J$$
-being $|x|$ the total degree (the natural degree on $\Sigma\mathfrak{s}\OO$, recall that $M_j$ wa defined via composition on this odd operad). So passing by the $M_j$ component would yield a sign depending on its internal degree, i.e. $2-j$.
+$$M_j\otimes e_J(x_1,\dots, x_j)=(-1)^{(j-1)(||x_1||+\cdots+||x_j||)}M_j(x_1,\dots, x_j)\otimes e_J$$
+being $||x||$ the total degree (the natural degree on $\Sigma\mathfrak{s}\OO$, recall that $M_j$ wa defined via composition on this odd operad). So passing by the $M_j$ component would yield a sign depending on its internal degree, i.e. $2-j$.
 
 For instance, if I get to define $M_2$ such that $$0=M_2\tilde{\circ}M_2=M_2\tilde{\circ}_2 M_2+M_2\tilde{\circ}_1 M_2$$ in the suspension, evaluating at $(x,y,z)$ gives us on the first summand
 
-$$(M_2\circ_2M_2)(x,y,z)=(M_2(1,M_2(1,1))\otimes (e_1\land e_2\land e_3))(x,y,z)=(-1)^{(|x|+|y|+|z|)(3-1)}M_2(x,M_2(y,z))$$
+$$(M_2\circ_2M_2)(x,y,z)=(M_2(1,M_2(1,1))\otimes (e_1\land e_2\land e_3))(x,y,z)=(-1)^{(||x||+||y||+||z||)(3-1)}M_2(x,M_2(y,z))$$
 
 and on the second summand
-$$(M_2\circ_1M_2)(x,y,z)=-(M_2(M_2(1,1),1)\otimes (e_1\land e_2\land e_3))(x,y,z)=-(-1)^{(|x|+|y|+|z|)(3-1)}M_2(x,M_2(y,z))$$
+$$(M_2\circ_1M_2)(x,y,z)=-(M_2(M_2(1,1),1)\otimes (e_1\land e_2\land e_3))(x,y,z)=-(-1)^{(||x||+||y||+||z||)(3-1)}M_2(x,M_2(y,z))$$
 
 Adding the two equals zero so we get the associativity condition $M_2(x,M_2(y,z))=M_2(M_2(x,y),z)$. Note that here $x$ is beeing permuted with $M_2$ but no extra signs appears, which is equivalent to apply the Koszul rule with the internal degree of $M_2$, which is $0$, and is in fact what we have done in the evaluation.
 
 \end{remark}
+\end{appendices}
 
 \end{document}
