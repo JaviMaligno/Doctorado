@@ -1,0 +1,52 @@
+\documentclass[a5paper, 10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[british]{babel}
+%\usepackage[babel]{microtype}
+\usepackage{graphicx, xcolor}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+%\usepackage{sectsty}
+%\usepackage{libertine}
+%\usepackage[libertine]{newtxmath}
+%\usepackage[lining]{FiraSans}
+%\setkomafont{disposition}{\firamedium}
+%\renewcommand{\sfdefault}{\firamedium}
+%\allsectionsfont{\firamedium}
+%\usepackage[noprint]{booklet}
+%\setpdftargetpages
+
+\newenvironment{abs}[4]{%
+\begin{center}%
+  %\firamedium
+  \bf
+  #1%
+\end{center}%
+\begin{center}
+  #2 - {\small #3}
+  
+  {\it #4}
+\end{center}
+}{%
+
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+}
+
+\newcommand\TITLE[1]{\renewcommand\THETITLE{#1}}
+\newcommand\THETITLE{}
+\newcommand\AUTHOR[1]{\renewcommand\THEAUTHOR{#1}}
+\newcommand\THEAUTHOR{}
+\newcommand\EMAIL[1]{\renewcommand\THEEMAIL{#1}}
+\newcommand\THEEMAIL{}
+\newcommand\AFFIL[1]{\renewcommand\THEAFFIL{#1}}
+\newcommand\THEAFFIL{}
+\newcommand\ABSTRACT[1]{\renewcommand\THEABSTRACT{#1}}
+\newcommand\THEABSTRACT{}
+
+\newcommand{\MakeAbstract}[1]{
+%\input{./abstracts/#1.tex}
+\input{./#1.tex}
+\begin{abs}{\THETITLE}{\THEAUTHOR}{\THEEMAIL}{\THEAFFIL}
+\THEABSTRACT
+\end{abs}
+%\vspace{1cm}
+}

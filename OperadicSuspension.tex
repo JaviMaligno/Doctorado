@@ -158,7 +158,7 @@ Let $\mathcal{P}=\s\End_{\Sigma\s\OO}$.  If $f\in\mathcal{P}(n)$, then $f=f'\oti
 
 Fortunately, this sign is not going to be relevant in our equations since it's the same for any two maps of the same arity and we will be able to cancel it. More precisely, for each fixed $n$,
 
-$$0=\sum_{r+s+t=n}(-1)^{rs+t}M_{r+1+s}(1^{\otimes r}\otimes M_s\otimes 1^{t})(x_1,\dots, x_n)=$$
+$$0=\sum_{r+s+t=n}(-1)^{rs+t}M_{r+1+t}(1^{\otimes r}\otimes M_s\otimes 1^{t})(x_1,\dots, x_n)=$$
 $$(-1)^{(n-1)\sum_i||x_i||}(-1)^{(2-s)\sum_{i=1}^r||x_i||}(-1)^{rs+t}M_{r+1+s}(x_1,\dots, x_r, M_s(x_{r+1},\dots, x_{r+s}), x_{r+s+1},\dots, x_n)$$
 
 so we can cancel the factor $(-1)^{(n-1)\sum_i||x_i||}$. Note that the Koszul rule applied here takes the total degree, since that is the degree on $\Sigma\s\OO$, where the maps are defined (more about this in \ref{remark3}). In particular, the Leibniz rule takes the form of
@@ -168,12 +168,12 @@ $$M_1(M_2(x,y))=M_2(x, M_1(x))+(-1)^{||x||}M_2(x,M_1(y)).$$
 The total degree in the sign is consistent with the oddity that we originally found. In particular, we already know that this relation holds, which is the $A_\infty$-equation for $n=2$. For $n=1$ it is just $M_1(M_1(x))=0$, that we also know (more about this in \ref{remark3}). We have to be careful because the reduced degree is also going to appear in the operadic relations such as the brace relation.
 \end{remark}
 \subsection{Definition of $M_3$}
-We are going to define $M_3(x,y,z)=(-1)^{\varepsilon(xyz)}b_3(m;x,y,z)$ and find necessary conditions that $\varepsilon(xyz)$ must satisfy. To do that we look at the $A_\infty$-equation for $n=3$. Before proceding, let us impose some previous conditions on $\varepsilon(xyz)$. It should depend only on the total or reduced degree of $x$, $y$ and $z$. In particular, it should not distinguish between $b_1(m;x)$ and $b_1(x;m)$, so we may define $\varepsilon(M_1(x)yz)$ and so on. We denote 
+We are going to define $M_3(x,y,z)=(-1)^{\varepsilon(x,y,z)}b_3(m;x,y,z)$ and find necessary conditions that $\varepsilon(x,y,z)$ must satisfy. To do that we look at the $A_\infty$-equation for $n=3$. Before proceding, let us impose some previous conditions on $\varepsilon(x,y,z)$. It should depend only on the total or reduced degree of $x$, $y$ and $z$. In particular, it should not distinguish between $b_1(m;x)$ and $b_1(x;m)$, so we may define $\varepsilon(M_1(x),y,z)$ and so on. We denote 
 \begin{gather*}
-\varepsilon_1\coloneqq\varepsilon(M_1(x)yz),\\
-\varepsilon_2\coloneqq\varepsilon(xM_1(y)z),\\
-\varepsilon_3\coloneqq\varepsilon(xyM_1(z)).\\
-\varepsilon\coloneqq\varepsilon(xyz)
+\varepsilon_1\coloneqq\varepsilon(M_1(x),y,z),\\
+\varepsilon_2\coloneqq\varepsilon(x,M_1(y),z),\\
+\varepsilon_3\coloneqq\varepsilon(x,y,M_1(z)).\\
+\varepsilon\coloneqq\varepsilon(x,y,z)
 \end{gather*}
 And now let us look at the $A_\infty$-equation for $n=3$, which is
 
@@ -185,8 +185,8 @@ M_3(M_1(x),y,z)+(-1)^{||x||}M_3(x,M_1(y),z)+(-1)^{||x||+||y||}M_3(x,y,M_1(z))\\
 First we apply the definitions of $M_1$ and $M_2$.
 \begin{align*}
 M_3(b_1(m;x),y,z)+(-1)^{||x||}M_3(x,b_1(m;y),z)+(-1)^{||x||+||y||}M_3(x,y,b_1(m;z))\\
--(-1)^{|x|}M_3(b_1(x;m),y,z)-(-1)^{|y|+||x||}M_3(x,b_1(y;m),z)-(-1)^{|z|+||x||+||y||}M_3(x,y,b_1(m;z))\\
--(-1)^{|y|+1}b_2(b_2(m;x,y),z)+(-1)^{|x|+|y|}b_2(m;x,b_2(m;y,z))\\+b_1(m;M_3(x,y,z))-(-1)^{|x|+|y|+|z|+1}b_1(M_3(x,y,z);m)=0.
+-(-1)^{|x|}M_3(b_1(x;m),y,z)-(-1)^{|y|+||x||}M_3(x,b_1(y;m),z)-(-1)^{|z|+||x||+||y||}M_3(x,y,b_1(z;m))\\
+-(-1)^{|y|+1}b_2(m;b_2(m;x,y),z)+(-1)^{|x|+|y|}b_2(m;x,b_2(m;y,z))\\+b_1(m;M_3(x,y,z))-(-1)^{|x|+|y|+|z|+1}b_1(M_3(x,y,z);m)=0.
 \end{align*}
 And now we apply the definition of $M_3(x,y,z)$.
 
@@ -212,9 +212,9 @@ The conditions modulo 2 that we get from the cancellation condition are the foll
 |y|+||x||+\varepsilon_2=|x|+|y|+\varepsilon\Rightarrow \varepsilon_2=\varepsilon-1\\
 |z|+||x||+||y||+\varepsilon_3=|x|+|y|+|z|+\varepsilon\Rightarrow\varepsilon_3=\varepsilon
 \end{gather}
-From condition (1) and (3) we deduce $\varepsilon$ does not depend on the first and third argument, and from condition (2) we deduce $\varepsilon(xM_1(y)z)=\varepsilon(xyz)+1$. Therefore the natural way to define $\varepsilon$ is by $\varepsilon(xyz)=|y|$, because $|M_1(y)|=|y|+1$ (defining it as $||y||$ would also do the job, but sticking to $|y|$ will be more convenient).
+From condition (1) and (3) we deduce $\varepsilon$ does not depend on the first and third argument, and from condition (2) we deduce $\varepsilon(x,M_1(y),z)=\varepsilon(x,y,z)+1$. Therefore the natural way to define $\varepsilon$ is by $\varepsilon(x,y,z)=|y|$, because $|M_1(y)|=|y|+1$ (defining it as $||y||$ would also do the job, but sticking to $|y|$ will be more convenient).
 
-Thus, specifying $\varepsilon(xyz)=|y|$ in the $A_\infty$-equation together with the brace relation and some simplification of signs gives us
+Thus, specifying $\varepsilon(x,y,z)=|y|$ in the $A_\infty$-equation together with the brace relation and some simplification of signs gives us
 
 \begin{align*}
 (-1)^{|y|}b_3(m;b_1(m;x),y,z)+(-1)^{|x|+|y|}b_3(m;x,b_1(m;y),z)+(-1)^{|x|}b_3(m;x,y,b_1(m;z))\\
