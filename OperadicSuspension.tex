@@ -14,7 +14,7 @@
 %--------------------------------------------------------
 \begin{document}
 
-\title{Sign conventions}
+\title{Operadic suspension}
 \author{Javier Aguilar Martín}
 \maketitle
 
@@ -117,6 +117,8 @@ $$\sigma=\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n 
 
 It is not hard to check that the two expressions are equal (not only mod 2, they have in fact the same value as integers).
 
+WATCH OUT. GIVEN THE INSERTION MAP IN THE NON-GRADED CASE THE OPERADIC COMPOSITION IS $\gamma(f;g_1,\dots, g_p)=(\cdots(f\circ_p g_p)\cdots)\circ_1 g_1$ AND IN THE GRADED CASE IT COMES WITH THE KOSZUL SIGN. OTHERWISE IT CAN BE COMPUTED AS 
+$\gamma(f;g_1,\dots, g_p)=(\cdots(f\circ_1 g_1)\circ_{1+a(g_1)}g_2\cdots)\circ_{1+\sum a(g_i)}g_p$ I HAVE TO CHECK IF WHAT I'VE DONE IS THIS OR IF I'VE MIXED UP THINGS
 
 \subsection{Advantages of this approach}
 First of all, we get an easier way to obtain the signs and the brace relation follows easily. In addition, this explanation fits better in the context of operads and feels more natural.
@@ -192,7 +194,7 @@ And now we apply the definition of $M_3(x,y,z)$.
 
 \begin{align*}
 (-1)^{\varepsilon_1}b_3(m;b_1(m;x),y,z)+(-1)^{||x||+\varepsilon_2}b_3(m;x,b_1(m;y),z)+(-1)^{||x||+||y||+\varepsilon_3}b_3(m;x,y,b_1(m;z))\\
--(-1)^{|x|+\varepsilon_1}b_3(m;b_1(x;m),y,z)-(-1)^{|y|+||x||+\varepsilon_2}b_3(m;x,b_1(y;m),z)-(-1)^{|z|+||x||+||y||+\varepsilon_3}b_3(m;x,y,b_1(m;z))\\
+-(-1)^{|x|+\varepsilon_1}b_3(m;b_1(x;m),y,z)-(-1)^{|y|+||x||+\varepsilon_2}b_3(m;x,b_1(y;m),z)-(-1)^{|z|+||x||+||y||+\varepsilon_3}b_3(m;x,y,b_1(z;m))\\
 +(-1)^{|y|}b_2(b_2(m;x,y),z)+(-1)^{|x|+|y|}b_2(m;x,b_2(m;y,z))\\+(-1)^{\varepsilon}b_1(m;b_3(m;x,y,z))+(-1)^{|x|+|y|+|z|+\varepsilon}b_1(b_3(m;x,y,z);m)=0.
 \end{align*}
 
@@ -279,7 +281,7 @@ By the previous lemma it can be checked that $f(a)=(-1)^{\binom{n}{2}}a$ is such
 \end{proof}
 
 Note that the sign produced by the operadic suspension defined here (the sign from R-W) differs from Ward's (also Gerstenhaber's, which implies Keller's) sign by $(-1)^{(n-1)(m-1)}$. Therefore, the same automorphism 
-$$f(a)=(-1)^{\frac{n(n+1)}{2}+1}a$$
+$$f(a)=(-1)^{\binom{n}{2}}a$$
  can be used to show our suspension is isomorphic to Ward's suspension. 
 
 Recall that we define the \emph{suspension} or \emph{shift} of a graded vector space $V$ as the graded vector space $\Sigma V$ having degree components $(\Sigma V)^i=V^{i-1}$.
