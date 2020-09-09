@@ -66,7 +66,7 @@ This is exactly the sign in R-W from which the sign in the equation defining $A_
 \begin{theorem}[Operads in Algebra, Topology and Physics]
 Given a graded vector space $V$, there is an isomorphism of operads $\End_{S V}\cong \mathfrak{s}^{-1}\End_V$, where $\End_V$ is the endomorphism operad of $V$.
 \end{theorem}
-The proof in the original reference is not very explicit (see \ref{proofthm}), but in the case of our operadic suspension, the isomorphism is given by $$\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. 
+The proof in the original reference is not very explicit (see \ref{proofthm} for a detailed proof), but in the case of our operadic suspension, the isomorphism is given by $$\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. 
 Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from R-W. 
 
 In R-W the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (but only as graded vector spaces, not as operads) and then applying the isomorphism $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
@@ -86,7 +86,7 @@ where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n|x_p|\sum_{q=i}^{i_p}|
 \end{defi}
 
 
-We can define braces on $\s\OO$ using the operadic suspension via operadic composition. More precisely, we define the maps 
+We can define braces on $\s\OO$ via operadic composition. More precisely, we define the maps 
 $$b_n:\mathfrak{s}\OO(N)\otimes\mathfrak{s}\OO(a_1)\otimes\cdots\otimes\mathfrak{s}\OO(a_n)\to\mathfrak{s}\OO(N-\sum a_i)$$
 using the operadic composition $\gamma$ on $\mathfrak{s}\OO$ as
 
@@ -94,7 +94,7 @@ $$b_n(f;g_1,\dots,g_n)=\sum\gamma(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1),$$
 
 where the sum runs over all possible ordering preserving insertions. 
 
- This way we will get the same sign as mimicking R-W's strategy, with the advantage that now the brace relation follows immediatly from the associativity axiom of operadic composition. To obtain the signs that make this composition differ from the composition in $\OO$, we must first look at the operadic composition on $\Lambda$. In the case of the endomorphism operad, we are interested in compositions of the form $f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})$ where $N-n=k_0+\cdots+k_n$, $f$ has arity $N$ and each $g_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the operadic composition
+ This way we will get the same sign as mimicking R-W's strategy (as done in \ref{rw}), with the advantage that now the brace relation follows immediatly from the associativity axiom of operadic composition. To obtain the signs that make this composition differ from the composition in $\OO$, we must first look at the operadic composition on $\Lambda$. In the case of the endomorphism operad, we are interested in compositions of the form $$f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})$$ where $N-n=k_0+\cdots+k_n$, $f$ has arity $N$ and each $g_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the operadic composition
 
 \[
 \begin{tikzcd}
@@ -108,7 +108,7 @@ $$\gamma(f;h_1,\dots, h_N)=(\cdots(f\circ_1 h_1)\circ_{1+a(h_1)}h_2\cdots)\circ_
 
 where $a(h_p)$ is the arity of $h_i$ (in this case $h_p$ is either $1$ or some $g_i$). So we just have to find out the sign iterating the same argument as in the $i$-th insertion. In this case, each $\Lambda(a_i)$ produces a sign given by the exponent $$(a_i-1)(N-k_0+\cdots-k_{i-1}-i).$$ 
 
-For this, recall that the degree of $\Lambda(a_i)$ is $a_i-1$ and that the generator of this space is inserted in the position $1+\sum_{j=0}^{i-1}k_j+\sum_{j=1}^{i-1}a_j$. Therefore, performing this insertion as described in the previous section yields the aforementioned sign. Now, since $N-n=k_0+\cdots+k_n$, we have that
+For this, recall that the degree of $\Lambda(a_i)$ is $a_i-1$ and that the generator of this space is inserted in the position $1+\sum_{j=0}^{i-1}k_j+\sum_{j=1}^{i-1}a_j$ of a wedge of $N+\sum_{j=1}^{i-1}a_j-i+1$ generators. Therefore, performing this insertion as described in the previous section yields the aforementioned sign. Now, since $N-n=k_0+\cdots+k_n$, we have that
 $$(a_i-1)(N-k_0+\cdots+k_{i-1}-i)=(a_i-1)(n-i+\sum_{l=i}^nk_l).$$
 
 Now we can compute the sign produced by a brace. For this, notice that the isomorphism $(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}$ does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
@@ -132,7 +132,7 @@ $$\sum_{i=1}^n(a_i-1)(n-i+\sum_{l=i}^nk_l)+(\sum_{j=0}^nk_j +n-1)\sum_{i=1}^nq_i
 It is not hard to check that this can be rewritten as 
 $$\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l.$$
 
-This is the sign that is obtained following R-W's strategy (COPY PASTE IT IN THE APPENDIX AND CITE IT)
+This is the sign that is obtained following R-W's strategy in \ref{rw}.
 
 %WATCH OUT. GIVEN THE INSERTION MAP IN THE NON-GRADED CASE THE OPERADIC COMPOSITION IS $\gamma(f;g_1,\dots, g_p)=(\cdots(f\circ_p g_p)\cdots)\circ_1 g_1$ AND IN THE GRADED CASE IT COMES WITH THE KOSZUL SIGN. OTHERWISE IT CAN BE COMPUTED AS 
 %$\gamma(f;g_1,\dots, g_p)=(\cdots(f\circ_1 g_1)\circ_{1+a(g_1)}g_2\cdots)\circ_{1+\sum a(g_i)}g_p$ I HAVE TO CHECK IF WHAT I'VE DONE IS THIS OR IF I'VE MIXED UP THINGS
@@ -353,6 +353,111 @@ which indeed coincide with the sign on the second map.
 
 %\url{https://mathoverflow.net/questions/366792/detailed-proof-of-mathfraks-1-mathrmend-v-cong-mathrmend-sigma-v}
 \end{proof}
+
+\section{Sign of the braces}\label{rw}
+
+REWRITE THIS PROPERLY
+
+Let us use the same strategy as R-W for the signs of the bracket $[f,g]$. Let $V$ be a graded vector space and $f\in C^{N,i}(V,V)=\hom(C^{\otimes N},V)^i$. Let $S(V)$ be the graded vector space with $S(V)^v=V^{v+1}$, and so the suspension map $S:V\to S(V)$ given by the identity map has internal degree $-1$. Define $\sigma(f)$ as the map making the following diagram commutative
+\[
+\begin{tikzcd}
+S(V)^{\otimes N}\arrow[r, "\sigma(f)"]\arrow[d, "(S^{-1})^{\otimes N}"'] & S(V)\\
+V^{\otimes N}\arrow[r,"f"] & V\arrow[u, "S"']
+\end{tikzcd}
+\]
+
+Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in C^{N,i+N-1}(V,V)$. 
+
+In R-W there is a sign $(-1)^{N+i-1}$ in front of $f$ but it seems to be irrelevant for this purpose. 
+
+Notice that, by the Koszul sign rule $(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^{N-1} j}Id=(-1)^{\frac{N(N-1)}{2}}Id=(-1)^{\binom{N}{2}}Id$, so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in C^{m,j}(S(V),S(V))$, we have
+\[
+\sigma^{-1}(F)=(-1)^{\binom{m}{2}}S^{-1}\circ F\circ S^{\otimes m}\in C^{m,j-m+1}(V,V).
+\]
+
+For $g_j\in C^{a_j,q_j}(V,V)$, let $$f[g_1,\dots, g_n]=\sum_{k_0+\cdots+k_n=N-n}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})\in C^{N-n+\sum a_j, i+\sum q_j}(V,V).$$
+
+We define $f\{g_1,\dots, g_n\}=\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])\in C^{N-n+\sum a_j, i+N-1+\sum (q_j+a_j-1)}(V,V).$
+
+This is the same as $f[g_1,\dots, g_n]$ up to sign, so let us compute the sign.
+\[
+\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ (\sigma(f)(1^{\otimes k_0}\otimes \sigma(g_1)\otimes 1^{\otimes k_1}\otimes\cdots\otimes \sigma(g_n)\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+\]
+\[
+=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ S\circ f\circ (S^{-1})^{\otimes N}\circ (1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes 1^{\otimes k_1}\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+\]
+\begin{align*}
+&=(-1)^{\binom{N-n+\sum a_j}{2}}f\circ ((S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\\ &\circ(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+\end{align*}
+
+
+
+
+Now we move each $1^{\otimes k_{j-1}}\otimes S\circ g_j\circ (S^{-1})^{a_j}$ to apply $(S^{-1})^{k_{j-1}}\otimes S^{-1}$ to it. Doing this to all of them produces a sign
+
+\[
+(-1)^{(a_1+q_1-1)(n-1+\sum k_l)+(a_2+q_2-1)(n-2+\sum_2^n k_l)+\cdots+(a_n+q_n-1)k_n}=(-1)^{\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)},
+\]
+ which we call $(-1)^{\varepsilon}$ in the meantime. So now we have, decomposing $S^{\otimes N-n+\sum a_j}$
+ 
+ \[
+ (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon}f\circ((S^{-1})^{k_0}\otimes  g_1\circ (S^{-1})^{\otimes a_1}\otimes\cdots \otimes  g_n\circ (S^{-1})^{\otimes a_n}\otimes  (S^{-1})^{k_n})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n}).
+ \]
+ 
+ Now we turn the tensor of inverses into inverses of tensors by introducing the appropriate signs. More precisely we introduce the sign
+ \[
+ (-1)^{\delta}=(-1)^{\binom{k_0}{2}+\sum(\binom{a_j}{2}+\binom{k_j}{2})}
+ \]
+ 
+  
+So we now have
+\[
+ (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon+\delta}f\circ((S^{k_0})^{-1}\otimes  g_1\circ (S^{\otimes a_1})^{-1}\otimes\cdots \otimes  g_n\circ (S^{\otimes a_n})^{-1}\otimes  (S^{k_n})^{-1})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n})
+ \]
+ And the next step is moving each component of the last tensor product in front of its inverse. This will produce the sign $(-1)^\gamma$, where
+ 
+ \begin{gather*}\gamma=-k_0\sum_1^n(k_j+a_j+q_j)-a_1(\sum_1^n k_j+\sum_2^n (a_j+q_j))-\cdots -a_nk_n\equiv\\ \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l)).
+ \end{gather*}
+ 
+
+ 
+ So in the end we have
+ \[
+ f\{g_1,\dots,g_n\}=\sum_{k_0+\cdots+k_n=N-n} (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon+\delta+\gamma}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n}).
+ \]
+ This sign is going to be called $(-1)^{\sigma}$. Next, we are going to simplify this sign to get rid of the binomial coefficients.
+ 
+ \begin{remark}
+If anything that goes at the top of a binomial coefficient is less that 2, then the coefficient is 0. In the case of arities or $k_j$ this is because $(S^{-1})^{\otimes 1}=(S^{\otimes 1})^{-1}$ (and if the tensor is taken 0 times then it is the identity and the equality also holds, so there are no signs).
+\end{remark}
+\subsection{Simplifying sign}
+
+
+Notice that $N-n+\sum a_j=\sum k_i +\sum a_j$. In general, consider a finite sum $\sum b_i$. We can simplify $\mod 2$ the binomial coefficients
+
+$$\binom{\sum b_i}{2}+\sum\binom{b_i}{2}$$
+
+in the followin way. Note that all terms will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator, so the result of applying this to $\binom{N-n+\sum a_j}{2}$ in our sign $\sigma$ is
+
+$$\sum_{0\leq i<l\leq n}k_ik_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{i,j}k_ia_j.$$
+
+Recall $\gamma$ in the sign
+
+$$\gamma= \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l)).$$
+
+As we see, all the sums in the previous simplification appear in $\gamma$ so we can cancel them. Let us rewrite $\gamma$ in a way that this becomes more clear:
+
+$$\sum_{0\leq j<l\leq n}k_jk_l+\sum_{0\leq j<l\leq n}k_ja_l+\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j\leq l\leq n}a_jk_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{1\leq j<l\leq n}a_jq_l.$$
+
+So after simplifying we have only the terms that include the internal degrees, i.e.
+$$\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l.$$
+
+Let us move now to the $\varepsilon$ term in the sign. 
+$$\varepsilon=\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)=\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l$$
+
+We may add this to what we have so far in such a way that the brace sign becomes
+
+$$\sigma=\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l.$$
 
 %
 %\section{On the degree of $M_j$ and Koszul rule}\label{Ab1}
