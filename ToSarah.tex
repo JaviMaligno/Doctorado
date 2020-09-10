@@ -20,9 +20,9 @@
 
 \section{Operadic suspension}
 
+%Everything should be valid for R-modules (char not 2, as in fields). The sign representation would have to be a free R-module of rank 1
 
-
-Let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in degree 0. It comes with a natural action of the symmetric group $S_n$. Let $\Lambda(n)=S^{n-1}sig_n$, where $S$ is the shift of graded vector spaces, so that $\Lambda(n)$ is the sign representation of the symmetric group concentrated in degree $n-1$. This space can be realized as the one-dimensional vector space spanned by the exterior power $e_1\land\cdots\land e_n$ of degree $n-1$. Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the following insertion maps
+Let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in degree 0. This is a one-dimensioal vector space that comes with a natural action of the symmetric group $S_n$ that multiplies each vector by the sign of each given permutation. Let $\Lambda(n)=S^{n-1}sig_n$, where $S$ is the shift of graded vector spaces, so that $\Lambda(n)$ is the sign representation of the symmetric group concentrated in degree $n-1$. This space can be realized as the one-dimensional vector space spanned by the exterior power $e_1\land\cdots\land e_n$ of degree $n-1$. Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the following insertion maps
 
 \[
 \begin{tikzcd}
@@ -36,7 +36,7 @@ Let $sig_n$ be the sign representation of the symmetric group on $n$ symbols con
 In a similar way we can define $\Lambda^-(n)=S^{1-n}sig_n$, with the same insertion maps.
 
 \begin{definition}
-Let $\mathcal{O}$ be a graded linear operad. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of operads $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$. Similarly, we define the \emph{operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
+Let $\mathcal{O}$ be a graded linear operad, i.e. an operad on the category of graded vector spaces. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of operads, i.e. $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$. Similarly, we define the \emph{operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
 \end{definition}
 
 
@@ -59,17 +59,17 @@ so we conclude
 
 $$a\tilde{\circ}_ib=(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}a\circ_i b.$$
 
-This is exactly the sign in R-W from which the sign in the equation defining $A_\infty$-algebras is derived. 
+This is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras is derived. 
 
 
 
-\begin{theorem}[Operads in Algebra, Topology and Physics]
+\begin{theorem}(\cite[Chapter 3, Lemma 3.16]{operads})
 Given a graded vector space $V$, there is an isomorphism of operads $\End_{S V}\cong \mathfrak{s}^{-1}\End_V$, where $\End_V$ is the endomorphism operad of $V$.
 \end{theorem}
 The proof in the original reference is not very explicit (see \ref{proofthm} for a detailed proof), but in the case of our operadic suspension, the isomorphism is given by $$\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. 
-Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from R-W. 
+Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from \cite{RW}. 
 
-In R-W the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (but only as graded vector spaces, not as operads) and then applying the isomorphism $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
+In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (but only as graded vector spaces, not as operads) and then applying the isomorphism $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
 \subsection{Braces}
 First recall the definition of a brace algebra.
 
@@ -94,7 +94,7 @@ $$b_n(f;g_1,\dots,g_n)=\sum\gamma(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1),$$
 
 where the sum runs over all possible ordering preserving insertions. 
 
- This way we will get the same sign as mimicking R-W's strategy (as done in \ref{rw}), with the advantage that now the brace relation follows immediatly from the associativity axiom of operadic composition. To obtain the signs that make this composition differ from the composition in $\OO$, we must first look at the operadic composition on $\Lambda$. In the case of the endomorphism operad, we are interested in compositions of the form $$f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})$$ where $N-n=k_0+\cdots+k_n$, $f$ has arity $N$ and each $g_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the operadic composition
+ This way we will get the same sign as mimicking the strategy in \cite{RW} (as done in \ref{rw}), with the advantage that now the brace relation follows immediatly from the associativity axiom of operadic composition. To obtain the signs that make this composition differ from the composition in $\OO$, we must first look at the operadic composition on $\Lambda$. In the case of the endomorphism operad, we are interested in compositions of the form $$f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})$$ where $N-n=k_0+\cdots+k_n$, $f$ has arity $N$ and each $g_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the operadic composition
 
 \[
 \begin{tikzcd}
@@ -132,7 +132,7 @@ $$\sum_{i=1}^n(a_i-1)(n-i+\sum_{l=i}^nk_l)+(\sum_{j=0}^nk_j +n-1)\sum_{i=1}^nq_i
 It is not hard to check that this can be rewritten as 
 $$\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l.$$
 
-This is the sign that is obtained following R-W's strategy in \ref{rw}.
+This is the sign that is obtained following \cite{RW} in \ref{rw}.
 
 %WATCH OUT. GIVEN THE INSERTION MAP IN THE NON-GRADED CASE THE OPERADIC COMPOSITION IS $\gamma(f;g_1,\dots, g_p)=(\cdots(f\circ_p g_p)\cdots)\circ_1 g_1$ AND IN THE GRADED CASE IT COMES WITH THE KOSZUL SIGN. OTHERWISE IT CAN BE COMPUTED AS 
 %$\gamma(f;g_1,\dots, g_p)=(\cdots(f\circ_1 g_1)\circ_{1+a(g_1)}g_2\cdots)\circ_{1+\sum a(g_i)}g_p$ I HAVE TO CHECK IF WHAT I'VE DONE IS THIS OR IF I'VE MIXED UP THINGS
@@ -282,7 +282,7 @@ as wanted.
 \end{proof}
 
 \begin{lemma}
-$\mathfrak{s}^{-1}\mathfrak{s}\OO\cong\OO\cong\mathfrak{s}\mathfrak{s}^{-1}\OO$.
+There are isomorphisms of operads $\mathfrak{s}^{-1}\mathfrak{s}\OO\cong\OO\cong\mathfrak{s}\mathfrak{s}^{-1}\OO$.
 \end{lemma}
 \begin{proof}
 We are only showing the first isomorphism since the other one is analogous. We only need to look at the isomorphism
@@ -328,7 +328,7 @@ so we only need to check the equation
 
 $$|G|(i-1)=(n-1)(|G|+m-1)+(i-1)(m-1)+(|G|+m-1)(n-i)\mod 2,$$
 
-and this is straightforward.
+and for this it is enough to develop the right hand side.
 
 Now we are going to show that $\sigma^{-1}$ commutes with the action of th symmetric group. Recall that on $\End_{S V}$ is the usual action, whilst on $\mathfrak{s}^{-1}\End_V$ the action is twisted by the sign of the permutation. It is enough to show this for transpositions of the form $\tau=(i\ i+1)$ since they generate the symmetric group.
 
@@ -356,9 +356,9 @@ which indeed coincide with the sign on the second map.
 
 \section{Sign of the braces}\label{rw}
 
-REWRITE THIS PROPERLY
 
-Let us use the same strategy as R-W for the signs of the bracket $[f,g]$. Let $V$ be a graded vector space and $f\in C^{N,i}(V,V)=\hom(C^{\otimes N},V)^i$. Let $S(V)$ be the graded vector space with $S(V)^v=V^{v+1}$, and so the suspension map $S:V\to S(V)$ given by the identity map has internal degree $-1$. Define $\sigma(f)$ as the map making the following diagram commutative
+
+Let us use the same strategy as \cite{RW} for the signs of the bracket $[f,g]$. Let $V$ be a graded vector space and $f\in C^{N,i}(V,V)=\hom(C^{\otimes N},V)^i$. Let $S(V)$ be the graded vector space with $S(V)^v=V^{v+1}$, and so the suspension map $S:V\to S(V)$ given by the identity map has internal degree $-1$. Define $\sigma(f)$ as the map making the following diagram commutative
 \[
 \begin{tikzcd}
 S(V)^{\otimes N}\arrow[r, "\sigma(f)"]\arrow[d, "(S^{-1})^{\otimes N}"'] & S(V)\\
@@ -368,7 +368,7 @@ V^{\otimes N}\arrow[r,"f"] & V\arrow[u, "S"']
 
 Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in C^{N,i+N-1}(V,V)$. 
 
-In R-W there is a sign $(-1)^{N+i-1}$ in front of $f$ but it seems to be irrelevant for this purpose. 
+In \cite{RW} there is a sign $(-1)^{N+i-1}$ in front of $f$ but it seems to be irrelevant for this purpose. 
 
 Notice that, by the Koszul sign rule $(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^{N-1} j}Id=(-1)^{\frac{N(N-1)}{2}}Id=(-1)^{\binom{N}{2}}Id$, so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in C^{m,j}(S(V),S(V))$, we have
 \[
@@ -380,14 +380,10 @@ For $g_j\in C^{a_j,q_j}(V,V)$, let $$f[g_1,\dots, g_n]=\sum_{k_0+\cdots+k_n=N-n}
 We define $f\{g_1,\dots, g_n\}=\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])\in C^{N-n+\sum a_j, i+N-1+\sum (q_j+a_j-1)}(V,V).$
 
 This is the same as $f[g_1,\dots, g_n]$ up to sign, so let us compute the sign.
-\[
-\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ (\sigma(f)(1^{\otimes k_0}\otimes \sigma(g_1)\otimes 1^{\otimes k_1}\otimes\cdots\otimes \sigma(g_n)\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
-\]
-\[
-=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ S\circ f\circ (S^{-1})^{\otimes N}\circ (1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes 1^{\otimes k_1}\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
-\]
 \begin{align*}
-&=(-1)^{\binom{N-n+\sum a_j}{2}}f\circ ((S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\\ &\circ(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+&\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])=\\ &=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ (\sigma(f)(1^{\otimes k_0}\otimes \sigma(g_1)\otimes 1^{\otimes k_1}\otimes\cdots\otimes \sigma(g_n)\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}\\
+&=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ S\circ f\circ (S^{-1})^{\otimes N}\circ \\ &(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes 1^{\otimes k_1}\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ  S^{\otimes N-n+\sum a_j}\\
+&=(-1)^{\binom{N-n+\sum a_j}{2}}f\circ ((S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\\ &\circ(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}.
 \end{align*}
 
 
@@ -437,7 +433,10 @@ Notice that $N-n+\sum a_j=\sum k_i +\sum a_j$. In general, consider a finite sum
 
 $$\binom{\sum b_i}{2}+\sum\binom{b_i}{2}$$
 
-in the followin way. Note that all terms will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator, so the result of applying this to $\binom{N-n+\sum a_j}{2}$ in our sign $\sigma$ is
+in the followin way. Note that all terms will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator. More precisely, we have the following equality $\mod 2$:
+
+$$\binom{\sum b_i}{2}+\sum\binom{b_i}{2}=\sum_{i<j}b_ib_j.$$
+So the result of applying this to $\binom{N-n+\sum a_j}{2}$ in our sign $\sigma$ is
 
 $$\sum_{0\leq i<l\leq n}k_ik_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{i,j}k_ia_j.$$
 
@@ -521,5 +520,7 @@ $$\sigma=\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n 
 %
 %\end{remark}
 \end{appendices}
-
+%\phantomsection
+\bibliographystyle{ieeetr}
+\bibliography{newbibliography}
 \end{document}
