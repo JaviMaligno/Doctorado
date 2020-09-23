@@ -6,7 +6,6 @@
 \newtheorem{propo}[defin]{Proposition}
 \newtheorem{thm}[defin]{Theorem}
 \newtheorem{eje}[defin]{Example}
-\newtheorem{obs}[defin]{Observación}
 \renewcommand{\baselinestretch}{1,3}
 
 \usepackage{empheq}
@@ -14,15 +13,24 @@
 %--------------------------------------------------------
 \begin{document}
 
-\title{Operadic Suspension}
+\title{Brace structure on operads}
 \author{Javier Aguilar Martín}
 \maketitle
 
+\section{Introduction}
+In this text we study the brace structure on an operad of graded $R$-modules using a construction called \emph{operadic suspension}. This construction provide us an operadic context from which $A_\infty$-algebras arise in a natural way. We focus on the relation between the brace structure on an operad and its operadic composition, with the endomorphism operad as our main example. This relation allow us to generalize the Lie bracket defined in \cite{RW}.
 \section{Operadic suspension}
+
 
 %Everything should be valid for R-modules (char not 2, as in fields). The sign representation would have to be a free R-module of rank 1
 
-Let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in degree 0. This is a one-dimensioal vector space that comes with a natural action of the symmetric group $S_n$ that multiplies each vector by the sign of each given permutation. Let $\Lambda(n)=S^{n-1}sig_n$, where $S$ is the shift of graded vector spaces, so that $\Lambda(n)$ is the sign representation of the symmetric group concentrated in degree $n-1$. This space can be realized as the one-dimensional vector space spanned by the exterior power $e_1\land\cdots\land e_n$ of degree $n-1$. Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the following insertion maps
+Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. %for a commutative (at least with 1\neq 0) ring the rank is well defined, in general it is not
+
+Let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in degree 0. This is a free $R$-module of rank one that comes with a natural action of the symmetric group $S_n$ that multiplies each element by the sign of each given permutation. Let $\Lambda(n)=S^{n-1}sig_n$, where $S$ is the shift of graded modules, so that $\Lambda(n)$ is the sign representation of the symmetric group concentrated in degree $n-1$. This module can be realized as the free $R$-module of rank one spanned by the exterior power $e_1\land\cdots\land e_n$ of degree $n-1$.
+
+%This is a one-dimensional vector space that comes with a natural action of the symmetric group $S_n$ that multiplies each vector by the sign of each given permutation. Let $\Lambda(n)=S^{n-1}sig_n$, where $S$ is the shift of graded vector spaces, so that $\Lambda(n)$ is the sign representation of the symmetric group concentrated in degree $n-1$. This space can be realized as the one-dimensional vector space spanned by the exterior power $e_1\land\cdots\land e_n$ of degree $n-1$. 
+
+Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the following insertion maps
 
 \[
 \begin{tikzcd}
@@ -36,18 +44,18 @@ Let $sig_n$ be the sign representation of the symmetric group on $n$ symbols con
 In a similar way we can define $\Lambda^-(n)=S^{1-n}sig_n$, with the same insertion maps.
 
 \begin{definition}
-Let $\mathcal{O}$ be a graded linear operad, i.e. an operad on the category of graded vector spaces. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of operads, i.e. $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$. Similarly, we define the \emph{operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
+Let $\mathcal{O}$ be a graded linear operad, i.e. an operad on the category of graded $R$-modules. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of operads, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition and symmetric group action. Similarly, we define the \emph{operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
 \end{definition}
 
 
-We may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$. For $a\in\OO(n)$ of degree $\deg(a)$, its ``natural'' degree in $\s\OO$ is $|a|=\deg(a)+n-1$. To distinguish both degrees we call $\deg(a)$ the \emph{internal degree} of $a$. If we write $\circ_i$ for the operadic insertion on $\OO$ and $\tilde{\circ}_i$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. Let $a\in\OO(n)$ and $b\in\OO(m)$, and let us compute $a\tilde{\circ}_i b$.
+We may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$. For $a\in\OO(n)$ of degree $\deg(a)$, its ``natural'' degree in $\s\OO$ is $|a|=\deg(a)+n-1$. To distinguish both degrees we call $\deg(a)$ the \emph{internal degree} of $a$, since this is the degree that $a$ inherits from the grading of $\OO$. If we write $\circ_i$ for the operadic insertion on $\OO$ and $\tilde{\circ}_i$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. Let $a\in\OO(n)$ and $b\in\OO(m)$, and let us compute $a\tilde{\circ}_i b$.
 
 \begin{align*}
 \mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
 &\xrightarrow{\circ_i\otimes\circ_i} \OO(m+n-1)\otimes \Lambda(n+m-1)=\mathfrak{s}\OO(n+m-1).
 \end{align*}
 
-The symmetric monoidal structure produces the sign $(-1)^{(n-1)\deg(b)}$ and the operadic structure of $\Lambda$ produces the sign $(-1)^{(n-i)(m-1)}$, so 
+The symmetric monoidal structure produces the sign $(-1)^{(n-1)\deg(b)}$ in the isomorphism $\Lambda(n)\otimes \OO(m)\cong\OO(m)\otimes\Lambda(n)$, and the operadic structure of $\Lambda$ produces the sign $(-1)^{(n-i)(m-1)}$, so 
 
 $$a\tilde{\circ}_ib=(-1)^{(n-1)\deg(b)+(n-i)(m-1)}a\circ_i b.$$
 
@@ -63,18 +71,21 @@ This is exactly the sign in \cite{RW} from which the sign in the equation defini
 
 
 
-\begin{theorem}(\cite[Chapter 3, Lemma 3.16]{operads})
-Given a graded vector space $V$, there is an isomorphism of operads $\End_{S V}\cong \mathfrak{s}^{-1}\End_V$, where $\End_V$ is the endomorphism operad of $V$.
-\end{theorem}
-The proof in the original reference is not very explicit (see \ref{proofthm} for a detailed proof), but in the case of our operadic suspension, the isomorphism is given by $$\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. 
+\begin{thm}\label{markl}(\cite[Chapter 3, Lemma 3.16]{operads})
+Given a graded $R$-module $A$, there is an isomorphism of operads $\End_{S A}\cong \mathfrak{s}^{-1}\End_A$, where $\End_A$ is the endomorphism operad of $A$.
+\end{thm}
+The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit (see \ref{proofthm} for a detailed proof), but in the case of the operadic suspension defined above, the isomorphism is given by $$\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. 
 Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from \cite{RW}. 
 
-In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (but only as graded vector spaces, not as operads) and then applying the isomorphism $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
-\subsection{Braces}
+In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (but only as graded modules, not as operads) and then applying the isomorphism $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
+
+Even though we have used $\sigma$ only as a map of graded modules, in can be shown in a completely analogous way to Theorem \ref{markl} that $\sigma$ induces an isomorphism of operads
+\[\End_{\mathfrak{s}\OO}\cong\mathfrak{s}\End_{S\s \OO}.\]
+\subsection{Braces}\label{sectionbraces}
 First recall the definition of a brace algebra.
 
-\begin{defi}
-A brace algebra on a graded vector space $V$ consists of a family of maps $b_n:V^{\otimes n+1}\to V$ satisfying the \emph{brace relation}
+\begin{defi}\label{braces}
+A brace algebra on a graded module $A$ consists of a family of maps \[b_n:A^{\otimes 1+n}\to A\] called \emph{braces}, that we evaluate on $(x,x_1,\dots, x_n)$ as $b_n(x;x_1,\dots, x_n)$, satisfying the \emph{brace relation}
 
 
 \begin{align*}
@@ -83,8 +94,13 @@ b_m(b_n(x;x_1,\dots, x_n);y_1,\dots,y_m)=&\\
 \end{align*}
 where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n|x_p|\sum_{q=i}^{i_p}|y_q|,$ i.e. the sign is picked up by the $x_i$'s passing by the $y_i$'s in the shuffle.
 
+
+
 \end{defi}
 
+\begin{remark}
+Some authors might use the notation $b_{1+n}$ instead of $b_n$, but the first element is usually going to have a different role than the others. A shorter notation for $b_n(x;x_1,\dots,x_n)$ found in the literature is $x\{x_1,\dots, x_n\}$. Also note that we have used the notation $|x_p|$ for the degree of $x_p$ in $V$. The reason is that our main example for $V$ is going to be the operadic suspension of an operad.
+\end{remark}
 
 We can define braces on $\s\OO$ via operadic composition. More precisely, we define the maps 
 $$b_n:\mathfrak{s}\OO(N)\otimes\mathfrak{s}\OO(a_1)\otimes\cdots\otimes\mathfrak{s}\OO(a_n)\to\mathfrak{s}\OO(N-\sum a_i)$$
@@ -102,7 +118,7 @@ where the sum runs over all possible ordering preserving insertions.
 \end{tikzcd}
 \]
 
-The composition can be described in terms of insertions in the obvious way, namely
+The operadic composition can be described in terms of insertions in the obvious way, namely
 
 $$\gamma(f;h_1,\dots, h_N)=(\cdots(f\circ_1 h_1)\circ_{1+a(h_1)}h_2\cdots)\circ_{1+\sum a(h_p)}h_N,$$
 
@@ -111,7 +127,7 @@ where $a(h_p)$ is the arity of $h_i$ (in this case $h_p$ is either $1$ or some $
 For this, recall that the degree of $\Lambda(a_i)$ is $a_i-1$ and that the generator of this space is inserted in the position $1+\sum_{j=0}^{i-1}k_j+\sum_{j=1}^{i-1}a_j$ of a wedge of $N+\sum_{j=1}^{i-1}a_j-i+1$ generators. Therefore, performing this insertion as described in the previous section yields the aforementioned sign. Now, since $N-n=k_0+\cdots+k_n$, we have that
 $$(a_i-1)(N-k_0+\cdots+k_{i-1}-i)=(a_i-1)(n-i+\sum_{l=i}^nk_l).$$
 
-Now we can compute the sign produced by a brace. For this, notice that the isomorphism $(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}$ does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
+Now we can compute the sign factor of a brace. For this, notice that the isomorphism $(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}$ does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
 
 $$\OO(N)\otimes\Lambda(N)\otimes (\OO(1)\otimes \Lambda(1))^{\otimes k_0}\bigotimes_{i=1}^n(\OO(a_i)\otimes\Lambda(a_i)\otimes(\OO(1)\otimes\Lambda(1))^{\otimes k_i}$$
 $$\cong \OO(N)\otimes(\bigotimes_{i=1}^n \OO(a_i))\otimes \Lambda(N)\otimes(\bigotimes_{i=1}^n \Lambda(a_i))$$
@@ -129,13 +145,19 @@ we can add the sign coming from the suspension, so all in all the sign for the b
 
 $$\sum_{i=1}^n(a_i-1)(n-i+\sum_{l=i}^nk_l)+(\sum_{j=0}^nk_j +n-1)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.$$
 
-It is not hard to check that this can be rewritten as 
-$$\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l.$$
+It can be checked that this can be rewritten $\mod 2$ as 
+$$\eta\coloneqq\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l.$$
 
-This is the sign that is obtained following \cite{RW} in \ref{rw}.
+This is the sign that is obtained following \cite{RW} in \ref{rw} (expression \ref{sigma}). In particular, $b_1(f;g)$ is the operation $f\circ g$ defined in \cite{RW} that induces a Lie bracket. More precisely,
+\[
+[f,g]=b_1(f;g)-(-1)^{|f||g|}b_1(g;f)
+\]
+is the same bracket that was defined in \cite{RW}.
 
-%WATCH OUT. GIVEN THE INSERTION MAP IN THE NON-GRADED CASE THE OPERADIC COMPOSITION IS $\gamma(f;g_1,\dots, g_p)=(\cdots(f\circ_p g_p)\cdots)\circ_1 g_1$ AND IN THE GRADED CASE IT COMES WITH THE KOSZUL SIGN. OTHERWISE IT CAN BE COMPUTED AS 
-%$\gamma(f;g_1,\dots, g_p)=(\cdots(f\circ_1 g_1)\circ_{1+a(g_1)}g_2\cdots)\circ_{1+\sum a(g_i)}g_p$ I HAVE TO CHECK IF WHAT I'VE DONE IS THIS OR IF I'VE MIXED UP THINGS
+
+%The hardest part is finding \sum q_j(n-j) in the first expression. There is (n-1)\sum q_j+sum_{j>i}q_j. So q_l apperas (n-1) times first and then l-1 times (because the nequality is strict). Therefore, q_l appears n-1+l-1=n-l mod 2 times.
+
+
 
 %\subsection{Advantages of this approach}
 %First of all, we get an easier way to obtain the signs and the brace relation follows easily. In addition, this explanation fits better in the context of operads and feels more natural.
@@ -299,26 +321,26 @@ By the previous lemma it can be checked that $f(a)=(-1)^{\binom{n}{2}}a$ is such
 
 
 
-Recall that we define the \emph{suspension} or \emph{shift} of a graded vector space $V$ as the graded vector space $S V$ having degree components $(S V)^i=V^{i-1}$.
+Recall that we define the \emph{suspension} or \emph{shift} of a graded module $A$ is the graded module $S A$ having degree components $(S A)^i=A^{i-1}$.
 
 \begin{theorem}\label{proofthm}
-There is an isomorphism of operads $\End_{S V}\cong \mathfrak{s}^{-1}\End_V$.
+There is an isomorphism of operads $\End_{S A}\cong \mathfrak{s}^{-1}\End_A$.
 \end{theorem}
 \begin{proof}
-For each $n$, we clearly have an isomorphism 
+For each $n$, we clearly have an isomorphism of graded modules
 
-$$\End_{S V}=\Hom((S V)^{\otimes n},S V)\cong\Hom(V^{\otimes n},V)\otimes S^{1-n}sig_n= \mathfrak{s}^{-1}\End_V$$
+$$\End_{S A}(n)=\Hom((S A)^{\otimes n},S A)\cong\Hom(A^{\otimes n},A)\otimes S^{1-n}sig_n= \mathfrak{s}^{-1}\End_A(n)$$
 
 given by the map $\sigma^{-1}$ defined before as $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$. We must show that this map is an isomorphism of operads, in other words, it commutes with insertions and with the symmetric group action.
 
-Let us first check that $\sigma^{-1}$ commutes with insertions. Let $F\in \End_{S V}(n)$ and $G\in \End_{S V}(m)$. On the one had we have 
+Let us first check that $\sigma^{-1}$ commutes with insertions. Let $F\in \End_{S A}(n)$ and $G\in \End_{S A}(m)$. On the one had we have 
 
-$$\sigma^{-1}(F\circ_i G)=(-1)^{\binom{n+m-1}{2}+|G|(i-1)}S^{-1}\circ F(S^{\otimes i-1}\otimes G(S^{\otimes m})\otimes S^{\otimes n-i}),$$
+$$\sigma^{-1}(F\circ_i G)=(-1)^{\binom{n+m-1}{2}+\deg(G)(i-1)}S^{-1}\circ F(S^{\otimes i-1}\otimes G(S^{\otimes m})\otimes S^{\otimes n-i}),$$
 
 and on the other hand
 
-$$\sigma^{-1}(F)\tilde{\circ}_i\sigma^{-1}(G)=(-1)^{(n-1)(m-1)+(n-1)(|G|+m-1)+(i-1)(m-1)}\sigma^{-1}(F)\circ_i\sigma^{-1}(G)=$$
-$$(-1)^{\binom{n}{2}+\binom{m}{2}+(n-1)(m-1)+(n-1)(|G|+m-1)+(i-1)(m-1)+(|G|+m-1)(n-i)}\Sigma^{-1}\circ F(S^{\otimes i-1}\otimes G(S^{\otimes m})\otimes S^{\otimes n-i}).$$
+$$\sigma^{-1}(F)\tilde{\circ}_i\sigma^{-1}(G)=(-1)^{(n-1)(m-1)+(n-1)(\deg(G)+m-1)+(i-1)(m-1)}\sigma^{-1}(F)\circ_i\sigma^{-1}(G)=$$
+$$(-1)^{\binom{n}{2}+\binom{m}{2}+(n-1)(m-1)+(n-1)(\deg(G)+m-1)+(i-1)(m-1)+(\deg(G)+m-1)(n-i)}\Sigma^{-1}\circ F(S^{\otimes i-1}\otimes G(S^{\otimes m})\otimes S^{\otimes n-i}).$$
 
 By lemma \ref{binom}, 
 
@@ -326,13 +348,13 @@ $$\binom{n+m-1}{2}=\binom{n}{2}+\binom{m}{2}+(n-1)(m-1)\mod 2,$$
 
 so we only need to check the equation
 
-$$|G|(i-1)=(n-1)(|G|+m-1)+(i-1)(m-1)+(|G|+m-1)(n-i)\mod 2,$$
+$$\deg(G)(i-1)=(n-1)(\deg(G)+m-1)+(i-1)(m-1)+(\deg(G)+m-1)(n-i)\mod 2,$$
 
 and for this it is enough to develop the right hand side.
 
-Now we are going to show that $\sigma^{-1}$ commutes with the action of th symmetric group. Recall that on $\End_{S V}$ is the usual action, whilst on $\mathfrak{s}^{-1}\End_V$ the action is twisted by the sign of the permutation. It is enough to show this for transpositions of the form $\tau=(i\ i+1)$ since they generate the symmetric group.
+Now we are going to show that $\sigma^{-1}$ commutes with the action of th symmetric group. Recall that on $\End_{S A}$ we have the usual action, whilst on $\mathfrak{s}^{-1}\End_A$ the action is twisted by the sign of the permutation. It is enough to show this for transpositions of the form $\tau=(i\ i+1)$ since they generate the symmetric group.
 
-On the one hand, 
+Let us write $(-1)^v$ for $(-1)^{\deg(v)}$. On the one hand, 
 
 $$\sigma^{-1}(F\tau)(v_1\otimes\cdots\otimes v_n)=(-1)^{\sum_{j=1}^n (n-j)v_j}S^{-1}\circ (F\tau)(S v_1\otimes\cdots\otimes S v_n)=$$
 
@@ -358,28 +380,32 @@ which indeed coincide with the sign on the second map.
 
 
 
-Let us use the same strategy as \cite{RW} for the signs of the bracket $[f,g]$. Let $V$ be a graded vector space and $f\in C^{N,i}(V,V)=\hom(C^{\otimes N},V)^i$. Let $S(V)$ be the graded vector space with $S(V)^v=V^{v+1}$, and so the suspension map $S:V\to S(V)$ given by the identity map has internal degree $-1$. Define $\sigma(f)$ as the map making the following diagram commutative
+Let us use the same strategy as \cite{RW} used to find the signs of the bracket $[f,g]$, but here we are going to use . Let $A$ be a graded module and $f\in C^{N,i}(A,A)=\hom(A^{\otimes N},A)^i$. Let $S(A)$ be the graded module with $S(A)^v=A^{v+1}$, and so the suspension map $S:A\to S(A)$ given by the identity map has internal degree $-1$. Define $\sigma(f)$ as the map making the following diagram commutative
 \[
 \begin{tikzcd}
-S(V)^{\otimes N}\arrow[r, "\sigma(f)"]\arrow[d, "(S^{-1})^{\otimes N}"'] & S(V)\\
-V^{\otimes N}\arrow[r,"f"] & V\arrow[u, "S"']
+S(A)^{\otimes N}\arrow[r, "\sigma(f)"]\arrow[d, "(S^{-1})^{\otimes N}"'] & S(A)\\
+A^{\otimes N}\arrow[r,"f"] & A\arrow[u, "S"']
 \end{tikzcd}
 \]
 
-Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in C^{N,i+N-1}(V,V)$. 
+Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in C^{N,i+N-1}(A,A)$. 
 
-In \cite{RW} there is a sign $(-1)^{N+i-1}$ in front of $f$ but it seems to be irrelevant for this purpose. 
+\begin{remark}
+In \cite{RW} there is a sign $(-1)^{N+i-1}$ in front of $f$ but it seems to be irrelevant for our purposes. Another fact to remark is that the suspension of graded modules used here (and in \cite{RW}) is the opposite that we have used to define the operadic suspension. This does not change the signs or the procedure, but in the statement of theorem \ref{markl} operadic desuspension should be changed to operadic suspension. %My suspensions is better because it gives the total degree %If I modify the theorem to End_{sO}=sEnd_{SsO} I have to change the phrase
+\end{remark}
 
-Notice that, by the Koszul sign rule $(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^{N-1} j}Id=(-1)^{\frac{N(N-1)}{2}}Id=(-1)^{\binom{N}{2}}Id$, so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in C^{m,j}(S(V),S(V))$, we have
+Notice that, by the Koszul sign rule $(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^{N-1} j}Id=(-1)^{\frac{N(N-1)}{2}}Id=(-1)^{\binom{N}{2}}Id$, so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in C^{m,j}(S(A),S(A))$, we have
 \[
-\sigma^{-1}(F)=(-1)^{\binom{m}{2}}S^{-1}\circ F\circ S^{\otimes m}\in C^{m,j-m+1}(V,V).
+\sigma^{-1}(F)=(-1)^{\binom{m}{2}}S^{-1}\circ F\circ S^{\otimes m}\in C^{m,j-m+1}(A,A).
 \]
 
-For $g_j\in C^{a_j,q_j}(V,V)$, let $$f[g_1,\dots, g_n]=\sum_{k_0+\cdots+k_n=N-n}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})\in C^{N-n+\sum a_j, i+\sum q_j}(V,V).$$
+For $g_j\in C^{a_j,q_j}(A,A)$, let us write $f[g_1,\dots, g_n]$ for the map \[\sum_{k_0+\cdots+k_n=N-n}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})\in C^{N-n+\sum a_j, i+\sum q_j}(A,A).\]
 
-We define $f\{g_1,\dots, g_n\}=\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])\in C^{N-n+\sum a_j, i+N-1+\sum (q_j+a_j-1)}(V,V).$
+We define \[b_n(f;g_1,\dots, g_n)=\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])\in C^{N-n+\sum a_j, i+\sum q_j}(A,A),\] so that
+%recall the degree of \sigma^{-1}(F)
+\[b_n(f;g_1,\dots, g_n)=(-1)^{\eta}f[g_1,\dots, g_n].\]
 
-This is the same as $f[g_1,\dots, g_n]$ up to sign, so let us compute the sign.
+We will see that this $b_n(f;g_1,\dots, g_n)$ is the same as in Definition \ref{braces}. The purpose of this Appendix is to find $\eta$, so let us compute it.
 \begin{align*}
 &\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])=\\ &=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ (\sigma(f)(1^{\otimes k_0}\otimes \sigma(g_1)\otimes 1^{\otimes k_1}\otimes\cdots\otimes \sigma(g_n)\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}\\
 &=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ S\circ f\circ (S^{-1})^{\otimes N}\circ \\ &(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes 1^{\otimes k_1}\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ  S^{\otimes N-n+\sum a_j}\\
@@ -394,16 +420,18 @@ Now we move each $1^{\otimes k_{j-1}}\otimes S\circ g_j\circ (S^{-1})^{a_j}$ to 
 \[
 (-1)^{(a_1+q_1-1)(n-1+\sum k_l)+(a_2+q_2-1)(n-2+\sum_2^n k_l)+\cdots+(a_n+q_n-1)k_n}=(-1)^{\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)},
 \]
- which we call $(-1)^{\varepsilon}$ in the meantime. So now we have, decomposing $S^{\otimes N-n+\sum a_j}$
+ and we call the exponent
+ 
+ $$\varepsilon=\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l).$$ So now we have, decomposing $S^{\otimes N-n+\sum a_j}$,
  
  \[
  (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon}f\circ((S^{-1})^{k_0}\otimes  g_1\circ (S^{-1})^{\otimes a_1}\otimes\cdots \otimes  g_n\circ (S^{-1})^{\otimes a_n}\otimes  (S^{-1})^{k_n})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n}).
  \]
  
  Now we turn the tensor of inverses into inverses of tensors by introducing the appropriate signs. More precisely we introduce the sign
- \[
+ \begin{equation}\label{delta}
  (-1)^{\delta}=(-1)^{\binom{k_0}{2}+\sum(\binom{a_j}{2}+\binom{k_j}{2})}
- \]
+  \end{equation}
  
   
 So we now have
@@ -419,13 +447,17 @@ So we now have
  
  So in the end we have
  \[
- f\{g_1,\dots,g_n\}=\sum_{k_0+\cdots+k_n=N-n} (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon+\delta+\gamma}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n}).
+ b_n(f;g_1,\dots,g_n)=\sum_{k_0+\cdots+k_n=N-n} (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon+\delta+\gamma}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n}).
  \]
- This sign is going to be called $(-1)^{\sigma}$. Next, we are going to simplify this sign to get rid of the binomial coefficients.
+This means that 
+ $$\eta=\binom{N-n+\sum a_j}{2}+\varepsilon+\delta+\gamma.$$
+  Next, we are going to simplify this sign to get rid of the binomial coefficients.
  
  \begin{remark}
-If anything that goes at the top of a binomial coefficient is less that 2, then the coefficient is 0. In the case of arities or $k_j$ this is because $(S^{-1})^{\otimes 1}=(S^{\otimes 1})^{-1}$ (and if the tensor is taken 0 times then it is the identity and the equality also holds, so there are no signs).
+If the number top of a binomial coefficient is less than 2, then the coefficient is 0. In the case of arities or $k_j$ this is because $(S^{-1})^{\otimes 1}=(S^{\otimes 1})^{-1}$ (and if the tensor is taken 0 times then it is the identity and the equality also holds, so there are no signs).
 \end{remark}
+
+
 \subsection{Simplifying sign}
 
 
@@ -436,28 +468,35 @@ $$\binom{\sum b_i}{2}+\sum\binom{b_i}{2}$$
 in the followin way. Note that all terms will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator. More precisely, we have the following equality $\mod 2$:
 
 $$\binom{\sum b_i}{2}+\sum\binom{b_i}{2}=\sum_{i<j}b_ib_j.$$
-So the result of applying this to $\binom{N-n+\sum a_j}{2}$ in our sign $\sigma$ is
+So the result of applying this to $\binom{N-n+\sum a_j}{2}+\delta$ (recall $\delta$ from \ref{delta}) in our sign $\eta$ is
 
-$$\sum_{0\leq i<l\leq n}k_ik_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{i,j}k_ia_j.$$
+\begin{equation}\label{simply}
+\sum_{0\leq i<l\leq n}k_ik_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{i,j}k_ia_j.
+\end{equation}
 
-Recall $\gamma$ in the sign
+Recall $\gamma$ in the sign:
 
-$$\gamma= \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l)).$$
+\begin{equation*}\label{gamma}
+\gamma= \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l)).
+\end{equation*}
 
 As we see, all the sums in the previous simplification appear in $\gamma$ so we can cancel them. Let us rewrite $\gamma$ in a way that this becomes more clear:
 
 $$\sum_{0\leq j<l\leq n}k_jk_l+\sum_{0\leq j<l\leq n}k_ja_l+\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j\leq l\leq n}a_jk_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{1\leq j<l\leq n}a_jq_l.$$
 
-So after simplifying we have only the terms that include the internal degrees, i.e.
-$$\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l.$$
-
-Let us move now to the $\varepsilon$ term in the sign. 
+So after adding the expression \ref{simply} modulo 2 we have only the terms that include the internal degrees, i.e.
+\begin{equation}\label{sofar}
+\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l.
+\end{equation}
+Let us move now to the $\varepsilon$ term in the sign to rewrite it. 
 $$\varepsilon=\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)=\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l$$
 
-We may add this to what we have so far in such a way that the brace sign becomes
+We may add this to what we had in \ref{sofar} in such a way that the brace sign becomes
 
-$$\sigma=\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l.$$
-
+\begin{equation}\label{sigma}
+\eta=\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l.
+\end{equation}
+as announced at the end of Section \ref{sectionbraces}.
 %
 %\section{On the degree of $M_j$ and Koszul rule}\label{Ab1}
 %
