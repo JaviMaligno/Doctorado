@@ -74,13 +74,13 @@ This is exactly the sign in \cite{RW} from which the sign in the equation defini
 \begin{thm}\label{markl}(\cite[Chapter 3, Lemma 3.16]{operads})
 Given a graded $R$-module $A$, there is an isomorphism of operads $\End_{S A}\cong \mathfrak{s}^{-1}\End_A$, where $\End_A$ is the endomorphism operad of $A$.
 \end{thm}
-The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit (see \ref{proofthm} for a detailed proof), but in the case of the operadic suspension defined above, the isomorphism is given by $$\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. 
+The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit (see \ref{proofthm} for a detailed proof), but in the case of the operadic suspension defined above, the isomorphism is given by $$\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. The symbol $\circ$ here is just composition of maps.
 Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from \cite{RW}. 
 
 In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (but only as graded modules, not as operads) and then applying the isomorphism $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
 
 Even though we have used $\sigma$ only as a map of graded modules, in can be shown in a completely analogous way to Theorem \ref{markl} that $\sigma$ induces an isomorphism of operads
-\[\End_{\mathfrak{s}\OO}\cong\mathfrak{s}\End_{S\s \OO}.\]
+\[\End_{A}\cong\mathfrak{s}\End_{SA}.\]
 \subsection{Braces}\label{sectionbraces}
 First recall the definition of a brace algebra.
 
@@ -331,7 +331,7 @@ For each $n$, we clearly have an isomorphism of graded modules
 
 $$\End_{S A}(n)=\Hom((S A)^{\otimes n},S A)\cong\Hom(A^{\otimes n},A)\otimes S^{1-n}sig_n= \mathfrak{s}^{-1}\End_A(n)$$
 
-given by the map $\sigma^{-1}$ defined before as $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$. We must show that this map is an isomorphism of operads, in other words, it commutes with insertions and with the symmetric group action.
+given by the map $\sigma^{-1}$ defined before as $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$, where $\circ$ denotes the composition of maps. We must show that this map is an isomorphism of operads, in other words, it commutes with insertions and with the symmetric group action.
 
 Let us first check that $\sigma^{-1}$ commutes with insertions. Let $F\in \End_{S A}(n)$ and $G\in \End_{S A}(m)$. On the one had we have 
 
@@ -371,10 +371,21 @@ Now we just have to check that the signs are the same. Modulo $2$, the sign of t
 $$v_iv_{i+1}+v_i+v_{i+1}-1+\sum_{j=1}^n(n-j)v_j=$$
 $$v_iv_{i+1}-1+\sum_{j\neq i,i+1}^n(n-j)v_j+(n-i-1)v_i+(n-i)v_{i+1},$$
 
-which indeed coincide with the sign on the second map.
+which indeed coincides with the sign on the second map.
 
 %\url{https://mathoverflow.net/questions/366792/detailed-proof-of-mathfraks-1-mathrmend-v-cong-mathrmend-sigma-v}
 \end{proof}
+
+\begin{remark}
+If in the proof above we replace $S$ with $S^{-1}$, we have that the map
+
+\[\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}\]
+ transforms into $(-1)^{\binom{n}{2}}S\circ F\circ (S^{-1})^{\otimes}=S\circ F\circ (S^{\otimes n})^{-1}$. This is the map $\sigma(F)$ from \cite{RW}, and following the same proof we have done above but with this change of $S$ into $S^{-1}$ we get the isomorphism of operads
+
+\[
+\sigma:\End_A\cong\s\End_{SA}.
+\]
+\end{remark}
 
 \section{Sign of the braces}\label{rw}
 
