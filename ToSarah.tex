@@ -42,7 +42,7 @@ Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the 
 
 
 In a similar way we can define $\Lambda^-(n)=S^{1-n}sig_n$, with the same insertion maps.
-
+%The sign might arise naturally from the permutation action. If I have the wedge of n wedge the wedge of m-1 (because the final result must be n+m-1 in total), I would permute the last m-1 until the reach the i-th position via transpositions, each transpotision produces a minus sign. Or simply considering the lat m as a single element of degree m-1 being permuted in the wedge
 \begin{definition}
 Let $\mathcal{O}$ be a graded linear operad, i.e. an operad on the category of graded $R$-modules. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of operads, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition and symmetric group action. Similarly, we define the \emph{operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
 \end{definition}
@@ -79,7 +79,7 @@ Note that we are using the identification of elements of $\End_A$ with those in 
 
 In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (but only as graded modules, not as operads) and then applying the isomorphism $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
 
-Even though we have used $\sigma$ only as a map of graded modules, in can be shown in a completely analogous way to Theorem \ref{markl} that $\sigma$ induces an isomorphism of operads
+Even though $\sigma$ only as a map of graded modules, it can be shown in a completely analogous way to Theorem \ref{markl} that $\overline{\sigma}=(-1)^{\binom{n}{2}}\sigma$ induces an isomorphism of operads
 \[\End_{A}\cong\mathfrak{s}\End_{SA}.\]
 \subsection{Braces}\label{sectionbraces}
 First recall the definition of a brace algebra.
@@ -380,10 +380,10 @@ which indeed coincides with the sign on the second map.
 If in the proof above we replace $S$ with $S^{-1}$, we have that the map
 
 \[\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}\]
- transforms into $(-1)^{\binom{n}{2}}S\circ F\circ (S^{-1})^{\otimes}=S\circ F\circ (S^{\otimes n})^{-1}$. This is the map $\sigma(F)$ from \cite{RW}, and following the same proof we have done above but with this change of $S$ into $S^{-1}$ we get the isomorphism of operads
+ transforms into $(-1)^{\binom{n}{2}}S\circ F\circ (S^{-1})^{\otimes n}=S\circ F\circ (S^{\otimes n})^{-1}$. This is the map $\overline{\sigma}(F)$ from page 9 of \cite{RW}, and following the same proof we have done above but with this change of $S$ into $S^{-1}$ we get the isomorphism of operads
 
 \[
-\sigma:\End_A\cong\s\End_{SA}.
+\overline{\sigma}:\End_A\cong\s\End_{SA}.
 \]
 \end{remark}
 
