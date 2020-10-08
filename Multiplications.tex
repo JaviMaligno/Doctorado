@@ -1,0 +1,111 @@
+	\documentclass[twoside]{article}
+\usepackage{estilo-ejercicios}
+\setcounter{section}{0}
+\newtheorem{defin}{Definition}[section]
+\newtheorem{lem}[defin]{Lemma}
+\newtheorem{propo}[defin]{Proposition}
+\newtheorem{thm}[defin]{Theorem}
+\newtheorem{eje}[defin]{Example}
+\renewcommand{\baselinestretch}{1,3}
+
+\usepackage{empheq}
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+%--------------------------------------------------------
+\begin{document}
+
+\title{$A_\infty$-structures on operads}
+\author{Javier Aguilar Martín}
+\maketitle
+
+\section{Introduction}
+Continuing with the operadic suspension and the brace structure obtained from it, we then define an $A_\infty$-algebra structure on $\s\OO$.
+
+
+\section{Defining the $A_\infty$-maps}
+ADD REFERENCES
+
+Let us consider the underlying graded vector space of the operad $\s\OO$ with grading given by its natural degree, i.e. if $x\in \s\OO(n)$ we definee its natural degree $|x|=n+\deg(x)-1$ where $\deg(x)$ is its internal degree (the degree as an element of $\OO(n))$. 
+
+For any operad $\OO$, recal the operation $\circ$ defined as
+
+\[
+a\circ b=\sum_{i=1}^n a\circ_i b
+\]
+for $a\in\OO(n)$ and $b\in \OO(m)$. We write $a\tilde{\circ}b$ for the corresponding operation on $\s\OO$, namely
+
+\[
+a\tilde{\circ} b=\sum_{i=1}^n a\tilde{\circ}_i b.
+\]
+
+
+Let $m\in\s\OO$ be of natural degree 1 such that $m\tilde{\circ}m=0$, so that $m=m_1+m_2+\cdots$ is a formal sum of maps $m_j\in\s\OO(j)$ of internal degree $2-j$ satisfying the usual $A_\infty$-equation for all $n$
+\begin{equation}\label{Ainftyeq}
+\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t})=0
+\end{equation} 
+
+
+Following G-V and GETZLER, one would define an $A_\infty$-algebra structure on $\s\OO$ using the maps 
+USE PRIME NOTATION FOR THESE MAPS, AS THEY'RE NOT DEFINITIVE
+\begin{align*}
+M'_1(x)\coloneqq [m,x]=m\tilde{\circ} x-(-1)^{|x|}x\tilde{\circ}m, & &  \\
+M'_j(x_1,\dots, x_j)\coloneqq b_j(m;x_1,\dots, x_j),& &j>1.
+\end{align*}
+The prime notation here is used to indicate that these are not the definitive maps that we are going to take. GETZLER shows that $M'=M'_1+M'_2+\cdots$ satisfies the relation $M'\circ M'=0$ using that $m\circ m=0$, but the proof is independent of the operad in which $m$ is defined, so it is still valid if $m\tilde{\circ}m=0$. But we have two problems here. The equation $M'\circ M'=0$ does depend on how the circle operation is defined, more precisely, this circle operation in GETZLER is the one without signs on the endomorphism operad, so $M'$ is not an $A_\infty$-structure under our convention. The other problem has to do with the degrees. We need $M'_j$ to be homogeneous of degree $2-j$ as a map $\s\OO^{\otimes j}\to \s\OO$, but we find that $M'_j$ is homogeneous but of degree 1. 
+
+Indeed, the degree of $b_j(m_n;x_1,\dots,x_j)$ for $n>j$ is computed as follows. Let $a(x)$ denote the arity of $x$, i.e. $a(x)=n$ whenever $x\in\s\OO(n)$. By definition, we have that the degree of $b_j(m_n;x_1,\dots,x_j)$ is
+
+\[a(b_j(m_n;x_1,\dots,x_j))+\deg(b_j(m_n;x_1,\dots,x_j))-1.\]
+
+We have 
+
+\[a(b_j(m_n;x_1,\dots,x_j)=n-j+\sum_i a(x_i)\]
+
+and 
+
+\[\deg(b_j(m_n;x_1,\dots,x_j)=2-n+\sum_i\deg(x_i),\]
+
+so 
+\begin{align*}
+a(b_j(m_n;x_1,\dots,x_j))+\deg(b_j(m_n;x_1,\dots,x_j))-1=\\
+n-j+\sum_i a(x_i)+2-n+\sum_i\deg(x_i)-1=\\
+2-j+\sum_i a(x_i)+\sum_i\deg(x_i)-1=\\
+1+\sum_i|x_i|.
+\end{align*}
+This means that the degree of the map $b_j(m_n;-)$ does not depend on $n$ and equals $1$, so $|M'_j|=1$. A first alternative after finding this result is considering $M_j$ to be an element of $\s\End_{\s\OO}$ instead of just $\End_{\s\OO}$. This solves the problem of the degree, but not the one of the sign convention. 
+
+Note in the above computation that a way to turn $M_j$ into a map of degree $2-j$ is introducing a grading on $\s\OO$ given by arity plus internal degree (withought substracting one). This is equivalent to defining an $A_\infty$ structure $M$ on $S\s\OO$ shifting the map $M'$, where $S$ is the shift of graded modules. Therefore, we define $M_j$ to be the map making the following diagram commute.
+
+\[
+\begin{tikzcd}
+(S\s\OO)^{\otimes j}\arrow[r,"M_j"]\arrow[d, "(S^{\otimes j})^{-1}"'] & S\s\OO\\
+\s\OO^{\otimes j}\arrow[r, "M'_j"] & \s\OO\arrow[u,"S"']
+\end{tikzcd}
+\]
+
+In other words, $M_j=\overline{\sigma}(M'_j)$, where $\overline{\sigma}$ is the map inducing an isomorphism $\End_{\s\OO}\cong \s\End_{S\s\OO}$. Since $\overline{\sigma}$ is an operad morphism, we have
+
+\[
+M\tilde{\circ}M=\overline{\sigma}(M)\tilde{\circ}\overline{\sigma}(M)=\overline{\sigma}(M'\circ M')=0.
+\]
+MAYBE DEFINE $\overline{\sigma}_n$ FOR EACH ARITY SO THAT THE ABOVE IS NOT AN ABUSE OF NOTATION. OTHERWISE SAY IT IS AN ABUSE OF NOTATION
+
+So now we have that $M\in\s\End_{S\s\OO}$ is a formal sum $M=M_1+M_2+\cdots$ such that $M_j$ has arity $j$ and internal degree $2-j$; and such that $M\tilde\circ M=0$. Therefore $M$ is the desired $A_\infty$-structure. Nevertheless, recall that $M$ is defined as an structure map on $S\s\OO$. This kind of shifted operad is called \emph{odd operad} in WARD. This means that $S\s\OO$ is not an operad anymore, since the associativity relation for graded operads involves signs that depend on the degrees, which are now shifted.
+
+\section{Iterating the process}
+
+%\appendix
+%\renewcommand{\appendixname}{Appendix:}
+\begin{appendices}
+\appendix
+\gdef\thesection{Appendix \Alph{section}}
+\section{Explicit $A_\infty$-maps}
+DERIVATION OF THE SIGN THAT COMES IN FRON THE MAPS $M_J$ AND TELL THAT THIS COINCIDES WITH G-V IN THE ASSOCIATIVE CASE. PROBABLY ALSO INCLUDE THE COMPUTATION OF THE AINFTY EQUATION
+
+
+%
+%\end{remark}
+\end{appendices}
+%\phantomsection
+\bibliographystyle{ieeetr}
+\bibliography{newbibliography}
+\end{document}

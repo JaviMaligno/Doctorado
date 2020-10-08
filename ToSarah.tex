@@ -19,9 +19,11 @@
 
 \section{Introduction}
 In this text we study the brace structure on an operad of graded $R$-modules using a construction called \emph{operadic suspension}. This construction provide us an operadic context from which $A_\infty$-algebras arise in a natural way. We focus on the relation between the brace structure on an operad and its operadic composition, with the endomorphism operad as our main example. This relation allow us to generalize the Lie bracket defined in \cite{RW}.
+
+
 \section{Operadic suspension}
 
-
+The operadic suspension defined here is a slight modification of the one found in WARD 
 %Everything should be valid for R-modules (char not 2, as in fields). The sign representation would have to be a free R-module of rank 1
 
 Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. %for a commutative (at least with 1\neq 0) ring the rank is well defined, in general it is not
@@ -106,11 +108,11 @@ We can define braces on $\s\OO$ via operadic composition. More precisely, we def
 $$b_n:\mathfrak{s}\OO(N)\otimes\mathfrak{s}\OO(a_1)\otimes\cdots\otimes\mathfrak{s}\OO(a_n)\to\mathfrak{s}\OO(N-\sum a_i)$$
 using the operadic composition $\gamma$ on $\mathfrak{s}\OO$ as
 
-$$b_n(f;g_1,\dots,g_n)=\sum\gamma(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1),$$
+\[b_n(f;g_1,\dots,g_n)=\sum\gamma(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1),\]
 
-where the sum runs over all possible ordering preserving insertions. 
+where the sum runs over all possible ordering preserving insertions. The brace $b_n(f;g_1,\dots,g_n)$ vanishes whenever $n>N$.
 
- This way we will get the same sign as mimicking the strategy in \cite{RW} (as done in \ref{rw}), with the advantage that now the brace relation follows immediatly from the associativity axiom of operadic composition. To obtain the signs that make this composition differ from the composition in $\OO$, we must first look at the operadic composition on $\Lambda$. In the case of the endomorphism operad, we are interested in compositions of the form $$f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})$$ where $N-n=k_0+\cdots+k_n$, $f$ has arity $N$ and each $g_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the operadic composition
+ This way we will get the same sign as mimicking the strategy in \cite{RW} (as done in \ref{rw}), with the advantage that now the brace relation follows immediatly from the associativity axiom of operadic composition. To obtain the signs that make this composition differ from the composition in $\OO$, we must first look at the operadic composition on $\Lambda$. In the case of the endomorphism operad, we are interested in compositions of the form \[f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})\] where $N-n=k_0+\cdots+k_n$, $f$ has arity $N$ and each $g_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the operadic composition
 
 \[
 \begin{tikzcd}
@@ -152,7 +154,12 @@ This is the sign that is obtained following \cite{RW} in \ref{rw} (expression \r
 \[
 [f,g]=b_1(f;g)-(-1)^{|f||g|}b_1(g;f)
 \]
-is the same bracket that was defined in \cite{RW}.
+is the same bracket that was defined in \cite{RW}. However, we may use $f\tilde{\circ}g$ to make clear that we are using the operadic composition in $\s\OO$. Note that
+
+\[
+b_1(f;g)=\sum_i f\tilde{\circ}_i g,
+\]
+so the notation $f\tilde{\circ} g$ is suggestive, and $f\circ g$ might be left to a general case of any operad that is not necessarily an operadic suspension or to the specific case of the endomorphism operad with no additional signs.
 
 
 %The hardest part is finding \sum q_j(n-j) in the first expression. There is (n-1)\sum q_j+sum_{j>i}q_j. So q_l apperas (n-1) times first and then l-1 times (because the nequality is strict). Therefore, q_l appears n-1+l-1=n-l mod 2 times.
