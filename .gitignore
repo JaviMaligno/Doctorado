@@ -52,4 +52,6 @@ rsconnect/
 *.nav
 *.snm
 *.vrb
+*.bbl
+*.blg
 SmallProofs.tex
