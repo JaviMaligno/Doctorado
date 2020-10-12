@@ -101,19 +101,73 @@ defined as
 \[\overline{M}'_j(f_1,\dots,f_j)=\overline{B}_j(M;f_1,\dots, f_j),\]
 where $\overline{B}_j$ denotes the brace map on $\s\End_{S\s\OO}$. A natural question to ask is what relation is there between the $A_\infty$-structure on $S\s\OO$ and the one on $S\s\End_{S\s\OO}$ if any. In \cite{GV} it is claimed that given an operad $\OO$ with an $A_\infty$-multiplication, the map
 
+I'M WRITING THIS BRACE WITH BAR BECAUSE WITHOUT BAR BECAUSE I WILL HAVE TO USE $B$ FOR THE BRACE IN THE ENDORMORPHISM OPERAD (NON OPERADIC-SUSPENDED). A POSSIBILITY TO BE CONSISTENT IS USING THE LETTER B FOR NON-SUSPENDED OPERADS AND BAR B FOR SUSPENDED OPERADS, INTRODUCING THE BAR WHEN IT IS THE ENDOMORPHISM OF ANOTHER OPERAD
 \begin{align*}
 &\OO \to \End_\OO\\
 &x\mapsto \sum_{n\geq 0}b_n(x;-)
 \end{align*}
-is a morphism of $A_\infty$-algebras. We are going to adapt the statement of this claim to our context and prove it. Let PART OF THE PROOF CAN BE SEEN AS SHOWING EXACTLY WHAT THEY SAID, SO TELL IT MAYBE DURING THE PROOF
+is a morphism of $A_\infty$-algebras. We are going to adapt the statement of this claim to our context and prove it. Let $\Phi'$ the map defined as above but on $\s\OO$, i.e.
+\begin{align*}
+\Phi'\colon&\s\OO \to \End_{\s\OO}\\
+&x\mapsto \sum_{n\geq 0}b_n(x;-)
+\end{align*}
+and let $\Phi:S\s\OO\to S\s\End_{S\s\OO}$ the map making the following diagram commute
+\[
+\begin{tikzcd}
+S\s\OO\arrow[rr, "\Phi"]\arrow[d] & & S\s\End_{S\s\OO}\\
+\s\OO\arrow[r, "\Phi'"]& \End_{\s\OO}\arrow[r, "\cong"]& \s\End_{S\s\OO}\arrow[u]
+\end{tikzcd}
+\]
+where the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\sigma}$. Note that the degree of the map $\Phi$ is zero.
 
 \begin{thm}
+The map $\Phi$ defined above is a morphism of $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
 
+\[\Phi(M_j)=\overline{M}_j(\Phi^{\otimes j})\]
+holds, where the $M_j$ is the structure map on $S\s\OO$ and the $\overline{M}_j$ is the structure map on $S\s\End_{S\s\OO}$.
 \end{thm}
+\begin{proof}
+Let us have a look at the following diagram
+
+\[
+\begin{tikzcd}
+ & & &(S\s\End_{S\s\OO})^{\otimes j}\arrow[ddr, bend left=15, "\overline{M}_j"]&\\
+(S\s\OO)^{\otimes j}\arrow[r,red] \arrow[dd, "M_j"']\arrow[urrr,bend left=10, "\Phi^{\otimes j}"]&\s\OO^{\otimes j}\arrow[r,blue, "(\Phi')^{\otimes j}"]\arrow[d, blue, "M'_j"] & (\End_{\s\OO})^{\otimes j}\arrow[r, blue,"\overline{\sigma}^{\otimes j}"] \arrow[d, dashed, "\mathcal{M}",blue]& (\s\End_{S\s\OO})^{\otimes j}\arrow[u,red]\arrow[d, "\overline{M}'_j",blue]& \\
+&\s\OO\arrow[dl,red]\arrow[r, blue, "\Phi'"]& \End_\s\OO \arrow[r, blue, "\overline{\sigma}"] & \s\End_{S\s\OO}\arrow[r,red]& S\s\End_{S\s\OO}\\
+S\s\OO\arrow[urrrr, bend right=10, "\Phi"']& &
+\end{tikzcd}
+\]
+
+where the red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commute. But these arrows are defined so that they commute whith the blue arrows, so it is enough to show that the inner blue diagram commutes. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}$ that we are going define now, so it will be enough to show that the two squares commute. The map 
+\[\mathcal{M}:(\End_{\s\OO})^{\otimes j}\to\End_{\s\OO}\]
+is defined by 
+\begin{align*}
+&\mathcal{M}(f_1, \dots, f_j)=B_j(M';f_1,\dots, f_j) &\text{ for }j>1,\\
+&\mathcal{M}(f)=B_1(M';f)-(-1)^{|f|}B_1(f;M'),
+\end{align*}
+ where $B_j$ is a natural brace structure map on the operad $\End_{\s\OO}$, i.e. 
+\[B(f;f_1,\dots, f_j)=\sum_{k_0+\cdots+k_j=a(f)-j} f(1^{\otimes k_0}\otimes f_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes f_j\otimes 1^{\otimes k_j}).\]
+ In the above definition, $|f|$ denotes the degree of $f$ as an element of $\End_{\s\OO}$. %the degree as a map sO^n\to sO, which is computed by evaluating and computing arity +degree-1
+ 
+ Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and that $M=\overline{\sigma}(M')$. Then we have 
+ 
+ \[\overline{M}'_j(\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(M;\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j)).\]
+ Now, since the brace structure is defined as an operadic composition we have that it commutes with $\overline{\sigma}$, so
+ 
+ \[\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{\sigma}(B_j(M';f_1,\dots, f_j))=\overline{\sigma}(\mathcal{M}(f_1,\dots, f_j)),\]
+ and therefore the right blue square commutes.
+ 
+ The proof that the left blue square commutes consists of several lenghty calculations so we are going to devote the next section to that. However, it is worth noting that the commutativity of the left square does not depend on the particular operad $\s\OO$, so it is actually valid for any operad $\OO$ with an $A_\infty$-multiplication $m$ such that $m\circ m=0$. This is essentialy the original statement in \cite{GV}.
+\end{proof}
+%BEING A MORPHISM OF AINFTY FORCES THE DEGREE OF THE MAP TO BE ZERO BECAUSE ONE SIDE HAS DEGREE 2-J+DEG AND THE OTHER SIDE HAS 2-J+J(DEG), SO DEG=0
+
+%$\Phi^j$ SHOULD BE DEFINED USING $(S^{-1})^j$ INSTEAD OF THE INVERSE OF THE TENSOR, BUT THE EXTRA SIGN CANCELS BECAUSE THIS MAP IS USED TWO TIMES. IN ADDITION I NEED THE INVERSE OF THE TENSOR TO DEFINE THE AINFTY MAPS
+
+%PART OF THE PROOF CAN BE SEEN AS SHOWING EXACTLY WHAT THEY SAID (IT DOESN'T DEPEND ON THE PARTICULAR OPERAD AS LONG AS THE BRACE STRUCTURE IS THE NATURAL ONE ON THAT OPERAD), SO TELL IT MAYBE DURING THE PROOF. THE PROOF IS QUITE LONG, IT PROBABLY DESERVES ITS OWN SECTION, OR MAYBE INDICATING THAT THE CALCULATIONS FOR THE FIRST HALF OF DIAGRAM ARE IN ANOTHER SECTION
+\subsection{Commutativity of the left blue square}
 
 
 
-I'M WRITING THIS BRACE WITH BAR BECAUSE WITHOUT BAR BECAUSE I WILL HAVE TO USE $B$ FOR THE BRACE IN THE ENDORMORPHISM OPERAD (NON OPERADIC-SUSPENDED). A POSSIBILITY TO BE CONSISTENT IS USING THE LETTER B FOR NON-SUSPENDED OPERADS AND BAR B FOR SUSPENDED OPERADS, INTRODUCING THE BAR WHEN IT IS THE ENDOMORPHISM OF ANOTHER OPERAD
 %\appendix
 %\renewcommand{\appendixname}{Appendix:}
 \begin{appendices}
