@@ -174,45 +174,51 @@ is defined by
 \subsection{Commutativity of the left blue square}
 We are going to show here left blue square in the diagram of the proof of Theorem \ref{theorem} commutes, i.e. that 
 
-\[\Phi'(M'_j)=\mathcal{M}((\Phi')^{\otimes j})\]
+\begin{equation}\label{commutative}
+\Phi'(M'_j)=\mathcal{M}((\Phi')^{\otimes j})
+\end{equation}
 
 for all $j\geq 1$. First we prove the case $j>1$. Let $x_1,\dots, x_j\in \s\OO^{\otimes j}$. We have on the one hand
 
-I'VE CHANGED THE NOTATION FROM THE FILE PHI.TEX: S TO J AND K TO N
+
 
 \begin{align*}
 \Phi'(M'_j(x_1,\dots, x_j))=&\Phi'(b_j(m;x_1,\dots, x_j))=\sum_{n\geq 0} b_n(b_j(m;x_1,\dots, x_j);-)=\\
 &\sum_n\sum_l\sum b_l(m; -, b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)
 \end{align*}
-where $l=n-(i_1+\cdots+i_j)+j$. Note that $l\geq j$. Evaluating the above map on elements would yield koszul signs coming from the brace relation. Also recall that $|b_j(x;-)|=|x|$. Now, fix some value of $l$ and let us compute
+where $l=n-(i_1+\cdots+i_j)+j$. Note that $l\geq j$. Evaluating the above map on elements would yield Koszul signs coming from the brace relation. Also recall that $|b_j(x;-)|=|x|$. Now, fix some value of $l$ and let us compute
 
 \begin{align*}
-\mathcal{M}(\Phi'(x_1),\dots, \Phi'(x_j))=B_j(M;\Phi'(x_1),\dots, \Phi'(x_j))
+\mathcal{M}(\Phi'(x_1),\dots, \Phi'(x_j))=B_j(M';\Phi'(x_1),\dots, \Phi'(x_j))
 \end{align*}
 
-but focus on the $M_l$ component, i.e. on $B_j(M_l;\Phi'(x_1),\dots, \Phi'(x_j))$. By definition, this equals
+but focus on the $M'_l$ component, i.e. on $B_j(M'_l;\Phi'(x_1),\dots, \Phi'(x_j))$. By definition, this equals
 
 \begin{align*}
-\sum M_l(-,\Phi'(x_1),\cdots, \Phi'(x_j),-)=&\sum_{i_1,\dots, i_j}\sum M_l(-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)=\\
+\sum M'_l(-,\Phi'(x_1),\cdots, \Phi'(x_j),-)=&\sum_{i_1,\dots, i_j}\sum M'_l(-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)=\\
 &\sum_{i_1,\dots, i_j}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)
 \end{align*}
 
-We are using hyphens instead of $1$'s to make the equality of both sides of the equation more apparent, and to make clear that when evaluating on elements those are the places where the elements go. In this case, evaluating yields the same signs as in the other side of the equation. 
+We are using hyphens instead of $1$'s to make the equality of both sides of the equation \ref{commutative} more apparent, and to make clear that when evaluating on elements those are the places where the elements go. In this case, evaluating yields the same signs as in the other side of the equation. 
 
 For each tuple $(i_1,\dots, i_j)$ we can choose $n$ such that $n-(i_1+\cdots+i_j)+j=l$, so the above sum equals
 
 $$\underset{n-(i_1+\cdots+i_j)+j=l}{\sum_{n,i_1,\dots, i_j}}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)$$
 
-So each $M_l$ component for $l\geq j$ produces precisely the terms $b_l(m;\dots)$ appearing in $\Phi'(M_j)$. In addition, for every $n\geq 0$ there exists some tuple $(i_1,\dots, i_j)$ and some $l\geq j$ such that $n$ is the that $n-(i_1+\cdots+i_j)+j=l$, so we do get all the summands from the left hand side of the equation, and thus we have the equality $\Phi'(M_j)=\overline{M}_j((\Phi')^{\otimes j})$ for all $j>1$.
+So each $M'_l$ component for $l\geq j$ produces precisely the terms $b_l(m;\dots)$ appearing in $\Phi'(M'_j)$. In addition, for every $n\geq 0$ there exists some tuple $(i_1,\dots, i_j)$ and some $l\geq j$ such that $n$ is the that $n-(i_1+\cdots+i_j)+j=l$, so we do get all the summands from the left hand side of the equation \ref{commutative}, and thus we have the equality $\Phi'(M'_j)=\mathcal{M}_j((\Phi')^{\otimes j})$ for all $j>1$.
 
 It is worth treating the case $n=0$ separately since in that case we have the summand \[b_0(b_j(m;x_1,\dots, x_j))\] 
-in $\Phi'(b_j(m;x_1,\dots, x_j))$, where we cannot apply the brace relation. This map equals \[B_j(M_j;b_0(x_1),\dots, b_0(x_j))=M_j(b_0(x_1),\dots, b_0(x_j))=b_j(m;b_0(x_1),\dots, b_0(x_j)),\] since by definition $b_0(x)=x$.% We obtained this map from $\overline{M}_1(\Phi(x))$. To see that the two maps are actually equal, apply them to $1\in k$ to output $b_1(m;x)$ in both cases. %Notice that the terms that $b_1(M_i;x)$ produces for $i>1$ appear using the brace relation in $b_k(b_1(m;x);-)$ when $k>0$, more precisely, in the summand $b_k(b_1(m_i;x);-)$. 
+in $\Phi'(b_j(m;x_1,\dots, x_j))$, where we cannot apply the brace relation. This map equals \[B_j(M'_j;b_0(x_1),\dots, b_0(x_j))=M'_j(b_0(x_1),\dots, b_0(x_j))=b_j(m;b_0(x_1),\dots, b_0(x_j)),\] since by definition $b_0(x)=x$.% We obtained this map from $\overline{M}_1(\Phi(x))$. To see that the two maps are actually equal, apply them to $1\in k$ to output $b_1(m;x)$ in both cases. %Notice that the terms that $b_1(M_i;x)$ produces for $i>1$ appear using the brace relation in $b_k(b_1(m;x);-)$ when $k>0$, more precisely, in the summand $b_k(b_1(m_i;x);-)$. 
 
-Now we are going to show that $\Phi'(M'_1(x))=\mathcal{M}(\Phi'(x))$. This going to be divided into two parts, since $M'_1$ has to clearly distinct summands.
+Now we are going to show that 
+
+\begin{equation}\label{case1}
+\Phi'(M'_1(x))=\mathcal{M}(\Phi'(x)).
+\end{equation} This going to be divided into two parts, since $M'_1$ has to clearly distinct summands.
 
 \subsubsection{Insertions in $m$}
 
-Let us first focus on insertions in $m$. Recall that 
+Let us first focus on the insertions in $m$ that appear in equation \ref{case1}. Recall that 
 
 \begin{equation}\label{phim}
 \Phi'(M'_1(x))=\Phi'([m,x])=\Phi'(b_1(m;x))-(-1)^{|x|}\Phi'(b_1(x;m))
@@ -228,11 +234,13 @@ so we focus on the first summand.
 where the sum with no limits runs over all the positions in which $b_i(x;-)$ can be inserted (from $1$ to $n-i+1$ in this case). 
 
 
-On the other hand, since $|\Phi'(x)|=|x|$,
+On the other hand, since $|\Phi'(x)|=|x|$, the right hand side of equation \ref{case1} becomes
 
-\[\mathcal{M}(\Phi'(x))=B_1(M;\Phi'(x))-(-1)^{|x|}B_1(\Phi'(x);M)\]
+\begin{equation}\label{mphi}
+\mathcal{M}(\Phi'(x))=B_1(M';\Phi'(x))-(-1)^{|x|}B_1(\Phi'(x);M')
+\end{equation}
 
-and again we are focusing now on the first summand, but with the exception of the part of $M_1$ that corresponds to $b_1(\Phi(x);m)$. From here the argument is a particular case of the proof for $j>1$, so the terms of the form $b_l(m;\cdots)$ are the same on both sides of the equation. 
+and again we are focusing now on the first summand, but with the exception of the part of $M_1$ that corresponds to $b_1(\Phi(x);m)$. From here the argument is a particular case of the proof for $j>1$, so the terms of the form $b_l(m;\cdots)$ are the same on both sides of the equation \ref{case1}. 
 
 %. We now look at the index $l=n-i+1> 0$ that determines the arity of the map $b_{n-i+1}(m;\dots)$. We show that for each value of $l$, $B_1(M_{n-i+1};\Phi(x))$ produces exactly the terms involving $b_{k-i+1}(m;\dots)$. 
 %
@@ -250,53 +258,46 @@ and again we are focusing now on the first summand, but with the exception of th
 
 \subsubsection{Insertions in $x$}
 
-And now, let us study the insertions in $x$. From $\Phi'(M'_1(x))$ in equation \ref{phim} we had 
+And now, let us study the insertions in $x$ that appear in equation \ref{case1}. From $\Phi'(M'_1(x))$ in equation \ref{phim} we had 
 
-\[(-1)^{|x|}\Phi'(b_1(x;m))=\sum_n b_n(b_1(x;m);-).\]
+\[-(-1)^{|x|}\Phi'(b_1(x;m))=-(-1)^{|x|}\sum_n b_n(b_1(x;m);-).\]
 
-We are going to need to evaluate each of these terms,  so let $z_1,\dots, z_n\in \s\OO$. We have by the brace raltion that
+We are going to need to evaluate each of these terms,  so let $z_1,\dots, z_n\in \s\OO$. We have by the brace relation that
 
-\begin{align*}
+\begin{align}\label{insertionx1}
 b_n(b_1(x;m);z_1,\dots, z_n)&=\\
-\sum_{i=1}^n (-1)^{\varepsilon}b_{n-1}(x;z_1,\dots, b_1(m;z_i),\dots, z_n)&+\sum_{i=1}^{n+1}(-1)^{\varepsilon}b_n(x;z_1,\dots, z_{i-1},m,z_i,\dots, z_n),
-\end{align*}
+ \sum_{l+j=n+1}\sum_{i=1}^{n-j+1}(-1)^{\varepsilon} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_n)&+\sum_{i=1}^{n+1}(-1)^{\varepsilon}b_{n+1}(x;z_1,\dots, z_{i-1},m,z_i,\dots, z_n),\nonumber
+\end{align}
 
-where $\varepsilon$ is the usual Koszul sign with respecto to the grading in $\s\OO$. 
+where $\varepsilon$ is the usual Koszul sign with respect to the grading in $\s\OO$. We have to check that the insertions in $x$ that appear in $\mathcal{M}(\Phi'(x))$ (the right hand side of the equation \ref{case1}) are exactly those in the equation above (that correspond to the left hand side).
 
-POR AQUÍ 
-From $\overline{M}_1(\Phi(x))=B_1(M;\Phi(x))+B_1(\Phi(x);M)$.  On the left summand we have $B_1(M_1;\Phi(x))=M_1(\Phi(x))$, which produces 
+From $\mathcal{M}(\Phi'(x))=B_1(M';\Phi'(x))-(-1)^{|x|}B_1(\Phi'(x);M')$ (equation \ref{mphi}) we have 
+\[-(-1)^{|x|}b_1(\Phi'(x);m)=-(-1)^{|x|}\sum_n b_1(b_n(x;-);m)\] 
+coming from the first summand since $B_1(M'_1;\Phi'(x))=M'_1(\Phi'(x))$ and we are interested now only on insertions in $x$.
 
-$$b_1(\Phi(x);m)=\sum_k b_1(b_k(x;-);m)$$. 
+Each component can be evaluated on $(z_1,\dots, z_n)$ to produce
 
-Each component can be evaluated on $(z_1,\dots, z_k)$ to produce
+\begin{align}\label{insertionx2}
+b_1(b_n(x;z_1, \dots, z_n);m)&=\\
+\sum_{i=1}^n (-1)^{\varepsilon+|z_i|}b_n(x;z_1,\dots, b_1(z_i;m),\dots, z_n)&+\sum_{i=1}^{n+1} (-1)^{\varepsilon}b_{n+1}(x;z_1,\dots, z_{i-1},m,z_{i},\dots, z_n)\nonumber
+\end{align}
+
+Note that we have to apply the Koszul sign rule twice: once at evaluation, and once more to apply the brace relation. The second sum is already the same as the second sum that we found earlier in equation \ref{insertionx1}, so from now on we only need to use the first sum of the equation above. Now, from the second summand $\mathcal{M}(\Phi'(x))$ in the right hand side of equation \ref{mphi}
 
 \begin{align*}
-b_1(b_k(x;z_1, \dots, z_k);m)&=\sum_{i=1}^k b_k(x;z_1,\dots, b_1(z_i;m),\dots, z_k)+\sum_{i=0}^k b_{k+1}(x;z_1,\dots, z_i,m,z_{i+1},\dots, z_k)\\
-&\coloneqq A_1+C_1
+-(-1)^{|x|}B_1(\Phi'(x);M')=&-(-1)^{|x|}\sum_l B_1(b_l(x;-);M')=-(-1)^{|x|}\sum_l\sum b_l(x;-,M',-) \\
+=&-(-1)^{|x|}\left(\sum_{j> 1} \sum_l\sum b_l(x;-,b_j(m;-),-)+\sum_l\sum b_l(x;-,b_1(-;m),-)\right).
 \end{align*}
-
-Now, from the right summnad 
-
-\begin{align*}
-B_1(\Phi(x);M)=&\sum_l B_1(b_l(x;-);M)=\sum_l\sum b_l(x;-,M,-) \\
-=&\sum_{j\geq 1} \sum_l\sum b_l(x;-,b_j(m;-),-)+\sum_l\sum b_l(x;-,b_1(-;m),-)
-\end{align*}
- we're going to evaluate on $(z_1,\dots, z_k)$ to make this map more explicit, namely, for each $k$ used in the previous maps, take $l$ and $j$ such that $l+j-1=k$ and evaluate on $(z_1,\dots, z_k)$ to produce
+ We are going to evaluate on $(z_1,\dots, z_n)$ to make this map more explicit (leaving out the sign factor $-(-1)^{|x|}$), namely, for each $n$ used in the previous maps, take every combination of $l$ and $j$ such that $l+j-1=n$ and evaluate on $(z_1,\dots, z_n)$ to produce
  
  \begin{align*}
- \sum_{l+j=k+1}\sum_{i=1}^{k-j+1} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_k)&+\sum_{i=1}^{k} b_k(x;z_1,\dots,b_1(z_{i};m),\dots, z_k)\\
- \coloneqq C_2&+A_2
+ \sum_{l+j=n+1}\sum_{i=1}^{n-j+1}(-1)^{\varepsilon} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_n)&-\sum_{i=1}^{n} (-1)^{\varepsilon+|z_i|}b_n(x;z_1,\dots,b_1(z_{i};m),\dots, z_n)
  \end{align*}
- Note that $A_2=A_1$ so we are going to assume that they cancel (this will have to be checked with signs at some point).
+The minus sign comes from the fact that $b_1(z_i;m)$ comes from $M'_1(z_i)$, so we apply the signs in the definition of this map. We can see that the second sum above is the same as the first sum in equation \ref{insertionx2}, so we have now cancelled both sums of that equation (recall that the second sum was already cancelled before).
  
- So to finish we only have to notice that 
- 
- $$C_1+C_2=b_k(b_1(x;m);z_1,\dots, z_k).$$
- 
- 
-% We may also treat the case $k=0$, where there's no brace relation, just $b_0(b_1(x;m))$ coming from $\Phi(b_1(x;m))$. On the other hand we had $b_1(\Phi(x);m)$ from $\overline{M}_1(\Phi(x)$, whose first term is $b_1(b_0(x);m)$, which is the same map as $b_0(b_1(x;m)$. We also had $B_1(\Phi(x);M)$. Here, unlike in $b_1(\Phi(x);m)$, we cannot do the brace $B_1$ to $b_0(x)$ since this map has arity 0. Note that the brace $b_1$ is done after $\Phi(x)$ is evaluated and we are already in $\OO$.
- 
- In the case $n=0$, we have to note that $B_1(b_0(x);m)$ is not defined because of arity reasons: $b_0(x)$ is a map of arity 0, so we cannot insert any arguments. And this finishes the proof.
+ So we are left with only the first sum of the last equation, which is the same as the first sum in equation \ref{insertionx1}, so we have already checked that the equation $\Phi'(M'_1)=\mathcal{M}(\Phi')$ holds. 
+  
+ In the case $n=0$, we have to note that $B_1(b_0(x);m)$ is not defined because of arity reasons: $b_0(x)$ is a map of arity 0, so we cannot insert any inputs. And this finishes the proof.
 %\appendix
 %\renewcommand{\appendixname}{Appendix:}
 \begin{appendices}
