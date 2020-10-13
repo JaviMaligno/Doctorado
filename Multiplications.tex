@@ -34,7 +34,7 @@ a\circ b=\sum_{i=1}^n a\circ_i b
 for $a\in\OO(n)$ and $b\in \OO(m)$. We write $a\tilde{\circ}b$ for the corresponding operation on $\s\OO$, namely
 
 \[
-a\tilde{\circ} b=\sum_{i=1}^n a\tilde{\circ}_i b.
+a\tilde{\circ} b=\sum_{i=1}^n a\tilde{\circ}_i b=b_1(a;b).
 \]
 
 
@@ -71,7 +71,7 @@ n-j+\sum_i a(x_i)+2-n+\sum_i\deg(x_i)-1=\\
 2-j+\sum_i a(x_i)+\sum_i\deg(x_i)-1=\\
 1+\sum_i|x_i|.
 \end{align*}
-This means that the degree of the map $b_j(m_n;-)$ does not depend on $n$ and equals $1$, so $|M'_j|=1$. %A first alternative after finding this result is considering $M'_j$ to be an element of $\s\End_{\s\OO}$ instead of just $\End_{\s\OO}$. This solves the problem of the degree, but not the one of the sign convention. 
+This means that the degree of the map $b_j(m_n;-)$ does not depend on $n$ and equals $1$, so $|M'_j|=1$. In general $|b_j(x;-)|=|x|$. %A first alternative after finding this result is considering $M'_j$ to be an element of $\s\End_{\s\OO}$ instead of just $\End_{\s\OO}$. This solves the problem of the degree, but not the one of the sign convention. 
 
 Note in the above computation that a way to turn $M'_j$ into a map of degree $2-j$ is introducing a grading on $\s\OO$ given by arity plus internal degree (without substracting one). This is equivalent to defining an $A_\infty$ structure $M$ on $S\s\OO$ shifting the map $M'$, where $S$ is the shift of graded modules. Therefore, we define $M_j$ to be the map making the following diagram commute.
 
@@ -120,7 +120,7 @@ S\s\OO\arrow[rr, "\Phi"]\arrow[d] & & S\s\End_{S\s\OO}\\
 \]
 where the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\sigma}$. Note that the degree of the map $\Phi$ is zero.
 
-\begin{thm}
+\begin{thm}\label{theorem}
 The map $\Phi$ defined above is a morphism of $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
 
 \[\Phi(M_j)=\overline{M}_j(\Phi^{\otimes j})\]
@@ -129,16 +129,23 @@ holds, where the $M_j$ is the structure map on $S\s\OO$ and the $\overline{M}_j$
 \begin{proof}
 Let us have a look at the following diagram
 
+%\[
+%\begin{tikzcd}
+%(S\s\OO)^{\otimes j}\arrow[r,red] \arrow[d, bend right=15,"M_j"']\arrow[rrrr,bend left=15, "\Phi^{\otimes j}"]&\s\OO^{\otimes j}\arrow[r,blue, "(\Phi')^{\otimes j}"]\arrow[d, blue, "M'_j"] & (\End_{\s\OO})^{\otimes j}\arrow[r, blue,"\overline{\sigma}^{\otimes j}"] \arrow[d, dashed, "\mathcal{M}",blue]& (\s\End_{S\s\OO})^{\otimes j}\arrow[r,red]\arrow[d, "\overline{M}'_j",blue]& (S\s\End_{S\s\OO})^{\otimes j}\arrow[d, bend left=15, "\overline{M}_j"] \\
+%S\s\OO\arrow[rrrr, bend right=15, "\Phi"']\arrow[r,red]&\s\OO\arrow[r, blue, "\Phi'"]& \End_\s\OO \arrow[r, blue, "\overline{\sigma}"] & \s\End_{S\s\OO}\arrow[r,red]& S\s\End_{S\s\OO}
+%\end{tikzcd}
+%\]
+
+
 \[
 \begin{tikzcd}
- & & &(S\s\End_{S\s\OO})^{\otimes j}\arrow[ddr, bend left=15, "\overline{M}_j"]&\\
-(S\s\OO)^{\otimes j}\arrow[r,red] \arrow[dd, "M_j"']\arrow[urrr,bend left=10, "\Phi^{\otimes j}"]&\s\OO^{\otimes j}\arrow[r,blue, "(\Phi')^{\otimes j}"]\arrow[d, blue, "M'_j"] & (\End_{\s\OO})^{\otimes j}\arrow[r, blue,"\overline{\sigma}^{\otimes j}"] \arrow[d, dashed, "\mathcal{M}",blue]& (\s\End_{S\s\OO})^{\otimes j}\arrow[u,red]\arrow[d, "\overline{M}'_j",blue]& \\
-&\s\OO\arrow[dl,red]\arrow[r, blue, "\Phi'"]& \End_\s\OO \arrow[r, blue, "\overline{\sigma}"] & \s\End_{S\s\OO}\arrow[r,red]& S\s\End_{S\s\OO}\\
-S\s\OO\arrow[urrrr, bend right=10, "\Phi"']& &
+(S\s\OO)^{\otimes j}\arrow[dr,red] \arrow[ddd, bend right=10,"M_j"']\arrow[rrrr,bend left=10, "\Phi^{\otimes j}"]& & & & (S\s\End_{S\s\OO})^{\otimes j}\arrow[ddd, bend left=10, "\overline{M}_j"]\\
+&\s\OO^{\otimes j}\arrow[r,blue, "(\Phi')^{\otimes j}"]\arrow[d, blue, "M'_j"] & (\End_{\s\OO})^{\otimes j}\arrow[r, blue,"\overline{\sigma}^{\otimes j}"] \arrow[d, dashed, "\mathcal{M}",blue]& (\s\End_{S\s\OO})^{\otimes j}\arrow[ur,red]\arrow[d, "\overline{M}'_j",blue]& \\
+&\s\OO\arrow[r, blue, "\Phi'"]& \End_\s\OO \arrow[r, blue, "\overline{\sigma}"] & \s\End_{S\s\OO}\arrow[dr,red]& \\
+S\s\OO\arrow[rrrr, bend right=10, "\Phi"']\arrow[ur,red]& & & & S\s\End_{S\s\OO}
 \end{tikzcd}
 \]
-
-where the red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commute. But these arrows are defined so that they commute whith the blue arrows, so it is enough to show that the inner blue diagram commutes. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}$ that we are going define now, so it will be enough to show that the two squares commute. The map 
+where the red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commute. But these arrows are defined so that they commute whith the red and blue arrows, so it is enough to show that the inner blue diagram commutes. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}$ that we are going define now, so it will be enough to show that the two squares commute. The map 
 \[\mathcal{M}:(\End_{\s\OO})^{\otimes j}\to\End_{\s\OO}\]
 is defined by 
 \begin{align*}
@@ -147,12 +154,12 @@ is defined by
 \end{align*}
  where $B_j$ is a natural brace structure map on the operad $\End_{\s\OO}$, i.e. 
 \[B(f;f_1,\dots, f_j)=\sum_{k_0+\cdots+k_j=a(f)-j} f(1^{\otimes k_0}\otimes f_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes f_j\otimes 1^{\otimes k_j}).\]
- In the above definition, $|f|$ denotes the degree of $f$ as an element of $\End_{\s\OO}$. %the degree as a map sO^n\to sO, which is computed by evaluating and computing arity +degree-1
+ In the above definition, $|f|$ denotes the degree of $f$ as an element of $\End_{\s\OO}$, and the $1$'s in the brace structure are identity maps. %the degree as a map sO^n\to sO, which is computed by evaluating and computing arity +degree-1
  
  Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and that $M=\overline{\sigma}(M')$. Then we have 
  
  \[\overline{M}'_j(\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(M;\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j)).\]
- Now, since the brace structure is defined as an operadic composition we have that it commutes with $\overline{\sigma}$, so
+ Now, since the brace structure is defined as an operadic composition, it commutes with $\overline{\sigma}$, so
  
  \[\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{\sigma}(B_j(M';f_1,\dots, f_j))=\overline{\sigma}(\mathcal{M}(f_1,\dots, f_j)),\]
  and therefore the right blue square commutes.
@@ -165,9 +172,131 @@ is defined by
 
 %PART OF THE PROOF CAN BE SEEN AS SHOWING EXACTLY WHAT THEY SAID (IT DOESN'T DEPEND ON THE PARTICULAR OPERAD AS LONG AS THE BRACE STRUCTURE IS THE NATURAL ONE ON THAT OPERAD), SO TELL IT MAYBE DURING THE PROOF. THE PROOF IS QUITE LONG, IT PROBABLY DESERVES ITS OWN SECTION, OR MAYBE INDICATING THAT THE CALCULATIONS FOR THE FIRST HALF OF DIAGRAM ARE IN ANOTHER SECTION
 \subsection{Commutativity of the left blue square}
+We are going to show here left blue square in the diagram of the proof of Theorem \ref{theorem} commutes, i.e. that 
+
+\[\Phi'(M'_j)=\mathcal{M}((\Phi')^{\otimes j})\]
+
+for all $j\geq 1$. First we prove the case $j>1$. Let $x_1,\dots, x_j\in \s\OO^{\otimes j}$. We have on the one hand
+
+I'VE CHANGED THE NOTATION FROM THE FILE PHI.TEX: S TO J AND K TO N
+
+\begin{align*}
+\Phi'(M'_j(x_1,\dots, x_j))=&\Phi'(b_j(m;x_1,\dots, x_j))=\sum_{n\geq 0} b_n(b_j(m;x_1,\dots, x_j);-)=\\
+&\sum_n\sum_l\sum b_l(m; -, b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)
+\end{align*}
+where $l=n-(i_1+\cdots+i_j)+j$. Note that $l\geq j$. Evaluating the above map on elements would yield koszul signs coming from the brace relation. Also recall that $|b_j(x;-)|=|x|$. Now, fix some value of $l$ and let us compute
+
+\begin{align*}
+\mathcal{M}(\Phi'(x_1),\dots, \Phi'(x_j))=B_j(M;\Phi'(x_1),\dots, \Phi'(x_j))
+\end{align*}
+
+but focus on the $M_l$ component, i.e. on $B_j(M_l;\Phi'(x_1),\dots, \Phi'(x_j))$. By definition, this equals
+
+\begin{align*}
+\sum M_l(-,\Phi'(x_1),\cdots, \Phi'(x_j),-)=&\sum_{i_1,\dots, i_j}\sum M_l(-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)=\\
+&\sum_{i_1,\dots, i_j}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)
+\end{align*}
+
+We are using hyphens instead of $1$'s to make the equality of both sides of the equation more apparent, and to make clear that when evaluating on elements those are the places where the elements go. In this case, evaluating yields the same signs as in the other side of the equation. 
+
+For each tuple $(i_1,\dots, i_j)$ we can choose $n$ such that $n-(i_1+\cdots+i_j)+j=l$, so the above sum equals
+
+$$\underset{n-(i_1+\cdots+i_j)+j=l}{\sum_{n,i_1,\dots, i_j}}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)$$
+
+So each $M_l$ component for $l\geq j$ produces precisely the terms $b_l(m;\dots)$ appearing in $\Phi'(M_j)$. In addition, for every $n\geq 0$ there exists some tuple $(i_1,\dots, i_j)$ and some $l\geq j$ such that $n$ is the that $n-(i_1+\cdots+i_j)+j=l$, so we do get all the summands from the left hand side of the equation, and thus we have the equality $\Phi'(M_j)=\overline{M}_j((\Phi')^{\otimes j})$ for all $j>1$.
+
+It is worth treating the case $n=0$ separately since in that case we have the summand \[b_0(b_j(m;x_1,\dots, x_j))\] 
+in $\Phi'(b_j(m;x_1,\dots, x_j))$, where we cannot apply the brace relation. This map equals \[B_j(M_j;b_0(x_1),\dots, b_0(x_j))=M_j(b_0(x_1),\dots, b_0(x_j))=b_j(m;b_0(x_1),\dots, b_0(x_j)),\] since by definition $b_0(x)=x$.% We obtained this map from $\overline{M}_1(\Phi(x))$. To see that the two maps are actually equal, apply them to $1\in k$ to output $b_1(m;x)$ in both cases. %Notice that the terms that $b_1(M_i;x)$ produces for $i>1$ appear using the brace relation in $b_k(b_1(m;x);-)$ when $k>0$, more precisely, in the summand $b_k(b_1(m_i;x);-)$. 
+
+Now we are going to show that $\Phi'(M'_1(x))=\mathcal{M}(\Phi'(x))$. This going to be divided into two parts, since $M'_1$ has to clearly distinct summands.
+
+\subsubsection{Insertions in $m$}
+
+Let us first focus on insertions in $m$. Recall that 
+
+\begin{equation}\label{phim}
+\Phi'(M'_1(x))=\Phi'([m,x])=\Phi'(b_1(m;x))-(-1)^{|x|}\Phi'(b_1(x;m))
+\end{equation}
+
+so we focus on the first summand. 
+
+\begin{align*}
+\Phi'(b_1(m;x))=&\sum_n b_n(b_1(m;x);-)=\sum_n \underset{n\geq i}{\sum_i} \sum b_{n-i+1}(m;-, b_i(x;-),-)=\\
+&\underset{n-i+1> 0}{\sum_{n,i}}\sum b_{n-i+1}(m;-, b_i(x;-),-)
+\end{align*}
+
+where the sum with no limits runs over all the positions in which $b_i(x;-)$ can be inserted (from $1$ to $n-i+1$ in this case). 
 
 
+On the other hand, since $|\Phi'(x)|=|x|$,
 
+\[\mathcal{M}(\Phi'(x))=B_1(M;\Phi'(x))-(-1)^{|x|}B_1(\Phi'(x);M)\]
+
+and again we are focusing now on the first summand, but with the exception of the part of $M_1$ that corresponds to $b_1(\Phi(x);m)$. From here the argument is a particular case of the proof for $j>1$, so the terms of the form $b_l(m;\cdots)$ are the same on both sides of the equation. 
+
+%. We now look at the index $l=n-i+1> 0$ that determines the arity of the map $b_{n-i+1}(m;\dots)$. We show that for each value of $l$, $B_1(M_{n-i+1};\Phi(x))$ produces exactly the terms involving $b_{k-i+1}(m;\dots)$. 
+%
+%\begin{align*}
+%B_1(M_{k-i+1};\Phi(x))=&\sum M_{k-i+1}(-,\Phi(x),-)=\sum_j\sum M_{k-i+1}(-,b_j(x;-),-)=\\
+%&\sum_j\sum b_{k-i+1}(m;-,b_j(x;-),-)
+%\end{align*}
+%Again, the sum without limits runs over the possible insertions. Note that we have fixed the value $l=k+i-1$, but not $k$ or $i$, so for each $j$ we can choose $i$ and and a value $k'$ of $k$ for which $k'-j+1=k-i+1$. This can be done thanks to the fact that $k$ runs over all natural numbers (including 0). So we may simply rewrite the above sum as
+%
+%$$\underset{k-i+1=l}{\sum_{k,i}}\sum b_{k-i+1}(m;-,b_i(x;-),-)$$
+%
+%which is precisely what we had before for each fixed value of $k-i+1$. %Since there's no $M_0$, we have to treat the case $l=0$ separately. In that case
+%
+
+
+\subsubsection{Insertions in $x$}
+
+And now, let us study the insertions in $x$. From $\Phi'(M'_1(x))$ in equation \ref{phim} we had 
+
+\[(-1)^{|x|}\Phi'(b_1(x;m))=\sum_n b_n(b_1(x;m);-).\]
+
+We are going to need to evaluate each of these terms,  so let $z_1,\dots, z_n\in \s\OO$. We have by the brace raltion that
+
+\begin{align*}
+b_n(b_1(x;m);z_1,\dots, z_n)&=\\
+\sum_{i=1}^n (-1)^{\varepsilon}b_{n-1}(x;z_1,\dots, b_1(m;z_i),\dots, z_n)&+\sum_{i=1}^{n+1}(-1)^{\varepsilon}b_n(x;z_1,\dots, z_{i-1},m,z_i,\dots, z_n),
+\end{align*}
+
+where $\varepsilon$ is the usual Koszul sign with respecto to the grading in $\s\OO$. 
+
+POR AQUÍ 
+From $\overline{M}_1(\Phi(x))=B_1(M;\Phi(x))+B_1(\Phi(x);M)$.  On the left summand we have $B_1(M_1;\Phi(x))=M_1(\Phi(x))$, which produces 
+
+$$b_1(\Phi(x);m)=\sum_k b_1(b_k(x;-);m)$$. 
+
+Each component can be evaluated on $(z_1,\dots, z_k)$ to produce
+
+\begin{align*}
+b_1(b_k(x;z_1, \dots, z_k);m)&=\sum_{i=1}^k b_k(x;z_1,\dots, b_1(z_i;m),\dots, z_k)+\sum_{i=0}^k b_{k+1}(x;z_1,\dots, z_i,m,z_{i+1},\dots, z_k)\\
+&\coloneqq A_1+C_1
+\end{align*}
+
+Now, from the right summnad 
+
+\begin{align*}
+B_1(\Phi(x);M)=&\sum_l B_1(b_l(x;-);M)=\sum_l\sum b_l(x;-,M,-) \\
+=&\sum_{j\geq 1} \sum_l\sum b_l(x;-,b_j(m;-),-)+\sum_l\sum b_l(x;-,b_1(-;m),-)
+\end{align*}
+ we're going to evaluate on $(z_1,\dots, z_k)$ to make this map more explicit, namely, for each $k$ used in the previous maps, take $l$ and $j$ such that $l+j-1=k$ and evaluate on $(z_1,\dots, z_k)$ to produce
+ 
+ \begin{align*}
+ \sum_{l+j=k+1}\sum_{i=1}^{k-j+1} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_k)&+\sum_{i=1}^{k} b_k(x;z_1,\dots,b_1(z_{i};m),\dots, z_k)\\
+ \coloneqq C_2&+A_2
+ \end{align*}
+ Note that $A_2=A_1$ so we are going to assume that they cancel (this will have to be checked with signs at some point).
+ 
+ So to finish we only have to notice that 
+ 
+ $$C_1+C_2=b_k(b_1(x;m);z_1,\dots, z_k).$$
+ 
+ 
+% We may also treat the case $k=0$, where there's no brace relation, just $b_0(b_1(x;m))$ coming from $\Phi(b_1(x;m))$. On the other hand we had $b_1(\Phi(x);m)$ from $\overline{M}_1(\Phi(x)$, whose first term is $b_1(b_0(x);m)$, which is the same map as $b_0(b_1(x;m)$. We also had $B_1(\Phi(x);M)$. Here, unlike in $b_1(\Phi(x);m)$, we cannot do the brace $B_1$ to $b_0(x)$ since this map has arity 0. Note that the brace $b_1$ is done after $\Phi(x)$ is evaluated and we are already in $\OO$.
+ 
+ In the case $n=0$, we have to note that $B_1(b_0(x);m)$ is not defined because of arity reasons: $b_0(x)$ is a map of arity 0, so we cannot insert any arguments. And this finishes the proof.
 %\appendix
 %\renewcommand{\appendixname}{Appendix:}
 \begin{appendices}
