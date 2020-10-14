@@ -18,21 +18,24 @@
 \maketitle
 
 \section{Introduction}
-In this text we study the brace structure on an operad of graded $R$-modules using a construction called \emph{operadic suspension}. This construction provide us an operadic context from which $A_\infty$-algebras arise in a natural way. We focus on the relation between the brace structure on an operad and its operadic composition, with the endomorphism operad as our main example. This relation allow us to generalize the Lie bracket defined in \cite{RW}.
+I am trying to generalize the operadic suspension to a bigraded version that contextualizes derived $A_\infty$-algebras.
 
 
-\section{Operadic suspension}
+\section{Bigraded operadic suspension}
+I WILL HAVE TO CHANGE SOME NOTATION TO DISTINGUISH THIS FROM THE GRADED ONE
 
-The operadic suspension defined here is a slight modification of the one found in \cite{ward}.
+MAKE COMMAND FOR VERTICAL AND HORIZONTAL DEGREE
+
+The operadic suspension defined here is a bigraded generalization of the operadic suspension I defined previously.
 %Everything should be valid for R-modules (char not 2, as in fields). The sign representation would have to be a free R-module of rank 1
 
 Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. %for a commutative (at least with 1\neq 0) ring the rank is well defined, in general it is not
 
-Let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in degree 0. This is a free $R$-module of rank one that comes with a natural action of the symmetric group $S_n$ that multiplies each element by the sign of each given permutation. Let $\Lambda(n)=S^{n-1}sig_n$, where $S$ is the shift of graded modules, so that $\Lambda(n)$ is the sign representation of the symmetric group concentrated in degree $n-1$. This module can be realized as the free $R$-module of rank one spanned by the exterior power $e_1\land\cdots\land e_n$ of degree $n-1$.
+Let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in bidegree $(0,0)$. This is a free $R$-module of rank one that comes with a natural action of the symmetric group $S_n$ that multiplies each element by the sign of each given permutation. Let $\Lambda(n)=S^{1,n-1}sig_n$, where $S^{i,j}$ is a shift of bigraded modules, so that $\Lambda(n)$ is the sign representation of the symmetric group concentrated in bidegree $(1,n-1)$. This module can be realized as the free $R$-module of rank one spanned by the exterior power $e_1\land\cdots\land e_n$ of bidegree $(1,n-1)$.
 
-%This is a one-dimensional vector space that comes with a natural action of the symmetric group $S_n$ that multiplies each vector by the sign of each given permutation. Let $\Lambda(n)=S^{n-1}sig_n$, where $S$ is the shift of graded vector spaces, so that $\Lambda(n)$ is the sign representation of the symmetric group concentrated in degree $n-1$. This space can be realized as the one-dimensional vector space spanned by the exterior power $e_1\land\cdots\land e_n$ of degree $n-1$. 
 
-Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the following insertion maps
+
+The operad structure on the bigraded $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ is the same as in the graded case, namely
 
 \[
 \begin{tikzcd}
@@ -43,46 +46,49 @@ Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the 
 
 
 
-In a similar way we can define $\Lambda^-(n)=S^{1-n}sig_n$, with the same insertion maps.
+In a similar way we can define $\Lambda^-(n)=S^{-1,1-n}sig_n$, with the same insertion maps.
 %The sign might arise naturally from the permutation action. If I have the wedge of n wedge the wedge of m-1 (because the final result must be n+m-1 in total), I would permute the last m-1 until the reach the i-th position via transpositions, each transpotision produces a minus sign. Or simply considering the lat m as a single element of degree m-1 being permuted in the wedge
 \begin{definition}
-Let $\mathcal{O}$ be a graded linear operad, i.e. an operad on the category of graded $R$-modules. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of operads, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition and symmetric group action. Similarly, we define the \emph{operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
+Let $\mathcal{O}$ be a bigraded linear operad, i.e. an operad on the category of bigraded $R$-modules. The \emph{bigraded operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of operads, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition and symmetric group action. Similarly, we define the \emph{operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
 \end{definition}
 
 
-We may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$. For $a\in\OO(n)$ of degree $\deg(a)$, its ``natural'' degree in $\s\OO$ is $|a|=\deg(a)+n-1$. To distinguish both degrees we call $\deg(a)$ the \emph{internal degree} of $a$, since this is the degree that $a$ inherits from the grading of $\OO$. If we write $\circ_i$ for the operadic insertion on $\OO$ and $\tilde{\circ}_i$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. Let $a\in\OO(n)$ and $b\in\OO(m)$, and let us compute $a\tilde{\circ}_i b$.
+We may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$. For $a\in\OO(n)$ of bidegree $(h\deg(a),v\deg(a))$, its ``natural'' bidegree in $\s\OO$ is \[|a|=(h\deg(a)+1,v\deg(a)+n-1).\] To distinguish both degrees we call $(h\deg(a),v\deg(a))$ the \emph{internal bidegree} of $a$, since this is the degree that $a$ inherits from the grading of $\OO$. If we write $\circ_i$ for the operadic insertion on $\OO$ and $\tilde{\circ}_i$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. Let $a\in\OO(n)$ and $b\in\OO(m)$, and let us compute $a\tilde{\circ}_i b$.
 
 \begin{align*}
 \mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
 &\xrightarrow{\circ_i\otimes\circ_i} \OO(m+n-1)\otimes \Lambda(n+m-1)=\mathfrak{s}\OO(n+m-1).
 \end{align*}
 
-The symmetric monoidal structure produces the sign $(-1)^{(n-1)\deg(b)}$ in the isomorphism $\Lambda(n)\otimes \OO(m)\cong\OO(m)\otimes\Lambda(n)$, and the operadic structure of $\Lambda$ produces the sign $(-1)^{(n-i)(m-1)}$, so 
+The symmetric monoidal structure produces the sign $(-1)^{(n-1)v\deg(b)+h\deg(b)}$ in the isomorphism $\Lambda(n)\otimes \OO(m)\cong\OO(m)\otimes\Lambda(n)$, and the operadic structure of $\Lambda$ produces the sign $(-1)^{(n-i)(m-1)}$, so 
 
-\[a\tilde{\circ}_ib=(-1)^{(n-1)\deg(b)+(n-i)(m-1)}a\circ_i b.\]
+\begin{equation}\label{sign}
+a\tilde{\circ}_ib=(-1)^{(n-1)v\deg(b)+h\deg(b)+(n-i)(m-1)}a\circ_i b.
+\end{equation}
 
-Now we have mod 2
+If $h\deg(b)=0$ we recover the sign of the classical operadic suspension. Note that the bracket induced in the bigraded case by this insertion is not exactly the same as in \cite{RW}, but that is expected since they did not define the derived structure as $[m,m]=0$. 
 
-\[(n-i)(m-1)=(n-1-i-1)(m-1)=(n-1)(m-1)+(i-1)(m-1)\]
-
-so we conclude 
-
-\[a\tilde{\circ}_ib=(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}a\circ_i b.\]
-
-This is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras is derived. 
-
-
-
+IS THERE AN ANALOGUE TO THIS THEOREM?
 \begin{thm}\label{markl}(\cite[Chapter 3, Lemma 3.16]{operads})
 Given a graded $R$-module $A$, there is an isomorphism of operads $\End_{S A}\cong \mathfrak{s}^{-1}\End_A$, where $\End_A$ is the endomorphism operad of $A$.
 \end{thm}
-The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit (see \ref{proofthm} for a detailed proof), but in the case of the operadic suspension defined above, the isomorphism is given by $$\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. The symbol $\circ$ here is just composition of maps.
-Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from \cite{RW}. 
+ 
 
-In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (but only as graded modules, not as operads) and then applying the isomorphism $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
+\section{Derived $A_\infty$-algebras}
+Using the notation in \cite{RW}, a \emph{derived $A_\infty$-algebra} on a $(\N,\Z)$-bigraded $R$-module $A$ consist of a family of $R$-linear maps 
+\[m_{ij}:A^{\otimes j}\to A\]
+of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
+\[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}(1^{\otimes r}\otimes m_{pq}\otimes 1^{\otimes t})=0\]
+for all $u\geq 0$ and $v\geq 1$. Let us see that if the bigraded operadic suspension defined above recovers this sign. We have from \ref{sign}
 
-Even though $\sigma$ only as a map of graded modules, it can be shown in a completely analogous way to Theorem \ref{markl} that $\overline{\sigma}=(-1)^{\binom{n}{2}}\sigma$ induces an isomorphism of operads
-\[\End_{A}\cong\mathfrak{s}\End_{SA}.\]
+\[m_{ij}\tilde{\circ}_{r+1}m_{pq}=(-1)^{(j-r-1)(q-1)+(j-1)(p+q)+p}m_{ij}\circ m_{pq}.\]
+
+
+Using that $t=j-r-1$ we may multiply and simplify the exponent modulo $2$ to obtain
+\[m_{ij}\tilde{\circ}_{r+1}m_{pq}=(-1)^{rq+t+pj}m_{ij}\circ m_{pq}\]
+as we wanted. This means that a derived $A_\infty$-algebra can now be understood as an element $m=\sum_{i,j}m_{ij}\in\s\OO$ such that $m\tilde{\circ}m=0$.
+
+
 \subsection{Braces}\label{sectionbraces}
 First recall the definition of a brace algebra.
 
@@ -112,7 +118,16 @@ using the operadic composition $\gamma$ on $\mathfrak{s}\OO$ as
 
 where the sum runs over all possible ordering preserving insertions. The brace $b_n(f;g_1,\dots,g_n)$ vanishes whenever $n>N$ and $b_0(f)=f$.
 
- This way we will get the same sign as mimicking the strategy in \cite{RW} (as done in \ref{rw}), with the advantage that now the brace relation follows immediatly from the associativity axiom of operadic composition. To obtain the signs that make this composition differ from the composition in $\OO$, we must first look at the operadic composition on $\Lambda$. In the case of the endomorphism operad, we are interested in compositions of the form \[f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})\] where $N-n=k_0+\cdots+k_n$, $f$ has arity $N$ and each $g_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the operadic composition
+INTERLUDE: USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD
+
+Let $m_{il}$ a component of the derived $A_\infty$-multiplication $m$ and let us compute the arity and bidegree of $b_j(m_{il};x_1,\dots, x_j)$. As usual the arity is $l-j+\sum a(x_k)$. The horizontal degree is just $i+\sum h\deg(x_k)$. The vertical degree $2-i-l+\sum v\deg(x_k)$. According to our construction, the horizontal degree is independent of the arity, so will need to take that into account. In our construction is also natural to add arity and vertical degree, which adds up to $2-(i+j)+\sum (a(x_k)+v\deg(x_k))$. So it looks like up to some shifts we could define CHECK THIS PROPERLY
+
+\[M_{ij}(x_1,\dots, x_j)=\sum_l b_j(m_{il};x_1,\dots, x_j)\]
+to be a derived structure on the operad. Adding the 3 parameters we get $2-j+\sum all$ so under some grading it might even be an $A_\infty$ algebra, but I doubt this graded could be obtained operadically since the horizontal degree is independent of the arity, unlike the vertical degree.
+
+PROVISIONAL END OF INTERLUDE
+
+  To obtain the signs that make this composition differ from the composition in $\OO$, we must first look at the operadic composition on $\Lambda$. In the case of the endomorphism operad, we are interested in compositions of the form \[f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})\] where $N-n=k_0+\cdots+k_n$, $f$ has arity $N$ and each $g_i$ has arity $a_i$ and internal bidegree $(hq_i,vq_i)$. Therefore, let us consider the operadic composition
 
 \[
 \begin{tikzcd}
@@ -120,7 +135,7 @@ where the sum runs over all possible ordering preserving insertions. The brace $
 \end{tikzcd}
 \]
 
-The operadic composition can be described in terms of insertions in the obvious way, namely
+The operadic composition can be described in terms of insertions in the obvious way, namely I THINK THIS PART IS THE SAME AS IN THE GRADED CASE BECAUSE THE INSERTIONS ARE THE SAME
 
 $$\gamma(f;h_1,\dots, h_N)=(\cdots(f\circ_1 h_1)\circ_{1+a(h_1)}h_2\cdots)\circ_{1+\sum a(h_p)}h_N,$$
 
@@ -129,7 +144,7 @@ where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $
 For this, recall that the degree of $\Lambda(a_i)$ is $a_i-1$ and that the generator of this space is inserted in the position $1+\sum_{j=0}^{i-1}k_j+\sum_{j=1}^{i-1}a_j$ of a wedge of $N+\sum_{j=1}^{i-1}a_j-i+1$ generators. Therefore, performing this insertion as described in the previous section yields the aforementioned sign. Now, since $N-n=k_0+\cdots+k_n$, we have that
 \[(a_i-1)(N-k_0+\cdots+k_{i-1}-i)=(a_i-1)(n-i+\sum_{l=i}^nk_l).\]
 
-Now we can compute the sign factor of a brace. For this, notice that the isomorphism $(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}$ does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
+Now we can compute the sign factor of a brace. I WILL HAVE TO ADD HORIZONTAL DEGREES HERE For this, notice that the isomorphism $(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}$ SO NOW THIS WILL ADD SIGNS IN HORIZONTAL DEGREE IN GENERAL, BUT IF I'M USING THE UNIT I THINK IT SHOULD HAVE BIDEGREE (0,0) does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
 
 \[\OO(N)\otimes\Lambda(N)\otimes (\OO(1)\otimes \Lambda(1))^{\otimes k_0}\bigotimes_{i=1}^n(\OO(a_i)\otimes\Lambda(a_i)\otimes(\OO(1)\otimes\Lambda(1))^{\otimes k_i}\]
 \[\cong \OO(N)\otimes(\bigotimes_{i=1}^n \OO(a_i))\otimes \Lambda(N)\otimes(\bigotimes_{i=1}^n \Lambda(a_i))\]
@@ -310,6 +325,8 @@ as wanted.
 
 \end{proof}
 
+I WILL HAVE TO CHECK THIS AGAIN
+
 \begin{lemma}
 There are isomorphisms of operads $\mathfrak{s}^{-1}\mathfrak{s}\OO\cong\OO\cong\mathfrak{s}\mathfrak{s}^{-1}\OO$.
 \end{lemma}
@@ -395,7 +412,7 @@ If in the proof above we replace $S$ with $S^{-1}$, we have that the map
 \end{remark}
 
 \section{Sign of the braces}\label{rw}
-
+I THINK THERE IS NO EQUIVALENT FOR THIS SINCE THIS ONE WAS ALREADY USED TO THE DERIVED CASE BUT NEEDED TO INTRODUCE SOME EXTRA SHIFT AFTERWARDS
 
 
 Let us use the same strategy as \cite{RW} used to find the signs of the bracket $[f,g]$, but here we are going to use it to find the sign of the braces. Let $A$ be a graded module and $f\in C^{N,i}(A,A)=\hom(A^{\otimes N},A)^i$. Let $S(A)$ be the graded module with $S(A)^v=A^{v+1}$, and so the suspension or \emph{shift} map $S:A\to S(A)$ given by the identity map has internal degree $-1$. Define $\sigma(f)$ as the map making the following diagram commutative
