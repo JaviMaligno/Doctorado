@@ -141,7 +141,7 @@ Let us have a look at the following diagram
 \begin{tikzcd}
 (S\s\OO)^{\otimes j}\arrow[dr,red] \arrow[ddd, bend right=10,"M_j"']\arrow[rrrr,bend left=10, "\Phi^{\otimes j}"]& & & & (S\s\End_{S\s\OO})^{\otimes j}\arrow[ddd, bend left=10, "\overline{M}_j"]\\
 &\s\OO^{\otimes j}\arrow[r,blue, "(\Phi')^{\otimes j}"]\arrow[d, blue, "M'_j"] & (\End_{\s\OO})^{\otimes j}\arrow[r, blue,"\overline{\sigma}^{\otimes j}"] \arrow[d, dashed, "\mathcal{M}",blue]& (\s\End_{S\s\OO})^{\otimes j}\arrow[ur,red]\arrow[d, "\overline{M}'_j",blue]& \\
-&\s\OO\arrow[r, blue, "\Phi'"]& \End_\s\OO \arrow[r, blue, "\overline{\sigma}"] & \s\End_{S\s\OO}\arrow[dr,red]& \\
+&\s\OO\arrow[r, blue, "\Phi'"]& \End_{\s\OO} \arrow[r, blue, "\overline{\sigma}"] & \s\End_{S\s\OO}\arrow[dr,red]& \\
 S\s\OO\arrow[rrrr, bend right=10, "\Phi"']\arrow[ur,red]& & & & S\s\End_{S\s\OO}
 \end{tikzcd}
 \]
@@ -171,6 +171,9 @@ is defined by
 %$\Phi^j$ SHOULD BE DEFINED USING $(S^{-1})^j$ INSTEAD OF THE INVERSE OF THE TENSOR, BUT THE EXTRA SIGN CANCELS BECAUSE THIS MAP IS USED TWO TIMES. IN ADDITION I NEED THE INVERSE OF THE TENSOR TO DEFINE THE AINFTY MAPS
 
 %PART OF THE PROOF CAN BE SEEN AS SHOWING EXACTLY WHAT THEY SAID (IT DOESN'T DEPEND ON THE PARTICULAR OPERAD AS LONG AS THE BRACE STRUCTURE IS THE NATURAL ONE ON THAT OPERAD), SO TELL IT MAYBE DURING THE PROOF. THE PROOF IS QUITE LONG, IT PROBABLY DESERVES ITS OWN SECTION, OR MAYBE INDICATING THAT THE CALCULATIONS FOR THE FIRST HALF OF DIAGRAM ARE IN ANOTHER SECTION
+\begin{remark}
+Notice that we have only used the operadic structure on $\s\OO$ to define an $A_\infty$-algebra structure on $S\s\OO$, so the constructions on this sections are valid if we replace $\s\OO$ by any graded module $A$ such that $SA$ is an $A_\infty$-algebra. 
+\end{remark}
 \subsection{Commutativity of the left blue square}
 We are going to show here left blue square in the diagram of the proof of Theorem \ref{theorem} commutes, i.e. that 
 
@@ -304,9 +307,40 @@ The minus sign comes from the fact that $b_1(z_i;m)$ comes from $M'_1(z_i)$, so 
 \appendix
 \gdef\thesection{Appendix \Alph{section}}
 \section{Explicit $A_\infty$-maps}
-DERIVATION OF THE SIGN THAT COMES IN FRON THE MAPS $M_J$ AND TELL THAT THIS COINCIDES WITH G-V IN THE ASSOCIATIVE CASE. PROBABLY ALSO INCLUDE THE COMPUTATION OF THE AINFTY EQUATION
+ PROBABLY ALSO INCLUDE THE COMPUTATION OF THE AINFTY EQUATION
 
+We have given an implicit definition of the $A_\infty$-maps \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
+but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$. For $x,x_1,\dots,x_n\in\s\OO$, the expression is the following
 
+\begin{align*}
+&M_n(Sx_1,\dots, Sx_n)=(-1)^{\sum_{i=1}^n(n-i)|x_i|}Sb_n(m;x_1,\dots, x_n) & & n>1\\
+&M_1(Sx)=Sb_1(m;x)-(-1)^{|x|}Sb_1(x;m),
+\end{align*}
+
+where $|x|$ is the degree of $x$ as an element of $\s\OO$. By abuse of notation we may ommit the map $S$ as long as we do not forget what the degrees are. Doing so, it is more clear that in the associative case ($m=m_2$), there is a connection with the maps used in \cite{GV} to define a dg-algebra structure on an algebra over an operad with an associative multiplication $m=m_2$. In \cite{GV}, they define $x\cdot y=(-1)^{|x|+1}b_2(m;x,y)$, which is just $-M_2(x,y)$. The minus sign does not affect the associativity and differential relations, and happens because of a different choice of convention in the shift of a tensor product. More pricesely, if the map $\s\OO^{\otimes n}\to (S\s\OO)^{\otimes n}$ is chosen to be $(S^{\otimes n})^{-1}$ instead of $(S^{\otimes n})^{-1}$, we obtain the sign in \cite{GV}.
+
+The derivation of these explicit formulas is done as follows. Let $n>1$ and $x_1,\dots, x_n\in \s\OO$. 
+
+\begin{align*}
+M_n(Sx_1,\dots, Sx_n)=(-1)^{\binom{n}{2}}SM'_n((S^{-1})^{\otimes n})(Sx_1,\dots, Sx_n)=\\
+(-1)^{\binom{n}{2}+\sum_{i=1}^n(n-i)(|x_i|+1)}SM'_n(S^{-1}Sx_1,\dots, S^{-1}Sx_n)=\\
+(-1)^{\binom{n}{2}+\sum_{i=1}^n(n-i)(|x_i|+1)}SM'_n(x_1,\dots,x_n)
+\end{align*}
+
+Now, note that $\binom{n}{2}$ is even exatly when $n\equiv 0,1\mod 4$. In these cases an even number of $|x_i|$ have an odd coefficient in the sum (when $n\equiv 0\mod 4$ these are the $|x_i|$ with even index, and when $n\equiv 1\mod 4$, the $|x_i|$ with odd index). This means that 1 is added on the exponent an even number of times, so the sign is not changed by the binomial coefficient nor by adding 1 on each term. Similarly, when $\binom{n}{2}$ is odd, i.e. when $n\equiv 2,3\mod 4$, there is an odd number of $|x_i|$ with odd coefficient, so the addition of 1 an odd number of times cancels the binomial coefficient. This means that the above expression equals
+
+\[(-1)^{\sum_{i=1}^n(n-i)|x_i|}SM'_n(x_1,\dots,x_n),\]
+which by definition equals
+\[(-1)^{\sum_{i=1}^n(n-i)|x_i|}Sb_n(m;x_1,\dots,x_n).\]
+
+The case $n=1$ is analogous, one just have to note that 
+
+\[
+M'_1(x)=b_1(m;x)-(-1)^{|x|}b_1(x;m)
+\]
+and that $\overline{\sigma}$ is linear. 
+
+It is possible to show that the maps defined explicitly as we have just done satisfy the $A_\infty$-equation without relying on the fact that $\overline{\sigma}$ is a map of operads, but it is a lengthy and tedious calculation.
 %
 %\end{remark}
 \end{appendices}
