@@ -22,7 +22,7 @@ I am trying to generalize the operadic suspension to a bigraded version that con
 
 
 \section{Bigraded operadic suspension}
-I WILL HAVE TO CHANGE SOME NOTATION TO DISTINGUISH THIS FROM THE GRADED ONE
+I WILL HAVE TO CHANGE SOME NOTATION TO DISTINGUISH THIS FROM THE GRADED ONE. HOWEVER IF THE OPERAD IS CONCENTRATED IN HORIZONTAL DEGREE 0 THE EFFECT ON INSERTIONS IS THE SAME AS THE GRADED ONE, SO MAYBE THE ABUSE OF NOTATION IS JUSTIFIED
 
 MAKE COMMAND FOR VERTICAL AND HORIZONTAL DEGREE
 
@@ -79,7 +79,7 @@ Using the notation in \cite{RW}, a \emph{derived $A_\infty$-algebra} on a $(\N,\
 \[m_{ij}:A^{\otimes j}\to A\]
 of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
 \[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}(1^{\otimes r}\otimes m_{pq}\otimes 1^{\otimes t})=0\]
-for all $u\geq 0$ and $v\geq 1$. Let us see that if the bigraded operadic suspension defined above recovers this sign. We have from \ref{sign}
+for all $u\geq 0$ and $v\geq 1$. Let us see that the bigraded operadic suspension defined above recovers this sign. We have from (\ref{sign})
 
 \[m_{ij}\tilde{\circ}_{r+1}m_{pq}=(-1)^{(j-r-1)(q-1)+(j-1)(p+q)+p}m_{ij}\circ m_{pq}.\]
 
@@ -120,10 +120,11 @@ where the sum runs over all possible ordering preserving insertions. The brace $
 
 INTERLUDE: USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD
 
-Let $m_{il}$ a component of the derived $A_\infty$-multiplication $m$ and let us compute the arity and bidegree of $b_j(m_{il};x_1,\dots, x_j)$. As usual the arity is $l-j+\sum a(x_k)$. The horizontal degree is just $i+\sum h\deg(x_k)$. The vertical degree $2-i-l+\sum v\deg(x_k)$. According to our construction, the horizontal degree is independent of the arity, so will need to take that into account. In our construction is also natural to add arity and vertical degree, which adds up to $2-(i+j)+\sum (a(x_k)+v\deg(x_k))$. So it looks like up to some shifts we could define CHECK THIS PROPERLY
+Let $m_{il}$ a component of the derived $A_\infty$-multiplication $m$ and let us compute the arity and bidegree of $b_j(m_{il};x_1,\dots, x_j)$. As usual the arity is $l-j+\sum a(x_k)$. The horizontal degree is just $i+\sum h\deg(x_k)$. The vertical degree $2-i-l+\sum v\deg(x_k)$. According to our construction, the horizontal degree is independent of the arity, so will need to take that into account. In our construction is also natural to add arity and vertical degree, which adds up to $2-(i+j)+\sum (a(x_k)+v\deg(x_k))$. So if we consider the shift $S^{-1,1}\s\OO$, we may define
 
 \[M_{ij}(x_1,\dots, x_j)=\sum_l b_j(m_{il};x_1,\dots, x_j)\]
-to be a derived structure on the operad. Adding the 3 parameters we get $2-j+\sum all$ so under some grading it might even be an $A_\infty$ algebra, but I doubt this graded could be obtained operadically since the horizontal degree is independent of the arity, unlike the vertical degree.
+\[M_{01}(x)= \sum_l (b_1(m_{0l};x)-(-1)^{hdeg(x)+1+|x|}b_1(x;m_{0l}))\]
+to be a derived structure on that shift. CONSIDER CHANGING THE BIGRADED OPERADIC SUSPENSION SO THAT THE SHIFT IS 1,1 In the particular case that the maps are concentrated in horizontal degree 0 ($A_\infty$-algebra) we DON'T FUCKING recover the $A_\infty$-structure BECAUSE THE BRACKET GIVES THE OPPOSITE SIGN   Adding the 3 parameters we get $2-j+\sum all$ so under some grading it might even be an $A_\infty$ algebra, but I doubt this graded could be obtained operadically since the horizontal degree is independent of the arity, unlike the vertical degree. I CAN SIMPLY OMMIT THE $+1$ BY DEFINITION AND FUCK OFF, BUT THAT MIGHT BE INCONSISTENT WITH FURTHER DEVELOPMENTS
 
 PROVISIONAL END OF INTERLUDE
 
