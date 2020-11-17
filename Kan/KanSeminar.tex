@@ -245,235 +245,182 @@ In othwer words, there is a homotopy $m(m\times 1)\simeq m(1\times m)$.
 \frametitle{Projective spaces of topological groups}
 Milnor defines projective spaces for any topological group $G$ in the following way:\pause
 \begin{itemize}
-\item<2-> Define $E_i=G\star\cdots\star G$ to be the $i$-fold join of $G$ with itself.
+\item<2-> Define $E_i=G\star\cdots\star G$ to be the $i$-fold join of $G$ with itself. MAYBE I SHOULD DEFINE THE JOIN
 \item<2-> Construct fibre bundles $p_i:E_i\to B_i$ as quotient maps by the natural action of $G$ on $E_i$.
 \end{itemize}\pause
-
-If $G=S^{d-1}$ for $d=1,2,4$ we get the standard fibrations $S^{id-1}\to P^{i-1}$ onto the projective space of dimenion $i-1$.\pause
-
-This construction does not work for $S^7$ since only the fibrations $S^7\to *$ and $S^{15}\to S^8$ can be constructed.
+\begin{block}{Remark}
+If $G=S^{d-1}$ for $d=1,2,4$ we get the standard fibrations $S^{id-1}\to P^{i-1}$ onto the projective space of dimenion $i-1$.
+\end{block}
 \end{frame}
 
-\section{$A_n$-structures}
 \begin{frame}
-NOW DEFINE AN STRUCTURES AS A GENERALIZATION THAT WILL SOLVE THIS PROBLEM
+\begin{block}{Remark}
+This construction does not work for $S^7$ since only the fibrations $S^7\to *$ and $S^{15}\to S^8$ can be constructed.
+\end{block}\pause
+
+
+Sugawara and Dold and Lashof generalize the construction to homotopy associative spaces loosening the fibration property.
+%from this Stasheff define the following structure
 \end{frame}
-%
-%\begin{frame}
-%	\begin{itemize}
-%		\item<1-> Identity element: 
-%	%UN ÁRBOL AL QUE SE LE METEN PALITOS CON 1 Y OTRO METIÉNDOSE EN EL 1 Y AL FINAL IGUAL AL ARBOL EN CUESTION
-%		
-%		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-%		\clip(-2.2333333333333334,-1.) rectangle (13.1,3.35);
-%		\draw [line width=1.2pt] (2.,0.)-- (2.,1.);
-%		\draw [line width=1.2pt] (2.,1.)-- (1.,2.);
-%		\draw [line width=1.2pt] (2.,1.)-- (1.6866666666666674,2.0066666666666664);
-%		\draw [line width=1.2pt] (2.,1.)-- (2.42,1.98);
-%		\draw [line width=1.2pt] (2.,1.)-- (3.,2.);
-%		\draw [line width=1.2pt] (2.,0.)-- (2.,-1.);
-%		\draw [line width=1.2pt] (1.,2.)-- (1.,3.);
-%		\draw [line width=1.2pt] (1.6866666666666674,2.0066666666666664)-- (1.6866666666666674,2.9933333333333327);
-%		\draw [line width=1.2pt] (2.42,1.98)-- (2.433333333333334,2.98);
-%		\draw [line width=1.2pt] (3.,2.)-- (3.,3.);
-%		\draw (1.4066666666666674,1.06) node[anchor=north west] {$f$};
-%		\draw (0.8,3.42) node[anchor=north west] {$1$};
-%		\draw (1.45,3.42) node[anchor=north west] {$1$};
-%		\draw (2.2,3.42) node[anchor=north west] {$1$};
-%		\draw (2.8,3.42) node[anchor=north west] {$1$};
-%		\draw (1.593333333333334,-0.23333333333333328) node[anchor=north west] {$1$};
-%		\draw (3.22,1.0866666666666664) node[anchor=north west] {$=f$};
-%		\begin{scriptsize}
-%		\draw [fill=black] (2.,0.) circle (1.5pt);
-%		\end{scriptsize}
-%		\end{tikzpicture} %añadir un palo no cambia la forma delárbol
-%		\item<2-> A right action of the symmetric group thought as reordering the inputs which is coherent with composition. %reordenas los inputs de f y metes los g_i como si nada. Eso es lo mismo que dejar f quieta, cambiar el orden de los g_i y consecuentemente en la composición los argumentos de arriba entran en otro orden. La otra es similar pero haciendo actuar permutaciones sobre los g_i, y luego la forma en la que esos g_i entran en f se reordena consecuentemente
-%	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}
-%	Associativity and the existence of unit allows to understand compositions in terms of insertions $$f\circ_i g=\gamma(f;1,\dots, 1,\underbrace{g}_{i},1,\dots, 1)$$ \pause
-%	
-%	Composition of insertions is thought as grafting one tree at a time.
-%\end{frame}
-%\begin{frame}
-%	\begin{defi}
-%	 A map of operads $f:\mathcal{C}\to \mathcal{C}'$ is a collection of maps $\mathcal{C}(n)\to \mathcal{C}'(n)$ such that:
-%		\begin{itemize}
-%			\item<1->   $f\circ 1_\mathcal{C}=1_{\mathcal{C}'}$.
-%			\item<2->  $f\circ \gamma_\mathcal{C}=\gamma_{\mathcal{C}'}\circ (f\times\cdots\times f)$.
-%			\item<3->   $f(x\sigma)=f(x)\sigma$ for $x\in\CC(n)$ and $\sigma\in\Sigma_n$.
-%		\end{itemize}
-%	\end{defi}
-%	
-%	
-%\end{frame}
-%\begin{frame}
-%	\frametitle{Symmetric monoidal  categories}
-%	\begin{itemize}
-%		\item<1-> A category where there is a notion of tensor product $\otimes $ of objects.
-%		\item<2-> There exists an object $I$ such that $I\otimes A\cong A\cong A\otimes I$ for all object $A$.
-%		\item<3-> The product is commutative: $A\otimes B\cong B\otimes A$.
-%		\item<4-> The product is associative: $(A\otimes B)\otimes C\cong A\otimes (B\otimes C)$ for all objects.
-%		\item<5-> Other coherence axioms.
-%	\end{itemize}
-%%	COMENTAR QUE ESTA DEFINICIÓN SE PUEDE HACER EN CUALQUIER CATEGORÍA MONOIDAL SIMÉTRICA, DICIENDO LOS COMPONENTES DE LA DEFINICIÓN Y QUIZÁ DESTACANDO ALGÚN AXIOMA
-%	
-%   %PONER EJEMPLOS
-%\end{frame}
-%\subsection{Algebras over an operad}
-%\begin{frame}
-%	\frametitle{Endomorphism operad}
-%	%SI LA CATEGORÍA ES LO BASTANTE BUENA (CLOSED) TENEMOS LO SIGUIENTE, POR COMODIDAD LO DEFINIMOS EN ESTA CATEGORÍA
-%	\begin{defi}
-%		Let $V$ be a finite-dimensional vector space over a field $k$. Then the \textbf{endomorphism operad} $\xi_V = \{ \xi_V(n) \}_{n\geq 0}$ of $V$ consists of
-%		\begin{itemize}
-%			\item<1-> $\xi_V(n)=\hom(V^{\otimes n},V)
-%			$ the space of linear maps $V^{\otimes n} \to V$.
-%			\item<2-> composition $\gamma(f; g_1, \dots, g_n)= f(g_1\otimes\dots\otimes g_n)$
-%			\item<3-> identity $\operatorname{Id}_V$
-%			\item<4->  symmetric group action $\gamma (f; g_1, \dots, g_n) \cdot \sigma = f (g_{\sigma^{-1}(1)} \otimes \dots \otimes g_{\sigma^{-1}(n)})$,  $\sigma \in \Sigma_n$
-%		\end{itemize}\pause
-%\only<5>{	If $\mathcal{C}$ is another operad, each operad morphism $\mathcal{C} \to \xi_V$ is called an \textbf{algebra over} $\mathcal{C}$. Equivalently, a $\mathcal{C}$-algebra is given by a sequence of maps $\CC(n)\otimes V^{\otimes n}\to V$.}
-%		 %(notice this is analogous to the fact that each ''R''-module structure on an abelian group ''M'' amounts to a ring homomorphism <math>R \to \operatorname{End}(M)</math>.)
-%	\end{defi}
-%\end{frame}
-%
-%\subsection{Little disks operad}
-%\begin{frame}
-%	\frametitle{Little Disks Operad}
-%
-%\begin{defi}
-%	Let $E_2(n)$ be the configuration space of $n$ numbered disks $B(x_i,r_i)$ of center $x_i\in D^2$ and radius $r_i\in (0,1]$ inside the standard unit disk $D^2$. 
-%	
-%	\begin{itemize}
-%		\item<2-> We call each $B(x_i,r_i)$ \textbf{little disk}.
-%		%\item<3-> $E_2(n)$ can be viewed as a subspace of $(D^2\times (0,1])^n$ whose points are of the form $((x_1,r_1),\dots, (x_n,r_n))$ satisfying certain restrictions. % namely, $r_i$ must be such that the disk $B(x_i,r_i)\subset D^2$ does not intersect any other disk $B(x_j,r_j)$ and fits inside $D^2$. 
-%		\item<3-> By convention, $E_2(0)=*$.
-%	\end{itemize}
-%	 
-%\end{defi}
-%\end{frame}
-%
-%\begin{frame}
-%	\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
-%	\begin{figure}[h!]
-%	\resizebox{10cm}{4.7cm}{%
-%		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-%		\clip(-4,-3.4) rectangle (9.5,3.4);
-%		\draw [line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (2.,1.) circle (0.7823042886243178cm);
-%		\draw [line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (3.,-1.) circle (1.100727032465361cm);
-%		\draw [line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (4.48,1.46) circle (0.7496665925596522cm);
-%		\draw [line width=2.pt] (3.,0.) circle (3.1622776601683795cm);
-%		\draw [line width=2.pt] (2.,1.) circle (0.7823042886243178cm);
-%		\draw [line width=2.pt] (4.48,1.46) circle (0.7496665925596522cm);
-%		\draw [line width=2.pt] (3.,-1.) circle (1.100727032465361cm);
-%		\draw (1.84,1.3) node[anchor=north west] {$1$};
-%		\draw (4.32,1.7) node[anchor=north west] {$2$};
-%		\draw (2.8,-0.8) node[anchor=north west] {$3$};
-%		%\draw (-1.44,0.6) node[anchor=north west] {\LARGE{$c=$}};
-%		\end{tikzpicture}
-%	}
-%	\caption{A point of $ E_2(3)$.}
-%\end{figure}
-%\end{frame}
-%
-%\begin{frame}[fragile]
-%	\frametitle{Operad of little disks}
-%	
-%	 We define for all positive integers $p$ and $q$ and  each $1\leq i\leq p$ the insertion maps 
-%$$	
-%\begin{tikzcd}[row sep=5]
-%E_2(p)\times E_2(q)\arrow[r, "\circ_i"] & E_2(p+q-1)\\
-%(c_1,c_2)\arrow[r, mapsto, shorten <= 1em, shorten >= 1em] & c_1\circ_i c_2
-%\end{tikzcd}
-%$$
-%
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Operad of little disks}
-%	\begin{figure}
-%		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-%	\clip(-5.2,-1.5) rectangle (6.92,1.5);
-%	\draw [line width=2.pt] (0.,0.) circle (1.42cm);
-%	\draw (-0.2,0.2) node[anchor=north west] {$1$};
-%	\end{tikzpicture}
-%	\caption{Identity element $1\in E_2(1)$.}
-%\end{figure}
-%\end{frame}
-%
-%
-%\subsection{Chain operad and Homology operad}
-%\begin{frame}
-%	\frametitle{Chain operad and homology operad of little disks}
-%	
-%	\begin{itemize}
-%	\item<1-> Very well studied homotopy groups: $\pi_i(E_2(n))=0$ for $i>2$ and $\pi_1(E_2(n))=PB_n$.
-%		\item<2-> The collection of chain complexes $C_*(E_2)=\{C_*(E_2(n))\}_{n\geq 0}$ forms an operad thanks to the Eilenberg-Zilber map $\nabla: C_*(A)\otimes C_*(B)\to C_*(A\times B)$.
-%		\item<3-> This induces an operad structure on the collection $H_*(E_2)=\{H_*(E_2(n))\}_{n\geq 0}$.
-%		\item<4-> $H_*(E_2)$ is generated by two operations: $\mu\in H_0(E_2(2))$ and $l\in H_1(E_2(2)) $.
-%	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}
-%
-%
-%%\begin{frame}
-%%	\begin{itemize}
-%%		\item Operads \checkmark
-%%		\begin{itemize}
-%%			\item action of an operad (algebra over an operad) \checkmark
-%%			\item little disks operad \checkmark
-%%			\item chain/homology operad	\checkmark		
-%%		\end{itemize}
-%%		\item Gerstenhaber algebras
-%%		\item Hochschild cohomology of an associative algebra
-%%	\end{itemize}
-%%\end{frame}
-%
-%
-%
-%\section{Gerstenhaber algebras}
-%
-%\begin{frame}
-%	
-%	
-%\end{frame}
-%
-%
-%
-%\begin{frame}
-%	\frametitle{Homology operad of little disks and Gerstenhaber algebras}
-%	
-%	\begin{teorema}
-%		Gerstenhaber algebras and $H_*(E_2)$-algebras are the same thing.
-%	\end{teorema}\pause 
-%	The commutative product is given by 
-%	\[
-%	G^{\otimes 2}\cong k\otimes G^{\otimes 2}\cong H_0(E_2(2))\otimes G^{\otimes 2}\to G
-%	\]
-%	\pause
-%	and the Lie bracket of degree by the
-%	\[
-%	G^{\otimes 2}\cong k\otimes G^{\otimes 2}\cong H_1(E_2(2))\otimes G^{\otimes 2}\to G
-%	\]
-%\end{frame}
-%
-%
-%%
-%%\begin{frame}
-%%	\begin{itemize}
-%%		\item Operads \checkmark
-%%		\begin{itemize}
-%%			\item action of an operad (algebra over an operad) \checkmark
-%%			\item little disks operad \checkmark
-%%			\item chain/homology operad	\checkmark		
-%%		\end{itemize}
-%%		\item Gerstenhaber algebras \checkmark
-%%		\item Hochschild cohomology of an associative algebra
-%%	\end{itemize}
-%%\end{frame}
+\subsection{$A_n$-structures}
+\begin{frame}[fragile]
+\begin{defi}
+An $A_n$-\emph{structure} on a space $X$ consists of an $n$-tuple of maps
+\[
+\begin{tikzcd}
+X \arrow[r, equals] & E_1\arrow[r, hook]\arrow[d, "p_1"] & E_2\arrow[r, hook]\arrow[d, "p_2"] &\cdots\arrow[r, hook]& E_n\arrow[d, "p_n"] \\
+*\arrow[r, equals] & B_1\arrow[r, hook] & 
+B_2\arrow[r, hook]&\cdots\arrow[r, hook]& B_n
+\end{tikzcd}
+\]
+such that $p_{i*}:\pi_q(E_i,X)\to \pi_q(B_i)$ is an isomorphism for all $q$, together with a contracting homotopy $h:CE_{n-1}\to E_n$ such that $h(CE_{i-1})\subset E_i$. %the last condition on the cone is technical, coming from the construction of Dold-Lashof. The indices are different because it is talking about the subspaces. 
+
+\end{defi}
+\end{frame}
+
+\begin{frame}
+\begin{prop}
+%not fibration but close
+Given $X\subset E$ and a map $p:(E,X)\to (B,*)$ such that $p_*:\pi_q(X,E)\to \pi_q(B)$ is an isomorphism for all $q$, there exists an equivalent fibration $F\to W_p\xrightarrow{\bar{p}} B$ such that $F$ has the homotopy type of $X$. 
+\end{prop}
+SAY THE NOTION OF EQUIVALENCE, AND IF GOT TIME GIVE THE PROOF
+\end{frame}
+
+\begin{frame}
+\[
+\begin{array}{ccc}
+\text{Topological groups} & \rightarrow & \text{Milnor construction}\\
+? & \rightarrow  & A_n-structures\\
+& &
+\end{array}
+\]
+\pause
+An $A_n$-structure induces maps $M_i:I^{i-2}\times X^i\to X$ for $i<n$ in such a way that an $A_2$-space is an H-space and a $A_3$-space is a homotopy associative H-space. %the arrows are actually two-sided, it is possible to study topological groups using the classifying bundle, which is essentially Milnor construction, and the other arrow is given by theorem 5
+\end{frame}
+\section{$A_n$-forms}
+\begin{frame}
+\frametitle{Associahedra}
+\begin{itemize}
+\item<1->We need to define cell complexes $K_i$ homeomorphic to $I^{i-2}$ called \emph{Stasheff associahedra}. %nowadays, not in the article
+\item<2-> Consider a word $x_1\cdots x_i$ and all meaningful ways to insert a set of parentheses.
+\item<3-> To each such insertion except for $(x_1\cdots x_i)$ corresponds a cell of the boundary $L_i$ of $K_i$.
+\item<4-> If the parentheses enclose $x_k$ to $x_{k+s-1}$ we regard this cell as the homeomorphic image of $K_r\times K_s$ ($r+s=i+1$) under a map $\delta_k(r,s)$.
+\item<5-> To such cells intersect only on their boundaries and the ``edges'' so formed correspond to intersect two sets of parentheses in the word. %this provides boundary conditions that I'm not going to write explicitly
+ \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Associahedra}
+This is enough to construct $K_i$ by induction:
+\begin{itemize}
+\item[1]<1-> Start with $K_2=*$.
+\item[2]<2-> Given $K_2$ through $K_{i-1}$, construct $L_i$ fitting copies of $K_r\times K_s$ as indicated above.
+\item[3]<3-> Take $K_i=CL_i$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Associahedra}
+PICTURES (not the one from the paper at this point, but just plain associahedra, but specify the maps and parentheses)
+\end{frame}
+
+\begin{frame}
+\begin{prop}
+$K_i$ is homeomorphic to $I^{i-2}$. Degenerancy maps $s_j:K_i\to K_{i-1}$ for $1\leq j\leq i$ can be defined so that 
+\begin{itemize}
+\item $s_js_k=s_ks_{j+1}$ for $k\leq j$
+\item boundary conditions and compatibility with the homeomorphisms $\delta_k(r,s)$. 
+\end{itemize}
+%the homeomorphism with I^{i-2} is not hard to see. the other part is like saying that K_i can be seen as an alternative combinatorial model to simplices and cubes %compatibility conditions ensure that the conditions in the main theorem are consistent
+\end{prop}\pause
+
+This proposition is proved by explicitly constructing the complexes $K_i$ as subsets of $I^{i-2}$.
+\end{frame}
+
+\begin{frame}
+DEFINITION AS SUBSETS OF THE CUBES AND PICTURES FROM THE PAPER (also possibly outline the proof of the proposition)
+\end{frame}
+
+\begin{frame}
+\frametitle{$A_n$-forms}
+\begin{theorem}
+A space $X$ admits an $A_n$-structure if and only if there exists maps $M_i:K_i\times X^i\to X$ for $2\leq i\leq n$ such that:
+\begin{itemize}
+\item[(1)] $M_2(*,e,x)=M_2(*,x,e)=x$ for $x\in X$. %existence of unit, K_2=*
+\item[(2)] for $\rho\in K_r$, $\sigma\in K_s$ ($r+s=i+1$):
+\begin{align*}
+&M_i(\delta_k(r,s)(\rho,\sigma),x_1,\dots, x_i)=\\
+&M_r(\rho,x_1,\dots, x_{k-1},M_s(\sigma,x_k,\dots, x_{k+s-1}),\dots, x_i)
+\end{align*} %this is actually a boundary condition
+\item[(3)] for $\tau\in K_i$ and $i>2$:
+\begin{align*}
+&M_i(\tau,x_1,\dots, x_{j-1},e,x_{j+1},\dots, x_i)=\\
+&M_{i-1}(s_j(\tau),x_1,\dots, x_{j-1},x_{j+1},\dots, x_i)
+\end{align*}%this condition is consistent with the previous one thanks to the compatibility of the degenerancy maps
+\end{itemize}
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+We call such a set of maps an $A_n$-\emph{form} and the pair $(X,\{M_i\})$ an $A_n$-\emph{space}.\pause
+\begin{block}{Remark}
+An $A_2$-space is just an H-space and $M_2(*,x,y)$ is often written as $xy$.
+\end{block}\pause
+Let's unravel condition (2). I MIGHT WRITE IT AGAIN OR JUST GO BACK
+\end{frame}
+\begin{frame}
+For $s=2$ the equation becomes
+\[
+M_i(\delta_k(i-1,2)(\rho,*),x_1,\dots, x_i)=M_{i-1}(\rho,x_1,\dots,x_kx_{k+1},\dots, x_i)
+\]
+\begin{itemize}
+\item<2-> For $i=3$, $K_3\cong I$ so $M_3:I\times X^3\to X$ is a homotopy between $M(M_2\times 1)$ and $M_2(1\times M_2)$, that is, between $(xy)z$ and $x(yz)$.
+\item[]<3-> Thus, $M_2$ is a homotopy associative multiplication.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item For $i=4$, consider the five ways of associating a product of four factors. Since $M_2$ is homotopy associative these five products are related by a string of homotopies DRAW IT ON A PENTAGRAM WITH THE SIMEQ ON THE EDGES
+\[
+x(y(zt))\simeq x((yz)t)\simeq (x(yz))t\simeq ((xy)z)t\simeq (xy)(zt)\simeq x(y(zt))
+\]
+\item[]<2->This defines a map $S^1\times X^4\to X$. The map $M_4$ can be regarded as an extension of this map to $I^2\times X^4$.
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+	Condition (3) in the definition of $A_n$-form is useful but offers no restriction:
+	\begin{lemma}
+	Suppose $\{M_i, i<n\}$ is an $A_{n-1}$-form and that $M'_n:K_n\times X^n\to X$ satisfies (2), then there exists $M_n:K_n\times X^n\to X$ satisfying (2) and (3).  
+	\end{lemma}	
+\end{frame}
+
+
+
+\begin{frame}
+\begin{block}{Examples}
+\begin{itemize}
+\item<1->Any associative H-spaces admits an $A_n$-form for every $n$ by defining $M_i(\tau,x_1,\dots,x_i)=x_1x_2\cdots x_i$. We call this a \emph{trivial} $A_n$-form.
+\item<2-> Any loop space admits $A_n$-forms for all $n$.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+\section{Derived $A_n$-forms}
+%this is one direction of the theorem: A_n-structure implies A_n-form
+\begin{frame}
+
+\end{frame}
 %
 %\section{Hochschild cohomology of an associative algebra}
 %\begin{frame}
