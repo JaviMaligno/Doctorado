@@ -418,166 +418,121 @@ x(y(zt))\simeq x((yz)t)\simeq (x(yz))t\simeq ((xy)z)t\simeq (xy)(zt)\simeq x(y(z
 
 \section{Derived $A_n$-forms}
 %this is one direction of the theorem: A_n-structure implies A_n-form
-\begin{frame}
 
+\begin{frame}
+We construct $A_n$-structures $p_i:E_i\to B_i$ in which $E_i$ has the homotopy type of $X\star\cdots\star X$ but using $K_{i+1}\times X^i$ instead of $\Delta^{i-1}\times X^i$.
+\begin{itemize}
+\item<2-> Let $X^{[i]}$ the subspace of $X^i$ of points in which at least one coordinate equals $e$.
+\item<3-> Let $R=L_{i+1}\times X^i\cup K_{i+1}\times X\times X^{[i-1]}$ as a subspace of $K_{i+1}\times X^i$.
+\item<4-> Let $S=L_{i+1}\times X^{i-1}\cup K_{i+1}\times X^{[i-1]}$ as a subspace of $K_{i+1}\times X^{i-1}$.
+\end{itemize}
 \end{frame}
-%
-%\section{Hochschild cohomology of an associative algebra}
-%\begin{frame}
-%	\frametitle{Hochschild complex}
-%	\begin{defi}
-%	 We define a \textbf{Hochschild $m$-cochain} $f^m$ of $A$ to be a $k$-module homormorphism $f^m: A^{\otimes m}\to A$. The \textbf{Hochschild complex} is given by the modules $C^m(A;A)=\hom_k(A^{\otimes m}, A)$, where $C^0(A;A)=A$ and the differential
-%	 \begin{align*}
-%	 \delta_m f(a_1\otimes\cdots\otimes a_{m+1})&=a_1f(a_2\otimes\cdots\otimes a_{m+1})\\
-%	  +\sum_{i=1}^m(-1)^if(a_1\otimes\cdots&\otimes a_{i-1}\otimes a_ia_{i+1}\otimes a_{i+1}\otimes\cdots a_{m+1})\\
-%	 & +(-1)^{m+1}f(a_1\otimes\cdots\otimes a_m)a_{m+1},
-%	 \end{align*}
-%	 %extensión lineal de esto
-%	 \end{defi}
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Hochschild cohomology and cup product}
-%	\begin{defi}
-%		The $m$-th \textbf{Hochschild cohomology} of $A$ is defined to be $H^m(A;A)=\ker\delta_m/\im\delta_{m-1}$.
-%		\end{defi}\pause
-%		
-%		For $f\in C^n(A;A)$ and $g\in C^m(A;A)$ define
-%		
-%		 $(f\smile g)(a_1\otimes\cdots\otimes a_n\otimes b_1\otimes\cdots\otimes b_m)=f(a_1\otimes\cdots\otimes a_n)g(b_1\otimes\cdots\otimes b_m)$\pause
-%	\begin{teorema}
-%		$\{H^*(A,A),\smile\}$ is a graded commutative algebra, with grading given by dimension, i.e., if $\eta\in H^m(A,A)$ and $\xi\in H^n(A,A)$, then $\eta\smile \xi =(-1)^{mn}\xi\smile \eta$.
-%	\end{teorema} 
-%\end{frame}
-%
-%%\begin{frame}
-%%	\frametitle{Cup product}
-%%	\begin{defi}
-%%	 For $f\in C^m(A;A)$ and $g\in C^n(A;A)$ define their \textbf{cup product} $f\smile g\in C^{n+m}(A;A)$ by
-%%	\[
-%%	f\smile g(a_1\otimes\cdots\otimes a_m\otimes b_1\otimes\cdots\otimes b_n)=f(a_1\otimes\cdots\otimes a_m)g(b_1\otimes\cdots\otimes b_n).
-%%	\]
-%%	\end{defi}\pause
-%%The cup product satisfies the Leibniz rule
-%%$$\delta (f^m\smile g^n)=\delta f^m\smile g^n+(-1)^m f^m\smile \delta g^n$$\pause
-%%SI ME QUEDA LARGO QUITAR LAS DEFINICIONES %Con lo cual induce un producto en cohomología
-%%
-%%
-%%\end{frame}
-%
-%\begin{frame}
-%\frametitle{Lie bracket}
-%First, for $f\in C^m(A;A)$ and $g\in C^n(A;A)$ set
-%
-%$$
-%f\circ_i g=f(1\otimes\cdots \otimes 1\otimes \underbrace{g}_{i-th}\otimes 1\otimes \cdots\otimes 1)\in C^{n+m-1}(A;A)
-%$$
-%\pause 
-%Now set
-%\[
-%f\circ g=\sum_{i=0}^m (-1)^{ni}f\circ_i g.
-%\]\pause
-%Then the bracket is defined by $$[f,g]=f\circ g-(-1)^{(n-1)(m-1)}g\circ f$$
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{The Hochschild cohomology is a Gerstenhaber algebra}
-%	
-%	\begin{teorema}
-%		Let $A$ be an algebra and $\xi$, $\eta$ and $\zeta$ elements of $H^m(A;A)$, $H^n(A;A)$ and $H^p(A;A)$, respectively. The Lie bracket $[,]$ is of degree $-1$ and such that
-%		\[
-%		[\eta, \xi\smile \zeta]=[\eta,\xi]\smile \zeta+(-1)^{m(n-1)}\eta\smile[\xi,\zeta].
-%		\]
-%	\end{teorema}\pause
-%	\begin{teorema}
-%	The Hochschild cohomology $H^*(A;A)$ is a Gerstenhaber algebra.
-%\end{teorema} 
-%\end{frame}
-%
-%%\begin{frame}
-%%	\begin{itemize}
-%%		\item Operads \checkmark
-%%		\begin{itemize}
-%%			\item action of an operad (algebra over an operad) \checkmark
-%%			\item little disks operad \checkmark
-%%			\item chain/homology operad	\checkmark		
-%%		\end{itemize}
-%%		\item Gerstenhaber algebras \checkmark
-%%		\item Hochschild cohomology of an associative algebra \checkmark
-%%	\end{itemize}
-%%\end{frame}
-%%\begin{frame}
-%%	\frametitle{Lie Bracket}
-%%	For $f\in C^m(A;A)$ and $g\in C^n(A;A)$ set
-%%	\begin{gather*}
-%%	f\circ_i g(a_0\otimes\cdots\otimes a_{i-1}\otimes b_0\otimes\cdots\otimes b_{n-1}\otimes a_{i+1}\otimes\cdots \otimes a_{m-1})\\
-%%	=f(a_0\otimes \cdots a_{i-1}\otimes g(b_0\otimes\cdots\otimes b_{n-1})\otimes a_{i+1}\otimes\cdots\otimes a_{m-1})
-%%	\end{gather*}
-%%	for $i=0,\dots, m-1$. Note that $f\circ_i g\in C^{n+m-1}(A;A)$.\pause
-%%	
-%%	Now set
-%%	\[
-%%	f\circ g=\sum_{i=0}^m (-1)^{ni}f\circ_i g.
-%%	\]
-%%\end{frame}
-%%\begin{frame}
-%%	\frametitle{Lie Bracket}
-%%	\begin{defi}
-%%		The bracket is defined by $[f,g]=f\circ g-(-1)^{(n-1)(m-1)}g\circ f$.
-%%	\end{defi}\pause 
-%%The bracket also satisfies the corresponding Leibniz rule
-%%\[\delta[f^m,g^n]=(-1)^{n-1}[\delta f^m,g^n]+[f^m,\delta g^n].\]\pause 
-%%
-%%\end{frame}
-%
-%
-%%\begin{frame}
-%%	\begin{block}{}
-%%	\begin{itemize}
-%%	\item An identity element $1 \in \CC(1)$ such that 
-%%	$\gamma(1; d) = d$ for $d \in \CC(j)$ and 
-%%	$\gamma(c; 1,\dots,1) = c$ for
-%%	$c \in \CC(k)$.
-%%	
-%%	\item A right action of the symmetric group $\Sigma_j$ on $\CC(j)$ such that the following equivariance
-%%	formulas are satisfied for all $c\in \CC(k)$, $d_s \in \CC(j_s)$, $\sigma\in\Sigma_k$, and $\tau_s\in\Sigma_{j_s}$:
-%%	\[
-%%	\gamma(c\sigma; d_1, \dots , d_k) = 
-%%	\gamma(c; d_{\sigma^{-1}(1)}, \dots , d_{\sigma^{-1}(k)})\sigma(j_1, \dots , j_k)
-%%	\]
-%%	and 
-%%	\[
-%%	\gamma(c; d_1\tau_1, \dots , d_k\tau_k) = \gamma(c; d_1, \dots , d_k)(\tau_1\oplus\cdots\oplus\tau_k),
-%%	\] 
-%%	where $\sigma(j_1, \dots , j_k)$ denotes the
-%%	permutation of $j$ letters which permutes the $k$ blocks of letters determined by the given
-%%	partition of $j$ (a first block of $j_1$, a second one of $j_2$ letters and so on), and $\tau_1\oplus\cdots\oplus\tau_k$ denotes the image of $(\tau_1, \dots , \tau_k)$ under the evident inclusion of $\Sigma_{j_1} \times \cdots \times \Sigma_{j_k}$ in $\Sigma_j$.
-%%\end{itemize}
-%%\end{block}
-%%
-%%\end{frame}
-%
-%
-%
-%\section{The Conjecture}
-%\begin{frame}
-%	\frametitle{Deligne Conjecture}
-%	\begin{block}{The conjecture}
-%	The action of the homology operad of little disks on the Hochschild cohomology of an associative algebra inducing its Gerstenhaber algebra structure lifts to an action of the chain operad of little disks on the Hochschild complex.
-%	\end{block}
-%	
-%\end{frame}
-%
-%\begin{frame}[fragile]
-%	\begin{center}
-%		
-%	
-%	\begin{tikzcd}[column sep=60, row sep=30]
-%	H_*(E_2)\arrow[r,"\text{Gerstenhaber}"] & H^*(A;A)\\
-%	C_*(E_2)\arrow[u, "q"]\arrow[r, dashed, "?"] & C^*(A;A)\arrow[u, "q"]
-%	\end{tikzcd}
-%\end{center}
-%\end{frame}
+
+\begin{frame}
+\begin{block}{Construction}
+\begin{itemize}
+\item Let $E_1=X$. Define $E_i$ for $1<i\leq n$ by means of relative homeomorphisms %homeomorphism between the quotients
+\[
+(K_{i+1}\times X^i,R)\xrightarrow{\alpha_i} (E_i,E_{i-1})
+\]
+where $\alpha_i$ is defined on $R$ by %it is needed that \alpha_i(R)\subseteq E_{i-1}
+\begin{align*}
+EQUATIONS
+\end{align*}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Remark}
+Recall that $E_1=X$ and $K_3\times X^2\cong I\times X^2$.
+Then \[\alpha_2:(I\times X^2, X^2\times\{0,1\}\cup I\times X)\to (E_2,E_1)\] identifies $0\times X^2$ with $x$ by the map $(0,x,y)\mapsto x$; $1\times X^2$ with $X$ by the map $(0,x,y)\mapsto xy$; and $I\times X$ with $X$ in the obvious way. %I don't have an explicit description of E_2 but it is homeomorphic to the specified quotient
+\end{block}
+PICTURE OF A PRISM REPRESENTING $I\times X^2$ WHERE THE BASES ARE $X^2$ AND ONE FACE IS $I\times X$
+\end{frame}
+
+\begin{frame}
+\begin{block}{Construction}
+\begin{itemize}
+\item Let $B_1=*$. Define $B_i$ for $1<i\leq n$ by means of relative homeomorphisms %homeomorphism between the quotients
+\[
+(K_{i+1}\times X^{i-1},s)\xrightarrow{\beta_i} (B_i,B_{i-1})
+\]
+where $\beta_i$ is defined on $S$ by the same equations but replacing $\alpha$ with $\beta$ and omitting $x_1$.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Remark}
+$B_1=*$ and $B_2=SX$ (reduced suspension). %this time there is an explicit description, because quotienting by a point does nothing, so we knw the space automatically
+The identifications work similarly as the previous case, but in this case a subspace of $K_3\times X$ is identified with a point.
+\end{block}
+PICTURE OF A RECTANGLE WITH $X$ ABOVE AND BELOW, AND $I\times e$ ON ONE SIDE. ALL OF THIS IS IDENTIFIED WITH A POINT, AND THIS IS THE REDUCED SUSPENSION
+\end{frame}
+
+\begin{frame}[fragile]
+%now the maps p_i
+\begin{block}{Construction}
+\begin{itemize}
+\item<1-> Let $\rho_i:K_{i+1}\times X^i\to K_{i+1}\times X^{i-1}$ defined by $\rho_i(\tau,x_1,\dots,x_i)=(\tau,x2,\dots,x_i)$ %omitting x_1
+\item<2-> $\rho$ induces a map $p_i:E_i\to B_i$.
+\item<3-> We see that $\beta_i$ can be defined on $S$ as $\beta_i(\tau,x2,\dots,x_i)=p_{i-1}\alpha_i(\tau,x_1,\dots,x_i)$, so $p_i$ is well defined by induction. %by what I said of just changing the letter and omitting x_1 %this ensures that R is mapped to S 
+\item[]<4->
+\[
+\begin{tikzcd}
+(K_{i+1}\times X^i,R)\arrow[r,"\alpha_i"]\arrow[d,"\rho_i"'] &(E_i,E_{i-1})\arrow[d,"p_{i-1}"]\arrow[d,"p_i"']\\
+(K_{i+1}\times X^{i-1},S)\arrow[r, "\beta_i"] & (B_i,B_{i-1})
+\end{tikzcd}
+\]
+
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{theorem}
+If $X$ is arc-connected, then $p_{i*}:\pi_q(E_i,X)\to \pi_q(B_i)$ is an isomorphism for all $q$. %this is what we needed to get an A_n-structure
+\end{theorem}\pause
+%the following show us something about the topology of these spaces
+
+\begin{theorem}
+If $X$ is arc-connected, then $(E_n, \dots, E_1)$ has the homotopy type of $(X\star\cdots\star X,\dots, X)$. %it is stated like this because not only the spaces have the homotopy type but the homotopies are relative/the relative homotopy groups are isomorphic
+\end{theorem}\pause
+
+\begin{theorem}
+$(B_{i+1},B_i)$ has the homotopy type of $(CE_i\cup_{p_i}B_i,B_i)$. %pushout/attaching space with the cone
+\end{theorem}
+%The theorems are important, but I think the construction itself is more important
+\end{frame}
+\begin{frame}
+\frametitle{Projective spaces}
+\begin{defi}
+The $X$-projective $i$-space $XP(i)$ ($i\leq n$) associated with an $A_n$-space is the base space $B_{i+1}$ of the derived $A_n$-structure.
+\end{defi}\pause
+\begin{block}{Remark}
+$B_{i+1}$ can be defined even when $p_{i+1}$ cannot, since it has the homotopy type of $CE_i\cup_{p_i}B_i$.
+\end{block}\pause
+\begin{block}{Remark-Proposition}%it is not obvious but it is not proved in the paper
+For $d=1,2,4$, the space $S^{d-1}P(i)$ is respectively the real, complex and quaternionic projective space of $i$ dimenions and the fibration can be identified with the previous construction using the associative multiplication of $S^{d-1}$.
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+STATEMENT AND PROOF OF THEOREM 5 (TELL THAT ONE PART IS ALREADY PROVED)
+\end{frame}
+
+
+
+
+\begin{frame}
+COROLLARY 15 AND 16 IF I HAVE TIME, JUST SAYING THAT THOSE WERE KNOWN CHARACTERIZATIONS
+\end{frame}
+
+\begin{frame}[fragile]
+THEOREM 17, BRIEF SKETCH OF THE PROOF AND $S^7$ AS AN EXAMPLE
+\end{frame}
 %\begin{frame}[fragile]
 %	\begin{center}
 %		
