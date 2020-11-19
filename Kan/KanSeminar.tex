@@ -411,6 +411,38 @@ $K_4$
 %\end{tikzpicture}
 %\]
 \end{frame}
+\begin{frame}
+\frametitle{Associahedra}
+$K_5$
+\[
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.63,-1.8) rectangle (4.,3);
+\draw(-0.5,0.) -- (0.,0.5) -- (-0.5,1.) -- (-1.,0.5) -- cycle;
+\draw (-0.5,0.)-- (0.,0.5);
+\draw (0.,0.5)-- (-0.5,1.);
+\draw (-0.5,1.)-- (-1.,0.5);
+\draw (-1.,0.5)-- (-0.5,0.);
+\draw (-0.5,1.)-- (-0.76,2.87);
+\draw (-0.76,2.87)-- (-2.13,1.59);
+\draw (-2.13,1.59)-- (-1.98,0.82);
+\draw (-2.13,1.59)-- (-2.5,1.);
+\draw (-2.5,1.)-- (-2.31,0.29);
+\draw (-2.31,0.29)-- (-1.98,0.82);
+\draw (-1.98,0.82)-- (-1.,0.5);
+\draw (0.,0.5)-- (0.93,0.89);
+\draw (0.93,0.89)-- (0.98,1.68);
+\draw (1.37,1.06)-- (0.98,1.68);
+\draw (-0.76,2.87)-- (0.98,1.68);
+\draw (-2.31,0.29)-- (-0.62,-1.3);
+\draw (-0.5,0.)-- (-0.62,-1.3);
+\draw (-0.62,-1.3)-- (1.22,0.35);
+\draw (0.93,0.89)-- (1.22,0.35);
+\draw (1.22,0.35)-- (1.37,1.06);
+\draw [dash pattern=on 2pt off 2pt] (-2.5,1.)-- (1.37,1.06);
+\end{tikzpicture}
+\]
+The squares correspond to $\delta_k(3,3)$ and the pentagons to $\delta_k(4,2)$ or $\delta_k(2,4)$.
+\end{frame}
 
 \begin{frame}
 \begin{prop}
@@ -596,7 +628,7 @@ where $\alpha_i$ is defined on $R$ by %it is needed that \alpha_i(R)\subseteq E_
 \begin{frame}
 \begin{block}{Remark}
 Recall that $E_1=X$ and $K_3\times X^2\cong I\times X^2$.
-Then \[\alpha_2:(I\times X^2, X^2\times\{0,1\}\cup I\times X)\to (E_2,E_1)\] identifies $0\times X^2$ with $x$ by the map $(0,x,y)\mapsto x$; $1\times X^2$ with $X$ by the map $(0,x,y)\mapsto xy$; and $I\times X$ with $X$ in the obvious way. %I don't have an explicit description of E_2 but it is homeomorphic to the specified quotient
+Then \[\alpha_2:(I\times X^2, X^2\times\{0,1\}\cup I\times X\times e)\to (E_2,E_1)\] identifies $0\times X^2$ with $x$ by the map $(0,x,y)\mapsto x$; $1\times X^2$ with $X$ by the map $(0,x,y)\mapsto xy$; and $I\times X$ with $X$ in the obvious way. %I don't have an explicit description of E_2 but it is homeomorphic to the specified quotient
 
 \end{block}
 
@@ -624,7 +656,7 @@ Then \[\alpha_2:(I\times X^2, X^2\times\{0,1\}\cup I\times X)\to (E_2,E_1)\] ide
 \draw (2.5,3.)-- (2.5,0.5);
 \draw (0.8,3.8) node[anchor=north west] {$1\times X^2$};
 \draw (0.5,-0.13) node[anchor=north west] {$0\times X^2$};
-\draw (-1.28,1.71) node[anchor=north west] {$I\times X$};
+\draw (-1.9,1.71) node[anchor=north west] {$I\times X\times e$};
 \draw (1.1,3) node[anchor=north west] {$xy$};
 \draw (1.,0.5) node[anchor=north west] {$x$};
 \draw (0.,1.59) node[anchor=north west] {$x$};
@@ -649,7 +681,22 @@ where $\beta_i$ is defined on $S$ by the same equations but replacing $\alpha$ w
 $B_1=*$ and $B_2=SX$ (reduced suspension). %this time there is an explicit description, because quotienting by a point does nothing, so we knw the space automatically
 The identifications work similarly as the previous case, but in this case a subspace of $K_3\times X$ is identified with a point.
 \end{block}
-PICTURE OF A RECTANGLE WITH $X$ ABOVE AND BELOW, AND $I\times e$ ON ONE SIDE. ALL OF THIS IS IDENTIFIED WITH A POINT, AND THIS IS THE REDUCED SUSPENSION
+\[
+\definecolor{ffqqqq}{rgb}{1.,0.,0.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.19,-1) rectangle (4,2.5);
+\draw(0.,0.) -- (0.,2.) -- (1.5,2.) -- (1.5,0.) -- cycle;
+
+
+\draw [color=ffqqqq] (0.,2.)-- (1.5,2.);
+\draw [color=ffqqqq] (0.,0.)-- (1.5,0.);
+\draw [color=ffqqqq] (0.,2.)-- (0.,0.);
+\draw (0.2,2.62) node[anchor=north west] {$1\times X$};
+\draw (0.2,-0.03) node[anchor=north west] {$0\times X$};
+\draw (-1.1,1.29) node[anchor=north west] {$I\times e$};
+\end{tikzpicture}
+\]
+%identifying top and bottom gives suspension, identifying another segment is reduced suspension. In this case the quotient is by a point so you get the space automatically
 \end{frame}
 
 \begin{frame}[fragile]
