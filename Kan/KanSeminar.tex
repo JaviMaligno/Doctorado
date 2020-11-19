@@ -297,7 +297,7 @@ SAY THE NOTION OF EQUIVALENCE, AND IF GOT TIME GIVE THE PROOF
 \pause
 An $A_n$-structure induces maps $M_i:I^{i-2}\times X^i\to X$ for $i<n$ in such a way that an $A_2$-space is an H-space and a $A_3$-space is a homotopy associative H-space. %the arrows are actually two-sided, it is possible to study topological groups using the classifying bundle, which is essentially Milnor construction, and the other arrow is given by theorem 5
 \end{frame}
-\section{$A_n$-forms}
+\section{Associahedra}
 \begin{frame}
 \frametitle{Associahedra}
 \begin{itemize}
@@ -323,7 +323,93 @@ This is enough to construct $K_i$ by induction:
 
 \begin{frame}
 \frametitle{Associahedra}
-PICTURES (not the one from the paper at this point, but just plain associahedra, but specify the maps and parentheses)
+\[
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.1761983471074378,-2.3030578512396707) rectangle (7.443801652892559,4.266942148760331);
+\draw (2.5,2.)-- (5.,2.);
+\draw (0.016528925618,2.96942148760331) node[anchor=north west] {$K_2$};
+\draw (0.538016528925617,1.9169421487603309) node[anchor=north west] {$x_1x_2$};
+\draw (2.153801652892561,1.986942148760331) node[anchor=north west] {$(x_1x_2)x_3$};
+\draw (4.583801652892561,1.946942148760331) node[anchor=north west] {$x_1(x_2x_3)$};
+\draw (2.0338016528925613,2.69421487603312) node[anchor=north west] {$\delta_1(2,2)$};
+\draw (4.64380165289256,2.6942148760331) node[anchor=north west] {$\delta_2(2,2)$};
+\draw (3.6738016528925606,3) node[anchor=north west] {$K_3$};
+\begin{scriptsize}
+\draw [fill=black] (1.,2.) circle (2.5pt);
+\draw [fill=black] (2.5,2.) circle (2.5pt);
+\draw [fill=black] (5.,2.) circle (2.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\]
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Associahedra}
+$K_4$
+\[
+\definecolor{ffqqqq}{rgb}{1.,0.,0.}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-4.770495867768595,-0.8872727272727274) rectangle (5.,5.085454545454545);
+\fill [fill=black,fill opacity=0.10000000](-1.5,0.) -- (1.5,0.) -- (2.4270509831248424,2.85316954888546) -- (0.,4.616525305762879) -- (-2.427050983124842,2.853169548885461) -- cycle;
+\draw (-1.5,0.)-- (1.5,0.);
+\draw (1.5,0.)-- (2.4270509831248424,2.85316954888546);
+\draw (2.4270509831248424,2.85316954888546)-- (0.,4.616525305762879);
+\draw (0.,4.616525305762879)-- (-2.427050983124842,2.853169548885461);
+\draw (-2.427050983124842,2.853169548885461)-- (-1.5,0.);
+\draw [color=ffqqqq](-0.9,5.272727272727) node[anchor=north west] {$x_1(x_2(x_3x_4))$};
+\draw [color=ffqqqq](2.5,3.2) node[anchor=north west] {$x_1((x_2x_3)x_4)$};
+\draw [color=ffqqqq](1.638595041322314,0.08545454545454524) node[anchor=north west] {$(x_1(x_2x_3))x_4$};
+\draw [color=ffqqqq](-3.6432231404958677,0.08545454545454524) node[anchor=north west] {$((x_1x_2)x_3)x_4$};
+\draw [color=ffqqqq](-4.77685950413223,3.2) node[anchor=north west] {$(x_1x_2)(x_3x_4)$};
+\draw (1.2749586776859503,4.094545454545454) node[anchor=north west] {$x_1(x_2x_3x_4)$};
+\draw (2.0840495867768594,1.5490909090909089) node[anchor=north west] {$x_1(x_2x_3)x_4$};
+\draw (-0.5,-0.014545454545454752) node[anchor=north west] {$(x_1x_2x_3)x_4$};
+\draw (-4,1.558181818181818) node[anchor=north west] {$(x_1x_2)x_3x_4$};
+\draw (-2.8,4.5) node[anchor=north west] {$x_1x_2(x_3x_4)$};
+\draw (0.3,3.6309090909090904) node[anchor=north west] {$\delta_2(2,3)$};
+\draw (0.6,1.7309090909090905) node[anchor=north west] {$\delta_2(3,2)$};
+\draw (-0.3886776859504132,0.5490909090909089) node[anchor=north west] {$\delta_1(2,3)$};
+\draw (-1.950413,1.9127272727272724) node[anchor=north west] {$\delta_1(3,2)$};
+\draw (-1.413222,3.7272727272727) node[anchor=north west] {$\delta_3(3,2)$};
+\begin{scriptsize}
+\draw [fill=ffqqqq] (-1.5,0.) circle (2.5pt);
+\draw [fill=ffqqqq] (1.5,0.) circle (2.5pt);
+\draw [fill=ffqqqq] (2.4270509831248424,2.85316954888546) circle (2.5pt);
+\draw [fill=ffqqqq] (0.,4.616525305762879) circle (2.5pt);
+\draw [fill=ffqqqq] (-2.427050983124842,2.853169548885461) circle (2.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\]
+%\[
+%\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+%\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+%\clip(-3,0) rectangle (6,4.6);
+%\draw(1.,1.) -- (3.,1.) -- (3.618033988749895,2.9021130325903064) -- (2.,4.077683537175253) -- (0.3819660112501053,2.9021130325903073) -- cycle;
+%\draw (1.,1.)-- (3.,1.);
+%\draw (3.,1.)-- (3.618033988749895,2.9021130325903064);
+%\draw (3.618033988749895,2.9021130325903064)-- (2.,4.077683537175253);
+%\draw (2.,4.077683537175253)-- (0.3819660112501053,2.9021130325903073);
+%\draw (0.3819660112501053,2.9021130325903073)-- (1.,1.);
+%\draw (1.3,4.7) node[anchor=north west] {$x_1(x_2(x_3x_4))$};
+%\draw (3.6,3.25) node[anchor=north west] {$x_1((x_2x_3)x_4)$};
+%\draw (3,1.1) node[anchor=north west] {$(x_1(x_2x_3))x_4$};
+%\draw (-0.5,1.1) node[anchor=north west] {$((x_1x_2)x_3)x_4$};
+%\draw (-1.15,3.25) node[anchor=north west] {$(x_1x_2)(x_3x_4)$};
+%\draw (2.8,3.8) node[anchor=north west] {$\delta_2(2,3)$};
+%\draw (3.3333333333336,2.1) node[anchor=north west] {$\delta_2(3,2)$};
+%\draw (1.8,0.8933333333333304) node[anchor=north west] {$\delta_1(2,3)$};
+%\draw (0.15,2.1) node[anchor=north west] {$\delta_1(3,2)$};
+%\draw (0.6,3.8) node[anchor=north west] {$\delta_3(3,2)$};
+%\begin{scriptsize}
+%\draw [fill=black] (1.,1.) circle (2.5pt);
+%\draw [fill=black] (3.,1.) circle (2.5pt);
+%\draw [fill=uuuuuu] (3.618033988749895,2.9021130325903064) circle (2.5pt);
+%\draw [fill=uuuuuu] (2.,4.077683537175253) circle (2.5pt);
+%\draw [fill=uuuuuu] (0.3819660112501053,2.9021130325903073) circle (2.5pt);
+%\end{scriptsize}
+%\end{tikzpicture}
+%\]
 \end{frame}
 
 \begin{frame}
@@ -331,18 +417,47 @@ PICTURES (not the one from the paper at this point, but just plain associahedra,
 $K_i$ is homeomorphic to $I^{i-2}$. Degenerancy maps $s_j:K_i\to K_{i-1}$ for $1\leq j\leq i$ can be defined so that 
 \begin{itemize}
 \item $s_js_k=s_ks_{j+1}$ for $k\leq j$
-\item boundary conditions and compatibility with the homeomorphisms $\delta_k(r,s)$. 
+\item boundary conditions and compatibility with the homeomorphisms $\delta_k(r,s)$.
+% \begin{align*}
+%s_j\delta_k(r,s)=\delta_{k-1}(r-1,s)(s_j\times 1)\\
+%s_j\delta_k(r,s)
+%\end{align*}
+
+%thisi conditions are important because make the main theorem consistent but are too many and not very self-explanatory
 \end{itemize}
 %the homeomorphism with I^{i-2} is not hard to see. the other part is like saying that K_i can be seen as an alternative combinatorial model to simplices and cubes %compatibility conditions ensure that the conditions in the main theorem are consistent
 \end{prop}\pause
 
 This proposition is proved by explicitly constructing the complexes $K_i$ as subsets of $I^{i-2}$.
 \end{frame}
-
+\subsection{$K_i$ as a subset of $I^{i-2}$}
 \begin{frame}
-DEFINITION AS SUBSETS OF THE CUBES AND PICTURES FROM THE PAPER (also possibly outline the proof of the proposition)
+\frametitle{$K_i$ as a subset of $I^{i-2}$}
+\begin{itemize}
+\item<1-> Let $K_i$ be the subset of $I^{i-2}$ consisting of points $(t_1,\dots, t_{i-2})$ such that $2^jt_1\cdots t_j\geq 1$ for $1\leq j\leq i-2$.
+\item<2-> The boundary $L_i$ of $K_i$ consists of the points such that for some $j$ either $2^jt_1\cdots t_j= 1$ or $t_j=1$ %t_j=1 is the boundary of the cube
+\end{itemize}
 \end{frame}
-
+\begin{frame}
+\begin{figure}
+\includegraphics[scale=0.25]{k234}
+\end{figure}
+\end{frame}
+\begin{frame}
+\begin{figure}
+\includegraphics[scale=0.15]{k5}
+\end{figure}
+\end{frame}
+\begin{frame}
+\begin{itemize}
+\item<1-> The degenerancy maps $s_j:K_{i+1}\to K_i$ can be defined on $L_{i+1}$ using the boundary and compatibility conditions
+\item<2->The map $s_j$ is defined on all $K_{i+1}$ by ``taking the cone'':
+\item[1]<3-> Represent $K_{i+1}$ as pairs $(t,\tau)$ with $\tau\in L_{i+1}$ and similarly with $K_i$.
+\item[2]<4-> If $s_j(\tau)=(s,\tau')$ with $\tau'\in L_i$, define $s_j(t,\tau)=(st,\tau')$. %K_i was actually defined as a cone of L_i 
+%This satisfies the conditions
+\end{itemize}
+\end{frame}
+\section{$A_n$-forms}
 \begin{frame}
 \frametitle{$A_n$-forms}
 \begin{theorem}
@@ -384,10 +499,39 @@ M_i(\delta_k(i-1,2)(\rho,*),x_1,\dots, x_i)=M_{i-1}(\rho,x_1,\dots,x_kx_{k+1},\d
 
 \begin{frame}
 \begin{itemize}
-\item For $i=4$, consider the five ways of associating a product of four factors. Since $M_2$ is homotopy associative these five products are related by a string of homotopies DRAW IT ON A PENTAGRAM WITH THE SIMEQ ON THE EDGES
+\item For $i=4$, consider the five ways of associating a product of four factors. Since $M_2$ is homotopy associative these five products are related by a string of homotopies 
 \[
-x(y(zt))\simeq x((yz)t)\simeq (x(yz))t\simeq ((xy)z)t\simeq (xy)(zt)\simeq x(y(zt))
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.5,0.5) rectangle (5.2,4.6);
+\draw(1.,1.) -- (3.,1.) -- (3.618033988749895,2.9021130325903064) -- (2.,4.077683537175253) -- (0.3819660112501053,2.9021130325903073) -- cycle;
+\draw (1.,1.)-- (3.,1.);
+\draw (3.,1.)-- (3.618033988749895,2.9021130325903064);
+\draw (3.618033988749895,2.9021130325903064)-- (2.,4.077683537175253);
+\draw (2.,4.077683537175253)-- (0.3819660112501053,2.9021130325903073);
+\draw (0.3819660112501053,2.9021130325903073)-- (1.,1.);
+\draw (1.3,4.7) node[anchor=north west] {$x(y(zt))$};
+\draw (3.6,3.25) node[anchor=north west] {$x((yz)t)$};
+\draw (3,1.1) node[anchor=north west] {$(x(yz))t$};
+\draw (-0.5,1.1) node[anchor=north west] {((xy)z)t};
+\draw (-1.15,3.25) node[anchor=north west] {(xy)(zt)};
+\draw (2.8,3.8) node[anchor=north west] {$\simeq$};
+\draw (3.3333333333336,2.1) node[anchor=north west] {$\simeq$};
+\draw (1.8,0.8933333333333304) node[anchor=north west] {$\simeq$};
+\draw (0.15,2.1) node[anchor=north west] {$\simeq$};
+\draw (0.6,3.8) node[anchor=north west] {$\simeq$};
+\begin{scriptsize}
+\draw [fill=black] (1.,1.) circle (2.5pt);
+\draw [fill=black] (3.,1.) circle (2.5pt);
+\draw [fill=uuuuuu] (3.618033988749895,2.9021130325903064) circle (2.5pt);
+\draw [fill=uuuuuu] (2.,4.077683537175253) circle (2.5pt);
+\draw [fill=uuuuuu] (0.3819660112501053,2.9021130325903073) circle (2.5pt);
+\end{scriptsize}
+\end{tikzpicture}
 \]
+%\[
+%x(y(zt))\simeq x((yz)t)\simeq (x(yz))t\simeq ((xy)z)t\simeq (xy)(zt)\simeq x(y(zt))
+%\]
 \item[]<2->This defines a map $S^1\times X^4\to X$. The map $M_4$ can be regarded as an extension of this map to $I^2\times X^4$.
 \end{itemize}
 
@@ -420,6 +564,7 @@ x(y(zt))\simeq x((yz)t)\simeq (x(yz))t\simeq ((xy)z)t\simeq (xy)(zt)\simeq x(y(z
 %this is one direction of the theorem: A_n-structure implies A_n-form
 
 \begin{frame}
+\frametitle{Proof of the theorem (if)}
 We construct $A_n$-structures $p_i:E_i\to B_i$ in which $E_i$ has the homotopy type of $X\star\cdots\star X$ but using $K_{i+1}\times X^i$ instead of $\Delta^{i-1}\times X^i$.
 \begin{itemize}
 \item<2-> Let $X^{[i]}$ the subspace of $X^i$ of points in which at least one coordinate equals $e$.
@@ -437,7 +582,12 @@ We construct $A_n$-structures $p_i:E_i\to B_i$ in which $E_i$ has the homotopy t
 \]
 where $\alpha_i$ is defined on $R$ by %it is needed that \alpha_i(R)\subseteq E_{i-1}
 \begin{align*}
-EQUATIONS
+\alpha_i(\delta_k(r,s)(\rho,\tau),x_1,\dots,x_i)&=\\
+\alpha_{r-1}(\rho,x_1,\dots,&M_s(\sigma,x_k,\dots, x_{k+s-1}),\dots, x_i)
+\end{align*}
+\begin{align*}
+\alpha_i(\tau,x_1,\dots,x_{j-1},e,x_{j+1},\dots, x_i)&=\\
+\alpha_{i-1}(s_j(\tau),x_1,\dots,& x_{j-1},x_{j+1},\dots, x_i)
 \end{align*}
 \end{itemize}
 \end{block}
@@ -447,8 +597,39 @@ EQUATIONS
 \begin{block}{Remark}
 Recall that $E_1=X$ and $K_3\times X^2\cong I\times X^2$.
 Then \[\alpha_2:(I\times X^2, X^2\times\{0,1\}\cup I\times X)\to (E_2,E_1)\] identifies $0\times X^2$ with $x$ by the map $(0,x,y)\mapsto x$; $1\times X^2$ with $X$ by the map $(0,x,y)\mapsto xy$; and $I\times X$ with $X$ in the obvious way. %I don't have an explicit description of E_2 but it is homeomorphic to the specified quotient
+
 \end{block}
-PICTURE OF A PRISM REPRESENTING $I\times X^2$ WHERE THE BASES ARE $X^2$ AND ONE FACE IS $I\times X$
+
+\end{frame}
+\begin{frame}
+\[
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.88,-1.62) rectangle (6.74,4.95);
+\fill[fill=black,fill opacity=0.10000000149011612] (0.,0.) -- (2.,0.) -- (2.5,0.5) -- (0.5,0.5) -- cycle;
+\fill[fill=black,fill opacity=0.10000000149011612] (0.,0.) -- (0.,2.5) -- (0.5,3.) -- (0.5,0.5) -- cycle;
+\fill[fill=black,fill opacity=0.10000000149011612] (0.,2.5) -- (2.,2.5) -- (2.5,3.) -- (0.5,3.) -- cycle;
+\draw (0.,0.)-- (2.,0.);
+\draw (2.,0.)-- (2.5,0.5);
+\draw (2.5,0.5)-- (0.5,0.5);
+\draw (0.5,0.5)-- (0.,0.);
+\draw (0.,0.)-- (0.,2.5);
+\draw (0.,2.5)-- (0.5,3.);
+\draw (0.5,3.)-- (0.5,0.5);
+\draw (0.5,0.5)-- (0.,0.);
+\draw (0.,2.5)-- (2.,2.5);
+\draw (2.,2.5)-- (2.5,3.);
+\draw (2.5,3.)-- (0.5,3.);
+\draw (0.5,3.)-- (0.,2.5);
+\draw (2.,2.5)-- (2.,0.);
+\draw (2.5,3.)-- (2.5,0.5);
+\draw (0.8,3.8) node[anchor=north west] {$1\times X^2$};
+\draw (0.5,-0.13) node[anchor=north west] {$0\times X^2$};
+\draw (-1.28,1.71) node[anchor=north west] {$I\times X$};
+\draw (1.1,3) node[anchor=north west] {$xy$};
+\draw (1.,0.5) node[anchor=north west] {$x$};
+\draw (0.,1.59) node[anchor=north west] {$x$};
+\end{tikzpicture}
+\]
 \end{frame}
 
 \begin{frame}
@@ -502,8 +683,9 @@ If $X$ is arc-connected, then $(E_n, \dots, E_1)$ has the homotopy type of $(X\s
 
 \begin{theorem}
 $(B_{i+1},B_i)$ has the homotopy type of $(CE_i\cup_{p_i}B_i,B_i)$. %pushout/attaching space with the cone
-\end{theorem}
+\end{theorem}\pause
 %The theorems are important, but I think the construction itself is more important
+This concludes the proof of the \emph{if} statement of the theorem.
 \end{frame}
 \begin{frame}
 \frametitle{Projective spaces}
@@ -520,7 +702,7 @@ For $d=1,2,4$, the space $S^{d-1}P(i)$ is respectively the real, complex and qua
 
 
 \begin{frame}
-STATEMENT AND PROOF OF THEOREM 5 (TELL THAT ONE PART IS ALREADY PROVED)
+\frametitle{Proof of the theorem (only if)}
 \end{frame}
 
 
@@ -531,8 +713,17 @@ COROLLARY 15 AND 16 IF I HAVE TIME, JUST SAYING THAT THOSE WERE KNOWN CHARACTERI
 \end{frame}
 
 \begin{frame}[fragile]
-THEOREM 17, BRIEF SKETCH OF THE PROOF AND $S^7$ AS AN EXAMPLE
+\begin{theorem}
+For each prime $p$, there exist spaces which admit $A_{p-1}$-structures but not $A_p$-structures.
+\end{theorem}\pause
+\begin{block}{Example}
+For $p=3$, $S^7$ admits an $A_2$-structures (H-space) but not an $A_3$-structure.
+\end{block}
 \end{frame}
+\begin{frame}
+\frametitle{Sketch of the proof}
+\end{frame}
+
 %\begin{frame}[fragile]
 %	\begin{center}
 %		
