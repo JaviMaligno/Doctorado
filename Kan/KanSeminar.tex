@@ -245,15 +245,21 @@ In othwer words, there is a homotopy $m(m\times 1)\simeq m(1\times m)$.
 \frametitle{Projective spaces of topological groups}
 Milnor defines projective spaces for any topological group $G$ in the following way:\pause
 \begin{itemize}
-\item<2-> Define $E_i=G\star\cdots\star G$ to be the $i$-fold join of $G$ with itself. MAYBE I SHOULD DEFINE THE JOIN
+\item<2-> Define $E_i=G\star\cdots\star G$ to be the $i$-fold join of $G$ with itself. 
 \item<2-> Construct fibre bundles $p_i:E_i\to B_i$ as quotient maps by the natural action of $G$ on $E_i$.
 \end{itemize}\pause
-\begin{block}{Remark}
-If $G=S^{d-1}$ for $d=1,2,4$ we get the standard fibrations $S^{id-1}\to P^{i-1}$ onto the projective space of dimenion $i-1$.
-\end{block}
+\begin{defi}
+The $n$-fold join $X_1\star\cdots\star X_n$ is the space of formal linear combinations $t_1x_1+\cdots+x_nt_n$ with $0\leq t_i\leq 1$ and $t_1+\cdots+t_n=1$. This can be seen as a quotient of the space $X_1\times\cdots\times X_n\times\Delta^{n-1}$, where $\Delta^{n-1}$ is the $(n-1)$-dimensional simplex.
+\end{defi}\pause
+%It can be checked that this is well defined (X\star Y\star Z=(X\star Y)\star Z are homeomorphic)
+%this can also be seen as the (n-1)-dimensional segments between the spaces. For instance X\star Y is the space of segments from X to Y
+
 \end{frame}
 
 \begin{frame}
+\begin{block}{Remark}
+If $G=S^{d-1}$ for $d=1,2,4$ we get the standard fibrations $S^{id-1}\to P^{i-1}$ onto the projective space of dimenion $i-1$.
+\end{block}\pause
 \begin{block}{Remark}
 This construction does not work for $S^7$ since only the fibrations $S^7\to *$ and $S^{15}\to S^8$ can be constructed.
 \end{block}\pause
@@ -282,10 +288,13 @@ such that $p_{i*}:\pi_q(E_i,X)\to \pi_q(B_i)$ is an isomorphism for all $q$, tog
 \begin{prop}
 %not fibration but close
 Given $X\subset E$ and a map $p:(E,X)\to (B,*)$ such that $p_*:\pi_q(X,E)\to \pi_q(B)$ is an isomorphism for all $q$, there exists an equivalent fibration $F\to W_p\xrightarrow{\bar{p}} B$ such that $F$ has the homotopy type of $X$. 
-\end{prop}
-SAY THE NOTION OF EQUIVALENCE, AND IF GOT TIME GIVE THE PROOF
+\end{prop}\pause
+We say that $p$ is equivalent to $\bar{p}$ if there is a map $i:E\to W_p$ such that $\bar{p}\circ i=p$.
+ 
 \end{frame}
-
+\begin{frame}
+\frametitle{Proof of the proposition}
+\end{frame}
 \begin{frame}
 \[
 \begin{array}{ccc}
@@ -769,6 +778,11 @@ For $p=3$, $S^7$ admits an $A_2$-structures (H-space) but not an $A_3$-structure
 \end{frame}
 \begin{frame}
 \frametitle{Sketch of the proof}
+\begin{itemize}
+\item<1-> Let $Q^p$ be the group of fractions which, in lowest terms, have denominator prime to $p$.
+\item<2-> Let $X$ be the More space with one nonvanishing homology group $Q^p$ in dimension $2n-1$.
+CONTINUE
+\end{itemize}
 \end{frame}
 
 %\begin{frame}[fragile]
