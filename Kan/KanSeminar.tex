@@ -606,7 +606,7 @@ M_i(\delta_k(i-1,2)(\rho,*),x_1,\dots, x_i)=M_{i-1}(\rho,x_1,\dots,x_kx_{k+1},\d
 
 \begin{frame}
 \frametitle{Proof of the theorem (if)}
-We construct $A_n$-structures $p_i:E_i\to B_i$ in which $E_i$ has the homotopy type of $X\star\cdots\star X$ but using $K_{i+1}\times X^i$ instead of $\Delta^{i-1}\times X^i$.
+We construct $A_n$-structures $p_i:\mathcal{E}_i\to \mathcal{B}_i$ in which $\mathcal{E}_i$ has the homotopy type of $X\star\cdots\star X$ but using $K_{i+1}\times X^i$ instead of $\Delta^{i-1}\times X^i$.
 \begin{itemize}
 \item<2-> Let $X^{[i]}$ the subspace of $X^i$ of points in which at least one coordinate equals $e$.
 \item<3-> Let $R=L_{i+1}\times X^i\cup K_{i+1}\times X\times X^{[i-1]}$ as a subspace of $K_{i+1}\times X^i$.
@@ -617,11 +617,11 @@ We construct $A_n$-structures $p_i:E_i\to B_i$ in which $E_i$ has the homotopy t
 \begin{frame}
 \begin{block}{Construction}
 \begin{itemize}
-\item Let $E_1=X$. Define $E_i$ for $1<i\leq n$ by means of relative homeomorphisms %homeomorphism between the quotients
+\item Let $\mathcal{E}_1=X$. Define $\mathcal{E}_i$ for $1<i\leq n$ by means of relative homeomorphisms %homeomorphism between the complements
 \[
-(K_{i+1}\times X^i,R)\xrightarrow{\alpha_i} (E_i,E_{i-1})
+(K_{i+1}\times X^i,R)\xrightarrow{\alpha_i} (\mathcal{E}_i,\mathcal{E}_{i-1})
 \]
-where $\alpha_i$ is defined on $R$ by %it is needed that \alpha_i(R)\subseteq E_{i-1}
+where $\alpha_i$ is defined on $R$ by %it is needed that \alpha_i(R)\subseteq \mathcal{E}_{i-1}
 \begin{align*}
 \alpha_i(\delta_k(r,s)(\rho,\tau),x_1,\dots,x_i)&=\\
 \alpha_{r-1}(\rho,x_1,\dots,&M_s(\sigma,x_k,\dots, x_{k+s-1}),\dots, x_i)
@@ -630,14 +630,15 @@ where $\alpha_i$ is defined on $R$ by %it is needed that \alpha_i(R)\subseteq E_
 \alpha_i(\tau,x_1,\dots,x_{j-1},e,x_{j+1},\dots, x_i)&=\\
 \alpha_{i-1}(s_j(\tau),x_1,\dots,& x_{j-1},x_{j+1},\dots, x_i)
 \end{align*}
+\item<2->$\mathcal{E}_i=K_{i+1}\times X^i\cup_{\alpha_i}\mathcal{E}_{i-1}$.%this is not really mentioned in the article but I think it's the way
 \end{itemize}
 \end{block}
 \end{frame}
 
 \begin{frame}
 \begin{block}{Remark}
-Recall that $E_1=X$ and $K_3\times X^2\cong I\times X^2$.
-Then \[\alpha_2:(I\times X^2, X^2\times\{0,1\}\cup I\times X\times e)\to (E_2,E_1)\] identifies $0\times X^2$ with $x$ by the map $(0,x,y)\mapsto x$; $1\times X^2$ with $X$ by the map $(0,x,y)\mapsto xy$; and $I\times X$ with $X$ in the obvious way. %I don't have an explicit description of E_2 but it is homeomorphic to the specified quotient
+Recall that $\mathcal{E}_1=X$ and $K_3\times X^2\cong I\times X^2$.
+Then \[\alpha_2:(I\times X^2, X^2\times\{0,1\}\cup I\times X\times e)\to (\mathcal{E}_2,\mathcal{E}_1)\] identifies $0\times X^2$ with $x$ by the map $(0,x,y)\mapsto x$; $1\times X^2$ with $X$ by the map $(0,x,y)\mapsto xy$; and $I\times X$ with $X$ in the obvious way. %I don't have an explicit description of E_2 but it is homeomorphic to the specified quotient
 
 \end{block}
 
@@ -676,19 +677,20 @@ Then \[\alpha_2:(I\times X^2, X^2\times\{0,1\}\cup I\times X\times e)\to (E_2,E_
 \begin{frame}
 \begin{block}{Construction}
 \begin{itemize}
-\item Let $B_1=*$. Define $B_i$ for $1<i\leq n$ by means of relative homeomorphisms %homeomorphism between the quotients
+\item Let $\mathcal{B}_1=*$. Define $\mathcal{B}_i$ for $1<i\leq n$ by means of relative homeomorphisms %homeomorphism between the quotients
 \[
-(K_{i+1}\times X^{i-1},s)\xrightarrow{\beta_i} (B_i,B_{i-1})
+(K_{i+1}\times X^{i-1},S)\xrightarrow{\beta_i} (\mathcal{B}_i,\mathcal{B}_{i-1})
 \]
 where $\beta_i$ is defined on $S$ by the same equations but replacing $\alpha$ with $\beta$ and omitting $x_1$.
+\item<2-> $\mathcal{B}_i=K_{i+1}\times X^{i-1}\cup_{\beta_i}\mathcal{B}_{i-1}$.
 \end{itemize}
 \end{block}
 \end{frame}
 
 \begin{frame}
 \begin{block}{Remark}
-$B_1=*$ and $B_2=SX$ (reduced suspension). %this time there is an explicit description, because quotienting by a point does nothing, so we knw the space automatically
-The identifications work similarly as the previous case, but in this case a subspace of $K_3\times X$ is identified with a point.
+$\mathcal{B}_1=*$ and $\mathcal{B}_2=SX$ (reduced suspension). %this time there is an explicit description, because quotienting by a point does nothing, so we knw the space automatically
+The identifications work similarly as the previous case, but in this case the subspace $S\subset K_3\times X$ is identified with a point.
 \end{block}
 \[
 \definecolor{ffqqqq}{rgb}{1.,0.,0.}
@@ -697,9 +699,9 @@ The identifications work similarly as the previous case, but in this case a subs
 \draw(0.,0.) -- (0.,2.) -- (1.5,2.) -- (1.5,0.) -- cycle;
 
 
-\draw [color=ffqqqq] (0.,2.)-- (1.5,2.);
-\draw [color=ffqqqq] (0.,0.)-- (1.5,0.);
-\draw [color=ffqqqq] (0.,2.)-- (0.,0.);
+\draw [color=ffqqqq, line width=1pt] (0.,2.)-- (1.5,2.);
+\draw [color=ffqqqq, line width=1pt] (0.,0.)-- (1.5,0.);
+\draw [color=ffqqqq, line width=1pt] (0.,2.)-- (0.,0.);
 \draw (0.2,2.62) node[anchor=north west] {$1\times X$};
 \draw (0.2,-0.03) node[anchor=north west] {$0\times X$};
 \draw (-1.1,1.29) node[anchor=north west] {$I\times e$};
@@ -713,13 +715,13 @@ The identifications work similarly as the previous case, but in this case a subs
 \begin{block}{Construction}
 \begin{itemize}
 \item<1-> Let $\rho_i:K_{i+1}\times X^i\to K_{i+1}\times X^{i-1}$ defined by $\rho_i(\tau,x_1,\dots,x_i)=(\tau,x2,\dots,x_i)$ %omitting x_1
-\item<2-> $\rho$ induces a map $p_i:E_i\to B_i$.
+\item<2-> $\rho$ induces a map $p_i:\mathcal{E}_i\to \mathcal{B}_i$.
 \item<3-> We see that $\beta_i$ can be defined on $S$ as $\beta_i(\tau,x2,\dots,x_i)=p_{i-1}\alpha_i(\tau,x_1,\dots,x_i)$, so $p_i$ is well defined by induction. %by what I said of just changing the letter and omitting x_1 %this ensures that R is mapped to S 
 \item[]<4->
 \[
 \begin{tikzcd}
-(K_{i+1}\times X^i,R)\arrow[r,"\alpha_i"]\arrow[d,"\rho_i"'] &(E_i,E_{i-1})\arrow[d,"p_{i-1}"]\arrow[d,"p_i"']\\
-(K_{i+1}\times X^{i-1},S)\arrow[r, "\beta_i"] & (B_i,B_{i-1})
+(K_{i+1}\times X^i,R)\arrow[r,"\alpha_i"]\arrow[d,"\rho_i"'] &(\mathcal{E}_i,\mathcal{E}_{i-1})\arrow[d,"p_{i-1}"]\arrow[d,"p_i"']\\
+(K_{i+1}\times X^{i-1},S)\arrow[r, "\beta_i"] & (\mathcal{B}_i,\mathcal{B}_{i-1})
 \end{tikzcd}
 \]
 
@@ -729,16 +731,16 @@ The identifications work similarly as the previous case, but in this case a subs
 
 \begin{frame}
 \begin{theorem}
-If $X$ is arc-connected, then $p_{i*}:\pi_q(E_i,X)\to \pi_q(B_i)$ is an isomorphism for all $q$. %this is what we needed to get an A_n-structure
+If $X$ is arc-connected, then $p_{i*}:\pi_q(\mathcal{E}_i,X)\to \pi_q(\mathcal{B}_i)$ is an isomorphism for all $q$. %this is what we needed to get an A_n-structure
 \end{theorem}\pause
 %the following show us something about the topology of these spaces
 
 \begin{theorem}
-If $X$ is arc-connected, then $(E_n, \dots, E_1)$ has the homotopy type of $(X\star\cdots\star X,\dots, X)$. %it is stated like this because not only the spaces have the homotopy type but the homotopies are relative/the relative homotopy groups are isomorphic
+If $X$ is arc-connected, then $(\mathcal{E}_n, \dots, \mathcal{E}_1)$ has the homotopy type of $(X\star\cdots\star X,\dots, X)$. %it is stated like this because not only the spaces have the homotopy type but the homotopies are relative/the relative homotopy groups are isomorphic
 \end{theorem}\pause
 
 \begin{theorem}
-$(B_{i+1},B_i)$ has the homotopy type of $(CE_i\cup_{p_i}B_i,B_i)$. %pushout/attaching space with the cone
+$(\mathcal{B}_{i+1},\mathcal{B}_i)$ has the homotopy type of $(C\mathcal{E}_i\cup_{p_i}\mathcal{B}_i,\mathcal{B}_i)$. %pushout/attaching space with the cone
 \end{theorem}\pause
 %The theorems are important, but I think the construction itself is more important
 This concludes the proof of the \emph{if} statement of the theorem.
@@ -746,10 +748,10 @@ This concludes the proof of the \emph{if} statement of the theorem.
 \begin{frame}
 \frametitle{Projective spaces}
 \begin{defi}
-The $X$-projective $i$-space $XP(i)$ ($i\leq n$) associated with an $A_n$-space is the base space $B_{i+1}$ of the derived $A_n$-structure.
+The $X$-projective $i$-space $XP(i)$ ($i\leq n$) associated with an $A_n$-space is the base space $\mathcal{B}_{i+1}$ of the derived $A_n$-structure.
 \end{defi}\pause
 \begin{block}{Remark}
-$B_{i+1}$ can be defined even when $p_{i+1}$ cannot, since it has the homotopy type of $CE_i\cup_{p_i}B_i$.
+$\mathcal{B}_{i+1}$ can be defined even when $p_{i+1}$ cannot, since it has the homotopy type of $C\mathcal{E}_i\cup_{p_i}\mathcal{B}_i$.
 \end{block}\pause
 \begin{block}{Remark-Proposition}%it is not obvious but it is not proved in the paper
 For $d=1,2,4$, the space $S^{d-1}P(i)$ is respectively the real, complex and quaternionic projective space of $i$ dimenions and the fibration can be identified with the previous construction using the associative multiplication of $S^{d-1}$.
@@ -780,377 +782,10 @@ For $p=3$, $S^7$ admits an $A_2$-structures (H-space) but not an $A_3$-structure
 \frametitle{Sketch of the proof}
 \begin{itemize}
 \item<1-> Let $Q^p$ be the group of fractions which, in lowest terms, have denominator prime to $p$.
-\item<2-> Let $X$ be the More space with one nonvanishing homology group $Q^p$ in dimension $2n-1$.
+\item<2-> Let $X$ be the More space with one nonvanishing homology group $Q^p$ in dimension $2n-1$. %For some n I guess
 CONTINUE
 \end{itemize}
 \end{frame}
 
-%\begin{frame}[fragile]
-%	\begin{center}
-%		
-%		
-%		\begin{tikzcd}[column sep=60, row sep=30]
-%		H_*(E_2)\arrow[r,"\text{Gerstenhaber}"] & H^*(A;A)\\
-%		C_*(E_2)\simeq \mathcal{O}?\arrow[u, "q"]\arrow[r, dashed, "?"] & C^*(A;A)\arrow[u, "q"]
-%		\end{tikzcd}\pause
-%		
-%		\begin{defi}
-%			Two chain operads $\mathcal{O}$ and $\mathcal{O}'$ are \textbf{equivalent} if there exists a chain of quasi-isomorphisms
-%			\[
-%			\mathcal{O}= \mathcal{O}_1\to\mathcal{O}_2\leftarrow\mathcal{O}_3\to\cdots\leftarrow\mathcal{O}_{2k+1} = \mathcal{O}'
-%			\]
-%		\end{defi}
-%		%equivalentes en el sentido de que tengan la misma homología
-%	\end{center}
-%\end{frame}
-%
-%
-%\section{Proof of the conjecture}
-%
-%\begin{frame}[fragile]
-%	\frametitle{Proof of the conjecture}
-%%	$$
-%%	\begin{tikzcd}
-%%	C_*(E_2)\arrow[r, "e.h."] & C_*(|N(PaB)|) \arrow[r] & O_A & \arrow[l] H_*(E_2) & \arrow[l] G_\infty \arrow[r] & B
-%%	\end{tikzcd}
-%%	$$
-%	\scalebox{1}{$C_*(E_2)\xrightarrow{h. e.} C_*(|N(PaB)|)\to C_*(O_A)\leftarrow H_*(E_2) \leftarrow G_\infty \to \widetilde{\mathcal{B}}\xrightarrow{\cong}\mathcal{B}$}\pause %el último no es quasi-iso, es solo map pero nos sirve
-%	\vspace{1cm}
-%	
-%	
-%	Finally $\mathcal{B}$ acts on $C^*(A;A)$ inducing on $H^*(A;A)$ the Gersternhaber algebra structure.
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Proof of the conjecture}
-%	\scalebox{1}{$\highlight{C_*(E_2)\xrightarrow{h.e.} C_*(|N(PaB)|)\to C_*(O_A)\leftarrow H_*(E_2)} \leftarrow G_\infty \to \widetilde{\mathcal{B}}\xrightarrow{\cong}\mathcal{B}$}
-%\vspace{1cm}
-%
-%Finally $\mathcal{B}$ acts on $C^*(A;A)$ inducing on $H^*(A;A)$ the Gersternhaber algebra structure.
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Proof of the conjecture}
-%	\scalebox{1}{$\highlight{C_*(E_2)\xrightarrow{h. e.} C_*(|N(PaB)|)\to C_*(O_A)\leftarrow H_*(E_2)} \leftarrow G_\infty \to \widetilde{\mathcal{B}}\xrightarrow{\cong}\mathcal{B}$}
-%	\vspace{1cm}
-%	
-%	Finally \underline{$\mathcal{B}$ acts on $C^*(A;A)$ inducing on $H^*(A;A)$ the} \underline{Gersternhaber algebra structure}.
-%\end{frame}
-%
-%\subsection{Formality of chain operad of little disks}
-%\begin{frame}
-%	\frametitle{Formality}
-%	\begin{itemize}
-%		\item<1-> We prove $C_*(E_2)\simeq H_*(E_2)$.
-%		\item<2-> We define an operad of categories $PaB$ such that $|N(PaB)|\simeq E_2$. 
-%		\item<3-> We find another chain operad $C_*(O_A)$ and quasi-isomorphisms $C_*(|N(PaB)|)\to C_*(O_A)\leftarrow H_*(E_2)$. 
-%	\end{itemize}%QPaB y PaB son equivalentes como categoráis no enriquecidas porque los morfismos están en biyección (infinito numerable) y los objetos son los mismos. Como al nervio no le afecta lo de aditividad pues yastá
-%\end{frame}
-%
-% \begin{frame}
-% 	\frametitle{Braided operads}
-% 	\begin{itemize}
-% 		\item<1-> A \textbf{braided operad} is the same as an operad but with a right action of the braid groups. 
-% 		\item<2-> A $B_\infty$-operad is a topological braided operad whose spaces are contractible.
-% 		\item<3-> If $X$ is a $B_\infty$-operad, then the operad $\{X(n)/PB_n\}$ is called a \textbf{little disks operad}.
-% 	\end{itemize}
-% 
-% \only<4->{\begin{prop}
-% 		Any two little disks operads are homotopy equivalent.
-% \end{prop}}
-% 
-% \only<5->{\begin{prop}
-% 		$E_2$ is a little disks operad. %of a $B_\infty$-operad, more precisely.%, of its universal covering. %decir que esto es de lo que más he hecho, aunque me faltó completar algunos detalles
-% 		
-% \end{prop}}
-%\end{frame}
-%
-%
-%%\begin{frame}[fragile]
-%%	\begin{proof}[Idea of the proof]
-%%		The idea is to lift the operad structure of $E_2$ to a braided operad structure on $\widetilde{E}_2$ using the uniqueness of the lifting 
-%%		\[
-%%		\begin{tikzcd}
-%%		\widetilde{E}_2(k)\times\widetilde{E}_2(j_1)\times\cdots\widetilde{E}_2(j_k) \arrow[r, "\widetilde{\gamma}", dashed] \arrow[d, "p"] & \widetilde{E}_2(j_1+\cdots+j_k) \arrow[d, "p"] \arrow[d] \\
-%%		E_2(k)\times E_2(j_1)\times\cdots\times E_2(j_1+\cdots+j_k) \arrow[r, "\gamma"]                                                                      & E_2(j_1+\cdots+j_k)                                     
-%%		\end{tikzcd}
-%%		\]
-%%		up to a choice of base point. But instead of a base point, we use a contractible subspace $E_1$, which has a homotopy discrete fiber. This subspace $E_1$ is an embedding of the \textbf{little intervals} operad, which is analogue to the little disks operad. 
-%%	\end{proof}
-%%\end{frame}
-%%
-%%\begin{frame}
-%%	
-%%	\begin{figure}
-%%	\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
-%%	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-%%	\clip(-3.5,-0.4666666666666) rectangle (11.293333333333335,4.5);
-%%	\fill[line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (0.41333333333333344,4.) -- (0.4,0.) -- (0.7733333333333334,0.) -- (0.7866666666666668,4.) -- cycle;
-%%	\fill[line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (1.2,4.) -- (1.2133333333333338,0.) -- (1.586666666666667,0.) -- (1.586666666666667,4.) -- cycle;
-%%	\fill[line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (3.,4.) -- (3.,0.) -- (3.386666666666667,0.) -- (3.4,4.) -- cycle;
-%%	\draw[line width=2.pt] (0.41333333333333344,4.) -- (0.4,0.) -- (0.7733333333333334,0.) -- (0.7866666666666668,4.) -- cycle;
-%%	\draw[line width=2.pt] (1.2,4.) -- (1.2133333333333338,0.) -- (1.586666666666667,0.) -- (1.586666666666667,4.) -- cycle;
-%%	\draw[line width=2.pt] (3.,4.) -- (3.,0.) -- (3.386666666666667,0.) -- (3.4,4.) -- cycle;
-%%	\draw [line width=2.pt] (0.,0.)-- (0.,4.);
-%%	\draw [line width=2.pt] (0.,4.)-- (4.,4.);
-%%	\draw [line width=2.pt] (4.,4.)-- (4.,0.);
-%%	\draw [line width=2.pt] (4.,0.)-- (0.,0.);
-%%	\draw [line width=2.pt,color=xdxdff] (0.41333333333333344,4.)-- (0.4,0.);
-%%	\draw [line width=2.pt,color=xdxdff] (0.4,0.)-- (0.7733333333333334,0.);
-%%	\draw [line width=2.pt,color=xdxdff] (0.7733333333333334,0.)-- (0.7866666666666668,4.);
-%%	\draw [line width=2.pt,color=xdxdff] (0.7866666666666668,4.)-- (0.41333333333333344,4.);
-%%	\draw [line width=2.pt,color=xdxdff] (1.2,4.)-- (1.2133333333333338,0.);
-%%	\draw [line width=2.pt,color=xdxdff] (1.2133333333333338,0.)-- (1.586666666666667,0.);
-%%	\draw [line width=2.pt,color=xdxdff] (1.586666666666667,0.)-- (1.586666666666667,4.);
-%%	\draw [line width=2.pt,color=xdxdff] (1.586666666666667,4.)-- (1.2,4.);
-%%	\draw [line width=2.pt,color=xdxdff] (3.,4.)-- (3.,0.);
-%%	\draw [line width=2.pt,color=xdxdff] (3.,0.)-- (3.386666666666667,0.);
-%%	\draw [line width=2.pt,color=xdxdff] (3.386666666666667,0.)-- (3.4,4.);
-%%	\draw [line width=2.pt,color=xdxdff] (3.4,4.)-- (3.,4.);
-%%	\draw [line width=2.pt] (0.41333333333333344,4.)-- (0.4,0.);
-%%	\draw [line width=2.pt] (0.4,0.)-- (0.7733333333333334,0.);
-%%	\draw [line width=2.pt] (0.7733333333333334,0.)-- (0.7866666666666668,4.);
-%%	\draw [line width=2.pt] (0.7866666666666668,4.)-- (0.41333333333333344,4.);
-%%	\draw [line width=2.pt] (1.2,4.)-- (1.2133333333333338,0.);
-%%	\draw [line width=2.pt] (1.2133333333333338,0.)-- (1.586666666666667,0.);
-%%	\draw [line width=2.pt] (1.586666666666667,0.)-- (1.586666666666667,4.);
-%%	\draw [line width=2.pt] (1.586666666666667,4.)-- (1.2,4.);
-%%	\draw [line width=2.pt] (3.,4.)-- (3.,0.);
-%%	\draw [line width=2.pt] (3.,0.)-- (3.386666666666667,0.);
-%%	\draw [line width=2.pt] (3.386666666666667,0.)-- (3.4,4.);
-%%	\draw [line width=2.pt] (3.4,4.)-- (3.,4.);
-%%	\draw (0.35,2.38) node[anchor=north west] {$1$};
-%%	\draw (1.15,2.38) node[anchor=north west] {$2$};
-%%	\draw (2.95,2.38) node[anchor=north west] {$n$};
-%%	\draw (1.9,2.353333333333338) node[anchor=north west] {$\cdots$};
-%%	\end{tikzpicture}
-%%	\caption{Embedding of a point of $E_1$ into $E_2$.}
-%%\end{figure}
-%%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Category operad $PaB$}
-%\begin{itemize}
-%	\item<1-> The objects of the category $PaB(n)$ are parenthesized permutations of the set $\{1,\dots, n\}$: $x_1(x_3x_2)$.
-%	\item<2-> The morphisms between two objects whose permutations are $\sigma_1$ and $\sigma_2$ are $p^{-1}(\sigma_2^{-1}\sigma_1)$, where $p:B_n\to \Sigma_n$. %decir quién es este morfismo
-%\end{itemize}
-%\only<3>{\begin{figure}
-%		\includegraphics[scale=0.45]{Imagenes/left}
-%\end{figure}}
-% \end{frame}
-%\begin{frame}
-%	\frametitle{Operad PaB}
-%	\textbf{Insertion on objects}: $x_1(x_2x_3)\circ_2(x_3x_2)x_1=x_1(((x_4x_3)x_2)x_5)$.
-%	
-%	\only<2->{\textbf{Insertion on morphisms}:
-%	\begin{figure}
-%		\includegraphics[scale=0.6]{Imagenes/insercion.png}
-%	\end{figure}}
-%
-%\begin{itemize}
-%	\item<3-> The action of $\Sigma_n$ is by permutation on objects and trivial on morphisms.
-%	\item<4-> The operad is generated by $x_1x_2$ on objects. On morphisms, it is generated by the generator $x\in B_2$ and the identity braid $i\in B_3$ between $(x_1x_2)x_3$ and $x_1(x_2x_3)$.
-%\end{itemize}
-%	
-%	
-%\end{frame}
-%
-%
-%
-%\begin{frame} 
-%\frametitle{$C_*(E_2)\simeq H_*(E_2)$}
-%	\begin{itemize}
-%	\item Define an operad of categories $PaB$ s. t. $|N(PaB)|\simeq E_2$. \checkmark
-%	\item Find another chain operad $C_*(O_A)$ and quasi-isomorphisms $C_*(|N(PaB)|)\to C_*(O_A)\leftarrow H_*(E_2)$. 
-%\end{itemize}%QPaB y PaB son equivalentes como categoráis no enriquecidas porque los morfismos están en biyección (infinito numerable) y los objetos son los mismos. Como al nervio no le afecta lo de aditividad pues yastá
-%\end{frame}
-%
-%
-%\subsection{Operad $\mathcal{B}$}
-%
-%\begin{frame}
-%\frametitle{Tensor coalgebra}
-%
-%	For a finite dimensional graded $k$-vector space $V$ let $TV=\bigoplus_{n\geq 0} V^{\otimes n}$. \pause
-%	
-%	\begin{defi}
-%		A \textbf{coalgebra} structure on $TV$ is given by a comultiplication $\Delta:TV\to TV\otimes TV$. 
-%	\end{defi}\pause
-%
-%\begin{example}
-%	The \textbf{cofree conilpotent} coalgebra $TV$ is given by the comultiplication
-%	\[
-%	\Delta(w_0\otimes\cdots\otimes w_n)=\sum_{p=0}^n(w_0\otimes\cdots \otimes w_p)\otimes (w_{p+1}\otimes\cdots\otimes w_n).
-%	\]
-%\end{example}
-%
-%\end{frame}
-%
-%\begin{frame}
-%\begin{defi}
-%	A \textbf{bialgebra} structure on $TV$ is given by both an algebra structure and a coalgebra structure, which satisfy some compatibility axioms.
-%\end{defi}\pause
-%
-%\begin{defi}
-%	A $\mathcal{B}$-algebra structure on $V$  is given by an structure of differential graded bialgebra on $TV[1]=\bigoplus_{n\geq 0} V[1]^{\otimes n}$ such that the coalgebra structure is the cofree conilpotent one.
-%\end{defi}
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Operad $\mathcal{B}$}
-%	A $\mathcal{B}$-algebra structure on $V$ is given by:
-%	\begin{itemize}
-%			\item<2-> A differential $D:TV[1]\to TV[1]$ \only<3->{$\xRightarrow{decomposes} V[1]^{\otimes n}\to V[1]^{\otimes r}$ of degree 1} \only<4->{$\xRightarrow{r=1} m_n:V[1]^{\otimes n}\to V[2]$} \only<5->{$\Rightarrow \boxed{m_n:V^{\otimes n}\to V[2-n]}$.}
-%		\item<6-> A multiplication $M:TV[1]\otimes TV[1]\to TV[1]$ \only<7->{$\xRightarrow{decomposes} V[1]^{\otimes p}\otimes V[1]^{\otimes q}\to V[1]^{\otimes r}$ of degree 0} \only<8->{$\xRightarrow{r=1} m_{pq}:V^{\otimes p}[1]\otimes V^{\otimes q}[1]\to V[1]$} \only<9->{$\Rightarrow	\boxed{m_{pq}:V^{\otimes p}\otimes V^{\otimes q}\to V[1-p-q]}$.}
-%	
-%		
-%	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Operad $\mathcal{B}$}
-%	\begin{defi}
-%		The operad $\mathcal{B}$ is defined to be the operad of graded vector spaces generated by operations $m_n\in\mathcal{B}(n)_{2-n}$ and $m_{pq}\in\mathcal{B}(p+q)_{1-p-q}$ subject to some relations. 
-%	\end{defi}
-%\end{frame}
-%	
-%	\subsection{Action on $\mathcal{B}$ on $C^*(A;A)$}
-%\begin{frame}
-%	\frametitle{Brace algebra on $C^*(A;A)$}
-%	
-%\begin{itemize}
-%	\item<1-> Recall that an element $f\in C^n(A;A)$ is a map $f:A^{\otimes n}\to A$, so we represent it as
-%	 
-%	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-%	\clip(-2.8466666666666676,-1) rectangle (11.486666666666668,3);
-%	\draw[line width=1.pt] (0.,0.) -- (0.,1.38) -- (2.406666666666667,1.38) -- (2.406666666666667,0.) -- cycle;
-%	\draw [line width=1.pt] (0.,0.)-- (0.,1.38);
-%	\draw [line width=1.pt] (0.,1.38)-- (2.406666666666667,1.38);
-%	\draw [line width=1.pt] (2.406666666666667,1.38)-- (2.406666666666667,0.);
-%	\draw [line width=1.pt] (2.406666666666667,0.)-- (0.,0.);
-%	\draw [line width=.pt] (1.2033333333333336,0.)-- (1.2033333333333336,-0.606666666666666);
-%	\draw [line width=1.pt] (1.2033333333333336,1.38)-- (1.2033333333333336,2.3933333333333344);
-%	\draw [line width=1.pt] (0.7666666666666668,2.3933333333333344)-- (0.7666666666666668,1.38);
-%	\draw [line width=1.pt] (0.3933333333333334,2.3933333333333344)-- (0.38,1.38);
-%	\draw [line width=1.pt] (1.606666666666667,2.3933333333333344)-- (1.606666666666667,1.38);
-%	\draw [line width=1.pt] (1.9933333333333336,2.3933333333333344)-- (1.9933333333333336,1.38);
-%	\draw (1.,0.9933333333333343) node[anchor=north west] {$f$};
-%	\end{tikzpicture}
-%\end{itemize}
-%	
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{Brace algebra on $C^*(A;A)$}
-%	
-%	\begin{itemize}
-%		\item Let $f,g_1,\dots, g_n\in C^*(A;A)$. The the \textbf{brace} $f\{g_1,\dots, g_n\}$ is given by
-%		
-%		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-%		\clip(-2.8466666666666676,-1) rectangle (11.486666666666668,3);
-%		\draw[line width=1.pt] (2.833333333333334,0.) -- (2.833333333333334,0.5666666666666675) -- (7.006666666666668,0.5666666666666675) -- (7.,0.) -- cycle;
-%		\draw[line width=1.pt] (3.193333333333334,1.) -- (4.,1.) -- (4.006666666666668,1.58) -- (3.193333333333334,1.58) -- cycle;
-%		\draw[line width=1.pt] (6.,1.) -- (6.38,1.) -- (6.38,1.58) -- (5.593333333333335,1.5933333333333344) -- (5.606666666666667,1.) -- cycle;
-%		\draw (-2.9,0.6) node[anchor=north west] {$f\{g_1,\dots, g_n\}=\displaystyle{\sum_{\text{all possible insertions}}}$};
-%		\draw [line width=1.pt] (2.833333333333334,0.)-- (2.833333333333334,0.5666666666666675);
-%		\draw [line width=1.pt] (2.833333333333334,0.5666666666666675)-- (7.006666666666668,0.5666666666666675);
-%		\draw [line width=1.pt] (7.006666666666668,0.5666666666666675)-- (7.,0.);
-%		\draw [line width=1.pt] (7.,0.)-- (2.833333333333334,0.);
-%		\draw [line width=1.pt] (4.92,0.)-- (4.92,-0.36666666666666614);
-%		\draw [line width=1.pt] (2.993333333333334,0.5666666666666675)-- (3.,2.);
-%		\draw [line width=1.pt] (3.553333333333334,0.5666666666666675)-- (3.553333333333334,1.);
-%		\draw [line width=1.pt] (4.273333333333334,0.5666666666666675)-- (4.273333333333334,1.9933333333333345);
-%		\draw [line width=1.pt] (4.54,0.5666666666666675)-- (4.54,1.9933333333333345);
-%		\draw [line width=1.pt] (5.993333333333334,0.5666666666666675)-- (6.,1.);
-%		\draw [line width=1.pt] (6.62,0.5666666666666675)-- (6.62,1.9933333333333345);
-%		\draw [line width=1.pt] (6.833333333333335,0.5666666666666675)-- (6.833333333333335,1.98);
-%		\draw [line width=1.pt] (3.193333333333334,1.)-- (4.,1.);
-%		\draw [line width=1.pt] (4.,1.)-- (4.006666666666668,1.58);
-%		\draw [line width=1.pt] (4.006666666666668,1.58)-- (3.193333333333334,1.58);
-%		\draw [line width=1.pt] (3.193333333333334,1.58)-- (3.193333333333334,1.);
-%		\draw [line width=1.pt] (6.,1.)-- (6.38,1.);
-%		\draw [line width=1.pt] (6.38,1.)-- (6.38,1.58);
-%		\draw [line width=1.pt] (6.38,1.58)-- (5.593333333333335,1.5933333333333344);
-%		\draw [line width=1.pt] (5.593333333333335,1.5933333333333344)-- (5.606666666666667,1.);
-%		\draw [line width=1.pt] (5.606666666666667,1.)-- (6.,1.);
-%		\draw [line width=1.pt] (3.5666666666666673,1.58)-- (3.58,2.);
-%		\draw [line width=1.pt] (6.007451656136321,1.586314378709553)-- (6.,2.);
-%		\draw [line width=1.pt] (5.4,0.5666666666666675)-- (5.4,2.);
-%		\draw (3.3,1.5666666666666678) node[anchor=north west] {$g_1$};
-%		\draw (5.65,1.58) node[anchor=north west] {$g_n$};
-%		\draw (4.7,0.5666666666666675) node[anchor=north west] {$f$};
-%		\draw (4.59,1.5533333333333343) node[anchor=north west] {$\cdots$};
-%		\end{tikzpicture}
-%		\item<2-> $f\{\}=f$.
-%	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}
-%%	\begin{itemize}
-%%		\item Notation: $f\{\}=f$ and $[f,g]=f\{g\}-(-1)^{(|f|-1)(|g|-1)}g\{g\}$.
-%%	\end{itemize}
-%\frametitle{Action of $\mathcal{B}$ on $C^*(A;A)$}
-%We have to define the action of the operations $m_n$ and $m_{pq}$ on $C^*(A;A)$:
-%
-%\begin{itemize}
-%	\item<2-> $m_0=0$.
-%	\item<3->  $m_1$ is the differential in $C^*(A;A)$.
-%	\item<4-> $m_2$ is the cup product.
-%	\item<5-> $m_n=0$ for all $n>2$. 
-%	\item<6-> $m_{0,1}=m_{1,0}=Id$.
-%	\item<7-> $m_{0,q}=m_{q,0}=0$.
-%	\item<8-> $m_{1q}(f\otimes g_1\otimes\cdots\otimes g_q)=f\{g_1,\dots, g_q\}$.
-%	\item<9-> $m_{pq}=0$ for $p>1$.
-%\end{itemize}
-%
-%\end{frame}
-%
-%\begin{frame}
-%	\begin{teorema}
-%		The action of $\mathcal{B}$ on $C^*(A;A)$ is well defined and induces the Gerstenhaber algebra structure on $H^*(A;A)$. 
-%	\end{teorema}\pause
-%
-%\textcolor{red}{The conjecture is finally proven!}
-%\end{frame}
-%
-%\begin{frame}
-%	\begin{center}
-%	\Huge{Thank you very much!}
-%\end{center}
-%\end{frame}
-%%\begin{frame}
-%%	Cada vez que explique una cosa ponerle un check a lo de antes \url{https://tex.stackexchange.com/questions/132783/how-to-write-checkmark-in-latex} (quizá en operads ponerlo al final al grande y ya)
-%%\end{frame}
-%
-%%\begin{frame}
-%%	Definición de operad y explicación dibujitos (más de los que he hecho en el trabajo)
-%%	
-%%	Operad de endomorfismos y álgebra sobre un operad
-%%	
-%%	Definición de operad en symmetric monoidal categories para que tenga sentido
-%%	
-%%	Comentar gracias al EZ map se hereda la operadición y de ahí a homología
-%%	
-%%	Las operaciones de la homología con los dos dibujitos (en el trabajo solo he metido uno)
-%%	
-%%	Gerstenhaber algebra definición del tirón (en la presentación comentar los criterios de derivación)
-%%	
-%%	Describir el complejo de cadenas sin detallar mucho en que es un complejo de cadenas e ir a su homología con sus propiedades de álgebra de Gerstenhaber (esto ya me relaciona con el último punto)
-%%	
-%%	Recuperar el homology operad y describir la acción sobre un álgebra asociativa
-%%\end{frame}
-%
-%%\begin{frame}
-%%	Retomar la conjetura de Deligne para recordarla y ver que está todo, seguido de un diagrama con las acciones y la que se pregunta si existe poniéndola dashed y con una interrogación de label
-%%	
-%%	Esquema de la prueba (destacar de algún modo las partes en las que me centro)
-%%	
-%%	Pensar qué meto de cada parte
-%%\end{frame}
-%
-%%\begin{frame}
-%%
-%%\end{frame}
 
 \end{document}
