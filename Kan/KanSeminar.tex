@@ -250,7 +250,7 @@ Milnor defines projective spaces for any topological group $G$ in the following 
 \end{itemize}\pause
 \begin{defi}
 The $n$-fold join $X_1\star\cdots\star X_n$ is the space of formal linear combinations $t_1x_1+\cdots+x_nt_n$ with $0\leq t_i\leq 1$ and $t_1+\cdots+t_n=1$. This can be seen as a quotient of the space $X_1\times\cdots\times X_n\times\Delta^{n-1}$, where $\Delta^{n-1}$ is the $(n-1)$-dimensional simplex.
-\end{defi}\pause
+\end{defi}
 %It can be checked that this is well defined (X\star Y\star Z=(X\star Y)\star Z are homeomorphic)
 %this can also be seen as the (n-1)-dimensional segments between the spaces. For instance X\star Y is the space of segments from X to Y
 
@@ -294,7 +294,14 @@ We say that $p$ is equivalent to $\bar{p}$ if there is a map $i:E\to W_p$ such t
 \end{frame}
 \begin{frame}
 \frametitle{Proof of the proposition}
+\begin{itemize}
+\item<1-> Standard fact: every map is equivalent to a fibration, so that we have $\bar{p}\circ i=p$ %this can be constructed explicitely https://en.wikipedia.org/wiki/Fibration
+\item<2-> Since $p(X)=*$, $X$ is mapped into $F=p^{-1}(*)$.
+\item<3-> From the induced map of exact sequences of the pairs $(E,X)$ and $(W_p,F)$ we conclude that $F$ has the homotopy type of $X$ (recall that all are CW-complexes). 
+\end{itemize}
+
 \end{frame}
+
 \begin{frame}
 \[
 \begin{array}{ccc}
@@ -524,7 +531,14 @@ We call such a set of maps an $A_n$-\emph{form} and the pair $(X,\{M_i\})$ an $A
 \begin{block}{Remark}
 An $A_2$-space is just an H-space and $M_2(*,x,y)$ is often written as $xy$.
 \end{block}\pause
-Let's unravel condition (2). I MIGHT WRITE IT AGAIN OR JUST GO BACK
+Let's unravel condition (2).\pause
+\begin{itemize}
+\item[(2)] for $\rho\in K_r$, $\sigma\in K_s$ ($r+s=i+1$):
+\begin{align*}
+&M_i(\delta_k(r,s)(\rho,\sigma),x_1,\dots, x_i)=\\
+&M_r(\rho,x_1,\dots, x_{k-1},M_s(\sigma,x_k,\dots, x_{k+s-1}),\dots, x_i)
+\end{align*} %this is actually a boundary condition
+\end{itemize}
 \end{frame}
 \begin{frame}
 For $s=2$ the equation becomes
@@ -532,7 +546,7 @@ For $s=2$ the equation becomes
 M_i(\delta_k(i-1,2)(\rho,*),x_1,\dots, x_i)=M_{i-1}(\rho,x_1,\dots,x_kx_{k+1},\dots, x_i)
 \]
 \begin{itemize}
-\item<2-> For $i=3$, $K_3\cong I$ so $M_3:I\times X^3\to X$ is a homotopy between $M(M_2\times 1)$ and $M_2(1\times M_2)$, that is, between $(xy)z$ and $x(yz)$.
+\item<2-> For $i=3$, $K_3\cong I$ so $M_3:I\times X^3\to X$ is a homotopy between $M_2(M_2\times 1)$ and $M_2(1\times M_2)$, that is, between $(xy)z$ and $x(yz)$.
 \item[]<3-> Thus, $M_2$ is a homotopy associative multiplication.
 \end{itemize}
 
@@ -638,7 +652,7 @@ where $\alpha_i$ is defined on $R$ by %it is needed that \alpha_i(R)\subseteq \m
 \begin{frame}
 \begin{block}{Remark}
 Recall that $\mathcal{E}_1=X$ and $K_3\times X^2\cong I\times X^2$.
-Then \[\alpha_2:(I\times X^2, X^2\times\{0,1\}\cup I\times X\times e)\to (\mathcal{E}_2,\mathcal{E}_1)\] identifies $0\times X^2$ with $x$ by the map $(0,x,y)\mapsto x$; $1\times X^2$ with $X$ by the map $(0,x,y)\mapsto xy$; and $I\times X$ with $X$ in the obvious way. %I don't have an explicit description of E_2 but it is homeomorphic to the specified quotient
+Then \[\alpha_2:(I\times X^2, X^2\times\{0,1\}\cup I\times X\times e)\to (\mathcal{E}_2,\mathcal{E}_1)\] identifies $0\times X^2$ with $X$ by the map $(0,x,y)\mapsto x$; $1\times X^2$ with $X$ by the map $(0,x,y)\mapsto xy$; and $I\times X$ with $X$ in the obvious way. %I don't have an explicit description of E_2 but it is homeomorphic to the specified quotient
 
 \end{block}
 
@@ -716,7 +730,7 @@ The identifications work similarly as the previous case, but in this case the su
 \begin{itemize}
 \item<1-> Let $\rho_i:K_{i+1}\times X^i\to K_{i+1}\times X^{i-1}$ defined by $\rho_i(\tau,x_1,\dots,x_i)=(\tau,x_2,\dots,x_i)$ %omitting x_1
 \item<2-> $\rho$ induces a map $\mathfrak{p}_i:\mathcal{E}_i\to \mathcal{B}_i$.
-\item<3-> We see that $\beta_i$ can be defined on $S$ as $\beta_i(\tau,x2,\dots,x_i)=p_{i-1}\alpha_i(\tau,x_1,\dots,x_i)$, so $p_i$ is well defined by induction. %by what I said of just changing the letter and omitting x_1 %this ensures that R is mapped to S 
+\item<3-> We see that $\beta_i$ can be defined on $S$ as $\beta_i(\tau,x_2,\dots,x_i)=\mathfrak{p}_{i-1}\alpha_i(\tau,x_1,\dots,x_i)$, so $\mathfrak{p}_i$ is well defined by induction. %by what I said of just changing the letter and omitting x_1 %this ensures that R is mapped to S 
 \item[]<4->
 \[
 \begin{tikzcd}
@@ -795,7 +809,7 @@ such that $d_j|\mathcal{E}_{j-1}=d_{j-1}$ and $b_j|\mathcal{B}_{j-1}=b_{j-1}$. %
 \begin{itemize}
 
 
- \item<1-> Recall $R=L_{i+1}\times X^i\cup K_{i+1}\times X\times X^{[i-1]}$ and let $J=int(\delta_1(2,i)(K_2\times K_i)$. 
+ \item<1-> Recall $R=L_{i+1}\times X^i\cup K_{i+1}\times X\times X^{[i-1]}$ and let $J=int(\delta_1(2,i)(K_2\times K_i))$. 
  \item<2-> Note that $\alpha_i$ is defined without using $M_i$ on $R$ minus $J\times(X^i-X^{[i]})$.
  \item<3-> Extend from this subset to $\gamma:(L_{i+1}-J)\times X^i\cup K_{i+1}\times X^{[i]}\to C\mathcal{E}_{i-1}$.
  \item<4-> Let $k:CE_{i-1}\to E_i$ the contracting homotopy of the $A_n$-structure %pay attention to the notation
@@ -835,6 +849,7 @@ A space $X$ admits a homotopy associative multiplication if and only if there is
 \end{corollary}
 \end{frame}
 
+\subsection{Existence of $A_p$-spaces}
 \begin{frame}[fragile]
 \begin{theorem}
 For each prime $p$, there exist spaces which admit $A_{p-1}$-structures but not $A_p$-structures.
@@ -847,7 +862,7 @@ For $p=3$, $S^7$ admits an $A_2$-structures (H-space) but not an $A_3$-structure
 \frametitle{Proof (existence of $A_{p-1}$-structures)}
 \begin{itemize}
 \item<1-> Let $Q^p$ be the group of fractions which, in lowest terms, have denominator prime to $p$.
-\item<2-> Let $X$ be the More space with one nonvanishing homology group $Q^p$ in dimension $2n-1$. %For some n I guess
+\item<2-> Let $X$ be the Moore space with one nonvanishing homology group $Q^p$ in dimension $2n-1$. %For some n I guess
 %\item<3-> $Q^p$ has no $p$-torsion and is divisible by any other prime. %divide the fraction by q, then the denominator is q times the previous denominator, which is also in the group
 \item<3-> $X$ only has nontrivial cohomology groups in dimension $2n-1$.
 %\item<3-> $H_*(X;\Z/(q))=0$ for $q\neq p$ and $H_i(X;\Z/(p))=0$ except for $i=0$ or $2n-1$, being $H_{2n-1}(X;\Z/(p))=\Z/(p)$.
@@ -859,7 +874,7 @@ For $p=3$, $S^7$ admits an $A_2$-structures (H-space) but not an $A_3$-structure
 \begin{itemize}
 \item<1-> Embed $X$ in $Z=\Omega^2S^2X$. Since $Z$ is a loop space, it admits $A_n$-structures $\{N_i\}$ for all $n$.
 \item<2-> Let $M'_i:K_i\times X^i\to Z$ the restrictions and let us try to deform it to an $A_{p-1}$-structure $\{M_i\}$ on $X$.
-\item<3-> Assume by induction that $M_j$ lies on $X$ for $j<i$. Let $T=L_i\times X^i\cup K_i\times X^{[i]}$. $M'_i$ is defined on $T$ in terms of $M_j$, so $M_i(T)\subseteq X$.
+\item<3-> Assume by induction that $M_j$ lies on $X$ for $j<i$. Let $T=L_i\times X^i\cup K_i\times X^{[i]}$. $M'_i$ is defined on $T$ in terms of $M_j$, so $M_i(T)\subseteq X$. %because of the induction M_{i-1} is defined on L_i and there are compatibility conditions to be an A_n-form
 \item<4-> The obstruction to deforming $M_i$ rel $T$ appears as classes in $H^q(K_i\times X^i,T;\pi_q(Z,X))\cong H^{q+2-i}(X^i;\pi_q(Z,X))$.
 \item<5-> $\pi_q(Z,X)=0$ for $q<2pn-2$.
 
