@@ -235,7 +235,7 @@ In othwer words, there is a homotopy $m(m\times 1)\simeq m(1\times m)$.
 \begin{itemize}
 \item<1-> All topological groups, in particular $S^0$, $S^1$ and $S^3$ (real, complex and quaternionic numbers).
 \item<2-> The Cayley (octonionic) numbers $S^7$.
-\item<3-> Any loop spaces is a homotopy associative H-space via concatenation of loops.
+\item<3-> Any loop space is a homotopy associative H-space via concatenation of loops. %say something about this
 \end{itemize}
 %I focus on the first two items, i give these examples because they are key in the generalization of the following construction
 	
@@ -321,7 +321,7 @@ An $A_n$-structure induces maps $M_i:I^{i-2}\times X^i\to X$ for $i<n$ in such a
 \item<2-> Consider a word $x_1\cdots x_i$ and all meaningful ways to insert a set of parentheses.
 \item<3-> To each such insertion except for $(x_1\cdots x_i)$ corresponds a cell of the boundary $L_i$ of $K_i$.
 \item<4-> If the parentheses enclose $x_k$ to $x_{k+s-1}$ we regard this cell as the homeomorphic image of $K_r\times K_s$ ($r+s=i+1$) under a map $\delta_k(r,s)$.
-\item<5-> To such cells intersect only on their boundaries and the ``edges'' so formed correspond to intersect two sets of parentheses in the word. %this provides boundary conditions that I'm not going to write explicitly
+\item<5-> To such cells intersect only on their boundaries and the ``edges'' so formed correspond to intersecting two sets of parentheses in the word. %this provides boundary conditions that I'm not going to write explicitly
  \end{itemize}
 \end{frame}
 
@@ -509,7 +509,7 @@ This proposition is proved by explicitly constructing the complexes $K_i$ as sub
 \begin{frame}
 \frametitle{$A_n$-forms}
 \begin{theorem}
-A space $X$ admits an $A_n$-structure if and only if there exists maps $M_i:K_i\times X^i\to X$ for $2\leq i\leq n$ such that:
+A space $X$ admits an $A_n$-structure if and only if there exist maps $M_i:K_i\times X^i\to X$ for $2\leq i\leq n$ such that:
 \begin{itemize}
 \item[(1)] $M_2(*,e,x)=M_2(*,x,e)=x$ for $x\in X$. %existence of unit, K_2=*
 \item[(2)] for $\rho\in K_r$, $\sigma\in K_s$ ($r+s=i+1$):
@@ -587,7 +587,7 @@ M_i(\delta_k(i-1,2)(\rho,*),x_1,\dots, x_i)=M_{i-1}(\rho,x_1,\dots,x_kx_{k+1},\d
 %\[
 %x(y(zt))\simeq x((yz)t)\simeq (x(yz))t\simeq ((xy)z)t\simeq (xy)(zt)\simeq x(y(zt))
 %\]
-\item[]<2->This defines a map $S^1\times X^4\to X$. The map $M_4$ can be regarded as an extension of this map to $I^2\times X^4$.
+\item[]<2->This defines a map $S^1\times X^4\to X$. The map $M_4$ can be regarded as an extension of this map to $I^2\times X^4$. %say something about homotopy coherence
 \end{itemize}
 
 \end{frame}
@@ -768,7 +768,7 @@ The $X$-projective $i$-space $XP(i)$ ($i\leq n$) associated with an $A_n$-space 
 $\mathcal{B}_{i+1}$ can be defined even when $\mathfrak{p}_{i+1}$ cannot, since it has the homotopy type of $C\mathcal{E}_i\cup_{\mathfrak{p}_i}\mathcal{B}_i$.
 \end{block}\pause
 \begin{block}{Remark-Proposition}%it is not obvious but it is not proved in the paper
-For $d=1,2,4$, the space $S^{d-1}P(i)$ is respectively the real, complex and quaternionic projective space of $i$ dimenions and the fibration can be identified with the previous construction using the associative multiplication of $S^{d-1}$.
+For $d=1,2,4$, the space $S^{d-1}P(i)$ is respectively the real, complex and quaternionic projective space of $i$ dimensions and the fibration can be identified with the previous construction using the associative multiplication of $S^{d-1}$.
 \end{block}
 \end{frame}
 
@@ -776,7 +776,7 @@ For $d=1,2,4$, the space $S^{d-1}P(i)$ is respectively the real, complex and qua
 \begin{frame}
 \frametitle{Proof of the theorem (only if)}
 \begin{itemize}
-\item<1-> It is sufficient to construct an $A_n$-form $\{M_i\}$ on some space $F$ of the same homotpy type of $X$ for we can then define an $A_N$-form $\{N_i\}$ by 
+\item<1-> It is sufficient to construct an $A_n$-form $\{M_i\}$ on some space $F$ of the same homotpy type of $X$ for we can then define an $A_n$-form $\{N_i\}$ by 
 \[K_i\times X^i\xrightarrow{1\times j^i}K_i\times F^i\xrightarrow{M_i}F\xrightarrow{s}X\]
 where $j:X\to F$ and $s:F\to X$ are homotopy inverses.
 \item<2-> Denote by $E_i\xrightarrow{p_i} B_i$ the maps of the $A_n$-structure from the hypothesis. By the above line and a previous lemma, we may assume that $X\to E_i\xrightarrow{p_i} B_i$ is a fibration.
@@ -861,7 +861,7 @@ For $p=3$, $S^7$ admits an $A_2$-structures (H-space) but not an $A_3$-structure
 \begin{frame}
 \frametitle{Proof (existence of $A_{p-1}$-structures)}
 \begin{itemize}
-\item<1-> Let $Q^p$ be the group of fractions which, in lowest terms, have denominator prime to $p$.
+\item<1-> Let $\Z_{(p)}$ be the group of fractions which, in lowest terms, have denominator prime to $p$. %Q^p in the original, but it is a localization
 \item<2-> Let $X$ be the Moore space with one nonvanishing homology group $Q^p$ in dimension $2n-1$. %For some n I guess
 %\item<3-> $Q^p$ has no $p$-torsion and is divisible by any other prime. %divide the fraction by q, then the denominator is q times the previous denominator, which is also in the group
 \item<3-> $X$ only has nontrivial cohomology groups in dimension $2n-1$.
@@ -894,7 +894,7 @@ For $p=3$, $S^7$ admits an $A_2$-structures (H-space) but not an $A_3$-structure
 \item<1-> Suppose that $X$ admits an $A_p$-structure and let $XP(i)=C\mathcal{E}_i\cup_{\mathfrak{p}_i}\mathcal{B}_i$.
 \item<2-> $H^*(XP(i);\Z/(p))$ would be a polynomial algebra with a generator $u\in H^{2n}(XP(i);\Z/(p))$ with $u^i\neq 0$.
 \item<3-> Choosing $n$ prime to $p(p-1)$, the Adem relations on the Steenrod operations $\mod p$ would imply that $u^p$ must vanish. %i\geq p
-\item<4-> The contradiction implyes that $X$ cannot admit an $A_{p}$-structures.
+\item<4-> The contradiction implies that $X$ cannot admit an $A_{p}$-structures.
 \end{itemize}
 \end{frame}
 
