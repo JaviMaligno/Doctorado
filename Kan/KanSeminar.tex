@@ -178,56 +178,6 @@ In othwer words, there is a homotopy $m(m\times 1)\simeq m(1\times m)$.
 \end{frame}
 
 
-%\begin{frame}
-%\frametitle{Another example}
-%Let $(X,*)$ a pointed topological space and $\Omega X$ the spaces of based loops $f:S^1\to X$.\pause
-%
-%We have a concatenation map $m:\Omega X\times \Omega X\to \Omega X$, where $m(f_1,f_2)=f_1*f_2$ is given by\pause
-%
-%\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-%\clip(-5,-3.) rectangle (5.,2.3);
-%\draw(0.,0.) circle (1.5cm);
-%\draw [->] (1.5,0.) -- (1.475763388700826,0.26855617768030476);
-%\draw [->] (-1.5,0.) -- (-1.4622984077406362,-0.33419061434935543);
-%\draw (-0.3,2.118952883889729) node[anchor=north west] {$f_1$};
-%\draw (-0.3,-1.5566913118092813) node[anchor=north west] {$f_2$};
-%\end{tikzpicture}
-%\end{frame}
-%
-%\begin{frame}
-%\frametitle{Homotopy-associative product}
-%\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-%\clip(-4.175394430564892,-2.5911383046897085) rectangle (7.490400123879831,3.3976612960713135);
-%\draw(0.,2.) circle (1.cm);
-%\draw(0.,-1.) circle (1.cm);
-%\draw (-3.49428016933844,2.311720973491667) node[anchor=north west] {$(f_1*f_2)*f_3$};
-%\draw (-3.496796110195476,-0.6773028846978557) node[anchor=north west] {$f_1*(f_2*f_3)$};
-%\draw (-0.6057688157486263,1.1) node[anchor=north west] {$f_3$};
-%\draw (0.2964512548334696,0.4) node[anchor=north west] {$f_1$};
-%\draw (0.7431133461355,2.9675859207922457) node[anchor=north west] {$f_1$};
-%\draw (-1.3,3.0105934583201526) node[anchor=north west] {$f_2$};
-%\draw (-1.189603612937578,-1.4729423289641315) node[anchor=north west] {$f_2$};
-%\draw (0.7489686163804383,-1.4729423289641315) node[anchor=north west] {$f_3$};
-%\draw (2.,2.)-- (3.,1.);
-%\draw (3.,1.)-- (4.,2.);
-%\draw (3.,2.)-- (2.514225889472578,1.485774110527422);
-%\draw (2.,-1.)-- (3.,-2.);
-%\draw (3.,-2.)-- (4.,-1.);
-%\draw (3.,-1.)-- (3.481998691455241,-1.518001308544759);
-%\draw (1.7811495170502019,2.6342775049509677) node[anchor=north west] {$f_1$};
-%\draw (2.8240823021019423,2.623525620568991) node[anchor=north west] {$f_2$};
-%\draw (3.7487443589519387,2.5912699674230613) node[anchor=north west] {$f_3$};
-%\draw (1.7811495170502019,-0.4085057751484382) node[anchor=north west] {$f_1$};
-%\draw (2.8133304177199654,-0.4085057751484382) node[anchor=north west] {$f_2$};
-%\draw (3.813255665243799,-0.4300095439123916) node[anchor=north west] {$f_3$};
-%\draw [->] (1.,2.) -- (0.9776684310102762,2.2101533701987783);
-%\draw [->] (0.,3.) -- (-0.2228209821222102,2.9748593795651215);
-%\draw [->] (-1.,2.) -- (-0.9818938166599703,1.8105678675490438);
-%\draw [->] (1.,-1.) -- (0.9832067635335799,-0.8175049037869153);
-%\draw [->] (-1.,-1.) -- (-0.9827773938908082,-1.1847933820708718);
-%\draw [->] (0.,-2.) -- (0.1987984337916885,-1.9800403985152712);
-%\end{tikzpicture}
-%\end{frame}
 
 
 \begin{frame}
@@ -258,7 +208,7 @@ The $n$-fold join $X_1\star\cdots\star X_n$ is the space of formal linear combin
 
 \begin{frame}
 \begin{block}{Remark}
-If $G=S^{d-1}$ for $d=1,2,4$ we get the standard fibrations $S^{id-1}\to P^{i-1}$ onto the projective space of dimenion $i-1$.
+If $G=S^{d-1}$ for $d=1,2,4$ we get the standard fibrations $S^{id-1}\to P^{i-1}$ onto the projective space of dimension $i-1$.
 \end{block}\pause
 \begin{block}{Remark}
 This construction does not work for $S^7$ since only the fibrations $S^7\to *$ and $S^{15}\to S^8$ can be constructed.
@@ -280,7 +230,7 @@ B_2\arrow[r, hook]&\cdots\arrow[r, hook]& B_n
 \end{tikzcd}
 \]
 such that $p_{i*}:\pi_q(E_i,X)\to \pi_q(B_i)$ is an isomorphism for all $q$, together with a contracting homotopy $h:CE_{n-1}\to E_n$ such that $h(CE_{i-1})\subset E_i$. %the last condition on the cone is technical, coming from the construction of Dold-Lashof. The indices are different because it is talking about the subspaces. 
-
+%these maps are called quasi-isomorphisms
 \end{defi}
 \end{frame}
 
@@ -397,35 +347,7 @@ $K_4$
 \end{scriptsize}
 \end{tikzpicture}
 \]
-%\[
-%\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
-%\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-%\clip(-3,0) rectangle (6,4.6);
-%\draw(1.,1.) -- (3.,1.) -- (3.618033988749895,2.9021130325903064) -- (2.,4.077683537175253) -- (0.3819660112501053,2.9021130325903073) -- cycle;
-%\draw (1.,1.)-- (3.,1.);
-%\draw (3.,1.)-- (3.618033988749895,2.9021130325903064);
-%\draw (3.618033988749895,2.9021130325903064)-- (2.,4.077683537175253);
-%\draw (2.,4.077683537175253)-- (0.3819660112501053,2.9021130325903073);
-%\draw (0.3819660112501053,2.9021130325903073)-- (1.,1.);
-%\draw (1.3,4.7) node[anchor=north west] {$x_1(x_2(x_3x_4))$};
-%\draw (3.6,3.25) node[anchor=north west] {$x_1((x_2x_3)x_4)$};
-%\draw (3,1.1) node[anchor=north west] {$(x_1(x_2x_3))x_4$};
-%\draw (-0.5,1.1) node[anchor=north west] {$((x_1x_2)x_3)x_4$};
-%\draw (-1.15,3.25) node[anchor=north west] {$(x_1x_2)(x_3x_4)$};
-%\draw (2.8,3.8) node[anchor=north west] {$\delta_2(2,3)$};
-%\draw (3.3333333333336,2.1) node[anchor=north west] {$\delta_2(3,2)$};
-%\draw (1.8,0.8933333333333304) node[anchor=north west] {$\delta_1(2,3)$};
-%\draw (0.15,2.1) node[anchor=north west] {$\delta_1(3,2)$};
-%\draw (0.6,3.8) node[anchor=north west] {$\delta_3(3,2)$};
-%\begin{scriptsize}
-%\draw [fill=black] (1.,1.) circle (2.5pt);
-%\draw [fill=black] (3.,1.) circle (2.5pt);
-%\draw [fill=uuuuuu] (3.618033988749895,2.9021130325903064) circle (2.5pt);
-%\draw [fill=uuuuuu] (2.,4.077683537175253) circle (2.5pt);
-%\draw [fill=uuuuuu] (0.3819660112501053,2.9021130325903073) circle (2.5pt);
-%\end{scriptsize}
-%\end{tikzpicture}
-%\]
+
 \end{frame}
 \begin{frame}
 \frametitle{Associahedra}
@@ -555,7 +477,7 @@ M_i(\delta_k(i-1,2)(\rho,*),x_1,\dots, x_i)=M_{i-1}(\rho,x_1,\dots,x_kx_{k+1},\d
 \begin{frame}
 \begin{itemize}
 \item For $i=4$, consider the five ways of associating a product of four factors. Since $M_2$ is homotopy associative these five products are related by a string of homotopies 
-%\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+
 \[
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 \clip(-1.5,0.5) rectangle (5.2,4.6);
@@ -584,9 +506,7 @@ M_i(\delta_k(i-1,2)(\rho,*),x_1,\dots, x_i)=M_{i-1}(\rho,x_1,\dots,x_kx_{k+1},\d
 \end{scriptsize}
 \end{tikzpicture}
 \]
-%\[
-%x(y(zt))\simeq x((yz)t)\simeq (x(yz))t\simeq ((xy)z)t\simeq (xy)(zt)\simeq x(y(zt))
-%\]
+
 \item[]<2->This defines a map $S^1\times X^4\to X$. The map $M_4$ can be regarded as an extension of this map to $I^2\times X^4$. %say something about homotopy coherence
 \end{itemize}
 
@@ -703,7 +623,7 @@ where $\beta_i$ is defined on $S$ by the same equations but replacing $\alpha$ w
 
 \begin{frame}
 \begin{block}{Remark}
-$\mathcal{B}_1=*$ and $\mathcal{B}_2=SX$ (reduced suspension). %this time there is an explicit description, because quotienting by a point does nothing, so we knw the space automatically
+$\mathcal{B}_1=*$ and $\mathcal{B}_2=SX$ (reduced suspension). %this time there is an explicit description
 The identifications work similarly as the previous case, but in this case the subspace $S\subset K_3\times X$ is identified with a point.
 \end{block}
 \[
@@ -767,7 +687,7 @@ The $X$-projective $i$-space $XP(i)$ ($i\leq n$) associated with an $A_n$-space 
 \begin{block}{Remark}
 $\mathcal{B}_{i+1}$ can be defined even when $\mathfrak{p}_{i+1}$ cannot, since it has the homotopy type of $C\mathcal{E}_i\cup_{\mathfrak{p}_i}\mathcal{B}_i$.
 \end{block}\pause
-\begin{block}{Remark-Proposition}%it is not obvious but it is not proved in the paper
+\begin{block}{Remark-Proposition}%it is not obvious but it is not proved in the paper %it is a consequence of this construction being Milnor construction in particular
 For $d=1,2,4$, the space $S^{d-1}P(i)$ is respectively the real, complex and quaternionic projective space of $i$ dimensions and the fibration can be identified with the previous construction using the associative multiplication of $S^{d-1}$.
 \end{block}
 \end{frame}
@@ -851,6 +771,7 @@ A space $X$ admits a homotopy associative multiplication if and only if there is
 
 \subsection{Existence of $A_p$-spaces}
 \begin{frame}[fragile]
+%now we see that there are examples (apart from the loop spaces)
 \begin{theorem}
 For each prime $p$, there exist spaces which admit $A_{p-1}$-structures but not $A_p$-structures.
 \end{theorem}\pause
@@ -883,7 +804,7 @@ For $p=3$, $S^7$ admits an $A_2$-structures (H-space) but not an $A_3$-structure
 \begin{frame}
 \frametitle{Proof (existence of $A_{p-1}$-structures)}
 \begin{itemize}
-\item<1-> Since $X$ only has nontrivial cohomology groups in dimension $2n-1$, $H^q(X^i;G)=0$ for any $G$ if $q\neq i(2n-1)$.
+\item<1-> Since $X$ only has nontrivial cohomology groups in dimension $2n-1$, $H^q(X^i;G)=0$ for any $G$ if $q\neq i(2n-1)$. %using kunneth formula
 \item<2-> The obstructions lie in trivial groups unless $i(2n-1)+2-i\geq 2pn-2\Leftrightarrow i\geq p$.
 \item<3-> Therefore there is no obstruction to obtaining $A_{p-1}$-forms on $X$.
 \end{itemize}
