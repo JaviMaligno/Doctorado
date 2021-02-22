@@ -119,6 +119,7 @@
 %\end{frame}
 %}
 \section{$A_\infty$-algebras}
+
 \begin{frame}
 \frametitle{$A_\infty$-algebras}
 \begin{defi}
@@ -135,9 +136,9 @@ $$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes 
 \begin{frame}
 \frametitle{Some particular cases}
 \begin{itemize}
-\item<1-> We always have $m_1m_1=0$, so in particular $A$ is a chain complex.
+\item<1-> We always have $m_1m_1=0$, so in particular $A$ is a chain complex.%CAN BE DEFINED ON THE CATEGORY OF CHAIN COMPLEX
 \item<2-> If $m_i=0$ for $i\neq 2$, the relation becomes $m_2(1\otimes m_2)=m_2(m_2\otimes 1)$, so $A$ is an associative algebra.
-\item<3-> If $m_i=0$ for $i\neq 1,2$ we get an extra relation $$m_1m_2=m_2(m_1\otimes 1)+m_2(1\otimes m_2)$$ 
+\item<3-> If $m_i=0$ for $i\neq 1,2$ we get an extra relation $$m_1m_2=m_2(m_1\otimes 1)+m_2(1\otimes m_1)$$ %MONOID IN CHAIN COMPLEX ANALOGUE TO MONOID IN K-VECT
 \item[]<4-> This is the Leibniz rule, and $A$ is a differential graded (dg) algebra.
 \end{itemize}
 \end{frame}
@@ -149,7 +150,7 @@ $$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes 
 \begin{itemize}
 \item<1-> For $n=3$ we have the relation
 \begin{align*}
-&m_2(m_1\otimes 1)-m_2(1\otimes m_2)=\\ %the failure of m_2 to be associative
+&m_2(m_2\otimes 1)-m_2(1\otimes m_2)=\\ %the failure of m_2 to be associative
 &m_1m_3+m_3(m_1\otimes 1\otimes 1)+m_3(1\otimes m_1\otimes 1)+m_3(1\otimes 1\otimes m_1)
 \end{align*}
 \item[]<2-> $m_2$ is homotopy associative with homotopy given by $m_3$. %recall that m1 is a differential so on homology this vanishes
@@ -180,7 +181,7 @@ $$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes 
 \draw (0.2964512548334696,0.4) node[anchor=north west] {$\gamma_1$};
 \draw (0.7431133461355,2.9675859207922457) node[anchor=north west] {$\gamma_1$};
 \draw (-1.3,3.0105934583201526) node[anchor=north west] {$\gamma_2$};
-\draw (-1.189603612937578,-1.4729423289641315) node[anchor=north west] {$\gamma_2$};
+\draw (-1.3,-1.4729423289641315) node[anchor=north west] {$\gamma_2$};
 \draw (0.7489686163804383,-1.4729423289641315) node[anchor=north west] {$\gamma_3$};
 \draw (2.,2.)-- (3.,1.);
 \draw (3.,1.)-- (4.,2.);
@@ -341,20 +342,18 @@ M_n(f_1,\dots, f_n)\coloneqq &m\{f_1,\dots, f_n\} & n>1
 \end{itemize}
 \end{frame}
 
+
+
+
+
 \begin{frame}
-\begin{block}{Remark}
-The operation $[f,g]=f\{g\}-g\{f\}$ is a Lie bracket. 
-\end{block}\pause
 \begin{theorem}[Getzler]
 The maps $M_i$ define an $A_\infty$-algebra structure on the Hochschild complex $C^*(A;A)$.
 \end{theorem}
-
-\end{frame}
-\begin{frame}
 \begin{itemize}
-\item<1-> In particular, when $A$ is associative, $C^*(A;A)$ is associative and $M_2$ coincides with the usual cup product 
+\item<2-> In particular, when $A$ is associative, $C^*(A;A)$ is associative and $M_2$ coincides with the usual cup product 
 \[f\smile g(a_1,\dots,a_{n+m})=f(a_1,\dots, a_n)g(a_{n+1},\dots, a_{n+m}).\]
-\item<2-> In this case the differential $M_1$ takes the form
+\item<3-> In this case the differential $M_1$ takes the form
  \begin{align*}
 	 M_1 f(a_1\otimes\cdots\otimes a_{m+1})&=a_1f(a_2\otimes\cdots\otimes a_{m+1})\\
 	  +\sum_{i=1}^m(-1)^if(a_1\otimes\cdots&\otimes a_{i-1}\otimes a_ia_{i+1}\otimes a_{i+1}\otimes\cdots a_{m+1})\\
@@ -363,7 +362,19 @@ The maps $M_i$ define an $A_\infty$-algebra structure on the Hochschild complex 
 
 \end{itemize}
 \end{frame}
+\begin{frame}
+\frametitle{$A_\infty$-equation in terms of a bracket}
+\begin{itemize}
+\item[]<1->\begin{block}{Remark}
+The operation $[f,g]=f\{g\}-g\{f\}$ is a Lie bracket. %there is a richer structure
+\end{block}
+\item<2-> The equation $m_1m_1=0$ is equivalent to $[m_1,m_1]=0$.
+\item<3-> The Leibniz rule is equivalent is equivalent to $[m_1,m_2]=0$.
+\item<4-> The homotopy associativity equation (case $n=3$) is equivalent to $m_2\{m_2\}=[m_1,m_3]$. In particular associativity is equivalent to $[m_2,m_2]=0$. %it is equivalent to the brace=0 but the bracket is obtained from the brace %not only zero in the homology of A as a chain complex but also in the hochschild cohomology with respect to m1 that I'll mention later
+\item<5-> In general, an $A_\infty$-algebra is equivalent to the condition $[m,m]=0$ where $m=m_1+m_2+\cdots$.
+\end{itemize}
 
+\end{frame}
 \begin{frame}
 %there is a relation between the original structurer and the induced one
 \begin{theorem}[Gerstenhaber-Voronov]

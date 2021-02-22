@@ -1,0 +1,245 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%  EXTENDED ABSTRACT TEMPLATE FOR BYMAT 2020  %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% This is a template for the Proceedings of the 3rd BYMAT Conference.
+% It is based off the template for papers following the style of the TEMat journal (see https://temat.es/).
+% We have tried to explain how to use the most useful commands and to give some examples of use.
+% If you find any errors or have trouble using this template, please contact at bymat@icmat.es
+\documentclass[bibtex,babel-main=english]{TEMat-article}
+
+% You can load any necessary packages here.
+% Please try not to upload packages which are not recommended.
+% Please check that the package is really necessary before loading it, as many usual packages are already loaded.
+
+%% For instance,
+\usepackage{algpseudocode}
+\usepackage{standalone}
+
+\usepackage{pgf,tikz}
+%\usepackage{pgfplots}
+%\usepackage[]{graphicx}
+%\usepackage{tikz-cd}
+\usetikzlibrary{arrows}
+\usepackage{float}
+%% End of the space to load packages.
+
+%%%%%%%%%%% Here begins the file itself.
+
+
+% \title[Short title (optional)]{Paper title}
+% You should add a short title if the normal title exceeds 3/4 of the width of the headers.
+\title[Short title]{Induced $A_\infty$-structures}
+
+% Please, add here as many authors as necessary.
+% Author names should be written as {Surname, Name}.
+% author* is the corresponding author of the paper.
+\author*{Aguilar Martín, Javier}
+\email{ja683@kent.ac.uk}
+\affiliation{University of Kent}
+
+%% Please visit https://zbmath.org/classification/ and choose at least one code which fits your paper:
+\msc{55P48}
+
+\keywords{Hochschild cohomology, $A_\infty$-structure, loop space, associahedra}
+\acknowledgements{I would like to thank my supervisor Constanze Roitzheim and the University of Kent.}
+
+\addbibresource{bib.bib}
+
+\begin{document}
+% The abstract must be the very last thing to appear before starting with the body of the paper.
+\begin{abstract}
+An $A_\infty$-algebra $A$ is a module over a ring equipped with a family of ``multiplications'' $m_i:A^{\otimes i}\to A$ satisfying the relation
+
+\[\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes s})=0\]
+for all possible values of $n$. When $m_i=0$ for $i\neq 2$, this relation tells us that $A$ is an ordinary associative algebra with multiplication $m_2$.%$m_2$ is an associative product, so associative algebras are a particular case of $A_\infty$-algebras.
+%$A$ is an associative algebra with multiplication $m_2$. Similarly, a chain complex is an $A_\infty$-algebra with $m_i=0$ for $i\neq 1$ and a differential graded algebra is an $A_\infty$-algebra with $m_i=0$ for $i\neq 1,2$.
+
+%While the above relation looks quite random, it in fact has strong geometric roots. For a pointed space $X$, its loop space $\Omega X$ \emph{almost} has a multiplication $\Omega X\times \Omega X\to \Omega X$ given by the concatenation of loops, but this map is only associative \emph{up to homotopy}. This situation is similar to what happens to $m_2$ in an $A_\infty$-algebra. More specifically, the singular chain complex of a loop space is an $A_\infty$-algebra.
+
+%For an $A_\infty$-algebra $A$, we consider its Hochschild complex given by the modules $C^n(A,A)=\hom(A^{\otimes n},A)$ and induce an $A_\infty$-algebra structure on it from the one in $A$. To do this, we study these structures from the perspective of algebraic operads, i.e. the study of algebraic structures given by $n$-ary operations.
+We will present how this structure naturally arises in algebra and topology and discuss some examples. %We will do this from the perspective of algebraic operads, i.e. the study of algebraic structures given by $n$-ary operations.
+\end{abstract}
+
+\begin{abstract}[spanish]
+Un $A_\infty$-álgebra $A$ es un módulo sobre un anillo equipado con una familia de ``multiplicaciones'' $m_i:A^{\otimes i}\to A$ satisfaciendo la relación
+
+\[\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes s})=0\]
+para todos los posibles valores de $n$. Cuando $m_i=0$ para todo $i\neq 2$, esta relación nos dice que $A$ es un álgebra asociativa con multiplicación $m_2$. 
+
+Presentaremos cómo esta estructura surge de forma natural en topología y en álgebra, y veremos algunos ejemplos.
+\end{abstract}
+
+\maketitle % To generate the cover page with all the information previously filled.
+
+\section{$A_\infty$-algebras}
+
+In this section we will define $A_\infty$-algebras, explain their origin and how they generalize associative algebras, and provide some examples.
+
+\begin{definition}
+An $A_\infty$-\emph{algebra} $A$ is a graded module over a ring $k$ equipped with a family of multiplication maps $m_i:A^{\otimes i}\to A$ of degree $2-i$ satisfying for all $n\geq 1$ the relation
+
+\begin{equation}\label{equation}
+\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes s})=0.
+\end{equation} %we are composing every map with itself
+\end{definition}
+
+Let us look at some particular cases of the above relation to recover some well-known algebraic structures.
+\begin{itemize}
+\item The relation implies $m_1m_1=0$, meaning that an $A_\infty$-algebra is in particular a cochain complex with differential $m_1$. Thus, we can define $A_\infty$-algebras on the category of cochain complexes, and the relations involving $m_1$ will be a consequence of $m_i$ being a map of complexes.
+
+\item The relation also implies the Leibniz rule
+\[m_1m_2=m_2(m_1\otimes 1)+m_2(1\otimes m_1),\]
+so $A_\infty$-also generalize differential graded algebras (also known as dg algebras).
+\item When $m_i=0$ for $i\neq 2$ we obtain the associativity relation \[m_2(m_2\otimes 1)=m_2(1\otimes m_2). \]
+This means that associative algebras are particular instances of $A_\infty$-algebras.
+\item In general, for $n=3$ the relation becomes
+\[m_2(m_2\otimes 1)-m_2(1\otimes m_2)=m_1m_3+m_3(m_1\otimes 1\otimes 1)+m_3(1\otimes m_1\otimes 1)+m_3(1\otimes 1\otimes m_1).\]
+
+This relation implies that $m_2$ is only associative up to a homotopy given by $m_3$, i.e. $m_2$ becomes associative in cohomology with respect to $m_1$. In this situation we say that $m_2$ is \emph{homotopy associative}.
+\end{itemize}
+
+If we look at the higher relations we will see a similar pattern in which each $m_i$ is a homotopy that measures the failure of other relations involving lower maps to hold. Therefore, the $A_\infty$ equation (\ref{equation}) is a homotopy coherent extension of the fact that $m_2$ is homotopy associative.
+
+\subsection{Origin of $A_\infty$-algebras}
+
+Even though the $A_\infty$ equation (\ref{equation}) seems quite arbitrary, it has some topological roots, so let us see where $A_\infty$-algebras come from.
+
+Let $(X,*)$ be a pointed topological space and let $S^1=[0,1]/\{0\sim 1\}$ be the unit circle defined as a quotient of the unit interval with $1$ as a base point. Define the \emph{loop space} of $X$ as the space of based loops \[\Omega X =\{\gamma:S^1\to X\mid \gamma(1)=*\}.\] In other words, this is the space of maps from the circle that respect base points. The space $\Omega X$ comes equipped with a multiplication map $*:\Omega X\times\Omega X\to \Omega X$ given by concatenation of loops
+
+%, more precisely, given two loops $\gamma_1,\gamma_2\in\Omega X$, their concatenation $\gamma_1*\gamma_2:S^1\to X$ is defined by
+%\[
+%\gamma_1*\gamma_2(t)=\begin{cases}
+%\gamma_1(2t) & 0\leq t\leq 1/2,\\
+%\gamma_2(2t-1)& 1/2\leq t\leq 1.
+%\end{cases}
+%\]
+%Notice that this operation is well defined because $0=1$ in $S^1$. 
+
+The operation $\gamma_1*\gamma_2$ for $\gamma_1,\gamma_2\in\Omega X$ can be interpreted as running through $\gamma_1$ twice as fast on the first half of the circle and then running through $\gamma_2$ twice as fast on the second half. We can see that this operation is not associative by looking at Figure \ref{concatenation}.
+
+\begin{figure}[h!]
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-7.5,-2.5911383046897085) rectangle (4.490400123879831,3.3976612960713135);
+\draw(0.,2.) circle (1.cm);
+\draw(0.,-1.) circle (1.cm);
+\draw (-3.49428016933844,2.311720973491667) node[anchor=north west] {$(\gamma_1*\gamma_2)*\gamma_3$};
+\draw (-3.496796110195476,-0.6773028846978557) node[anchor=north west] {$\gamma_1*(\gamma_2*\gamma_3)$};
+\draw (-0.6057688157486263,1.1) node[anchor=north west] {$\gamma_3$};
+\draw (0.2964512548334696,0.4) node[anchor=north west] {$\gamma_1$};
+\draw (0.7431133461355,2.9675859207922457) node[anchor=north west] {$\gamma_1$};
+\draw (-1.3,3.0105934583201526) node[anchor=north west] {$\gamma_2$};
+\draw (-1.3,-1.4729423289641315) node[anchor=north west] {$\gamma_2$};
+\draw (0.7489686163804383,-1.4729423289641315) node[anchor=north west] {$\gamma_3$};
+\draw (2.,2.)-- (3.,1.);
+\draw (3.,1.)-- (4.,2.);
+\draw (3.,2.)-- (2.514225889472578,1.485774110527422);
+\draw (2.,-1.)-- (3.,-2.);
+\draw (3.,-2.)-- (4.,-1.);
+\draw (3.,-1.)-- (3.481998691455241,-1.518001308544759);
+\draw (1.7811495170502019,2.6342775049509677) node[anchor=north west] {$\gamma_1$};
+\draw (2.8240823021019423,2.623525620568991) node[anchor=north west] {$\gamma_2$};
+\draw (3.7487443589519387,2.5912699674230613) node[anchor=north west] {$\gamma_3$};
+\draw (1.7811495170502019,-0.4085057751484382) node[anchor=north west] {$\gamma_1$};
+\draw (2.8133304177199654,-0.4085057751484382) node[anchor=north west] {$\gamma_2$};
+\draw (3.813255665243799,-0.4300095439123916) node[anchor=north west] {$\gamma_3$};
+\draw [->] (1.,2.) -- (0.9776684310102762,2.2101533701987783);
+\draw [->] (0.,3.) -- (-0.2228209821222102,2.9748593795651215);
+\draw [->] (-1.,2.) -- (-0.9818938166599703,1.8105678675490438);
+\draw [->] (1.,-1.) -- (0.9832067635335799,-0.8175049037869153);
+\draw [->] (-1.,-1.) -- (-0.9827773938908082,-1.1847933820708718);
+\draw [->] (0.,-2.) -- (0.1987984337916885,-1.9800403985152712);
+\end{tikzpicture}
+\caption{Two ways of concatenating three loops.}\label{concatenation}
+\end{figure}
+
+On the top of the picture we see the concatenation $(\gamma_1*\gamma_2)*\gamma_3$, wich is clearly different from $\gamma_1*(\gamma_2*\gamma_3)$ below. However, the difference is just about the speed of each loop, so there is a homotopy between these two resulting loops given by a reparametrization. On the right of the picture we see these concatenation represented as trees. In this representation the homotopy is given by sliding one branch through the tree. 
+
+If we concatenate four loops we get Figure \ref{coherent}.
+
+\begin{figure}[H]
+\definecolor{dcrutc}{rgb}{0.39215686274509803,0.39215686274509803,0.39215686274509803}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-7,-1.781126972201351) rectangle (5.063801652892563,3.6734184823441027);
+\fill[color=dcrutc,fill=dcrutc,fill opacity=0.10000000149011612] (2.5,2.5) -- (0.5,2.5) -- (-0.1180339887498949,0.5978869674096935) -- (1.5,-0.5776835371752531) -- (3.118033988749895,0.5978869674096927) -- cycle;
+\draw (2.5,2.5)-- (0.5,2.5);
+\draw (0.5,2.5)-- (-0.1180339887498949,0.5978869674096935);
+\draw (-0.1180339887498949,0.5978869674096935)-- (1.5,-0.5776835371752531);
+\draw (1.5,-0.5776835371752531)-- (3.118033988749895,0.5978869674096927);
+\draw (3.118033988749895,0.5978869674096927)-- (2.5,2.5);
+\draw (-0.4298121712997737,3.113688955672426)-- (0.16372652141247268,2.6629000751314793);
+\draw (0.16372652141247268,2.6629000751314793)-- (0.6445679939894825,3.196333583771599);
+\draw (-0.24422955190381973,2.9727401308147394)-- (-0.1367993989481584,3.113688955672426);
+\draw (-0.031385527253731726,2.8110864412070775)-- (0.17123966942148847,3.10617580766341);
+\draw (-1.2938241923365879,0.8973102930127725)-- (-0.6627197595792627,0.4314951164537945);
+\draw (-0.6627197595792627,0.4314951164537945)-- (-0.16685199098422132,0.9649286250939145);
+\draw (-0.8706947249429613,0.5850004480317625)-- (-0.5049436513899312,0.9799549211119465);
+\draw (-0.6957015377932548,0.7739659686300595)-- (-0.9106536438767833,0.9799549211119465);
+\draw (0.869962434259956,-0.8908189331329814)-- (1.516093163035313,-1.3791735537190069);
+\draw (1.516093163035313,-1.3791735537190069)-- (2.0645529676934644,-0.8532531930879026);
+\draw (1.699788860636136,-1.203026994375752)-- (1.1930277986476345,-0.838226897069871);
+\draw (1.4723143911047147,-1.0392758405399645)-- (1.6888955672426758,-0.838226897069871);
+\draw (3.2516303531179576,0.8522314049586783)-- (3.8151164537941407,0.2737190082644637);
+\draw (3.8151164537941407,0.2737190082644637)-- (4.416168294515403,0.8221788129226153);
+\draw (4.236244854403876,0.6579986738208468)-- (4.055537190082646,0.8372051089406468);
+\draw (4.037275969199595,0.47643956607194105)-- (3.634800901577762,0.86725770097671);
+\draw (2.2373553719008274,3.1437415477084896)-- (2.7783020285499633,2.5802554470323065);
+\draw (2.7783020285499633,2.5802554470323065)-- (3.37184072126221,3.1136889556724268);
+\draw (2.4140676158297834,2.959666293615827)-- (2.590473328324569,3.136228399699474);
+\draw (3.189075837510895,2.949431908250359)-- (3.0112096168294524,3.1212021036814424);
+\draw [->] (0.8624492862509402,2.880781367392938) -- (1.9894214876033067,2.8657550713749065);
+\draw [->] (3.168985725018784,2.5351765589782125) -- (3.612261457550715,1.1903230653643886);
+\draw [->] (-0.12928625093914242,2.647873779113449) -- (-0.6101277235161522,1.3180465815176567);
+\draw [->] (-0.29457550713748953,0.12345604808414862) -- (0.6370548459804668,-0.78563486100676);
+\draw [->] (2.395131480090159,-0.755582268970697) -- (3.37184072126221,0.1535086401202117);
+\end{tikzpicture}
+\caption{Five ways of concatenating four loops.}\label{coherent}
+\end{figure}
+
+In this case we can see that there are two paths of homotopies from one extreme to the other. These paths can be connected by a higher homotopy which allow us to fill the interior of the pentagon. Each point of the filled pentagon corresponds to an intermediate slide of branches. This situation can be extended for any amount of loops. The pictures that we get describe a family of polytopes called \emph{Stasheff associahedra}, since they were first defined by Stasheff in 1963 \citep{Stasheff}.
+
+In this situation we say that the concatenation map is \emph{homotopy coherent}, since the homotopies are connected by higher homotopies. This shows that $\Omega X$ is an example of an $A_\infty$-\emph{space} (see \cite{Stasheff} for a precise definition of $A_n$-space, an $A_\infty$-space is a space satisfying the $A_n$-space definition for all $n$.)
+
+The connection between $A_\infty$-spaces and $A_\infty$-algebras is given by the following theorem.
+
+\begin{theorem}\cite[Proposition~9.2.8]{loday}
+The cellular chains of an $A_\infty$-space have a structure of $A_\infty$-algebra.
+\end{theorem}
+
+\section{Hochschild complex of an $A_\infty$-algebra}
+We have seen how a topological $A_\infty$-structure induces an algebraic $A_\infty$-structure. Now, we are going to see how to define further algebraic $A_\infty$-structures from an $A_\infty$-algebra.
+
+\begin{definition}
+	The \emph{Hochschild complex} $C^*(A)$ of a $k$-module $A$ is given by the modules $C^m(A)=\hom_k(A^{\otimes m}, A)$, where $C^0(A)=A$.
+	\end{definition}
+	
+	For an $A_\infty$-algebra $A$, we are going to endow $C^*(A)$ with a differential and higher $A_\infty$-maps. But for that we need to define a new algebraic structure on this complex. 
+	
+Given $f,g_1,\dots, g_n\in C^*(A)$, define the \emph{brace} $f\{g_1,\dots, g_n\}$ as
+\[\sum_{k_0+\cdots+k_n=N-n}(-1)^\eta f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes 1^{\otimes k_{n-1}}\otimes g_n\otimes 1^{\otimes k_n}),\]
+where $N$ is the arity of $f$ and $\eta$ comes from iterated shifts as done in the Appendix of \cite{R-W}. %By convention, $f\{\}=f$.
+
+Let $A$ be an $A_\infty$-algebra and let $m=m_1+m_2+\cdots$.  Define maps $M_i:C^*(A;A)^{\otimes n}\to C^*(A;A)$ by
+\begin{align*}
+&M_1(f)\coloneqq m\{f\}-(-1)^{\deg(f)}f\{m\}\\ %this is indeed a Lie bracket
+&M_n(f_1,\dots, f_n)\coloneqq (-1)^{\sum_{i=1}^n (n-i)\deg(f_i)}m\{f_1,\dots, f_n\} & n>1
+\end{align*}
+
+\begin{theorem}
+The above defined maps $M_i$ define and $A_\infty$-algebra structure on the Hochschild complex $C^*(A)$ of an $A_\infty$-algebra $A$.
+\end{theorem}
+
+A proof of the theorem up to signs can be found in Getzler's paper \cite{getzler}.
+In particular, when $A$ is an associative algebra, we obtain the classical Hochschild complex with an induced associative multiplication \cite{gerstenhaber}.
+
+The original $A_\infty$-structure given by $m$ and the induced $A_\infty$-structure on $C^*(A)$ are related by the following theorem.
+\begin{theorem}
+The map $\Phi:A\to C^*(A;A)$ defined by \[\Phi(x)=\sum_{n\geq 0} x\{x_1,\dots, x_n\}\]
+is a map of $A_\infty$-algebras, i.e. it satisfies $\Phi(M_n)=M_n(\Phi^{\otimes n})$ for all $n$.
+\end{theorem}
+
+The original statement of the theorem without proof can be found in the paper by Gerstenhaber and Voronov \cite{G-V}.
+%\nocite{*}
+\printbibliography[heading=bibintoc]
+
+\end{document}
