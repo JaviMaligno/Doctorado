@@ -62,7 +62,7 @@
 
 %-----------------------------------------------------------
 
-\title{The Deligne Conjecture}
+\title{$A_\infty$-algebras in an operadic context}
 \author{Javier Aguilar Mart\'in}
 \institute{University of Kent}
 \date{}
@@ -144,15 +144,6 @@
 
 
 
-\begin{frame}
-BOLD SOME WORDS 
-
-
-
-
-
-\end{frame}
-
 \section{Background}
 
 \begin{frame}
@@ -169,7 +160,7 @@ BOLD SOME WORDS
 \frametitle{Topology background}
 \begin{itemize}
 \item<1-> Topological spaces and continuous maps. %think of R^n or surfaces
-\item<2-> Homotopy: a \textbf{homotopy} between two maps $f,g:X\to Y$ is a continuous family of maps $h_t:X\to Y$ for $t\in[0,1]$ such that $h_0=f$ and $h_1=g$. We write $f\simeq g$. %maybe add some picture, one map is transformed onto the other
+\item<2-> Homotopy: a \textbf{homotopy} between two maps $f,g:X\to Y$ is a continuous family of maps $h_s:X\to Y$ for $s\in[0,1]$ such that $h_0=f$ and $h_1=g$. We write $f\simeq g$. %maybe add some picture, one map is transformed onto the other
 
 \end{itemize}
 \end{frame}
@@ -345,12 +336,53 @@ We have a concatenation map $m:\Omega X\times \Omega X\to \Omega X$, where $m(f_
 \end{frame}
 
 \begin{frame}
-INTUITION BEHIND HOMOLOGY MAYBE, ABOUT MEASURING HOLES AND USING TRIANGULATIONS, SHOW THAT A HOLE HAS BOUNDARY 0 AND IT IS NOT THE BOUNDARY OF ANYTHING, THE MAP D IS A BOUNDARY MAP
+\frametitle{Intuition behind homology}
+\begin{itemize}
+\item<1-> The dimension of $H_0(X)$ is the number of connected components of $X$. %whole pieces of the space
+\item<2-> $H_n(X)$ ($n\geq 1$) measures $n$-dimensional ``holes'' or ``cavities''.
+\item<3-> For example, $\dim H_0(S^2)=1$ because it is connected and $\dim H_2(S^2)=1$ because there is a 2-dimensional cavity. %hollow sphere
+\item[]<4-> $\dim H_n(S^2)=0$ for all $n\neq 0,2$ %there are no other holes or cavities
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{How to detect holes}
+\begin{itemize}
+\item<1-> $d$ acts as a boundary operator %holes are things that look like boundaries but are not because they are not filled
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-0.1,-0.18) rectangle (12,3);
+\fill[fill=black,fill opacity=0.10000000149011612] (0.,0.) -- (3.,0.) -- (1.5,2.5980762113533165) -- cycle;
+\draw(5.,0.) -- (8.,0.) -- (6.5,2.5980762113533165) -- cycle;
+\draw (0.,0.)-- (3.,0.);
+\draw (3.,0.)-- (1.5,2.5980762113533165);
+\draw (1.5,2.5980762113533165)-- (0.,0.);
+\draw (5.,0.)-- (8.,0.);
+\draw (8.,0.)-- (6.5,2.5980762113533165);
+\draw (6.5,2.5980762113533165)-- (5.,0.);
+\draw [->] (3.,1.) -- (5.,1.);
+\draw [->] (8.,1.) -- (10.,1.);
+\draw (3.8,1.7) node[anchor=north west] {$d$};
+\draw (8.736875000000042,1.7) node[anchor=north west] {$d$};
+\draw (10.25,1.31250000000047) node[anchor=north west] {\Large{$0$}};
+%\begin{scriptsize}
+%\draw [fill=black] (0.,0.) circle (1.5pt);
+%\draw [fill=black] (3.,0.) circle (1.5pt);
+%\draw [fill=uuuuuu] (1.5,2.5980762113533165) circle (1.5pt);
+%\draw [fill=black] (5.,0.) circle (1.5pt);
+%\draw [fill=black] (8.,0.) circle (1.5pt);
+%\draw [fill=uuuuuu] (6.5,2.5980762113533165) circle (2.5pt);
+%\end{scriptsize}
+\end{tikzpicture}
+  \item<2-> Since the hollow triangle is the boundary of a filled triangle, it becomes 0 in homology.
+  \item<3-> If we only had the hollow triangle it would be a generator of homology.
+\end{itemize}
+
 \end{frame}
 \section{$A_\infty$-algebras}
 \begin{frame}
+\frametitle{Back to $A_\infty$-spaces}
 \begin{itemize}
-\item<1-> The maps $M_i:K_i\times X^i\to X$ induce maps $C_*(X)^{\otimes i}\to C_*(X)$.
+\item<1-> The maps $M_i:K_i\times X^i\to X$ induce maps $C_*(X)^{\otimes i}\to C_*(X)$. %esentially the induced map on chains but with extra steps
 
 \item<2-> The relations that satisfy the map $M_i$ induce the relations of what we call an $A_\infty$-algebra.
 \end{itemize}
@@ -426,7 +458,7 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 \begin{frame}
 \frametitle{Operads}
 	\begin{itemize}
-			\item<1-> An \textbf{operad} can be intuitively thought as a collection of spaces  $\CC=\{\CC(n)\}_{n\geq 0}$, whose points are thought to be $n$-ary operations $X^n\to X$. %decir que pueden ser (topological spaces, vector spaces, other objects) siempre que los axiomas tengan sentido, es decir, comentar que esto se puede hacer en cualquier categoría monoidal simétrica diciendo por encima lo que es: producto, unidad y axiomas. Poner algo de todos modos en alguna diapositiva
+			\item<1-> An \textbf{operad} can be intuitively thought as a collection of spaces  $\mathcal{O}=\{\mathcal{O}(n)\}_{n\geq 0}$, whose points are thought to be $n$-ary operations $X^n\to X$. %decir que pueden ser (topological spaces, vector spaces, other objects) siempre que los axiomas tengan sentido, es decir, comentar que esto se puede hacer en cualquier categoría monoidal simétrica diciendo por encima lo que es: producto, unidad y axiomas. Poner algo de todos modos en alguna diapositiva
 			\item<2-> We represent $n$-ary operations as trees with the following shape
 			\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 			\clip(-2.13333333333334,-0.093333333333332) rectangle (12.006666666666668,3.5);
@@ -465,7 +497,7 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 
 \begin{frame}
 	\begin{itemize}
-		\item There are \textbf{composition maps} $\gamma : \CC(n) \times \CC(j_1) \times \cdots \times \CC(j_n) \to \CC(\sum_s j_s)$
+		\item There are \textbf{composition maps} $\gamma : \mathcal{O}(n) \times \mathcal{O}(j_1) \times \cdots \times \mathcal{O}(j_n) \to \mathcal{O}(\sum_s j_s)$
 		
 		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 		\clip(-0.7355555555555552,-0.3222222222222197) rectangle (9.486666666666668,4.);
@@ -592,7 +624,7 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 		\begin{itemize}
 			\item<1->   $f\circ 1_\mathcal{O}=1_{\mathcal{O}'}$.
 			\item<2->  $f\circ \gamma_\mathcal{O}=\gamma_{\mathcal{O}'}\circ (f\times\cdots\times f)$.
-			\item<3->   $f(x\sigma)=f(x)\sigma$ for $x\in\CC(n)$ and $\sigma\in\Sigma_n$.
+			\item<3->   $f(x\sigma)=f(x)\sigma$ for $x\in\mathcal{O}(n)$ and $\sigma\in\Sigma_n$.
 		\end{itemize}
 	\end{defi}
 	
@@ -616,7 +648,7 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 	\frametitle{Endomorphism operad}
 	%SI LA CATEGORÍA ES LO BASTANTE BUENA (CLOSED) TENEMOS LO SIGUIENTE, POR COMODIDAD LO DEFINIMOS EN ESTA CATEGORÍA
 	\begin{defi}
-		Let $V$ be a vector space. The \textbf{endomorphism operad} $\xi_V = \{ \xi_V(n) \}_{n\geq 0}$ of $V$ consists of
+		Let $V$ be a vector space. The \textbf{endomorphism operad} $End_V = \{ \xi_V(n) \}_{n\geq 0}$ of $V$ consists of
 		\begin{itemize}
 			\item<1-> $\xi_V(n)=\hom(V^{\otimes n},V)
 			$ the space of linear maps $V^{\otimes n} \to V$.
@@ -630,8 +662,8 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 \begin{frame}
 \begin{itemize}
 \item<1->
-If $\mathcal{O}$ is another operad, each operad morphism $\mathcal{O} \to \xi_V$ is called an \textbf{algebra over} $\mathcal{O}$. 
-\item<2->Equivalently, a $\mathcal{O}$-algebra is given by a sequence of maps $\CC(n)\otimes V^{\otimes n}\to V$.
+If $\mathcal{O}$ is another operad, each operad morphism $\mathcal{O} \to End_V$ is called an \textbf{algebra over} $\mathcal{O}$. 
+\item<2->Equivalently, a $\mathcal{O}$-algebra is given by a sequence of maps $\mathcal{O}(n)\otimes V^{\otimes n}\to V$.
 \item<3-> This is a realization of the operad as a space of operations.
 \end{itemize}
 \end{frame}
@@ -748,8 +780,8 @@ $$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0$$
 \item<2-> Consider the sign action of the permutation group on $e$:
 \[(i\ i+1)\cdot e^n=e_l\land\cdots\land e_{i+1}\land e_i\land\cdots\land e_n=-e^n\]
 \item<3-> Define insertion maps $\circ_i:\Lambda(n)\otimes\Lambda(m)\to\Lambda(n+m-1)$ as
-\[(e_1\land\cdots\land e_n)\otimes(e_1\land\cdots\land e_m)\mapsto  (-1)^{(n-i)(m-1)}e_1\land\cdots\land e_{n+m-1}\]
-\item[]<4-> \[e^n\circ_i e^m= (-1)^{(n-i)(m-1)}e^{m+n-1}\]
+\[(e_1\land\cdots\land e_n)\otimes(e_1\land\cdots\land e_m)\mapsto  (-1)^{(n-i)(1-m)}e_1\land\cdots\land e_{n+m-1}\]
+\item[]<4-> \[e^n\circ_i e^m= (-1)^{(n-i)(1-m)}e^{m+n-1}\]
 \end{itemize}
 \end{frame}
 
@@ -778,7 +810,7 @@ $$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0$$
 \begin{itemize}
 \item<1-> The isomorphism $\Lambda(n)\otimes \mathcal{O}(m)\cong \mathcal{O}(m)\otimes \Lambda(n)$ is given by $x\otimes y\mapsto (-1)^{(1-n)\deg(y)}y\otimes x$.
 \item<2-> If we add the sign of the insertion in $\Lambda$ we get for $a\in\mathcal{O}(n)$ and $b\in\mathcal{O}(m)$
-\[a\tilde{\circ}_ib=(-1)^{(1-n)\deg(b)+(n-i)(m-1)}a\circ_i b.\]
+\[a\tilde{\circ}_ib=(-1)^{(1-n)\deg(b)+(n-i)(1-m)}a\circ_i b.\]
 \item<3-> Let $m_{r+1+t}$ of arity $r+1+t$ and degree $r+t-1$ and let $m_s$ be of arity $s$ and degree $s-2$. %A_\infty-maps
 \item<4-> The above formula gives 
 \[m_{r+1+t}\tilde{\circ}_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s\]
@@ -790,14 +822,18 @@ $$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0$$
 \begin{itemize}
 \item<1-> This simplifies the equation to
 \[\sum_{r+s+t=n}m_{r+1+t}\tilde{\circ}_{r+1}m_s=0\] %but we can simplify it even more
-\item<2-> Let $a\tilde{\circ}b=\sum_{i}=a\tilde{\circ}_ib$ and let $m=m_1+m_2+\cdots$. The equation becomes just
+\item<2-> Let $a\tilde{\circ}b=\sum_{i}a\tilde{\circ}_ib$ and let $m=m_1+m_2+\cdots$. The equation becomes just
 \item[]<3-> \[m\tilde{\circ}m=0.\]
 \item<4-> In addition, $m_i$ becomes of degree $-1$ in the operadic suspension for all $i$ $\Rightarrow$
 \item[]<5-> We can define an $A_\infty$-structure as an element $m\in\mathfrak{s}\mathcal{O}$ of degree $-1$ such that $m\tilde{\circ}m=0$. 
 \end{itemize}
 \end{frame}
 \begin{frame}
-MAYBE THE THEOREM RELATING OPERADIC SUSPENSION AND ORDINARY SUSPENSION
+\frametitle{Relation between suspension and operadic suspension}
+\begin{theorem}[Markl]
+There is an isomorphism of operads
+\[End_{\Sigma V}\cong \mathfrak{s}End_V\]
+\end{theorem}
 \end{frame}
 \subsection{Algebraic structures on operads}
 \begin{frame}
@@ -818,20 +854,20 @@ is a Lie bracket.
 \end{itemize}
 \end{frame}
 
-
-\begin{frame}
-	\frametitle{Hochschild cohomology and cup product}
-	\begin{defi}
-		The $m$-th \textbf{Hochschild cohomology} of $A$ is defined to be $H^m(A;A)=\ker\delta_m/\im\delta_{m-1}$.
-		\end{defi}\pause
-		
-		For $f\in C^n(A;A)$ and $g\in C^m(A;A)$ define
-		
-		 $(f\smile g)(a_1\otimes\cdots\otimes a_n\otimes b_1\otimes\cdots\otimes b_m)=f(a_1\otimes\cdots\otimes a_n)g(b_1\otimes\cdots\otimes b_m)$\pause
-	\begin{teorema}
-		$\{H^*(A,A),\smile\}$ is a graded commutative algebra, with grading given by dimension, i.e., if $\eta\in H^m(A,A)$ and $\xi\in H^n(A,A)$, then $\eta\smile \xi =(-1)^{mn}\xi\smile \eta$.
-	\end{teorema} 
-\end{frame}
+%
+%\begin{frame}
+%	\frametitle{Hochschild cohomology and cup product}
+%	\begin{defi}
+%		The $m$-th \textbf{Hochschild cohomology} of $A$ is defined to be $H^m(A;A)=\ker\delta_m/\im\delta_{m-1}$.
+%		\end{defi}\pause
+%		
+%		For $f\in C^n(A;A)$ and $g\in C^m(A;A)$ define
+%		
+%		 $(f\smile g)(a_1\otimes\cdots\otimes a_n\otimes b_1\otimes\cdots\otimes b_m)=f(a_1\otimes\cdots\otimes a_n)g(b_1\otimes\cdots\otimes b_m)$\pause
+%	\begin{teorema}
+%		$\{H^*(A,A),\smile\}$ is a graded commutative algebra, with grading given by dimension, i.e., if $\eta\in H^m(A,A)$ and $\xi\in H^n(A,A)$, then $\eta\smile \xi =(-1)^{mn}\xi\smile \eta$.
+%	\end{teorema} 
+%\end{frame}
 
 %\begin{frame}
 %	\frametitle{Cup product}
@@ -848,20 +884,20 @@ is a Lie bracket.
 %
 %\end{frame}
 
-\begin{frame}
-\frametitle{Lie bracket}
-First, for $f\in C^m(A;A)$ and $g\in C^n(A;A)$ set
-
-$$
-f\circ_i g=f(1\otimes\cdots \otimes 1\otimes \underbrace{g}_{i-th}\otimes 1\otimes \cdots\otimes 1)\in C^{n+m-1}(A;A)
-$$
-\pause 
-Now set
-\[
-f\circ g=\sum_{i=0}^m (-1)^{ni}f\circ_i g.
-\]\pause
-Then the bracket is defined by $$[f,g]=f\circ g-(-1)^{(n-1)(m-1)}g\circ f$$
-\end{frame}
+%\begin{frame}
+%\frametitle{Lie bracket}
+%First, for $f\in C^m(A;A)$ and $g\in C^n(A;A)$ set
+%
+%$$
+%f\circ_i g=f(1\otimes\cdots \otimes 1\otimes \underbrace{g}_{i-th}\otimes 1\otimes \cdots\otimes 1)\in C^{n+m-1}(A;A)
+%$$
+%\pause 
+%Now set
+%\[
+%f\circ g=\sum_{i=0}^m (-1)^{ni}f\circ_i g.
+%\]\pause
+%Then the bracket is defined by $$[f,g]=f\circ g-(-1)^{(n-1)(m-1)}g\circ f$$
+%\end{frame}
 
 %\begin{frame}
 %	\frametitle{The Hochschild cohomology is a Gerstenhaber algebra}
@@ -917,13 +953,13 @@ Then the bracket is defined by $$[f,g]=f\circ g-(-1)^{(n-1)(m-1)}g\circ f$$
 %\begin{frame}
 %	\begin{block}{}
 %	\begin{itemize}
-%	\item An identity element $1 \in \CC(1)$ such that 
-%	$\gamma(1; d) = d$ for $d \in \CC(j)$ and 
+%	\item An identity element $1 \in \mathcal{O}(1)$ such that 
+%	$\gamma(1; d) = d$ for $d \in \mathcal{O}(j)$ and 
 %	$\gamma(c; 1,\dots,1) = c$ for
-%	$c \in \CC(k)$.
+%	$c \in \mathcal{O}(k)$.
 %	
-%	\item A right action of the symmetric group $\Sigma_j$ on $\CC(j)$ such that the following equivariance
-%	formulas are satisfied for all $c\in \CC(k)$, $d_s \in \CC(j_s)$, $\sigma\in\Sigma_k$, and $\tau_s\in\Sigma_{j_s}$:
+%	\item A right action of the symmetric group $\Sigma_j$ on $\mathcal{O}(j)$ such that the following equivariance
+%	formulas are satisfied for all $c\in \mathcal{O}(k)$, $d_s \in \mathcal{O}(j_s)$, $\sigma\in\Sigma_k$, and $\tau_s\in\Sigma_{j_s}$:
 %	\[
 %	\gamma(c\sigma; d_1, \dots , d_k) = 
 %	\gamma(c; d_{\sigma^{-1}(1)}, \dots , d_{\sigma^{-1}(k)})\sigma(j_1, \dots , j_k)

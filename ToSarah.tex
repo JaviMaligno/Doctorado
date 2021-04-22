@@ -46,7 +46,7 @@ Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the 
 In a similar way we can define $\Lambda^-(n)=S^{1-n}sig_n$, with the same insertion maps.
 %The sign might arise naturally from the permutation action. If I have the wedge of n wedge the wedge of m-1 (because the final result must be n+m-1 in total), I would permute the last m-1 until the reach the i-th position via transpositions, each transpotision produces a minus sign. Or simply considering the lat m as a single element of degree m-1 being permuted in the wedge
 \begin{definition}
-Let $\mathcal{O}$ be a graded linear operad, i.e. an operad on the category of graded $R$-modules. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of operads, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition and symmetric group action. Similarly, we define the \emph{operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
+Let $\mathcal{O}$ be a graded linear operad, i.e. an operad on the category of graded $R$-modules. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of the operads $\OO$ and $\Lambda$, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition and symmetric group action. Similarly, we define the \emph{operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
 \end{definition}
 
 
@@ -132,7 +132,7 @@ For this, recall that the degree of $\Lambda(a_i)$ is $a_i-1$ and that the gener
 Now we can compute the sign factor of a brace. For this, notice that the isomorphism $(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}$ does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
 
 \[\OO(N)\otimes\Lambda(N)\otimes (\OO(1)\otimes \Lambda(1))^{\otimes k_0}\bigotimes_{i=1}^n(\OO(a_i)\otimes\Lambda(a_i)\otimes(\OO(1)\otimes\Lambda(1))^{\otimes k_i}\]
-\[\cong \OO(N)\otimes(\bigotimes_{i=1}^n \OO(a_i))\otimes \Lambda(N)\otimes(\bigotimes_{i=1}^n \Lambda(a_i))\]
+\[\cong \OO(N)\otimes\OO(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \OO(a_i)\otimes \OO(1)^{\otimes k_i})\otimes \Lambda(N)\otimes\Lambda(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \Lambda(a_i)\otimes \Lambda(1)^{\otimes k_i})\]
 is determined by the exponent
 
 \[(N-1)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.\]
@@ -147,7 +147,7 @@ we can add the sign coming from the suspension, so all in all the sign for the b
 
 \[\sum_{i=1}^n(a_i-1)(n-i+\sum_{l=i}^nk_l)+(\sum_{j=0}^nk_j +n-1)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.\]
 
-It can be checked that this can be rewritten $\mod 2$ as 
+It can be checked that this can be rewritten modulo $2$ as 
 \[\eta\coloneqq\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l.\]
 
 This is the sign that is obtained following \cite{RW} in \ref{rw} (expression \ref{sigma}). In particular, $b_1(f;g)$ is the operation $f\circ g$ defined in \cite{RW} that induces a Lie bracket. More precisely,
@@ -318,7 +318,7 @@ We are only showing the first isomorphism since the other one is analogous. We o
 \begin{align*}
 (\mathcal{O}(n)\otimes\Sigma^{n-1}sig_n\otimes \Sigma^{1-n}sig_n)\otimes (\mathcal{O}(m)\otimes\Sigma^{m-1}sig_m\otimes \Sigma^{1-m}sig_m)\cong\\ (\mathcal{O}(m)\otimes \mathcal{O}(m))\otimes (\Sigma^{n-1}sig_n\otimes \Sigma^{m-1}sig_m)\otimes (\Sigma^{1-n}sig_n\otimes \Sigma^{1-m}sig_m).
 \end{align*}
-After insertions, the only sign that do not cancel is $(-1)^{(n-1)(m-1)}$. So we need to find an automorphism $f$ of $\OO$ such that, for $a\in\OO(n)$ and $b\in\OO(m)$,
+After insertions, the only sign that do not cancel is $(-1)^{(n-1)(m-1)}$. So we need to find a linear automorphism $f$ of $\OO$ such that, for $a\in\OO(n)$ and $b\in\OO(m)$,
 
 $$f(a\circ_i b)=(-1)^{(n-1)(m-1)}f(a)\circ_i f(b).$$
 
