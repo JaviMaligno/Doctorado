@@ -101,7 +101,7 @@ where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n|x_p|\sum_{q=i}^{i_p}|
 \end{defi}
 
 \begin{remark}
-Some authors might use the notation $b_{1+n}$ instead of $b_n$, but the first element is usually going to have a different role than the others. A shorter notation for $b_n(x;x_1,\dots,x_n)$ found in the literature is $x\{x_1,\dots, x_n\}$. Also note that we have used the notation $|x_p|$ for the degree of $x_p$ in $V$. The reason is that our main example for $V$ is going to be the operadic suspension of an operad.
+Some authors might use the notation $b_{1+n}$ instead of $b_n$, but the first element is usually going to have a different role than the others. A shorter notation for $b_n(x;x_1,\dots,x_n)$ found in the literature is $x\{x_1,\dots, x_n\}$. Also note that we have used the notation $|x_p|$ for the degree of $x_p$ in $A$. The reason is that our main example for $A$ is going to be the operadic suspension of an operad.
 \end{remark}
 
 We can define braces on $\s\OO$ via operadic composition. More precisely, we define the maps 
@@ -122,7 +122,7 @@ where the sum runs over all possible ordering preserving insertions. The brace $
 
 The operadic composition can be described in terms of insertions in the obvious way, namely
 
-$$\gamma(f;h_1,\dots, h_N)=(\cdots(f\circ_1 h_1)\circ_{1+a(h_1)}h_2\cdots)\circ_{1+\sum a(h_p)}h_N,$$
+$$\gamma(f;h_1,\dots, h_N)=(\cdots(f\tilde{\circ}_1 h_1)\tilde{\circ}_{1+a(h_1)}h_2\cdots)\tilde{\circ}_{1+\sum a(h_p)}h_N,$$
 
 where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). So we just have to find out the sign iterating the same argument as in the $i$-th insertion. In this case, each $\Lambda(a_i)$ produces a sign given by the exponent $$(a_i-1)(N-k_0+\cdots-k_{i-1}-i).$$ 
 

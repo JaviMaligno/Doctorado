@@ -22,7 +22,7 @@ I use an operadic totalization to obtain an operation similar to the star operat
 
 
 \section{Operadic totalization}
-Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND
+Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE
 
 Let $\OO$ be a bigraded linear operad, i.e. an operad in te category  of bigraded $R$-modules. We define $T\OO$ as the operad of graded $R$-modules for which \[T\OO(n)^d=\bigoplus_{d=i+k} \OO(n)^k_i\] and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
 MAYBE I SHOULD WRITE THINGS LIKE SUMS BUT I THINK IT MAKES SENSE TO WRITE IT LIKE THIS BECAUSE I KNOW THIS COMES FROM A BIGRADED MODULE
@@ -86,9 +86,11 @@ Given a bigraded $R$-module $A$, there is an isomorphism of operads $\End_{S A}\
  
 Now we are going to combine vertical operadic suspension and totalization in what I call the \emph{Paula construction} of a bigraded operad. More precisely, the Paula construction of a bigraded operad $\OO$ is the graded operad $T\s\OO$. 
 
+MAYBE KEEP THE STAR FOR LRW BECAUSE THAT IS A CONVOLUTION AND FOR MINE USE BAR OR HAT
+
 This operad has an insertion map
 \[a\star_{r+1} b=(-1)^{(n-1)j+(n-1)(m-1)+r(m-1)+l(n+k+i-1)}a\circ_{r+1}b\]
-This operation is very similar to the star operation on LRW, which could be obtained by choosing a slightly different totalization functor $T'$, more precisely, we would have to define $a\hat{\circ}b=(-1)^{k(j+l)}a\circ b$. This is also a valid approach for our purposes, but we have chosen our convention for simplicity reasons. However, we will mention the differences that occur when choosing the alternative. There are of course many other possible conventions MAYBE NOT MENTION THE EXACT DIFFRENES, JUST STOP HERE BECAUSE THERE ARE MORE CONVENTIONS AND I DON'T THINK I WILL TREAT ALL OF THEM IN DETAIL, BUT THE DIFFERENCE BETWEEN IDENTITY AND ISOMORPHISM MIGHT BE WORTH MENTION
+As usual, denote $a\star b=\sum_{r=0}^{m-1}a\star_{r+1}b$. This operation is very similar to the star operation on LRW, which could be obtained by choosing a slightly different totalization functor $T'$, more precisely, we would have to define $a\hat{\circ}b=(-1)^{k(j+l)}a\circ b$. This is also a valid approach for our purposes, but we have chosen our convention for simplicity. However, we will mention the differences that occur when choosing the alternative. There are of course many other possible conventions MAYBE NOT MENTION THE EXACT DIFFRENES, JUST STOP HERE BECAUSE THERE ARE MORE CONVENTIONS AND I DON'T THINK I WILL TREAT ALL OF THEM IN DETAIL, BUT THE DIFFERENCE BETWEEN IDENTITY AND ISOMORPHISM MIGHT BE WORTH MENTION
 
 $T$ and $T'$ are isomorphic, with an isomorphism $f:T\OO\cong T'\OO$ given by $f(a)=(-1)^{ik}a$. MAYBE ALL OF THEM ARE ISOMORPHIC, THINK OF THIS USING JUST THAT A TOTALIZATION IS A FUNCTOR THAT SENDS A BIGRADED OPERAD TO A GRADED OPERAD, MAYBE ALSO USE THAT THE UNDERLYING MODULE IS ALWAYS THE SAME SO THAT THE ONLY MODIFICATION IS THE INSERTION
 
@@ -102,7 +104,12 @@ of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
 \[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}(1^{\otimes r}\otimes m_{pq}\otimes 1^{\otimes t})=0\]
 for all $u\geq 0$ and $v\geq 1$. 
 
-HERE THE STAR OPERATION, I NEED TO DEFINE DERIVED AINFTY MULTIPLICATION ON AN OPERAD, THEN STAR OPERATION, THEN ELEMENT OF PAULA CONSTRUCTION
+
+Similarly, a \emph{derived $A_\infty$ multiplication} $m$ on a bigraded operad $\OO$ is an element $m=\sum_{ij}m_{ij}$ where $m_{ij}\in\OO(j)^{2-i-j}_i$ such that 
+\[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}\circ_{r+1} m_{pq}=0.\]
+
+From the definition of $T\s\OO$, such a multiplication is equivalent to an element $m\in T\s\OO$ of degree 1 satisfying $m\star m=0$.
+%HERE THE STAR OPERATION, I NEED TO DEFINE DERIVED AINFTY MULTIPLICATION ON AN OPERAD, THEN STAR OPERATION, THEN ELEMENT OF PAULA CONSTRUCTION
 
 
 \subsection{Braces}\label{sectionbraces}
@@ -123,30 +130,36 @@ where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n|x_p|\sum_{q=i}^{i_p}|
 \end{defi}
 
 \begin{remark}
-Some authors might use the notation $b_{1+n}$ instead of $b_n$, but the first element is usually going to have a different role than the others. A shorter notation for $b_n(x;x_1,\dots,x_n)$ found in the literature is $x\{x_1,\dots, x_n\}$. Also note that we have used the notation $|x_p|$ for the degree of $x_p$ in $V$. 
+Some authors might use the notation $b_{1+n}$ instead of $b_n$, but the first element is usually going to have a different role than the others. A shorter notation for $b_n(x;x_1,\dots,x_n)$ found in the literature is $x\{x_1,\dots, x_n\}$. Also note that we have used the notation $|x_p|$ for the degree of $x_p$ in $A$. 
 \end{remark}
 
-We can define braces on $\s\OO$ via operadic composition. More precisely, we define the maps 
-$$b_n:\mathfrak{s}\OO(N)\otimes\mathfrak{s}\OO(a_1)\otimes\cdots\otimes\mathfrak{s}\OO(a_n)\to\mathfrak{s}\OO(N-\sum a_i)$$
-using the operadic composition $\gamma$ on $\mathfrak{s}\OO$ as
+We can define braces on $T\s\OO$ via operadic composition. More precisely, we define the maps 
+$$b_n:T\mathfrak{s}\OO(N)\otimes T\mathfrak{s}\OO(a_1)\otimes\cdots\otimes T\mathfrak{s}\OO(a_n)\to T\mathfrak{s}\OO(N-\sum a_i)$$
+using the operadic composition $\gamma$ on $T\mathfrak{s}\OO$ as
 
 \[b_n(f;g_1,\dots,g_n)=\sum\gamma(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1),\]
 
 where the sum runs over all possible ordering preserving insertions. The brace $b_n(f;g_1,\dots,g_n)$ vanishes whenever $n>N$ and $b_0(f)=f$.
 
-INTERLUDE: USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD
+The operadic composition can be described in terms of insertions in the obvious way, namely 
 
-Let $m_{il}$ a component of the derived $A_\infty$-multiplication $m$ and let us compute the arity and bidegree of $b_j(m_{il};x_1,\dots, x_j)$. As usual the arity is $l-j+\sum a(x_k)$. The horizontal degree is just $i+\sum h\deg(x_k)$. The vertical degree $2-i-l+\sum v\deg(x_k)$. According to our construction, the horizontal degree is independent of the arity, so will need to take that into account. In our construction is also natural to add arity and vertical degree, which adds up to $2-(i+j)+\sum (a(x_k)+v\deg(x_k))$. So if we consider the shift $S^{-1,1}\s\OO$, we may define
+$$\gamma(f;h_1,\dots, h_N)=(\cdots(f\star_1 h_1)\star_{1+a(h_1)}h_2\cdots)\star_{1+\sum a(h_p)}h_N,$$
+
+where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign iterating the same argument as in the graded case. In fact, there is a sign factor ideantical to the graded case replacing internal degree by vertical (internal) degree that comes from operadic suspension. Therefore we only need to compute the factor sign corresponding to totalization. Given $f\in \OO(N)^{q_0}_{p_0}$ and  $g_i\in\OO(a_i)^{q_i}_{p_i}$ for $1\leq i\leq n$, the factor sign we are looking for is determined by the exponent
+
+\[\varepsilon=p_1(N+q_0+p_0-1)+p_2(N+a_1+q_0+q_1+p_0+p_1-2)+\cdots=\sum_{i=1}^np_i(\sum_{j=0}^{i-1}(a_j+q_j+p_j)+N-i).\]
+This is obtained by iteration of the last factor sign in EQUATION WITH THE SIGN ABOVE which is precisely the sign determined by totalization. Therefore, if $(-1)^\eta$ is the sign produced by operadic suspension and $(-1)\varepsilon$ the sign produced by totalization, the factor sign that distinguished the brace in $T\s\OO$ from the usual operadic composition in $\OO$ is $(-1)^{\eta+\varepsilon}$.
+
+ USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD
+
+Let $m_{il}$ a component of the derived $A_\infty$-multiplication $m$ and let us compute the bidegree of $b_j(m_{il};x_1,\dots, x_j)$. COMPUTATION
+
+THESE ARE CANDIDATES BEFORE SHIFTING 
 
 \[M_{ij}(x_1,\dots, x_j)=\sum_l b_j(m_{il};x_1,\dots, x_j)\]
-\[M_{01}(x)= \sum_l (b_1(m_{0l};x)-(-1)^{hdeg(x)+1+vdeg(x)+a(x)-1}b_1(x;m_{0l}))\]
-to be a derived structure on that shift.
+\[M_{i1}(x)= \sum_l (b_1(m_{il};x)-(-1)^{|x|}b_1(x;m_{il}))\]
+to be a derived structure on that shift. USE THE NOTATION $|x|$ FOR TOTAL DEGREE IN $TsO$ IT IS CONSISTENT WITH THE GRADED CASE
 
-The operadic composition can be described in terms of insertions in the obvious way, namely I THINK THIS PART IS THE SAME AS IN THE GRADED CASE BECAUSE THE INSERTIONS ARE THE SAME
-
-$$\gamma(f;h_1,\dots, h_N)=(\cdots(f\circ_1 h_1)\circ_{1+a(h_1)}h_2\cdots)\circ_{1+\sum a(h_p)}h_N,$$
-
-where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). So we just have to find out the sign iterating the same argument as in the $i$-th insertion. 
 
 
 
