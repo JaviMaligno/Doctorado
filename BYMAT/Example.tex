@@ -1,0 +1,270 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%  EXTENDED ABSTRACT TEMPLATE FOR BYMAT 2020  %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% This is a template for the Proceedings of the 3rd BYMAT Conference.
+% It is based off the template for papers following the style of the TEMat journal (see https://temat.es/).
+% We have tried to explain how to use the most useful commands and to give some examples of use.
+% If you find any errors or have trouble using this template, please contact at bymat@icmat.es
+\documentclass[babel-main=english]{TEMat-article}
+
+% You can load any necessary packages here.
+% Please try not to upload packages which are not recommended.
+% Please check that the package is really necessary before loading it, as many usual packages are already loaded.
+
+%% For instance,
+\usepackage{algpseudocode}
+\usepackage{standalone}
+
+%% End of the space to load packages.
+
+%%%%%%%%%%% Here begins the file itself.
+
+
+% \title[Short title (optional)]{Paper title}
+% You should add a short title if the normal title exceeds 3/4 of the width of the headers.
+\title[Template for the Proceedings of the 3rd BYMAT Conference]{Templates for the Proceedings of the 3rd BYMAT Conference, with fake theorems and simple explanations on how to use \LaTeX{}}
+
+% Please, add here as many authors as necessary.
+% Author names should be written as {Surname, Name}.
+% author* is the corresponding author of the paper.
+\author*{3rd~BYMAT Conference, Organising Committee of the}
+\email{bymat@icmat.es}
+\affiliation{BYMAT}
+
+\author{TEMat, Comité editorial de}
+\email{temat@temat.es}
+\affiliation{Asociación Nacional de Estudiantes de Matemáticas (ANEM)}
+
+%% Please visit https://mathscinet.ams.org/msc/msc2020.html and choose at least one code which fits your paper:
+\msc{00-01}
+
+\keywords{TEMat, BYMAT, template, instructions, paper}
+\acknowledgements{You may write any acknowledgements here. It is common to add here any funding that you may have received.}
+
+\addbibresource{template.bib}
+
+\begin{document}
+% The abstract must be the very last thing to appear before starting with the body of the paper.
+\begin{abstract}
+This file serves as a template for articles that are planned to be presented to the Proceedings of the 3rd BYMAT Conference. We present how to use the format in a simple way, as well as the usual instructions and everything related to writing articles using \LaTeX.
+You may use this template as a basis for your work.
+We also discuss the necessary packages, most of which are automatically loaded, and some forbidden packages.
+We show many use-case examples for most of the presented elements.
+
+To ensure a uniform style in all articles in the journal, using the template is compulsory and it is completely forbidden to change the spacing and structure settings.
+\end{abstract}
+
+\begin{abstract}[spanish]
+Este archivo sirve como plantilla para artículos que se quieran presentar a las actas del tercer congreso BYMAT.
+Presentamos de manera simple cómo se debe usar el formato de la revista, así como las instrucciones habituales y todo lo relacionado con la redacción de artículos en \LaTeX.
+Se puede utilizar la propia plantilla como base para trabajar.
+También discutimos los paquetes necesarios, de los cuales la mayoría se cargan automáticamente, y algunos paquetes prohibidos.
+Se dan varios ejemplos de uso de la mayor parte de los elementos presentados.
+
+Para asegurar un estilo uniforme en todos los artículos de la revista, el uso de la plantilla es obligatorio, y está totalmente prohibido cambiar los ajustes de espaciado y estructura.
+\end{abstract}
+
+\maketitle % To generate the cover page with all the information previously filled.
+
+\section{Introduction}
+
+This is the article template for the Proceedings of the 3rd BYMAT Conference.
+This template is based on the template of the \emph{TEMat} journal, and the proceedings will be published in \emph{TEMat monográficos}.
+Here, we collect all the basic instructions on how to create articles in \LaTeX{}.
+
+There are several documents that are part of the template.
+The most important file is \verb+TEMat-article.cls+, which includes the entire format and \textcolor{red}{must \textbf{NOT} be modified}.
+The file \verb+Example.tex+ contains an example of use, with instructions on how to utilise all the features of this format.
+The file \verb+main.tex+ is a minimal working document.
+The file \verb+template.bib+ is used to create the bibliography which will be imported into the paper.
+Finally, in the document \verb+Example.pdf+ you can see the result after compiling the example tex file.
+We expect you to use \verb+main.tex+ to prepare you submission, but you can also use \verb+Example.tex+; in either case, we recommend that you read \verb+Example.pdf+ and follow the instructions provided.
+
+All files must be compiled using \verb+pdflatex+ or \verb+lualatex+.
+Make sure that all the files listed above are in the same folder when compiling.
+If you cannot compile the template, it means that your computer is missing some packages, and you must install them.
+Alternatively, we invite you to work on Overleaf, where we have made sure that the template works.
+
+\section{Paper cover}
+
+Each paper will have its own cover (then, they can be downloaded separately and all the information of the paper is collected on the cover), as in this template.
+
+You must set the title with the command \verb+\title{}+.
+You should add a short title if the normal title exceeds $3/4$ of the width of the headers; to do so, use \verb+\title[Short title (optional)]{Paper title}+.
+An example of this can be seen in the file \verb+Example.tex+.
+
+You must include the name and surname of each author, as well as their affiliation. Optionally, you can also indicate the email.
+To enter this data, the following commands must be used:
+\begin{itemize}
+\item \verb+\author{Surname, Name}+ for the name;
+\item \verb+\affiliation{Affiliation}+ for the affiliation, and
+\item \verb+\email{email}+ for the email address.
+\end{itemize}
+
+Where there is only one author, you must use the command \verb+\author*+ (with an asterisk) to indicate the name. If there is more than one person, the corresponding author(s) must use the command with an asterisk, to clearly mark that any correspondence about the paper should be addressed to them.
+
+You must include a list with the keywords of the paper using the command \verb+\keywords{}+, separating the keywords by commas and without adding an end point.
+You should also include a classification of the subject area(s) of the paper according the MSC2020 (2020 Mathematics Subject Classification) using \verb+\msc{}+.
+You can find the codes in \url{http://www.ams.org/msc/msc2020.html}.
+If possible, put only one (we recommend that no more than five codes be entered).
+
+The acknowledgements (if any), as well as the funding (if any) will appear on the same page. To enter them use the command \verb+\acknowledgements{}+.
+
+Finally, you must introduce the abstract of the contribution.
+This must be included both in English and Spanish.
+The English abstract can be introduced by writing \verb+\begin{abstract}+ and \verb+\end{abstract}+, and writing your abstract between these two commands.
+Similarly, the Spanish abstract can be introduced between \verb+\begin{abstract}[spanish]+ and \verb+\end{abstract}+.
+The abstract should provide enough information to know what the article is about and what the main contributions are, but it should be short enough so that none of the fields that should be in the cover are left out.
+If you do not speak nor write Spanish, you can write the English abstract twice.
+
+We insist: you can see an example of everything in \verb+Example.tex+.
+
+
+
+\section{Creating sections...}
+
+Every article should follow a structure that makes reading pleasant and allows you to follow the arguments more easily. Typically, this structure is reinforced using sections and subsections. To create a section or subsection just use the commands \verb+\section{title}+ and \verb+\subsection{title}+, respectively.
+
+\subsection{...and subsections...}
+
+Example subsection.
+
+\subsection{...and more subsections}
+
+Please avoid using subsubsections.
+
+\section{Mathematics}
+
+The main tool for a mathematician while using \LaTeX{} are formulas.
+In order to add a formula, simply add \verb+\(+ and \verb+\)+, and write your mathematical formula in between.
+Alternatively, you can also use \verb+$+ and \verb+$+.
+This way, you can write small mathematical formulas, such as \(x^3+y^3=z^3\) or $\nume^{\iunit\pi}=-1$ (and you \emph{should} use this every time your are using any mathematical symbols!).
+If you want to have your formula centred and separated from the rest of the paragraph, you can use the delimiters \verb+\[+ and \verb+\]+ (do \textbf{not} use \verb+$$+ and \verb+$$+, as this can create issues with the format) to obtain things such as
+\[\sum_{i=1}^n\frac{1}{i}\approx\log n.\]
+Bear in mind that formulas are part of the text and, as such, must be punctuated adequately.
+If, additionally, you want the formula to be numbered, you can use \verb+\begin{equation}+ and \verb+\end{equation}+, which yields
+\begin{equation}\label{equa:example1}
+\int_{1}^x\frac{1}{t} \diff t = \log x.
+\end{equation}
+There are other more complex ways to introduce equations, with environments such as \verb+align+ and many others.
+We recommend that you search for information about these environments on the internet.
+You should also look for information on how to introduce each special character and varying mathematical symbols.
+For instance, in order to refer to the naturals, the integers, etc. ($\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$...) you should use the command \verb+\mathbb{}+.
+You may find information about these symbols in pages such as \url{https://www.artofproblemsolving.com/wiki/index.php/LaTeX:Symbols} or \url{http://detexify.kirelabs.org/classify.html} (which allows you to draw the symbol you are looking for).
+
+You may frequently want to refer back to an equation which you have previously written (that is what numbering of formulas is for).
+In order to refer to formula \eqref{equa:example1}, you should write the command \verb+\eqref{formula}+, where the name of the formula is assigned with a \verb+\label+, as you can check on the previous equation in the file \verb+Example.tex+.
+Alternatively, you can use \verb+\cref{name}+.
+
+\subsection{Mathematical environments}
+
+Apart from the basic environment for writing mathematics, mathematicians always write theorems, corollaries, proofs...
+And for each type of statement there is a proper environment.
+\textbf{These environments must be used so that the proceedings format is uniform}.
+In order to use each of them, you must begin with \verb+\begin{environmentname}+ and end with \verb+\end{environmentname}+.
+For instance, we can write theorems such as those which follow.
+
+\begin{theorem}[of the fat point]\label{theo:example1}
+Given any three \emph{lines} $r$,\/ $s$ and\/ $t$ in\/ $\mathbb{R}^2$, there exists a point such that the three lines intersect in this point.
+\end{theorem}
+
+\begin{proof}
+Just take a sufficiently large point.
+\end{proof}
+
+\begin{theorem}\label{theo:example2}
+Opposite to common belief,
+\[\frac{0}{0}=2.\]
+\end{theorem}
+
+\begin{proof}[Proof by cancellation of zeros]
+We will prove the statement with the following chain of equalities:
+\[\frac{0}{0}=\frac{100-100}{100-100}=\frac{(10+10)(10-10)}{10\,(10-10)}=\frac{20}{10}=2.\qedhere\]
+\end{proof}
+
+In order to add information to the header of a theorem (a name, author, year...) you must include this information between square brackets (\verb+[]+) after \verb+\begin{theorem}+, as in \autoref{theo:example1}.
+
+The black square at then end of a proof (or some other symbol for some other environments) appears automatically, but it will not be positioned correctly if the proof ends in a formula.
+In such a case, you should add the command \verb+\qedhere+ at the end of the last formula, as we have done in the proof of \autoref{theo:example2}.
+
+The available environments are theorem, proposition, corollary, lemma, property, conjecture, fact, criterion, axiom, definition, example, exercise, problem, question, hypothesis, remark, convention, note, notation, claim, case, algorithm, solution and, of course, proof.
+In order to use any of them, just replace \verb+environmentname+ by its name.
+You should not create your own custom environments; if you absolutely need one, please contact us before adding it to the file.
+
+In general, each time you start an environment, it will be numbered.
+If you want your environment to be unnumbered, add an asterisk (\verb+*+) after \verb+environmentname+ (for example, \verb+theorem*+).
+
+It is also very common to wish to refer to results we have already written, such as \autoref{theo:example1}.
+To do so, you can simply use \verb+\autoref{theoremname}+ or \verb+\cref{theoremname}+, where the theorem name has been assigned using \verb+\label+ (again, you can check how this works in the file \verb+Example.tex+).
+When you do this, you can click on \autoref{theo:example2} in the pdf file and it will directly show you the result that is being referred, which is very useful when reading papers.
+
+
+
+\section{Packages}
+
+Some packages are automatically loaded when using the \verb+TEMat-article+ document class.
+These packages must be installed so that the file can be compiled and you can work with this template.
+Of course, there is no need to load these packages again on your file preamble.
+The packages that we use (and cannot be removed) are \verb+expl3+, \verb+xparse+, \verb+l3keys2e+, \verb+silence+, \verb+afterpackage+, \verb+calc+, \verb+etoolbox+, \verb+amsmath+, \verb+amssymb+, \verb+amsthm+, \verb+cabin+, \verb+newtxmath+,  \verb+thmtools+, \verb+babel+ (with the options \verb+british+ and \verb+spanish+), \verb+csquotes+, \verb+microtype+, \verb+bm+, \verb+stackengine+, \verb+scalerel+, \verb+siunitx+, \verb+mleftright+, \verb+cancel+, \verb+mathtools+, \verb+graphicx+, \verb+caption+, \verb+subcaption+,\linebreak \verb+biblatex+, \verb+geometry+, \verb+xcolor+, \verb+enumitem+, \verb+titlesec+, \verb+fancyhdr+, \verb+ccicons+, \verb+xpatch+, \verb+hyperref+, \verb+cleveref+,\linebreak \verb+fontawesome+ and \verb+environ+.
+Furthermore, if you use standard \LaTeX{}, we also load \verb+fontenc+, \verb+inputenc+, \verb+erewhon+ and \verb+inconsolata+ and, if available, \verb+stix2+; with LuaLaTeX and XeLaTeX we load \verb+fontspec+, the typographies \verb+Erewhon+ and \verb+Inconsolatazi4+  and, if available, typography \verb+STIX2Math+.
+
+On the other hand, there are many other packages which we do not include but you may want to use.
+In order to use them, you can load them in the preamble of your file in the usual way.
+In general, we recommend that you do not load any packages that modify mathematical symbols without checking whether the symbol is already available.
+For instance, the package \verb+MnSymbols+ is not compatible with this template.
+
+
+\subsection{Forbidden configurations and packages}
+The following packages and configurations \textbf{must not be used} under any circumstances:
+\begin{itemize}
+\item \verb+natbib+ or any other bibliography package.
+  We already use \verb+biblatex+ with \verb+biber+, so there would be incompatibilities.
+\item \verb+setspace+, \verb+savetrees+ or any other package that allows you to change the text spacing.
+  In particular, even though we load the \verb+geometry+ package, you should not use the commands \verb+geometry+, \verb+newgeometry+ or similar.
+  Of course, you also should not use the command \verb+\setlength+ to change the margins or any other measure of the document.
+\item Any package that changes the typography.
+\end{itemize}
+
+\section{Bibliography}
+
+One of the most important parts of a paper is the bibliography. It should allow the reader, on the one hand, to check where the information used to write the article was obtained from and, on the other hand, to obtain sources in which to read more information on the subject.
+
+In order to create an appropriate bibliography with this template, \textbf{you must use the package \texttt{biblatex}} with backend \verb+biber+ (which we load automatically) and an external file \verb+.bib+ with the full bibliography.
+Among the files of the template there is a file called \verb+template.bib+ which should serve as an example for this type of files.
+In any case, you can often find places where you can directly copy the reference in bibtex format (for instance, you can look up your references in MathSciNet (\url{http://www.ams.org/mathscinet/}) or Google Scholar (\url{https://scholar.google.com/})).
+In order to include the bibliography in your paper, you must use the command \verb+\addbibresource{bibliographyfile.bib}+ in the preamble of the file (before \verb+\begin{document}+), as you can see in \verb+Example.tex+, where \verb+bibliographyfile.bib+ is the name of your file (it must always have the extension \verb+.bib+).
+In order to load the bibliography, you must write \verb+\printbibliography+ at the end of the file, where you want the references to appear.
+
+In order to refer to elements in your list of references, each of these elements is assigned a label in the \verb+.bib+ file.
+Then, it suffices to use the command \verb+\cite{referencelabel}+ for it to appear, also creating a hyperlink to the list of references.
+
+You can find all the information about this, as well as other things related to bibliography, in the \verb+biblatex+ documentation~\cite{biblatex}.
+You can find the most up-to-date version in its CTAN webpage.
+In this web you can also find manuals for most \LaTeX{} packages.
+
+\begin{remark}
+The command \verb+\printbibliography+ will only print the elements which are cited throughout the text.
+If any reference has not been cited but must appear in the list, you should use the command \verb+\nocite{referencename}+.
+If you want all the references to appear, you can use an asterisk: \verb+\nocite{*}+.
+In any case, we highly recommend that you do not add any references which are not cited.
+\end{remark}
+
+\begin{remark}
+In order to improve the text's quality, we recommend not using the output of \verb+\cite+ as a ``name''.
+For example, it is better to say <<you can find more information in the \texttt{biblatex} documentation~\cite{biblatex}>> than <<you can find more information in~\cite{biblatex}>>.
+
+The command \verb+\citet+ allows to refer to a piece of work by naming the author(s).
+This helps when you want to write something like <<\citet{bezosOM} showcases a lot of information about how to write mathematics in a computer (in Spanish)>>. Another option is to use \verb+\citeauthor+ combined with \verb+\cite+, as in <<\citeauthor{bezosOM} showcases a lot of information about how to write mathematics in a computer (in Spanish)~\cite{bezosOM}>>, although we recommend the use of \verb+\citet+.
+\end{remark}
+
+\section{Concluding remarks}
+
+It is sometimes advisable to include some conclusions.
+
+If you have any questions, please contact us at \email{bymat@icmat.es}.
+
+\nocite{*}
+\printbibliography[heading=bibintoc]
+
+\end{document}

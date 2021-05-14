@@ -1,0 +1,1083 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usetheme{Copenhagen}
+%\usepackage[spanish]{babel}
+\usepackage{multirow}
+%\usepackage{estilo-apuntes}
+\usepackage{braids}
+\usepackage[]{graphicx}
+\usepackage{rotating}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-cd}
+%\usepackage{empheq}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{xcolor}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{cd}
+\usetikzlibrary{babel}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{decorations.shapes}
+\pgfkeyssetvalue{/tikz/braid height}{1cm} %no parece hacer nada
+\pgfkeyssetvalue{/tikz/braid width}{1cm}
+\pgfkeyssetvalue{/tikz/braid start}{(0,0)}
+\pgfkeyssetvalue{/tikz/braid colour}{black}
+
+\theoremstyle{definition}
+
+\newtheorem{teorema}{Theorem}
+\newtheorem{defi}{Definition}
+\newtheorem{prop}[teorema]{Proposition}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\D}{\mathbb{D}}
+\providecommand{\gene}[1]{\langle{#1}\rangle}
+
+\DeclareMathOperator{\im}{im}
+
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    %\insertframenumber/\inserttotalframenumber
+}
+\setbeamercolor{footline}{fg=black}
+\setbeamerfont{footline}{series=\bfseries}
+
+\newcommand{\highlight}[1]{%
+	\colorbox{red!50}{$\displaystyle#1$}}
+
+\makeatletter
+\newcommand*{\encircled}[1]{\relax\ifmmode\mathpalette\@encircled@math{#1}\else\@encircled{#1}\fi}
+\newcommand*{\@encircled@math}[2]{\@encircled{$\m@th#1#2$}}
+\newcommand*{\@encircled}[1]{%
+	\tikz[baseline,anchor=base]{\node[draw,circle,outer sep=0pt,inner sep=.2ex] {#1};}}
+\makeatother
+
+
+%-----------------------------------------------------------
+
+\title{$A_\infty$-algebras from an operadic point of view}
+\author{Javier Aguilar Mart\'in}
+\institute{University of Kent}
+\date{}
+ 
+\begin{document}
+\frame{\titlepage}
+%\begin{frame}
+%
+%c¡
+%\title[About Beamer] %optional
+%{About the Beamer class in presentation making}
+% 
+%\subtitle{A short story}
+% 
+%\author[Arthur, Doe] % (optional, for multiple authors)
+%{A.~B.~Arthur\inst{1} \and J.~Doe\inst{2}}
+% 
+%\institute[VFU] % (optional)
+%{
+%  \inst{1}%
+%  Faculty of Physics\\
+%  Very Famous University
+%  \and
+%  \inst{2}%
+%  Faculty of Chemistry\\
+%  Very Famous University
+%}
+
+% 
+%\date[VLC 2013] % (optional)
+%{Very Large Conference, April 2013}
+
+
+%\end{frame}
+\setbeamercovered{highly dynamic}
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+
+\makeatletter
+\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\makeatother
+
+\resetcounteronoverlays{saveenumi}
+%\AtBeginSection[]{
+%\begin{frame}
+%\frametitle{Tabla de contenidos}
+%\tableofcontents
+%\end{frame}
+%}
+
+\begin{frame}
+ABSTRACT (TO BE DELETED)
+
+In this talk we are going to introduce $A_\infty$-algebras as a homotopy coherent generalization of associative algebras and we are going to present their topological origin. We are also going to look at these algebras from the point of view of operads, a framework that allows to study algebraic structures defined in terms of $n$-ary operations.
+\end{frame}
+
+
+
+
+\begin{frame}
+DEFINITION OF AINFTY ALGEBRAS AND HOW THEY GENERALLIZE ASSOCIATIVE ALGEBRAS
+
+TOPOLOGICAL ORIGIN: STASHEFF ASSOCIAHEDRA, AINFTY SPACES, LOOP SPACES
+
+OPERADS: DEFINITION, ALGEBRAS OVER AN OPEREAD, ASSOCIAHEDRA, CHAIN COMPLEX IS LAX MONOIDAL, AINFTY OPERAD
+
+IF THERE'S TIME: OPERADIC SUSPENSION, ANOTHER WAY TO DEFINE AINFINTY MULTIPLICATIONS IN A SIMPLIFIED WAY, LEAVING M1 IN THE UNDERLYING CATEGORY AND DEFINING THE DIFFERENTIAL WITH RESPECT TO M1 REDIFINES AINFTY AS MAURER-CARTAN ELEMENT
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]
+\frametitle{Motivation}
+Let $X$ be a space and $m:X\times X\to X$ a product. Consider the following diagram of associativity
+
+\[
+\begin{tikzcd}
+X\times X\times X\arrow[r, "m\times 1"]\arrow[d, "1\times m"'] & X\times X\arrow[d,"m"]\\
+X\times X\arrow[r, "m"]& X
+\end{tikzcd}
+\]\pause
+
+The product $m$ is associative when the diagram commutes: $m(m\times 1)=m(1\times m)$ \pause $\Rightarrow (xy)z=x(yz)$.\pause
+
+It is homotopy associative if $m(m\times 1)\simeq m(1\times m)$\pause $\Rightarrow (xy)z\simeq x(yz)$.
+
+\end{frame}
+
+\begin{frame}[fragile]
+Product of 4 elements
+\[
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.5,0.5) rectangle (5.2,4.6);
+\draw(1.,1.) -- (3.,1.) -- (3.618033988749895,2.9021130325903064) -- (2.,4.077683537175253) -- (0.3819660112501053,2.9021130325903073) -- cycle;
+\draw (1.,1.)-- (3.,1.);
+\draw (3.,1.)-- (3.618033988749895,2.9021130325903064);
+\draw (3.618033988749895,2.9021130325903064)-- (2.,4.077683537175253);
+\draw (2.,4.077683537175253)-- (0.3819660112501053,2.9021130325903073);
+\draw (0.3819660112501053,2.9021130325903073)-- (1.,1.);
+\draw (1.3,4.7) node[anchor=north west] {$x(y(zt))$};
+\draw (3.6,3.25) node[anchor=north west] {$x((yz)t)$};
+\draw (3,1.1) node[anchor=north west] {$(x(yz))t$};
+\draw (-0.5,1.1) node[anchor=north west] {((xy)z)t};
+\draw (-1.15,3.25) node[anchor=north west] {(xy)(zt)};
+\draw (2.8,3.8) node[anchor=north west] {$\simeq$};
+\draw (3.3333333333336,2.1) node[anchor=north west] {$\simeq$};
+\draw (1.8,0.8933333333333304) node[anchor=north west] {$\simeq$};
+\draw (0.15,2.1) node[anchor=north west] {$\simeq$};
+\draw (0.6,3.8) node[anchor=north west] {$\simeq$};
+\begin{scriptsize}
+\draw [fill=black] (1.,1.) circle (2.5pt);
+\draw [fill=black] (3.,1.) circle (2.5pt);
+\draw [fill=black] (3.618033988749895,2.9021130325903064) circle (2.5pt);
+\draw [fill=black] (2.,4.077683537175253) circle (2.5pt);
+\draw [fill=black] (0.3819660112501053,2.9021130325903073) circle (2.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\]
+
+If we can fill the pengaton with a homotopy we say that the product is homotopy coherent. %there is a concatenation of homotopies and it makes sense to talk about homotopies between them, joining the points with paths
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Associahedra}
+Multiplying 5 elements
+\[
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.63,-1.8) rectangle (4.,3);
+\draw(-0.5,0.) -- (0.,0.5) -- (-0.5,1.) -- (-1.,0.5) -- cycle;
+\draw (-0.5,0.)-- (0.,0.5);
+\draw (0.,0.5)-- (-0.5,1.);
+\draw (-0.5,1.)-- (-1.,0.5);
+\draw (-1.,0.5)-- (-0.5,0.);
+\draw (-0.5,1.)-- (-0.76,2.87);
+\draw (-0.76,2.87)-- (-2.13,1.59);
+\draw (-2.13,1.59)-- (-1.98,0.82);
+\draw (-2.13,1.59)-- (-2.5,1.);
+\draw (-2.5,1.)-- (-2.31,0.29);
+\draw (-2.31,0.29)-- (-1.98,0.82);
+\draw (-1.98,0.82)-- (-1.,0.5);
+\draw (0.,0.5)-- (0.93,0.89);
+\draw (0.93,0.89)-- (0.98,1.68);
+\draw (1.37,1.06)-- (0.98,1.68);
+\draw (-0.76,2.87)-- (0.98,1.68);
+\draw (-2.31,0.29)-- (-0.62,-1.3);
+\draw (-0.5,0.)-- (-0.62,-1.3);
+\draw (-0.62,-1.3)-- (1.22,0.35);
+\draw (0.93,0.89)-- (1.22,0.35);
+\draw (1.22,0.35)-- (1.37,1.06);
+\draw [dash pattern=on 2pt off 2pt] (-2.5,1.)-- (1.37,1.06);
+\end{tikzpicture}
+\]
+
+\end{frame}
+\section{$A_\infty$-spaces}
+\begin{frame}
+\begin{itemize}
+\item<1-> We get spaces $K_2=*$, $K_3=[0,1]$, $K_4=$pentagon,$\cdots$ %a point cause there is only one way to multiply two elements, [0,1] parametrizes the homotopy
+\item<2-> And maps $M_i:K_i\times X^i\to X$ satisfying certain relations. %homotopy relation similar to what we explain with the polygons
+\item<3-> For instance, $M_3:[0,1]\times X^3\to X$ defines a homotopy between $M_2(M_2\times 1)$ and $M_2(1\times M_2)$. 
+\item<4-> $M_4:K_4\times X^4\to X$ allows us to fill the pentagon, on the boundary it is equal to $M_3$. %and so on
+\item<5->[]\begin{defi}
+If $M_i$ exists for all $i$ we say that $X$ is an $A_\infty$-\textbf{space}.
+\end{defi}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+%an example of A\infty-space
+\frametitle{Loop spaces}
+Let $(X,*)$ a pointed topological space and $\Omega X$ the spaces of based loops, i.e. maps $f:S^1\to X$ such that $f(1,0)=*$.\pause %base point s a preferred point, like an origin
+
+We have a concatenation map $m:\Omega X\times \Omega X\to \Omega X$, where $m(f_1,f_2)=f_1*f_2$ is given by\pause
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-5,-3.) rectangle (5.,2.3);
+\draw(0.,0.) circle (1.5cm);
+\draw [->] (1.5,0.) -- (1.475763388700826,0.26855617768030476);
+\draw [->] (-1.5,0.) -- (-1.4622984077406362,-0.33419061434935543);
+\draw (-0.3,2.118952883889729) node[anchor=north west] {$f_1$};
+\draw (-0.3,-1.5566913118092813) node[anchor=north west] {$f_2$};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\frametitle{Homotopy-associative product}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-4.175394430564892,-2.5911383046897085) rectangle (7.490400123879831,3.3976612960713135);
+\draw(0.,2.) circle (1.cm);
+\draw(0.,-1.) circle (1.cm);
+\draw (-3.49428016933844,2.311720973491667) node[anchor=north west] {$(f_1*f_2)*f_3$};
+\draw (-3.496796110195476,-0.6773028846978557) node[anchor=north west] {$f_1*(f_2*f_3)$};
+\draw (-0.6057688157486263,1.1) node[anchor=north west] {$f_3$};
+\draw (0.2964512548334696,0.4) node[anchor=north west] {$f_1$};
+\draw (0.7431133461355,2.9675859207922457) node[anchor=north west] {$f_1$};
+\draw (-1.3,3.0105934583201526) node[anchor=north west] {$f_2$};
+\draw (-1.189603612937578,-1.4729423289641315) node[anchor=north west] {$f_2$};
+\draw (0.7489686163804383,-1.4729423289641315) node[anchor=north west] {$f_3$};
+\draw (2.,2.)-- (3.,1.);
+\draw (3.,1.)-- (4.,2.);
+\draw (3.,2.)-- (2.514225889472578,1.485774110527422);
+\draw (2.,-1.)-- (3.,-2.);
+\draw (3.,-2.)-- (4.,-1.);
+\draw (3.,-1.)-- (3.481998691455241,-1.518001308544759);
+\draw (1.7811495170502019,2.6342775049509677) node[anchor=north west] {$f_1$};
+\draw (2.8240823021019423,2.623525620568991) node[anchor=north west] {$f_2$};
+\draw (3.7487443589519387,2.5912699674230613) node[anchor=north west] {$f_3$};
+\draw (1.7811495170502019,-0.4085057751484382) node[anchor=north west] {$f_1$};
+\draw (2.8133304177199654,-0.4085057751484382) node[anchor=north west] {$f_2$};
+\draw (3.813255665243799,-0.4300095439123916) node[anchor=north west] {$f_3$};
+\draw [->] (1.,2.) -- (0.9776684310102762,2.2101533701987783);
+\draw [->] (0.,3.) -- (-0.2228209821222102,2.9748593795651215);
+\draw [->] (-1.,2.) -- (-0.9818938166599703,1.8105678675490438);
+\draw [->] (1.,-1.) -- (0.9832067635335799,-0.8175049037869153);
+\draw [->] (-1.,-1.) -- (-0.9827773938908082,-1.1847933820708718);
+\draw [->] (0.,-2.) -- (0.1987984337916885,-1.9800403985152712);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\frametitle{Associahedra}
+\includegraphics[scale=0.5]{Imagenes/assoc}
+\end{frame}
+
+
+\section{$A_\infty$-algebras}
+\begin{frame}
+\frametitle{Back to $A_\infty$-spaces}
+\begin{itemize}
+\item<1-> The maps $M_i:K_i\times X^i\to X$ induce maps $C_*(X)^{\otimes i}\to C_*(X)$. %esentially the induced map on chains but with extra steps
+
+\item<2-> The relations that satisfy the map $M_i$ induce the relations of what we call an $A_\infty$-algebra.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{$A_\infty$-algebras}
+\begin{defi}
+An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a family of ``multiplications'' $m_n:A^{\otimes n}\to A$ of degree $n-2$ satisfying the relation %MAYBE CHANGE CHAINS TO COCHAINS TO KEEP THE DEGREE 2-N, I WILL HAVE TO USE OPERADIC DESUSPENSION IN THIS CASE
+
+\[\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes s})=0\] %we are composing every map with itself
+\end{defi}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Some particular cases}
+\begin{itemize}
+\item<1-> We always have $m_1m_1=0$, so in particular $A$ is a chain complex.%CAN BE DEFINED ON THE CATEGORY OF CHAIN COMPLEX
+\item<2-> If $m_i=0$ for $i\neq 2$, the relation becomes $m_2(1\otimes m_2)=m_2(m_2\otimes 1)$, so $A$ is an associative algebra.
+\item<3-> If $m_i=0$ for $i\neq 1,2$ we get an extra relation $$m_1m_2=m_2(m_1\otimes 1)+m_2(1\otimes m_1)$$ %MONOID IN CHAIN COMPLEX ANALOGUE TO MONOID IN K-VECT
+\item[]<4-> This is the Leibniz rule, and $A$ is a differential graded (dg) algebra.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{$A_\infty$-algebras are homotopy associative algebras.}
+%how do they generalize associative algebras
+\begin{itemize}
+\item<1-> For $n=3$ we have the relation
+\begin{align*}
+&m_2(m_2\otimes 1)-m_2(1\otimes m_2)=\\ %the failure of m_2 to be associative
+&m_1m_3+m_3(m_1\otimes 1\otimes 1)+m_3(1\otimes m_1\otimes 1)+m_3(1\otimes 1\otimes m_1)
+\end{align*}
+\item[]<2-> $m_2$ is homotopy associative with homotopy given by $m_3$. %recall that m1 is a differential so on homology this vanishes
+\item<3-> The higher relations are a homotopy coherent extension of this fact. %m3 satisfies some relation up to homotopy given by m4 and so on
+\end{itemize}
+\end{frame}
+%\begin{frame}[fragile]
+%\frametitle{Motivation}
+%\begin{itemize}
+%\item<1> Algebraic Topology - Homotopy theory
+%\end{itemize}\pause
+%Let $X$ be a space and $m:X\times X\to X$ a product. Let $\tau(x,y)=(y,x)$.\pause
+%
+%\[
+%\begin{tikzcd}
+%X\times X\arrow[r, "m"]\arrow[dr, "\tau"'] & X\\
+%& X\times X\arrow[u, "m"']
+%\end{tikzcd}
+%\]\pause
+%
+%Commutative up to homotopy: $m\simeq m\tau$.
+%
+%\end{frame}
+%
+%\begin{frame}
+%\begin{itemize}
+%\item<1-> What happens if we have to multiply $n$ elements? 
+%\item<2-> Many ways to do it, homotopic in a coherent way, hard to write down.
+%\item<3-> Instead, consider the space $\mathcal{O}(n)$ of all possible multiplications.
+%\item<4-> $m$ is commutative iff $\mathcal{O}(n)=*$
+%\item<5-> $m$ is homotopy-commutative iff $\mathcal{O}(n)\simeq *$.
+%\item<6-> We have a map $\mathcal{O}(n)\times X^n\to X$ that assigns to $n$ elements and each way of multiply them the final product.
+%\end{itemize}
+%\end{frame}
+
+
+\section{Operads}
+\begin{frame}
+\frametitle{Operads}
+	\begin{itemize}
+			\item<1-> An \textbf{operad} can be intuitively thought as a collection of spaces  $\mathcal{O}=\{\mathcal{O}(n)\}_{n\geq 0}$, whose points are thought to be $n$-ary operations $X^n\to X$. %decir que pueden ser (topological spaces, vector spaces, other objects) siempre que los axiomas tengan sentido, es decir, comentar que esto se puede hacer en cualquier categoría monoidal simétrica diciendo por encima lo que es: producto, unidad y axiomas. Poner algo de todos modos en alguna diapositiva
+			\item<2-> We represent $n$-ary operations as trees with the following shape
+			\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+			\clip(-2.13333333333334,-0.093333333333332) rectangle (12.006666666666668,3.5);
+			\draw [line width=2.pt] (2.,0.)-- (2.,1.);
+			\draw [line width=2.pt] (2.,1.)-- (0.3666666666666659,3.);
+			\draw [line width=2.pt] (2.,1.)-- (1.,3.);
+			\draw [line width=2.pt] (2.,1.)-- (1.7,3.);
+			\draw [line width=2.pt] (2.,1.)-- (3.,3.);
+			\draw (0.1,3.493333333333331) node[anchor=north west] {$1$};
+			\draw (0.8,3.52) node[anchor=north west] {$2$};
+			\draw (1.5,3.493333333333331) node[anchor=north west] {$3$};
+			\draw (2.8,3.453333333333331) node[anchor=north west] {$n$};
+			\draw (2.1,3.453333333333331) node[anchor=north west] {$\cdots$};
+			\end{tikzpicture}
+	\end{itemize}
+
+%\only<2->{\begin{defi}
+%		An \textbf{operad} $\CC$ consists of topological spaces $\CC(j)$ for $j\geq 0$, together with the following data:
+%		
+%		\begin{itemize}
+%			\item Continuous maps $\gamma : \CC(k) \times \CC(j_1) \times \cdots \times \CC(j_k) \to \CC(\sum_s j_s)$ such that the
+%			following associativity formula is satisfied for all $c\in \CC(k)$, $d_s \in \CC(j_s)$, and $e_t \in \CC(i_t)$:
+%			
+%			\[\gamma(
+%			\gamma(c; d_1, \dots , d_k); e_1, \dots , e_j) = 
+%			\gamma(c; f_1, \dots , f_k),
+%			\]
+%			where $$f_s = \gamma(d_s; e_{j_1+\cdots+j_{s-1}+1}, \dots , e_{j_1+\cdots+j_s} ).$$%, and $f_s = *$ if $j_s = 0$ 
+%			These maps are usually called \emph{structure maps}.
+%			
+%			
+%			%{1,2,...,j} se divide en bloques y se permuta ese conjunto 
+%		\end{itemize}
+%	\end{defi}}
+\end{frame}
+
+\begin{frame}
+	\begin{itemize}
+		\item There are \textbf{composition maps} $\gamma : \mathcal{O}(n) \times \mathcal{O}(j_1) \times \cdots \times \mathcal{O}(j_n) \to \mathcal{O}(\sum_s j_s)$
+		
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+		\clip(-0.7355555555555552,-0.3222222222222197) rectangle (9.486666666666668,4.);
+		\draw [line width=1.2pt] (3.,0.)-- (3.,1.);
+		\draw [line width=1.2pt] (3.,1.)-- (1.,2.);
+		\draw [line width=1.2pt] (3.,1.)-- (5.,2.);
+		\draw [line width=1.2pt] (3.,1.)-- (2.,2.);
+		\draw [line width=1.2pt] (3.,1.)-- (4.,2.);
+		\draw [line width=1.2pt] (1.,2.)-- (1.0066666666666673,2.593333333333333);
+		\draw [line width=1.2pt] (1.0066666666666673,2.593333333333333)-- (0.5,3.5);
+		\draw [line width=1.2pt] (1.0066666666666673,2.593333333333333)-- (1.,3.5);
+		\draw [line width=1.2pt] (1.0066666666666673,2.593333333333333)-- (1.362222222222223,3.4822222222222172);
+		\draw [line width=1.2pt] (2.,2.)-- (1.9933333333333343,2.6555555555555532);
+		\draw [line width=1.2pt] (1.9933333333333343,2.6555555555555532)-- (1.6555555555555563,3.491111111111106);
+		\draw [line width=1.2pt] (1.9933333333333343,2.6555555555555532)-- (2.,3.5);
+		\draw [line width=1.2pt] (1.9933333333333343,2.6555555555555532)-- (2.3222222222222233,3.4733333333333287);
+		\draw [line width=1.2pt] (5.,2.)-- (4.997777777777778,2.691111111111109);
+		\draw [line width=1.2pt] (4.997777777777778,2.691111111111109)-- (4.633333333333335,3.491111111111106);
+		\draw [line width=1.2pt] (4.997777777777778,2.691111111111109)-- (5.,3.5);
+		\draw [line width=1.2pt] (4.997777777777778,2.691111111111109)-- (5.362222222222223,3.5);
+		\draw [line width=1.2pt] (4.,2.)-- (4.0022222222222235,2.60222222222222);
+		\draw [line width=1.2pt] (4.0022222222222235,2.60222222222222)-- (3.691111111111112,3.5);
+		\draw [line width=1.2pt] (4.0022222222222235,2.60222222222222)-- (4.,3.5);
+		\draw [line width=1.2pt] (4.0022222222222235,2.60222222222222)-- (4.2955555555555565,3.4644444444444398);
+		\draw (2.4,0.9933333333333338) node[anchor=north west] {$f$};
+		\draw (0.6,4) node[anchor=north west] {$g_1$};
+		\draw (1.6,4) node[anchor=north west] {$g_2$};
+		\draw (4.7,4) node[anchor=north west] {$g_n$};
+		\draw (3.6222222222222234,4) node[anchor=north west] {$g_{n-1}$};
+		\draw [line width=1.2pt,dash pattern=on 2pt off 2pt] (1.,2.) circle (0.2951626461026548cm);
+		\draw [line width=1.2pt,dash pattern=on 2pt off 2pt] (2.,2.) circle (0.2953633460212008cm);
+		\draw [line width=1.2pt,dash pattern=on 2pt off 2pt] (4.,2.) circle (0.27550178686879956cm);
+		\draw [line width=1.2pt,dash pattern=on 2pt off 2pt] (5.,2.) circle (0.2752866071013681cm);
+		\draw (2.5,2.22) node[anchor=north west] {$\cdots$};
+		\draw (5.8066666666666675,2.5933333333333315) node[anchor=north west] {$=\gamma(f;g_1,\dots, g_n)$};
+		\end{tikzpicture}
+		
+		%DIBUJO DE LA COMPOSICIÓN PEGANDO $n$ ARBOLITOS  $g_i$ A UNO $f$ Y PONIENDO $\gamma(f;g_1,\dots, g_n)$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{itemize}
+		\item Composition is associative:
+		 %DIBUJO DE COMPOSICIÓN EN DOS PASOS CON UNA IGUALDAD A CADA LADO SEÑALAR EL ORDEN DE ALGÚN MODO
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+		\clip(0.7133333333333343,-0.1) rectangle (11.62,6);
+		\draw [line width=1.2pt,] (3.,0.)-- (3.0066666666666677,1.2333333333333327);
+		\draw [line width=1.2pt,] (3.0066666666666677,1.2333333333333327)-- (1.98,2.18);
+		\draw [line width=1.2pt,] (3.0066666666666677,1.2333333333333327)-- (4.006666666666668,2.1533333333333315);
+		\draw [line width=1.2pt,] (1.98,2.18)-- (2.,3.);
+		\draw [line width=1.2pt,] (2.,3.)-- (1.353333333333334,3.94);
+		\draw [line width=1.2pt,] (2.,3.)-- (2.6466666666666674,3.9133333333333296);
+		\draw [line width=1.2pt,] (4.006666666666668,2.1533333333333315)-- (4.,3.);
+		\draw [line width=1.2pt,] (4.,3.)-- (3.446666666666667,3.9933333333333296);
+		\draw [line width=1.2pt,] (4.,3.)-- (4.74,3.9133333333333296);
+		\draw [line width=1.2pt,] (1.353333333333334,3.94)-- (1.353333333333334,4.62);
+		\draw [line width=1.2pt,] (1.353333333333334,4.62)-- (0.8066666666666672,5.46);
+		\draw [line width=1.2pt,] (1.353333333333334,4.62)-- (1.3666666666666674,5.446666666666661);
+		\draw [line width=1.2pt,] (1.353333333333334,4.62)-- (1.8733333333333342,5.473333333333328);
+		\draw [line width=1.2pt,] (2.6466666666666674,3.9133333333333296)-- (2.66,4.686666666666662);
+		\draw [line width=1.2pt,] (2.66,4.686666666666662)-- (2.3666666666666676,5.473333333333328);
+		\draw [line width=1.2pt,] (2.66,4.686666666666662)-- (2.9266666666666676,5.526666666666661);
+		\draw [line width=1.2pt,] (3.446666666666667,3.9933333333333296)-- (3.446666666666667,4.62);
+		\draw [line width=1.2pt,] (3.446666666666667,4.62)-- (3.3266666666666675,5.526666666666661);
+		\draw [line width=1.2pt,] (3.446666666666667,4.62)-- (3.8066666666666675,5.5);
+		\draw [line width=1.2pt,] (4.74,3.9133333333333296)-- (4.78,4.566666666666662);
+		\draw [line width=1.2pt,] (4.78,4.566666666666662)-- (4.366666666666667,5.486666666666661);
+		\draw [line width=1.2pt,] (4.78,4.566666666666662)-- (4.82,5.5);
+		\draw [line width=1.2pt,] (4.78,4.566666666666662)-- (5.326666666666668,5.486666666666661);
+		\draw (2.4866666666666672,1.18) node[anchor=north west] {$f$};
+		\draw (1.3,3.) node[anchor=north west] {$g_1$};
+		\draw (3.3,3.) node[anchor=north west] {$g_2$};
+		\draw (0.67,4.6) node[anchor=north west] {$h_1$};
+		\draw (2,4.6) node[anchor=north west] {$h_2$};
+		\draw (2.9,4.6) node[anchor=north west] {$h_3$};
+		\draw (4.1,4.6) node[anchor=north west] {$h_4$};
+		\draw (4.956666666666667,3.3) node[anchor=north west] {$=\gamma(\gamma(f;g_1,g_2),h_1,h_2,h_3,h_4)$};
+		\draw (4.953333333333334,2.3) node[anchor=north west] {$=\gamma(f;\gamma(g_1;h_1,h_2), \gamma(g_2;h_3,h_4))$};
+		\end{tikzpicture}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{itemize}
+		\item<1-> Identity element: 
+	%UN ÁRBOL AL QUE SE LE METEN PALITOS CON 1 Y OTRO METIÉNDOSE EN EL 1 Y AL FINAL IGUAL AL ARBOL EN CUESTION
+		
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+		\clip(-2.2333333333333334,-1.) rectangle (13.1,3.35);
+		\draw [line width=1.2pt] (2.,0.)-- (2.,1.);
+		\draw [line width=1.2pt] (2.,1.)-- (1.,2.);
+		\draw [line width=1.2pt] (2.,1.)-- (1.6866666666666674,2.0066666666666664);
+		\draw [line width=1.2pt] (2.,1.)-- (2.42,1.98);
+		\draw [line width=1.2pt] (2.,1.)-- (3.,2.);
+		\draw [line width=1.2pt] (2.,0.)-- (2.,-1.);
+		\draw [line width=1.2pt] (1.,2.)-- (1.,3.);
+		\draw [line width=1.2pt] (1.6866666666666674,2.0066666666666664)-- (1.6866666666666674,2.9933333333333327);
+		\draw [line width=1.2pt] (2.42,1.98)-- (2.433333333333334,2.98);
+		\draw [line width=1.2pt] (3.,2.)-- (3.,3.);
+		\draw (1.4066666666666674,1.06) node[anchor=north west] {$f$};
+		\draw (0.8,3.42) node[anchor=north west] {$1$};
+		\draw (1.45,3.42) node[anchor=north west] {$1$};
+		\draw (2.2,3.42) node[anchor=north west] {$1$};
+		\draw (2.8,3.42) node[anchor=north west] {$1$};
+		\draw (1.593333333333334,-0.23333333333333328) node[anchor=north west] {$1$};
+		\draw (3.22,1.0866666666666664) node[anchor=north west] {$=f$};
+		\begin{scriptsize}
+		\draw [fill=black] (2.,0.) circle (1.5pt);
+		\end{scriptsize}
+		\end{tikzpicture} %añadir un palo no cambia la forma delárbol
+		\item<2-> A right action of the symmetric group thought as reordering the inputs which is coherent with composition. %reordenas los inputs de f y metes los g_i como si nada. Eso es lo mismo que dejar f quieta, cambiar el orden de los g_i y consecuentemente en la composición los argumentos de arriba entran en otro orden. La otra es similar pero haciendo actuar permutaciones sobre los g_i, y luego la forma en la que esos g_i entran en f se reordena consecuentemente
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	Associativity and the existence of unit allows to understand compositions in terms of insertions $$f\circ_i g=\gamma(f;1,\dots, 1,\underbrace{g}_{i},1,\dots, 1)$$ \pause
+	
+	Composition of insertions is thought as grafting one tree at a time.
+\end{frame}
+\begin{frame}
+	\begin{defi}
+	 A map of operads $f:\mathcal{O}\to \mathcal{O}'$ is a collection of maps $\mathcal{O}(n)\to \mathcal{O}'(n)$ such that:
+		\begin{itemize}
+			\item<1->   $f\circ 1_\mathcal{O}=1_{\mathcal{O}'}$.
+			\item<2->  $f\circ \gamma_\mathcal{O}=\gamma_{\mathcal{O}'}\circ (f\times\cdots\times f)$.
+			\item<3->   $f(x\sigma)=f(x)\sigma$ for $x\in\mathcal{O}(n)$ and $\sigma\in\Sigma_n$.
+		\end{itemize}
+	\end{defi}
+	
+	
+\end{frame}
+%\begin{frame}
+%	\frametitle{Symmetric monoidal  categories}
+%	\begin{itemize}
+%		\item<1-> A category where there is a notion of tensor product $\otimes $ of objects.
+%		\item<2-> There exists an object $I$ such that $I\otimes A\cong A\cong A\otimes I$ for all object $A$.
+%		\item<3-> The product is commutative: $A\otimes B\cong B\otimes A$.
+%		\item<4-> The product is associative: $(A\otimes B)\otimes C\cong A\otimes (B\otimes C)$ for all objects.
+%		\item<5-> Other coherence axioms.
+%	\end{itemize}
+%%	COMENTAR QUE ESTA DEFINICIÓN SE PUEDE HACER EN CUALQUIER CATEGORÍA MONOIDAL SIMÉTRICA, DICIENDO LOS COMPONENTES DE LA DEFINICIÓN Y QUIZÁ DESTACANDO ALGÚN AXIOMA
+%	
+%   %PONER EJEMPLOS
+%\end{frame}
+\subsection{Algebras over an operad}
+\begin{frame}
+	\frametitle{Endomorphism operad}
+	%SI LA CATEGORÍA ES LO BASTANTE BUENA (CLOSED) TENEMOS LO SIGUIENTE, POR COMODIDAD LO DEFINIMOS EN ESTA CATEGORÍA
+	\begin{defi}
+		Let $V$ be a vector space. The \textbf{endomorphism operad} $End_V = \{ \xi_V(n) \}_{n\geq 0}$ of $V$ consists of
+		\begin{itemize}
+			\item<1-> $\xi_V(n)=\hom(V^{\otimes n},V)
+			$ the space of linear maps $V^{\otimes n} \to V$.
+			\item<2-> composition $\gamma(f; g_1, \dots, g_n)= f(g_1\otimes\dots\otimes g_n)$
+			\item<3-> identity $\operatorname{Id}_V$
+			\item<4->  symmetric group action $\gamma (f; g_1, \dots, g_n) \cdot \sigma = f (g_{\sigma^{-1}(1)} \otimes \dots \otimes g_{\sigma^{-1}(n)})$,  $\sigma \in \Sigma_n$
+		\end{itemize}
+		 %(notice this is analogous to the fact that each ''R''-module structure on an abelian group ''M'' amounts to a ring homomorphism <math>R \to \operatorname{End}(M)</math>.)
+	\end{defi}
+\end{frame}
+\begin{frame}
+\begin{itemize}
+\item<1->
+If $\mathcal{O}$ is another operad, each operad morphism $\mathcal{O} \to End_V$ is called an \textbf{algebra over} $\mathcal{O}$. 
+\item<2->Equivalently, a $\mathcal{O}$-algebra is given by a sequence of maps $\mathcal{O}(n)\otimes V^{\otimes n}\to V$.
+\item<3-> This is a realization of the operad as a space of operations.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Some examples}
+\begin{itemize}
+\item<1-> An operad $\mathcal{O}$ is said to be \textbf{generated} by a set $S$ of elements if every element of $\mathcal{O}$ is a linear combination of compositions of elements in $S$ and actions of the symmetric groups on them.
+\item<2-> Let $\mathcal{O}$ be generated by an operation $m\in\mathcal{O}(2)$ such that $m\circ_1 m=m\circ_2 m$. This implies $m(m,1)=m(1,m)$ so an algebra over $\mathcal{O}$ is an associative algebra.
+\item<3-> If we add the relation $m(12)=m$ this implies $m(x,y)=m(y,x)$ so we get a commutative algebra
+\end{itemize}
+%operads are very useful to describe many types of algebras
+\end{frame}
+%\subsection{Little disks operad}
+%\begin{frame}
+%	\frametitle{Little Disks Operad}
+%
+%\begin{defi}
+%	Let $E_2(n)$ be the configuration space of $n$ numbered disks $B(x_i,r_i)$ of center $x_i\in D^2$ and radius $r_i\in (0,1]$ inside the standard unit disk $D^2$. 
+%	
+%	\begin{itemize}
+%		\item<2-> We call each $B(x_i,r_i)$ \textbf{little disk}.
+%		%\item<3-> $E_2(n)$ can be viewed as a subspace of $(D^2\times (0,1])^n$ whose points are of the form $((x_1,r_1),\dots, (x_n,r_n))$ satisfying certain restrictions. % namely, $r_i$ must be such that the disk $B(x_i,r_i)\subset D^2$ does not intersect any other disk $B(x_j,r_j)$ and fits inside $D^2$. 
+%		\item<3-> By convention, $E_2(0)=*$.
+%	\end{itemize}
+%	 
+%\end{defi}
+%\end{frame}
+
+\begin{frame}
+%a more geometrical example
+\frametitle{Little disks operad}
+	\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+	\begin{figure}[h!]
+	\resizebox{10cm}{4.7cm}{%
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+		\clip(-4,-3.4) rectangle (9.5,3.4);
+		\draw [line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (2.,1.) circle (0.7823042886243178cm);
+		\draw [line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (3.,-1.) circle (1.100727032465361cm);
+		\draw [line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (4.48,1.46) circle (0.7496665925596522cm);
+		\draw [line width=2.pt] (3.,0.) circle (3.1622776601683795cm);
+		\draw [line width=2.pt] (2.,1.) circle (0.7823042886243178cm);
+		\draw [line width=2.pt] (4.48,1.46) circle (0.7496665925596522cm);
+		\draw [line width=2.pt] (3.,-1.) circle (1.100727032465361cm);
+		\draw (1.84,1.3) node[anchor=north west] {$1$};
+		\draw (4.32,1.7) node[anchor=north west] {$2$};
+		\draw (2.8,-0.8) node[anchor=north west] {$3$};
+		%\draw (-1.44,0.6) node[anchor=north west] {\LARGE{$c=$}};
+		\end{tikzpicture}
+	}
+	\caption{A point of $ E_2(3)$.}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+
+	
+	 We define for all positive integers $p$ and $q$ and  each $1\leq i\leq p$ the insertion maps 
+$$	
+\begin{tikzcd}[row sep=5]
+E_2(p)\times E_2(q)\arrow[r, "\circ_i"] & E_2(p+q-1)\\
+(c_1,c_2)\arrow[r, mapsto, shorten <= 1em, shorten >= 1em] & c_1\circ_i c_2
+\end{tikzcd}
+$$
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.2]{Imagenes/insertion}
+	\caption{An insertion $\circ_2:E_2(3)\times E_2(3)\to E_2(5)$.}
+\end{figure}
+	
+\end{frame}
+
+\begin{frame}
+	
+	\begin{figure}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+	\clip(-5.2,-1.5) rectangle (6.92,1.5);
+	\draw [line width=2.pt] (0.,0.) circle (1.42cm);
+	\draw (-0.2,0.2) node[anchor=north west] {$1$};
+	\end{tikzpicture}
+	\caption{Identity element $1\in E_2(1)$.}
+\end{figure}
+\end{frame}
+\begin{frame}
+	
+	\begin{figure}[h!]
+		\includegraphics[scale=0.35]{Imagenes//accion}
+		\caption{Action of $\sigma=(231)$ on a point of $E_2(3)$.}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{What about $A_\infty$-algebras?}
+\begin{itemize}
+\item<1-> We can define an operad generated by $m_i$ with $m_i\in\mathcal{O}(i)$ for all $i\geq 1$ such that 
+$$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0$$ 
+
+\item<2-> We would like to obtain the signs directly from operadic composition
+\end{itemize}
+\end{frame}
+\subsection{Operadic suspension}
+\begin{frame}
+\frametitle{Operadic suspension}
+\begin{itemize}
+\item<1-> For a graded vector space $V=\bigoplus_{n\in\Z} V_i$ there is a \textbf{suspension} operation $\Sigma V$ such that $(\Sigma V)_i=V_{i-1}$. %it raises the degree
+\item<2-> We define an analogue os suspension for operads.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Operadic suspension}
+\begin{itemize}
+\item<1-> Let $\Lambda(n)$ be a graded vector space concentrated in degree $1-n$ and generated by $e^n=e_1\land\cdots\land e_n$.
+\item<2-> Consider the sign action of the permutation group on $e$:
+\[(i\ i+1)\cdot e^n=e_l\land\cdots\land e_{i+1}\land e_i\land\cdots\land e_n=-e^n\]
+\item<3-> Define insertion maps $\circ_i:\Lambda(n)\otimes\Lambda(m)\to\Lambda(n+m-1)$ as
+\[(e_1\land\cdots\land e_n)\otimes(e_1\land\cdots\land e_m)\mapsto  (-1)^{(n-i)(1-m)}e_1\land\cdots\land e_{n+m-1}\]
+\item[]<4-> \[e^n\circ_i e^m= (-1)^{(n-i)(1-m)}e^{m+n-1}\]
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item<1-> $\Lambda=\{\Lambda(n)\}$ is an operad.
+\item<2-> The tensor product of operads $(\mathcal{O}\otimes \mathcal{P})(n)=\mathcal{O}(n)\otimes \mathcal{P}(n)$ is an operad with diagonal permutation action and composition. %the action and composition is done on each component separately
+\item<3-> The operad $\mathfrak{s}\mathcal{O}=\mathcal{O}\otimes\Lambda$ is called the \textbf{operadic suspension} of $\mathcal{O}$.
+\item<4-> We identify each $x\in\mathcal{O}(n)$ with $x\otimes e^n\in \mathfrak{s}\mathcal{O}(n)$.
+\item<5-> Then if $x$ has degree $p$ in $\mathcal{O}$, it has degree $p-n+1$ in $\mathfrak{s}\mathcal{O}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item<1-> Let $\tilde{\circ}_i$ denote the insertion map in $\mathfrak{s}\mathcal{O}$.
+\item[]<2-> \begin{align*}
+\mathfrak{s}\mathcal{O}(n)\otimes\mathfrak{s}\mathcal{O}(m)=(\mathcal{O}(n)\otimes\Lambda(n))\otimes (\mathcal{O}(m)\otimes\Lambda(m))\\
+\cong (\mathcal{O}(n)\otimes \mathcal{O}(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
+\xrightarrow{\circ_i\otimes\circ_i} \mathcal{O}(m+n-1)\otimes \Lambda(n+m-1)\\=\mathfrak{s}\mathcal{O}(n+m-1).
+\end{align*}
+%note the isomorphism
+\end{itemize}
+\end{frame}
+\begin{frame}
+\begin{itemize}
+\item<1-> The isomorphism $\Lambda(n)\otimes \mathcal{O}(m)\cong \mathcal{O}(m)\otimes \Lambda(n)$ is given by $x\otimes y\mapsto (-1)^{(1-n)\deg(y)}y\otimes x$.
+\item<2-> If we add the sign of the insertion in $\Lambda$ we get for $a\in\mathcal{O}(n)$ and $b\in\mathcal{O}(m)$
+\[a\tilde{\circ}_ib=(-1)^{(1-n)\deg(b)+(n-i)(1-m)}a\circ_i b.\]
+\item<3-> Let $m_{r+1+t}$ of arity $r+1+t$ and degree $r+t-1$ and let $m_s$ be of arity $s$ and degree $s-2$. %A_\infty-maps
+\item<4-> The above formula gives 
+\[m_{r+1+t}\tilde{\circ}_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s\]
+\item[]<5-> The sign of the $A_\infty$ equation!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item<1-> This simplifies the equation to
+\[\sum_{r+s+t=n}m_{r+1+t}\tilde{\circ}_{r+1}m_s=0\] %but we can simplify it even more
+\item<2-> Let $a\tilde{\circ}b=\sum_{i}a\tilde{\circ}_ib$ and let $m=m_1+m_2+\cdots$. The equation becomes just
+\item[]<3-> \[m\tilde{\circ}m=0.\]
+\item<4-> In addition, $m_i$ becomes of degree $-1$ in the operadic suspension for all $i$ $\Rightarrow$
+\item[]<5-> We can define an $A_\infty$-structure as an element $m\in\mathfrak{s}\mathcal{O}$ of degree $-1$ such that $m\tilde{\circ}m=0$. 
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Relation between suspension and operadic suspension}
+\begin{theorem}[Markl]
+There is an isomorphism of operads
+\[End_{\Sigma V}\cong \mathfrak{s}End_V\]
+\end{theorem}
+\end{frame}
+\subsection{Algebraic structures on operads}
+\begin{frame}
+\frametitle{The circle operation}
+%the operation we have defined is not so arbitrary or ad hoc
+\begin{itemize}
+\item<1-> For any operad, we can define a circle operation $a\circ b$ similarly to $\tilde{\circ}$ %even if it's not a suspension, the important thing is that we have an operad structure
+\item The circle operation defines a pre-Lie algebra structure, meaning that the bracket
+\[[a,b]=a\circ b-(-1)^{\deg(a)\deg(b)}b\circ a\]
+is a Lie bracket.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item<1-> Since $m\tilde{\circ}m=0$, the Jacobi identity implies that $[m,[m,]]=0$ for the bracket induced by $\tilde{\circ}$.
+\item<2-> Since $m$ is of degree $-1$, this imples that the map $[m,]:\mathfrak{s}\mathcal{O}\to\mathfrak{s}\mathcal{O}$ turns $\mathfrak{s}\mathcal{O}$ into a chain complex.
+\end{itemize}
+\end{frame}
+
+%
+%\begin{frame}
+%	\frametitle{Hochschild cohomology and cup product}
+%	\begin{defi}
+%		The $m$-th \textbf{Hochschild cohomology} of $A$ is defined to be $H^m(A;A)=\ker\delta_m/\im\delta_{m-1}$.
+%		\end{defi}\pause
+%		
+%		For $f\in C^n(A;A)$ and $g\in C^m(A;A)$ define
+%		
+%		 $(f\smile g)(a_1\otimes\cdots\otimes a_n\otimes b_1\otimes\cdots\otimes b_m)=f(a_1\otimes\cdots\otimes a_n)g(b_1\otimes\cdots\otimes b_m)$\pause
+%	\begin{teorema}
+%		$\{H^*(A,A),\smile\}$ is a graded commutative algebra, with grading given by dimension, i.e., if $\eta\in H^m(A,A)$ and $\xi\in H^n(A,A)$, then $\eta\smile \xi =(-1)^{mn}\xi\smile \eta$.
+%	\end{teorema} 
+%\end{frame}
+
+%\begin{frame}
+%	\frametitle{Cup product}
+%	\begin{defi}
+%	 For $f\in C^m(A;A)$ and $g\in C^n(A;A)$ define their \textbf{cup product} $f\smile g\in C^{n+m}(A;A)$ by
+%	\[
+%	f\smile g(a_1\otimes\cdots\otimes a_m\otimes b_1\otimes\cdots\otimes b_n)=f(a_1\otimes\cdots\otimes a_m)g(b_1\otimes\cdots\otimes b_n).
+%	\]
+%	\end{defi}\pause
+%The cup product satisfies the Leibniz rule
+%$$\delta (f^m\smile g^n)=\delta f^m\smile g^n+(-1)^m f^m\smile \delta g^n$$\pause
+%SI ME QUEDA LARGO QUITAR LAS DEFINICIONES %Con lo cual induce un producto en cohomología
+%
+%
+%\end{frame}
+
+%\begin{frame}
+%\frametitle{Lie bracket}
+%First, for $f\in C^m(A;A)$ and $g\in C^n(A;A)$ set
+%
+%$$
+%f\circ_i g=f(1\otimes\cdots \otimes 1\otimes \underbrace{g}_{i-th}\otimes 1\otimes \cdots\otimes 1)\in C^{n+m-1}(A;A)
+%$$
+%\pause 
+%Now set
+%\[
+%f\circ g=\sum_{i=0}^m (-1)^{ni}f\circ_i g.
+%\]\pause
+%Then the bracket is defined by $$[f,g]=f\circ g-(-1)^{(n-1)(m-1)}g\circ f$$
+%\end{frame}
+
+%\begin{frame}
+%	\frametitle{The Hochschild cohomology is a Gerstenhaber algebra}
+%	
+%	\begin{teorema}
+%		Let $A$ be an algebra and $\xi$, $\eta$ and $\zeta$ elements of $H^m(A;A)$, $H^n(A;A)$ and $H^p(A;A)$, respectively. The Lie bracket $[,]$ is of degree $-1$ and such that
+%		\[
+%		[\eta, \xi\smile \zeta]=[\eta,\xi]\smile \zeta+(-1)^{m(n-1)}\eta\smile[\xi,\zeta].
+%		\]
+%	\end{teorema}\pause
+%	\begin{teorema}
+%	The Hochschild cohomology $H^*(A;A)$ is a Gerstenhaber algebra.
+%\end{teorema} 
+%\end{frame}
+
+%\begin{frame}
+%	\begin{itemize}
+%		\item Operads \checkmark
+%		\begin{itemize}
+%			\item action of an operad (algebra over an operad) \checkmark
+%			\item little disks operad \checkmark
+%			\item chain/homology operad	\checkmark		
+%		\end{itemize}
+%		\item Gerstenhaber algebras \checkmark
+%		\item Hochschild cohomology of an associative algebra \checkmark
+%	\end{itemize}
+%\end{frame}
+%\begin{frame}
+%	\frametitle{Lie Bracket}
+%	For $f\in C^m(A;A)$ and $g\in C^n(A;A)$ set
+%	\begin{gather*}
+%	f\circ_i g(a_0\otimes\cdots\otimes a_{i-1}\otimes b_0\otimes\cdots\otimes b_{n-1}\otimes a_{i+1}\otimes\cdots \otimes a_{m-1})\\
+%	=f(a_0\otimes \cdots a_{i-1}\otimes g(b_0\otimes\cdots\otimes b_{n-1})\otimes a_{i+1}\otimes\cdots\otimes a_{m-1})
+%	\end{gather*}
+%	for $i=0,\dots, m-1$. Note that $f\circ_i g\in C^{n+m-1}(A;A)$.\pause
+%	
+%	Now set
+%	\[
+%	f\circ g=\sum_{i=0}^m (-1)^{ni}f\circ_i g.
+%	\]
+%\end{frame}
+%\begin{frame}
+%	\frametitle{Lie Bracket}
+%	\begin{defi}
+%		The bracket is defined by $[f,g]=f\circ g-(-1)^{(n-1)(m-1)}g\circ f$.
+%	\end{defi}\pause 
+%The bracket also satisfies the corresponding Leibniz rule
+%\[\delta[f^m,g^n]=(-1)^{n-1}[\delta f^m,g^n]+[f^m,\delta g^n].\]\pause 
+%
+%\end{frame}
+
+
+%\begin{frame}
+%	\begin{block}{}
+%	\begin{itemize}
+%	\item An identity element $1 \in \mathcal{O}(1)$ such that 
+%	$\gamma(1; d) = d$ for $d \in \mathcal{O}(j)$ and 
+%	$\gamma(c; 1,\dots,1) = c$ for
+%	$c \in \mathcal{O}(k)$.
+%	
+%	\item A right action of the symmetric group $\Sigma_j$ on $\mathcal{O}(j)$ such that the following equivariance
+%	formulas are satisfied for all $c\in \mathcal{O}(k)$, $d_s \in \mathcal{O}(j_s)$, $\sigma\in\Sigma_k$, and $\tau_s\in\Sigma_{j_s}$:
+%	\[
+%	\gamma(c\sigma; d_1, \dots , d_k) = 
+%	\gamma(c; d_{\sigma^{-1}(1)}, \dots , d_{\sigma^{-1}(k)})\sigma(j_1, \dots , j_k)
+%	\]
+%	and 
+%	\[
+%	\gamma(c; d_1\tau_1, \dots , d_k\tau_k) = \gamma(c; d_1, \dots , d_k)(\tau_1\oplus\cdots\oplus\tau_k),
+%	\] 
+%	where $\sigma(j_1, \dots , j_k)$ denotes the
+%	permutation of $j$ letters which permutes the $k$ blocks of letters determined by the given
+%	partition of $j$ (a first block of $j_1$, a second one of $j_2$ letters and so on), and $\tau_1\oplus\cdots\oplus\tau_k$ denotes the image of $(\tau_1, \dots , \tau_k)$ under the evident inclusion of $\Sigma_{j_1} \times \cdots \times \Sigma_{j_k}$ in $\Sigma_j$.
+%\end{itemize}
+%\end{block}
+%
+%\end{frame}
+
+
+
+
+%\subsection{Operad $\mathcal{B}$}
+%
+%\begin{frame}
+%\frametitle{Tensor coalgebra}
+%
+%	For a finite dimensional graded $k$-vector space $V$ let $TV=\bigoplus_{n\geq 0} V^{\otimes n}$. \pause
+%	
+%	\begin{defi}
+%		A \textbf{coalgebra} structure on $TV$ is given by a comultiplication $\Delta:TV\to TV\otimes TV$. 
+%	\end{defi}\pause
+%
+%\begin{example}
+%	The \textbf{cofree conilpotent} coalgebra $TV$ is given by the comultiplication
+%	\[
+%	\Delta(w_0\otimes\cdots\otimes w_n)=\sum_{p=0}^n(w_0\otimes\cdots \otimes w_p)\otimes (w_{p+1}\otimes\cdots\otimes w_n).
+%	\]
+%\end{example}
+%
+%\end{frame}
+%
+%\begin{frame}
+%\begin{defi}
+%	A \textbf{bialgebra} structure on $TV$ is given by both an algebra structure and a coalgebra structure, which satisfy some compatibility axioms.
+%\end{defi}\pause
+%
+%\begin{defi}
+%	A $\mathcal{B}$-algebra structure on $V$  is given by an structure of differential graded bialgebra on $TV[1]=\bigoplus_{n\geq 0} V[1]^{\otimes n}$ such that the coalgebra structure is the cofree conilpotent one.
+%\end{defi}
+%\end{frame}
+%
+%\begin{frame}
+%	\frametitle{Operad $\mathcal{B}$}
+%	A $\mathcal{B}$-algebra structure on $V$ is given by:
+%	\begin{itemize}
+%			\item<2-> A differential $D:TV[1]\to TV[1]$ \only<3->{$\xRightarrow{decomposes} V[1]^{\otimes n}\to V[1]^{\otimes r}$ of degree 1} \only<4->{$\xRightarrow{r=1} m_n:V[1]^{\otimes n}\to V[2]$} \only<5->{$\Rightarrow \boxed{m_n:V^{\otimes n}\to V[2-n]}$.}
+%		\item<6-> A multiplication $M:TV[1]\otimes TV[1]\to TV[1]$ \only<7->{$\xRightarrow{decomposes} V[1]^{\otimes p}\otimes V[1]^{\otimes q}\to V[1]^{\otimes r}$ of degree 0} \only<8->{$\xRightarrow{r=1} m_{pq}:V^{\otimes p}[1]\otimes V^{\otimes q}[1]\to V[1]$} \only<9->{$\Rightarrow	\boxed{m_{pq}:V^{\otimes p}\otimes V^{\otimes q}\to V[1-p-q]}$.}
+%	
+%		
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%	\frametitle{Operad $\mathcal{B}$}
+%	\begin{defi}
+%		The operad $\mathcal{B}$ is defined to be the operad of graded vector spaces generated by operations $m_n\in\mathcal{B}(n)_{2-n}$ and $m_{pq}\in\mathcal{B}(p+q)_{1-p-q}$ subject to some relations. 
+%	\end{defi}
+%\end{frame}
+%	
+%	\subsection{Action on $\mathcal{B}$ on $C^*(A;A)$}
+%\begin{frame}
+%	\frametitle{Brace algebra on $C^*(A;A)$}
+%	
+%\begin{itemize}
+%	\item<1-> Recall that an element $f\in C^n(A;A)$ is a map $f:A^{\otimes n}\to A$, so we represent it as
+%	 
+%	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+%	\clip(-2.8466666666666676,-1) rectangle (11.486666666666668,3);
+%	\draw[line width=1.pt] (0.,0.) -- (0.,1.38) -- (2.406666666666667,1.38) -- (2.406666666666667,0.) -- cycle;
+%	\draw [line width=1.pt] (0.,0.)-- (0.,1.38);
+%	\draw [line width=1.pt] (0.,1.38)-- (2.406666666666667,1.38);
+%	\draw [line width=1.pt] (2.406666666666667,1.38)-- (2.406666666666667,0.);
+%	\draw [line width=1.pt] (2.406666666666667,0.)-- (0.,0.);
+%	\draw [line width=.pt] (1.2033333333333336,0.)-- (1.2033333333333336,-0.606666666666666);
+%	\draw [line width=1.pt] (1.2033333333333336,1.38)-- (1.2033333333333336,2.3933333333333344);
+%	\draw [line width=1.pt] (0.7666666666666668,2.3933333333333344)-- (0.7666666666666668,1.38);
+%	\draw [line width=1.pt] (0.3933333333333334,2.3933333333333344)-- (0.38,1.38);
+%	\draw [line width=1.pt] (1.606666666666667,2.3933333333333344)-- (1.606666666666667,1.38);
+%	\draw [line width=1.pt] (1.9933333333333336,2.3933333333333344)-- (1.9933333333333336,1.38);
+%	\draw (1.,0.9933333333333343) node[anchor=north west] {$f$};
+%	\end{tikzpicture}
+%\end{itemize}
+%	
+%\end{frame}
+%
+%
+%\begin{frame}
+%	\frametitle{Brace algebra on $C^*(A;A)$}
+%	
+%	\begin{itemize}
+%		\item Let $f,g_1,\dots, g_n\in C^*(A;A)$. The the \textbf{brace} $f\{g_1,\dots, g_n\}$ is given by
+%		
+%		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+%		\clip(-2.8466666666666676,-1) rectangle (11.486666666666668,3);
+%		\draw[line width=1.pt] (2.833333333333334,0.) -- (2.833333333333334,0.5666666666666675) -- (7.006666666666668,0.5666666666666675) -- (7.,0.) -- cycle;
+%		\draw[line width=1.pt] (3.193333333333334,1.) -- (4.,1.) -- (4.006666666666668,1.58) -- (3.193333333333334,1.58) -- cycle;
+%		\draw[line width=1.pt] (6.,1.) -- (6.38,1.) -- (6.38,1.58) -- (5.593333333333335,1.5933333333333344) -- (5.606666666666667,1.) -- cycle;
+%		\draw (-2.9,0.6) node[anchor=north west] {$f\{g_1,\dots, g_n\}=\displaystyle{\sum_{\text{all possible insertions}}}$};
+%		\draw [line width=1.pt] (2.833333333333334,0.)-- (2.833333333333334,0.5666666666666675);
+%		\draw [line width=1.pt] (2.833333333333334,0.5666666666666675)-- (7.006666666666668,0.5666666666666675);
+%		\draw [line width=1.pt] (7.006666666666668,0.5666666666666675)-- (7.,0.);
+%		\draw [line width=1.pt] (7.,0.)-- (2.833333333333334,0.);
+%		\draw [line width=1.pt] (4.92,0.)-- (4.92,-0.36666666666666614);
+%		\draw [line width=1.pt] (2.993333333333334,0.5666666666666675)-- (3.,2.);
+%		\draw [line width=1.pt] (3.553333333333334,0.5666666666666675)-- (3.553333333333334,1.);
+%		\draw [line width=1.pt] (4.273333333333334,0.5666666666666675)-- (4.273333333333334,1.9933333333333345);
+%		\draw [line width=1.pt] (4.54,0.5666666666666675)-- (4.54,1.9933333333333345);
+%		\draw [line width=1.pt] (5.993333333333334,0.5666666666666675)-- (6.,1.);
+%		\draw [line width=1.pt] (6.62,0.5666666666666675)-- (6.62,1.9933333333333345);
+%		\draw [line width=1.pt] (6.833333333333335,0.5666666666666675)-- (6.833333333333335,1.98);
+%		\draw [line width=1.pt] (3.193333333333334,1.)-- (4.,1.);
+%		\draw [line width=1.pt] (4.,1.)-- (4.006666666666668,1.58);
+%		\draw [line width=1.pt] (4.006666666666668,1.58)-- (3.193333333333334,1.58);
+%		\draw [line width=1.pt] (3.193333333333334,1.58)-- (3.193333333333334,1.);
+%		\draw [line width=1.pt] (6.,1.)-- (6.38,1.);
+%		\draw [line width=1.pt] (6.38,1.)-- (6.38,1.58);
+%		\draw [line width=1.pt] (6.38,1.58)-- (5.593333333333335,1.5933333333333344);
+%		\draw [line width=1.pt] (5.593333333333335,1.5933333333333344)-- (5.606666666666667,1.);
+%		\draw [line width=1.pt] (5.606666666666667,1.)-- (6.,1.);
+%		\draw [line width=1.pt] (3.5666666666666673,1.58)-- (3.58,2.);
+%		\draw [line width=1.pt] (6.007451656136321,1.586314378709553)-- (6.,2.);
+%		\draw [line width=1.pt] (5.4,0.5666666666666675)-- (5.4,2.);
+%		\draw (3.3,1.5666666666666678) node[anchor=north west] {$g_1$};
+%		\draw (5.65,1.58) node[anchor=north west] {$g_n$};
+%		\draw (4.7,0.5666666666666675) node[anchor=north west] {$f$};
+%		\draw (4.59,1.5533333333333343) node[anchor=north west] {$\cdots$};
+%		\end{tikzpicture}
+%		\item<2-> $f\{\}=f$.
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%%	\begin{itemize}
+%%		\item Notation: $f\{\}=f$ and $[f,g]=f\{g\}-(-1)^{(|f|-1)(|g|-1)}g\{g\}$.
+%%	\end{itemize}
+%\frametitle{Action of $\mathcal{B}$ on $C^*(A;A)$}
+%We have to define the action of the operations $m_n$ and $m_{pq}$ on $C^*(A;A)$:
+%
+%\begin{itemize}
+%	\item<2-> $m_0=0$.
+%	\item<3->  $m_1$ is the differential in $C^*(A;A)$.
+%	\item<4-> $m_2$ is the cup product.
+%	\item<5-> $m_n=0$ for all $n>2$. 
+%	\item<6-> $m_{0,1}=m_{1,0}=Id$.
+%	\item<7-> $m_{0,q}=m_{q,0}=0$.
+%	\item<8-> $m_{1q}(f\otimes g_1\otimes\cdots\otimes g_q)=f\{g_1,\dots, g_q\}$.
+%	\item<9-> $m_{pq}=0$ for $p>1$.
+%\end{itemize}
+%
+%\end{frame}
+%
+%\begin{frame}
+%	\begin{teorema}
+%		The action of $\mathcal{B}$ on $C^*(A;A)$ is well defined and induces the Gerstenhaber algebra structure on $H^*(A;A)$. 
+%	\end{teorema}\pause
+%
+%\textcolor{red}{The conjecture is finally proven!}
+%\end{frame}
+
+\begin{frame}
+	\begin{center}
+	\Huge{Thank you very much!}
+\end{center}
+\end{frame}
+%\begin{frame}
+%	Cada vez que explique una cosa ponerle un check a lo de antes \url{https://tex.stackexchange.com/questions/132783/how-to-write-checkmark-in-latex} (quizá en operads ponerlo al final al grande y ya)
+%\end{frame}
+
+%\begin{frame}
+%	Definición de operad y explicación dibujitos (más de los que he hecho en el trabajo)
+%	
+%	Operad de endomorfismos y álgebra sobre un operad
+%	
+%	Definición de operad en symmetric monoidal categories para que tenga sentido
+%	
+%	Comentar gracias al EZ map se hereda la operadición y de ahí a homología
+%	
+%	Las operaciones de la homología con los dos dibujitos (en el trabajo solo he metido uno)
+%	
+%	Gerstenhaber algebra definición del tirón (en la presentación comentar los criterios de derivación)
+%	
+%	Describir el complejo de cadenas sin detallar mucho en que es un complejo de cadenas e ir a su homología con sus propiedades de álgebra de Gerstenhaber (esto ya me relaciona con el último punto)
+%	
+%	Recuperar el homology operad y describir la acción sobre un álgebra asociativa
+%\end{frame}
+
+%\begin{frame}
+%	Retomar la conjetura de Deligne para recordarla y ver que está todo, seguido de un diagrama con las acciones y la que se pregunta si existe poniéndola dashed y con una interrogación de label
+%	
+%	Esquema de la prueba (destacar de algún modo las partes en las que me centro)
+%	
+%	Pensar qué meto de cada parte
+%\end{frame}
+
+%\begin{frame}
+%
+%\end{frame}
+
+\end{document}
