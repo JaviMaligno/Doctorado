@@ -1,3 +1,48 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: ToSarah.aux
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ToSarah.aux
+Reallocating 'name_of_file' (item size: 1) to 7 items.
 The style file: ieeetr.bst
+Reallocating 'name_of_file' (item size: 1) to 16 items.
 Database file #1: newbibliography.bib
+You've used 4 entries,
+            1876 wiz_defined-function locations,
+            510 strings with 4249 characters,
+and the built_in function-call counts, 1027 in all, are:
+= -- 107
+> -- 38
+< -- 0
++ -- 14
+- -- 10
+* -- 71
+:= -- 148
+add.period$ -- 8
+call.type$ -- 4
+change.case$ -- 2
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 54
+empty$ -- 92
+format.name$ -- 10
+if$ -- 253
+int.to.chr$ -- 0
+int.to.str$ -- 4
+missing$ -- 6
+newline$ -- 19
+num.names$ -- 4
+pop$ -- 10
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 40
+stack$ -- 0
+substring$ -- 44
+swap$ -- 25
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 8
+width$ -- 5
+write$ -- 46

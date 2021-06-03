@@ -1,0 +1,81 @@
+	\documentclass[twoside]{article}
+\usepackage{estilo-ejercicios}
+\setcounter{section}{0}
+\newtheorem{defin}{Definition}[section]
+\newtheorem{lem}[defin]{Lemma}
+\newtheorem{propo}[defin]{Proposition}
+\newtheorem{thm}[defin]{Theorem}
+\newtheorem{eje}[defin]{Example}
+\renewcommand{\baselinestretch}{1,3}
+
+\usepackage{empheq}
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+
+%Below to introduce ¡ in mathmode https://tex.stackexchange.com/questions/471464/inverted-exclamation-mark-in-mathmode
+\DeclareMathSymbol{\mathinvertedexclamationmark}{\mathclose}{operators}{'074}
+\DeclareMathSymbol{\mathexclamationmark}{\mathclose}{operators}{'041}
+
+\makeatletter
+\newcommand{\raisedmathinvertedexclamationmark}{%
+  \mathclose{\mathpalette\raised@mathinvertedexclamationmark\relax}%
+}
+\newcommand{\raised@mathinvertedexclamationmark}[2]{%
+  \raisebox{\depth}{$\m@th#1\mathinvertedexclamationmark$}%
+}
+\begingroup\lccode`~=`! \lowercase{\endgroup
+  \def~}{\@ifnextchar`{\raisedmathinvertedexclamationmark\@gobble}{\mathexclamationmark}}
+\mathcode`!="8000
+\makeatother
+%--------------------------------------------------------
+\begin{document}
+
+\title{Introductory chapter}
+\author{Javier Aguilar Martín}
+\maketitle
+
+\section{Introduction}
+
+MAYBE THIS IS THE PLACE FOR FIXING R COMMUTATIVE WITH UNIT AND CHAR NOT 2 (POSSIBLY 0 OR NOT A FACTORIAL)
+\begin{itemize}
+
+
+\item MAYBE BASIC REVIEW OF CATEGORY THEORY INCLUDING EQUIVALENCE OF CATEGORIES
+
+
+\item SYMMETRIC (CLOSED) MONOIDAL CATEGORIES, EXAMPLES
+
+\item LAX/STRICT MONOIDAL FUNCTORS
+
+\item S-MODULES/COLLECTIONS IN THE NON SYMMETRRIC CASE, OPERADS (SYMMETRIC AND NS)- POSSIBLY SEVERAL DEFINITIONS, AT LEAST CLASSICAL, PARTIAL AND THEIR EQUIVALENCE AND MONOIDAL, EXAMPLES, PRE-LIE ALGEBRA DEFINED BY INSERTIONS
+
+\item DIFFERENT PRODUCTS (HADAMARD, TENSOR PRODUCT OF S-MODULES, PLETHYSM)
+
+\item COOPERADS, INFINITESIMAL COMPOSITION
+
+\item LAX MONOIDALS CARRIES OPERADS TO OPERADS (SAME WITH COOPERADS? PROBABLY BY ABSTRACT NONSENSE OF OPPOSITE CATEGORY)
+
+\item KOSZUL DUALITY, CONVOLUTION OPERAD, TWISTED MORPHISM?
+
+\item INFINITY OPERADS? 
+
+\item OPERADIC COHOMOLOGY OR JUST INTRODUCE COHOMOLOGY AD HOC FOR THE CASES I NEED?
+
+\item BAR-COBAR  CONSTRUCTION FOR ALGEBRAS AND OPERADS?
+\end{itemize}
+
+-IN A DIFFERENT CHAPTER PROBABLY-
+\begin{itemize}
+
+
+
+\item A INFINITY ALGEBRAS CLASSICAL DEFINITION, BAR INTERPRETATION, REVIEW OF SOME KNOWN RESULTS. STRICT AND INFINITY MORPHIMS ACCORDING TO THE VARIOUS INTERPRETATIONS. TOPOLOGICAL ORIGIN?
+
+\item DERIVED A INFINITY ALGEBRAS, SOMETHING  FROM SAGAVE, UNIQUENESS OF AINFTY STRUTURES, DERIVED AINFTY IN OPERADIC CONTEXT, AND DERIVED AINFTY AND THEIR HOMOTOPIES
+
+\item FIND A BAR INTERPRETATION? (SINCE THIS WOULD BE KIND OF NEW, MAYBE IN A DIFFERENT CHAPTER)
+\item REFERENCE TO GEOMETRIC INTERPRETATIONS? (THESIS BY SARAH'S STUDENT)
+\end{itemize}
+%\phantomsection
+\bibliographystyle{ieeetr}
+\bibliography{newbibliography}
+\end{document}
