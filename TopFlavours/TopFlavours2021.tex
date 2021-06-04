@@ -10,6 +10,7 @@
 \usepackage{pgf,tikz}
 \usepackage{pgfplots}
 \usepackage{tikz-cd}
+\usepackage{oplotsymbl} %filled pentagon go brrrr
 %\usepackage{empheq}
 %\usepackage[dvipsnames]{xcolor}
 \usepackage{xcolor}
@@ -324,10 +325,10 @@ IF THERE'S TIME: OPERADIC SUSPENSION, ANOTHER WAY TO DEFINE AINFINTY MULTIPLICAT
 		Let $V$ be a space. The \textbf{endomorphism operad} $End_V = \{ \xi_V(n) \}_{n\geq 0}$ of $V$ consists of
 		\begin{itemize}
 			\item<1-> $\xi_V(n)=\hom(V^{\otimes n},V)
-			$ the space of linear maps $V^{\otimes n} \to V$.
+			$ the space of maps $V^{\otimes n} \to V$.
 			\item<2-> composition $\gamma(f; g_1, \dots, g_n)= f(g_1\otimes\dots\otimes g_n)$
 			\item<3-> identity $\operatorname{Id}_V$
-			\item<4->  symmetric group action $\gamma (f; g_1, \dots, g_n) \cdot \sigma = f (g_{\sigma^{-1}(1)} \otimes \dots \otimes g_{\sigma^{-1}(n)})$,  $\sigma \in \Sigma_n$
+			%\item<4->  symmetric group action $\gamma (f; g_1, \dots, g_n) \cdot \sigma = f (g_{\sigma^{-1}(1)} \otimes \dots \otimes g_{\sigma^{-1}(n)})$,  $\sigma \in \Sigma_n$
 		\end{itemize}
 		 %(notice this is analogous to the fact that each ''R''-module structure on an abelian group ''M'' amounts to a ring homomorphism <math>R \to \operatorname{End}(M)</math>.)
 	\end{defi}
@@ -367,10 +368,22 @@ X\times X\arrow[r, "m"]& X
 
 The product $m$ is associative when the diagram commutes: $m(m\times 1)=m(1\times m)$ \pause $\Rightarrow (xy)z=x(yz)$.\pause
 
-It is homotopy associative if $m(m\times 1)\simeq m(1\times m)$\pause $\Rightarrow (xy)z\simeq x(yz)$.
+
 
 \end{frame}
 
+\begin{frame}
+The product $m$ is homotopy associative if $m(m\times 1)\simeq m(1\times m)$\pause 
+
+
+\[\Downarrow\] 
+
+\begin{center}
+There is a map $M_3:[0,1]\times X^3\to X$ such that 
+\end{center}
+
+\[M_3(0,x,y,z)=(xy)z \text{ and }M_3(1,x,y,z)=x(yz)\]
+\end{frame}
 \begin{frame}[fragile]
 Product of 4 elements
 \[
@@ -402,7 +415,7 @@ Product of 4 elements
 \end{tikzpicture}
 \]
 
-If we can fill the pengaton with a homotopy we say that the product is homotopy coherent. %there is a concatenation of homotopies and it makes sense to talk about homotopies between them, joining the points with paths
+If we can fill the pengaton with a homotopy $M_4=\pentagofill\times X^4\to X$ we say that the product is homotopy coherent. %there is a concatenation of homotopies and it makes sense to talk about homotopies between them, joining the points with paths
 \end{frame}
 
 
@@ -441,12 +454,12 @@ Multiplying 5 elements
 \section{$A_\infty$-spaces}
 \begin{frame}
 \begin{itemize}
-\item<1-> We get spaces $K_2=*$, $K_3=[0,1]$, $K_4=$pentagon,$\cdots$ %a point cause there is only one way to multiply two elements, [0,1] parametrizes the homotopy
-\item<2-> And maps $M_i:K_i\times X^i\to X$ satisfying certain relations. %homotopy relation similar to what we explain with the polygons
+\item<1-> We get spaces $K_2=*$, $K_3=[0,1]$, $K_4=\pentagofill$, $K_5, \dots$ %a point cause there is only one way to multiply two elements, [0,1] parametrizes the homotopy, k5 is the previous slide
+\item<2-> And maps $M_n:K_n\times X^n\to X$ satisfying certain relations. %homotopy relation similar to what we explain with the polygons
 \item<3-> For instance, $M_3:[0,1]\times X^3\to X$ defines a homotopy between $M_2(M_2\times 1)$ and $M_2(1\times M_2)$. 
 \item<4-> $M_4:K_4\times X^4\to X$ allows us to fill the pentagon, on the boundary it is equal to $M_3$. %and so on
 \item<5->[]\begin{defi}
-If $M_i$ exists for all $i$ we say that $X$ is an $A_\infty$-\textbf{space}.
+If $M_n$ exists for all $n\geq 2$ we say that $X$ is an $A_\infty$-\textbf{space}.
 \end{defi}
 \end{itemize}
 \end{frame}
@@ -454,10 +467,99 @@ If $M_i$ exists for all $i$ we say that $X$ is an $A_\infty$-\textbf{space}.
 \begin{frame}
 A INFTY SPACES ARE ALGEBRAS OVER THE OPERAD OF STASHEFF ASSOCIAHEDRA, DEFINE IT USING THE PREVIOUS SPACES (I NEED TO DEFINE O(1)=POINT)
 \end{frame}
+\begin{frame}
+\begin{prop}
+Let $K_0=\emptyset$ and $K_1=\{*\}$. Then the collection $\{K_n\}_{n\geq 0}$ is an operad.
+\end{prop}\pause
 
+\begin{exampleblock}{Proof}
+We need to define insertion maps $\circ_i:K_r\times K_s\to K_{r+s-1}$. For this, we define a bijection between $K_n$ and (planar rooted) trees of $n$ leaves.
+\end{exampleblock}
+%another option is using that the faces of K_{r+s-1} are products of K_r\times K_s, so on thee faces it is defined by this identification and on the innterior just take the cone
+\end{frame}
+
+\begin{frame}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-4.4,-3.7033333333333225) rectangle (7.44,6);
+\draw(3.5,0.) -- (5.5,0.) -- (6.118033988749895,1.9021130325903064) -- (4.5,3.077683537175253) -- (2.881966011250105,1.9021130325903073) -- cycle;
+\draw (4.5,1.)-- (4.5,1.5);
+\draw (4.5,1.5)-- (3.748888888888889,2.0111111111111115);
+\draw (4.5,1.5)-- (4.2377777777777785,2.002222222222223);
+\draw (4.5,1.5)-- (4.735555555555557,2.002222222222223);
+\draw (4.5,1.5)-- (5.171111111111112,1.9933333333333338);
+\draw (4.5,3.5)-- (4.5,4.);
+\draw (4.5,4.)-- (3.5,4.5);
+\draw (3.841262580054896,4.329368709972552)-- (4.,4.5);
+\draw (4.173977257874788,4.1630113710626055)-- (4.5,4.5);
+\draw (4.5,4.)-- (5.,4.5);
+\draw [line width=1.6pt] (3.5,0.)-- (5.5,0.);
+\draw [line width=1.6pt] (5.5,0.)-- (6.118033988749895,1.9021130325903064);
+\draw [line width=1.6pt] (6.118033988749895,1.9021130325903064)-- (4.5,3.077683537175253);
+\draw [line width=1.6pt] (4.5,3.077683537175253)-- (2.881966011250105,1.9021130325903073);
+\draw [line width=1.6pt] (2.881966011250105,1.9021130325903073)-- (3.5,0.);
+\draw (2.5,1.5)-- (2.5,2.);
+\draw (2.5,2.)-- (1.7044444444444466,2.464444444444445);
+\draw (2.5,2.)-- (3.242222222222227,2.4822222222222226);
+\draw (2.1032829629629672,2.2316029629629615)-- (2.291111111111114,2.4911111111111115);
+\draw (2.8780385185185238,2.2456118518518537)-- (2.691111111111115,2.4911111111111115);
+\draw (6.5,1.5)-- (6.5,2.);
+\draw (6.5,2.)-- (5.802222222222222,2.5088888888888894);
+\draw (6.5,2.)-- (7.26,2.5);
+\draw (4.,-0.5)-- (3.,-1.);
+\draw (3.5022222222222226,-0.7488888888888887)-- (3.402222222222227,-0.4866666666666656);
+\draw (3.196444444444449,-0.9017777777777756)-- (3.,-0.5);
+\draw (3.,-1.)-- (2.5,-0.5);
+\draw (3.,-1.)-- (3.,-1.5);
+\draw (6.214595643598731,2.2081452153372316)-- (6.5,2.5);
+\draw (6.5,2.5)-- (6.148888888888899,2.802222222222223);
+\draw (6.5,2.5)-- (6.824444444444455,2.802222222222223);
+\draw (5.135555555555563,-0.5044444444444434)-- (6.,-1.);
+\draw (6.,-1.)-- (6.806666666666677,-0.5044444444444434);
+\draw (6.40225777777779,-0.752882962962958)-- (6.264444444444454,-0.49555555555555447);
+\draw (6.264444444444454,-0.49555555555555447)-- (5.917777777777787,-0.29111111111111004);
+\draw (6.264444444444454,-0.49555555555555447)-- (6.5933333333333435,-0.26444444444444337);
+\draw (6.,-1.)-- (6.,-1.5);
+\draw (-1.9766666666666668,4.443888888888889)-- (-1.972222222222222,5.013888888888889);
+\draw (-1.972222222222222,5.013888888888889)-- (-2.2961111111111117,5.477222222222244);
+\draw (-1.972222222222222,5.013888888888889)-- (-1.573888888888889,5.546666666666689);
+\draw [line width=1.6pt] (-4.,0.)-- (0.,0.);
+\draw (-4.008888888888889,0.485)-- (-4.004444444444445,1.005);
+\draw (-4.004444444444445,1.005)-- (-4.504444444444446,1.518888888888903);
+\draw (-4.284449471464683,1.2927829444374739)-- (-4.004444444444446,1.505);
+\draw (-4.004444444444445,1.005)-- (-3.56,1.4077777777777916);
+\draw (-0.4627777777777772,1.505)-- (0.,1.);
+\draw (0.,1.)-- (-0.004444444444443562,0.4077777777777945);
+\draw (0.,1.)-- (0.5233333333333345,1.4772222222222409);
+\draw (0.20730493434689184,1.1890392129554)-- (-0.004444444444443562,1.4772222222222409);
+\draw (-1.9533333333333338,0.34888888888888897)-- (-1.9488888888888891,0.9911111111111113);
+\draw (-1.9488888888888891,0.9911111111111113)-- (-2.31,1.435555555555571);
+\draw (-1.9488888888888891,0.9911111111111113)-- (-1.935,1.4772222222222378);
+\draw (-1.9488888888888891,0.9911111111111113)-- (-1.5044444444444445,1.4494444444444599);
+\draw (-2.4488888888888893,3.824444444444468) node[anchor=north west] {$K_2$};
+\draw (-2.4211111111111117,-0.2866666666666504) node[anchor=north west] {$K_3$};
+\draw (4.037222222222225,-0.87) node[anchor=north west] {$K_4$};
+\begin{scriptsize}
+\draw [fill=black] (3.5,0.) circle (3.0pt);
+\draw [fill=black] (5.5,0.) circle (3.0pt);
+\draw [fill=black] (6.118033988749895,1.9021130325903064) circle (3.0pt);
+\draw [fill=black] (4.5,3.077683537175253) circle (3.0pt);
+\draw [fill=black] (2.881966011250105,1.9021130325903073) circle (3.0pt);
+\draw [fill=black] (-2.,4.) circle (3.0pt);
+\draw [fill=black] (-4.,0.) circle (3.0pt);
+\draw [fill=black] (0.,0.) circle (3.0pt);
+\end{scriptsize}
+\end{tikzpicture}
+\end{frame}
+\begin{frame}
+\begin{corollary}
+$A_\infty$-spaces are algebras over the operad $K=\{K_n\}$.
+\end{corollary}
+\end{frame}
 \begin{frame}
 %an example of A\infty-space
 \frametitle{Loop spaces}
+ONLY IF I HAVE TIME, OTHERWISE JUST MENTION IT
+
 Let $(X,*)$ a pointed topological space and $\Omega X$ the spaces of based loops, i.e. maps $f:S^1\to X$ such that $f(1,0)=*$.\pause %base point s a preferred point, like an origin
 
 We have a concatenation map $m:\Omega X\times \Omega X\to \Omega X$, where $m(f_1,f_2)=f_1*f_2$ is given by\pause
@@ -508,7 +610,7 @@ We have a concatenation map $m:\Omega X\times \Omega X\to \Omega X$, where $m(f_
 \end{frame}
 
 \begin{frame}
-\frametitle{Associahedra}
+
 \includegraphics[scale=0.5]{Imagenes/assoc}
 \end{frame}
 
@@ -517,9 +619,20 @@ We have a concatenation map $m:\Omega X\times \Omega X\to \Omega X$, where $m(f_
 \begin{frame}
 \frametitle{Back to $A_\infty$-spaces}
 \begin{itemize}
-\item<1-> The maps $M_i:K_i\times X^i\to X$ induce maps $C_*(X)^{\otimes i}\to C_*(X)$. %esentially the induced map on chains but with extra steps
+\item<1-> There is a map $C_*(X)\otimes C_*(Y)\to C_*(X\times Y)$ satisfying naturality and associativity axioms.
+\item<2-> The maps $M_n:K_n\times X^n\to X$ induce maps $C_*(K_n)\otimes C_*(X)^{\otimes n}\to C_*(K_n\times  X^n)\to C_*(X)$. %esentially the induced map on chains but with extra step
 
-\item<2-> The relations that satisfy the map $M_i$ induce the relations of what we call an $A_\infty$-algebra.
+
+\item<3-> The collection $C_*(K)=\{C_*(K_n)\}$ is an operad of chain complexes with insertion maps induced from those of $\{K_n\}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item<1->$C_*(X)$ becomes a $C_*(K)$-algebra.
+
+
+\item<2-> The relations that satisfy the map $M_n$ induce the relations of what we call an $A_\infty$-algebra.
 \end{itemize}
 \end{frame}
 \begin{frame}
@@ -559,117 +672,74 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 \item<3-> The higher relations are a homotopy coherent extension of this fact. %m3 satisfies some relation up to homotopy given by m4 and so on
 \end{itemize}
 \end{frame}
+
+%\begin{frame}
+%I DON'T THINK I  HAVE TIME FOR THIS
+%%a more geometrical example
+%\frametitle{Little disks operad}
+%	\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
+%	\begin{figure}[h!]
+%	\resizebox{10cm}{4.7cm}{%
+%		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+%		\clip(-4,-3.4) rectangle (9.5,3.4);
+%		\draw [line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (2.,1.) circle (0.7823042886243178cm);
+%		\draw [line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (3.,-1.) circle (1.100727032465361cm);
+%		\draw [line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (4.48,1.46) circle (0.7496665925596522cm);
+%		\draw [line width=2.pt] (3.,0.) circle (3.1622776601683795cm);
+%		\draw [line width=2.pt] (2.,1.) circle (0.7823042886243178cm);
+%		\draw [line width=2.pt] (4.48,1.46) circle (0.7496665925596522cm);
+%		\draw [line width=2.pt] (3.,-1.) circle (1.100727032465361cm);
+%		\draw (1.84,1.3) node[anchor=north west] {$1$};
+%		\draw (4.32,1.7) node[anchor=north west] {$2$};
+%		\draw (2.8,-0.8) node[anchor=north west] {$3$};
+%		%\draw (-1.44,0.6) node[anchor=north west] {\LARGE{$c=$}};
+%		\end{tikzpicture}
+%	}
+%	\caption{A point of $ E_2(3)$.}
+%\end{figure}
+%\end{frame}
+%
 %\begin{frame}[fragile]
-%\frametitle{Motivation}
-%\begin{itemize}
-%\item<1> Algebraic Topology - Homotopy theory
-%\end{itemize}\pause
-%Let $X$ be a space and $m:X\times X\to X$ a product. Let $\tau(x,y)=(y,x)$.\pause
 %
-%\[
-%\begin{tikzcd}
-%X\times X\arrow[r, "m"]\arrow[dr, "\tau"'] & X\\
-%& X\times X\arrow[u, "m"']
-%\end{tikzcd}
-%\]\pause
-%
-%Commutative up to homotopy: $m\simeq m\tau$.
-%
-%\end{frame}
-%
-%\begin{frame}
-%\begin{itemize}
-%\item<1-> What happens if we have to multiply $n$ elements? 
-%\item<2-> Many ways to do it, homotopic in a coherent way, hard to write down.
-%\item<3-> Instead, consider the space $\mathcal{O}(n)$ of all possible multiplications.
-%\item<4-> $m$ is commutative iff $\mathcal{O}(n)=*$
-%\item<5-> $m$ is homotopy-commutative iff $\mathcal{O}(n)\simeq *$.
-%\item<6-> We have a map $\mathcal{O}(n)\times X^n\to X$ that assigns to $n$ elements and each way of multiply them the final product.
-%\end{itemize}
-%\end{frame}
-
-
-%\subsection{Little disks operad}
-%\begin{frame}
-%	\frametitle{Little Disks Operad}
-%
-%\begin{defi}
-%	Let $E_2(n)$ be the configuration space of $n$ numbered disks $B(x_i,r_i)$ of center $x_i\in D^2$ and radius $r_i\in (0,1]$ inside the standard unit disk $D^2$. 
 %	
-%	\begin{itemize}
-%		\item<2-> We call each $B(x_i,r_i)$ \textbf{little disk}.
-%		%\item<3-> $E_2(n)$ can be viewed as a subspace of $(D^2\times (0,1])^n$ whose points are of the form $((x_1,r_1),\dots, (x_n,r_n))$ satisfying certain restrictions. % namely, $r_i$ must be such that the disk $B(x_i,r_i)\subset D^2$ does not intersect any other disk $B(x_j,r_j)$ and fits inside $D^2$. 
-%		\item<3-> By convention, $E_2(0)=*$.
-%	\end{itemize}
-%	 
-%\end{defi}
+%	 We define for all positive integers $p$ and $q$ and  each $1\leq i\leq p$ the insertion maps 
+%$$	
+%\begin{tikzcd}[row sep=5]
+%E_2(p)\times E_2(q)\arrow[r, "\circ_i"] & E_2(p+q-1)\\
+%(c_1,c_2)\arrow[r, mapsto, shorten <= 1em, shorten >= 1em] & c_1\circ_i c_2
+%\end{tikzcd}
+%$$
+%\begin{figure}
+%	\centering
+%	\includegraphics[scale=0.2]{Imagenes/insertion}
+%	\caption{An insertion $\circ_2:E_2(3)\times E_2(3)\to E_2(5)$.}
+%\end{figure}
+%	
 %\end{frame}
-
-\begin{frame}
-%a more geometrical example
-\frametitle{Little disks operad}
-	\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1.}
-	\begin{figure}[h!]
-	\resizebox{10cm}{4.7cm}{%
-		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-		\clip(-4,-3.4) rectangle (9.5,3.4);
-		\draw [line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (2.,1.) circle (0.7823042886243178cm);
-		\draw [line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (3.,-1.) circle (1.100727032465361cm);
-		\draw [line width=2.pt,color=xdxdff,fill=xdxdff,fill opacity=0.10000000149011612] (4.48,1.46) circle (0.7496665925596522cm);
-		\draw [line width=2.pt] (3.,0.) circle (3.1622776601683795cm);
-		\draw [line width=2.pt] (2.,1.) circle (0.7823042886243178cm);
-		\draw [line width=2.pt] (4.48,1.46) circle (0.7496665925596522cm);
-		\draw [line width=2.pt] (3.,-1.) circle (1.100727032465361cm);
-		\draw (1.84,1.3) node[anchor=north west] {$1$};
-		\draw (4.32,1.7) node[anchor=north west] {$2$};
-		\draw (2.8,-0.8) node[anchor=north west] {$3$};
-		%\draw (-1.44,0.6) node[anchor=north west] {\LARGE{$c=$}};
-		\end{tikzpicture}
-	}
-	\caption{A point of $ E_2(3)$.}
-\end{figure}
-\end{frame}
-
-\begin{frame}[fragile]
-
-	
-	 We define for all positive integers $p$ and $q$ and  each $1\leq i\leq p$ the insertion maps 
-$$	
-\begin{tikzcd}[row sep=5]
-E_2(p)\times E_2(q)\arrow[r, "\circ_i"] & E_2(p+q-1)\\
-(c_1,c_2)\arrow[r, mapsto, shorten <= 1em, shorten >= 1em] & c_1\circ_i c_2
-\end{tikzcd}
-$$
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.2]{Imagenes/insertion}
-	\caption{An insertion $\circ_2:E_2(3)\times E_2(3)\to E_2(5)$.}
-\end{figure}
-	
-\end{frame}
-
-\begin{frame}
-	
-	\begin{figure}
-		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-	\clip(-5.2,-1.5) rectangle (6.92,1.5);
-	\draw [line width=2.pt] (0.,0.) circle (1.42cm);
-	\draw (-0.2,0.2) node[anchor=north west] {$1$};
-	\end{tikzpicture}
-	\caption{Identity element $1\in E_2(1)$.}
-\end{figure}
-\end{frame}
-\begin{frame}
-	
-	\begin{figure}[h!]
-		\includegraphics[scale=0.35]{Imagenes//accion}
-		\caption{Action of $\sigma=(231)$ on a point of $E_2(3)$.}
-	\end{figure}
-\end{frame}
+%
+%\begin{frame}
+%	
+%	\begin{figure}
+%		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+%	\clip(-5.2,-1.5) rectangle (6.92,1.5);
+%	\draw [line width=2.pt] (0.,0.) circle (1.42cm);
+%	\draw (-0.2,0.2) node[anchor=north west] {$1$};
+%	\end{tikzpicture}
+%	\caption{Identity element $1\in E_2(1)$.}
+%\end{figure}
+%\end{frame}
+%\begin{frame}
+%	
+%	\begin{figure}[h!]
+%		\includegraphics[scale=0.35]{Imagenes//accion}
+%		\caption{Action of $\sigma=(231)$ on a point of $E_2(3)$.}
+%	\end{figure}
+%\end{frame}
 
 
 \begin{frame}
 \frametitle{What about $A_\infty$-algebras?}
+FORMULATE THIS DIFFERENTLY SINCE I HAVE ALREADY OBTAINED THE OPERAD OF AINFTY ALGEBRAS THIS SHOULD BE JUST WRITING IT DOWN EXPLICITLY AND THEN ENCODE IT WITH OPERADIC SUSPENSION (PROBABLY JUST TELL THE RESULT OF INSERTIONS AND DEGREE BECAUSE THERE IS NO TIME TO EXPLAIN IT ALL)
 \begin{itemize}
 \item<1-> We can define an operad generated by $m_i$ with $m_i\in\mathcal{O}(i)$ for all $i\geq 1$ such that 
 $$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0$$ 
