@@ -20,10 +20,10 @@
 \usetikzlibrary{babel}
 \pgfplotsset{compat=1.13}
 \usetikzlibrary{decorations.shapes}
-\pgfkeyssetvalue{/tikz/braid height}{1cm} %no parece hacer nada
-\pgfkeyssetvalue{/tikz/braid width}{1cm}
-\pgfkeyssetvalue{/tikz/braid start}{(0,0)}
-\pgfkeyssetvalue{/tikz/braid colour}{black}
+%\pgfkeyssetvalue{/tikz/braid height}{1cm} %no parece hacer nada
+%\pgfkeyssetvalue{/tikz/braid width}{1cm}
+%\pgfkeyssetvalue{/tikz/braid start}{(0,0)}
+%\pgfkeyssetvalue{/tikz/braid colour}{black}
 
 \theoremstyle{definition}
 
@@ -116,29 +116,25 @@
 %\end{frame}
 %}
 
-\begin{frame}
-ABSTRACT (TO BE DELETED)
-
-In this talk we are going to introduce $A_\infty$-algebras as a homotopy coherent generalization of associative algebras and we are going to present their topological origin. We are also going to look at these algebras from the point of view of operads, a framework that allows to study algebraic structures defined in terms of $n$-ary operations.
-\end{frame}
 
 
 
-
-\begin{frame}
-DEFINITION OF AINFTY ALGEBRAS AND HOW THEY GENERALLIZE ASSOCIATIVE ALGEBRAS (BETTER AS ALGEBRAS OVER THE CHAIN OPERAD OF ASSOCIAHEDRA)
-
-TOPOLOGICAL ORIGIN: STASHEFF ASSOCIAHEDRA, AINFTY SPACES, LOOP SPACES (BETTER AFTER OPERADS)
-
-OPERADS: DEFINITION, ALGEBRAS OVER AN OPREAD, OPERAD STRUCTURE ON ASSOCIAHEDRA, CHAIN COMPLEX IS LAX MONOIDAL, AINFTY OPERAD
-
-IF THERE'S TIME: OPERADIC SUSPENSION, ANOTHER WAY TO DEFINE AINFINTY MULTIPLICATIONS IN A SIMPLIFIED WAY, LEAVING M1 IN THE UNDERLYING CATEGORY AND DEFINING THE DIFFERENTIAL WITH RESPECT TO M1 REDIFINES AINFTY AS MAURER-CARTAN ELEMENT
-\end{frame}
+%
+%\begin{frame}
+%DEFINITION OF AINFTY ALGEBRAS AND HOW THEY GENERALLIZE ASSOCIATIVE ALGEBRAS (BETTER AS ALGEBRAS OVER THE CHAIN OPERAD OF ASSOCIAHEDRA)
+%
+%TOPOLOGICAL ORIGIN: STASHEFF ASSOCIAHEDRA, AINFTY SPACES, LOOP SPACES (BETTER AFTER OPERADS)
+%
+%OPERADS: DEFINITION, ALGEBRAS OVER AN OPREAD, OPERAD STRUCTURE ON ASSOCIAHEDRA, CHAIN COMPLEX IS LAX MONOIDAL, AINFTY OPERAD
+%
+%IF THERE'S TIME: OPERADIC SUSPENSION, ANOTHER WAY TO DEFINE AINFINTY MULTIPLICATIONS IN A SIMPLIFIED WAY, LEAVING M1 IN THE UNDERLYING CATEGORY AND DEFINING THE DIFFERENTIAL WITH RESPECT TO M1 REDIFINES AINFTY AS MAURER-CARTAN ELEMENT
+%\end{frame}
 
 
 \section{Operads}
 \begin{frame}
 \frametitle{Operads}
+
 	\begin{itemize}
 			\item<1-> An \textbf{operad} is a collection of spaces  $\mathcal{O}=\{\mathcal{O}(n)\}_{n\geq 0}$, whose points are thought to be $n$-ary operations $X^n\to X$. %decir que pueden ser (topological spaces, vector spaces, other objects) siempre que los axiomas tengan sentido, es decir, comentar que esto se puede hacer en cualquier categoría monoidal simétrica diciendo por encima lo que es: producto, unidad y axiomas. Poner algo de todos modos en alguna diapositiva
 			\item<2-> We represent $n$-ary operations as trees with the following shape
@@ -283,7 +279,7 @@ IF THERE'S TIME: OPERADIC SUSPENSION, ANOTHER WAY TO DEFINE AINFINTY MULTIPLICAT
 \draw [fill=black] (9.,2.) circle (2.pt);
 \end{scriptsize}
 \end{tikzpicture} %añadir un palo no cambia la forma delárbol
-%		\item<2-> A right action of the symmetric group thought as reordering the inputs which is coherent with composition. %reordenas los inputs de f y metes los g_i como si nada. Eso es lo mismo que dejar f quieta, cambiar el orden de los g_i y consecuentemente en la composición los argumentos de arriba entran en otro orden. La otra es similar pero haciendo actuar permutaciones sobre los g_i, y luego la forma en la que esos g_i entran en f se reordena consecuentemente
+		\item<2-> A right action of the symmetric group thought as reordering the inputs which is coherent with composition. 
 	\end{itemize}
 \end{frame}
 
@@ -328,7 +324,7 @@ IF THERE'S TIME: OPERADIC SUSPENSION, ANOTHER WAY TO DEFINE AINFINTY MULTIPLICAT
 			$ the space of maps $V^{\otimes n} \to V$.
 			\item<2-> composition $\gamma(f; g_1, \dots, g_n)= f(g_1\otimes\dots\otimes g_n)$
 			\item<3-> identity $\operatorname{Id}_V$
-			%\item<4->  symmetric group action $\gamma (f; g_1, \dots, g_n) \cdot \sigma = f (g_{\sigma^{-1}(1)} \otimes \dots \otimes g_{\sigma^{-1}(n)})$,  $\sigma \in \Sigma_n$
+			\item<4->  symmetric group action $\gamma (f; g_1, \dots, g_n) \cdot \sigma = f (g_{\sigma^{-1}(1)} \otimes \dots \otimes g_{\sigma^{-1}(n)})$,  $\sigma \in \Sigma_n$
 		\end{itemize}
 		 %(notice this is analogous to the fact that each ''R''-module structure on an abelian group ''M'' amounts to a ring homomorphism <math>R \to \operatorname{End}(M)</math>.)
 	\end{defi}
@@ -464,9 +460,7 @@ If $M_n$ exists for all $n\geq 2$ we say that $X$ is an $A_\infty$-\textbf{space
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-A INFTY SPACES ARE ALGEBRAS OVER THE OPERAD OF STASHEFF ASSOCIAHEDRA, DEFINE IT USING THE PREVIOUS SPACES (I NEED TO DEFINE O(1)=POINT)
-\end{frame}
+
 \begin{frame}
 \begin{prop}
 Let $K_0=\emptyset$ and $K_1=\{*\}$. Then the collection $\{K_n\}_{n\geq 0}$ is an operad.
@@ -558,7 +552,7 @@ $A_\infty$-spaces are algebras over the operad $K=\{K_n\}$.
 \begin{frame}
 %an example of A\infty-space
 \frametitle{Loop spaces}
-ONLY IF I HAVE TIME, OTHERWISE JUST MENTION IT
+
 
 Let $(X,*)$ a pointed topological space and $\Omega X$ the spaces of based loops, i.e. maps $f:S^1\to X$ such that $f(1,0)=*$.\pause %base point s a preferred point, like an origin
 
@@ -619,7 +613,7 @@ We have a concatenation map $m:\Omega X\times \Omega X\to \Omega X$, where $m(f_
 \begin{frame}
 \frametitle{Back to $A_\infty$-spaces}
 \begin{itemize}
-\item<1-> There is a map $C_*(X)\otimes C_*(Y)\to C_*(X\times Y)$ satisfying naturality and associativity axioms.
+\item<1-> There is a map $C_*(X)\otimes C_*(Y)\to C_*(X\times Y)$ satisfying naturality and associativity axioms (Eilenberg-Zilber map).
 \item<2-> The maps $M_n:K_n\times X^n\to X$ induce maps $C_*(K_n)\otimes C_*(X)^{\otimes n}\to C_*(K_n\times  X^n)\to C_*(X)$. %esentially the induced map on chains but with extra step
 
 
@@ -640,7 +634,7 @@ We have a concatenation map $m:\Omega X\times \Omega X\to \Omega X$, where $m(f_
 \begin{defi}
 An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a family of ``multiplications'' $m_n:A^{\otimes n}\to A$ of degree $n-2$ satisfying the relation %MAYBE CHANGE CHAINS TO COCHAINS TO KEEP THE DEGREE 2-N, I WILL HAVE TO USE OPERADIC DESUSPENSION IN THIS CASE
 
-\[\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes s})=0\] %we are composing every map with itself
+\[\sum_{r+s+t\geq 1}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes s})=0\] %we are composing every map with itself
 \end{defi}
 \end{frame}
 
@@ -663,7 +657,7 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 \frametitle{$A_\infty$-algebras are homotopy associative algebras.}
 %how do they generalize associative algebras
 \begin{itemize}
-\item<1-> For $n=3$ we have the relation
+\item<1-> For $r+s+t=3$ we have the relation
 \begin{align*}
 &m_2(m_2\otimes 1)-m_2(1\otimes m_2)=\\ %the failure of m_2 to be associative
 &m_1m_3+m_3(m_1\otimes 1\otimes 1)+m_3(1\otimes m_1\otimes 1)+m_3(1\otimes 1\otimes m_1)
@@ -738,13 +732,13 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 
 
 \begin{frame}
-\frametitle{What about $A_\infty$-algebras?}
-FORMULATE THIS DIFFERENTLY SINCE I HAVE ALREADY OBTAINED THE OPERAD OF AINFTY ALGEBRAS THIS SHOULD BE JUST WRITING IT DOWN EXPLICITLY AND THEN ENCODE IT WITH OPERADIC SUSPENSION (PROBABLY JUST TELL THE RESULT OF INSERTIONS AND DEGREE BECAUSE THERE IS NO TIME TO EXPLAIN IT ALL)
+\frametitle{Operad of $A_\infty$-algebras?}
+%FORMULATE THIS DIFFERENTLY SINCE I HAVE ALREADY OBTAINED THE OPERAD OF AINFTY ALGEBRAS THIS SHOULD BE JUST WRITING IT DOWN EXPLICITLY AND THEN ENCODE IT WITH OPERADIC SUSPENSION (PROBABLY JUST TELL THE RESULT OF INSERTIONS AND DEGREE BECAUSE THERE IS NO TIME TO EXPLAIN IT ALL)
 \begin{itemize}
-\item<1-> We can define an operad generated by $m_i$ with $m_i\in\mathcal{O}(i)$ for all $i\geq 1$ such that 
-$$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0$$ 
+\item<1-> The operad $C_*(K)$ is generated by $m_n$ with $m_n\in C_*(K_n)$ for $n\geq 2$ and $m_1=\partial$ such that 
+\[\sum_{r+s+t\geq 1}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0\]
 
-\item<2-> We would like to obtain the signs directly from operadic composition
+\item<2-> We would like to obtain the signs directly from operadic composition.
 \end{itemize}
 \end{frame}
 \subsection{Operadic suspension}
@@ -752,7 +746,7 @@ $$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0$$
 \frametitle{Operadic suspension}
 \begin{itemize}
 \item<1-> For a graded vector space $V=\bigoplus_{n\in\Z} V_i$ there is a \textbf{suspension} operation $\Sigma V$ such that $(\Sigma V)_i=V_{i-1}$. %it raises the degree
-\item<2-> We define an analogue os suspension for operads.
+\item<2-> We define an analogue of suspension for operads.
 \end{itemize}
 \end{frame}
 \begin{frame}
@@ -807,7 +801,7 @@ $$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0$$
 \item<2-> Let $a\tilde{\circ}b=\sum_{i}a\tilde{\circ}_ib$ and let $m=m_1+m_2+\cdots$. The equation becomes just
 \item[]<3-> \[m\tilde{\circ}m=0.\]
 \item<4-> In addition, $m_i$ becomes of degree $-1$ in the operadic suspension for all $i$ $\Rightarrow$
-\item[]<5-> We can define an $A_\infty$-structure as an element $m\in\mathfrak{s}\mathcal{O}$ of degree $-1$ such that $m\tilde{\circ}m=0$. 
+\item[]<5-> We can define an $A_\infty$-structure as an element $m\in\mathfrak{s}\mathcal{O}$ of degree $-1$ such that $m\tilde{\circ}m=0$ (Maurer-Cartan element). 
 \end{itemize}
 \end{frame}
 \begin{frame}
@@ -833,281 +827,10 @@ is a Lie bracket.
 \begin{itemize}
 \item<1-> Since $m\tilde{\circ}m=0$, the Jacobi identity implies that $[m,[m,]]=0$ for the bracket induced by $\tilde{\circ}$.
 \item<2-> Since $m$ is of degree $-1$, this imples that the map $[m,]:\mathfrak{s}\mathcal{O}\to\mathfrak{s}\mathcal{O}$ turns $\mathfrak{s}\mathcal{O}$ into a chain complex.
+\item<3-> Indeed, it is possible to define an $A_\infty$-algebra structure on $\Sigma\mathfrak{s}\mathcal{O}$. %i don't have time for details
 \end{itemize}
 \end{frame}
 
-%
-%\begin{frame}
-%	\frametitle{Hochschild cohomology and cup product}
-%	\begin{defi}
-%		The $m$-th \textbf{Hochschild cohomology} of $A$ is defined to be $H^m(A;A)=\ker\delta_m/\im\delta_{m-1}$.
-%		\end{defi}\pause
-%		
-%		For $f\in C^n(A;A)$ and $g\in C^m(A;A)$ define
-%		
-%		 $(f\smile g)(a_1\otimes\cdots\otimes a_n\otimes b_1\otimes\cdots\otimes b_m)=f(a_1\otimes\cdots\otimes a_n)g(b_1\otimes\cdots\otimes b_m)$\pause
-%	\begin{teorema}
-%		$\{H^*(A,A),\smile\}$ is a graded commutative algebra, with grading given by dimension, i.e., if $\eta\in H^m(A,A)$ and $\xi\in H^n(A,A)$, then $\eta\smile \xi =(-1)^{mn}\xi\smile \eta$.
-%	\end{teorema} 
-%\end{frame}
-
-%\begin{frame}
-%	\frametitle{Cup product}
-%	\begin{defi}
-%	 For $f\in C^m(A;A)$ and $g\in C^n(A;A)$ define their \textbf{cup product} $f\smile g\in C^{n+m}(A;A)$ by
-%	\[
-%	f\smile g(a_1\otimes\cdots\otimes a_m\otimes b_1\otimes\cdots\otimes b_n)=f(a_1\otimes\cdots\otimes a_m)g(b_1\otimes\cdots\otimes b_n).
-%	\]
-%	\end{defi}\pause
-%The cup product satisfies the Leibniz rule
-%$$\delta (f^m\smile g^n)=\delta f^m\smile g^n+(-1)^m f^m\smile \delta g^n$$\pause
-%SI ME QUEDA LARGO QUITAR LAS DEFINICIONES %Con lo cual induce un producto en cohomología
-%
-%
-%\end{frame}
-
-%\begin{frame}
-%\frametitle{Lie bracket}
-%First, for $f\in C^m(A;A)$ and $g\in C^n(A;A)$ set
-%
-%$$
-%f\circ_i g=f(1\otimes\cdots \otimes 1\otimes \underbrace{g}_{i-th}\otimes 1\otimes \cdots\otimes 1)\in C^{n+m-1}(A;A)
-%$$
-%\pause 
-%Now set
-%\[
-%f\circ g=\sum_{i=0}^m (-1)^{ni}f\circ_i g.
-%\]\pause
-%Then the bracket is defined by $$[f,g]=f\circ g-(-1)^{(n-1)(m-1)}g\circ f$$
-%\end{frame}
-
-%\begin{frame}
-%	\frametitle{The Hochschild cohomology is a Gerstenhaber algebra}
-%	
-%	\begin{teorema}
-%		Let $A$ be an algebra and $\xi$, $\eta$ and $\zeta$ elements of $H^m(A;A)$, $H^n(A;A)$ and $H^p(A;A)$, respectively. The Lie bracket $[,]$ is of degree $-1$ and such that
-%		\[
-%		[\eta, \xi\smile \zeta]=[\eta,\xi]\smile \zeta+(-1)^{m(n-1)}\eta\smile[\xi,\zeta].
-%		\]
-%	\end{teorema}\pause
-%	\begin{teorema}
-%	The Hochschild cohomology $H^*(A;A)$ is a Gerstenhaber algebra.
-%\end{teorema} 
-%\end{frame}
-
-%\begin{frame}
-%	\begin{itemize}
-%		\item Operads \checkmark
-%		\begin{itemize}
-%			\item action of an operad (algebra over an operad) \checkmark
-%			\item little disks operad \checkmark
-%			\item chain/homology operad	\checkmark		
-%		\end{itemize}
-%		\item Gerstenhaber algebras \checkmark
-%		\item Hochschild cohomology of an associative algebra \checkmark
-%	\end{itemize}
-%\end{frame}
-%\begin{frame}
-%	\frametitle{Lie Bracket}
-%	For $f\in C^m(A;A)$ and $g\in C^n(A;A)$ set
-%	\begin{gather*}
-%	f\circ_i g(a_0\otimes\cdots\otimes a_{i-1}\otimes b_0\otimes\cdots\otimes b_{n-1}\otimes a_{i+1}\otimes\cdots \otimes a_{m-1})\\
-%	=f(a_0\otimes \cdots a_{i-1}\otimes g(b_0\otimes\cdots\otimes b_{n-1})\otimes a_{i+1}\otimes\cdots\otimes a_{m-1})
-%	\end{gather*}
-%	for $i=0,\dots, m-1$. Note that $f\circ_i g\in C^{n+m-1}(A;A)$.\pause
-%	
-%	Now set
-%	\[
-%	f\circ g=\sum_{i=0}^m (-1)^{ni}f\circ_i g.
-%	\]
-%\end{frame}
-%\begin{frame}
-%	\frametitle{Lie Bracket}
-%	\begin{defi}
-%		The bracket is defined by $[f,g]=f\circ g-(-1)^{(n-1)(m-1)}g\circ f$.
-%	\end{defi}\pause 
-%The bracket also satisfies the corresponding Leibniz rule
-%\[\delta[f^m,g^n]=(-1)^{n-1}[\delta f^m,g^n]+[f^m,\delta g^n].\]\pause 
-%
-%\end{frame}
-
-
-%\begin{frame}
-%	\begin{block}{}
-%	\begin{itemize}
-%	\item An identity element $1 \in \mathcal{O}(1)$ such that 
-%	$\gamma(1; d) = d$ for $d \in \mathcal{O}(j)$ and 
-%	$\gamma(c; 1,\dots,1) = c$ for
-%	$c \in \mathcal{O}(k)$.
-%	
-%	\item A right action of the symmetric group $\Sigma_j$ on $\mathcal{O}(j)$ such that the following equivariance
-%	formulas are satisfied for all $c\in \mathcal{O}(k)$, $d_s \in \mathcal{O}(j_s)$, $\sigma\in\Sigma_k$, and $\tau_s\in\Sigma_{j_s}$:
-%	\[
-%	\gamma(c\sigma; d_1, \dots , d_k) = 
-%	\gamma(c; d_{\sigma^{-1}(1)}, \dots , d_{\sigma^{-1}(k)})\sigma(j_1, \dots , j_k)
-%	\]
-%	and 
-%	\[
-%	\gamma(c; d_1\tau_1, \dots , d_k\tau_k) = \gamma(c; d_1, \dots , d_k)(\tau_1\oplus\cdots\oplus\tau_k),
-%	\] 
-%	where $\sigma(j_1, \dots , j_k)$ denotes the
-%	permutation of $j$ letters which permutes the $k$ blocks of letters determined by the given
-%	partition of $j$ (a first block of $j_1$, a second one of $j_2$ letters and so on), and $\tau_1\oplus\cdots\oplus\tau_k$ denotes the image of $(\tau_1, \dots , \tau_k)$ under the evident inclusion of $\Sigma_{j_1} \times \cdots \times \Sigma_{j_k}$ in $\Sigma_j$.
-%\end{itemize}
-%\end{block}
-%
-%\end{frame}
-
-
-
-
-%\subsection{Operad $\mathcal{B}$}
-%
-%\begin{frame}
-%\frametitle{Tensor coalgebra}
-%
-%	For a finite dimensional graded $k$-vector space $V$ let $TV=\bigoplus_{n\geq 0} V^{\otimes n}$. \pause
-%	
-%	\begin{defi}
-%		A \textbf{coalgebra} structure on $TV$ is given by a comultiplication $\Delta:TV\to TV\otimes TV$. 
-%	\end{defi}\pause
-%
-%\begin{example}
-%	The \textbf{cofree conilpotent} coalgebra $TV$ is given by the comultiplication
-%	\[
-%	\Delta(w_0\otimes\cdots\otimes w_n)=\sum_{p=0}^n(w_0\otimes\cdots \otimes w_p)\otimes (w_{p+1}\otimes\cdots\otimes w_n).
-%	\]
-%\end{example}
-%
-%\end{frame}
-%
-%\begin{frame}
-%\begin{defi}
-%	A \textbf{bialgebra} structure on $TV$ is given by both an algebra structure and a coalgebra structure, which satisfy some compatibility axioms.
-%\end{defi}\pause
-%
-%\begin{defi}
-%	A $\mathcal{B}$-algebra structure on $V$  is given by an structure of differential graded bialgebra on $TV[1]=\bigoplus_{n\geq 0} V[1]^{\otimes n}$ such that the coalgebra structure is the cofree conilpotent one.
-%\end{defi}
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Operad $\mathcal{B}$}
-%	A $\mathcal{B}$-algebra structure on $V$ is given by:
-%	\begin{itemize}
-%			\item<2-> A differential $D:TV[1]\to TV[1]$ \only<3->{$\xRightarrow{decomposes} V[1]^{\otimes n}\to V[1]^{\otimes r}$ of degree 1} \only<4->{$\xRightarrow{r=1} m_n:V[1]^{\otimes n}\to V[2]$} \only<5->{$\Rightarrow \boxed{m_n:V^{\otimes n}\to V[2-n]}$.}
-%		\item<6-> A multiplication $M:TV[1]\otimes TV[1]\to TV[1]$ \only<7->{$\xRightarrow{decomposes} V[1]^{\otimes p}\otimes V[1]^{\otimes q}\to V[1]^{\otimes r}$ of degree 0} \only<8->{$\xRightarrow{r=1} m_{pq}:V^{\otimes p}[1]\otimes V^{\otimes q}[1]\to V[1]$} \only<9->{$\Rightarrow	\boxed{m_{pq}:V^{\otimes p}\otimes V^{\otimes q}\to V[1-p-q]}$.}
-%	
-%		
-%	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}
-%	\frametitle{Operad $\mathcal{B}$}
-%	\begin{defi}
-%		The operad $\mathcal{B}$ is defined to be the operad of graded vector spaces generated by operations $m_n\in\mathcal{B}(n)_{2-n}$ and $m_{pq}\in\mathcal{B}(p+q)_{1-p-q}$ subject to some relations. 
-%	\end{defi}
-%\end{frame}
-%	
-%	\subsection{Action on $\mathcal{B}$ on $C^*(A;A)$}
-%\begin{frame}
-%	\frametitle{Brace algebra on $C^*(A;A)$}
-%	
-%\begin{itemize}
-%	\item<1-> Recall that an element $f\in C^n(A;A)$ is a map $f:A^{\otimes n}\to A$, so we represent it as
-%	 
-%	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-%	\clip(-2.8466666666666676,-1) rectangle (11.486666666666668,3);
-%	\draw[line width=1.pt] (0.,0.) -- (0.,1.38) -- (2.406666666666667,1.38) -- (2.406666666666667,0.) -- cycle;
-%	\draw [line width=1.pt] (0.,0.)-- (0.,1.38);
-%	\draw [line width=1.pt] (0.,1.38)-- (2.406666666666667,1.38);
-%	\draw [line width=1.pt] (2.406666666666667,1.38)-- (2.406666666666667,0.);
-%	\draw [line width=1.pt] (2.406666666666667,0.)-- (0.,0.);
-%	\draw [line width=.pt] (1.2033333333333336,0.)-- (1.2033333333333336,-0.606666666666666);
-%	\draw [line width=1.pt] (1.2033333333333336,1.38)-- (1.2033333333333336,2.3933333333333344);
-%	\draw [line width=1.pt] (0.7666666666666668,2.3933333333333344)-- (0.7666666666666668,1.38);
-%	\draw [line width=1.pt] (0.3933333333333334,2.3933333333333344)-- (0.38,1.38);
-%	\draw [line width=1.pt] (1.606666666666667,2.3933333333333344)-- (1.606666666666667,1.38);
-%	\draw [line width=1.pt] (1.9933333333333336,2.3933333333333344)-- (1.9933333333333336,1.38);
-%	\draw (1.,0.9933333333333343) node[anchor=north west] {$f$};
-%	\end{tikzpicture}
-%\end{itemize}
-%	
-%\end{frame}
-%
-%
-%\begin{frame}
-%	\frametitle{Brace algebra on $C^*(A;A)$}
-%	
-%	\begin{itemize}
-%		\item Let $f,g_1,\dots, g_n\in C^*(A;A)$. The the \textbf{brace} $f\{g_1,\dots, g_n\}$ is given by
-%		
-%		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-%		\clip(-2.8466666666666676,-1) rectangle (11.486666666666668,3);
-%		\draw[line width=1.pt] (2.833333333333334,0.) -- (2.833333333333334,0.5666666666666675) -- (7.006666666666668,0.5666666666666675) -- (7.,0.) -- cycle;
-%		\draw[line width=1.pt] (3.193333333333334,1.) -- (4.,1.) -- (4.006666666666668,1.58) -- (3.193333333333334,1.58) -- cycle;
-%		\draw[line width=1.pt] (6.,1.) -- (6.38,1.) -- (6.38,1.58) -- (5.593333333333335,1.5933333333333344) -- (5.606666666666667,1.) -- cycle;
-%		\draw (-2.9,0.6) node[anchor=north west] {$f\{g_1,\dots, g_n\}=\displaystyle{\sum_{\text{all possible insertions}}}$};
-%		\draw [line width=1.pt] (2.833333333333334,0.)-- (2.833333333333334,0.5666666666666675);
-%		\draw [line width=1.pt] (2.833333333333334,0.5666666666666675)-- (7.006666666666668,0.5666666666666675);
-%		\draw [line width=1.pt] (7.006666666666668,0.5666666666666675)-- (7.,0.);
-%		\draw [line width=1.pt] (7.,0.)-- (2.833333333333334,0.);
-%		\draw [line width=1.pt] (4.92,0.)-- (4.92,-0.36666666666666614);
-%		\draw [line width=1.pt] (2.993333333333334,0.5666666666666675)-- (3.,2.);
-%		\draw [line width=1.pt] (3.553333333333334,0.5666666666666675)-- (3.553333333333334,1.);
-%		\draw [line width=1.pt] (4.273333333333334,0.5666666666666675)-- (4.273333333333334,1.9933333333333345);
-%		\draw [line width=1.pt] (4.54,0.5666666666666675)-- (4.54,1.9933333333333345);
-%		\draw [line width=1.pt] (5.993333333333334,0.5666666666666675)-- (6.,1.);
-%		\draw [line width=1.pt] (6.62,0.5666666666666675)-- (6.62,1.9933333333333345);
-%		\draw [line width=1.pt] (6.833333333333335,0.5666666666666675)-- (6.833333333333335,1.98);
-%		\draw [line width=1.pt] (3.193333333333334,1.)-- (4.,1.);
-%		\draw [line width=1.pt] (4.,1.)-- (4.006666666666668,1.58);
-%		\draw [line width=1.pt] (4.006666666666668,1.58)-- (3.193333333333334,1.58);
-%		\draw [line width=1.pt] (3.193333333333334,1.58)-- (3.193333333333334,1.);
-%		\draw [line width=1.pt] (6.,1.)-- (6.38,1.);
-%		\draw [line width=1.pt] (6.38,1.)-- (6.38,1.58);
-%		\draw [line width=1.pt] (6.38,1.58)-- (5.593333333333335,1.5933333333333344);
-%		\draw [line width=1.pt] (5.593333333333335,1.5933333333333344)-- (5.606666666666667,1.);
-%		\draw [line width=1.pt] (5.606666666666667,1.)-- (6.,1.);
-%		\draw [line width=1.pt] (3.5666666666666673,1.58)-- (3.58,2.);
-%		\draw [line width=1.pt] (6.007451656136321,1.586314378709553)-- (6.,2.);
-%		\draw [line width=1.pt] (5.4,0.5666666666666675)-- (5.4,2.);
-%		\draw (3.3,1.5666666666666678) node[anchor=north west] {$g_1$};
-%		\draw (5.65,1.58) node[anchor=north west] {$g_n$};
-%		\draw (4.7,0.5666666666666675) node[anchor=north west] {$f$};
-%		\draw (4.59,1.5533333333333343) node[anchor=north west] {$\cdots$};
-%		\end{tikzpicture}
-%		\item<2-> $f\{\}=f$.
-%	\end{itemize}
-%\end{frame}
-%
-%\begin{frame}
-%%	\begin{itemize}
-%%		\item Notation: $f\{\}=f$ and $[f,g]=f\{g\}-(-1)^{(|f|-1)(|g|-1)}g\{g\}$.
-%%	\end{itemize}
-%\frametitle{Action of $\mathcal{B}$ on $C^*(A;A)$}
-%We have to define the action of the operations $m_n$ and $m_{pq}$ on $C^*(A;A)$:
-%
-%\begin{itemize}
-%	\item<2-> $m_0=0$.
-%	\item<3->  $m_1$ is the differential in $C^*(A;A)$.
-%	\item<4-> $m_2$ is the cup product.
-%	\item<5-> $m_n=0$ for all $n>2$. 
-%	\item<6-> $m_{0,1}=m_{1,0}=Id$.
-%	\item<7-> $m_{0,q}=m_{q,0}=0$.
-%	\item<8-> $m_{1q}(f\otimes g_1\otimes\cdots\otimes g_q)=f\{g_1,\dots, g_q\}$.
-%	\item<9-> $m_{pq}=0$ for $p>1$.
-%\end{itemize}
-%
-%\end{frame}
-%
-%\begin{frame}
-%	\begin{teorema}
-%		The action of $\mathcal{B}$ on $C^*(A;A)$ is well defined and induces the Gerstenhaber algebra structure on $H^*(A;A)$. 
-%	\end{teorema}\pause
-%
-%\textcolor{red}{The conjecture is finally proven!}
-%\end{frame}
 
 \begin{frame}
 	\begin{center}
@@ -1144,8 +867,6 @@ is a Lie bracket.
 %	Pensar qué meto de cada parte
 %\end{frame}
 
-%\begin{frame}
-%
-%\end{frame}
+
 
 \end{document}
