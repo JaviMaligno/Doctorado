@@ -162,7 +162,7 @@
 \begin{frame}
 \frametitle{$A_\infty$-algebras}
 \begin{defi}
-An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a family of ``multiplications'' $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying the relation %
+An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a family of ``multiplications'' $m_i:A^{\otimes i}\to A$ of degree $2-i$ satisfying the relation %
 
 \[\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes s})=0\] %we are composing every map with itself
 \end{defi}
@@ -204,7 +204,7 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 \frametitle{Examples}
 \begin{itemize}
 \item<1-> Associative and  dg algebras. %trivial
-\item<2-> Let $A$ be an associative algebra with a non-zero element $e$ such that $ae=ea=0$ for all $a\in A$. Then $A$ is an $A_\infty$-algebra with $m_2$ the product and $m_3=e$, $m_n=0$ for all $n\neq 0$.%a little bit less trivial, example from Keller in which e is an arrow from a quiver
+\item<2-> Let $A$ be an associative algebra with a non-zero element $e$ such that $ae=ea=0$ for all $a\in A$. Then $A$ is an $A_\infty$-algebra with $m_2$ the product and $m_3=e$, $m_i=0$ for all $i\neq 0$.%a little bit less trivial, example from Keller in which e is an arrow from a quiver
 \item<3-> Cellular chains of loop spaces. ($\Omega(X)=\{f:S^1\to X\mid f(1)=x_0\}$)%not trivial
 
 \end{itemize}
@@ -349,7 +349,7 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 		\item<1-> Identity element: 
 	%UN ÁRBOL AL QUE SE LE METEN PALITOS CON 1 Y OTRO METIÉNDOSE EN EL 1 Y AL FINAL IGUAL AL ARBOL EN CUESTION
 		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
-\clip(-2.513333333333339,-5.699166666666667) rectangle (15.903333333333347,10.009166666666664);
+\clip(-2.513333333333339,-.699166666666667) rectangle (12.903333333333347,7.66666666664);
 \draw [line width=1.2pt,] (2.,0.)-- (2.,2.);
 \draw [line width=1.2pt,] (2.,2.)-- (0.,4.);
 \draw [line width=1.2pt,] (2.,2.)-- (1.,4.);
@@ -540,7 +540,7 @@ $$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0$$
 %the operation we have defined is not so arbitrary or ad hoc
 \begin{itemize}
 \item<1-> For any operad, we can define a circle operation $a\circ b$ similarly to $\tilde{\circ}$. %even if it's not a suspension, the important thing is that we have an operad structure
-\item The circle operation defines a pre-Lie algebra structure, meaning that the bracket
+\item The commutator of the circle operation 
 \[[a,b]=a\circ b-(-1)^{\deg(a)\deg(b)}b\circ a\]
 is a Lie bracket.
 \end{itemize}
