@@ -26,7 +26,7 @@ Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tens
 
 I THINK I NEED  (N,Z)-BRIGRADED MODULES TO MAKE SURE THAT HORIZONTAL DEGREE IS NON-NEGATIVE WHEN DEFININ M AS AN ELEMENT OF TSO
 
-Let $\OO$ be a bigraded linear operad, i.e. an operad in te category  of bigraded $R$-modules. We define $T\OO$ as the operad of graded $R$-modules for which \[T\OO(n)^d=\bigoplus_{d=i+k} \OO(n)^k_i=\bigoplus_i \OO(n)^{d-i}_i\] THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
+Let $\OO$ be a bigraded linear operad, i.e. an operad in te category  of bigraded $R$-modules. We define $T\OO$ as the operad of graded $R$-modules for which \[T\OO(n)^d=\bigoplus_{d=i+k} \OO(n)^k_i=\bigoplus_i \OO(n)^{d-i}_i\] %THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
 
 \[a\bar{\circ}_rb=(-1)^{k(j+l)} a\circ_r b\]
 MAYBE I SHOULD WRITE THINGS LIKE SUMS BUT I THINK IT MAKES SENSE TO WRITE IT LIKE THIS BECAUSE I KNOW THIS COMES FROM A BIGRADED MODULE
@@ -36,9 +36,9 @@ It can be checked that this is indeed an operad of graded vector spaces I SHOULD
 
 HEURISTICS FOR THIS SIGN AND ALTERNATIVE, REFERRING TO WHITEHOUSE (THIS  LAST PART POSSIBLE LATER WITH DERIVED A INFTY)
 
-MY TOTALIZATION IS WHAT SARAH CALLS TOTALIZATION WITH COMPACTS SUPPORT, WHICH IS STRICT MONOIDAL (CHECK THIS BECAUSE LEMMA 4.5 IS AN EXTERNAL PRODUCT)
+MY TOTALIZATION IS WHAT SARAH CALLS TOTALIZATION WITH COMPACT SUPPORT, WHICH IS STRICT MONOIDAL (CHECK THIS BECAUSE LEMMA 4.5 IS AN EXTERNAL PRODUCT)
 
-I ALSO WANT TO STUDY HOW THIS WORKS ON MORPHISMS LIKE WHITEHOUSE, AND POSSIBLY THE SAME FOR OPERADIC SUSPENSION (ALTHOUG I GUESS IN SUSPENSION IS TRIVIAL)
+COMPOSITION OF ARBITRARY BIGRADING IS PRESERVED BY TOT SINCE ALL SIGNS INVOLVED ARE HORIZONTAL DEGREE SO IT IS ANALOGUE TO WHITEHOUSE (WRITE DOWN THE CALCULATIONS IF NEEDED)
 
 \section{Vertical suspension and totalization}
 On an bigraded operad we can use operadic suspension on the vertical degree with analogue results to those of the graded case MAYBE SPECIFY SOME OF THEM
@@ -100,7 +100,7 @@ As usual, denote $a\star b=\sum_{r=0}^{m-1}a\star_{r+1}b$.
 
 I COULD STILL MENTION THIS 
 
-choosing a slightly different totalization functor $T'$ (SO FAR IT IS NOT FUNCTORIAL), more precisely, we would have to define $a\hat{\circ}b=(-1)^{l(k+i)}a\circ b$. This is also a valid approach for our purposes, but we have chosen our convention for to be consistent with other conventions and constructions (SIGN FOR INFINITY MORPHISMS AND CONVOLUTION OPERAD). However, we will mention the differences that occur when choosing the alternative. There are of course many other possible conventions MAYBE NOT MENTION THE EXACT DIFFRENES, JUST STOP HERE BECAUSE THERE ARE MORE CONVENTIONS AND I DON'T THINK I WILL TREAT ALL OF THEM IN DETAIL, BUT THE DIFFERENCE BETWEEN IDENTITY AND ISOMORPHISM MIGHT BE WORTH MENTION
+choosing a slightly different totalization functor $T'$, more precisely, we would have to define $a\hat{\circ}b=(-1)^{l(k+i)}a\circ b$. This is also a valid approach for our purposes, but we have chosen our convention for to be consistent with other conventions and constructions (SIGN FOR INFINITY MORPHISMS AND CONVOLUTION OPERAD). However, we will mention the differences that occur when choosing the alternative. There are of course many other possible conventions MAYBE NOT MENTION THE EXACT DIFFRENES, JUST STOP HERE BECAUSE THERE ARE MORE CONVENTIONS AND I DON'T THINK I WILL TREAT ALL OF THEM IN DETAIL, BUT THE DIFFERENCE BETWEEN IDENTITY AND ISOMORPHISM MIGHT BE WORTH MENTION
 
 $T$ and $T'$ are isomorphic, with an isomorphism $f:T\OO\cong T'\OO$ given by $f(a)=(-1)^{ik}a$. MAYBE ALL OF THEM ARE ISOMORPHIC, THINK OF THIS USING JUST THAT A TOTALIZATION IS A FUNCTOR THAT SENDS A BIGRADED OPERAD TO A GRADED OPERAD, MAYBE ALSO USE THAT THE UNDERLYING MODULE IS ALWAYS THE SAME SO THAT THE ONLY MODIFICATION IS THE INSERTION
 
@@ -116,7 +116,7 @@ of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
 for all $u\geq 0$ and $v\geq 1$. 
 
 
-Similarly, a \emph{derived $A_\infty$ multiplication} $m$ on a bigraded operad $\OO$ is an element $m=\sum_{ij}m_{ij}$ where $m_{ij}\in\OO(j)^{2-i-j}_i$ such that 
+Similarly, a \emph{derived $A_\infty$ multiplication} $m$ on a bigraded operad $\OO$ is an element $m=\sum_{ij}m_{ij}$ where $m_{ij}\in\OO(j)^{2-i-j}_i$ for each $j\geq 1$ such that 
 \[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}\circ_{r+1} m_{pq}=0.\]
 \end{definition}
 From the definition of $T\s\OO$, such a multiplication is equivalent to an element $m\in T\s\OO$ of degree 1 satisfying $m\star m=0$. From this, it follows from our previous results that $m$ determines an $A_\infty$-algebra structre on $ST\s\OO=S\s T\OO$ that can be itereted to define an $A_\infty$-structure on $S\s\End_{S\s T\OO}$, which is related to the structure on $S\s T\OO$ by a map of $A_\infty$-algebras  $\Phi:S\s T\OO

@@ -15,18 +15,18 @@
 
 
 
-Let $A=\bigoplus_{i,k} A^i_k$ be a bigraded module and let us say we have a linear map $\circ :A\otimes A\to A$ of bidegree $(0,0)$. This operation satisfies certain associativity conditions of operads with respect to the braiding morphism $\gamma(a\otimes b)=(-1)^{ij+kl}b\otimes a$ for $a\in A^i_k$ and $b\in A^j_l$ (we say that $a$ has bidegree $(k,i)$ and $b$ has bidegree $(l,j)$, where the first component is the horizontal degree and the second component is the vertical degree). 
+Let $A=\bigoplus_{i,k} A^i_k$ be a bigraded module and let us say we have a linear map $\circ :A\otimes A\to A$ of bidegree $(0,0)$. This operation satisfies certain associativity conditions of operads with respect to the braiding morphism $\gamma(a\otimes b)=(-1)^{kl+ij}b\otimes a$ for $a\in A^i_k$ and $b\in A^j_l$ (we say that $a$ has bidegree $(k,i)$ and $b$ has bidegree $(l,j)$, where the first component is the horizontal degree and the second component is the vertical degree). 
 
-A morphism $f:A\to B$ that preserves this structure is a linear map $f:A\to B$ of bidegree $(q,p)$ such that $f(a\circ b)=(-1)^{pi+qk}f(a)\circ f(b)$.
+A morphism $f:A\to B$ that preserves this structure is a linear map $f:A\to B$ of bidegree $(q,p)$ such that $f(a\circ b)=(-1)^{qk+pi}f(a)\circ f(b)$.
 
 
 
-If I modify the operation by $a\bar{\circ}b=(-1)^{l(l+j)}a\circ b$, I get the same associativity relation with respect to the braiding $\gamma'(a\otimes b)=(-1)^{(i+k)(j+l)}b\otimes a$. I would like to define $\bar{f}=\pm f$ so that $\bar{f}(a\bar{\circ}b)=(-1)^{(p+q)(i+k)}\bar{f}(a)\bar{\circ}\bar{f}(b)$, in other words $\bar{f}$ preserves $\bar{\circ}$ with respect to the braiding $\gamma'$. This $\bar{f}$ would be the image of $f$ under the totalization functor. The sign factor of $\bar{f}$ should depend on the bidegree components of $f$ and its input.
+If I modify the operation by $a\bar{\circ}b=(-1)^{k(l+j)}a\circ b$, I get the same associativity relation with respect to the braiding $\gamma'(a\otimes b)=(-1)^{(k+i)(l+j)}b\otimes a$. I would like to define $\bar{f}=\pm f$ so that $\bar{f}(a\bar{\circ}b)=(-1)^{(q+p)(k+i)}\bar{f}(a)\bar{\circ}\bar{f}(b)$, in other words $\bar{f}$ preserves $\bar{\circ}$ with respect to the braiding $\gamma'$. This $\bar{f}$ would be the image of $f$ under the totalization functor. The sign factor of $\bar{f}$ should depend on the bidegree components of $f$ and its input.
 
 
 Attemp
 
-Let us say $f(a)=(-1)^{\varepsilon(a)}f(a)$. Now we have
+Let us say $\bar{f}(a)=(-1)^{\varepsilon(a)}f(a)$. Now we have
 
 $$\bar{f}(a\bar{\circ} b)=(-1)^{k(j+l)}\bar{f}(a\circ b)=(-1)^{k(j+l)+\varepsilon(a\circ b)}f(a\circ b).$$
 
@@ -36,19 +36,23 @@ $$\bar{f}(a\bar{\circ} b)=(-1)^{k(j+l)+\varepsilon(a\circ b)+pi+qk}f(a)\circ f(b
 
 Since $f$ has bidegree $(q,p)$, $f(a)$ has bidegree $(k+q,i+p)$ and $f(b)$ has bidegree $(l+q,j+p)$ so now we have
 
-$$\bar{f}(a\bar{\circ} b)=(-1)^{k(l+j)+\varepsilon(a\circ b)+pi+qk+(l+q)(i+p+k+q)}f(a)\bar{\circ} f(b).$$
+$$\bar{f}(a\bar{\circ} b)=(-1)^{k(l+j)+\varepsilon(a\circ b)+pi+qk+(k+q)(j+p+l+q)}f(a)\bar{\circ} f(b).$$
 
 Finally, we have 
 
-$$\bar{f}(a\bar{\circ} b)=(-1)^{k(l+j)+\varepsilon(a\circ b)+pi+qk+(l+q)(i+p+k+q)+\varepsilon(a)+\varepsilon(b)}\bar{f}(a)\bar{\circ} \bar{f}(b).$$
+$$\bar{f}(a\bar{\circ} b)=(-1)^{k(l+j)+\varepsilon(a\circ b)+pi+qk+(k+q)(j+p+l+q)+\varepsilon(a)+\varepsilon(b)}\bar{f}(a)\bar{\circ} \bar{f}(b).$$
 
 And therefore that huge exponent should have the same parity as $(p+q)(i+k)=pi+pk+qi+qk$. However, cancelling some equal terms this implies
 
-$$\varepsilon(a\circ b)+\varepsilon(a)+\varepsilon(b)+kj+l(i+p+q)+q(p+k+q)\equiv pk.$$
+$$\varepsilon(a\circ b)+\varepsilon(a)+\varepsilon(b)+kq+q(j+p+l+q)\equiv qi.$$
 
 Any reasonable choice of $\varepsilon(a)$ seems to imply $\varepsilon(a\circ b)=\varepsilon(a)+\varepsilon(b)$ since the bidegree of $a\circ b$ is $(k+l,i+j)$, so all the $\varepsilon$'s would vanish and the resulting equation modulo 2 would not be true in general.
 
 Am I making any mistake or it is not possible to define such $\bar{f}$?
+
+MAPS OF OPERADS MUST BE OF BIDEGRE 0 BECAUSE THE LEFT-HAND SIDE MUST HAVE THE SAME DEGREE ASS THE RIGH-HAND SIDE, SO SINCE F APPEARS MULTIPLE TIMES ON THE RIGHT HAND SIDE AND ONLY ONE ON THE LEFT, P=Q=0 AND IN THIS CASE THE RELATION IS SATISFIED SO TOTALIZATION DOES INDEED TAKE OPERADS TO OPERADS EVEN IF IT I NOT NATURAL WITH RESPECT TO EVERY BIGRADED MAP
+
+A CONSEQUENCE OF THIS IF WE START WITH ALL THE BIGRADED MAPS IS THAT THE EMBEDDING GIVEN BY TOTALIZATION IS NOT FULL, BECAUSE ON GRADED OPERADS A MAP OF DEGREE 0 COULD COME FROM A BIDEGREE (M,-M) MAP (LIKE A TWISTED COMPLEX)
 
 
 

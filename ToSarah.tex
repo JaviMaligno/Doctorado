@@ -34,6 +34,8 @@
 \maketitle
 
 \section{Introduction}
+SINCE I'M NOT IMPOSING O(0)=0 (I NEED B0 IN THE BRACES AND THE END OPERAD IS USUALLY NON 0 THERE), I PROBABLY NEED TO SPECIFY THAT THE ARITY 0 COMPONENT OF M IS 0 (UNLESS I CONSIDER UNITAL CASE SPEFICALLY), THIS CAN BE DONE BY USING SOME  NOTATION OF THE POSITIVE ARITY PART
+
 
 RECALL TO CHANGE NUMBERING AND LANGUAGE OF THE THEOREM ENVIRONMENTS 
 
@@ -93,11 +95,11 @@ so we conclude
 
 This is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras is derived. This fact is not coincidental. Recall that the Koszul dual cooperad $\mathcal{A}s^{¡}$ of the associative operad $\mathcal{A}s$ is $k\mu_n$ in arity $n$, where $\mu_n$ has degree $n-1$. Thus, for a graded module $A$, we have the following pre-Lie algebra isomorphisms.
 
-LOOK FOR THE SYMMETRIC CONVOLUTION OPERAD AND SYMMETRIC KOSZUL DUAL IF IT EXISTS AND IF IT HELPS SINCE OPERADIC SUSPENSION IS SYMMETRIC (BUT COULD AVOID THAT)
+LOOK FOR THE SYMMETRIC CONVOLUTION OPERAD AND SYMMETRIC KOSZUL DUAL IF IT EXISTS AND IF IT HELPS SINCE OPERADIC SUSPENSION IS SYMMETRIC (BUT COULD AVOID THAT) - LV 6.4.1
 
 \[\Hom(\mathcal{A}s^{¡},\End_A)\cong \End_{SA}\cong\s^{-1}\End_A.\]
  %the second isomorphism Hom(k[n-1],End_A(n))^d=Hom(k,End_A(n))^{d+n-1}=End_A(n)^{d+n-1}=End_{sA}(n)
-The first operad is the convolution operadd CITE OR DESCRIBE IN INTRO. Explicitly, for $f\in\End_A(n)$ and $g\in\End_B(n)$, the convolution product is given by
+The first operad is the convolution operad CITE OR DESCRIBE IN INTRO. Explicitly, for $f\in\End_A(n)$ and $g\in\End_B(n)$, the convolution product is given by
 
 \[f\star g=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}f\circ_i g=\sum_{i=1}^nf\tilde{\circ}_i g.\]
 
@@ -149,7 +151,9 @@ If $f$ is a map of operads, then the map $\s f$ is again a map of operads, since
 &=(-1)^{\deg(f)(\deg(a)+n-1)}\s f(a)\tilde{\circ}_i\s f(b)
 \end{align*}
 
-Note that $\deg(a)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s f)=\deg(f)$, so the above relation is consistent with the Koszul rule. Clearly $\s f$ preserves the unit, so $\s f$ is a morphism of operads.
+Note that $\deg(a)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s f)=\deg(f)$, so the above relation is consistent with the Koszul rule. In any case, recall that a morphism of operads is necessarily of degree 0. Clearly $\s f$ preserves the unit, so $\s f$ is a morphism of operads. IMPOSING THAT THE LEFT-HAND SIDE MUST BE EQUAL TO THE RIGHT-HAND SIDE IMPLIES THAT THE DEGREE OF F MUST BE 0 (THIS SHOULD PROBABLY  SAID SOMEWHERE INN THE INTRO) IN FACT, IF F IS SUPPOSED TO PRESERVE UNITS (WHICH ARE OF DEGREE 0) ANY HOMOGENEOUS MAP SHOULD BE OF DEGREE 0
+
+SO MAYBE I SHOULD AVOID THIS COMPUTATION EVEN THOUGH IT MIGHT BE INTERESTING THAT DEGREE 0 IS NOT NECESSARY FOR THE COMMUTATIVITY RELATION
 
 The previous computation is a consequence of the more general fact.
 \begin{prop}
@@ -158,7 +162,7 @@ The endofunctor $\s:g\mathbb{S}-Mod\to g\mathbb{S}-Mod$ is  lax monoidal with re
 PROVE ALSO OTHER COHERENCE AXIOMS %This composition is not symmetric so the functor cannot be symmetric. That is not necessary since the symmetry of the underlying tensor product  is used in the associativity isomorphism
 \end{prop}
 \begin{proof}
-DRAW THE DIAGRAMS, DO THE CALCULATIONS, I SHOULD ALSO WRITE THE IMPLICATION LAX MONOIDAL W/R PLETHYSM $\Rightarrow$ PRESERVES OPERADS (FOLLOW FROM LAX MONOIDAL PRESSERVES MONOIDS, BUT I SHOULD WRITE THE PROVE)
+DRAW THE DIAGRAMS, DO THE CALCULATIONS, I SHOULD ALSO WRITE THE IMPLICATION LAX MONOIDAL W/R PLETHYSM $\Rightarrow$ PRESERVES OPERADS (FOLLOW FROM LAX MONOIDAL PRESSERVES MONOIDS, BUT I SHOULD WRITE THE PROOF)
 \end{proof}
 
 \begin{prop}

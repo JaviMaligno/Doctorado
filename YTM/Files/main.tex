@@ -1,0 +1,445 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MUW Poster
+% LaTeX Template
+% Version 1.0 (31/08/2016)
+% (Based on Version 1.0 (31/08/2015) of the Jacobs Portrait Poster
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Created by:
+% Nicolas Ballarini, CeMSIIS, Medical University of Vienna
+% nicoballarini@gmail.com
+% http://statistics.msi.meduniwien.ac.at/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\def\footer#1{\def\insertfooter{#1}}
+%--------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%--------------------------------------------------------------------------------------
+
+\documentclass[final]{beamer}
+
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-cd}
+%\usepackage{tcolorbox}
+\usepackage{oplotsymbl} 
+
+
+\usepackage[scale=1.150]{beamerposter} % Use the beamerposter package
+\usetheme{MUWposter} % Use the MUWposter theme supplied with this template
+
+% Include a logo of your project if desired
+\logo{\pgfputat{\pgfxy(-15,107)}{\pgfbox[center,base]{\includegraphics[width=15cm]{YTMLogo.png}}}}  
+
+\usepackage{multicol}
+\usepackage{array}
+%The following two are column definitions for the aknowledgements section
+\newcolumntype{L}{>{\arraybackslash}m{22cm}}
+\newcolumntype{S}{>{\arraybackslash}m{5cm}}
+\usepackage{pgf}  
+\usepackage{mathtools}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{exscale}
+\usepackage{xcolor}
+\usepackage{ushort}
+\usepackage{setspace}
+\usepackage[square,numbers]{natbib}
+\usepackage{url}
+\bibliographystyle{abbrvnat}
+\renewcommand{\vec}[1]{\ushort{#1}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\definecolor{greenMUW}{RGB}{60,191,174}
+\definecolor{blueMUW}{RGB}{17,29,79}
+\definecolor{skinMUW}{RGB}{254,228,217}
+\definecolor{hellblauMUW}{RGB}{95,180,229}
+
+%-----------------------------------------------
+%  START Set the colors
+%  Uncomment to apply colors you want to use.
+%-----------------------------------------------
+%\colorlet{themecolor}{greenMUW}
+%\usebackgroundtemplate{\includegraphics{MUW_green.pdf}}
+%\colorlet{themecolor}{skinMUW}
+%\colorlet{themecolor}{blueMUW}
+%\usebackgroundtemplate{\includegraphics{MUW_skin.pdf}}
+
+\colorlet{themecolor}{blueMUW}
+\colorlet{themecolor}{hellblauMUW}
+\usebackgroundtemplate{\includegraphics{ground.pdf}}
+%-----------------------------------------------
+%  END Set the colors
+%-----------------------------------------------
+
+
+%-----------------------------------------------
+%  START Set the width of the columns
+%-----------------------------------------------
+\setlength{\paperwidth}{33.1in} % A0 width: 46.8in
+\setlength{\paperheight}{46.8in} % A0 height: 33.1in
+\newlength{\sepmargin}
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+
+% The following measures are used for 2 columns
+\setlength{\sepmargin}{0.055\paperwidth} % Separation width (white space) between columns
+\setlength{\sepwid}{0.03\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.43\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.9\paperwidth} % Width of two columns
+
+%-----------------------------------------------------------
+% The following measures are used for 3 columns
+%\setlength{\sepmargin}{0.06\paperwidth} % Separation width (white space) between columns
+%\setlength{\sepwid}{0.02\paperwidth} % Separation width (white space) between columns
+%\setlength{\onecolwid}{0.28\paperwidth} % Width of one column
+%\setlength{\twocolwid}{0.58\paperwidth} % Width of two columns
+%\setlength{\threecolwid}{0.88\paperwidth} % Width of three columns
+%\setlength{\columnsep}{30pt}
+
+%-----------------------------------------------
+%  END Set the width of the columns
+%-----------------------------------------------
+
+
+%--------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%--------------------------------------------------------------------------------------
+\setbeamertemplate{title}[left]
+\setbeamertemplate{frametitle}[default][left]
+%\setmainfont{Georgia}
+
+\title{$A_\infty$-structures on operads} % Poster title
+
+\author{Javier Aguilar Martín} % Author(s)
+
+\institute{University of Kent} % Institution(s)
+%--------------------------------------------------------------------------------------
+
+
+
+\begin{document}
+
+  \addtobeamertemplate{block end}{}{\vspace*{1ex}} % White space under blocks
+  \addtobeamertemplate{block alerted end}{}{\vspace*{0ex}} % White space under highlighted (alert) blocks
+  \setlength{\belowcaptionskip}{2ex} % White space under figures
+  \setlength\belowdisplayshortskip{1ex} % White space under equations
+  
+  
+  \begin{frame}[t] % The whole poster is enclosed in one beamer frame
+
+      \begin{columns}[t] % The whole poster consists of two major columns
+	  
+      \begin{column}{\sepmargin}\end{column}
+      
+	    \begin{column}{\onecolwid} % The first column
+
+
+		  \begin{block}{Objective}
+          %\begin{multicols}{2}
+          Obtaining an elementary and simple description of $A_\infty$-algebras from an operadic point of view and using it to induce $A_\infty$-structures on operads.
+          %\end{multicols}
+          \end{block}
+          
+          \begin{block}{Operads}
+          %\begin{multicols}{2}
+         An \textbf{operad} is a collection of spaces  $\mathcal{O}=\{\mathcal{O}(n)\}_{n\geq 0}$, whose points are thought to be $n$-ary operations $X^n\to X$, usually represented as trees,
+			\[\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+			\clip(-2.13333333333334,-0.093333333333332) rectangle (12.006666666666668,3.5);
+			\draw [line width=2.pt] (2.,0.)-- (2.,1.);
+			\draw [line width=2.pt] (2.,1.)-- (0.3666666666666659,3.);
+			\draw [line width=2.pt] (2.,1.)-- (1.,3.);
+			\draw [line width=2.pt] (2.,1.)-- (1.7,3.);
+			\draw [line width=2.pt] (2.,1.)-- (3.,3.);
+			\end{tikzpicture}\]
+			
+		
+          %\end{multicols}
+          
+          together with \textbf{insertion maps} $\circ_i: \mathcal{O}(n)\otimes\mathcal{O}(m)\to\mathcal{O}(n+m-1)$ satisfying natural associativity axioms
+          
+				\[\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-10.04,-0.86) rectangle (4.14,5.18);
+\draw (2.,0.)-- (2.,1.);
+\draw (2.,1.)-- (0.,2.);
+\draw (2.,1.)-- (1.,2.);
+\draw (2.,1.)-- (2.,2.);
+\draw (2.,1.)-- (3.,2.);
+\draw (2.,1.)-- (4.,2.);
+\draw (2.,2.)-- (2.,3.);
+\draw (2.,3.)-- (1.,4.);
+\draw (2.,3.)-- (2.,4.);
+\draw (2.,3.)-- (3.,4.);
+\draw (-2,2.18) node[anchor=north west] {$=$};
+\draw (-3.,1.)-- (-3.,2.);
+\draw (-3.,2.)-- (-2.,3.);
+\draw (-3.,2.)-- (-3.,3.);
+\draw (-3.,2.)-- (-4.,3.);
+\draw (-5.64,2.14) node[anchor=north west] {$\circ_3$};
+\draw (-8.,1.)-- (-8.,2.);
+\draw (-8.,2.)-- (-6.,3.);
+\draw (-8.,2.)-- (-10.,3.);
+\draw (-8.,2.)-- (-9.,3.);
+\draw (-8.,2.)-- (-8.,3.);
+\draw (-8.,2.)-- (-7.,3.);
+\end{tikzpicture}\]
+
+and a unit element for insertions $1\in\mathcal{O}(1)$.
+% \begin{block}{\vspace*{1cm}}
+          %\begin{multicols}{2}
+    
+    
+    
+    % A \textbf{map} of operads $f:\mathcal{O}\to\mathcal{P}$ is an arity-wise defined map $f_n:\mathcal{O}(n)\to\mathcal{P}(n)$ such that $f(1_\mathcal{O})=1_{\mathcal{P}}$ and $f(a\circ_i b)=f(a)\circ_i f(b)$.
+          %\end{multicols}
+       %   \end{block}
+          
+         \begin{alertblock}{}
+   \textbf{Endomorphism operad.} For a space $V$, the operad $End_V$ is given by $End_V(n)=\hom(V^{\otimes n},V)$ and $f\circ_i g=f(1^{\otimes i-1}\otimes g\otimes 1^{\otimes n-i})$. When $V$ is a chain complex, $End_V(n)$ has a differential $\partial(f)=d_V\circ f-(-1)^{|f|}f\circ d_{V^{\otimes n}}$.
+    \end{alertblock} 
+    
+    \begin{itemize}
+        \item The \textbf{circle operation} $a\circ b=\sum_i a\circ_i b$ is a pre-Lie product.
+    \end{itemize}
+
+          \end{block}
+          
+          
+         
+          
+          
+          \begin{block}{Stasheff Associahedra}
+          %\begin{multicols}{2}
+          Let $M_2:X^2\to X$ be a binary multiplication. It is \textbf{homotopy-associative} when there is a homotopy $M_3:[0,1]\times X^3\to X$ such that $M_3|_{0\times X^3}=M_2(M_2\times 1)$ and $M_3|_{1\times X^3}=M_2(1\times M_2)$. The possible products of 4 elements give us homotopies as follows.
+          
+         \[ \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-4,-2) rectangle (12,8);
+\draw(2.,0.) -- (6.,0.) -- (7.23606797749979,3.804226065180613) -- (4.,6.155367074350506) -- (0.7639320225002106,3.8042260651806146) -- cycle;
+\draw (2.,0.)-- (6.,0.);
+\draw (6.,0.)-- (7.23606797749979,3.804226065180613);
+\draw (7.23606797749979,3.804226065180613)-- (4.,6.155367074350506);
+\draw (4.,6.155367074350506)-- (0.7639320225002106,3.8042260651806146);
+\draw (0.7639320225002106,3.8042260651806146)-- (2.,0.);
+\draw (1.5,8) node[anchor=north west] {$x(y(zt))$};
+\draw (-4,4.8) node[anchor=north west] {$(xy)(zt)$};
+\draw (-2,0) node[anchor=north west] {$((xy)z)t$};
+\draw (5.6,0) node[anchor=north west] {$(x(yz))t$};
+\draw (7.3,4.8) node[anchor=north west] {$x((yz)t)$};
+\draw (5.7,5.9) node[anchor=north west] {$\simeq$};
+\draw (0.5,5.9) node[anchor=north west] {$\simeq$};
+\draw (-0.3,2.2) node[anchor=north west] {$\simeq$};
+\draw (3.2,-0.1) node[anchor=north west] {$\simeq$};
+\draw (6.5,2.2) node[anchor=north west] {$\simeq$};
+\begin{scriptsize}
+\draw [fill=black] (2.,0.) circle (2.5pt);
+\draw [fill=black] (6.,0.) circle (2.5pt);
+\draw [fill=black] (7.23606797749979,3.804226065180613) circle (2.5pt);
+\draw [fill=black] (4.,6.155367074350506) circle (2.5pt);
+\draw [fill=black] (0.7639320225002106,3.8042260651806146) circle (2.5pt);
+\end{scriptsize}
+\end{tikzpicture}\]
+      
+      %If there is a map $M_4=\pentagofill\times X^4\to X$ extending the homotopies we say that $M_2$ is homotopy coherent. 
+      
+      The products of $n$ elements produce an $(n-2)$-dimensional polytope $K_n$ called \textbf{Stasheff associahedron}.  Higher homotopy coherence is achieved with maps $M_n:K_n\times X^n\to X$ satisfying boundary conditions.
+      
+      \begin{itemize}
+          \item Since $K_n\times K_m$ is a cell of $K_{n+m-1}$, the collection $\{K_n\}$ is an operad and so is the collection of cellular chains $\{C_*(K_n)\}$.
+          \item A space for which $M_n$ exists for all $n$ is called an $A_\infty$-\textbf{space}.
+          \item The maps $M_n$ induce maps $m_n:C_*(K_n)\otimes C_*(X)^{\otimes n}\to C_*(X)$ satisfying some relations described below.
+      \end{itemize}
+          %\end{multicols}An \textbf{operad} is a collection of spaces  $\mathcal{O}=\{\mathcal{O}(n)\}_{n\geq 0}$, whose points are thought to be $n$-ary operations $X^n\to X$.
+          \end{block}
+          
+          
+          \begin{block}{$A_\infty$-algebras}
+          %\begin{multicols}{2}
+          An $A_\infty$-\textbf{algebra} $A$ is chain complex with maps $m_n:A^{\otimes n}\to A$ of degree $n-2$ satisfying for all $n\geq 2$ the relation
+
+\[\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1} m_s=-\partial(m_n).\]
+
+\begin{itemize}
+    \item When $m_n=0$ for all $n\neq 2$, $A$ is an associative algebra.
+    \item In general, $m_2$ is only associative up to homotopy given by $m_3$.
+\end{itemize}
+
+
+          
+          
+
+          %\end{multicols}
+          \end{block}
+          
+            
+          
+         
+          
+         \end{column}
+                  
+                  
+                  
+         \begin{column}{\sepwid}  \end{column}
+         
+       
+         
+         
+         
+         \begin{column}{\onecolwid} %The second column
+         \begin{block}{\vspace*{1.95cm}}
+         \begin{itemize}
+             \item A \textbf{morphism}  of $A_\infty$-algebras is a chain map $f:A\to B$ such that $f(m_n)=m_n(f^{\otimes n})$ for all $n$.
+         \end{itemize}
+           An operad of chain complexes $\mathcal{O}$ has an $A_\infty$-multiplication if there are elements $m_n\in\mathcal{O}(n)$ of degree $n-2$ satisfying the equation of $A_\infty$-algebras. 
+%\[\sum_{r+s+t\geq 2}(-1)^{rs+t}m_{r+1+t}\circ_{r+1} m_s=.\]
+%I NEED THE DIFFERENTIAL ON THE RHS BECAUSE I AM OMITTING M1 (SEE MARKL ON DESKTOP OR L-V), CALL THIS DIFFERENTIAL DELTA TO USE IT ONN THE MAURER-CARTAN EQUATION (ALSO SEE L-V FOR DG-OPERADS, IT'S PROBABLY GOING TO BE AN ABUSE OF NOTATION)
+\begin{alertblock}{}
+  The operad $\{C_*(K_n)\}$ is an operad with  $A_\infty$-multiplication.
+  \vspace{0.5cm}
+\end{alertblock}
+
+
+         \end{block}
+         
+         
+        
+            \begin{block}{Operadic supension}
+          %\begin{multicols}{2}
+         \begin{itemize}
+             \item Analogue to suspension of graded vector spaces $\Sigma V=V\otimes \mathbb{F}[-1]$.
+             \item For an operad $\mathcal{O}$, its \textbf{operadic suspension} is the operad given by $\mathfrak{s}\mathcal{O}(n)=\mathcal{O}(n)\otimes\mathbb{F}[1-n]$ and insertion maps determined by 
+              %\begin{alertblock}{}
+           %\[\mathfrak{s}End_V=End_{\Sigma V}\]
+            % \end{alertblock}
+             \begin{alertblock}{}
+               \hspace{13.5cm}$\mathfrak{s}End_{\Sigma V}=End_V$.
+               \vspace{0.4cm}
+             \end{alertblock}
+            %\begin{tcolorbox}[colframe=white]
+            % \[\mathfrak{s}End_V=End_{\Sigma V}\]
+             %\end{tcolorbox}
+         \end{itemize}
+         \vspace*{-0.5cm}
+          \begin{alertblock}{}
+          \textbf{Proposition.} An $A_\infty$-multiplication on $\mathcal{O}$ is equivalent to an element $m\in\mathfrak{s}\mathcal{O}$ of degree $-1$ such that $\partial(m)+m\circ m=0.$ %WITH NO ARITY 0, AND THE DIFFERENTIAL IS ALSO MISSING
+         \end{alertblock}
+          %\end{multicols}
+          \end{block}
+          
+          \begin{block}{Brace algebras}
+          %\begin{multicols}{2}
+          
+A \textbf{brace algebra} is a space $V$ with brace maps $b_n:V^{\otimes (1+n)}\to V$ satisfying certain associativity axioms.
+
+\begin{itemize}
+    \item Any operad defines a brace algebra by setting \[b_n(x;x_1,\dots, x_n)=\sum_{i_1<\cdots<i_n} (\cdots (x\circ_{i_1}x_1)\cdots )\circ_{i_n}x_n.\]
+\end{itemize}
+
+ %\end{multicols}
+          \end{block}
+          
+          \begin{block}{$A_\infty$-algebra structure on an operad}
+          %\begin{multicols}{2}
+          Given an operad $\mathcal{O}$ with multiplication $m\in\mathfrak{s}\mathcal{O}$, define $M_n$ to be the map that makes the following diagram commutative.
+          \[
+         \begin{tikzcd}[ampersand replacement=\&]
+(\Sigma \mathfrak{s}\mathcal{O})^{\otimes n} \arrow[r, "M_n"]  \& \Sigma \mathfrak{s}\mathcal{O} \\
+\mathfrak{s}\mathcal{O}^{\otimes n} \arrow[r, "b_n(m;-)"]  \arrow[u]         \& \mathfrak{s}\mathcal{O} \arrow[u]         
+\end{tikzcd}
+          \]
+          
+          \begin{alertblock}{}
+            \textbf{Proposition.} The maps $M_n$ define an $A_\infty$-algebra struture on $\Sigma\mathfrak{s}\mathcal{O}$. As a consequence, they define an $A_\infty$-multiplication on the endomorphism operad of $\Sigma\mathfrak{s}\mathcal{O}$.
+          \end{alertblock}
+          %\end{multicols}
+          This process can be iterated to define an $A_\infty$-algebra on $\Sigma\mathfrak{s}End_{\Sigma\mathfrak{s}\mathcal{O}}$ and we have  the following
+          
+           \begin{alertblock}{}
+            \textbf{Theorem.} There is a morphism of $A_\infty$-algebras \[\Phi:\Sigma\mathfrak{s}\mathcal{O}\to \Sigma\mathfrak{s}End_{\Sigma\mathfrak{s}\mathcal{O}}\]
+            induced by the map $\mathfrak{s}\mathcal{O}\to End_{\mathfrak{
+            s}\mathcal{O}}$ given by 
+            \[x\mapsto \sum_{n\geq 0}b_n(x;-).\]
+          \end{alertblock}
+          \end{block}
+         %\begin{block}{\vspace*{2.7cm}}
+          %\begin{multicols}{2}
+      
+          %\end{multicols}
+          %\end{block}
+          
+          %\begin{block}{ }
+		%		\begin{figure}
+         %       	\vspace*{-1cm}
+                    %\includegraphics[width=.9\linewidth]{plot.PNG}
+				%\end{figure}
+				%\begin{figure}
+                    %\includegraphics[width=.9\linewidth]{Bild1.jpg}
+				%\end{figure}
+                
+                %\begin{multicols}{2}
+            %    \begin{figure}
+             %   	\vspace*{-0.95cm}
+                    %\includegraphics[width=.8\linewidth]{Bild2.jpg}
+				%\end{figure}
+            %    \begin{figure}
+             %   	\vspace*{-0.95cm}
+                    %\includegraphics[width=.8\linewidth]{Bild3.jpg}
+				%\end{figure}
+                %\end{multicols}
+                
+                %\begin{figure}
+                    %\includegraphics[width=.9\linewidth]{Bild4.jpg}
+				%\end{figure}
+                
+		%\end{block}
+		\begin{block}{\large References}
+			  \vspace*{-0.5cm}
+              	\nocite{*} % Insert publications even if they are not cited in the poster
+					{\footnotesize
+                    	%\bibliographystyle{plainurl}
+						\bibliography{bibliog.bib}}
+				\end{block} 
+      \end{column}
+      
+      \begin{column}{\sepmargin} \end{column}
+    \end{columns} 
+       
+   %   \begin{columns}[t] % Split up the two columns wide column again
+      
+  %   \begin{column}{\sepmargin} \end{column}
+ %       \begin{column}{\onecolwid} % The first column
+			%\begin{block}{\large Acknowledgements}
+                    %\begin{center}
+						%\begin{tabular}{SL}
+							%\includegraphics[width=\linewidth]{Flag_of_Europe.png}  &
+			%				\footnotesize This project has received funding from the  grant agreement No 11111.
+			%			\end{tabular}
+			%		\end{center}
+			%	\end{block}	
+             %   \vspace*{-0.9cm}
+			%	\begin{alertblock}{\large Contact Information}
+            %\vspace*{-0.5cm}
+					%\begin{footnotesize}
+					%\begin{itemize}
+						%\item \href{mailto:email@meduniwien.ac.at}{email@meduniwien.ac.at}
+						%\item %\href{http://www.example.com/}{www.example.com} - %\href{www.meduniwien.ac.at/medstat}{www.meduniwien.ac.at/medstat}
+				%\end{itemize}
+				%	\end{footnotesize}	
+					
+			%	\end{alertblock}
+%		    \end{column} % End of the first column
+%			\begin{column}{\sepwid}\end{column} % Empty spacer column
+%			\begin{column}{\onecolwid} % Begin a column 
+             
+%			\end{column} % End of the second column
+            
+%			\begin{column}{\sepmargin}\end{column} % Empty spacer column
+            
+%\end{columns} % End of all the columns in the poster
+
+
+\end{frame} % End of the enclosing frame
+	
+\end{document}
