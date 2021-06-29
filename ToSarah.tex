@@ -93,17 +93,23 @@ so we conclude
 
 \[a\tilde{\circ}_ib=(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}a\circ_i b.\]
 
-This is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras is derived. This fact is not coincidental. Recall that the Koszul dual cooperad $\mathcal{A}s^{¡}$ of the associative operad $\mathcal{A}s$ is $k\mu_n$ in arity $n$, where $\mu_n$ has degree $n-1$. Thus, for a graded module $A$, we have the following pre-Lie algebra isomorphisms.
+This is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras is derived, we have the following. 
 
-LOOK FOR THE SYMMETRIC CONVOLUTION OPERAD AND SYMMETRIC KOSZUL DUAL IF IT EXISTS AND IF IT HELPS SINCE OPERADIC SUSPENSION IS SYMMETRIC (BUT COULD AVOID THAT) - LV 6.4.1
+\begin{lemma}
+An $A_\infty$-multiplication on an operad $\OO$ is equivalent to an element $m\in\s\OO$ of degree 1 concentrated in positive arity such that $m\tilde{\circ}m=0$, where $a\tilde{\circ} b=\sum_i a\tilde{\circ}_i b$.
+\end{lemma}
+
+This fact is not coincidental. Recall that the Koszul dual cooperad $\mathcal{A}s^{¡}$ of the associative operad $\mathcal{A}s$ is $k\mu_n$ in arity $n$, where $\mu_n$ has degree $n-1$. Thus, for a graded module $A$, we have the following pre-Lie algebra isomorphisms.
+
+%LOOK FOR THE SYMMETRIC CONVOLUTION OPERAD AND SYMMETRIC KOSZUL DUAL IF IT EXISTS AND IF IT HELPS SINCE OPERADIC SUSPENSION IS SYMMETRIC (BUT COULD AVOID THAT) - LV 6.4.1
 
 \[\Hom(\mathcal{A}s^{¡},\End_A)\cong \End_{SA}\cong\s^{-1}\End_A.\]
  %the second isomorphism Hom(k[n-1],End_A(n))^d=Hom(k,End_A(n))^{d+n-1}=End_A(n)^{d+n-1}=End_{sA}(n)
-The first operad is the convolution operad CITE OR DESCRIBE IN INTRO. Explicitly, for $f\in\End_A(n)$ and $g\in\End_B(n)$, the convolution product is given by
+The first operad is the convolution operad CITE OR DESCRIBE IN INTRO. Explicitly, for $f\in\End_A(n)$ and $g\in\End_A(m)$, the convolution product is given by
 
 \[f\star g=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}f\circ_i g=\sum_{i=1}^nf\tilde{\circ}_i g.\]
 
-See \cite[Theorem 10.1.11]{lodayvallette} for more details (LATER WE HAVE LINFINITY, I COULD TRY SOMETHING WITH THAT BECAUSE IT'S VERY SIMILAR). The difference in sign conventions arise from the choice of the last isomorphism of pre-Lie algebras INDEED AS (NS) OPERADS I BELIEVE, here we use $\sigma^{-1}$. THE THEOREM WHERE I CLAIM THE LAST ISOMORPHISM IS BELOW SO MAYBE REORDER OR REFERENCE
+See \cite[Theorem 10.1.11]{lodayvallette} for more details (LATER WE HAVE LINFINITY, I COULD TRY SOMETHING WITH THAT BECAUSE IT'S VERY SIMILAR). The difference in sign conventions arise from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$  REFERENCE THIS ISOMORPHISM BELOW. %INDEED AS (NS) OPERADS I BELIEVE, here we use $\sigma^{-1}$. THE THEOREM WHERE I CLAIM THE LAST ISOMORPHISM IS BELOW SO MAYBE REORDER OR REFERENCE
 
 IN 10.1 THE CONNECTION BETWEEN PINFTY AND CONVOLUTION OPERAD IS DESCRIBED
 
@@ -115,6 +121,8 @@ I SHOULD AFTER THIS DEFINE A-INFTY ALGEBRAS AS ALGEBRAS OVER AN OPERAD WITH MULT
  PROP 5.3.4 CAN ALSO BE INTERESTING TO STUDY ALGEBRAS
 
 AT SOME POINT I SHOULD SAY THAT AN A-INFTY ALGEBRA IS AN ALGEBRA OVER AN OPERAD WITH MULTIPLICATION
+
+When we obtain the signs for the full operadic composition we will be able to also give an interpretation of $\infty$-morphisms in terms of operadic suspension.
 
 \begin{thm}\label{markl}(\cite[Chapter 3, Lemma 3.16]{operads})
 Given a graded $R$-module $A$, there is an isomorphism of operads $\End_{S A}\cong \mathfrak{s}^{-1}\End_A$, where $\End_A$ is the endomorphism operad of $A$.
@@ -130,7 +138,7 @@ This isomorphism can also  be proved in a more direct way using the isomorphism 
 In this case the isomorphism map that we obtain goes in the opposite direction to $\overline{\sigma}$, and it is precisely its inverse.
 
 \subsection{Functorial properties of operadic suspension}\label{functorial}
-AT SOME POINT I SHOULD MAKE CLEAR WHAT I MEAN BY THE UNDERLYING MODULE OF AN OPERAD, SINCE IT COULD BE THOUGHT THAT I GRADE BY ARITY BECAUSE OF THE DIRECT SUM, BUT I AM USUALLY CONSIDERING INTERNAL DEGREE (POTENTIALLY, TOTAL DEGREE, SUSPENDED DEGREE OR ANYTHING COULD BE GIVEN) MORPHISMS OF OPERADS DO NOT NEED TO PRESERVE DEGRREE
+AT SOME POINT I SHOULD MAKE CLEAR WHAT I MEAN BY THE UNDERLYING MODULE OF AN OPERAD, SINCE IT COULD BE THOUGHT THAT I GRADE BY ARITY BECAUSE OF THE DIRECT SUM, BUT I AM USUALLY CONSIDERING INTERNAL DEGREE (POTENTIALLY, TOTAL DEGREE, SUSPENDED DEGREE OR ANYTHING COULD BE GIVEN) 
 
 
 MAYBE CALL S-MODULES ANOTHER WAY WHEN THERE IS NO ACTION OF SYMMETTRIC GROUPS (L-V SAY ARITY GRADED VECTOR SPACE, BUT I'M NOT REALLY GOING TO USE THAT GRADING FOR OTHER PURPOSES, MAYBE CALL IT COLLECTION OR NS S-MODULE)
@@ -155,7 +163,8 @@ Note that $\deg(a)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s 
 
 SO MAYBE I SHOULD AVOID THIS COMPUTATION EVEN THOUGH IT MIGHT BE INTERESTING THAT DEGREE 0 IS NOT NECESSARY FOR THE COMMUTATIVITY RELATION
 
-The previous computation is a consequence of the more general fact.
+The previous computation is a consequence of the more general fact. NOT SURE, ASSOCIATIVITY IS NOT WORKING (I AM USING AS A NATURAL TRANSFORMATION THE  MAP ADDING THE SIGN OF COMPOSITION, SINCE THE MAP INDUCED BY S DOES NOT ADD SIGNS. MAYBE WITH A DIFFFERENT DEFINITION OF THE TWO THE RESULT IS FINE) 
+MAYBE DEFINE A FUNCTOR TO BE OPERADIC IF IT TAKES OPERADS TO OPERADS (INCLUDING MORPHISMS), SO LAX MONOIDAL IMPLIES OPERADIC AND OPERADIC SUSPENSION IS AN EXAMPLE OF OPERADIC FUNCTOR WHICH IS NOT LAX MONOIDAL
 \begin{prop}
 The endofunctor $\s:g\mathbb{S}-Mod\to g\mathbb{S}-Mod$ is  lax monoidal with respect to the composition of $\mathbb{S}$-modules.  NOTATION FOR CATEGORY OF S-MODULES AND SPECIFY THE GRADING ON COMPOSITION IN THE INTRO
 
@@ -166,14 +175,14 @@ DRAW THE DIAGRAMS, DO THE CALCULATIONS, I SHOULD ALSO WRITE THE IMPLICATION LAX 
 \end{proof}
 
 \begin{prop}
-IT IS STRICT MONOIDAL DEFINING THE OBVIOUS COOPERAD STRUCTURE ON LAMBDA BUT USING THE ALTERNATIVE COMPOSITION FUNCTOR-OR  DEFINING A VERSION WITH LAMBDA(0)=0- AND RESTRICTING TO O(0)=0  (CHECK OUT COOPERADS AND PARTIAL  DECOMPOSITION, YOU ALSO MAY WANT TO AVOID SYMMETRIC GROUPS, BUT ACCORDING TO LODAY AN VALLETTE, THAT USE COMPOSITION FUNCTR FROM 5.1.21 AND APENDIX 1.2 IT WOULD REQUIRE THAT R IS OF CHAR NOT A FACTORIAL) IF THE COOPERAD MAP IS JUST THE INVERSE OF THE OPERAD MAP THE AXIOM DIAGRAMS COMMMUTE BY SIMPLY INVERTING ARROWS
+(UP TO FAILURE OF THE ABOVE) IT IS STRICT MONOIDAL DEFINING THE OBVIOUS COOPERAD STRUCTURE ON LAMBDA BUT USING THE ALTERNATIVE COMPOSITION FUNCTOR-OR  DEFINING A VERSION WITH LAMBDA(0)=0- AND RESTRICTING TO O(0)=0  (CHECK OUT COOPERADS AND PARTIAL  DECOMPOSITION, YOU ALSO MAY WANT TO AVOID SYMMETRIC GROUPS, BUT ACCORDING TO LODAY AN VALLETTE, THAT USE COMPOSITION FUNCTR FROM 5.1.21 AND APENDIX 1.2 IT WOULD REQUIRE THAT R IS OF CHAR NOT A FACTORIAL) IF THE COOPERAD MAP IS JUST THE INVERSE OF THE OPERAD MAP THE AXIOM DIAGRAMS COMMMUTE BY SIMPLY INVERTING ARROWS
 \end{prop}
 
 PROVE SOMEWHERE THAT $1\otimes e_1$ IS THE UNIT, MORE GENERALLY, THE HADAMARD PRODUCT OF OPERADS IS AN OPERAD (THIS INCLUDES SHOWING WHAT THE UNIT IS, SO WHAT I REALLY NEED IS IN THE PARTICULAR CASE IS TO SHOW THAT E1 IS THE UNIT OF LAMBDA) 
 
 
 
-IS THIS FUNCTOR SYMMETRIC LAX MONOIDAL? I SHOULD FIRST SPECIFY THE MONOIDAL PRODUCT, WITH I GUESS IT SHOULD BE THE HADAMARD PRODUCT, BUT I NEED TO MAKE SUREE THAT THIS PRODUCT SATISFIES THE AXIOMS OF SYMMETRIC MONOIDAL CATEGORY
+
 
 
 The fact that $\s$ is a functor allows to describe algebras using operadic suspension. Namely, an $A_\infty$-algebra is a map of operads $\OO\to\mathcal{P}$ where $\OO$ is an operad with $A_\infty$-multiplication. This means that there is a Maurer-Cartan (A WAY TO SAY IT IS OF DEGREE 1 SATISFYING M*M=0, BUT I SHOULD DEFINE IT SOMEWHERE, I SHOULD ALSO MENTION THE DIFFERENCE BETWEEN CONSIDERING DG OPERADS -DIFFERENTIAL INSIDE- OR JUST LINEAR OPERADS)  element $m$ in $\s\OO$ I SHOULD BE CAREFUL WITH ARITY 0, I CANNOT ASSUME IT IS TRIVIAL BECAUSE FOR END IT IS THE ALGEBRA, SO I MIGHT NEED TO SEPARATE THAT PART. Since $\s$ is a functor, we can translate the map $\s\OO\to\s\mathcal{P}$. Since in addition, $\s$ is an isomorphism with inverse $\s^{-1}$ (see Appendix ACTUALLY IT IS AN EQUIVALENCE BECAUSE THEIR COMPOSITION IS JUST NATURALLY ISOMMORPHIC TO THE IDENTITY -MAYBE I SHOULD CHECK THE DEFINITION OF EQUIVALENCE), this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In particular, for $A_\infty$-algebras it is more convenient to work with $\s\OO$ since the formulation of an $A_\infty$-multiplication on this operad is much simpler.
@@ -267,7 +276,14 @@ b_1(f;g)=\sum_i f\tilde{\circ}_i g,
 \]
 so the notation $f\tilde{\circ} g$ is suggestive, and $f\circ g$ might be left to a general case of any operad that is not necessarily an operadic suspension or to the specific case of the endomorphism operad with no additional signs.
 
+Finally, as we mentioned before, we can give an interpretation of $\infty$-morphisms that one can check by direct computation. 
+I NEED TO TALK ABOUT THE COLLECTIONS $END^A_B$
 
+\begin{lemma}
+An $\infty$-morphism of $A_\infty$-algebras $f:A\to B$  is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that $\rho(f\circ_{(1)}m)=\lambda(m\circ f)$ where $\lambda:\End_B\circ \End^A_B\to \End^A_B$ is the composite of maps and $\rho:\End_B\circ_{(1)}\End^A_B\to \End^A_B$ is the infinitesimal composite. NOTATION FROM L-V 10.2.4
+
+if f is an endomorphism then it is just $f\tilde{\circ}m=\gamma(m\circ f)$.
+\end{lemma}
 %The hardest part is finding \sum q_j(n-j) in the first expression. There is (n-1)\sum q_j+sum_{j>i}q_j. So q_l apperas (n-1) times first and then l-1 times (because the nequality is strict). Therefore, q_l appears n-1+l-1=n-l mod 2 times.
 
 
