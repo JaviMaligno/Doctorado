@@ -18,21 +18,30 @@
 \maketitle
 
 \section{Introduction}
-I use an operadic totalization to obtain an operation similar to the star operation in RLW and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra
+I use an operadic totalization inspired by WHITEHOUSE to obtain an operation similar to the star operation in RLW and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra
 
 
 \section{Operadic totalization}
 Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE
 
-I THINK I NEED  (N,Z)-BRIGRADED MODULES TO MAKE SURE THAT HORIZONTAL DEGREE IS NON-NEGATIVE WHEN DEFININ M AS AN ELEMENT OF TSO
+I THINK I NEED  (N,Z)-BRIGRADED MODULES TO MAKE SURE THAT HORIZONTAL DEGREE IS NON-NEGATIVE WHEN DEFINING M AS AN ELEMENT OF TSO
 
-Let $\OO$ be a bigraded linear operad, i.e. an operad in te category  of bigraded $R$-modules. We define $T\OO$ as the operad of graded $R$-modules for which \[T\OO(n)^d=\bigoplus_{d=i+k} \OO(n)^k_i=\bigoplus_i \OO(n)^{d-i}_i\] %THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
+We are going to apply the totalization with compact support functor of WHITEHOUSE 4.13 to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. WHITEHOUSE 3.11 the functor $T$ with domain the category of bigraded modules and bidegree $(0,0)$ morphisms is lax monoidal, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules.  
 
-\[a\bar{\circ}_rb=(-1)^{k(j+l)} a\circ_r b\]
+Therefore, let $\OO$ be a bigraded linear operad, i.e. an operad in te category  of bigraded $R$-modules. We define $T\OO$ as the operad of graded $R$-modules for which \[T\OO(n)^d=\bigoplus_{d=i+k} \OO(n)^k_i=\bigoplus_i \OO(n)^{d-i}_i\] is the image of $\OO(n)$ under the totalization functor and the insertion maps are given by the composition  %THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
+\[T\OO(n)\otimes T\OO(m)\xrightarrow{\mu} T(\OO(n)\otimes \OO(m)) \xrightarrow{T(\circ_r)} T\OO(n+m-1),\]
+that is explicitly 
+\[(a\bar{\circ}_rb)_k=\sum_{k_1+k_2=k} (-1)^{k_1n_2} a_{k_1}\circ_r b_{k_2}\]
+
+for $a=(a_i)_i\in T\OO(n)^{n_1}$ and $b=(b_j)_j\in T\OO(m)^{n_2}$.
+
+
 MAYBE I SHOULD WRITE THINGS LIKE SUMS BUT I THINK IT MAKES SENSE TO WRITE IT LIKE THIS BECAUSE I KNOW THIS COMES FROM A BIGRADED MODULE
-where $a\in\OO(n)^k_i$, $b\in\OO(m)^j_l$ and $\circ_r$ is the insertion map in $\OO$.
+%where $a\in\OO(n)^k_i$, $b\in\OO(m)^j_l$ and $\circ_r$ is the insertion map in $\OO$.
 
-It can be checked that this is indeed an operad of graded vector spaces I SHOULD WRITE THE AXIOMS FOR GRADED OPERADS SOMEWHERE (MORE GENERALLY OPERAD IN SYMMETRIC MONOIDAL CATEGORY LIKE WARD), AND I MIGHT ALSO WRITE THE PROOF OF THIS FACT
+%It can be checked that this is indeed an operad of graded vector spaces I 
+
+SHOULD WRITE THE AXIOMS FOR GRADED OPERADS SOMEWHERE (MORE GENERALLY OPERAD IN SYMMETRIC MONOIDAL CATEGORY LIKE WARD), AND I MIGHT ALSO WRITE THE PROOF OF THIS FACT
 
 HEURISTICS FOR THIS SIGN AND ALTERNATIVE, REFERRING TO WHITEHOUSE (THIS  LAST PART POSSIBLE LATER WITH DERIVED A INFTY)
 
@@ -87,26 +96,34 @@ We of course have the following theorem with similar proof to the graded case, w
 \begin{thm}\label{markl}
 Given a bigraded $R$-module $A$, there is an isomorphism of operads $\End_{ A}\cong \mathfrak{s}\End_{SA}$, where $\End_A$ is the endomorphism operad of $A$.\qed
 \end{thm}
+
  
  THIS IS SERIOUS, I'M GOING TO CALL IT THAT WAY, BUT PROBABLY YOU SHOULDN'T SHOW IT TO YOUR SUPERVISOR YET
  
 Now we are going to combine vertical operadic suspension and totalization in what I call the \emph{Paula construction} of a bigraded operad. More precisely, the Paula construction of a bigraded operad $\OO$ is the graded operad $T\s\OO$. 
 
+%TsOO(n)^{n1} SOO(n)^{n1-k1}_k1  OO(n)^{n1-k1-n+1}_k1
+
+This operad has an insertion map explicitly given by
+\[(a\star_{r+1} b)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1n_2}a_{k_1}\circ_{r+1}b_{k_2}\]
+for $a=(a_i)_i\in T\s\OO(n)^{n_1}$ and $b=(b_j)_j\in T\s\OO(m)^{n_2}$. As usual, denote \[a\star b=\sum_{r=0}^{m-1}a\star_{r+1}b.\]
+
+This star operation is precisely the star operation from RWL, i.e the convolution operation on $\Hom((dAs)^!, \End_A)$ (see the reference for details). 
+
+DESCRIBE DERIVED AINFTY MORPHISMS AND COMPOSITION WITH THIS (WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
 
 
-This operad has an insertion map
-\[a\star_{r+1} b=(-1)^{(n-1)j+(n-1)(m-1)+r(m-1)+k(m+l+j-1)}a\circ_{r+1}b\]
-As usual, denote $a\star b=\sum_{r=0}^{m-1}a\star_{r+1}b$. 
+\begin{remark}
+There exist other possible ways of totalizing operads by varying the natural transformation $\mu$. For instance, we can choose the totalization functor $T'$ which is the same as $T$ but  with $\mu$ defined in such a way that the insertion on $T'\OO$ is defined by \[(a\hat{\circ}b)_k=\sum_{k_1+k_2=k}(-1)^{k_2n_1}a_{k_1}\circ b_{k_2}.\] 
 
-I COULD STILL MENTION THIS 
+This is also a valid approach for our purposes and there is simply a sign difference, but we have chosen our convention to be consistent with other conventions and constructions (SIGN FOR INFINITY MORPHISMS AND CONVOLUTION OPERAD). However, let us mention some differences and relations between $T$ and $T'$ . %There are of course many other possible conventions MAYBE NOT MENTION THE EXACT DIFFRENES, JUST STOP HERE BECAUSE THERE ARE MORE CONVENTIONS AND I DON'T THINK I WILL TREAT ALL OF THEM IN DETAIL, BUT THE DIFFERENCE BETWEEN IDENTITY AND ISOMORPHISM MIGHT BE WORTH MENTION
 
-choosing a slightly different totalization functor $T'$, more precisely, we would have to define $a\hat{\circ}b=(-1)^{l(k+i)}a\circ b$. This is also a valid approach for our purposes, but we have chosen our convention for to be consistent with other conventions and constructions (SIGN FOR INFINITY MORPHISMS AND CONVOLUTION OPERAD). However, we will mention the differences that occur when choosing the alternative. There are of course many other possible conventions MAYBE NOT MENTION THE EXACT DIFFRENES, JUST STOP HERE BECAUSE THERE ARE MORE CONVENTIONS AND I DON'T THINK I WILL TREAT ALL OF THEM IN DETAIL, BUT THE DIFFERENCE BETWEEN IDENTITY AND ISOMORPHISM MIGHT BE WORTH MENTION
+First of all, $T$ and $T'$ are isomorphic. The isomorphism $f:T\OO\cong T'\OO$ given by $f((a_k))=((-1)^{k(n_1-k)}a_k)$. MAYBE ALL OF THEM ARE ISOMORPHIC, THINK OF THIS USING JUST THAT A TOTALIZATION IS A FUNCTOR THAT SENDS A BIGRADED OPERAD TO A GRADED OPERAD, MAYBE ALSO USE THAT THE UNDERLYING MODULE IS ALWAYS THE SAME SO THAT THE ONLY MODIFICATION IS THE INSERTION
 
-$T$ and $T'$ are isomorphic, with an isomorphism $f:T\OO\cong T'\OO$ given by $f(a)=(-1)^{ik}a$. MAYBE ALL OF THEM ARE ISOMORPHIC, THINK OF THIS USING JUST THAT A TOTALIZATION IS A FUNCTOR THAT SENDS A BIGRADED OPERAD TO A GRADED OPERAD, MAYBE ALSO USE THAT THE UNDERLYING MODULE IS ALWAYS THE SAME SO THAT THE ONLY MODIFICATION IS THE INSERTION
-
-It can be readily verified that $T'\s\OO=\s T'\OO$. With the original totalization we have a non identity isomorphism $f:T'\s\OO\cong\s T'\OO$ given by $f(a)=(-1)^{kn}a$.
+It can be readily verified that $T'\s\OO=\s T'\OO$. With the original totalization we have a non identity isomorphism $f_n:T'\s\OO(n)\cong\s T'\OO(n)$ given by $f((a_k))=((-1)^{kn}a_k)$. We will use this isomorphism later.
 
 POSSIBLY FILL IN SOME DETAILS OF THESE ISOMORPHISMS
+\end{remark}
 \section{Derived $A_\infty$-algebras}
   \begin{definition}
   Using the notation in \cite{RW}, a \emph{derived $A_\infty$-algebra} on a $(\N,\Z)$-bigraded $R$-module $A$ consist of a family of $R$-linear maps 
@@ -119,7 +136,7 @@ for all $u\geq 0$ and $v\geq 1$.
 Similarly, a \emph{derived $A_\infty$ multiplication} $m$ on a bigraded operad $\OO$ is an element $m=\sum_{ij}m_{ij}$ where $m_{ij}\in\OO(j)^{2-i-j}_i$ for each $j\geq 1$ such that 
 \[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}\circ_{r+1} m_{pq}=0.\]
 \end{definition}
-From the definition of $T\s\OO$, such a multiplication is equivalent to an element $m\in T\s\OO$ of degree 1 satisfying $m\star m=0$. From this, it follows from our previous results that $m$ determines an $A_\infty$-algebra structre on $ST\s\OO=S\s T\OO$ that can be itereted to define an $A_\infty$-structure on $S\s\End_{S\s T\OO}$, which is related to the structure on $S\s T\OO$ by a map of $A_\infty$-algebras  $\Phi:S\s T\OO
+From the definition of $T\s\OO$, such a multiplication is equivalent to an element $m\in T\s\OO$ of degree 1 concentrated in positive arity satisfying $m\star m=0$. From this, it follows from our previous results that $m$ determines an $A_\infty$-algebra structre on $ST\s\OO\cong S\s T\OO$ IT WAS EQUALITY WITH THE ALTERNATIVE OPERATION that can be itereted to define an $A_\infty$-structure on $S\s\End_{S\s T\OO}$, which is related to the structure on $S\s T\OO$ by a map of $A_\infty$-algebras  $\Phi:S\s T\OO
 \to  S\s\End_{S\s T\OO}$.  MAYBE WRITE THIS MORE EXPLICITLY 
 
 The goal now is showing that this structure is equivalent to a derived $A_\infty$-structure on $S\s \OO$. 
@@ -159,27 +176,36 @@ The operadic composition can be described in terms of insertions in the obvious 
 
 $$\gamma(f;h_1,\dots, h_N)=(\cdots(f\star_1 h_1)\star_{1+a(h_1)}h_2\cdots)\star_{1+\sum a(h_p)}h_N,$$
 
-where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign iterating the same argument as in the graded case. In fact, there is a sign factor ideantical to the graded case replacing internal degree by vertical (internal) degree that comes from operadic suspension. Therefore we only need to compute the factor sign corresponding to totalization. Given $f\in \OO(N)^{q_0}_{p_0}$ and  $g_i\in\OO(a_i)^{q_i}_{p_i}$ for $1\leq i\leq n$, the factor sign we are looking for is determined by the exponent
+where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign iterating the same argument as in the graded case. In fact, there is a sign factor identical to the graded case replacing internal degree by vertical (internal) degree that comes from operadic suspension. Therefore we only need to compute the sign factor corresponding to totalization. Given $f_{p_0}\in \OO(N)^{q_0}_{p_0}$ and  $g_i\in\OO(a_i)^{q_i}_{p_i}$ for $1\leq i\leq n$ such that $p_0+p_1+\cdots+p_n=k$, the factor sign we are looking for is determined by the exponent
 
-\[\varepsilon=p_1(N+q_0+p_0-1)+p_2(N+a_1+q_0+q_1+p_0+p_1-2)+\cdots=\sum_{i=1}^np_i(\sum_{j=0}^{i-1}(a_j+q_j+p_j)+N-i).\]
+%\[\varepsilon_k=p_1(N+q_0+p_0-1)+p_2(N+a_1+q_0+q_1+p_0+p_1-2)+\cdots=\sum_{i=1}^np_i(\sum_{j=0}^{i-1}(a_j+q_j+p_j)+N-i).\]
 
 \[\varepsilon
-=p_0(a_1+q_1+p_1-1)+(p_0+p_1)(a_2+q_2+p_2-1)+\cdots=\sum_{i=1}^n(a_i+q_i+a_i-1)\sum_{j=0}^{i-1}p_j=\sum_{0\leq j<i\leq n}p_j(a_i+q_i+p_i-1).\]
-This is obtained by iteration of the last factor sign in EQUATION WITH THE SIGN ABOVE which is precisely the sign determined by totalization. Therefore, if $(-1)^\eta$ is the sign produced by operadic suspension and $(-1)^\varepsilon$ the sign produced by totalization, the factor sign that distinguished the brace in $T\s\OO$ from the usual operadic composition in $\OO$ is $(-1)^{\eta+\varepsilon}$.
+=p_0(a_1+q_1+p_1-1)+(p_0+p_1)(a_2+q_2+p_2-1)+\cdots=\sum_{i=1}^n(a_i+q_i+a_i-1)\sum_{j=0}^{i-1}p_j\]\[=\sum_{0\leq j<i\leq n}p_j(a_i+q_i+p_i-1).\]
+This is obtained by iteration of the last factor sign in EQUATION WITH THE SIGN ABOVE which is precisely the sign determined by totalization. Therefore, if $(-1)^\eta$ is the sign produced by operadic suspension and $(-1)^\varepsilon_k$ the sign produced by totalization, the factor sign that distinguishes the brace in $T\s\OO$ from the usual operadic composition in $\OO$ is $(-1)^{\eta+\varepsilon_k}$ THE K IS BECAUSE I'M PLANNING TO REWRITE THINGS AS SUMS IN TOTALIZATION, I MIGHT ABOUT THIS, I WILL HAVE TO CHANGE THE NOTATION FOR THE MAPS BEING COMPOSED AND THEIR DEGREES
 
- USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD
+ USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD (I WILL PROBABLY  WRITE THE COMPUTATION OF DEGREES DIFFERENTLY LATER BECAUSEE I AM IDENTIFYING THE BRACE AND ELEMENTS WITH THEIR SHIFTS HERE TO MAKE IT EASIER TO COMPPUTE)
 
-Let $m_{il}$ a component of the derived $A_\infty$-multiplication $m$ and let us compute the bidegree of $b_j(m_{il};x_1,\dots, x_j)$. COMPUTATION
+Let $m_{il}$ a component of the derived $A_\infty$-multiplication $m$ and $x_1,\dots, x_j\in\OO$ with $x_k$ of bidegree $(i_k,l_k)$, and let us compute the bidegree of $b_j(m_{il};x_1,\dots, x_j)$ in $S\s\OO$. By definition, the horizontala degree on $S\s\OO$ is the same as in $\OO$, so it is $i+\sum_{k=1}^ji_k$, meaning that the horizontal degree of the map $b_j(m_{il};-):S\s\OO^{\otimes j}\to S\s\OO$ is precisely $i$. Now let us compute the vertical degree. By definition it is given by the internal vertical degree plus the arity. Therefore, let us compute
 
+\[
+a(b_j(m_{il};x_1,\dots, x_j))+\deg(b_j(m_{il};x_1,\dots, x_j))
+\]
+where
+
+\[
+a(b_j(m_{il};x_1,\dots, x_j))=l-j+\sum a(x_k)
+\]
+and 
+\[\deg(b_j(m_{il};x_1,\dots, x_j))=2-l-i+\sum \deg(x_k)\]
+so the sum is $2-i-j+\sum (a(x_k)+\deg(x_k)$, so that the vertical degree of the map $b_j(m_{il};-)$ on the shift is $2-i-j$. This means, that we have the following candidates for a derived $A_\infty$-structture
 THESE ARE CANDIDATES BEFORE SHIFTING 
 
 \[M_{ij}(x_1,\dots, x_j)=\sum_l b_j(m_{il};x_1,\dots, x_j)\]
 \[M_{i1}(x)= \sum_l (b_1(m_{il};x)-(-1)^{|x|}b_1(x;m_{il}))\]
 to be a derived structure on that shift. USE THE NOTATION $|x|$ FOR TOTAL DEGREE IN $TsO$ IT IS CONSISTENT WITH THE GRADED CASE
 
-INFINITY MORPHISMS FROM THE BRACE OPERATION (MAYBE THERE IS A MORE OPERADIC-COMPACT WAY TO DESCRIBE IT SO THAT I DON'T HAVE TO WRITE ALL THE COMPONENTS, MAYBE WITH SOME OF THE OPERATIONS IN LODAY-VALLETTE LIKE THE PLETHYSM OR SOMETHING)
 
-ALSO WRITE THIS IN THE A INFINITY CASE
 
 
 

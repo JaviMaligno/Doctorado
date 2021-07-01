@@ -99,17 +99,17 @@ This is exactly the sign in \cite{RW} from which the sign in the equation defini
 An $A_\infty$-multiplication on an operad $\OO$ is equivalent to an element $m\in\s\OO$ of degree 1 concentrated in positive arity such that $m\tilde{\circ}m=0$, where $a\tilde{\circ} b=\sum_i a\tilde{\circ}_i b$.
 \end{lemma}
 
-This fact is not coincidental. Recall that the Koszul dual cooperad $\mathcal{A}s^{¡}$ of the associative operad $\mathcal{A}s$ is $k\mu_n$ in arity $n$, where $\mu_n$ has degree $n-1$. Thus, for a graded module $A$, we have the following pre-Lie algebra isomorphisms.
+This fact is not coincidental. Recall that the Koszul dual cooperad $\mathcal{A}s^{¡}$ of the associative operad $\mathcal{A}s$ is $k\mu_n$ in arity $n$, where $\mu_n$ has degree $n-1$ for $n\geq 1$. Thus, for a graded module $A$, we have the following operad isomorphisms.
 
 %LOOK FOR THE SYMMETRIC CONVOLUTION OPERAD AND SYMMETRIC KOSZUL DUAL IF IT EXISTS AND IF IT HELPS SINCE OPERADIC SUSPENSION IS SYMMETRIC (BUT COULD AVOID THAT) - LV 6.4.1
 
-\[\Hom(\mathcal{A}s^{¡},\End_A)\cong \End_{SA}\cong\s^{-1}\End_A.\]
+\[\Hom(\mathcal{A}s^{¡},\End_A)\cong \End_{SA}(\geq 1)\cong\s^{-1}\End_A(\geq 1).\]
  %the second isomorphism Hom(k[n-1],End_A(n))^d=Hom(k,End_A(n))^{d+n-1}=End_A(n)^{d+n-1}=End_{sA}(n)
 The first operad is the convolution operad CITE OR DESCRIBE IN INTRO. Explicitly, for $f\in\End_A(n)$ and $g\in\End_A(m)$, the convolution product is given by
 
 \[f\star g=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}f\circ_i g=\sum_{i=1}^nf\tilde{\circ}_i g.\]
 
-See \cite[Theorem 10.1.11]{lodayvallette} for more details (LATER WE HAVE LINFINITY, I COULD TRY SOMETHING WITH THAT BECAUSE IT'S VERY SIMILAR). The difference in sign conventions arise from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$  REFERENCE THIS ISOMORPHISM BELOW. %INDEED AS (NS) OPERADS I BELIEVE, here we use $\sigma^{-1}$. THE THEOREM WHERE I CLAIM THE LAST ISOMORPHISM IS BELOW SO MAYBE REORDER OR REFERENCE
+The notation $(\geq 1)$ means that we are taking the sub-operad with trivial arity 0 component. See \cite[Theorem 10.1.11]{lodayvallette} for more details (the difference in sign conventions arise from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$ REFERENCE THIS ISOMORPHISM BELOW). For our purposes, we cannot assume that operads have trivial 0 arity component in general, and this is what forces us to specify that $A_\infty$-multiplications are concentrated in positive arity. (LATER WE HAVE LINFINITY, I COULD TRY SOMETHING WITH THAT BECAUSE IT'S VERY SIMILAR).  %INDEED AS (NS) OPERADS I BELIEVE, here we use $\sigma^{-1}$. THE THEOREM WHERE I CLAIM THE LAST ISOMORPHISM IS BELOW SO MAYBE REORDER OR REFERENCE
 
 IN 10.1 THE CONNECTION BETWEEN PINFTY AND CONVOLUTION OPERAD IS DESCRIBED
 
@@ -166,16 +166,18 @@ SO MAYBE I SHOULD AVOID THIS COMPUTATION EVEN THOUGH IT MIGHT BE INTERESTING THA
 The previous computation is a consequence of the more general fact. NOT SURE, ASSOCIATIVITY IS NOT WORKING (I AM USING AS A NATURAL TRANSFORMATION THE  MAP ADDING THE SIGN OF COMPOSITION, SINCE THE MAP INDUCED BY S DOES NOT ADD SIGNS. MAYBE WITH A DIFFFERENT DEFINITION OF THE TWO THE RESULT IS FINE) 
 MAYBE DEFINE A FUNCTOR TO BE OPERADIC IF IT TAKES OPERADS TO OPERADS (INCLUDING MORPHISMS), SO LAX MONOIDAL IMPLIES OPERADIC AND OPERADIC SUSPENSION IS AN EXAMPLE OF OPERADIC FUNCTOR WHICH IS NOT LAX MONOIDAL
 \begin{prop}
-The endofunctor $\s:g\mathbb{S}-Mod\to g\mathbb{S}-Mod$ is  lax monoidal with respect to the composition of $\mathbb{S}$-modules.  NOTATION FOR CATEGORY OF S-MODULES AND SPECIFY THE GRADING ON COMPOSITION IN THE INTRO
+The endofunctor $\s:g\mathbb{S}-Mod\to g\mathbb{S}-Mod$ sends monoids to monoids and morphisms of monoids to morphisms of monoids.%is  lax monoidal with respect to the composition of $\mathbb{S}$-modules. 
 
-PROVE ALSO OTHER COHERENCE AXIOMS %This composition is not symmetric so the functor cannot be symmetric. That is not necessary since the symmetry of the underlying tensor product  is used in the associativity isomorphism
+ NOTATION FOR CATEGORY OF S-MODULES AND SPECIFY THE GRADING ON COMPOSITION IN THE INTRO AND A NAME FOR A FUNCTOR PRESERVING MONOIDS
+
+%PROVE ALSO OTHER COHERENCE AXIOMS %This composition is not symmetric so the functor cannot be symmetric. That is not necessary since the symmetry of the underlying tensor product  is used in the associativity isomorphism
 \end{prop}
 \begin{proof}
-DRAW THE DIAGRAMS, DO THE CALCULATIONS, I SHOULD ALSO WRITE THE IMPLICATION LAX MONOIDAL W/R PLETHYSM $\Rightarrow$ PRESERVES OPERADS (FOLLOW FROM LAX MONOIDAL PRESSERVES MONOIDS, BUT I SHOULD WRITE THE PROOF)
+%DRAW THE DIAGRAMS, DO THE CALCULATIONS, I SHOULD ALSO WRITE THE IMPLICATION LAX MONOIDAL W/R PLETHYSM $\Rightarrow$ PRESERVES OPERADS (FOLLOW FROM LAX MONOIDAL PRESSERVES MONOIDS, BUT I SHOULD WRITE THE PROOF)
 \end{proof}
 
 \begin{prop}
-(UP TO FAILURE OF THE ABOVE) IT IS STRICT MONOIDAL DEFINING THE OBVIOUS COOPERAD STRUCTURE ON LAMBDA BUT USING THE ALTERNATIVE COMPOSITION FUNCTOR-OR  DEFINING A VERSION WITH LAMBDA(0)=0- AND RESTRICTING TO O(0)=0  (CHECK OUT COOPERADS AND PARTIAL  DECOMPOSITION, YOU ALSO MAY WANT TO AVOID SYMMETRIC GROUPS, BUT ACCORDING TO LODAY AN VALLETTE, THAT USE COMPOSITION FUNCTR FROM 5.1.21 AND APENDIX 1.2 IT WOULD REQUIRE THAT R IS OF CHAR NOT A FACTORIAL) IF THE COOPERAD MAP IS JUST THE INVERSE OF THE OPERAD MAP THE AXIOM DIAGRAMS COMMMUTE BY SIMPLY INVERTING ARROWS
+ IT IS INVERTIBLE DEFINING THE OBVIOUS COOPERAD STRUCTURE ON LAMBDA BUT USING THE ALTERNATIVE COMPOSITION FUNCTOR-OR  DEFINING A VERSION WITH LAMBDA(0)=0- AND RESTRICTING TO O(0)=0  (CHECK OUT COOPERADS AND PARTIAL  DECOMPOSITION, YOU ALSO MAY WANT TO AVOID SYMMETRIC GROUPS, BUT ACCORDING TO LODAY AN VALLETTE, THAT USE COMPOSITION FUNCTR FROM 5.1.21 AND APENDIX 1.2 IT WOULD REQUIRE THAT R IS OF CHAR NOT A FACTORIAL) IF THE COOPERAD MAP IS JUST THE INVERSE OF THE OPERAD MAP THE AXIOM DIAGRAMS COMMMUTE BY SIMPLY INVERTING ARROWS
 \end{prop}
 
 PROVE SOMEWHERE THAT $1\otimes e_1$ IS THE UNIT, MORE GENERALLY, THE HADAMARD PRODUCT OF OPERADS IS AN OPERAD (THIS INCLUDES SHOWING WHAT THE UNIT IS, SO WHAT I REALLY NEED IS IN THE PARTICULAR CASE IS TO SHOW THAT E1 IS THE UNIT OF LAMBDA) 
@@ -277,13 +279,14 @@ b_1(f;g)=\sum_i f\tilde{\circ}_i g,
 so the notation $f\tilde{\circ} g$ is suggestive, and $f\circ g$ might be left to a general case of any operad that is not necessarily an operadic suspension or to the specific case of the endomorphism operad with no additional signs.
 
 Finally, as we mentioned before, we can give an interpretation of $\infty$-morphisms that one can check by direct computation. 
-I NEED TO TALK ABOUT THE COLLECTIONS $END^A_B$
+I NEED TO TALK ABOUT THE COLLECTIONS $END^A_B$ (HERE THE ANALOGUE TO MARKL WOULD BE $END^{SA}_{SB}$ AND SIGNS CAN BE OBTAINED AS A DIRECT TRANSLATION
 
 \begin{lemma}
-An $\infty$-morphism of $A_\infty$-algebras $f:A\to B$  is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that $\rho(f\circ_{(1)}m)=\lambda(m\circ f)$ where $\lambda:\End_B\circ \End^A_B\to \End^A_B$ is the composite of maps and $\rho:\End_B\circ_{(1)}\End^A_B\to \End^A_B$ is the infinitesimal composite. NOTATION FROM L-V 10.2.4
+An $\infty$-morphism of $A_\infty$-algebras $f:A\to B$  is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that $\rho(f\circ_{(1)}m)=\lambda(m\circ f)$ where $\lambda:\End_B\circ \End^A_B\to \End^A_B$ is the composite of maps and $\rho:\End_B\circ_{(1)}\End^A_B\to \End^A_B$ is the infinitesimal composite. NOTATION FROM L-V 10.2.4 The composition of $\infty$-morphisms is given by the natural composition $\s\End^A_B\circ \s\End^B_C\to \s\End^A_C$. PROBABLY FIND SOME NOTATION
 
 if f is an endomorphism then it is just $f\tilde{\circ}m=\gamma(m\circ f)$.
 \end{lemma}
+PROBABLY ALSO FIND AN INTERPRETATION FOR COMPOSITION (LIKE 10.2.7): COMPARING WITH THE SIGNS OF LEFEVRE-HASEGAWA, THE SIGN IS INDEED THE SAMAME AS IN OPERDIC COMPOSITION (SAME SIGN AS IN RHS OFF DEFINITION OF INFTYMORPHISM)
 %The hardest part is finding \sum q_j(n-j) in the first expression. There is (n-1)\sum q_j+sum_{j>i}q_j. So q_l apperas (n-1) times first and then l-1 times (because the nequality is strict). Therefore, q_l appears n-1+l-1=n-l mod 2 times.
 
 
