@@ -120,9 +120,13 @@ This is also a valid approach for our purposes and there is simply a sign differ
 
 First of all, $T$ and $T'$ are isomorphic. The isomorphism $f:T\OO\cong T'\OO$ given by $f((a_k))=((-1)^{k(n_1-k)}a_k)$. MAYBE ALL OF THEM ARE ISOMORPHIC, THINK OF THIS USING JUST THAT A TOTALIZATION IS A FUNCTOR THAT SENDS A BIGRADED OPERAD TO A GRADED OPERAD, MAYBE ALSO USE THAT THE UNDERLYING MODULE IS ALWAYS THE SAME SO THAT THE ONLY MODIFICATION IS THE INSERTION
 
-It can be readily verified that $T'\s\OO=\s T'\OO$. With the original totalization we have a non identity isomorphism $f_n:T'\s\OO(n)\cong\s T'\OO(n)$ given by $f((a_k))=((-1)^{kn}a_k)$. We will use this isomorphism later.
+It can be readily verified that $T'\s\OO=\s T'\OO$. With the original totalization we have a non identity isomorphism $f_n:T\s\OO(n)\cong\s T\OO(n)$ given by $f((a_k))=((-1)^{kn}a_k)$. We will use this isomorphism later.
 
 POSSIBLY FILL IN SOME DETAILS OF THESE ISOMORPHISMS
+
+AT THE END  OF THE PROOF OF WHITEHOUSE 4.47 WHERE AINFTY ON TWISTED COMPLEX IS EQUIVALENT TO DERIVED-AINFTY THIS ISOMORPHISM IS  USED SINCE APLIED TO MIJ  THE EXPONENT IS PRECISELY IJ
+
+ALSO IN THAT THEOREM THE DIFERENTIALS OF THE TWISTED COMPLEX CORRESPOND PRECISELY TO MI1 SIMILAR TO MY MI1 BEING LIKE DIFFERENTIALS (I SHOULD CHECK IF THEY SATISFY THE TWISTED COMPLEX RELATION)
 \end{remark}
 \section{Derived $A_\infty$-algebras}
   \begin{definition}
@@ -182,7 +186,7 @@ where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $
 
 \[\varepsilon
 =p_0(a_1+q_1+p_1-1)+(p_0+p_1)(a_2+q_2+p_2-1)+\cdots=\sum_{i=1}^n(a_i+q_i+a_i-1)\sum_{j=0}^{i-1}p_j\]\[=\sum_{0\leq j<i\leq n}p_j(a_i+q_i+p_i-1).\]
-This is obtained by iteration of the last factor sign in EQUATION WITH THE SIGN ABOVE which is precisely the sign determined by totalization. Therefore, if $(-1)^\eta$ is the sign produced by operadic suspension and $(-1)^\varepsilon_k$ the sign produced by totalization, the factor sign that distinguishes the brace in $T\s\OO$ from the usual operadic composition in $\OO$ is $(-1)^{\eta+\varepsilon_k}$ THE K IS BECAUSE I'M PLANNING TO REWRITE THINGS AS SUMS IN TOTALIZATION, I MIGHT ABOUT THIS, I WILL HAVE TO CHANGE THE NOTATION FOR THE MAPS BEING COMPOSED AND THEIR DEGREES
+This is obtained by iteration of the last factor sign in EQUATION WITH THE SIGN ABOVE which is precisely the sign determined by totalization. Therefore, if $(-1)^\eta$ is the sign produced by operadic suspension and $(-1)^{\varepsilon_k}$ the sign produced by totalization, the factor sign that distinguishes the brace in $T\s\OO$ from the usual operadic composition in $\OO$ is $(-1)^{\eta+\varepsilon_k}$ THE K IS BECAUSE I'M PLANNING TO REWRITE THINGS AS SUMS IN TOTALIZATION, I MIGHT ABOUT THIS, I WILL HAVE TO CHANGE THE NOTATION FOR THE MAPS BEING COMPOSED AND THEIR DEGREES
 
  USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD (I WILL PROBABLY  WRITE THE COMPUTATION OF DEGREES DIFFERENTLY LATER BECAUSEE I AM IDENTIFYING THE BRACE AND ELEMENTS WITH THEIR SHIFTS HERE TO MAKE IT EASIER TO COMPPUTE)
 
@@ -198,8 +202,8 @@ a(b_j(m_{il};x_1,\dots, x_j))=l-j+\sum a(x_k)
 \]
 and 
 \[\deg(b_j(m_{il};x_1,\dots, x_j))=2-l-i+\sum \deg(x_k)\]
-so the sum is $2-i-j+\sum (a(x_k)+\deg(x_k)$, so that the vertical degree of the map $b_j(m_{il};-)$ on the shift is $2-i-j$. This means, that we have the following candidates for a derived $A_\infty$-structture
-THESE ARE CANDIDATES BEFORE SHIFTING 
+so the sum is $2-i-j+\sum (a(x_k)+\deg(x_k))$, so that the vertical degree of the map $b_j(m_{il};-)$ on the shift is $2-i-j$. This means, that we have the following candidates for a derived $A_\infty$-structture
+THESE ARE CANDIDATES BEFORE SHIFTING  AND I ALSO NEED TO TOTALIZE
 
 \[M_{ij}(x_1,\dots, x_j)=\sum_l b_j(m_{il};x_1,\dots, x_j)\]
 \[M_{i1}(x)= \sum_l (b_1(m_{il};x)-(-1)^{|x|}b_1(x;m_{il}))\]

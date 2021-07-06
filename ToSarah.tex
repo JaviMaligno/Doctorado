@@ -34,10 +34,10 @@
 \maketitle
 
 \section{Introduction}
-SINCE I'M NOT IMPOSING O(0)=0 (I NEED B0 IN THE BRACES AND THE END OPERAD IS USUALLY NON 0 THERE), I PROBABLY NEED TO SPECIFY THAT THE ARITY 0 COMPONENT OF M IS 0 (UNLESS I CONSIDER UNITAL CASE SPEFICALLY), THIS CAN BE DONE BY USING SOME  NOTATION OF THE POSITIVE ARITY PART
+%SINCE I'M NOT IMPOSING O(0)=0 (I NEED B0 IN THE BRACES AND THE END OPERAD IS USUALLY NON 0 THERE), I PROBABLY NEED TO SPECIFY THAT THE ARITY 0 COMPONENT OF M IS 0 (UNLESS I CONSIDER UNITAL CASE SPEFICALLY), THIS CAN BE DONE BY USING SOME  NOTATION OF THE POSITIVE ARITY PART
 
 
-RECALL TO CHANGE NUMBERING AND LANGUAGE OF THE THEOREM ENVIRONMENTS 
+
 
 In this text we study the brace structure on an operad of graded $R$-modules using a construction called \emph{operadic suspension}. This construction provide us an operadic context from which $A_\infty$-algebras arise in a natural way. We focus on the relation between the brace structure on an operad and its operadic composition, with the endomorphism operad as our main example. This relation allow us to generalize the Lie bracket defined in \cite{RW}.
 
@@ -66,12 +66,12 @@ The sign can be explained  by moving the power $e^m$ of degree $m-1$ to the $i$-
 
 In a similar way we can define $\Lambda^-(n)=S^{1-n}sig_n$, with the same insertion maps.
 %The sign might arise naturally from the permutation action. If I have the wedge of n wedge the wedge of m-1 (because the final result must be n+m-1 in total), I would permute the last m-1 until the reach the i-th position via transpositions, each transpotision produces a minus sign. Or simply considering the lat m as a single element of degree m-1 being permuted in the wedge
-\begin{definition}
+\begin{defin}
 Let $\mathcal{O}$ be a graded linear operad, i.e. an operad on the category of graded $R$-modules. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of the operads $\OO$ and $\Lambda$, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition and symmetric group action. Similarly, we define the \emph{operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
-\end{definition}
+\end{defin}
 %CAN THIS BE DEFFINED IN A MORE GENERAL CATEGORY? I don't think so because we need to modify insertions in any case, but maybe it can be defined by using the symmetry  isomorphism
 
-Even though we will sometimes write elements of $\s\OO$ as tensors of the form $a\otimes e^n$, we may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$ and simply write $a$ as an abuse of notation. For $a\in\OO(n)$ of degree $\deg(a)$, its ``natural'' degree in $\s\OO$ is $|a|=\deg(a)+n-1$. To distinguish both degrees we call $\deg(a)$ the \emph{internal degree} of $a$, since this is the degree that $a$ inherits from the grading of $\OO$. If we write $\circ_i$ for the operadic insertion on $\OO$ and $\tilde{\circ}_i$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. Let $a\in\OO(n)$ and $b\in\OO(m)$, and let us compute $a\tilde{\circ}_i b$.
+Even though we will sometimes write elements of $\s\OO$ as tensor products of the form $a\otimes e^n$, we may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$ and simply write $a$ as an abuse of notation. For $a\in\OO(n)$ of degree $\deg(a)$, its ``natural'' degree in $\s\OO$ is $|a|=\deg(a)+n-1$. To distinguish both degrees we call $\deg(a)$ the \emph{internal degree} of $a$, since this is the degree that $a$ inherits from the grading of $\OO$. If we write $\circ_i$ for the operadic insertion on $\OO$ and $\tilde{\circ}_i$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. Let $a\in\OO(n)$ and $b\in\OO(m)$, and let us compute $a\tilde{\circ}_i b$.
 
 \begin{align*}
 \mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
@@ -93,10 +93,10 @@ so we conclude
 
 \[a\tilde{\circ}_ib=(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}a\circ_i b.\]
 
-This is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras is derived, we have the following. 
+This is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras is derived. Therefore, we have the following. 
 
 \begin{lemma}
-An $A_\infty$-multiplication on an operad $\OO$ is equivalent to an element $m\in\s\OO$ of degree 1 concentrated in positive arity such that $m\tilde{\circ}m=0$, where $a\tilde{\circ} b=\sum_i a\tilde{\circ}_i b$.
+An $A_\infty$-multiplication on an operad $\OO$ is equivalent to an element $m\in\s\OO$ of degree 1 concentrated in positive arity such that $m\tilde{\circ}m=0$, where $a\tilde{\circ} b=\sum_i a\tilde{\circ}_i b$. \qed
 \end{lemma}
 
 This fact is not coincidental. Recall that the Koszul dual cooperad $\mathcal{A}s^{¡}$ of the associative operad $\mathcal{A}s$ is $k\mu_n$ in arity $n$, where $\mu_n$ has degree $n-1$ for $n\geq 1$. Thus, for a graded module $A$, we have the following operad isomorphisms.
@@ -105,32 +105,32 @@ This fact is not coincidental. Recall that the Koszul dual cooperad $\mathcal{A}
 
 \[\Hom(\mathcal{A}s^{¡},\End_A)\cong \End_{SA}(\geq 1)\cong\s^{-1}\End_A(\geq 1).\]
  %the second isomorphism Hom(k[n-1],End_A(n))^d=Hom(k,End_A(n))^{d+n-1}=End_A(n)^{d+n-1}=End_{sA}(n)
-The first operad is the convolution operad CITE OR DESCRIBE IN INTRO. Explicitly, for $f\in\End_A(n)$ and $g\in\End_A(m)$, the convolution product is given by
+The first operad is the convolution operad. Explicitly, for $f\in\End_A(n)$ and $g\in\End_A(m)$, the convolution product is given by
 
 \[f\star g=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}f\circ_i g=\sum_{i=1}^nf\tilde{\circ}_i g.\]
 
-The notation $(\geq 1)$ means that we are taking the sub-operad with trivial arity 0 component. See \cite[Theorem 10.1.11]{lodayvallette} for more details (the difference in sign conventions arise from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$ REFERENCE THIS ISOMORPHISM BELOW). For our purposes, we cannot assume that operads have trivial 0 arity component in general, and this is what forces us to specify that $A_\infty$-multiplications are concentrated in positive arity. (LATER WE HAVE LINFINITY, I COULD TRY SOMETHING WITH THAT BECAUSE IT'S VERY SIMILAR).  %INDEED AS (NS) OPERADS I BELIEVE, here we use $\sigma^{-1}$. THE THEOREM WHERE I CLAIM THE LAST ISOMORPHISM IS BELOW SO MAYBE REORDER OR REFERENCE
+The notation $(\geq 1)$ means that we are taking the sub-operad with trivial arity 0 component. See \cite[Theorem 10.1.11]{lodayvallette} for more details (the difference in sign conventions arise from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$, see Theorem \ref{markl}). For our purposes, we cannot assume that operads have trivial 0 arity component in general, and this is what forces us to specify that $A_\infty$-multiplications are concentrated in positive arity. (LATER WE HAVE LINFINITY, I COULD TRY SOMETHING WITH THAT BECAUSE IT'S VERY SIMILAR).  %INDEED AS (NS) OPERADS I BELIEVE, here we use $\sigma^{-1}$. THE THEOREM WHERE I CLAIM THE LAST ISOMORPHISM IS BELOW SO MAYBE REORDER OR REFERENCE
 
 IN 10.1 THE CONNECTION BETWEEN PINFTY AND CONVOLUTION OPERAD IS DESCRIBED
 
 TAKE NOTE OF ALL THE CONCEPTS USED HERE FOR AN INTRODUCTION CHAPTER FOR INSTANCE THE DEFINITION OF A INFTY FROM KOSZUL DUALITY
 
 
-I SHOULD AFTER THIS DEFINE A-INFTY ALGEBRAS AS ALGEBRAS OVER AN OPERAD WITH MULTIPLICATION AND ALSO DESCRIBE A-INFTY MORPHISMS UNDER THIS INTERPRETATION (SPECIALLY IF I FIND A NICER WAY TO DESCRIBE IT, PROBABLY USING PLETHYSM)
+I SHOULD AFTER THIS DEFINE A-INFTY ALGEBRAS AS ALGEBRAS OVER AN OPERAD WITH MULTIPLICATION (AND DEFINE WHAT AN AINFTY MULTIPLICATION ON AN OPERAD IS, LIKE G-V) AND ALSO DESCRIBE A-INFTY MORPHISMS UNDER THIS INTERPRETATION (SPECIALLY IF I FIND A NICER WAY TO DESCRIBE IT, PROBABLY USING PLETHYSM)
  
- PROP 5.3.4 CAN ALSO BE INTERESTING TO STUDY ALGEBRAS
+ PROP 5.3.4 CAN ALSO BE INTERESTING TO STUDY ALGEBRAS (I THINK THE ALGEBRAS OVER LAMBDA ARE SUCH THAT THEIR SHIFT IS ASSOCIATIVE -COMMUTATIVE IN THE SYMMETRIC CASE- AND UNITAL BECAUSE AFTER THE SHIFT THE DEGREES ARE THE USUAL ONES AND THE HIGHER ARITY MAPS ARE GENERATED BY E2. INDEED THIS IS THE OPERADIC SUSPENSION OF THE ASSOCIATIVE UNITAL OPERAD)
 
 AT SOME POINT I SHOULD SAY THAT AN A-INFTY ALGEBRA IS AN ALGEBRA OVER AN OPERAD WITH MULTIPLICATION
 
-When we obtain the signs for the full operadic composition we will be able to also give an interpretation of $\infty$-morphisms in terms of operadic suspension.
+When we obtain the signs for the full operadic composition we will be able to also give an interpretation of $\infty$-morphisms in terms of operadic suspension. But before that, let us expose the relation between operadic suspension and the usual suspension of graded modules.
 
 \begin{thm}\label{markl}(\cite[Chapter 3, Lemma 3.16]{operads})
 Given a graded $R$-module $A$, there is an isomorphism of operads $\End_{S A}\cong \mathfrak{s}^{-1}\End_A$, where $\End_A$ is the endomorphism operad of $A$.
 \end{thm}
 The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit (see \ref{proofthm} for a detailed proof), but in the case of the operadic suspension defined above, the isomorphism is given by $$\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,$$ where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. The symbol $\circ$ here is just composition of maps.
-Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from \cite{RW}. 
+Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from \cite{RW}, where this map is the inverse of a map $\sigma$. 
 
-In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (but only as graded modules, not as operads), where $\sigma$ is the inverse map of $\sigma^{-1}$ (see \cite{RW}), and then applying the isomorphism $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
+In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $a$ and $b$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (which is a map of graded modules, not of operads), and then applying the isomorphism induced by $\sigma^{-1}$. In the end this is the same as simply sending $a$ and $b$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
 
 Even though $\sigma$ is only a map of graded modules, it can be shown in a completely analogous way to Theorem \ref{markl} that $\overline{\sigma}=(-1)^{\binom{n}{2}}\sigma$ induces an isomorphism of operads
 \[\End_{A}\cong\mathfrak{s}\End_{SA}.\]
@@ -142,13 +142,15 @@ AT SOME POINT I SHOULD MAKE CLEAR WHAT I MEAN BY THE UNDERLYING MODULE OF AN OPE
 
 
 MAYBE CALL S-MODULES ANOTHER WAY WHEN THERE IS NO ACTION OF SYMMETTRIC GROUPS (L-V SAY ARITY GRADED VECTOR SPACE, BUT I'M NOT REALLY GOING TO USE THAT GRADING FOR OTHER PURPOSES, MAYBE CALL IT COLLECTION OR NS S-MODULE)
+
+Here we study operadic suspension at the level of the underlying collections or $\mathbb{S}$-modules as an endofunctor.
+
 Given a morphism of $\mathbb{S}-$modules $f:\OO\to\mathcal{P}$, there is an obvious induced morphism $\s f:\s\OO\to\s\mathcal{P}$ given simply by $\s f(x\otimes e^n)=f(x)\otimes e^n$. Since morphisms of $\mathbb{S}-$modules preserve arity, this map is well defined because $e^n$ is the same for $x$ and $f(x)$. Note that if $f$ is homogeneous, the degree of $\s f$ is the same as that of $f$.
 
 This assigment preserves composition of maps. Indeed, given $g:\mathcal{P}\to\CC$, by definition $\s(g\circ f)(x\otimes e^n)=g(f(x))\otimes e^n$, and also $(\s g\circ \s f)(x\otimes e^n)=\s g (f(x)\otimes e^n)=g(f(x))\otimes e^n$. This means that $\s$ defines an endofunctor on the category of graded $\mathbb{S}$-modules.
 
 %THIS WORKS AT THE LEVEL OF S-MODULES, MIGHT BE RELEVANT FOR THE MONOIDALITY, I COULD USE TENSOR PRODUCT OF S-MODULES (MAYBE MODIFIED SO THAT O(N)XO(M) IS A COMPONENT OF O(N+M+1)) OR THE PLETHYSM WHICH I KNOW IS MONOIDAL AND COULD BE THE BASIS FOR BRACES
-
-If $f$ is a map of operads, then the map $\s f$ is again a map of operads, since for $a\in\OO(n)$ and $b\in\OO(m)$ we have
+We know that when $\mathcal{O}$ is an operad, $\mathfrak{s}\OO$ is again  an operad. What is more, if $f$ is a map of operads, then the map $\s f$ is again a map of operads, since for $a\in\OO(n)$ and $b\in\OO(m)$ we have
 
 \begin{align*}
 \s f(a\tilde{\circ}_i b)&=\s f ((a\otimes e^n)\tilde{\circ}_i (b\otimes e^m))\\
@@ -163,24 +165,26 @@ Note that $\deg(a)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s 
 
 SO MAYBE I SHOULD AVOID THIS COMPUTATION EVEN THOUGH IT MIGHT BE INTERESTING THAT DEGREE 0 IS NOT NECESSARY FOR THE COMMUTATIVITY RELATION
 
-The previous computation is a consequence of the more general fact. NOT SURE, ASSOCIATIVITY IS NOT WORKING (I AM USING AS A NATURAL TRANSFORMATION THE  MAP ADDING THE SIGN OF COMPOSITION, SINCE THE MAP INDUCED BY S DOES NOT ADD SIGNS. MAYBE WITH A DIFFFERENT DEFINITION OF THE TWO THE RESULT IS FINE) 
+%The previous computation is a consequence of the more general fact. NOT SURE, ASSOCIATIVITY IS NOT WORKING (I AM USING AS A NATURAL TRANSFORMATION THE  MAP ADDING THE SIGN OF COMPOSITION, SINCE THE MAP INDUCED BY S DOES NOT ADD SIGNS. MAYBE WITH A DIFFFERENT DEFINITION OF THE TWO THE RESULT IS FINE) 
 MAYBE DEFINE A FUNCTOR TO BE OPERADIC IF IT TAKES OPERADS TO OPERADS (INCLUDING MORPHISMS), SO LAX MONOIDAL IMPLIES OPERADIC AND OPERADIC SUSPENSION IS AN EXAMPLE OF OPERADIC FUNCTOR WHICH IS NOT LAX MONOIDAL
-\begin{prop}
-The endofunctor $\s:g\mathbb{S}-Mod\to g\mathbb{S}-Mod$ sends monoids to monoids and morphisms of monoids to morphisms of monoids.%is  lax monoidal with respect to the composition of $\mathbb{S}$-modules. 
+Since operads are precisely monoids on the category of $\mathbb{S}$-modules, we have the following.
+\begin{propo}
+The endofunctor $\s:g\mathbb{S}-Mod\to g\mathbb{S}-Mod$ sends monoids to monoids and morphisms of monoids to morphisms of monoids, in other words, it induces a well defineed endofunctor on the category of monoids $\mathrm{Mon}(\mathbb{S}-mod)$. \qed%is  lax monoidal with respect to the composition of $\mathbb{S}$-modules. 
 
  NOTATION FOR CATEGORY OF S-MODULES AND SPECIFY THE GRADING ON COMPOSITION IN THE INTRO AND A NAME FOR A FUNCTOR PRESERVING MONOIDS
 
 %PROVE ALSO OTHER COHERENCE AXIOMS %This composition is not symmetric so the functor cannot be symmetric. That is not necessary since the symmetry of the underlying tensor product  is used in the associativity isomorphism
-\end{prop}
-\begin{proof}
+\end{propo}
+
+However, this functor is not lax monoidal in general as it fails to satisfy the associativity axiom  SHOW IT, POSSIBLY  WITH AN EXAMPLE WHERE THERE ARE NOT SO MANY SIGNS
+%\begin{proof}
 %DRAW THE DIAGRAMS, DO THE CALCULATIONS, I SHOULD ALSO WRITE THE IMPLICATION LAX MONOIDAL W/R PLETHYSM $\Rightarrow$ PRESERVES OPERADS (FOLLOW FROM LAX MONOIDAL PRESSERVES MONOIDS, BUT I SHOULD WRITE THE PROOF)
-\end{proof}
+%\end{proof}
 
-\begin{prop}
- IT IS INVERTIBLE DEFINING THE OBVIOUS COOPERAD STRUCTURE ON LAMBDA BUT USING THE ALTERNATIVE COMPOSITION FUNCTOR-OR  DEFINING A VERSION WITH LAMBDA(0)=0- AND RESTRICTING TO O(0)=0  (CHECK OUT COOPERADS AND PARTIAL  DECOMPOSITION, YOU ALSO MAY WANT TO AVOID SYMMETRIC GROUPS, BUT ACCORDING TO LODAY AN VALLETTE, THAT USE COMPOSITION FUNCTR FROM 5.1.21 AND APENDIX 1.2 IT WOULD REQUIRE THAT R IS OF CHAR NOT A FACTORIAL) IF THE COOPERAD MAP IS JUST THE INVERSE OF THE OPERAD MAP THE AXIOM DIAGRAMS COMMMUTE BY SIMPLY INVERTING ARROWS
-\end{prop}
+%\begin{propo}
+COOPERAD STRUCTURE ON LAMBDA (COOPERADIC SUSPENSION?) BUT USING THE ALTERNATIVE COMPOSITION FUNCTOR -OR  DEFINING A VERSION WITH LAMBDA(0)=0- AND RESTRICTING TO O(0)=0  (CHECK OUT COOPERADS AND PARTIAL  DECOMPOSITION, YOU ALSO MAY WANT TO AVOID SYMMETRIC GROUPS, BUT ACCORDING TO LODAY AN VALLETTE, THAT USE COMPOSITION FUNCTR FROM 5.1.21 AND APENDIX 1.2 IT WOULD REQUIRE THAT R IS OF CHAR NOT A FACTORIAL) IF THE COOPERAD MAP IS JUST THE INVERSE OF THE OPERAD MAP THE AXIOM DIAGRAMS COMMMUTE BY SIMPLY INVERTING ARROWS
+%\end{propo}
 
-PROVE SOMEWHERE THAT $1\otimes e_1$ IS THE UNIT, MORE GENERALLY, THE HADAMARD PRODUCT OF OPERADS IS AN OPERAD (THIS INCLUDES SHOWING WHAT THE UNIT IS, SO WHAT I REALLY NEED IS IN THE PARTICULAR CASE IS TO SHOW THAT E1 IS THE UNIT OF LAMBDA) 
 
 
 
@@ -188,10 +192,12 @@ PROVE SOMEWHERE THAT $1\otimes e_1$ IS THE UNIT, MORE GENERALLY, THE HADAMARD PR
 
 
 The fact that $\s$ is a functor allows to describe algebras using operadic suspension. Namely, an $A_\infty$-algebra is a map of operads $\OO\to\mathcal{P}$ where $\OO$ is an operad with $A_\infty$-multiplication. This means that there is a Maurer-Cartan (A WAY TO SAY IT IS OF DEGREE 1 SATISFYING M*M=0, BUT I SHOULD DEFINE IT SOMEWHERE, I SHOULD ALSO MENTION THE DIFFERENCE BETWEEN CONSIDERING DG OPERADS -DIFFERENTIAL INSIDE- OR JUST LINEAR OPERADS)  element $m$ in $\s\OO$ I SHOULD BE CAREFUL WITH ARITY 0, I CANNOT ASSUME IT IS TRIVIAL BECAUSE FOR END IT IS THE ALGEBRA, SO I MIGHT NEED TO SEPARATE THAT PART. Since $\s$ is a functor, we can translate the map $\s\OO\to\s\mathcal{P}$. Since in addition, $\s$ is an isomorphism with inverse $\s^{-1}$ (see Appendix ACTUALLY IT IS AN EQUIVALENCE BECAUSE THEIR COMPOSITION IS JUST NATURALLY ISOMMORPHIC TO THE IDENTITY -MAYBE I SHOULD CHECK THE DEFINITION OF EQUIVALENCE), this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In particular, for $A_\infty$-algebras it is more convenient to work with $\s\OO$ since the formulation of an $A_\infty$-multiplication on this operad is much simpler.
+
+Defining $\mathfrak{s}$ at the level of $\mathbb{S}$-modules will also allow us to talk about $\infty$-morphisms of $A_\infty$-algebras in this setting, since they live in collections of the form $\{\Hom(A^{\otimes n},B)\}_{n\geq 1}$.
 \section{Brace algebras}\label{sectionbraces}
 First recall the definition of a brace algebra.
 
-\begin{defi}\label{braces}
+\begin{defin}\label{braces}
 A brace algebra on a graded module $A$ consists of a family of maps \[b_n:A^{\otimes 1+n}\to A\] called \emph{braces}, that we evaluate on $(x,x_1,\dots, x_n)$ as $b_n(x;x_1,\dots, x_n)$, satisfying the \emph{brace relation}
 
 
@@ -203,14 +209,14 @@ where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n\deg(x_p)\sum_{q=i}^{i
 
 
 
-\end{defi}
+\end{defin}
 
 \begin{remark}
 Some authors might use the notation $b_{1+n}$ instead of $b_n$, but the first element is usually going to have a different role than the others. A shorter notation for $b_n(x;x_1,\dots,x_n)$ found in the literature is $x\{x_1,\dots, x_n\}$. 
 \end{remark}
 
 
-\subsection{Brace algebra of an operad}
+\subsection{Brace algebra structure on an operad}
 
 Given an operad $\OO$ with composition map $\gamma:\OO\circ\OO\to\OO$ I'M USING PLETHYSM HERE, MIGHT CHOOSE A DIFFERENT NOTATION OR SIMPLY AVOID IT we can define a brace algebra on the  underlying module of $\OO$ MAYBE CHOOSE A A NOTATION FOR THE UNDERLYING MODULE by setting
 \[b_n:\OO(N)\otimes\OO(a_1)\otimes\cdots\otimes\OO(a_n)\to\OO(N-n+\sum a_i)\]
@@ -282,7 +288,7 @@ Finally, as we mentioned before, we can give an interpretation of $\infty$-morph
 I NEED TO TALK ABOUT THE COLLECTIONS $END^A_B$ (HERE THE ANALOGUE TO MARKL WOULD BE $END^{SA}_{SB}$ AND SIGNS CAN BE OBTAINED AS A DIRECT TRANSLATION
 
 \begin{lemma}
-An $\infty$-morphism of $A_\infty$-algebras $f:A\to B$  is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that $\rho(f\circ_{(1)}m)=\lambda(m\circ f)$ where $\lambda:\End_B\circ \End^A_B\to \End^A_B$ is the composite of maps and $\rho:\End_B\circ_{(1)}\End^A_B\to \End^A_B$ is the infinitesimal composite. NOTATION FROM L-V 10.2.4 The composition of $\infty$-morphisms is given by the natural composition $\s\End^A_B\circ \s\End^B_C\to \s\End^A_C$. PROBABLY FIND SOME NOTATION
+An $\infty$-morphism of $A_\infty$-algebras $f:A\to B$  is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that $\rho(f\circ_{(1)}m)=\lambda(m\circ f)$ where $\lambda:\End_B\circ \End^A_B\to \End^A_B$ is the composite of maps and $\rho:\End_B\circ_{(1)}\End^A_B\to \End^A_B$ is the infinitesimal composite. NOTATION FROM L-V 10.2.4 BUT I COULD TALK ABOUT INSERTIONS The composition of $\infty$-morphisms is given by the natural composition $\s\End^A_B\circ \s\End^B_C\to \s\End^A_C$. PROBABLY FIND SOME NOTATION
 
 if f is an endomorphism then it is just $f\tilde{\circ}m=\gamma(m\circ f)$.
 \end{lemma}
