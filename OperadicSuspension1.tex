@@ -109,7 +109,7 @@ The first operad is the convolution operad. Explicitly, for $f\in\End_A(n)$ and 
 
 \[f\star g=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}f\circ_i g=\sum_{i=1}^nf\tilde{\circ}_i g.\]
 
-The notation $(\geq 1)$ means that we are taking the sub-operad with trivial arity 0 component. Since $A_\infty$-structures on $A$ are determined by the elements $m\in\Hom(\mathcal{A}s^{¡},\End_A)$ of degree 1 such that $m\star m=0$, we see that this is equivalent to \ref{twisting}. See \cite[Theorem 10.1.3]{lodayvallette} and \cite[Theorem 10.1.11]{lodayvallette} for more details, taking into account that in the dg-setting the definition has to be modified slightly (also the difference in sign conventions arise from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$, see Theorem \ref{markl}).% SOMEWHERE SAY THE DIFFERNCE BETWEEN UNDERLYING MODULES OR DG-MODULES
+The notation $(\geq 1)$ means that we are taking the sub-operad with trivial arity 0 component. Since $A_\infty$-structures on $A$ are determined by the elements $\varphi\in\Hom(\mathcal{A}s^{¡},\End_A)$ of degree 1 such that $\varphi\star \varphi=0$, we see that this is equivalent to Lemma \ref{twisting}. See \cite[Theorem 10.1.3]{lodayvallette} and \cite[Theorem 10.1.11]{lodayvallette} for more details, taking into account that in the dg-setting the definition has to be modified slightly (also the difference in sign conventions arise from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$, see Theorem \ref{markl}).% SOMEWHERE SAY THE DIFFERNCE BETWEEN UNDERLYING MODULES OR DG-MODULES
 
 Above we needed to specify that only positive arity was considered. This the case in many situation in the literature, but for our purposes, we cannot assume that operads have trivial 0 arity component in general, and this is what forces us to specify that $A_\infty$-multiplications are concentrated in positive arity. %(LATER WE HAVE LINFINITY, I COULD TRY SOMETHING WITH THAT BECAUSE IT'S VERY SIMILAR).  %INDEED AS (NS) OPERADS I BELIEVE, here we use $\sigma^{-1}$. THE THEOREM WHERE I CLAIM THE LAST ISOMORPHISM IS BELOW SO MAYBE REORDER OR REFERENCE
 
@@ -124,7 +124,7 @@ Above we needed to specify that only positive arity was considered. This the cas
 
 
 
-When we obtain the signs for the full operadic composition we will be able to also give an interpretation of $\infty$-morphisms in terms of operadic suspension. But before that, let us expose the relation between operadic suspension and the usual suspension of graded modules.
+When we obtain the signs for the full operadic composition on operadic suspension we will be able to also give an interpretation of $\infty$-morphisms in terms of operadic suspension. But before that, let us expose the relation between operadic suspension and the usual suspension or shift of graded modules.
 
 \begin{thm}\label{markl}(\cite[Chapter 3, Lemma 3.16]{operads})
 Given a graded $R$-module $A$, there is an isomorphism of operads $\End_{S A}\cong \mathfrak{s}^{-1}\End_A$, where $\End_A$ is the endomorphism operad of $A$.
@@ -142,7 +142,7 @@ In this case the isomorphism map that we obtain goes in the opposite direction t
 \subsection{Functorial properties of operadic suspension}\label{functorial}
 
 
-Here we study operadic suspension at the level of the underlying collections or $\mathbb{S}$-modules as an endofunctor. For this we define the suspension of an $\mathbb{S}$-module $\OO$ as $\mathfrak{s}\OO(n)=\OO(n)\otimes k[n-1]$, where $k[n-1]$ is the ground ring concentrated in degree $n-1$.
+Here we study operadic suspension at the level of the underlying collections or $\mathbb{S}$-modules as an endofunctor. For this we define the suspension of an $\mathbb{S}$-module $\OO$ as $\mathfrak{s}\OO(n)=\OO(n)\otimes k[n-1]$, where $k[n-1]$ is the ground ring concentrated in degree $n-1$. The ring $k[n-1]$ can of course be equipped with the sign action of the symmetric group, so we may have a diagonal action on the tensor product.
 
 Given a morphism of $\mathbb{S}-$modules $f:\OO\to\mathcal{P}$, there is an obvious induced morphism $\s f:\s\OO\to\s\mathcal{P}$ given simply by $\s f(x\otimes e^n)=f(x)\otimes e^n$. Since morphisms of $\mathbb{S}-$modules preserve arity, this map is well defined because $e^n$ is the same for $x$ and $f(x)$. Note that if $f$ is homogeneous, the degree of $\s f$ is the same as that of $f$.
 
@@ -163,13 +163,13 @@ We know that when $\mathcal{O}$ is an operad, $\mathfrak{s}\OO$ is again  an ope
 Note that $\deg(a)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s f)=\deg(f)$, so the above relation is consistent with the Koszul rule. In any case, recall that a morphism of operads is necessarily of degree 0. Clearly $\s f$ preserves the unit, so $\s f$ is a morphism of operads. 
 
 
-\begin{remark} This is a Remark for Constanze and I. In the above calculation, keeping the degree of $f$ during the calculation was unnecessary. As I said, the degree of $f$ must be zero because the degree of $f(a\tilde{\circ}b)$ is $\deg(f)+\deg(a)+\deg(b)$ and the degree of $f(a)\tilde{\circ}f(b)$ is $2\deg(f)+\deg(a)+\deg(b)$ (I am using $\deg$ here loosely, whatever degree we choose, it must be consistent for all of them, so the conclusion is the same). However, I thought that the fact that the commuting relation holds even with maps of  different degree should mean something about suspension. At first I thought it was a hint of lax monoidality, but it turned out that the functor wasn't lax monoidal. It can still show some feature of monoidality or of any other property. I thought that you could help me see through this.
+\begin{remark} This is a Remark for Constanze and I. In the above calculation, keeping the degree of $f$ during the calculation was unnecessary. As I said, the degree of $f$ must be zero because the degree of $f(a\tilde{\circ}b)$ is $\deg(f)+\deg(a)+\deg(b)$ and the degree of $f(a)\tilde{\circ}f(b)$ is $2\deg(f)+\deg(a)+\deg(b)$ (I am using $\deg$ here loosely, whatever degree we choose, it must be consistent for all of them, so the conclusion is the same). However, I thought that the fact that the commuting relation holds even with maps of  different degree should mean something about suspension. At first I thought it was a hint of lax monoidality, but it turned out that the functor wasn't lax monoidal. It can still show some feature of monoidality or of any other property. I thought that you could help me see through this. I believe it just shows that naturaily still holds (the axiom that failed was associativity).
 \end{remark}
 %The previous computation is a consequence of the more general fact. NOT SURE, ASSOCIATIVITY IS NOT WORKING (I AM USING AS A NATURAL TRANSFORMATION THE  MAP ADDING THE SIGN OF COMPOSITION, SINCE THE MAP INDUCED BY S DOES NOT ADD SIGNS. MAYBE WITH A DIFFFERENT DEFINITION OF THE TWO THE RESULT IS FINE) 
 
 Since operads are precisely monoids on the category of $\mathbb{S}$-modules, we have the following.
 \begin{propo}
-The endofunctor $\s:g\mathbb{S}-Mod\to g\mathbb{S}-Mod$ sends monoids to monoids and morphisms of monoids to morphisms of monoids, in other words, it induces a well defineed endofunctor on the category of monoids $\mathrm{Mon}(\mathbb{S}-mod)$. \qed%is  lax monoidal with respect to the composition of $\mathbb{S}$-modules. 
+The endofunctor $\s:g\mathbb{S}-Mod\to g\mathbb{S}-Mod$ sends monoids to monoids and morphisms of monoids to morphisms of monoids, in other words, it induces a well defined endofunctor on the category of monoids $\mathrm{Mon}(\mathbb{S}-mod)$. \qed%is  lax monoidal with respect to the composition of $\mathbb{S}$-modules. 
 
 
 
@@ -177,6 +177,10 @@ The endofunctor $\s:g\mathbb{S}-Mod\to g\mathbb{S}-Mod$ sends monoids to monoids
 \end{propo}
 
 However, this functor is not lax monoidal in general as it fails to satisfy the associativity axiom. %SHOW IT, POSSIBLY  WITH AN EXAMPLE WHERE THERE ARE NOT SO MANY SIGNS
+
+\begin{remark}
+For Constanze. Should I insist more in the fact that this is a counterexample to the converse of the proposition ``lax monoidal functors send monoids to monoids''? I mean, a functor that sends monoids to monoids is not necessary monoidal.
+\end{remark}
 %\begin{proof}
 %DRAW THE DIAGRAMS, DO THE CALCULATIONS, I SHOULD ALSO WRITE THE IMPLICATION LAX MONOIDAL W/R PLETHYSM $\Rightarrow$ PRESERVES OPERADS (FOLLOW FROM LAX MONOIDAL PRESSERVES MONOIDS, BUT I SHOULD WRITE THE PROOF)
 %\end{proof}
@@ -191,17 +195,18 @@ However, this functor is not lax monoidal in general as it fails to satisfy the 
 
 
 
-The fact that $\s$ is a functor allows to describe algebras using operadic suspension. Namely, an $A_\infty$-algebra is a map of operads $\OO\to\mathcal{P}$ where $\OO$ is an operad with $A_\infty$-multiplication. Since $\s$ is a functor, to this map corresponds a map $\s\OO\to\s\mathcal{P}$. Since in addition, $\s$ is an isomorphism with inverse $\s^{-1}$ (see \ref{AppA}), this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In particular, for $A_\infty$-algebras it is more convenient to work with $\s\OO$ since the formulation of an $A_\infty$-multiplication on this operad is much simpler.
+The fact that $\s$ is a functor allows to describe algebras using operadic suspension. Namely, an $A_\infty$-algebra is a map of operads $\OO\to\mathcal{P}$ where $\OO$ is an operad with $A_\infty$-multiplication. Since $\s$ is a functor, to this map corresponds a map $\s\OO\to\s\mathcal{P}$. Since in addition, the map $\s\OO\to\s\mathcal{P}$ is fully determined by the original map $\OO\to\mathcal{P}$, this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In fact, $\s$ is an equivalence of categories as can be shown using Lemma \ref{AppA}. In particular, for $A_\infty$-algebras it is more convenient to work with $\s\OO$ since the formulation of an $A_\infty$-multiplication on this operad is much simpler but we don't lose any information.
 
-\begin{remark} For Constanze and I.  I will express this equivalene better by showing that $\mathfrak{s}$ is an equivalence of categories, but I'm still not sure how to write that down in context.
+\begin{remark} 
+For Constanze. I'm implicitly using the equivalence between being an equivalence of categories and being fully faithfull and essentially surjective. Should I say this more explicitly? I am considering showing the equivalence of categories with the more general definition of equivalence of categories since this ones requires some form of choice (I'm ok with choice, but I could still add another proof in the appendix ore something).
 \end{remark}
 
-Defining $\mathfrak{s}$ at the level of $\mathbb{S}$-modules also allows us to talk about $\infty$-morphisms of $A_\infty$-algebras in this setting, since they live in collections of the form $\{\Hom(A^{\otimes n},B)\}_{n\geq 1}$. More precisely, let us denote $\End^A_B=\{\Hom(A^{\otimes n},B)\}_{n\geq 1}$. There is a left module structure on $\End^A_B$ over the operad $\End_B$
+Defining $\mathfrak{s}$ at the level of $\mathbb{S}$-modules also allows us to talk about $\infty$-morphisms of $A_\infty$-algebras in this setting, since they live in collections of the form $\End^A_B=\{\Hom(A^{\otimes n},B)\}_{n\geq 1}$. More precisely, there is a left module structure on $\End^A_B$ over the operad $\End_B$
 \[\End^A_B\circ \End_B\to \End^A_B\] given by compostion of maps and also an infinitesimal right module structure over the operad  $\End_A$ 
 \[\End^A_B \circ_{(1)} \End_A\to \End^A_B\]
-given by insertion of maps.  They induce maps on the respective operadic suspensions, which differ from the original one by a sign that can be calculated in an analogous way to what we do on the next sextion (see equation \ref{sigma}).
+given by insertion of maps.  In addition we have a composition $\End^B_C\circ \End^A_B\to\End^A_C$ analogous to operadic composition on the endomorphism  operad. They induce maps on the respective operadic suspensions, which differ from the original ones by some signs that can be calculated in an analogous way to what we do on the next sextion (see equation \ref{sigma}). These induced maps will give us the definition of  $\infty$-morphisms later in Lemma \ref{infinitymorphism}.
 
-For these collections we also have $\mathfrak{s}^{-1}\End^A_B\cong \End^{SA}_{SB}$ in analogy with Theorem \ref{markl}. 
+For these collections we also have $\mathfrak{s}^{-1}\End^A_B\cong \End^{SA}_{SB}$ in analogy with Theorem \ref{markl}, and the proof is similar but shorter since we do not need to worry about insertions. 
 
 \section{Brace algebras}\label{sectionbraces}
 First recall the definition of a brace algebra.
@@ -239,15 +244,15 @@ This construction can  be used to define braces on $\s\OO$. More precisely, we d
 $$b_n:\mathfrak{s}\OO(N)\otimes\mathfrak{s}\OO(a_1)\otimes\cdots\otimes\mathfrak{s}\OO(a_n)\to\mathfrak{s}\OO(N-n+\sum a_i)$$
 using the operadic composition $\gamma$ on $\mathfrak{s}\OO$ as
 
-\[b_n(f;g_1,\dots,g_n)=\sum\gamma(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1).\]
+\[b_n(f;g_1,\dots,g_n)=\sum\tilde{\gamma}(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1).\]
 
-\begin{remark} For Constanze and I. I am thinking of using tilde notation $\tilde{b}_n$ and $\tilde{\gamma}$ for the maps defined on operadic suspension, but I am not sure if this is going to be too cumbersome or unnecesssary.
+\begin{remark} For Constanze and I. I am thinking of using tilde notation $\tilde{b}_n$ and $\tilde{\gamma}$ for the maps defined on operadic suspension, but I am not sure if this is going to be too cumbersome or unnecesssary. Here I am just using it for $\tilde{\gamma}$ because that operation does not appear too often.
 \end{remark}
 
  Notice that for $\s\OO=\s\End_A$,
  
  \[b_n(f;g_1,\dots,g_n)=\sum \pm f(1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1).\]
-Using the brace structure on $\s\End_A$, the factor sign that we will get is the same sign as mimicking the strategy in \cite{RW} (as done in \ref{rw}), with the advantage that now the brace relation follows immediatly from the associativity axiom of operadic composition. To obtain the signs that make this composition differ from the composition in $\OO$, we must first look at the operadic composition on $\Lambda$. In the case of the endomorphism operad, we are interested in compositions of the form \[f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})\] where $N-n=k_0+\cdots+k_n$, $f$ has arity $N$ and each $g_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the operadic composition
+Using the brace structure on $\s\End_A$, the factor sign that we will get is the same sign as mimicking the strategy in \cite{RW} (as done in \ref{rw}), with the advantage that now the brace relation follows immediatly from the associativity axiom of operadic composition and also work for any operad since the difference between $\gamma$ and $\tilde{\gamma}$ is going to be the same sign. To obtain the signs that make this composition differ from the composition in $\OO$, we must first look at the operadic composition on $\Lambda$. We are interested in compositions of the form \[\tilde{\gamma}(f\otimes 1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})\] where $N-n=k_0+\cdots+k_n$, $f$ has arity $N$ and each $g_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the operadic composition
 
 \[
 \begin{tikzcd}
@@ -257,7 +262,7 @@ Using the brace structure on $\s\End_A$, the factor sign that we will get is the
 
 The operadic composition can be described in terms of insertions in the obvious way, namely
 
-$$\gamma(f;h_1,\dots, h_N)=(\cdots(f\tilde{\circ}_1 h_1)\tilde{\circ}_{1+a(h_1)}h_2\cdots)\tilde{\circ}_{1+\sum a(h_p)}h_N,$$
+\[\tilde{\gamma}(f;h_1,\dots, h_N)=(\cdots(f\tilde{\circ}_1 h_1)\tilde{\circ}_{1+a(h_1)}h_2\cdots)\tilde{\circ}_{1+\sum a(h_p)}h_N,\]
 
 where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). So we just have to find out the sign iterating the same argument as in the $i$-th insertion. In this case, each $\Lambda(a_i)$ produces a sign given by the exponent $$(a_i-1)(N-k_0+\cdots-k_{i-1}-i).$$ 
 
@@ -296,14 +301,16 @@ b_1(f;g)=\sum_i f\tilde{\circ}_i g,
 \]
 so the notation $f\tilde{\circ} g$ is suggestive, and $f\circ g$ might be left to a general case of any operad that is not necessarily an operadic suspension or to the specific case of the endomorphism operad with no additional signs.
 
-Finally, as we mentioned before, we can give an interpretation of $\infty$-morphisms that one can check by direct computation. 
+Finally, as we mentioned before in Section \ref{functorial}, we can give an interpretation of $\infty$-morphisms that one can check by direct computation. 
 
 
-\begin{lemma}
-An $\infty$-morphism of $A_\infty$-algebras $f:A\to B$  is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that $\rho(f\circ_{(1)}m)=\lambda(m\circ f)$ where $\lambda:\mathfrak{s}\End_B\circ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B$ is the composite of maps and $\rho:\mathfrak{s}\End_B\circ_{(1)}\mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B$ is the insertion of maps. The composition of $\infty$-morphisms is given by the natural composition $\s\End^A_B\circ \s\End^B_C\to \s\End^A_C$. 
-
-If $f$ is an endomorphism then it is just $f\tilde{\circ}m=\gamma(m\circ f)$.
+\begin{lemma}\label{infinitymorphism}
+An $\infty$-morphism of $A_\infty$-algebras $f:A\to B$ with respective structure maps $m^A$ and $m^B$ is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that $\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f)$, where $\lambda:\mathfrak{s}\End_B\circ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B$ is induced by composite of maps and $\rho:\mathfrak{s}\End_B\circ_{(1)}\mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B$ is induced by insertion of maps. The composition of $\infty$-morphisms is given by the natural composition $\s\End^B_C\circ \s\End^A_B\to \s\End^A_C$.
 \end{lemma}
+
+Notice the similarity between this definition and the definitions given in \cite[Section 10.2.4]{lodayvallette} taking into account the slight modifications to accomodate the dg-case.
+
+In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition can be written in terms of operadic composition as $f\tilde{\circ}m=\tilde{\gamma}(m\circ f)$. 
 
 %The hardest part is finding \sum q_j(n-j) in the first expression. There is (n-1)\sum q_j+sum_{j>i}q_j. So q_l apperas (n-1) times first and then l-1 times (because the nequality is strict). Therefore, q_l appears n-1+l-1=n-l mod 2 times.
 
