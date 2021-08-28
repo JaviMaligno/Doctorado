@@ -46,21 +46,22 @@
 In this text we study the brace structure on an operad of graded $R$-modules using a construction called \emph{operadic suspension}. This construction provide us an operadic context from which $A_\infty$-algebras arise in a natural way. We focus on the relation between the brace structure on an operad and its operadic composition, with the endomorphism operad as our main example. This relation allows us to generalize the Lie bracket defined in \cite{RW}.
 \end{abstract}
 \section{Introduction}
-There are a number of mathematical fields in which $A_\infty$-structures arise, ranging from topology to mathematial physics. To study these structures, different interpretations of $A_\infty$-algebras have been given. From the original definition in 1968 \cite{STASHEFF}, to alternative definitions in terms of tensor coalgebras KELLER AND PENKAVA,  approaches that use the machinery of operads \cite{LRW}, \cite{lodayvallette} or certain Lie brackes \citee{RW} to obtain these algebras. 
+There are a number of mathematical fields in which $A_\infty$-structures arise, ranging from topology to mathematial physics. To study these structures, different interpretations of $A_\infty$-algebras have been given. From the original definition in 1968 \cite{STASHEFF}, to alternative definitions in terms of tensor coalgebras (\cite{keller}, \cite{penkava}),  approaches that use the machinery of operads (\cite{LRW}, \cite{lodayvallette}) or certain Lie brackets \cite{RW} to obtain these algebras. 
 
-$A_\infty$-structures have also been combined with brace structures \cite{GV}, MARKL (SOMEWHERE THERE WAS A BRACE OF MARKL) which involved certain signs. Typically, these signs were different for each author and no satisfactory explanaition was given. 
+$A_\infty$-structures have also been combined with brace structures (\cite{GV},\cite{lada}) which involved certain signs. Typically, these signs were different for each author and no satisfactory explanaition was given. 
 
-Here we used an operadic approach to obtain these signs in a more conceptual and consistent way. As a consequence, we will generalize the Lie bracket used in R-W and will give a very simple interpretationn of $A_\infty$-algebras. The difference between our operadic approach and others mentioned before is that ours uses much more elementary tools. We hope that this provides a useful way of thinking about derived $A_\infty$-structures. 
+Here we used an operadic approach to obtain these signs in a more conceptual and consistent way. As a consequence, we will generalize the Lie bracket used in \cite{RW} and will give a very simple interpretation of $A_\infty$-algebras. The difference between our operadic approach and others mentioned before is that ours uses much more elementary tools and can be use to talk about $A_\infty$-structrures on any operad. We hope that this provides a useful way of thinking about $A_\infty$-structures. 
 
-The text is organized as follows. REFERENCES TO SECTIONS In Section 1 we recall some basic definitions and establish some conventions. In Section 2 we define a device called \emph{operadic suspension} that will help us obtain the signs that we want and link this device to the classical operadic approach to $A_\infty$-algebras. We also take this construction to the level of the underlying collections of the operads to also obtain a nice description of $\infty$-morphisms of $A_\infty$-algebras. In Section 3 we study the brace algebra induced by operadic supension and show that as a particular case we obtain the Lie bracket from R-2. 
+The text is organized as follows. In Section \ref{Sec1} we recall some basic definitions and establish some conventions. In Section \ref{Sec2} we define a device called \emph{operadic suspension} that will help us obtain the signs that we want and link this device to the classical operadic approach to $A_\infty$-algebras. We also take this construction to the level of the underlying collections of the operads to also obtain a nice description of $\infty$-morphisms of $A_\infty$-algebras. In Section \ref{sectionbraces} we study the brace algebra induced by operadic supension and obtain our main result, Proposition \ref{bracesign}. We show that as a particular case of this result we obtain the Lie bracket from \cite{RW}.
 
-DO I NEED TO MENTION THE APPENDICES?
-\section{Background and conventions}
-MAYBE OMIT ALL MENTION TO SYMMETRIC GROUPS BECAUSE I'M NOT REALLY GONNA USE THEM
+%DO I NEED TO MENTION THE APPENDICES?
+\section{Background and conventions}\label{Sec1}
+%MAYBE OMIT ALL MENTION TO SYMMETRIC GROUPS BECAUSE I'M NOT REALLY GONNA USE THEM
+We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions.
 
-Our base category is the category of graded $R$-modules and graded maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $a\in A^i$ we write $\deg(a)=i$. The $R$-modules $\hom(A^{\otimes n},A)$ are naturally graded by $\hom(A^{\otimes n},A)^i=\bigoplus_k\hom((A^{\otimes n})^k,A^{k+i})$ NOT SURE IF SUM OR PROD
+Our base category is the category of graded $R$-modules and graded maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $a\in A^i$ we write $\deg(a)=i$. The $R$-modules $\Hom_R(A^{\otimes n},A)$ are naturally graded by $\Hom_R(A^{\otimes n},A)^i=\prod_k\Hom_R((A^{\otimes n})^k,A^{k+i})$ %NOT SURE IF SUM OR PROD %I think it's prod because it's all homomorphisms that raise the degree by i
 \begin{defin}
-An $A_\infty$-algebra is a graded $R$-module $A$ together with maaps $m_n:A^\otimes n\to A$ of degree $2-n$ satisfying for all $n\geq 1$ the equation
+An $A_\infty$-algebra is a graded $R$-module $A$ together with maps $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying for all $n\geq 1$ the equation
 
 \begin{equation}\label{ainftyequation}
 \sum_{r+s+t=n}m_{r+t+1}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t})=0.
@@ -70,7 +71,7 @@ An $A_\infty$-algebra is a graded $R$-module $A$ together with maaps $m_n:A^\oti
 The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. 
 
 \begin{defin}
-An $\infty$-morphism of $A_\infty$-algebras $A\to B$ is a family of maps $f_n:A^{\otimes n}\to B$ of degree $1-n$ satisfying for all $n\geq 1$ the equation
+An $\infty$-morphism of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $1-n$ satisfying for all $n\geq 1$ the equation
 \[\sum_{r+s+t=n} (-1)^{rs+t}f_{r+1+t}(1^{\otimes r} \otimes m_s\otimes 1^{\otimes t})=\sum_{i_1+\cdots+i_k=n} (-1)^s m_k(f_{i_1}\otimes\cdots\otimes f_{i_k}),\]
 where
 
@@ -86,27 +87,27 @@ A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules
 \end{defin}
 
 \begin{defin}
-An (non-symmetric) \emph{operad} is a collection $\OO=\{\OO(n)\}$ where there is a distinguished \emph{identiy} element $1\in\OO(1)$ and with \emph{insertion maps} 
+A (non-symmetric) \emph{operad} is a collection $\OO=\{\OO(n)\}$ where there is a distinguished \emph{identiy} element $1\in\OO(1)$ and with \emph{insertion maps} 
 \[\circ_i:\OO(n)\otimes \OO(m)\to \OO(m+n-1)\]
 for each $1\leq i\leq n$ satisfying natural uunitality and associativiity axioms. Insertion maps can be iterated to define \emph{composition maps} \[\gamma(a;b_1,\dots, b_n)=(\cdots(a\circ_1 b_1)\circ_2 b_2\cdots
 )\circ_n b_n).\]
-If $\OO$ is an $\mathbb{S}-$module and the insertion maps satisfy some additional axioms regarading the symmetric group action, we say that $\OO$ is a symmetric operad. 
+If $\OO$ is an $\mathbb{S}-$module and the insertion maps satisfy some additional axioms regarding the symmetric group action, we say that $\OO$ is a symmetric operad. 
 
 A map of operads (resp. symmetric operads) is a map of collections (resp. $\mathbb{S}-$modules) that is compatible with insertions.
 \end{defin}
 
 \begin{defin}
-The \emph{endomorphism operad} $\End_A$ is given by the modules $\End_A(n)=\hom(A^{\otimes n},A)$ for some graded $R$-module $A$ with insertion maps 
+The \emph{endomorphism operad} $\End_A$ is given by the modules \[\End_A(n)=\hom(A^{\otimes n},A)\] for some graded $R$-module $A$. Insertion maps are given by
 \[f\circ_i g=f(1^{\otimes i-1}\otimes g\otimes 1^{\otimes n-i})\]
 for $f\in\End_A(n)$ and $g\in\End_A(m)$. The identity element is given by the identity map and there is a symmetric group action given by permuting the inputs.
 
-An algebra over an operad $\OO$ is a map of operads $\OO\to\End_A$
+An algebra over an operad $\OO$ is a map of operads $\OO\to\End_A$. By adjunction, this is equivalent to a colllection of maps $\OO(n)\otimes A^{\otimes n}\to A$ for each $\geq 0$.  
 \end{defin}
-The $\mathcal{A}_\infty$-operad is the non-symmetric operad whose algebras are $A_\infty$-algebras. Therefore, it is generated by elements $\mu_i\in\mathcal{A}_\infty(i)$ satisfying the operadic version of the $A_\infty$-equation.
+The $\mathcal{A}_\infty$-operad is the non-symmetric operad whose algebras are $A_\infty$-algebras. Therefore, it is generated by elements $\mu_i\in\mathcal{A}_\infty(i)$ satisfying the operadic version of the $A_\infty$-equation. More details about this operad can be found in \cite[Chapter 9]{lodayvallette}
 
  
 
-\section{Operadic suspension}
+\section{Operadic suspension}\label{Sec2}
 
 In this section we define an operadic suspension, which is a slight modification of the one found in \cite{ward}. This construction will help us define $A_\infty$-multiplications in a simple way. We are going to define it for symmetric operads. In the non-symmetric case it is enough to omit the symmetric group actions.
 %Everything should be valid for R-modules (char not 2, as in fields). The sign representation would have to be a free R-module of rank 1
@@ -194,7 +195,7 @@ This fact is not coincidental. Recall that the Koszul dual cooperad $\mathcal{A}
 
 \[\Hom(\mathcal{A}s^{¡},\End_A)\cong \End_{S^{-1}A}(\geq 1)\cong\s\End_A(\geq 1).\]
  %the second isomorphism Hom(k[n-1],End_A(n))^d=Hom(k,End_A(n))^{d+n-1}=End_A(n)^{d+n-1}=End_{sA}(n)
-The first operad is the convolution operad. Explicitly, for $f\in\End_A(n)$ and $g\in\End_A(m)$, the convolution product is given by
+The first operad is the convolution operad, for which $\Hom(\mathcal{A}s^{¡},\End_A)(n)=\Hom_R(\mathcal{A}s^{¡}(n),\End_A(n))$. Explicitly, for $f\in\End_A(n)$ and $g\in\End_A(m)$, the convolution product is given by
 
 \[f\star g=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}f\circ_i g=\sum_{i=1}^nf\tilde{\circ}_i g=f\tilde{\circ}g.\]
 
@@ -343,16 +344,16 @@ where the sum runs over all possible order-preserving insertions. The brace $b_n
 
 
 This construction can  be used to define braces on $\s\OO$. More precisely, we define maps 
-$$b_n:\mathfrak{s}\OO(N)\otimes\mathfrak{s}\OO(a_1)\otimes\cdots\otimes\mathfrak{s}\OO(a_n)\to\mathfrak{s}\OO(N-n+\sum a_i)$$
+\[b_n:\mathfrak{s}\OO(N)\otimes\mathfrak{s}\OO(a_1)\otimes\cdots\otimes\mathfrak{s}\OO(a_n)\to\mathfrak{s}\OO(N-n+\sum a_i)\]
 using the operadic composition $\tilde{\gamma}$ on $\mathfrak{s}\OO$ as
 
 \[b_n(f;g_1,\dots,g_n)=\sum\tilde{\gamma}(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1).\]
 
 \begin{remark} For Constanze and I. I am thinking of using tilde notation $\tilde{b}_n$ and $\tilde{\gamma}$ for the maps defined on operadic suspension, but I am not sure if this is going to be too cumbersome or unnecesssary. Here I am just using it for $\tilde{\gamma}$ because that operation does not appear too often.
 \end{remark}
-
-\begin{propo}
-We have the following relation between the brace maps $b_n$ defined on $\s\OO$ and the operadic composition $\gamma$ on $\OO$. For $f\in \s\OO(N)$ and $g_i\in\s\OO(a_i)$ of degree $q_i$ ($1\leq i\leq n$), we have
+We have the following relation between the brace maps $b_n$ defined on $\s\OO$ and the operadic composition $\gamma$ on $\OO$. 
+\begin{propo}\label{bracesign}
+For $f\in \s\OO(N)$ and $g_i\in\s\OO(a_i)$ of internal degree $q_i$ ($1\leq i\leq n$), we have
 \[b_n(f;g_1,\dots,g_n)=\sum_{N-n=k_0+\cdots+k_n} (-1)^\eta \gamma
 (f\otimes 1^{\otimes k_0}\otimes g_1\otimes \cdots\otimes g_n\otimes1^{\otimes k_n}),\]
 where 
@@ -615,7 +616,7 @@ There is an isomorphism of operads $\End_{S A}\cong \mathfrak{s}^{-1}\End_A$.
 \begin{proof}
 For each $n$, we clearly have an isomorphism of graded modules
 
-$$\End_{S A}(n)=\Hom((S A)^{\otimes n},S A)\cong\Hom(A^{\otimes n},A)\otimes S^{1-n}sig_n= \mathfrak{s}^{-1}\End_A(n)$$
+$$\End_{S A}(n)=\Hom_R((S A)^{\otimes n},S A)\cong\Hom_R(A^{\otimes n},A)\otimes S^{1-n}sig_n= \mathfrak{s}^{-1}\End_A(n)$$
 
 given by the map $\sigma^{-1}$ defined before as \[\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n},\] where $\circ$ denotes the composition of maps. We must show that this map is an isomorphism of operads, in other words, it commutes with insertions and with the symmetric group action.
 
@@ -680,6 +681,31 @@ If in the proof above we replace $S$ with $S^{-1}$, we have that the map
 \]
 \end{remark}
 
+\subsection{Monoidality of operadic suspension}
+SOME BRIEF INTRO TO WHAT I'M DOING
+
+
+When studying the functorial properties of $\s$ it is natural to look for a natural transformation $\mu=\mu_{\OO,\PP}:\s\OO\circ\s\PP\to \s(\OO\circ\PP)$ PLETTHYSM such that the composition 
+\[\s\OO\circ\s\OO\xrightarrow{\mu_{\OO,\OO}} \s(\OO\circ\OO)\xrightarrow{\s\gamma} \s\OO\]
+is the composition $\tilde{\gamma}$ on $\s\OO$. Recall that $\tilde{\gamma}=(-1)^{\eta}\gamma$. Since the functor $\s$ does not add any signs to the above composition REFFERENCE TO THE DEFINITION OF THE FUNCTOR, the  sign $(-1)^{\eta}$ REFERENCE must come entirely from the natural a transformation $\mu$, and thus the definition of $\mu$ should extend this fact. WRITE IT EXPLICITLY FOR A SUMMAND OF THE PLETHYSM
+
+Recall the definition of the plethysm $\circ$
+
+The most natural way to define a map $\s\OO\circ\s\PP\to\s(\OO\circ\PP)$ is by reordering the factors using the symmetry morphism and apply the operadic composition on $\Lambda$, just like we did to obtain the sign $\eta$ REFERENCE TO THE PROOF. Therefore, following that process we obtain the map
+\[\mu:\s\OO\circ\s\PP\to\s(\OO\circ\PP)\]
+which acts on elements of each direct summannd as
+\[\mu(c\otimes e^k\otimes c_1\otimes e^{a_1}\otimes\cdots\otimes c_k\otimes e^{a_k})=(-1)^{\sum_{j<l}a_jq_l+\sum_{j=1}^k (a_j+q_j-1)(k-j)}c\otimes c_1\otimes\cdots\otimes c_k \otimes e^{a_1+\cdots+a_k},\]
+where $q_j$ is the degree of $c_j$ in $\PP$. Since the sign in the above equation is precisely $\eta$ in the case where $k_0=\cdots=k_n=0$, we will simply call it $\eta$. 
+
+Since we know that $\mu_{\OO,\OO}$ induces the operadic composition on $\s\OO$ REFERENCE TO THE EQUATION ABOVE WITH THE COMPOSITION, we know that $\mu$ sends monoids on CATEGORY OF COLLECTIONSS WITH PLETHYSIM  to SAME THING. It is possible to show that $\mu$ is indeed natural and in addition it satisfies the unitality axiom of monoidal functors RECALL UNIT IN THIS CATEGORY (I THINK IT WAS 0 EXCEPT K IN ARITY 1) I SHOULD ACTUALLY CHECK PROPERLY THAT THE AXIOM IS SATISFIED AS WELL AS NATURALIITY AND WRITE IT DOWN SOMEWHERE (NATURALITY IS IN MY NOTEBOOK)
+
+FOR UNITALITY I THINK 1$\to$ S1 IS A MORPHISM BECAUSE COMPOSITION IS AALWAYS 0
+
+CHECK VALUE OOF ETA IN THE UNITALITY AXIOMS (IN THE FIRST AXIOM ETA IS ZERRO BECAUSE IT IS THE CASE $n=1$ AND ALL K'S=0 AND THE  SECOND AXIOM IT IS THE CASE WELL ALL OF THEM ARE ARITY 1 AND DEGREE 0 SO ALSO VANISH)
+\url{https://ncatlab.org/nlab/show/monoidal+functor}
+
+
+
 \section{Koszul sign on operadic suspension}
 The purpose of this section is to clear up the procedure to apply the Koszul sign rule in situations in which operadic suspension is involved.
 
@@ -717,7 +743,7 @@ Let us use an analogous strategy to \cite{RW} used to find the signs of the Lie 
 
 Let $A$ be a graded module. Let $S(A)$ be the graded module with $S(A)^v=A^{v+1}$, and so the suspension or \emph{shift} map $S:A\to S(A)$ given by the identity map has internal degree $-1$.
 
- Let $f\in \End_A(N)^i=\hom(A^{\otimes N},A)^i$. Recall that REFERENCE TO ITS APPEARENCE (POSSIBLY CHANGE THE NOTATTION OF THE FIRST TIME TO MATHFRAK S SIGMA) $\sigma(f)$ is defined as the map making the following diagram commutative
+ Let $f\in \End_A(N)^i=\Hom_R(A^{\otimes N},A)^i$. Recall that REFERENCE TO ITS APPEARENCE (POSSIBLY CHANGE THE NOTATTION OF THE FIRST TIME TO MATHFRAK S SIGMA) $\sigma(f)$ is defined as the map making the following diagram commutative
 \[
 \begin{tikzcd}
 S(A)^{\otimes N}\arrow[r, "\sigma(f)"]\arrow[d, "(S^{-1})^{\otimes N}"'] & S(A)\\
