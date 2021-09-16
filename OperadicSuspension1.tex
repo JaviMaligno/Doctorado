@@ -60,17 +60,18 @@ The text is organized as follows. In Section \ref{Sec1} we recall some basic def
 We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions.
 
 Our base category is the category of graded $R$-modules and graded maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $a\in A^i$ we write $\deg(a)=i$. The $R$-modules $\Hom_R(A^{\otimes n},A)$ are naturally graded by $\Hom_R(A^{\otimes n},A)^i=\prod_k\Hom_R((A^{\otimes n})^k,A^{k+i})$ %NOT SURE IF SUM OR PROD %I think it's prod because it's all homomorphisms that raise the degree by i
+SHIFT OR SUSPENSION  OPERATION (MAYBE AS A FUNCTOR) POSSIBLY CONNECT WITH THE DEFINITION OF AINFTY ALGEBRA SAYING THAT EQUIVALENTY AN EQUATION  WITHOUT SIGNS ON SUSPENSION (MAYBE REFERENCE TO KELLER)
 \begin{defin}
 An $A_\infty$-algebra is a graded $R$-module $A$ together with maps $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying for all $n\geq 1$ the equation
 
 \begin{equation}\label{ainftyequation}
-\sum_{r+s+t=n}m_{r+t+1}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t})=0.
+\sum_{r+s+t=n}(-1)^{rs+t}m_{r+t+1}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t})=0.
 \end{equation}
 \end{defin}
 
 The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. 
 
-\begin{defin}
+\begin{defin}\label{inftymorphism}
 An $\infty$-morphism of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $1-n$ satisfying for all $n\geq 1$ the equation
 \[\sum_{r+s+t=n} (-1)^{rs+t}f_{r+1+t}(1^{\otimes r} \otimes m_s\otimes 1^{\otimes t})=\sum_{i_1+\cdots+i_k=n} (-1)^s m_k(f_{i_1}\otimes\cdots\otimes f_{i_k}),\]
 where
@@ -82,7 +83,8 @@ The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by
 \otimes f_{i_r}).\]
 \end{defin}
 
-\begin{defin}
+LEFT MODULE AND RIGHT INFINITESIMAL MODULE
+\begin{defin}\label{collections}
 A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules. We call the integer $n$ the \emph{arity}. When there is an action of the symmetric group $\Sigma_n$ on each $\OO(n)$ we say that the collection is an $\mathbb{S}-$module. A map of collections $f:\OO\to\mathcal{P}$ is a family of maps $f_n:\OO(n)\to\mathcal{P}(n)$. A map of collection is a map of $\mathbb{S}-$modules when it preserves the symmetric group action.
 \end{defin}
 
@@ -160,7 +162,7 @@ so we conclude
 
 \[a\tilde{\circ}_ib=(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}a\circ_i b.\]
 
-This is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras REFERENE BACKGROUND is derived.
+This is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras (equation (\ref{ainftyequation}) is derived.
 
 Next, we are going to use the above fact to obtain an way to describe $A_\infty$-algebras in simplified operadic terms. We are also going to compare this description with a classical approach that is more general but requires heavier operadic machinery. 
 
@@ -176,11 +178,13 @@ An $A_\infty$-multiplication on an operad $\OO$ is equivalent to an element $m\i
 \end{lemma}
 \begin{proof}
 An $A_\infty$-multiplication on $\OO$ corresponds by definition to a map of operads \[f:\mathcal{A}_\infty\to\OO.\] Such a map is determined by the images of the generators $\mu_i\in\mathcal{A}_\infty(i)$ of degree $2-i$. Whence, $f$ it is determined by $m_i=f(\mu_i)\in\OO(i)$. Let $m=m_1+m_2+\cdots$. Since \[\deg(m_i)=\deg(\mu_i)=2-i,\]
-we have that the image of $m_i$ in $\s\OO$ is of degree $2-i+i-1=1$. Therefore, $m\in\s\OO$ is homogeneous of degree 1. Now, let us check that $m\tilde{\circ}m=0$. If we apply the definition of $\tilde{\circ}$ (equation (\ref{tildecircle})) THAT IS THE DEFINITION OF I-TH INSERTION (WHICH BTW I SOULD REWRITE BECAUSE FIRST SHOULD BE EXPLICITLY AND THEN THE ABUSE OF NOTATION, SHOULD WRITE THE DEFINITION OF TILDE CIRCLE PROPERLY BEFORE THE STATEMENT to $m_{r+1+t}$ and $m_s$ we obtain that
+we have that the image of $m_i$ in $\s\OO$ is of degree $2-i+i-1=1$. Therefore, $m\in\s\OO$ is homogeneous of degree 1. Now, let us check that $m\tilde{\circ}m=0$. Note that by equation (\ref{tildecircle}) we have the operation $\tilde{\circ}$ defined as
+\[a\tilde{\circ}b=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}a\circ_i b\]
+for $a\in\OO(n)$ and $b\in\OO(m)$. Therefore, applying this definition to $m_{r+1+t}$ and $m_s$ we obtain that
 \begin{equation}\label{tildequation}
 m_{r+1+t}\tilde{\circ }_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1} m_s,
 \end{equation}
-which is the sign appearing in the definition of an $A_\infty$-algebra REFERENCE. Since the elements $\mu_i$ satisfy the $A_\infty$-equation REFERENCE, so do the elements $m_i=f(\mu_i)$. Therefore, we have
+which is the sign appearing in the definition of an $A_\infty$-algebra (equation (\ref{ainftyequation})). Since the elements $\mu_i$ satisfy the $A_\infty$-equation and $f$ is a map of operads, so do the elements $m_i=f(\mu_i)$. Therefore, we have
 \[0=\underset{r,t\geq 0,\ s\geq 1}{\sum_{r+s+t}}(-1)^{rs+t}m_{r+1+t}\circ_{r+1} m_s=\underset{r,t\geq 0,\ s\geq 1}{\sum_{r+s+t}}m_{r+1+t}\tilde{\circ}_{r+1}m_s=m\tilde{\circ}m.\] 
 %In the above sum, $r,t\geq 0$ and $s\geq 1$.
 Conversely, if $m\in\s\OO$ of degree 1 such that $m\tilde{\circ}m=0$, let $m_i$ be the component of $m$ lying in arity $i$. We have $m=m_1+m_2+\cdots$. By the usual identification $m_i$ has degree $1-i+1=2-i$ in $\OO$. Now we can use equation (\ref{tildequation}) to conclude that $m\tilde{\circ}m=0$ implies 
@@ -195,11 +199,11 @@ This fact is not coincidental. Recall that the Koszul dual cooperad $\mathcal{A}
 
 \[\Hom(\mathcal{A}s^{¡},\End_A)\cong \End_{S^{-1}A}(\geq 1)\cong\s\End_A(\geq 1).\]
  %the second isomorphism Hom(k[n-1],End_A(n))^d=Hom(k,End_A(n))^{d+n-1}=End_A(n)^{d+n-1}=End_{sA}(n)
-The first operad is the convolution operad, for which $\Hom(\mathcal{A}s^{¡},\End_A)(n)=\Hom_R(\mathcal{A}s^{¡}(n),\End_A(n))$. Explicitly, for $f\in\End_A(n)$ and $g\in\End_A(m)$, the convolution product is given by
+The first operad is the convolution operad (see \cite[\S 6.4.1]{lodayvallette}), for which \[\Hom(\mathcal{A}s^{¡},\End_A)(n)=\Hom_R(\mathcal{A}s^{¡}(n),\End_A(n)).\] Explicitly, for $f\in\End_A(n)$ and $g\in\End_A(m)$, the convolution product is given by
 
 \[f\star g=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}f\circ_i g=\sum_{i=1}^nf\tilde{\circ}_i g=f\tilde{\circ}g.\]
 
-It is known that $A_\infty$-structures on $A$ are determined by elements $\varphi\in\Hom(\mathcal{A}s^{¡},\End_A)$ of degree 1 such that $\varphi\star \varphi=0$. Since the convolution product coincides with the operation $\tilde{\circ}$, such an element $\varphi$ is sent to an element $m\in\s\End_A(\geq 1)$ of degree 1 satisfying $m\tilde{\circ}m=0$. Therefore, we see that this classical interpretation of $A_\infty$-algebras is equivalent to the one that Lemma \ref{twisting} provides in the case of the operad $\End_A$. See \cite[Theorem 10.1.3]{lodayvallette} and \cite[Theorem 10.1.11]{lodayvallette} for more details about convolution operads and the more classical operadic interpretion of $A_\infty$-agebras, THESE REFERENCES EARLIER TOO taking into account that in the dg-setting the definition has to be modified slightly (also the difference in sign conventions arise from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$, see Theorem \ref{markl}).% SOMEWHERE SAY THE DIFFERNCE BETWEEN UNDERLYING MODULES OR DG-MODULES
+It is known that $A_\infty$-structures on $A$ are determined by elements $\varphi\in\Hom(\mathcal{A}s^{¡},\End_A)$ of degree 1 such that $\varphi\star \varphi=0$ \cite[Proposition 10.1.3]{lodayvallette}. Since the convolution product coincides with the operation $\tilde{\circ}$, such an element $\varphi$ is sent via the above isomorphism to an element $m\in\s\End_A(\geq 1)$ of degree 1 satisfying $m\tilde{\circ}m=0$. Therefore, we see that this classical interpretation of $A_\infty$-algebras is equivalent to the one that Lemma \ref{twisting} provides in the case of the operad $\End_A$. See \cite[Proposition 10.1.11]{lodayvallette} for more details about convolution operads and the more classical operadic interpretion of $A_\infty$-agebras,  taking into account that in the dg-setting the definition has to be modified slightly (also the difference in sign conventions arise from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$, see Theorem \ref{markl}).% SOMEWHERE SAY THE DIFFERNCE BETWEEN UNDERLYING MODULES OR DG-MODULES
 
 Above we needed to specify that only positive arity was considered. This the case in many situation in the literature, but for our purposes, we cannot assume that operads have trivial 0 arity component in general, and this is what forces us to specify that $A_\infty$-multiplications are concentrated in positive arity. %(LATER WE HAVE LINFINITY, I COULD TRY SOMETHING WITH THAT BECAUSE IT'S VERY SIMILAR).  %INDEED AS (NS) OPERADS I BELIEVE, here we use $\sigma^{-1}$. THE THEOREM WHERE I CLAIM THE LAST ISOMORPHISM IS BELOW SO MAYBE REORDER OR REFERENCE
 
@@ -233,7 +237,7 @@ In this case the isomorphism map that we obtain goes in the opposite direction t
 
 
 Here we study operadic suspension at the level of the underlying collections or $\mathbb{S}$-modules as an endofunctor. 
-Recall FROM THE BACKGROUND that an $\mathbb{S}$-module is a a collection $\{\OO(n)\}_{n\geq 0}$ equipped with a right action of the symmetric groups. 
+Recall from definition \ref{collections} that an $\mathbb{S}$-module is a a collection $\{\OO(n)\}_{n\geq 0}$ equipped with a right action of the symmetric groups. 
 
 We define the suspension of an $\mathbb{S}$-module $\OO$ as $\mathfrak{s}\OO(n)=\OO(n)\otimes k[n-1]$, where $k[n-1]$ is the ground ring concentrated in degree $n-1$. The ring $k[n-1]$ can of course be equipped with the sign action of the symmetric group, so we may have a diagonal action on the tensor product.
 
@@ -260,11 +264,11 @@ Note that $\deg(a)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s 
 \end{remark}
 %The previous computation is a consequence of the more general fact. NOT SURE, ASSOCIATIVITY IS NOT WORKING (I AM USING AS A NATURAL TRANSFORMATION THE  MAP ADDING THE SIGN OF COMPOSITION, SINCE THE MAP INDUCED BY S DOES NOT ADD SIGNS. MAYBE WITH A DIFFFERENT DEFINITION OF THE TWO THE RESULT IS FINE) 
 
-Since operads are precisely monoids on the category graded $\mathbb{S}$-Mod of $\mathbb{S}$-modules, we have the following.
+Since operads are precisely monoids on the category $\mathbb{S}$-Mod of graded $\mathbb{S}$-modules, we have the following.
 \begin{propo}
 The endofunctor $\s:\mathbb{S}\mbox{-Mod}\to \mathbb{S}\mbox{-Mod}$ sends monoids to monoids and morphisms of monoids to morphisms of monoids, in other words, it induces a well defined endofunctor on the category of monoids $\mathrm{Mon}(\mathbb{S}\mbox{-Mod})$. \qed%is  lax monoidal with respect to the composition of $\mathbb{S}$-modules. 
 
-NOTATION FOR THE CATEGORY OF S-MODULES: $\mathbb{S}\mbox{-Mod}$
+%NOTATION FOR THE CATEGORY OF S-MODULES: $\mathbb{S}\mbox{-Mod}$
 
 %PROVE ALSO OTHER COHERENCE AXIOMS %This composition is not symmetric so the functor cannot be symmetric. That is not necessary since the symmetry of the underlying tensor product  is used in the associativity isomorphism
 \end{propo}
@@ -417,25 +421,29 @@ is the same bracket that was defined in \cite{RW}.
 However, we may use $f\tilde{\circ}g$ to make clear that we are using the operadic composition in $\s\OO$. Note that
 
 \[
-b_1(f;g)=\sum_i f\tilde{\circ}_i g,
+b_1(f;g)=\sum_i f\tilde{\circ}_i g=f\tilde{\circ}g,
 \]
 so the notation $f\tilde{\circ} g$ is suggestive for operadic suspension. The notation $f\circ g$ will still be used whenever the insertion maps are denoted by $\circ_i$.
 
 In \cite{RW}, the sign is computed using a strategy that we generalize in \ref{rw} (see expression \ref{sigma}). The approach we have followed here has the advantage that the brace relation follows immediatly from the associativity axiom of operadic composition. This approach also works for any operad since the difference between $\gamma$ and $\tilde{\gamma}$ is going to be the same sign. 
 
-Finally, as we mentioned before in Section \ref{functorial}, we can show the following alternative description of $\infty$-morphisms of $A_\infty$-algebras and their composition in terms of suspension of collections.
+Finally, as we mentioned before in Section \ref{functorial}, we can show the following alternative description of $\infty$-morphisms of $A_\infty$-algebras and their composition in terms of suspension of collections (recall definition \ref{infinitymorphism}).
 
-RECALL INFTY-MORPHISMS FROM BRACKGROUND
+
 
 \begin{lemma}\label{infinitymorphism}
 An $\infty$-morphism of $A_\infty$-algebras $A\to B$ with respective structure maps $m^A$ and $m^B$ is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that \[\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),\] 
 
-where \[\lambda:\mathfrak{s}\End_B\circ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by composite of maps and \[\rho:\mathfrak{s}\End_B\circ_{(1)}\mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by insertion of maps. 
+where \[\lambda:\mathfrak{s}\End_B\circ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the left module struncture on $\End^A_B$ and \[\rho:\mathfrak{s}\End_B\circ_{(1)}\mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the right infinitesimal module structure on $\End^A_B$ (see Section \ref{functorial} to recall these module structures ). 
 
 In addition, the composition of $\infty$-morphisms is given by the natural composition \[\s\End^B_C\circ \s\End^A_B\to \s\End^A_C.\]
 \end{lemma}
 \begin{proof}
-NOT NECESSARILY WITH LOTS OF DETAIL
+From the definitions of the operations in the equation
+
+\[\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),\] 
+
+we know that this equation coincides with the one defining $\infty$-morphisms of $A_\infty$-algebras (Definition \ref{inftymorphism}) up to sign. The signs that appear in the above equation are obtained in a similar way to that on $\tilde{\gamma}$ (see the proof of \ref{bracesign}). Thus, it is enough to plug on $\eta$ (the sign from \ref{bracesign}) the corresponding degrees and arities to obtain the desired result. The composition of $\infty$-morphisms follows similarly.
 \end{proof}
 Notice the similarity between this definition and the definitions given in \cite[Section 10.2.4]{lodayvallette} taking into account the slight modifications to accommodate the dg-case.
 
@@ -743,7 +751,7 @@ Let us use an analogous strategy to \cite{RW} used to find the signs of the Lie 
 
 Let $A$ be a graded module. Let $S(A)$ be the graded module with $S(A)^v=A^{v+1}$, and so the suspension or \emph{shift} map $S:A\to S(A)$ given by the identity map has internal degree $-1$.
 
- Let $f\in \End_A(N)^i=\Hom_R(A^{\otimes N},A)^i$. Recall that REFERENCE TO ITS APPEARENCE (POSSIBLY CHANGE THE NOTATTION OF THE FIRST TIME TO MATHFRAK S SIGMA) $\sigma(f)$ is defined as the map making the following diagram commutative
+ Let $f\in \End_A(N)^i=\Hom_R(A^{\otimes N},A)^i$. Recall that $\sigma$ is the inverse of the map from Theorem \ref{markl}, so that $\sigma(f)$ is defined as the map making the following diagram commutative
 \[
 \begin{tikzcd}
 S(A)^{\otimes N}\arrow[r, "\sigma(f)"]\arrow[d, "(S^{-1})^{\otimes N}"'] & S(A)\\
