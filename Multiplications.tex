@@ -18,15 +18,24 @@
 \maketitle
 
 \section{Introduction}
-Continuing with the operadic suspension and the brace structure obtained from it, we then define an $A_\infty$-algebra structure on $\s\OO$.
+
+In a previous text we defined operadic suspension and used it to define the notion of $A_\infty$-multiplication on an operad. We then defined a brace structure on the operadic suspension of an operad that encapsulated the definition of $A_\infty$-multiplication. We also established the relation between this brace structure and the canonical brace structure given by operadic composition.
+
+Once one has an $A_\infty$-multiplication on an operad, it is natural to ask whether this multiplication induces an $A_\infty$-algebra structure on the operad. In Section \ref{sect2} we use the aforementioned brace structure to define $A_\infty$-maps on a shifted version of the operadic suspension. We then iterate this process in Section \ref{sect3} to define $A_\infty$-maps on the Hochschild complex of an operad with $A_\infty$-multiplication. This iteration process was inspired by the work of Getzler in \cite{getzler}.
+
+Finally, we prove our main result, Theorem \ref{theorem}, which relates the $A_\infty$-structure on an operad with the one induced on its Hochschild complex. This result was hinted by Gerstenhaber and Voronov in \cite{GV}, but here we introduce more context and prove the theorem.
+
+Throughout this text we use the same notation that we used in the previous text, but we recall some of the definitions along the exposition.
+
+%Continuing with the operadic suspension and the brace structure obtained from it, we then define an $A_\infty$-algebra structure on $\s\OO$.
 
 
-\section{Defining the $A_\infty$-maps}
+\section{$A_\infty$-algebra structure on an operad with $A_\infty$-multiplication}\label{sect2}
 
 
-Let us consider the underlying graded vector space of the operad $\s\OO$ with grading given by its natural degree, i.e. if $x\in \s\OO(n)$ we definee its natural degree $|x|=n+\deg(x)-1$ where $\deg(x)$ is its internal degree (the degree as an element of $\OO(n))$. 
+Let us consider the underlying graded module of the operad $\s\OO$, which we  call $\s\OO$ again by abuse of notation, i.e. \[\s\OO=\bigoplus_n \s\OO(n)\] with grading given by its natural degree, i.e. if $x\in \s\OO(n)$ recall that its natural degree $|x|=n+\deg(x)-1$ where $\deg(x)$ is its internal degree (the degree as an element of $\OO(n))$. 
 
-For any operad $\OO$, recal the operation $\circ$ defined as
+For any operad $\OO$, recall the operation $\circ$ defined as
 
 \[
 a\circ b=\sum_{i=1}^n a\circ_i b
@@ -42,7 +51,7 @@ Let $m\in\s\OO$ be of natural degree 1 such that $m\tilde{\circ}m=0$, or equival
 \begin{equation}\label{Ainftyeq}
 \sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0.
 \end{equation} 
-Such $m$ is said to be an \emph{$A_\infty$-multiplication} on $\OO$ and its existence is equivalent to a map of operads $\mathcal{A}_\infty\to \OO$ from the operad of $A_\infty$-algebras to $\OO$. 
+Such $m$ is said to be an \emph{$A_\infty$-multiplication} on $\OO$ and as we saw in the previous text its existence is equivalent to a map of operads $\mathcal{A}_\infty\to \OO$ from the operad of $A_\infty$-algebras to $\OO$. 
 
 Following \cite{GV} and \cite{getzler}, one would define an $A_\infty$-algebra structure on $\s\OO$ using the maps 
 
@@ -50,15 +59,15 @@ Following \cite{GV} and \cite{getzler}, one would define an $A_\infty$-algebra s
 M'_1(x)\coloneqq [m,x]=m\tilde{\circ} x-(-1)^{|x|}x\tilde{\circ}m, & &  \\
 M'_j(x_1,\dots, x_j)\coloneqq b_j(m;x_1,\dots, x_j),& &j>1.
 \end{align*}
-The prime notation here is used to indicate that these are not the definitive maps that we are going to take. Getzler shows in \cite{getzler} that $M'=M'_1+M'_2+\cdots$ satisfies the relation $M'\circ M'=0$ using that $m\circ m=0$, and the proof is independent of the operad in which $m$ is defined, so it is still valid if $m\tilde{\circ}m=0$. But we have two problems here. The equation $M'\circ M'=0$ does depend on how the circle operation is defined, more precisely, this circle operation in \cite{getzler} is the one without signs on the endomorphism operad, so $M'$ is not an $A_\infty$-structure under our convention. The other problem has to do with the degrees. We need $M'_j$ to be homogeneous of degree $2-j$ as a map $\s\OO^{\otimes j}\to \s\OO$, but we find that $M'_j$ is homogeneous but of degree 1. 
+The prime notation here is used to indicate that these are not the definitive maps that we are going to take. Getzler shows in \cite{getzler} that $M'=M'_1+M'_2+\cdots$ satisfies the relation $M'\circ M'=0$ using that $m\circ m=0$, and the proof is independent of the operad in which $m$ is defined, so it is still valid if $m\tilde{\circ}m=0$. But we have two problems here. The equation $M'\circ M'=0$ does depend on how the circle operation is defined, more precisely, this circle operation in \cite{getzler} is the one without signs on the endomorphism operad, so $M'$ is not an $A_\infty$-structure under our convention. The other problem has to do with the degrees. We need $M'_j$ to be homogeneous of degree $2-j$ as a map $\s\OO^{\otimes j}\to \s\OO$, but we find that $M'_j$ is homogeneous of degree 1 instead. 
 
-Indeed, the degree of $b_j(m_n;x_1,\dots,x_j)$ for $n>j$ is computed as follows. Let $a(x)$ denote the arity of $x$, i.e. $a(x)=n$ whenever $x\in\s\OO(n)$. By definition, we have that the degree of $b_j(m_n;x_1,\dots,x_j)$ as an element of $\s\OO$ is
+Indeed, the natural degree of $b_j(m_n;x_1,\dots,x_j)$ for $n>j$ is computed as follows. Let $a(x)$ denote the arity of $x$, i.e. $a(x)=n$ whenever $x\in\s\OO(n)$. By definition, we have that the natural degree of $b_j(m_n;x_1,\dots,x_j)$ as an element of $\s\OO$ is
 
-\[a(b_j(m_n;x_1,\dots,x_j))+\deg(b_j(m_n;x_1,\dots,x_j))-1.\]
+\[|b_j(m_n;x_1,\dots,x_j)|=a(b_j(m_n;x_1,\dots,x_j))+\deg(b_j(m_n;x_1,\dots,x_j))-1.\]
 
 We have 
 
-\[a(b_j(m_n;x_1,\dots,x_j)=n-j+\sum_i a(x_i)\]
+\[a(b_j(m_n;x_1,\dots,x_j))=n-j+\sum_i a(x_i)\]
 
 and 
 
@@ -91,15 +100,29 @@ M\tilde{\circ}M=\overline{\sigma}(M')\tilde{\circ}\overline{\sigma}(M')=\overlin
 
 So now we have that $M\in\s\End_{S\s\OO}$ is a formal sum $M=M_1+M_2+\cdots$ such that $M_j$ has arity $j$ and internal degree $2-j$ (so that the natural degree is 1); and such that $M\tilde\circ M=0$. Therefore $M$ is the desired $A_\infty$-structure. Nevertheless, recall that $M$ is defined as an structure map on $S\s\OO$. This kind of shifted operad is called \emph{odd operad} in \cite{ward}. This means that $S\s\OO$ is not an operad anymore, since the associativity relation for graded operads involves signs that depend on the degrees, which are now shifted.
 
-\section{Iterating the process}
+\section{Iterating the process}\label{sect3}
 
-Now we can apply the same construction to the operad $\s\End_{S\s\OO}$ and we get $A_\infty$-maps 
+Now we can apply the same construction to the operad $\s\End_{S\s\OO}$ and we get $A_\infty$-maps
 \[\overline{M}_j:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO}\]
 obtained using $\overline{\sigma}$ from maps
 \[\overline{M}'_j:(\s\End_{S\s\OO})^{\otimes j}\to \s\End_{S\s\OO}\]
 defined as
-\[\overline{M}'_j(f_1,\dots,f_j)=\overline{B}_j(M;f_1,\dots, f_j),\]
-where $\overline{B}_j$ denotes the brace map on $\s\End_{S\s\OO}$. A natural question to ask is what relation is there between the $A_\infty$-structure on $S\s\OO$ and the one on $S\s\End_{S\s\OO}$ if any. In \cite{GV} it is claimed that given an operad $\OO$ with an $A_\infty$-multiplication, the map
+\begin{align*}
+&\overline{M}'_j(f_1,\dots,f_j)=\overline{B}_j(M;f_1,\dots, f_j) & j>1,\\
+&\overline{M}'_1(f)=\overline{B}_1(M;f)-(-1)^{|f|}\overline{B}_1(f;M),
+\end{align*}
+where $\overline{B}_j$ denotes the brace map on $\s\End_{S\s\OO}$.
+
+We define the Hochschild complex as done by Ward in \cite{ward}.
+\begin{defin}
+The Hochschild cochains of a graded module $A$ to be the graded module $S\s\End_A$. In particular, $S\s\End_{S\s\OO}$ is the module of Hochschild cochains of $S\s\OO$.
+\end{defin}
+\begin{remark}
+The functor $S\s$ is called the ``oddification'' of an operad in the literature. %Ward but the whole thesis 
+The reader might find odd to define the Hochschild complex in this way instead of just $\End_A$. The reason is that the operadic suspension provides the necessary signs and the extra shift gives us the appropriate degrees. In addition, this definition allows the extra structure to arise naturally instead of having to define the signs by hand. For instance, if we have an associative multiplication $m_2\in\End_A(2)=\Hom(A^{\otimes 2},A)$, the element $m_2$ would not satisfy the equation $m_2\circ m_2=0$ and thus cannot be used to induce a multiplication on $\End_A$ as we did above.
+\end{remark}
+
+ A natural question to ask is what relation there i between the $A_\infty$-structure on $S\s\OO$ and the one on $S\s\End_{S\s\OO}$. In \cite{GV} it is claimed that given an operad $\OO$ with an $A_\infty$-multiplication, the map
 
 %I'M WRITING THIS BRACE WITH BAR BECAUSE WITHOUT BAR BECAUSE I WILL HAVE TO USE $B$ FOR THE BRACE IN THE ENDORMORPHISM OPERAD (NON OPERADIC-SUSPENDED). A POSSIBILITY TO BE CONSISTENT IS USING THE LETTER B FOR NON-SUSPENDED OPERADS AND BAR B FOR SUSPENDED OPERADS, INTRODUCING THE BAR WHEN IT IS THE ENDOMORPHISM OF ANOTHER OPERAD
 \begin{align*}
@@ -119,6 +142,10 @@ S\s\OO\arrow[rr, "\Phi"]\arrow[d] & & S\s\End_{S\s\OO}\\
 \end{tikzcd}
 \]
 where the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\sigma}$. Note that the degree of the map $\Phi$ is zero.
+
+\begin{remark}
+Notice that we have only used the operadic structure on $\s\OO$ to define an $A_\infty$-algebra structure on $S\s\OO$, so the constructions and results in these sections are valid if we replace $\s\OO$ by any graded module $A$ such that $SA$ is an $A_\infty$-algebra. 
+\end{remark}
 
 \begin{thm}\label{theorem}
 The map $\Phi$ defined above is a morphism of $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
@@ -154,26 +181,26 @@ is defined by
 \end{align*}
  where $B_j$ is the natural brace structure map on the operad $\End_{\s\OO}$, i.e. 
 \[B_j(f;f_1,\dots, f_j)=\sum_{k_0+\cdots+k_j=a(f)-j} f(1^{\otimes k_0}\otimes f_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes f_j\otimes 1^{\otimes k_j}).\]
- In the above definition, $|f|$ denotes the degree of $f$ as an element of $\End_{\s\OO}$, and the $1$'s in the brace structure are identity maps. %the degree as a map sO^n\to sO, which is computed by evaluating and computing arity +degree-1
+ The $1$'s in the brace structure are identity maps. In the above definition, $|f|$ denotes the degree of $f$ as an element of $\End_{\s\OO}$, which is the same as the degree $\overline{\sigma}(f)\in \s\End_{S\s\OO}$ because $\overline{\sigma}$ is an isomorphism.  %the degree as a map sO^n\to sO, which is computed by evaluating and computing arity +degree-1
  \subsection{Commutativity of the right blue square}
- Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and $M=\overline{\sigma}(M')$. Then we have 
+ Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and $M=\overline{\sigma}(M')$. Then we have for $j>1$
  
  \[\overline{M}'_j(\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(M;\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j)).\]
  Now, since the brace structure is defined as an operadic composition, it commutes with $\overline{\sigma}$, so
  
  \[\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{\sigma}(B_j(M';f_1,\dots, f_j))=\overline{\sigma}(\mathcal{M}_j(f_1,\dots, f_j)),\]
- and therefore the right blue square commutes.
+ and therefore the right blue square commutes for $j>1$. For $j=1$ the result follows analogously taking into account that the degree of $f$ in $\End_{\s\OO}$ is the same as the degree of $\overline{\sigma}(f)$ in $\s\End_{S\s\OO}$.
  
- The proof that the left blue square commutes consists of several lenghty calculations so we are going to devote the next section to that. However, it is worth noting that the commutativity of the left square does not depend on the particular operad $\s\OO$, so it is actually valid for any operad $\OO$ with an $A_\infty$-multiplication $m$ such that $m\circ m=0$. This is essentialy the original statement in \cite{GV}.
-\end{proof}
+ 
+
 %BEING A MORPHISM OF AINFTY FORCES THE DEGREE OF THE MAP TO BE ZERO BECAUSE ONE SIDE HAS DEGREE 2-J+DEG AND THE OTHER SIDE HAS 2-J+J(DEG), SO DEG=0
 
 %$\Phi^j$ SHOULD BE DEFINED USING $(S^{-1})^j$ INSTEAD OF THE INVERSE OF THE TENSOR, BUT THE EXTRA SIGN CANCELS BECAUSE THIS MAP IS USED TWO TIMES. IN ADDITION I NEED THE INVERSE OF THE TENSOR TO DEFINE THE AINFTY MAPS
 
 %PART OF THE PROOF CAN BE SEEN AS SHOWING EXACTLY WHAT THEY SAID (IT DOESN'T DEPEND ON THE PARTICULAR OPERAD AS LONG AS THE BRACE STRUCTURE IS THE NATURAL ONE ON THAT OPERAD), SO TELL IT MAYBE DURING THE PROOF. THE PROOF IS QUITE LONG, IT PROBABLY DESERVES ITS OWN SECTION, OR MAYBE INDICATING THAT THE CALCULATIONS FOR THE FIRST HALF OF DIAGRAM ARE IN ANOTHER SECTION
-\begin{remark}
-Notice that we have only used the operadic structure on $\s\OO$ to define an $A_\infty$-algebra structure on $S\s\OO$, so the constructions on this sections are valid if we replace $\s\OO$ by any graded module $A$ such that $SA$ is an $A_\infty$-algebra. 
-\end{remark}
+
+
+The proof that the left blue square commutes consists of several lenghty calculations so we are going to devote the next section to that. However, it is worth noting that the commutativity of the left square does not depend on the particular operad $\s\OO$, so it is actually valid for any operad $\OO$ with an $A_\infty$-multiplication $m$ such that $m\circ m=0$. This is essentialy the original statement in \cite{GV}.
 \subsection{Commutativity of the left blue square}
 We are going to show here left blue square in the diagram of the proof of Theorem \ref{theorem} commutes, i.e. that 
 
@@ -189,7 +216,7 @@ for all $j\geq 1$. First we prove the case $j>1$. Let $x_1,\dots, x_j\in \s\OO^{
 \Phi'(M'_j(x_1,\dots, x_j))=&\Phi'(b_j(m;x_1,\dots, x_j))=\sum_{n\geq 0} b_n(b_j(m;x_1,\dots, x_j);-)=\\
 &\sum_n\sum_l\sum b_l(m; -, b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)
 \end{align*}
-where $l=n-(i_1+\cdots+i_j)+j$. Note that $l\geq j$. Evaluating the above map on elements would yield Koszul signs coming from the brace relation. Also recall that $|b_j(x;-)|=|x|$. Now, fix some value of $l$ and let us compute
+where $l=n-(i_1+\cdots+i_j)+j$ and the sum with no subindex runs over all the possible order-preserving insertions. Note that $l\geq j$. Evaluating the above map on elements would yield Koszul signs coming from the brace relation. Also recall that $|b_j(x;-)|=|x|$. Now, fix some value of $l\geq j$ and let us compute
 
 \begin{align*}
 \mathcal{M}_j(\Phi'(x_1),\dots, \Phi'(x_j))=B_j(M';\Phi'(x_1),\dots, \Phi'(x_j))
@@ -202,7 +229,7 @@ but focus on the $M'_l$ component, i.e. on $B_j(M'_l;\Phi'(x_1),\dots, \Phi'(x_j
 &\sum_{i_1,\dots, i_j}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)
 \end{align*}
 
-We are using hyphens instead of $1$'s to make the equality of both sides of the equation \ref{commutative} more apparent, and to make clear that when evaluating on elements those are the places where the elements go. In this case, evaluating yields the same signs as in the other side of the equation. 
+We are using hyphens instead of $1$'s to make the equality of both sides of the equation \ref{commutative} more apparent, and to make clear that when evaluating on elements those are the places where the elements go. %In this case, evaluating yields the same signs as in the other side of the equation. 
 
 For each tuple $(i_1,\dots, i_j)$ we can choose $n$ such that $n-(i_1+\cdots+i_j)+j=l$, so the above sum equals
 
@@ -211,7 +238,7 @@ $$\underset{n-(i_1+\cdots+i_j)+j=l}{\sum_{n,i_1,\dots, i_j}}\sum b_l(m;-,b_{i_1}
 So each $M'_l$ component for $l\geq j$ produces precisely the terms $b_l(m;\dots)$ appearing in $\Phi'(M'_j)$. In addition, for every $n\geq 0$ there exists some tuple $(i_1,\dots, i_j)$ and some $l\geq j$ such that $n$ is the that $n-(i_1+\cdots+i_j)+j=l$, so we do get all the summands from the left hand side of the equation \ref{commutative}, and thus we have the equality $\Phi'(M'_j)=\mathcal{M}_j((\Phi')^{\otimes j})$ for all $j>1$.
 
 It is worth treating the case $n=0$ separately since in that case we have the summand \[b_0(b_j(m;x_1,\dots, x_j))\] 
-in $\Phi'(b_j(m;x_1,\dots, x_j))$, where we cannot apply the brace relation. This map equals \[B_j(M'_j;b_0(x_1),\dots, b_0(x_j))=M'_j(b_0(x_1),\dots, b_0(x_j))=b_j(m;b_0(x_1),\dots, b_0(x_j)),\] since by definition $b_0(x)=x$.% We obtained this map from $\overline{M}_1(\Phi(x))$. To see that the two maps are actually equal, apply them to $1\in k$ to output $b_1(m;x)$ in both cases. %Notice that the terms that $b_1(M_i;x)$ produces for $i>1$ appear using the brace relation in $b_k(b_1(m;x);-)$ when $k>0$, more precisely, in the summand $b_k(b_1(m_i;x);-)$. 
+in $\Phi'(b_j(m;x_1,\dots, x_j))$, where we cannot apply the brace relation. This summand is equal to \[B_j(M'_j;b_0(x_1),\dots, b_0(x_j))=M'_j(b_0(x_1),\dots, b_0(x_j))=b_j(m;b_0(x_1),\dots, b_0(x_j)),\] since by definition $b_0(x)=x$.% We obtained this map from $\overline{M}_1(\Phi(x))$. To see that the two maps are actually equal, apply them to $1\in k$ to output $b_1(m;x)$ in both cases. %Notice that the terms that $b_1(M_i;x)$ produces for $i>1$ appear using the brace relation in $b_k(b_1(m;x);-)$ when $k>0$, more precisely, in the summand $b_k(b_1(m_i;x);-)$. 
 
 Now we are going to show that 
 
@@ -265,59 +292,62 @@ And now, let us study the insertions in $x$ that appear in equation \ref{case1}.
 
 \[-(-1)^{|x|}\Phi'(b_1(x;m))=-(-1)^{|x|}\sum_n b_n(b_1(x;m);-).\]
 
-We are going to need to evaluate each of these terms,  so let $z_1,\dots, z_n\in \s\OO$. We have by the brace relation that
+We are going to need to evaluate each of these terms omitting the sign $-(-1)^{|x|}$,  so let $z_1,\dots, z_n\in \s\OO$. We have by the brace relation that
 
 \begin{align}\label{insertionx1}
 b_n(b_1(x;m);z_1,\dots, z_n)&=\\
  \sum_{l+j=n+1}\sum_{i=1}^{n-j+1}(-1)^{\varepsilon} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_n)&+\sum_{i=1}^{n+1}(-1)^{\varepsilon}b_{n+1}(x;z_1,\dots, z_{i-1},m,z_i,\dots, z_n),\nonumber
 \end{align}
 
-where $\varepsilon$ is the usual Koszul sign with respect to the grading in $\s\OO$. We have to check that the insertions in $x$ that appear in $\mathcal{M}_1(\Phi'(x))$ (the right hand side of the equation \ref{case1}) are exactly those in the equation above (that correspond to the left hand side).
+where $\varepsilon$ is the usual Koszul sign with respect to the grading in $\s\OO$. We have to check that the insertions in $x$ that appear in $\mathcal{M}_1(\Phi'(x))$ (the right hand side of the equation \ref{case1}) are exactly those in the equation \ref{insertionx1} above (that correspond to the left hand side of equation \ref{case1}).
 
 From $\mathcal{M}_1(\Phi'(x))=B_1(M';\Phi'(x))-(-1)^{|x|}B_1(\Phi'(x);M')$ (equation \ref{mphi}) we have 
 \[-(-1)^{|x|}b_1(\Phi'(x);m)=-(-1)^{|x|}\sum_n b_1(b_n(x;-);m)\] 
 coming from the first summand since $B_1(M'_1;\Phi'(x))=M'_1(\Phi'(x))$ and we are interested now only on insertions in $x$.
 
-Each component can be evaluated on $(z_1,\dots, z_n)$ to produce
+Each component can be evaluated on $(z_1,\dots, z_n)$ omitting the sign $-(-1)^{|x|}$ to produce
 
 \begin{align}\label{insertionx2}
 b_1(b_n(x;z_1, \dots, z_n);m)&=\\
 \sum_{i=1}^n (-1)^{\varepsilon+|z_i|}b_n(x;z_1,\dots, b_1(z_i;m),\dots, z_n)&+\sum_{i=1}^{n+1} (-1)^{\varepsilon}b_{n+1}(x;z_1,\dots, z_{i-1},m,z_{i},\dots, z_n)\nonumber
 \end{align}
 
-Note that we have to apply the Koszul sign rule twice: once at evaluation, and once more to apply the brace relation. The second sum is already the same as the second sum that we found earlier in equation \ref{insertionx1}, so from now on we only need to use the first sum of the equation above. Now, from the second summand of $\mathcal{M}_1(\Phi'(x))$ in the right hand side of equation \ref{mphi}
+Note that we have to apply the Koszul sign rule twice: once at evaluation, and once more to apply the brace relation. The second sum in equationn \ref{insertionx2} is the same as the second sum in equation \ref{insertionx1}, so from now on we only need to use the first sum of the equation \ref{insertionx2}. Now, from the second summand of $\mathcal{M}_1(\Phi'(x))$ in the right hand side of equation \ref{mphi}
 
 \begin{align*}
 -(-1)^{|x|}B_1(\Phi'(x);M')=&-(-1)^{|x|}\sum_l B_1(b_l(x;-);M')=-(-1)^{|x|}\sum_l\sum b_l(x;-,M',-) \\
 =&-(-1)^{|x|}\left(\sum_{j> 1} \sum_l\sum b_l(x;-,b_j(m;-),-)+\sum_l\sum b_l(x;-,b_1(-;m),-)\right).
 \end{align*}
- We are going to evaluate on $(z_1,\dots, z_n)$ to make this map more explicit (leaving out the sign factor $-(-1)^{|x|}$), namely, for each $n$ used in the previous maps, take every combination of $l$ and $j$ such that $l+j-1=n$ and evaluate on $(z_1,\dots, z_n)$ to produce
+ We are going to evaluate on $(z_1,\dots, z_n)$ to make this map more explicit (leaving out the sign factor $-(-1)^{|x|}$). This evaluation gives us the following
  
  \begin{align*}
  \sum_{l+j=n+1}\sum_{i=1}^{n-j+1}(-1)^{\varepsilon} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_n)&-\sum_{i=1}^{n} (-1)^{\varepsilon+|z_i|}b_n(x;z_1,\dots,b_1(z_{i};m),\dots, z_n)
  \end{align*}
-The minus sign comes from the fact that $b_1(z_i;m)$ comes from $M'_1(z_i)$, so we apply the signs in the definition of this map. We can see that the second sum above is the same as the first sum in equation \ref{insertionx2}, so we have now cancelled both sums of that equation (recall that the second sum was already cancelled before).
+The minus sign comes from the fact that $b_1(z_i;m)$ comes from $M'_1(z_i)$, so we apply the signs in the definition of this map. We can see that the second sum above is the same as the first sum in equation \ref{insertionx2}, so we have now cancelled both sums of that equation (recall that the second sum of equation \ref{insertionx2} was already cancelled before).
  
  So we are left with only the first sum of the last expression which is the same as the first sum in equation \ref{insertionx1}, so we have already checked that the equation $\Phi'(M'_1)=\mathcal{M}_1(\Phi')$ holds. 
   
  In the case $n=0$, we have to note that $B_1(b_0(x);m)$ vanishes because of arity reasons: $b_0(x)$ is a map of arity 0, so we cannot insert any inputs. And this finishes the proof.
+ \end{proof}
 %\appendix
 %\renewcommand{\appendixname}{Appendix:}
 \begin{appendices}
 \appendix
 \gdef\thesection{Appendix \Alph{section}}
-\section{Explicit $A_\infty$-maps}
- PROBABLY ALSO INCLUDE THE COMPUTATION OF THE AINFTY EQUATION
+\section{Explicit $A_\infty$-maps}\label{sect4}
+% PROBABLY ALSO INCLUDE THE COMPUTATION OF THE AINFTY EQUATION
 
 We have given an implicit definition of the $A_\infty$-maps \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
-but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$. For $x,x_1,\dots,x_n\in\s\OO$, the expression is the following
+but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$.  This explicit formulas will make more clear the connection with the work of Gerstenhaber and Voronov.  We also hope that these explicit expression can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
+
+For $x,x_1,\dots,x_n\in\s\OO$, the expression is the following
 
 \begin{align*}
 &M_n(Sx_1,\dots, Sx_n)=(-1)^{\sum_{i=1}^n(n-i)|x_i|}Sb_n(m;x_1,\dots, x_n) & & n>1\\
 &M_1(Sx)=Sb_1(m;x)-(-1)^{|x|}Sb_1(x;m),
 \end{align*}
 
-where $|x|$ is the degree of $x$ as an element of $\s\OO$. By abuse of notation we may ommit the map $S$ as long as we do not forget what the degrees are. Doing so, it is more clear that in the associative case ($m=m_2$), there is a connection with the maps used in \cite{GV} to define a dg-algebra structure on an algebra over an operad with an associative multiplication $m=m_2$. In \cite{GV}, they define $x\cdot y=(-1)^{|x|+1}b_2(m;x,y)$, which is just $-M_2(x,y)$. The minus sign does not affect the associativity and differential relations, and happens because of a different choice of convention in the shift of a tensor product. More pricesely, if the map $(S\s\OO)^{\otimes n}\to \s\OO^{\otimes n}$ is chosen to be $(S^{-1})^{\otimes n}$ instead of $(S^{\otimes n})^{-1}$, we obtain the sign in \cite{GV}.
+where $|x|$ is the degree of $x$ as an element of $\s\OO$. 
 
 The derivation of these explicit formulas is done as follows. Let $n>1$ and $x_1,\dots, x_n\in \s\OO$. 
 
@@ -342,10 +372,17 @@ M'_1(x)=b_1(m;x)-(-1)^{|x|}b_1(x;m)
 and that $\overline{\sigma}$ is linear. 
 
 It is possible to show that the maps defined explicitly as we have just done satisfy the $A_\infty$-equation without relying on the fact that $\overline{\sigma}$ is a map of operads, but it is a lengthy and tedious calculation.
-%
-I MIGHT NEED TO DEDUCE THE EXPRESSIONS OF PHI(M1)=M1(PHI) AND SAME WITH M2 TO OBTAIN SOME STRUCTURE ON COHOMOLOGY AS IN GV
 
-THE LEFT BLUE SQUARES IMPLIES G-V EQUATIONS EXCEPT WITH BRACE INSTEAD OF THE PRODUCT (SO UP TO THAT PRECISE SIGN), WITH THE PRODUCTS OTHER SIGNS APPEAR RELATED TO THE BRACES WHICH ARE NOT EXACTLY PHI
+\begin{remark}
+In the case $n=2$, omitting the shift symbols by abuse of notation, we obtain 
+
+\[M_2(x,y)=(-1)^{|x|}b_2(m;x,y).\]
+If we call $M^{GV}_2$ the product defined in \cite{GV} as \[M^{GV}_2=(-1)^{|x|+1}b_2(m;x,y),\] we see that $M_2=-M^{GV}_2$. Since they work in the associative case $m=m_2$, this minus sign does not affect the $A_\infty$-relation (which in this case reduces to the associativity and differential relations). This difference in sign can be explained by the difference between $(S^{\otimes n})^{-1}$ and $(S^{-1})^{\otimes n}$, since any of them can be used to define a map $(S\s\OO)^{\otimes n}\to \s\OO^{\otimes n}$. 
+\end{remark}
+%
+%I MIGHT NEED TO DEDUCE THE EXPRESSIONS OF PHI(M1)=M1(PHI) AND SAME WITH M2 TO OBTAIN SOME STRUCTURE ON COHOMOLOGY AS IN GV
+
+%THE LEFT BLUE SQUARES IMPLIES G-V EQUATIONS EXCEPT WITH BRACE INSTEAD OF THE PRODUCT (SO UP TO THAT PRECISE SIGN), WITH THE PRODUCTS OTHER SIGNS APPEAR RELATED TO THE BRACES WHICH ARE NOT EXACTLY PHI
 \end{appendices}
 %\phantomsection
 \bibliographystyle{ieeetr}
