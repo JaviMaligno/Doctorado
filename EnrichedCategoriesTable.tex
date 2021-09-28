@@ -1,0 +1,261 @@
+	\documentclass[twoside]{article}
+\usepackage{estilo-ejercicios}
+\setcounter{section}{0}
+\newtheorem{defin}{Definition}[section]
+\newtheorem{lem}[defin]{Lemma}
+\newtheorem{propo}[defin]{Proposition}
+\newtheorem{thm}[defin]{Theorem}
+\newtheorem{eje}[defin]{Example}
+\newtheorem{obs}[defin]{Observación}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\renewcommand{\baselinestretch}{1,3}
+
+\usepackage{empheq}
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+%--------------------------------------------------------
+\begin{document}
+
+\title{Table of enriched categories}
+\author{Javier Aguilar Martín}
+\maketitle
+
+\section{Summary table}
+Chain means cochain. I may change the distribution to put all underlines together or each category folled by its underlined (enriched) version. Maybe full subcategories (including bounded categories) should go on a different table where I specify the supercategory. Also the alternatively enriched (mathpzc and mathcal font) categories could go on a different table where I specify where they are enriched over. There are several $\delta$ defined depending  on the enrichment used, possibly specify which is one in case it is confusing.
+
+I NEED TO ADD SOME MORE, CHECK LAST DEFINITIONS
+\begin{tabular}{|c|c|c|c}
+\hline
+\textbf{Category} & \textbf{Objects} & \textbf{Morphisms} & Monoidal structure?\\
+\hline
+$\mathrm{C}_R$ & Chain complexes & Maps complexes &\\
+\hline
+$\mathrm{fC}_R$ & Filtered complexes & Maps of filtered complexes &\\
+\hline
+$\mathrm{bgMod}_R$ & Bigraded modules & Maps of bidegree $(0,0)$&\\
+\hline
+$\mathrm{vbC}_R$ & Vertical bicomplexes & Maps of bigraded modules & \\
+                 &                      & that commute with differential & \\ 
+\hline
+$\underline{\mathrm{C}_R}$ & Chain complexes & Maps of chain complexes &\\
+                           &                 & with differential $\delta$&\\
+\hline
+$\underline{\mathrm{bgMod}_R}$ & Bigraded modules & Maps of any bidegree & \\
+& & &\\
+\hline
+$\underline{\mathrm{vbC}_R}$ & Vertical bicomplexes & Maps of any bidegree &\\
+                             &                      & with differential $\delta$&\\
+\hline
+$\mathrm{tC}_R$& Twisted complexes & Maps of twisted complexes & \\
+\hline
+$\underline{\mathrm{tC}_R}$ & Twisted complexes & Maps of twisted complexes & \\
+& & with differentials $d_i$&\\
+\hline
+$\mathrm{sfC}_R$ & Split filtered complexes & Maps of filtered complexes & \\
+\hline
+$\underline{\mathpzc{bgMod}_R}$ & Bigraded modules & Weird enrichment (bgMod)&\\
+& & &\\
+\hline
+$\underline{t\mathcal{C}_R}$& Twisted complexes & Weird enrichment &\\
+& & with differential (vbC) & \\
+\end{tabular}
+
+Bonus: $\mathrm{bgMod}^\infty_R$ is the full subcategory of $\mathrm{tC}_R$ whose objects have $d_m=0$ for all $m$.
+
+Maybe leave the split one as a bonus as well. 
+
+Definitionn 3.10 for bounded subcategories. 
+
+Diagram before section 3.3 can be useful
+
+Endomorphism operad?
+
+If I find some notation confusing because the same is used for different things I may use other notations at some point.
+\section{Definitions}
+
+Create a custom ennviroment to use the numbering of Sarah's paper for better identification \url{https://tex.stackexchange.com/questions/53978/custom-theorem-numbering}
+\begin{defin}[Filtered $R$-module and morphisms]
+A \emph{filtered $R$-module} $(A, F)$ is given by a family of $R$-modules $\{F_pA\}_{p∈\Z}$ indexed by the integers such that $F_{p−1}A ⊆ F_pA$ for all $p ∈ \Z$ and $A = ∪F_pA$. A morphism of filtered modules is a
+morphism $f : A → B$ of $R$-modules which is compatible with filtrations: \[f(F_pA) ⊂ F_pB\text{ for all }p ∈ \Z.\]
+\end{defin}
+
+\begin{defin}[Filtered complexes and morphism]
+A \emph{filtered complex} $(K, d, F)$ is a complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. Its morphisms are given by
+morphisms of complexes $f : K → L$ compatible with filtrations: \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
+\end{defin}
+
+Tensor product?
+
+\begin{defin}[Vertical bicomplexes and morphisms]
+A \emph{vertical bicomplex} is a bigraded $R$-module $A$ equipped with a vertical differential $d_A : A → A$ of bidegree $(0, 1)$. A morphism of vertical bicomplexes is a morphism of bigraded modules
+of bidegree $(0, 0)$ commuting with the vertical differential.
+\end{defin}
+Tensor product?
+
+\begin{defin}[Enrichment over themselves]
+Let $A,B$ be bigraded modules. We define $[A,B]^∗_∗$
+to be the bigraded module of morphisms of bigraded modules $A → B$. Furthermore, if $A,B$ are vertical bicomplexes, and $f ∈
+[A,B]^v_u$, we define
+\[δ(f) := d_Bf − (−1)^vfd_A.\]
+\end{defin}
+
+\begin{defin}[Twisted complexes] A \emph{twisted complex} $(A, d_m)$ is a bigraded $R$-module $A = \{A^j_i \}$ together with a family
+of morphisms $\{d_m : A → A\}_{m≥0}$ of bidegree $(−m,−m + 1)$ such that for all $m ≥ 0$,
+\[\sum_{i+j=m}(−1)^id_id_j = 0.\]
+\end{defin}
+
+\begin{defin}[Morphisms of twisted complexes]
+A morphism of twisted complexes $f : (A, d^A_m) → (B, d^B_m)$ is given by a family of morphisms of $R$-modules $\{f_m : A → B\}_{m≥0}$ of bidegree $(−m,−m)$ such that for all $m ≥ 0$,
+\[\sum_{i+j=m}d^B_if_j =\sum_{i+j=m}(−1)^if_id^A_j.\]
+The composition of morphisms is given by $(g \circ f)_m :=\sum_{i+j=m} g_if_j$.
+\end{defin}
+
+Tensor product?
+
+This is actually a lemma but I don't care
+\begin{defin}[Enrichment over twisted complexes] Let $A,B$ be twisted complexes. For $f ∈ [A,B]^v_u$, setting
+\[(d_if) := (−1)^{i(u+v)}d^B_if − (−1)^vfd^A_i,\]
+for $i ≥ 0$, endows $[A,B]^∗_∗$ with the structure of a twisted complex.
+\end{defin}
+
+I will probably use direct sum totalization, whih has a specific notation and name in the paper, but I think the results for this totalization applies to the direct sum version (totalization with compact support).
+
+\begin{defin}[Totalization and column filtration]
+The total graded $R$-module $\mathrm{Tot}(A)$ of a bigraded $R$-module $A =\{A^j_i \}$ is given by
+\[\mathrm{Tot}(A)^n :=\prod_{i≤0}A^{n+i}_i ⊕\bigoplus_{i>0}A^{n+i}_i .\]
+The \emph{column filtration} of $\mathrm{Tot}(A)$ is the filtration given by \[F_p\mathrm{Tot}(A)^n :=\prod_{i≤p} A^{n+i}_i\text{ for all }p, n ∈ \Z.\]
+\end{defin}
+
+This one comes much later but I prefer it to be here. It is possible to omit the filtration (but would have to check what consequences it has).
+\begin{defin}
+The \emph{totalization with compact support} of a vertical bicomplex $A$ is the filtered complex given by
+\[\mathrm{Tot}_c(A)^n :=\sum_{i∈\Z}A^{n+i}_i\]
+with the column filtration and with differential as for the totalization functor.
+
+Given a morphism of vertical bicomplexes $f : A → B$ we get a morphism of filtered complexes $\mathrm{Tot}_c(f) : Tot_c(A) → Tot_c(B)$
+constructed analogously to $\mathrm{Tot}(f)$.
+\end{defin}
+
+\begin{defin}[Split (filtered) complexes]
+A filtered complex $(K, d, F)$ is said to be \emph{split} if $K = \mathrm{Tot}(A)$ is the total graded module of a bigraded $R$-module $A = \{A^j_i \}$ and $F$ is the column filtration of $\mathrm{Tot}(A)$.
+\end{defin}
+
+\begin{defin}[Weird enrichment]
+Let $A,B,C$ be bigraded modules. We denote by $\underline{\mathpzc{bgMod}_R}(A,B)$ the bigraded module given by
+\[\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u−j}\]
+where $[A,B]$ is the inner hom-object of bigraded modules. More precisely, $g ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ is given
+by $g := (g_0, g_1, g_2, \dots )$, where $g_j : A → B$ is a map of bigraded modules of bidegree $(u − j, v − j)$.
+
+Moreover, we define a composition morphism
+\[c : \underline{\mathpzc{bgMod}_R}(B,C) ⊗ \underline{\mathpzc{bgMod}_R}(A,B) → \underline{\mathpzc{bgMod}_R}(A,C)\]
+by
+\[c(f, g)_m :=\sum_{i+j=m}(−1)^{i|g|}f_ig_j .\]
+\end{defin}
+Try to find a conceptual explanation of the sign in the above composition map.
+
+\begin{defin}
+Let $(A, d^A_i), (B, d^B_i)$ be twisted complexes, $f ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ and consider $d^A :=(d^A_i)_i ∈ \underline{\mathpzc{bgMod}_R}(A,A)^1_0$
+and $d^B := (d^B_i)_i ∈ \underline{\mathpzc{bgMod}_R}(B,B)^1_0$. We define
+\[δ(f) := c(d^B, f) − (−1)^{\langle f,d^A\rangle}c(f, d^A) ∈ \underline{\mathpzc{bgMod}_R}(A,B)^{v+1}_u\]
+where $\langle f, d^A\rangle$ is the scalar product for the bidegrees and $c$ is the composition morphism described in Definition 3.32. More precisely,
+\[(δ(f))_m :=\sum_{i+j=m}(−1)^{i|f|}d^B_if_j − (−1)^{v+i}f_id^A_j.\]
+\end{defin}
+Lemma 4.18? (in results obvsly)
+\begin{defin}[Twisted complex weird enrichment]
+For $A,B$ twisted complexes, we define $\underline{t\mathcal{C}_R}(A,B)$ to be the vertical bicomplex
+$\underline{t\mathcal{C}_R}(A,B) := (\underline{\mathpzc{bgMod}_R}(A,B), δ)$.
+\end{defin}
+
+Definition 4.23
+\begin{defin}
+The $\vbc$-enriched category of twisted complexes $\utC$ is the enriched category given by the following data.
+\begin{enumerate}[(1)]
+\item The objects of $\utC$ are twisted complexes.
+\item For $A,B$ twisted complexes the hom-object is the vertical bicomplex $\utC(A,B)$.
+\item The composition morphism $c : \utC(B,C)⊗\utC(A,B) → \utC(A,C)$ is given by Definition 3.32.
+\item The unit morphism $R → \utC(A,A)$ is given by the morphism of vertical bicomplexes sending
+$1 ∈ R$ to $1_A : A → A$, the strict morphism of twisted complexes given by the identity of $A$.
+\end{enumerate}
+\end{defin}
+
+Definition 4.24
+\begin{defin}
+We denote by $\ubgMod$ the $\bgmod$-enriched category of bigraded modules given
+by the following data.
+
+\begin{enumerate}[(1)]
+\item The objects of $\ubgMod$ are bigraded modules.
+\item For $A,B$ bigraded modules the hom-object is the bigraded module $\ubgMod(A,B)$.
+\item The composition morphism $c : \ubgMod(B,C) ⊗ \ubgMod(A,B) → \ubgMod(A,C)$ is given by
+Definition 3.32.
+\item The unit morphism $R → \ubgMod(A,A)$ is given by the morphism of bigraded modules that
+sends $1 ∈ R$ to $1_A : A → A$, the strict morphism given by the identity of $A$.
+\end{enumerate}
+\end{defin}
+
+Tensor product? (Lemma 4.27) Find a concetual explanation for that tensor product or at least see why it is necessary to satisfy the axioms of monoidal category.
+
+Definition 4.28
+
+\begin{defin}
+The $\bgmod$-enriched category of filtered modules $\ufMod$ is the enriched category
+given by the following data.
+\begin{enumerate}[(1)]
+\item The objects of $\ufMod$ are filtered modules.
+\item For filtered modules $(K, F)$ and $(L, F)$, the bigraded module $\ufMod(K,L)$ is given by
+\[\ufMod(K,L)^v_u :=\{f : K → L\mid f(F_qK^m) ⊂ F_{q+u}L^{m+v−u}, ∀m, q ∈ \Z\}.\]
+\item The composition morphism is given by $c(f, g) = (−1)^{u|g|}fg$, where $f$ has bidegree $(u, v)$.
+\item The unit morphism is given by the map $R → \ufMod(K,K)$ given by $1 → 1_K$.
+\end{enumerate}
+\end{defin}
+
+Definition 4.31
+\begin{defin}
+Let $(K, d^K, F)$ and $(L, d^L, F)$ be filtered complexes. We define $\ufC(K,L)$ to be the
+vertical bicomplex whose underlying bigraded module is $\ufMod(K,L)$ with vertical differential
+\[δ(f) := c(d^L, f) − (−1)^{\langle f,d^K\rangle}c(f, d^K) = d^Lf − (−1)^{v+u}fd^K = d^Lf − (−1)^{|f|}fd^K\]
+for $f ∈ \ufMod(K,L)^v_u$. Composition from $\ufMod$.
+\end{defin}
+
+Definition 4.33
+\begin{defin}
+The $\vbc$-enriched category of filtered complexes $\ufC$ is the enriched category given
+by the following data.
+\begin{enumerate}[(1)]
+\item The objects of fCR are filtered complexes.
+\item For $K,L$ filtered complexes the hom-object is the vertical bicomplex $\ufC(K,L)$.
+\item The composition morphism is given as in $\ufMod$ in Definition 4.28.
+\item The unit morphism is given by the map $R → \ufC(K,K)$ given by $1 → 1_K$.
+We denote by $\usfC$ the full subcategory of $\ufC$ whose objects are split filtered complexes.
+
+\end{enumerate}
+\end{defin}
+
+Tensor producct? (Lemma 4.36) Again see how the signs do their job
+
+Definition 4.38, here Tot is probably the one that comes with column filtration, so recall that (It wouldn't hurt to filter my modules with the column filtration)
+
+Definition 4.42 for the weird End (Example 4.44 as well)
+
+Definitionn 4.49 for Ainfty morphism of twisted complexes. Later, before 4.50 they say Ainfty algebra in twisted complex, I understand this means the Ainfty multiplications are morphisms in the category, but exactly which one (like, some enrichment, the same as in def 4.49?)
+
+NEXT SECTION 4.6, IT STARTS WITH THE ASSERTION OF AN ISOMORPHISM THAT I HAVE TO FIND OR CHECK
+\section{Results}
+If the results need previous definitions or results that I haven't included, indicate it and add them (even if they're above it might be useful to refer to the definitions)
+
+
+Theorem 3.8 with the previous definitions of Tot and d on morphisms
+
+Theorem 3.11, remark that forgetting about the filtration the result is still true
+
+Lemma 4.37, maybe the filtratioon can be omitted as in Theorem 3.11. This one needs Proposition 3.11 but also some theory that I have skipped for now
+
+Theorem 4.39, checking this proof might shed some light onto why we need filtrations to extend Tot to any bidegree
+
+Proposition 4.46 which uses the categorical machinery, I would like to know how the enriched functor things works for instance if we are working with twisted complexes (so that the weird End is as in Example 4.44)
+
+Propositioon 4.47. A very important one that I have checed before, but may check again in more detail after understanding monoidal structures. Should clear what $\mathrm{End}_A$ is in this theorem. Since it is in $\vbc$ it should come with some of the enrichment (the one giving it a vertical diferential), that should be more clear
+
+Theorem 4.50? May be useful
+
+NEXT SECTION 4.6, IT STARTS WITH THE ASSERTION OF AN ISOMORPHISM THAT I HAVE TO FIND OR CHECK
+\end{document}

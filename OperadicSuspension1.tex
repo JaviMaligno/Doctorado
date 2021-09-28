@@ -60,7 +60,10 @@ The text is organized as follows. In Section \ref{Sec1} we recall some basic def
 We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions.
 
 Our base category is the category of graded $R$-modules and graded maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $a\in A^i$ we write $\deg(a)=i$. The $R$-modules $\Hom_R(A^{\otimes n},A)$ are naturally graded by $\Hom_R(A^{\otimes n},A)^i=\prod_k\Hom_R((A^{\otimes n})^k,A^{k+i})$ %NOT SURE IF SUM OR PROD %I think it's prod because it's all homomorphisms that raise the degree by i
-SHIFT OR SUSPENSION  OPERATION (MAYBE AS A FUNCTOR) POSSIBLY CONNECT WITH THE DEFINITION OF AINFTY ALGEBRA SAYING THAT EQUIVALENTY AN EQUATION  WITHOUT SIGNS ON SUSPENSION (MAYBE REFERENCE TO KELLER)
+
+\begin{defin}
+For a graded $R$-module $A$ we consider the \emph{shift} or \emph{suspension} $SA$ for which $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
+\end{defin}
 \begin{defin}
 An $A_\infty$-algebra is a graded $R$-module $A$ together with maps $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying for all $n\geq 1$ the equation
 
@@ -68,7 +71,7 @@ An $A_\infty$-algebra is a graded $R$-module $A$ together with maps $m_n:A^{\oti
 \sum_{r+s+t=n}(-1)^{rs+t}m_{r+t+1}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t})=0.
 \end{equation}
 \end{defin}
-
+%This is equivalent to define it on SA without signs,  but there's not need to point that out here and it also depends on the convention of S^n^{-1}
 The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. 
 
 \begin{defin}\label{inftymorphism}
