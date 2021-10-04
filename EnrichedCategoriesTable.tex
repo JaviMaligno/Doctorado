@@ -12,6 +12,9 @@
 
 \usepackage{empheq}
 \newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+\usepackage{cleveref}
+
+\crefname{defin}{Definition}{definition}
 %--------------------------------------------------------
 \begin{document}
 
@@ -20,21 +23,22 @@
 \maketitle
 
 \section{Summary table}
-Chain means cochain. I may change the distribution to put all underlines together or each category folled by its underlined (enriched) version. Maybe full subcategories (including bounded categories) should go on a different table where I specify the supercategory. Also the alternatively enriched (mathpzc and mathcal font) categories could go on a different table where I specify where they are enriched over. There are several $\delta$ defined depending  on the enrichment used, possibly specify which is one in case it is confusing.
+I may change the distribution to put all underlines together or each category folled by its underlined (enriched) version. Maybe full subcategories (including bounded categories) should go on a different table where I specify the supercategory. Also the alternatively enriched (mathpzc and mathcal font) categories could go on a different table where I specify where they are enriched over. There are several $\delta$ defined depending  on the enrichment used, possibly specify (writing the number of the definition, actually do this for all of them even if they are not repeated) which is one in case it is confusing.
 
-I NEED TO ADD SOME MORE, CHECK LAST DEFINITIONS
-\begin{tabular}{|c|c|c|c}
+
+\begin{tabular}{|c|c|c|c|}
 \hline
-\textbf{Category} & \textbf{Objects} & \textbf{Morphisms} & Monoidal structure?\\
+\textbf{Category} & \textbf{Objects} & \textbf{Morphisms} & \textbf{Monoidal structure}\\
 \hline
-$\mathrm{C}_R$ & Chain complexes & Maps complexes &\\
+$\mathrm{C}_R$ & Cochain complexes & Maps complexes & The usual one\\
 \hline
-$\mathrm{fC}_R$ & Filtered complexes & Maps of filtered complexes &\\
+$\mathrm{fC}_R$ & Filtered complexes & Maps of filtered complexes & $\Ima(F_iA ⊗ F_jB → A ⊗ B)$ \\
+(\cref{filteredcomplex}) & & &(\cref{filteredtensor}) \\
 \hline
-$\mathrm{bgMod}_R$ & Bigraded modules & Maps of bidegree $(0,0)$&\\
+$\mathrm{bgMod}_R$ & Bigraded modules & Maps of bidegree $(0,0)$& $(A ⊗ B)^j_i :=\bigoplus_{p,q}A^q_p ⊗ B^{j−q}_{i−p}$\\
 \hline
-$\mathrm{vbC}_R$ & Vertical bicomplexes & Maps of bigraded modules & \\
-                 &                      & that commute with differential & \\ 
+$\mathrm{vbC}_R$ & Vertical bicomplexes & Maps of bigraded modules& As in $\bgmod$  \\
+        (\cref{vbC})         &                      & that commute with differential & and usual differential\\ 
 \hline
 $\underline{\mathrm{C}_R}$ & Chain complexes & Maps of chain complexes &\\
                            &                 & with differential $\delta$&\\
@@ -57,6 +61,14 @@ $\underline{\mathpzc{bgMod}_R}$ & Bigraded modules & Weird enrichment (bgMod)&\\
 \hline
 $\underline{t\mathcal{C}_R}$& Twisted complexes & Weird enrichment &\\
 & & with differential (vbC) & \\
+\hline
+$\ufMod$ & Filtered modules & Bigraded module $\ufMod(K,L)$ & \\
+& & & \\
+\hline
+$\ufC$ & Filtered complexes & Vertical bicomplex $\ufC(K,L)$ & \\
+ & &  & \\
+ \hline
+ $\usfC$ & Split filtered complex & Same as $\ufC$ & \\
 \end{tabular}
 
 Bonus: $\mathrm{bgMod}^\infty_R$ is the full subcategory of $\mathrm{tC}_R$ whose objects have $d_m=0$ for all $m$.
@@ -73,19 +85,29 @@ If I find some notation confusing because the same is used for different things 
 \section{Definitions}
 
 Create a custom ennviroment to use the numbering of Sarah's paper for better identification \url{https://tex.stackexchange.com/questions/53978/custom-theorem-numbering}
+
+Definition 2.2
 \begin{defin}[Filtered $R$-module and morphisms]
 A \emph{filtered $R$-module} $(A, F)$ is given by a family of $R$-modules $\{F_pA\}_{p∈\Z}$ indexed by the integers such that $F_{p−1}A ⊆ F_pA$ for all $p ∈ \Z$ and $A = ∪F_pA$. A morphism of filtered modules is a
 morphism $f : A → B$ of $R$-modules which is compatible with filtrations: \[f(F_pA) ⊂ F_pB\text{ for all }p ∈ \Z.\]
 \end{defin}
 
-\begin{defin}[Filtered complexes and morphism]
+Definitions 2.4 and 2.5
+\begin{defin}[Filtered complexes and morphism]\label{filteredcomplex}
 A \emph{filtered complex} $(K, d, F)$ is a complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. Its morphisms are given by
 morphisms of complexes $f : K → L$ compatible with filtrations: \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
 \end{defin}
 
-Tensor product?
+Definition 2.3
+\begin{defin}\label{filteredtensor}
+The tensor product of two filtered $R$-modules $(A, F)$ and $(B, F)$ is a filtered $R$-module,
+with
+ \[F_p(A ⊗ B) :=\sum_{i+j=p}\Ima(F_iA ⊗ F_jB → A ⊗ B).\]
+This makes the category of filtered $R$-modules into a symmetric monoidal category, where the unit is given by $R$ with the trivial filtration $0 = F_{−1}R ⊂ F_0R = R$.
+\end{defin}
 
-\begin{defin}[Vertical bicomplexes and morphisms]
+Definition 2.7
+\begin{defin}[Vertical bicomplexes and morphisms]\label{vbC}
 A \emph{vertical bicomplex} is a bigraded $R$-module $A$ equipped with a vertical differential $d_A : A → A$ of bidegree $(0, 1)$. A morphism of vertical bicomplexes is a morphism of bigraded modules
 of bidegree $(0, 0)$ commuting with the vertical differential.
 \end{defin}
@@ -124,6 +146,8 @@ The total graded $R$-module $\mathrm{Tot}(A)$ of a bigraded $R$-module $A =\{A^j
 \[\mathrm{Tot}(A)^n :=\prod_{i≤0}A^{n+i}_i ⊕\bigoplus_{i>0}A^{n+i}_i .\]
 The \emph{column filtration} of $\mathrm{Tot}(A)$ is the filtration given by \[F_p\mathrm{Tot}(A)^n :=\prod_{i≤p} A^{n+i}_i\text{ for all }p, n ∈ \Z.\]
 \end{defin}
+
+I should include the differential and Tot(f) here
 
 This one comes much later but I prefer it to be here. It is possible to omit the filtration (but would have to check what consequences it has).
 \begin{defin}
@@ -221,9 +245,9 @@ Definition 4.33
 The $\vbc$-enriched category of filtered complexes $\ufC$ is the enriched category given
 by the following data.
 \begin{enumerate}[(1)]
-\item The objects of fCR are filtered complexes.
+\item The objects of $\ufC$ are filtered complexes.
 \item For $K,L$ filtered complexes the hom-object is the vertical bicomplex $\ufC(K,L)$.
-\item The composition morphism is given as in $\ufMod$ in Definition 4.28.
+\item The composition morphism is given as in $\ufMod$ in Definition 4.28 
 \item The unit morphism is given by the map $R → \ufC(K,K)$ given by $1 → 1_K$.
 We denote by $\usfC$ the full subcategory of $\ufC$ whose objects are split filtered complexes.
 
@@ -232,13 +256,13 @@ We denote by $\usfC$ the full subcategory of $\ufC$ whose objects are split filt
 
 Tensor producct? (Lemma 4.36) Again see how the signs do their job
 
-Definition 4.38, here Tot is probably the one that comes with column filtration, so recall that (It wouldn't hurt to filter my modules with the column filtration)
+Definition 4.38, Tot comes with column filtration, so recall that (It wouldn't hurt to filter my modules with the column filtration). It seemed that it can be omitted, but I think Tot being monoidal over a bigradaded category implies that the source and target categories must be enriched accordingly (see also Lemma  4.37)
 
 Definition 4.42 for the weird End (Example 4.44 as well)
 
-Definitionn 4.49 for Ainfty morphism of twisted complexes. Later, before 4.50 they say Ainfty algebra in twisted complex, I understand this means the Ainfty multiplications are morphisms in the category, but exactly which one (like, some enrichment, the same as in def 4.49?)
+Definitionn 4.49 for Ainfty morphism of twisted complexes. Later, before 4.50 they say Ainfty algebra in twisted complex, I understand this means the Ainfty multiplications are morphisms in the category, but exactly which one (like, some enrichment, the same as in def 4.49?) IN THE ENRICHED CATEGORY
 
-NEXT SECTION 4.6, IT STARTS WITH THE ASSERTION OF AN ISOMORPHISM THAT I HAVE TO FIND OR CHECK
+
 \section{Results}
 If the results need previous definitions or results that I haven't included, indicate it and add them (even if they're above it might be useful to refer to the definitions)
 
@@ -251,11 +275,16 @@ Lemma 4.37, maybe the filtratioon can be omitted as in Theorem 3.11. This one ne
 
 Theorem 4.39, checking this proof might shed some light onto why we need filtrations to extend Tot to any bidegree
 
-Proposition 4.46 which uses the categorical machinery, I would like to know how the enriched functor things works for instance if we are working with twisted complexes (so that the weird End is as in Example 4.44)
+Proposition 4.46 which uses the categorical machinery, I would like to know how the enriched functor things works for instance if we are working with twisted complexes (so that the weird End is as in Example 4.44). In the case of totalization, how can you enrich source and target to have the same enrichment whhen Tot always goes from bigraded to graded: $\ufC$ and $\utC$ both are enriched over $\vbc$, thanks to the filtration, since it gives $\ufMod$ (and thus $\ufC$) the extra grading
 
-Propositioon 4.47. A very important one that I have checed before, but may check again in more detail after understanding monoidal structures. Should clear what $\mathrm{End}_A$ is in this theorem. Since it is in $\vbc$ it should come with some of the enrichment (the one giving it a vertical diferential), that should be more clear
+Propositioon 4.47. A very important one that I have checed before, but may check again in more detail after understanding monoidal structures. Should clear what $\mathrm{End}_A$ is in this theorem. Since it is in $\vbc$ it should come with some of the enrichment (the one giving it a vertical diferential), that should be more clear SINCE WE ARE IMPOSING MU GOES TO DA IT DOESNT MATTER
 
 Theorem 4.50? May be useful
 
-NEXT SECTION 4.6, IT STARTS WITH THE ASSERTION OF AN ISOMORPHISM THAT I HAVE TO FIND OR CHECK
+NEXT SECTION 4.6, IT STARTS WITH THE ASSERTION OF AN ISOMORPHISM THAT I HAVE TO FIND OR CHECK (thorem 4.39 even in the non bounded case, but I guess they want strong monoidality here)
+
+Lemma 4.54: the isomorphisms is in the bounded case, but with compact support I think it should always work (go back to the definitions and results used, but I think I did that once and arrived to the same conclusion) TOTALIZATION WITH COMPACT SUPPORT IS NOT USEFUL FOR TWISTED COMPLEXES BEECAUSE IN GENERAR  THERE ARE INFINETLY MANY NONZERO DIFFERENTIALS, SO WHEN DEFINING THE DIFFERENTIAL IN TOTALIZATION IT WOULDNT BE WELL DEFINED
+
+PROPOSITION 4.11 FIRST PART OF THE PROOF IN SOME ESPECIFIC CASE (IDEALLY ONE OF THE PAPER)?
+Regarding the framework, at the begining they say that all the assumptions will hold, but actually they do define external tensor products and the mooidal structures, I understan that this is to check that it actually holds (in addition to show how it holds) Is the hat tensor the same thing as the underlined tensor? YES
 \end{document}
