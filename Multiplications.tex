@@ -19,11 +19,11 @@
 
 \section{Introduction}
 
-In a previous text we defined operadic suspension and used it to define the notion of $A_\infty$-multiplication on an operad. We then defined a brace structure on the operadic suspension of an operad that encapsulated the definition of $A_\infty$-multiplication. We also established the relation between this brace structure and the canonical brace structure given by operadic composition.
+In a previous text we defined operadic suspension and used it to define the notion of $A_\infty$-multiplication on an operad. We then defined a brace structure on the operadic suspension of an operad that encapsulated the definition of $A_\infty$-multiplication. We also established the relation between this brace structure and the canonical brace structure on an operad given by operadic composition.
 
-Once one has an $A_\infty$-multiplication on an operad, it is natural to ask whether this multiplication induces an $A_\infty$-algebra structure on the operad. In Section \ref{sect2} we use the aforementioned brace structure to define $A_\infty$-maps on a shifted version of the operadic suspension. We then iterate this process in Section \ref{sect3} to define $A_\infty$-maps on the Hochschild complex of an operad with $A_\infty$-multiplication. This iteration process was inspired by the work of Getzler in \cite{getzler}.
+Once one has an $A_\infty$-multiplication on an operad, it is natural to ask whether this multiplication induces an $A_\infty$-algebra structure on the operad, i.e if $\OO$ is an operad with an $A_\infty$-multiplication $m\in\OO$, are there linear maps $M_j:\OO^{\otimes j}\to \OO$ satisfying the $A_\infty$-algebra axioms? In Section \ref{sect2} we use the aforementioned brace structure to define such linear maps on a shifted version of the operadic suspension. We then iterate this process in Section \ref{sect3} to define an $A_\infty$-structure on the Hochschild complex of an operad with $A_\infty$-multiplication. This iteration process was inspired by the work of Getzler in \cite{getzler}.
 
-Finally, we prove our main result, Theorem \ref{theorem}, which relates the $A_\infty$-structure on an operad with the one induced on its Hochschild complex. This result was hinted by Gerstenhaber and Voronov in \cite{GV}, but here we introduce more context and prove the theorem.
+Finally, we prove our main result, Theorem \ref{theorem}, which relates the $A_\infty$-structure on an operad with the one induced on its Hochschild complex, more precisely, there is a morphism of $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$. This result was hinted by Gerstenhaber and Voronov in \cite{GV}, but here we introduce more context and prove the theorem.
 
 Throughout this text we use the same notation that we used in the previous text, but we recall some of the definitions along the exposition.
 
@@ -38,28 +38,30 @@ Let us consider the underlying graded module of the operad $\s\OO$, which we  ca
 For any operad $\OO$, recall the operation $\circ$ defined as
 
 \[
-a\circ b=\sum_{i=1}^n a\circ_i b
+a\circ b=\sum_{i=1}^n a\circ_i b\in\OO(n+m-1)
 \]
 for $a\in\OO(n)$ and $b\in \OO(m)$. We write $a\tilde{\circ}b$ for the corresponding operation on $\s\OO$, namely
 
 \[
-a\tilde{\circ} b=\sum_{i=1}^n a\tilde{\circ}_i b=b_1(a;b).
+a\tilde{\circ} b=\sum_{i=1}^n a\tilde{\circ}_i b=b_1(a;b)\in\s\OO(n+m-1).
 \]
 
 
+
+\begin{defin}
 Let $m\in\s\OO$ be of natural degree 1 such that $m\tilde{\circ}m=0$, or equivalently $m=m_1+m_2+\cdots$ is a formal sum of maps $m_j\in\OO(j)^{2-j}$ satisfying the usual $A_\infty$-equation for all $n$
 \begin{equation}\label{Ainftyeq}
 \sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0.
 \end{equation} 
-Such $m$ is said to be an \emph{$A_\infty$-multiplication} on $\OO$ and as we saw in the previous text its existence is equivalent to a map of operads $\mathcal{A}_\infty\to \OO$ from the operad of $A_\infty$-algebras to $\OO$. 
-
+Such $m$ is said to be an \emph{$A_\infty$-multiplication} on $\OO$ and as we saw in the previous text its existence is equivalent to a map of operads $\mathcal{A}_\infty\to \OO$ from the operad $\mathcal{A}_\infty$ of $A_\infty$-algebras to $\OO$. 
+\end{defin}
 Following \cite{GV} and \cite{getzler}, one would define an $A_\infty$-algebra structure on $\s\OO$ using the maps 
 
 \begin{align*}
 M'_1(x)\coloneqq [m,x]=m\tilde{\circ} x-(-1)^{|x|}x\tilde{\circ}m, & &  \\
 M'_j(x_1,\dots, x_j)\coloneqq b_j(m;x_1,\dots, x_j),& &j>1.
 \end{align*}
-The prime notation here is used to indicate that these are not the definitive maps that we are going to take. Getzler shows in \cite{getzler} that $M'=M'_1+M'_2+\cdots$ satisfies the relation $M'\circ M'=0$ using that $m\circ m=0$, and the proof is independent of the operad in which $m$ is defined, so it is still valid if $m\tilde{\circ}m=0$. But we have two problems here. The equation $M'\circ M'=0$ does depend on how the circle operation is defined, more precisely, this circle operation in \cite{getzler} is the one without signs on the endomorphism operad, so $M'$ is not an $A_\infty$-structure under our convention. The other problem has to do with the degrees. We need $M'_j$ to be homogeneous of degree $2-j$ as a map $\s\OO^{\otimes j}\to \s\OO$, but we find that $M'_j$ is homogeneous of degree 1 instead. 
+The prime notation here is used to indicate that these are not the definitive maps that we are going to take. Getzler shows in \cite{getzler} that $M'=M'_1+M'_2+\cdots$ satisfies the relation $M'\circ M'=0$ using that $m\circ m=0$, and the proof is independent of the operad in which $m$ is defined, so it is still valid if $m\tilde{\circ}m=0$. But we have two problems here. The equation $M'\circ M'=0$ does depend on how the circle operation is defined, more precisely, this circle operation in \cite{getzler} is the natural circle on the endomorphism operad, which does not have any additional signs, so $M'$ is not an $A_\infty$-structure under our convention. The other problem has to do with the degrees. We need $M'_j$ to be homogeneous of degree $2-j$ as a map $\s\OO^{\otimes j}\to \s\OO$, but we find that $M'_j$ is homogeneous of degree 1 instead. 
 
 Indeed, the natural degree of $b_j(m_n;x_1,\dots,x_j)$ for $n>j$ is computed as follows. Let $a(x)$ denote the arity of $x$, i.e. $a(x)=n$ whenever $x\in\s\OO(n)$. By definition, we have that the natural degree of $b_j(m_n;x_1,\dots,x_j)$ as an element of $\s\OO$ is
 
@@ -80,8 +82,19 @@ n-j+\sum_i a(x_i)+2-n+\sum_i\deg(x_i)-1=\\
 2-j+\sum_i a(x_i)+\sum_i\deg(x_i)-1=\\
 1+\sum_i|x_i|.
 \end{align*}
-This means that the degree of the map $b_j(m_n;-)$ does not depend on $n$ and equals $1$, so $|M'_j|=1$. In general $|b_j(x;-)|=|x|$. %A first alternative after finding this result is considering $M'_j$ to be an element of $\s\End_{\s\OO}$ instead of just $\End_{\s\OO}$. This solves the problem of the degree, but not the one of the sign convention. 
+This means that the degree of the map $b_j(m_n;-)$ as map $\s\OO^{\otimes j}\to \s\OO$ does not depend on $n$ and equals $1$, so $|M'_j|=1$. In general, we have the following result.
 
+\begin{lemma}
+For $x\in\s\OO$ we have $|b_j(x;-)|=|x|$.
+\end{lemma}
+\begin{proof}
+It follows by a calculation similar to the previous paragraph replacing $m_n$ by $x$. CONSIDER PLACING THIS BEFORE AND SHOWING MN AS A COROLLARY
+\end{proof} %A first alternative after finding this result is considering $M'_j$ to be an element of $\s\End_{\s\OO}$ instead of just $\End_{\s\OO}$. This solves the problem of the degree, but not the one of the sign convention. 
+
+\begin{propo}
+AINFTY MULTIPLICATION ON O IMPLIES AINFTY ALGEBRA STRUCTURE ON SsO
+\end{propo}
+\begin{proof}
 Note in the above computation that a way to turn $M'_j$ into a map of degree $2-j$ is introducing a grading on $\s\OO$ given by arity plus internal degree (without substracting one). This is equivalent to defining an $A_\infty$ structure $M$ on $S\s\OO$ shifting the map $M'$, where $S$ is the shift of graded modules. Therefore, we define $M_j$ to be the map making the following diagram commute.
 
 \[
@@ -98,11 +111,13 @@ M\tilde{\circ}M=\overline{\sigma}(M')\tilde{\circ}\overline{\sigma}(M')=\overlin
 \]
 %MAYBE DEFINE $\overline{\sigma}_n$ FOR EACH ARITY SO THAT THE ABOVE IS NOT AN ABUSE OF NOTATION. OTHERWISE SAY IT IS AN ABUSE OF NOTATION
 
-So now we have that $M\in\s\End_{S\s\OO}$ is a formal sum $M=M_1+M_2+\cdots$ such that $M_j$ has arity $j$ and internal degree $2-j$ (so that the natural degree is 1); and such that $M\tilde\circ M=0$. Therefore $M$ is the desired $A_\infty$-structure. Nevertheless, recall that $M$ is defined as an structure map on $S\s\OO$. This kind of shifted operad is called \emph{odd operad} in \cite{ward}. This means that $S\s\OO$ is not an operad anymore, since the associativity relation for graded operads involves signs that depend on the degrees, which are now shifted.
+So now we have that $M\in\s\End_{S\s\OO}$ is a formal sum $M=M_1+M_2+\cdots$ such that $M_j$ has arity $j$ and internal degree $2-j$ (so that the natural degree is 1); and such that $M\tilde\circ M=0$. Therefore $M$ is the desired $A_\infty$-structure.
+\end{proof}
+Notice that $M$ is defined as an structure map on $S\s\OO$. This kind of shifted operad is called \emph{odd operad} in \cite{ward}. This means that $S\s\OO$ is not an operad anymore, since the associativity relation for graded operads involves signs that depend on the degrees, which are now shifted.
 
 \section{Iterating the process}\label{sect3}
 
-Now we can apply the same construction to the operad $\s\End_{S\s\OO}$ and we get $A_\infty$-maps
+Now we can apply the same construction to the operad $\s\End_{S\s\OO}$ and we get $A_\infty$-algebra structure given by maps
 \[\overline{M}_j:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO}\]
 obtained using $\overline{\sigma}$ from maps
 \[\overline{M}'_j:(\s\End_{S\s\OO})^{\otimes j}\to \s\End_{S\s\OO}\]
@@ -122,7 +137,7 @@ The functor $S\s$ is called the ``oddification'' of an operad in the literature.
 The reader might find odd to define the Hochschild complex in this way instead of just $\End_A$. The reason is that the operadic suspension provides the necessary signs and the extra shift gives us the appropriate degrees. In addition, this definition allows the extra structure to arise naturally instead of having to define the signs by hand. For instance, if we have an associative multiplication $m_2\in\End_A(2)=\Hom(A^{\otimes 2},A)$, the element $m_2$ would not satisfy the equation $m_2\circ m_2=0$ and thus cannot be used to induce a multiplication on $\End_A$ as we did above.
 \end{remark}
 
- A natural question to ask is what relation there i between the $A_\infty$-structure on $S\s\OO$ and the one on $S\s\End_{S\s\OO}$. In \cite{GV} it is claimed that given an operad $\OO$ with an $A_\infty$-multiplication, the map
+ A natural question to ask is what relation there is between the $A_\infty$-structure on $S\s\OO$ and the one on $S\s\End_{S\s\OO}$. In \cite{GV} it is claimed that given an operad $\OO$ with an $A_\infty$-multiplication, the map
 
 %I'M WRITING THIS BRACE WITH BAR BECAUSE WITHOUT BAR BECAUSE I WILL HAVE TO USE $B$ FOR THE BRACE IN THE ENDORMORPHISM OPERAD (NON OPERADIC-SUSPENDED). A POSSIBILITY TO BE CONSISTENT IS USING THE LETTER B FOR NON-SUSPENDED OPERADS AND BAR B FOR SUSPENDED OPERADS, INTRODUCING THE BAR WHEN IT IS THE ENDOMORPHISM OF ANOTHER OPERAD
 \begin{align*}
@@ -132,9 +147,9 @@ The reader might find odd to define the Hochschild complex in this way instead o
 is a morphism of $A_\infty$-algebras. We are going to adapt the statement of this claim to our context and prove it. Let $\Phi'$ the map defined as above but on $\s\OO$, i.e.
 \begin{align*}
 \Phi'\colon&\s\OO \to \End_{\s\OO}\\
-&x\mapsto \sum_{n\geq 0}b_n(x;-)
+&x\mapsto \sum_{n\geq 0}b_n(x;-).
 \end{align*}
-and let $\Phi:S\s\OO\to S\s\End_{S\s\OO}$ the map making the following diagram commute
+Let $\Phi:S\s\OO\to S\s\End_{S\s\OO}$ the map making the following diagram commute
 \[
 \begin{tikzcd}
 S\s\OO\arrow[rr, "\Phi"]\arrow[d] & & S\s\End_{S\s\OO}\\
@@ -151,7 +166,7 @@ Notice that we have only used the operadic structure on $\s\OO$ to define an $A_
 The map $\Phi$ defined above is a morphism of $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
 
 \[\Phi(M_j)=\overline{M}_j(\Phi^{\otimes j})\]
-holds, where the $M_j$ is the structure map on $S\s\OO$ and the $\overline{M}_j$ is the structure map on $S\s\End_{S\s\OO}$.
+holds, where the $M_j$ is the $A_\infty$-algebra structure map on $S\s\OO$ and the $\overline{M}_j$ is the $A_\infty$-algebra structure map on $S\s\End_{S\s\OO}$. THINK ABOUT HOW TO CALL THE STRUCTURE MAPS, MAYBE COMPONENTS, BUT SAY IN THE DEFINITION OF AINFTY MULTIPLICATION
 \end{thm}
 \begin{proof}
 Let us have a look at the following diagram
@@ -334,10 +349,10 @@ The minus sign comes from the fact that $b_1(z_i;m)$ comes from $M'_1(z_i)$, so 
 \begin{appendices}
 \appendix
 \gdef\thesection{Appendix \Alph{section}}
-\section{Explicit $A_\infty$-maps}\label{sect4}
+\section{Explicit $A_\infty$-structure maps}\label{sect4}
 % PROBABLY ALSO INCLUDE THE COMPUTATION OF THE AINFTY EQUATION
 
-We have given an implicit definition of the $A_\infty$-maps \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
+We have given an implicit definition of the $A_\infty$-structure maps \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
 but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$.  This explicit formulas will make more clear the connection with the work of Gerstenhaber and Voronov.  We also hope that these explicit expression can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
 
 For $x,x_1,\dots,x_n\in\s\OO$, the expression is the following
