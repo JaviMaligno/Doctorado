@@ -17,6 +17,7 @@
 \usepackage{pgf,tikz}
 \usepackage{tikz-cd}
 \usepackage[titletoc]{appendix}
+\usepackage{cleveref}
 \usetikzlibrary{arrows}
 \usetikzlibrary{cd}
 \usetikzlibrary{babel}
@@ -34,6 +35,14 @@
 \setlength{\footskip}{0.75in}
 
 \theoremstyle{definition}
+
+\newtheorem{defin}{Definition}[section]
+\newtheorem{lem}[defin]{Lemma}
+\newtheorem{propo}[defin]{Proposition}
+\newtheorem{thm}[defin]{Theorem}
+\newtheorem{eje}[defin]{Example}
+\newtheorem{corollary}[defin]{Corollary}
+\newtheorem{remark}[defin]{Remark}
 
 
 \newtheorem{ejer}{Ejercicio}
@@ -58,7 +67,7 @@
  \item[\hskip \labelsep {\textit{Solución}.}\hskip \labelsep]}{\end{trivlist}}
 \setlength{\parindent}{0pt}
 \newtheorem{nota}{Nota}
-\newtheorem{remark}{Remark}
+
 \newtheorem{remarqueaux}{Remarque}
 \newenvironment{remarque}[1]
   {\renewcommand\theremarqueaux{#1}\remarqueaux\label{ejer:#1}}
