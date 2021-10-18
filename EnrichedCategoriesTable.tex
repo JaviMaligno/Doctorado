@@ -300,11 +300,29 @@ where $f$ has bidegree $(u, v)$.
 \end{defin}
  Again see how the signs do their job
 
-Definition 4.38, Tot comes with column filtration, so recall that (It wouldn't hurt to filter my modules with the column filtration). It seemed that it can be omitted, but I think Tot being monoidal over a bigradaded category implies that the source and target categories must be enriched accordingly (see also Lemma  4.37)
+Definition 4.38
+\begin{defin}\label{enrichedtot}
+Let $A,B$ be bigraded modules and $f ∈ \ubgMod (A,B)^v_u$ we define
+\[\Tot(f) ∈ \ufMod(\Tot(A),\Tot(B))^v_u\]
+to be given on any $a ∈ \Tot(A)^n$ by
+\[(\Tot(f)(a))){j+u} :=
+\sum_{m≥0}(−1)^{(m+u)n}f_m(a_{j+m}) ∈ B^{j+n+v}_{j+u} ⊂ \Tot(B)^{n+v−u}.\]
+Let $K = \Tot(A)$, $L = \Tot(B)$ and $g ∈ \ufMod(K,L)^v_u$ we define
+\[f := \Tot^{−1}(g) ∈ \ubgMod(A,B)^v_u\]
+to be $f := (f_0, f_1,\dots)$ where $f_i$ is given on each $A^{m+j}_j$ by the composite
+\begin{align*}
+f_i : A^{m+j}_j \hookrightarrow\prod_{k≤j}A^{m+k}_k = F_j(\Tot(A)^m)\xrightarrow{g}&F_{j+u}(\Tot(B)^{m+v−u})\\
+&=\prod_{l≤j+u}B^{m+v−u+l}_l\xrightarrow{×(−1)^{(i+u)m}} B^{m+j+v−i}_{j+u−i} ,
+\end{align*}
+where the last map is a projection and multiplication with the indicated sign.
+\end{defin} 
+
+
+Tot comes with column filtration, so recall that (It wouldn't hurt to filter my modules with the column filtration).  Tot being monoidal over a bigradaded category implies that the source and target categories must be enriched accordingly over the same category (see also Lemma  4.37)
 
 Definition 4.42 for the weird End (Example 4.44 as well)
 
-Definitionn 4.49 for Ainfty morphism of twisted complexes. Later, before 4.50 they say Ainfty algebra in twisted complex, I understand this means the Ainfty multiplications are morphisms in the category, but exactly which one (like, some enrichment, the same as in def 4.49?) IN THE ENRICHED CATEGORY
+Definitionn 4.49 for Ainfty morphism of twisted complexes. Later, before 4.50 they say Ainfty algebra in twisted complex, I understand this means the Ainfty multiplications are morphisms in the category, but exactly which one (like, some enrichment, the same as in def 4.49?) IN THE ENRICHED CATEGORY SO A BETTER NOTATION WOULD USE THE CALIGRAPHIC UNDERLINED TC
 
 
 \section{Results}
@@ -331,4 +349,8 @@ Lemma 4.54: the isomorphisms is in the bounded case, but with compact support I 
 
 PROPOSITION 4.11 FIRST PART OF THE PROOF IN SOME ESPECIFIC CASE (IDEALLY ONE OF THE PAPER)?
 Regarding the framework, at the begining they say that all the assumptions will hold, but actually they do define external tensor products and the mooidal structures, I understan that this is to check that it actually holds (in addition to show how it holds) Is the hat tensor the same thing as the underlined tensor? YES
+
+Proposition 4.40
+
+Proposition 4.55 WHY SYMMETRIC MONOIDALITY OF TOT IMPLIES THAT ABOUT THE DIFFERENTIAL, WHICH IS THE DIFERENTIAL ON THE ENRICHED END AS FILTERED COMPLEX (ALSO SEE HOW THE N,Z BIGRADING IS NECESSARY FOR THESE PROPERTIES), I DON'T FULLY UNDERSTAND LAST PARAGRAPH, WHAT HAPPENS IF WE FORGET ABOUT FILTRATIONS HERE? ARE THERE MORE AINFTY STRUCTURES ON TOT(A)?
 \end{document}
