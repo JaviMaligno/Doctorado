@@ -348,4 +348,25 @@ Regarding the framework, at the begining they say that all the assumptions will 
 Proposition 4.40
 
 Proposition 4.55 WHY SYMMETRIC MONOIDALITY OF TOT IMPLIES THAT ABOUT THE DIFFERENTIAL, WHICH IS THE DIFERENTIAL ON THE ENRICHED END AS FILTERED COMPLEX (ALSO SEE HOW THE N,Z BIGRADING IS NECESSARY FOR THESE PROPERTIES), I DON'T FULLY UNDERSTAND LAST PARAGRAPH, WHAT HAPPENS IF WE FORGET ABOUT FILTRATIONS HERE? ARE THERE MORE AINFTY STRUCTURES ON TOT(A)?
+
+
+\section*{Trying to understand the role of filtration comparing it to having a differential}
+
+When an operad is dg operad it has a ``global'' differential that decomposes in its arity components (LV 6.2.3 and 6.3.1). This differential must be a derivation (see LV 6.3.1), so it satisfies the usual bracket-like relation. The differential for (derived) $A_\infty$-algebras  preserves arity because it is (pre)composition with an element of arity 1, so it can be defined on each arity component. However, a dg operad is a stronger concept (at least in principle) than just being an operad of chain complexes, for in the latter case it is enough that each arity component has a differential. In fact, we tend to consider operads in chain complexes or vertical bicomplex, rather than dg operads.
+
+When we consider this differential to be part of the operad, each of these differentials in arity $n$ is sent to the usual differential of $\End_A(n)$ for a dg algebra $A$. Otherwise, we induce such a differential on $\End_A$ using precisely the (derived) $A_\infty$-multiplication. The (derived)  $A_\infty$-relation forces the usual differential (having chosen $d$ to be the image of the arity one generator) to be the one induced  because the (derived) $A_\infty$-relation can be read off as extracting the arity one term  (see LRW Def 3.1), so it is a matter of choosing the image of the arity 1 element, and we will have a differential.
+
+ 
+
+
+
+So now, what is having an operad in filtered complexes like? An operad in filtered complexes has on each arity a filtered complex. On each arity we have again a differenntial that in additionaly preserves filtration. Having a trivial filtration $0=F_{-1}K(n)^l\subset F_0K(n)^l=K(n)^l$ for each degree component of the complex $K(n)$, any differential will automatically do the job, as $d(0)=0$ and $d(K(n)^l)\subseteq K(n)^{l+1}$.
+
+
+A map $f:K\to L$ of filtered complexes must satisfy $f(F_pK)\subseteq F_p(L)$. So if $A_\infty$ is trivially filtered, a map $f:A_\infty\to\End_{\Tot(A)}$ this means that $f(A_\infty)=f(F_0A_\infty)\subseteq F_0(\End_{\Tot(A)})$. $\Tot(A)$ is filtered by the collumn filtration, what is the filtration of $\End_{\Tot(A)}$ used in 4.55????
+
+
+%$f:A_\infty\to\underline{\mathpzc{End}_A}$ this means that $f(A_\infty)=f(F_0A_\infty)\subseteq F_0(\underline{\mathpzc{End}_A})$
+
+Notice that split filtered algebra are filtered by horizontal degree (column filtration), and $A_\infty$-algebra multiplications have $0$ horizontal degree. Even in the derived case, the horizontal degree is negative, so the image stays inside the filtration level (with another convention it is a matter of changingg the direction of the column filtration).   
 \end{document}
