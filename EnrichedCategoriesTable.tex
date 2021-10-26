@@ -168,7 +168,7 @@ This one comes much later but I prefer it to be here. It is possible to omit the
 Definition 4.13
 \begin{defin}
 The \emph{totalization with compact support} of a vertical bicomplex $A$ is the filtered complex given by
-\[\mathrm{Tot}_c(A)^n :=\sum_{i∈\Z}A^{n+i}_i\]
+\[\mathrm{Tot}_c(A)^n :=\bigoplus_{i∈\Z}A^{n+i}_i\]
 with the column filtration and with differential as for the totalization functor.
 
 Given a morphism of vertical bicomplexes $f : A → B$ we get a morphism of filtered complexes $\mathrm{Tot}_c(f) : \mathrm{Tot}_c(A) → \mathrm{Tot}_c(B)$
@@ -300,7 +300,7 @@ Definition 4.38
 Let $A,B$ be bigraded modules and $f ∈ \ubgMod (A,B)^v_u$ we define
 \[\Tot(f) ∈ \ufMod(\Tot(A),\Tot(B))^v_u\]
 to be given on any $a ∈ \Tot(A)^n$ by
-\[(\Tot(f)(a))){j+u} :=
+\[(\Tot(f)(a)))_{j+u} :=
 \sum_{m≥0}(−1)^{(m+u)n}f_m(a_{j+m}) ∈ B^{j+n+v}_{j+u} ⊂ \Tot(B)^{n+v−u}.\]
 Let $K = \Tot(A)$, $L = \Tot(B)$ and $g ∈ \ufMod(K,L)^v_u$ we define
 \[f := \Tot^{−1}(g) ∈ \ubgMod(A,B)^v_u\]
