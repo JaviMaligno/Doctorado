@@ -174,6 +174,8 @@ with the column filtration and with differential as for the totalization functor
 Given a morphism of vertical bicomplexes $f : A → B$ we get a morphism of filtered complexes $\mathrm{Tot}_c(f) : \mathrm{Tot}_c(A) → \mathrm{Tot}_c(B)$
 constructed analogously to $\mathrm{Tot}(f)$.
 \end{defin}
+MAYBE I CAN GIVE sO A VERTICAL BICOMPLEX STRUCTURE USING THE 0 HORIZONTAL DEGREE PART OF THE DERIVED AINFTY STRUCTURE (ESSENTIALLY THE SAME AS IN LWR) TO APPLY COMPACT SUPPORT TOTALIZATION AND FORGET ABOUT BOUNDEDNESS, BUT THIS SEEMS LIKE CHEATING AND PROBABLY BOUNDEDNES WILL POP UP LATER. WHAT'S MORE,  SINCE O IS ESSENTIALLY THE OPERAD OF DAINFTY ALGEBRAS, UNDER THIS CONVEENTION I WOULD NOT BE ABLE TO USE ANY OF THE STRUCTURE MAPS BECAUSE ALL OF THEM ARE ELEMENTS OF NEGATIVE HORIZONTAL DEGREE
+
 
 Definition 3.7
 \begin{defin}[Split (filtered) complexes]\label{splitcomplex}
@@ -319,6 +321,7 @@ Definition 4.42 for the weird End (Example 4.44 as well)
 
 Definitionn 4.49 for Ainfty morphism of twisted complexes. Later, before 4.50 they say Ainfty algebra in twisted complex, I understand this means the Ainfty multiplications are morphisms in the category, but exactly which one (like, some enrichment, the same as in def 4.49?) IN THE ENRICHED CATEGORY SO A BETTER NOTATION WOULD USE THE CALIGRAPHIC UNDERLINED TC
 
+Remark 4.52 to better understan filtrations in the last isomorphism. I would say $\End_K$ also has the trivial filtration, and then the fact that $m_i$ respect filtrations  comes from the fact that $\End_K$ is only made up of maps that respect the filtration, not from the fact that the operad is in filtered modules.  
 
 \section{Results}
 If the results need previous definitions or results that I haven't included, indicate it and add them (even if they're above it might be useful to refer to the definitions)
@@ -328,19 +331,22 @@ Theorem 3.8 with the previous definitions of Tot and d on morphisms
 
 Theorem 3.11, remark that forgetting about the filtration the result is still true
 
+Lemma 4.27, I should probably try to understand  the remark in the proof because the signs come either from the bijection (adjunction) or it was there before the bijection.
+
 Lemma 4.37, maybe the filtratioon can be omitted as in Theorem 3.11. This one needs Proposition 3.11 but also some theory that I have skipped for now
 
-Theorem 4.39, checking this proof might shed some light onto why we need filtrations to extend Tot to any bidegree
+Theorem 4.39, checking this proof might shed some light onto why we need filtrations to extend Tot to any bidegree. The proof makes perfect sense when one understand all the adjoint stuff. The filtrations go back to the definition of fMod itself, where I think the key is (in the end it is used to enrich it over bigraded modules, but why it is bigraded the way it is?) HOW DOES THE BIGRADING ON FMOD AFFECT THIS PROOF? I SHOULD CHECK MU AND TOT, BUT I THINK IT JUST MAKES THE NECESSARRY SIGNS BE LEFT IN THE END
 
 Proposition 4.46 which uses the categorical machinery, I would like to know how the enriched functor things works for instance if we are working with twisted complexes (so that the weird End is as in Example 4.44). In the case of totalization, how can you enrich source and target to have the same enrichment whhen Tot always goes from bigraded to graded: $\ufC$ and $\utC$ both are enriched over $\vbc$, thanks to the filtration, since it gives $\ufMod$ (and thus $\ufC$) the extra grading
 
-Propositioon 4.47. A very important one that I have checed before, but may check again in more detail after understanding monoidal structures. Should clear what $\mathrm{End}_A$ is in this theorem. Since it is in $\vbc$ it should come with some of the enrichment (the one giving it a vertical diferential), that should be more clear SINCE WE ARE IMPOSING MU GOES TO DA IT DOESNT MATTER
+Propositioon 4.47. A very important one that I have checked before, but may check again in more detail after understanding monoidal structures. Should clear what $\mathrm{End}_A$ is in this theorem. Since it is in $\vbc$ it should come with some of the enrichment (the one giving it a vertical diferential), that should be more clear SINCE WE ARE IMPOSING MU GOES TO DA IT DOESNT MATTER
 
 Theorem 4.50? May be useful
 
 NEXT SECTION 4.6, IT STARTS WITH THE ASSERTION OF AN ISOMORPHISM THAT I HAVE TO FIND OR CHECK (thorem 4.39 even in the non bounded case, but I guess they want strong monoidality here)
 
 Lemma 4.54: the isomorphisms is in the bounded case, but with compact support I think it should always work (go back to the definitions and results used, but I think I did that once and arrived to the same conclusion) TOTALIZATION WITH COMPACT SUPPORT IS NOT USEFUL FOR TWISTED COMPLEXES BEECAUSE IN GENERAR  THERE ARE INFINETLY MANY NONZERO DIFFERENTIALS, SO WHEN DEFINING THE DIFFERENTIAL IN TOTALIZATION IT WOULDNT BE WELL DEFINED. AND DIRECT PRODUCT TOTALIZATION IS NOT USED EITHER BECAUSE OF WHAT IS SAID BELOW DEF 3.7, WE NEED THE COORDINATES TO BE 0 AT SOME POINT
+
 
 PROPOSITION 4.11 FIRST PART OF THE PROOF IN SOME ESPECIFIC CASE (IDEALLY ONE OF THE PAPER)?
 Regarding the framework, at the begining they say that all the assumptions will hold, but actually they do define external tensor products and the mooidal structures, I understan that this is to check that it actually holds (in addition to show how it holds) Is the hat tensor the same thing as the underlined tensor? YES
@@ -363,10 +369,10 @@ When we consider this differential to be part of the operad, each of these diffe
 So now, what is having an operad in filtered complexes like? An operad in filtered complexes has on each arity a filtered complex. On each arity we have again a differenntial that in additionaly preserves filtration. Having a trivial filtration $0=F_{-1}K(n)^l\subset F_0K(n)^l=K(n)^l$ for each degree component of the complex $K(n)$, any differential will automatically do the job, as $d(0)=0$ and $d(K(n)^l)\subseteq K(n)^{l+1}$.
 
 
-A map $f:K\to L$ of filtered complexes must satisfy $f(F_pK)\subseteq F_p(L)$. So if $A_\infty$ is trivially filtered, a map $f:A_\infty\to\End_{\Tot(A)}$ this means that $f(A_\infty)=f(F_0A_\infty)\subseteq F_0(\End_{\Tot(A)})$. $\Tot(A)$ is filtered by the collumn filtration, what is the filtration of $\End_{\Tot(A)}$ used in 4.55????
+A map $f:K\to L$ of filtered complexes must satisfy $f(F_pK)\subseteq F_p(L)$. So if $A_\infty$ is trivially filtered, a map $f:A_\infty\to\End_{\Tot(A)}$ this means that $f(A_\infty)=f(F_0A_\infty)\subseteq F_0(\End_{\Tot(A)})$. $\Tot(A)$ is filtered by the collumn filtration, what is the filtration of $\End_{\Tot(A)}$ used in 4.55???? I can only think of trivial filtration as well, in which case the fact that the $m_i$ respect the filtration comes from $\End_{\Tot(A)}$ being defined as maps that respect the filtration.
 
 
 %$f:A_\infty\to\underline{\mathpzc{End}_A}$ this means that $f(A_\infty)=f(F_0A_\infty)\subseteq F_0(\underline{\mathpzc{End}_A})$
 
-Notice that split filtered algebra are filtered by horizontal degree (column filtration), and $A_\infty$-algebra multiplications have $0$ horizontal degree. Even in the derived case, the horizontal degree is negative, so the image stays inside the filtration level (with another convention it is a matter of changingg the direction of the column filtration).   
+Notice that split filtered algebra are filtered by horizontal degree (column filtration), and $A_\infty$-algebra multiplications have $0$ horizontal degree. Even in the derived case, the horizontal degree is negative, so the image stays inside the filtration level (with another convention it is a matter of changing the direction of the column filtration).   Therefore, if the reason to respect filtrations is that the multiplications have  horizontal degree 0, it does not make any difference to include filtrations (maybe it does in the reverse direction).
 \end{document}
