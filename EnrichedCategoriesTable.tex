@@ -105,6 +105,10 @@ with
 This makes the category of filtered $R$-modules into a symmetric monoidal category, where the unit is given by $R$ with the trivial filtration $0 = F_{−1}R ⊂ F_0R = R$.
 \end{defin}
 
+\begin{remark}
+Taking the image of the map is necessary because tensor product is not left-exact, in particular, the product of monomorphisms is not necessarily a  monomorphism, so we need to consider the image to have inclusions of filtration levels.
+\end{remark}
+
 Definition 2.7
 \begin{defin}[Vertical bicomplexes and morphisms]\label{vbC}
 A \emph{vertical bicomplex} is a bigraded $R$-module $A$ equipped with a vertical differential $d_A : A → A$ of bidegree $(0, 1)$. A morphism of vertical bicomplexes is a morphism of bigraded modules
@@ -375,4 +379,17 @@ A map $f:K\to L$ of filtered complexes must satisfy $f(F_pK)\subseteq F_p(L)$. S
 %$f:A_\infty\to\underline{\mathpzc{End}_A}$ this means that $f(A_\infty)=f(F_0A_\infty)\subseteq F_0(\underline{\mathpzc{End}_A})$
 
 Notice that split filtered algebra are filtered by horizontal degree (column filtration), and $A_\infty$-algebra multiplications have $0$ horizontal degree. Even in the derived case, the horizontal degree is negative, so the image stays inside the filtration level (with another convention it is a matter of changing the direction of the column filtration).   Therefore, if the reason to respect filtrations is that the multiplications have  horizontal degree 0, it does not make any difference to include filtrations (maybe it does in the reverse direction).
+
+
+
+\begin{remark}
+In the paper, for a filtered compplex $K$, $\End_K$ is implied to be the module of all morphisms of complex, not only the one preserving the filtration. Then \[F_p\End_K(n)=\prod_q\{f:K^{\otimes n}\to K\mid f(F_qK^{\otimes n})\subseteq F_{q+p}K\}.\]
+Since $A_\infty$ has the trivial filtration, the image the map $A_\infty\to\End_K$ lies in the 0-th level of the filtration, which is precisely the set of maps that preserve the filtration.
+
+Alternatively, one can define $\End_K$ using the hom in this category, meaning that $\End_K$ is just made up from the maps that preserve filtrations. In that case, we do not need to filter $\End_K$ or $A_\infty$ to obtain the same results (we may give them the trivial filtration, but it does not add anything).
+\end{remark}
+
+\begin{remark}
+The boundedness condition on $A$ implies that the differentials are eventually 0 on low enough horizontal degree component. This will give a more constrained family of $dA_\infty$-algebras. That is not a great problem because I want a $dA_\infty$-algebra from an $A_\infty$-algebra. If the resulting derived algebras satisfies some extra properties is fine. The main constrain is filtrations, which are needed for the direction of the bijection I am interested in. For the other direction we can still have a map if we don't filter anything, but for the left direction there would be too many maps on the last hom-set,  we need some way to split them and that is whay  it is necessary to move to filtered algebras.
+\end{remark}
 \end{document}
