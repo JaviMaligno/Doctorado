@@ -17,70 +17,8 @@
 \author{Javier Aguilar Martín}
 \maketitle
 
-\section{Summary table}
-I may change the distribution to put all underlines together or each category folled by its underlined (enriched) version. Maybe full subcategories (including bounded categories) should go on a different table where I specify the supercategory. Also the alternatively enriched (mathpzc and mathcal font) categories could go on a different table where I specify where they are enriched over. There are several $\delta$ defined depending  on the enrichment used, possibly specify (writing the number of the definition, actually do this for all of them even if they are not repeated) which is one in case it is confusing.
-
-
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Category} & \textbf{Objects} & \textbf{Morphisms} & \textbf{Monoidal structure}\\
-\hline
-$\mathrm{C}_R$ & Cochain complexes & Maps complexes & The usual one\\
-\hline
-$\mathrm{fC}_R$ & Filtered complexes & Maps of filtered complexes & $\Ima(F_iA ⊗ F_jB → A ⊗ B)$ \\
-(\cref{filteredcomplex}) & & &(\cref{filteredtensor}) \\
-\hline
-$\mathrm{bgMod}_R$ & Bigraded modules & Maps of bidegree $(0,0)$& $(A ⊗ B)^j_i :=\bigoplus_{p,q}A^q_p ⊗ B^{j−q}_{i−p}$\\
-\hline
-$\mathrm{vbC}_R$ & Vertical bicomplexes & Maps of bigraded modules& As in $\bgmod$  and \\
-        (\cref{vbC})         &           & that commute with differential & $d^{A⊗B} := d^A ⊗ 1 + 1 ⊗ d^B$\\ 
-\hline
-$\underline{\mathrm{C}_R}$ & Chain complexes & Maps of chain complexes with & Same as $\mathrm{C}_R$\\
-                           &                 &  differential $\delta$ (\cref{delta1})&\\
-\hline
-$\underline{\mathrm{bgMod}_R}$ & Bigraded modules & Maps of any bidegree & Same as $\mathrm{bgMod}_R$\\
-& & &\\
-\hline
-$\underline{\mathrm{vbC}_R}$ & Vertical bicomplexes & Maps of any bidegree with & Same as $\mathrm{vbC}_R$\\
-                             &                      &  differential $\delta$ (\cref{delta1})&\\
-\hline
-$\mathrm{tC}_R$ & Twisted complexes & Maps of twisted complexes & (\cref{tensortwisted}) \\
-& (\cref{twistedcomplex}) & (\cref{twistedmorphisms}) &\\
-\hline
-$\underline{\mathrm{tC}_R}$ & Twisted complexes & Maps of twisted complexes with& Same as $\mathrm{tC}_R$\\
-& & differentials $d_i$ (\cref{di})&\\
-\hline
-$\mathrm{sfC}_R$ & Split filtered complexes & Maps of filtered complexes & Same as $\fc$ \\
-(\cref{splitcomplex})& & (same as $\fc$)& \\
-\hline
-$\underline{\mathpzc{bgMod}_R}$ & Bigraded modules &$\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u−j}$& $\widehat{\otimes}$ (\cref{tensorenriched}\\
-(\cref{ubgMod})& & (Bigraded module \cref{weirdenrichment}) &\\
-\hline
-$\underline{t\mathcal{C}_R}$& Twisted complexes & $\utC(A,B)=(\underline{\mathpzc{bgMod}_R}(A,B),\delta)$ & $\widehat{\otimes}$ (\cref{tensorenriched})\\
-(\cref{utC})& & (Vertical bicomplex \cref{delta2}) & \\
-\hline
-$\ufMod$ & Filtered modules & Bigraded module $\ufMod(K,L)$ & $\widehat{\otimes}$ (\cref{tensorenriched2})\\
-(\cref{ufMod})& & & \\
-\hline
-$\ufC$ & Filtered complexes & Vertical bicomplex $\ufC(K,L)$ & $\widehat{\otimes}$ (\cref{tensorenriched2}) \\
-(\cref{ufC}) & & (\cref{fmoddifferential})  & \\
- \hline
- $\usfC$ & Split filtered complex & Same as $\ufC$ & \\
-\end{tabular}
-
-Bonus: $\mathrm{bgMod}^\infty_R$ is the full subcategory of $\mathrm{tC}_R$ whose objects have $d_m=0$ for all $m$.
-
-Bonus:$\usfMod$ the full subcategory of $\ufMod$ whose objects are split filtered modules.
-
-Maybe leave the split ones as a bonus as well. 
-
-Definitionn 3.10 for bounded subcategories. 
-
-Diagram before section 3.3 can be useful
-
-Endomorphism operad?
-
-If I find some notation confusing because the same is used for different things I may use other notations at some point.
+\section*{Purpose}
+The idea of this was writing a draft containing all the necessary definitions and lemmas so that the main theorem can be understood. It should include the definition of the $dA_\infty$ and $A_\infty$ operad and the basic definitions and conventions of bigraded modules as well. It's a lot of work and was just to send it to James Shank for him to give some feedback, so maybe I'll do it later. I think many of the things that I would include here should go in a background chapter anyway, but for a paper I should write things down like I intend here.
 \section{Definitions}
 
 Create a custom ennviroment to use the numbering of Sarah's paper for better identification \url{https://tex.stackexchange.com/questions/53978/custom-theorem-numbering}
@@ -347,67 +285,45 @@ Propositioon 4.47. A very important one that I have checked before, but may chec
 
 Theorem 4.50? May be useful
 
-NEXT SECTION 4.6, IT STARTS WITH THE ASSERTION OF AN ISOMORPHISM THAT I HAVE TO FIND OR CHECK (thorem 4.39 even in the non bounded case, but I guess they want strong monoidality here)
+NEXT SECTION 4.6
 
-Lemma 4.54: the isomorphisms is in the bounded case, but with compact support I think it should always work (go back to the definitions and results used, but I think I did that once and arrived to the same conclusion) TOTALIZATION WITH COMPACT SUPPORT IS NOT USEFUL FOR TWISTED COMPLEXES BEECAUSE IN GENERAR  THERE ARE INFINETLY MANY NONZERO DIFFERENTIALS, SO WHEN DEFINING THE DIFFERENTIAL IN TOTALIZATION IT WOULDNT BE WELL DEFINED. AND DIRECT PRODUCT TOTALIZATION IS NOT USED EITHER BECAUSE OF WHAT IS SAID BELOW DEF 3.7, WE NEED THE COORDINATES TO BE 0 AT SOME POINT
+Lemma 4.54
 
-
-PROPOSITION 4.11 FIRST PART OF THE PROOF IN SOME ESPECIFIC CASE (IDEALLY ONE OF THE PAPER)? $\rightarrow$ this is done for Tot in the paper
-Regarding the framework, at the begining they say that all the assumptions will hold, but actually they do define external tensor products and the mooidal structures, I understan that this is to check that it actually holds (in addition to show how it holds) Is the hat tensor the same thing as the underlined tensor? YES
+PROPOSITION 4.11 
 
 Proposition 4.40
 
-Proposition 4.55 WHY SYMMETRIC MONOIDALITY OF TOT IMPLIES THAT ABOUT THE DIFFERENTIAL, WHICH IS THE DIFERENTIAL ON THE ENRICHED END AS FILTERED COMPLEX $\rightarrow$ it wasn't relevant (ALSO SEE HOW THE N,Z BIGRADING IS NECESSARY FOR THESE PROPERTIES $\rightarrow$ so that Tot is the same as direct sum and it is an iso), I DON'T FULLY UNDERSTAND LAST PARAGRAPH, WHAT HAPPENS IF WE FORGET ABOUT FILTRATIONS HERE? ARE THERE MORE AINFTY STRUCTURES ON TOT(A)? yes, those that can split as bidegree $(i,2-n-i)$ maps (I was originally trying to show that any of those induced a derived Ainfty algebra, but that must be too much)
+Proposition 4.55
 
 
-\section*{Trying to understand the role of filtration comparing it to having a differential}
+Original version ($\End_K$ for $K$ filered includes all morphisms of complexes)
 
-When an operad is dg operad it has a ``global'' differential that decomposes in its arity components (LV 6.2.3 and 6.3.1). This differential must be a derivation (see LV 6.3.1), so it satisfies the usual bracket-like relation. The differential for (derived) $A_\infty$-algebras  preserves arity because it is (pre)composition with an element of arity 1, so it can be defined on each arity component. However, a dg operad is a stronger concept (at least in principle) than just being an operad of chain complexes, for in the latter case it is enough that each arity component has a differential. In fact, we tend to consider operads in chain complexes or vertical bicomplex, rather than dg operads.
+Let $K$ be a filtered complex and let $\End_K$ the operad in cochain complexes of the underlying complex $K$. We filter $\End_K(n)$ as follows
+\[F_p\End_K(n)=\{f\in\End_K(n)\mid f(F_qK^{\otimes n})\subset F_{q+p}K\ \forall q\in\Z\}\]
+Note that elements of $F_p\End_K(n)$ may have non-zero degree.
+\begin{thm}
+Let $(A,d^A)$ be a  $(\N,\Z)$-graded twisted complex (or at leas horizontally bounded below). Let $\End_A$ the endomorphism operad in vertical bicomplexes of the bigraded module $A$ with vertical differential given by $[d_0,-]$. We have natural bijections
+\[\Hom_{vbOp,d^A}(dA_\infty,\End_A)\cong \Hom_{vbOp}(A_\infty,\underline{\End}_A)\cong  \Hom_{vbOp}(A_\infty,\underline{\End}_{\Tot(A)})\cong\Hom_{fCOp}(A_\infty,\End_{\Tot(A)})\]
+where $vbOp$ and $fCOp$ denote the categories of operads in $\vbc$ and $\fc$ respectively, and $\Hom_{vbOp,d^A}$ denotes the subset of morphisms which send $μ_{i1}$ to $d^A_i$. We view $A_∞$ as an operad in $\vbc$ sitting in horizontal degree zero or as an operad in filtered complexes with trivial filtration.
+\end{thm}
 
-When we consider this differential to be part of the operad, each of these differentials in arity $n$ is sent to the usual differential of $\End_A(n)$ for a dg algebra $A$. Otherwise, we induce such a differential on $\End_A$ using precisely the (derived) $A_\infty$-multiplication. The (derived)  $A_\infty$-relation forces the usual differential (having chosen $d$ to be the image of the arity one generator) to be the one induced  because the (derived) $A_\infty$-relation can be read off as extracting the arity one term  (see LRW Def 3.1), so it is a matter of choosing the image of the arity 1 element, and we will have a differential.
+Version 2 ($\End_K$ includes only morphisms of filtered complexes)
+ \begin{thm}
+Let $(A,d^A)$ be a  $(\N,\Z)$-graded twisted complex (or at leas horizontally bounded below). Let $\End_A$ the endomorphism operad in vertical bicomplexes of the bigraded module $A$ with differential given by $[d_0,-]$. We have natural bijections
+\[\Hom_{vbOp,d^A}(dA_\infty,\End_A)\cong \Hom_{vbOp}(A_\infty,\underline{\End}_A)\cong  \Hom_{vbOp}(A_\infty,\underline{\End}_{\Tot(A)})\cong\Hom_{COp}(A_\infty,\End_{\Tot(A)})\]
 
- 
+where $vbOp$ and $COp$ denote the categories of operads in vertical bicomplexes and cochain complexes respectively, and $\Hom_{vbOp,d^A}$ denotes the subset of morphisms which send $μ_{i1}$ to $d^A_i$. We view $A_∞$ as an operad in $\vbc$ sitting in
+horizontal degree zero or as an operad in cochain complexes.
+\end{thm}
 
+Hopeful alternative
+\begin{thm}
+Let $A$ be a bigraded module
+\[\Hom_{bgOp}(dA_\infty,\End_A)\cong \Hom_{bgOp}(A_\infty,\underline{\End}_A)\cong  \Hom_{bgOp}(A_\infty,\underline{\End}_{\Tot(A)})\cong\Hom_{gOp}(A_\infty,\End_{\Tot(A)})\]
 
+where $bgOp$ and $gOp$ denote the categories of operads in bigraded modules and graded modules respectively. We view $A_∞$ as an operad in bigraded modules sitting in
+horizontal degree zero or as an operad in graded modules complexes.
+\end{thm}
+This would have two version depending on the last $\End$, but I would choose the simpler one. This reformulation may need some redefinition of the underlined operads (but probably just omitting differentials). Of course the definitions of the operads are slightly different. I would need to be careful with the enrichment as well, especially for the isomorphism connecting $A$ and $\Tot(A)$, I should check that the necessary conditions hold.
 
-So now, what is having an operad in filtered complexes like? An operad in filtered complexes has on each arity a filtered complex. On each arity we have again a differenntial that in additionaly preserves filtration. Having a trivial filtration $0=F_{-1}K(n)^l\subset F_0K(n)^l=K(n)^l$ for each degree component of the complex $K(n)$, any differential will automatically do the job, as $d(0)=0$ and $d(K(n)^l)\subseteq K(n)^{l+1}$.
-
-
-A map $f:K\to L$ of filtered complexes must satisfy $f(F_pK)\subseteq F_p(L)$. So if $A_\infty$ is trivially filtered, a map $f:A_\infty\to\End_{\Tot(A)}$ this means that $f(A_\infty)=f(F_0A_\infty)\subseteq F_0(\End_{\Tot(A)})$. $\Tot(A)$ is filtered by the collumn filtration, what is the filtration of $\End_{\Tot(A)}$ used in 4.55???? I can only think of trivial filtration as well, in which case the fact that the $m_i$ respect the filtration comes from $\End_{\Tot(A)}$ being defined as maps that respect the filtration.
-
-
-%$f:A_\infty\to\underline{\mathpzc{End}_A}$ this means that $f(A_\infty)=f(F_0A_\infty)\subseteq F_0(\underline{\mathpzc{End}_A})$
-
-Notice that split filtered algebra are filtered by horizontal degree (column filtration), and $A_\infty$-algebra multiplications have $0$ horizontal degree. Even in the derived case, the horizontal degree is negative, so the image stays inside the filtration level (with another convention it is a matter of changing the direction of the column filtration).   Therefore, if the reason to respect filtrations is that the multiplications have  horizontal degree 0, it does not make any difference to include filtrations (maybe it does in the reverse direction).
-
-
-
-\begin{remark}
-In the paper, for a filtered compplex $K$, $\End_K$ is implied to be the module of all morphisms of complex, not only the one preserving the filtration. Then \[F_p\End_K(n)=\prod_q\{f:K^{\otimes n}\to K\mid f(F_qK^{\otimes n})\subseteq F_{q+p}K\}.\]
-Since $A_\infty$ has the trivial filtration, the image the map $A_\infty\to\End_K$ lies in the 0-th level of the filtration, which is precisely the set of maps that preserve the filtration.
-
-Alternatively, one can define $\End_K$ using the hom in this category, meaning that $\End_K$ is just made up from the maps that preserve filtrations. In that case, we do not need to filter $\End_K$ or $A_\infty$ to obtain the same results (we may give them the trivial filtration, but it does not add anything).
-\end{remark}
-
-\begin{remark}
-The boundedness condition on $A$ implies that the differentials are eventually 0 on low enough horizontal degree component. This will give a more constrained family of $dA_\infty$-algebras. That is not a great problem because I want a $dA_\infty$-algebra from an $A_\infty$-algebra. If the resulting derived algebras satisfies some extra properties is fine. The main constrain is filtrations, which are needed for the direction of the bijection I am interested in. For the other direction we can still have a map if we don't filter anything, but for the left direction there would be too many maps on the last hom-set,  we need some way to split them and that is whay  it is necessary to move to filtered algebras.
-\end{remark}
-
-\newpage
-
-Let $C$ and $D$ be monoidal categories and $V$ a symmetric monoidal category. We consider the $V$-enriched categories $\underline{C}$ and $\underline{D}$ with the adjunction
-\[\Hom_C(A*X,Y)\cong\Hom_V(A,\underline{C}(X,Y))\]
-for $A\in V$, $X,Y\in C$, and similarly for $\underline{D}$.  
-
-Let $F,G:C\to D$ a strong monoidal functors over $V$ with a natural transformation $\mu:F\Rightarrow G$ over $V$ such that $\mu_X:FX\to GX$ is an isomorphism. Let $\underline{F},\underline{G}:\underline{C}\to \underline{D}$ the associated enriched functors and $\underline{\mu}:\underline{F}\Rightarrow\underline{G}$ the associated enriched natural transformation whose component $\mu_X:1\to \underline{D}(FX,GX)$ is defined to be the adjoint of $\mu_X:FX\to GX$.
-
-Then we have the following map $f:\underline{D}(GX,Y)\to\underline{D}(FX,Y)$ (this map will correspond to $\underline{D}(\Tot(A^{\otimes n}),\Tot(A))\to \underline{D}(\Tot(A)^{\otimes n},\Tot(A))$)
-
-\[\underline{D}(GX,Y)\cong \underline{D}(GX,Y)\otimes 1\xrightarrow{Id\otimes \underline{\mu}_X}\underline{D}(GX,Y)\otimes \underline{D}(FX,GX)\xrightarrow{c}\underline{D}(FX,Y)\] 
-where $c$ is the composition map in the enriched setting and the tensor products are in $V$. The candidate $g$ for the inverse is defined analogously as 
-\[\underline{D}(FX,Y)\cong \underline{D}(FX,Y)\otimes 1\xrightarrow{Id\otimes \underline{\mu}^{-1}_X}\underline{D}(FX,Y)\otimes \underline{D}(GX,FX)\xrightarrow{c}\underline{D}(GX,Y).\]
-
-As in other proofs, I would like to take the composition of these maps to a map in $C$ using the adjunction. However, having the tensor product of maps $Id\otimes \underline{\mu}_X$ I don't know how to apply the adjunction here, as I don't have a map of the form $A\to\underline{D}(X,Y)$ but rather of the form  $A\otimes B\to\underline{D}(X,Y)\otimes \underline{D}(W,Z)$. The maps $f$ and $g$ as a hole certainly have adjoints, but I would like to express them in terms of the maps they are composed of, so that I can work with their definitions. Since these maps are defined in terms of adjoints, I cannot think of other way to show that they are inverse to each other.
-
- 
 \end{document}
