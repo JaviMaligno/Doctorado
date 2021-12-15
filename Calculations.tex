@@ -109,5 +109,62 @@ Applying the brace relation we obtain
 +(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))
 \end{align*}
 
-Recall that $m$ being a $dA_\infty$-multiplication means that $\sum_{i+j=m}\sum_{k,l}(-1)^ib_1(m_{ik};m_{ij})=0$. Let us check now the cancellations with the signs.
+Recall that $m$ being a $dA_\infty$-multiplication means that $\sum_{i+j=m}\sum_{k,l}(-1)^ib_1(m_{ik};m_{ij})=0$. Notice that the summand corresponding to each value of $i+j$ must vanish because it corresponds to a given horizontal degree. Let us check now the cancellations with the signs. First, let us check that the terms 
+\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))\]
+can be added up to vanish. For that, we compute the sign \[\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle=\langle m_{jl}|m_{ik}\rangle+\langle x|m_{ik}\rangle+\langle x|m_{jl}\rangle\]
+Recall that the braces are defined on the operadic suspension, so that the bidegree of $m_{ik}$ is $(i,1-i)$. Therefore, writing the bidegree of $x$ as $(x_h,x_v)$, the above equals 
+\[ji+(1-i)(1-j)+x_hi+x_v(1-i)+x_hj+x_v(1-j)\equiv 1+i+j + (i+j)x_h+(i+j)x_v\mod 2=\]
+\[(i+j)(1+x_h+x_v)=1+m(1+x)\]
+Since this sign is constant for all terms $b_1(m_{ik};m_{ij})$ that share the same horizontal degree $i+j=m$, we can rewrite
+\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))=-(-1)^{m(1+x)}b_1(x;(-1)^ib_1(m_{ik};m_{jl})),\]
+which vanishes when we consider the whole sum
+%Multiplying 0 by something is 0, some sum vanishe and you multiply it by a constant sign, it still vanishes
+\[\sum_{i+j=m}\sum_{k,l}-(-1)^{m(1+x)}b_1(x;(-1)^ib_1(m_{ik};m_{jl}))=0.\]
+Therefore, the equation after the brace relation reduces to
+\begin{align*}
+\sum_{i+j=m}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\\
++(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))
+\end{align*}
+Let us focus on the last line. For each pair $(i,j)$ we should have cancellation with the pair $(j,i)$, which adds the same elements, but with different signs. We also need to consider the pairs $(k,l)$ and $(l,k)$ to get a cancellation. Let us compare the signs. For the pair $((i,j),(k,l))$ we have precisely the last line of the above equation
+\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))\]
+
+For the pair $((j,i),(l,k))$ we have
+\[(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle+\langle x|m_{ik}\rangle}(b_2(x;m_{ik},m_{jl})+(-1)^{\langle m_{jl}|m_{ik}\rangle}b_2(x;m_{jl},m_{ik}))\]
+ Comparing the sign of $b_2(x;m_{jl},m_{ik})$ we find that for $((i,j),(k,l))$ we have
+
+\[-(-1)^{i+(i+j)(1+x)}b_2(x;m_{jl},m_{ik})=-(-1)^{j+(i+j)x}b_2(x;m_{jl},m_{ik})\]
+and for the pair $((j,i),(l,k))$ we have
+\[(-1)^{j+(i+j)x}b_2(x;m_{jl},m_{ik})\]
+As we see, we get opposite signs and thus cancellation. For $b_2(x;m_{ik},m_{jl})$ it is completely analogous. Thus, we have reduced our main equation to 
+\begin{align*}
+\sum_{i+j=m}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))
+\end{align*}
+In a similar fashion to the previous calculation, we are going to try to cancel $b_1(m_{ik};b_1(x;m_{jl}))$ in the first line with $b_1(m_{jl};b_1(x;m_{ik})$ in the last line by considering switched pairs. For the pair $((i,j),(k,l))$, the term in the first line is 
+\[-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))\]
+and for the pair $((j,i),(l,k))$ the term in the last line is
+\[-(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))=(-1)^{1+j+\langle m_{ik}|m_{jl}\rangle+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))=\]
+\[(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))\]
+which has precisely the opposite sign to the other pair, and thus cancels. This reduces the main equation to just 
+\begin{align*}
+\sum_{i+j=m}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))
+\end{align*}
+We want this therms to add up to something of the form $b_1(b_1(m;m);x)$. Notice that for that we need to switch some pairs. For simplity, we switch the pair of the first term and rewrite the sum after simplifying some signs as
+\begin{align*}
+\sum_{i+j=m}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})-(-1)^{i+\langle m_{jl}| m_{ik}\rangle}b_2(m_{jl};m_{ik},x))
+\end{align*}
+Simplifying further the signs we get
+\begin{align*}
+\sum_{i+j=m}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))
+ +(-1)^{j+\langle x|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})+(-1)^{j}b_2(m_{jl};m_{ik},x)).
+\end{align*}
+By the brace relation this equals
+\[\sum_{i+j=m}\sum_{l,k}(-1)^jb_1(b_1(m_{j,l};m_{ik});x)=0\]
+%For each position of insertion of x we have a 0 map applied to x, so the above sum is indeed equal to 0
+
 \end{document}
