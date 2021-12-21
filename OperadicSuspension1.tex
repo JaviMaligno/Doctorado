@@ -40,6 +40,7 @@
 In this text we study the brace structure on an operad of graded $R$-modules using a construction called \emph{operadic suspension}. This construction provide us an operadic context from which $A_\infty$-algebras arise in a natural way. We focus on the relation between the brace structure on an operad and its operadic composition, with the endomorphism operad as our main example. This relation allows us to generalize the Lie bracket defined in \cite{RW}.
 \end{abstract}
 \section{Introduction}
+INCLUDE THE MONOIDALITY RESULT HERE AND SAY SOMETHING ABOUT THE RESULTS THAT ARE MENTIONED
 There are a number of mathematical fields in which $A_\infty$-structures arise, ranging from topology to mathematial physics. To study these structures, different interpretations of $A_\infty$-algebras have been given. From the original definition in 1968 \cite{STASHEFF}, to alternative definitions in terms of tensor coalgebras (\cite{keller}, \cite{penkava}),  approaches that use the machinery of operads (\cite{LRW}, \cite{lodayvallette}) or certain Lie brackets \cite{RW} to obtain these algebras. 
 
 $A_\infty$-structures have also been combined with brace structures (\cite{GV},\cite{lada}) which involved certain signs. Typically, these signs were different for each author and no satisfactory explanaition was given. 
@@ -53,7 +54,11 @@ The text is organized as follows. In Section \ref{Sec1} we recall some basic def
 %MAYBE OMIT ALL MENTION TO SYMMETRIC GROUPS BECAUSE I'M NOT REALLY GONNA USE THEM
 We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions.
 
-Our base category is the category of graded $R$-modules and graded maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $a\in A^i$ we write $\deg(a)=i$. The $R$-modules $\Hom_R(A^{\otimes n},A)$ are naturally graded by $\Hom_R(A^{\otimes n},A)^i=\prod_k\Hom_R((A^{\otimes n})^k,A^{k+i})$ %NOT SURE IF SUM OR PROD %I think it's prod because it's all homomorphisms that raise the degree by i
+Our base category is the category of graded $R$-modules and graded maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $a\in A^i$ we write $\deg(a)=i$. The $R$-modules $\Hom_R(A,B)$ are naturally graded by \[\Hom_R(A,B)^i=\prod_k\Hom_R((^k,B^{k+i}).\]
+
+We adopt the following Koszul sign convention: for $a\in A$, $b\in B$, $f\in\Hom_R(A,C)$ and $g\in\Hom_R(B,D)$
+
+\[(f\otimes g)(a\otimes b)=(-1)^{\deg(a)\deg(g)}f(a)\otimes g(b).\] %NOT SURE IF SUM OR PROD %I think it's prod because it's all homomorphisms that raise the degree by iFFFLVVVV
 
 \begin{defin}
 For a graded $R$-module $A$ we consider the \emph{shift} or \emph{suspension} $SA$ for which $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
@@ -79,24 +84,42 @@ The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by
 \[(gf)_n=\sum_r\sum_{i_1+\cdots+i_r=n}(-1)^s g_r(f_{i_1}\otimes\cdots
 \otimes f_{i_r}).\]
 \end{defin}
+%I THINK I AM GOING TO OMIT ALL MENTIONS TO SYMETRIC GROUPS OR MAYBE JUST SAY THAT THE RESULTS  FOR SYMMETRIC VERSIONS ARE ANALOGOUS
 
-LEFT MODULE AND RIGHT INFINITESIMAL MODULE
+IN A THESIS CHAPTER I WOULD PUT MOST OF THESE DEFINITION AT THE INTRO CHAPTER
 \begin{defin}\label{collections}
 A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules. We call the integer $n$ the \emph{arity}. When there is an action of the symmetric group $\Sigma_n$ on each $\OO(n)$ we say that the collection is an $\mathbb{S}-$module. A map of collections $f:\OO\to\mathcal{P}$ is a family of maps $f_n:\OO(n)\to\mathcal{P}(n)$. A map of collection is a map of $\mathbb{S}-$modules when it preserves the symmetric group action.
 \end{defin}
 
 \begin{defin}
+The \emph{plethysm} or \emph{composite} $\OO\circ\PP$ of two collections $\OO$ and $\PP$ given by
+\[(\OO\circ\PP)(n)=\bigoplus_{k\geq 0}\OO(k)\otimes \left(\bigoplus_{i_1+\cdots+i_k=n} \PP(i_1)\otimes\cdots\otimes \PP(i_k)\right).\]
+\end{defin}
+There is a definition for $\mathbb{S}$-modules that requires some tools from the representation theory of symmetric groups that we are not going to introduce here. The reader is referred to \cite{lodayvallette} for the details. 
+
+\begin{defin}
+The \emph{plethysm} or \emph{composite} $f\circ g$ of maps $f:\OO\to\OO'$ and $g:\PP\to\PP'$ is given by
+\[(f\circ g)(a\otimes b_1\otimes\cdots\otimes b_k)=(-1)^{\varepsilon} f(a)\otimes g(b_1)\otimes\cdots\otimes g(b_k),\]
+where $\varepsilon$ is the Koszul sign obtained from swaping each $g$ by the correspoding elements. 
+\end{defin}
+
+It is known that the category of collections with plethysm is a monoidal category, where the unit is the collection $I(1)=R$ and $I(n)=0$ for $n\neq 1$. 
+\begin{defin}
 A (non-symmetric) \emph{operad} is a collection $\OO=\{\OO(n)\}$ where there is a distinguished \emph{identiy} element $1\in\OO(1)$ and with \emph{insertion maps} 
 \[\circ_i:\OO(n)\otimes \OO(m)\to \OO(m+n-1)\]
-for each $1\leq i\leq n$ satisfying natural uunitality and associativiity axioms. Insertion maps can be iterated to define \emph{composition maps} \[\gamma(a;b_1,\dots, b_n)=(\cdots(a\circ_1 b_1)\circ_2 b_2\cdots
+for each $1\leq i\leq n$ satisfying natural uunitality and associativity axioms. Insertion maps can be iterated to define \emph{composition maps} \[\gamma(a;b_1,\dots, b_n)=(\cdots(a\circ_1 b_1)\circ_2 b_2\cdots
 )\circ_n b_n).\]
-If $\OO$ is an $\mathbb{S}-$module and the insertion maps satisfy some additional axioms regarding the symmetric group action, we say that $\OO$ is a symmetric operad. 
+If $\OO$ is an $\mathbb{S}-$module and the insertion maps satisfy some additional axioms regarding the symmetric group action, we say that $\OO$ is a symmetric operad. See \cite{lodayvallette} for more details.
 
 A map of operads (resp. symmetric operads) is a map of collections (resp. $\mathbb{S}-$modules) that is compatible with insertions.
 \end{defin}
 
+It is also known that an operad $\OO$ is equivalent to a monoid in the monoidal category of collections with plethysm, where the multiplication  map is given precisely by the composition $\gamma:\OO\circ\OO\to\OO$. See \cite[\S 5]{lodayvallette} for more details. 
+
+\begin{defin} An operad $\OO$ is called \emph{reduced} if $\OO(0)=0$.\end{defin}
+
 \begin{defin}
-The \emph{endomorphism operad} $\End_A$ is given by the modules \[\End_A(n)=\hom(A^{\otimes n},A)\] for some graded $R$-module $A$. Insertion maps are given by
+The \emph{endomorphism operad} $\End_A$ of a graded $R$-module $A$ is given by the modules \[\End_A(n)=\hom(A^{\otimes n},A).\] Insertion maps are given by
 \[f\circ_i g=f(1^{\otimes i-1}\otimes g\otimes 1^{\otimes n-i})\]
 for $f\in\End_A(n)$ and $g\in\End_A(m)$. The identity element is given by the identity map and there is a symmetric group action given by permuting the inputs.
 
@@ -159,12 +182,12 @@ so we conclude
 
 \[a\tilde{\circ}_ib=(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}a\circ_i b.\]
 
-This is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras (equation (\ref{ainftyequation}) is derived.
+This is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras (\cref{ainftyequation}) is derived.
 
 Next, we are going to use the above fact to obtain an way to describe $A_\infty$-algebras in simplified operadic terms. We are also going to compare this description with a classical approach that is more general but requires heavier operadic machinery. 
 
 
-\begin{defin}
+\begin{defin}\label{ainftymult}
 An operad $\OO$ is said to have an $A_\infty$-multiplication if there is a map $\mathcal{A}_\infty\to\OO$ from the operad of $A_\infty$-algebras.
 \end{defin}
 
@@ -190,7 +213,7 @@ Conversely, if $m\in\s\OO$ of degree 1 such that $m\tilde{\circ}m=0$, let $m_i$ 
 Now, the elements $m_i$ determine a map $f:\mathcal{A}_\infty\to\OO$ defined on generators by $f(\mu_i)=m_i$, as desired. 
 \end{proof}
 
-This fact is not coincidental. Recall that the Koszul dual cooperad $\mathcal{A}s^{¡}$ of the associative operad $\mathcal{A}s$ is $k\mu_n$ in arity $n$, where $\mu_n$ has degree $n-1$ for $n\geq 1$. Thus, for a graded module $A$, we have the following operad isomorphisms, where the notation $(\geq 1)$ means that we are taking the sub-operad with trivial arity 0 component.
+This fact is not coincidental. Recall that the Koszul dual cooperad $\mathcal{A}s^{¡}$ of the associative operad $\mathcal{A}s$ is $k\mu_n$ in arity $n$, where $\mu_n$ has degree $n-1$ for $n\geq 1$. Thus, for a graded module $A$, we have the following operad isomorphisms, where the notation $(\geq 1)$ means that we are taking the reduced sub-operad with trivial arity 0 component.
 
 %LOOK FOR THE SYMMETRIC CONVOLUTION OPERAD AND SYMMETRIC KOSZUL DUAL IF IT EXISTS AND IF IT HELPS SINCE OPERADIC SUSPENSION IS SYMMETRIC (BUT COULD AVOID THAT) - LV 6.4.1
 
@@ -200,10 +223,14 @@ The first operad is the convolution operad (see \cite[\S 6.4.1]{lodayvallette}),
 
 \[f\star g=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}f\circ_i g=\sum_{i=1}^nf\tilde{\circ}_i g=f\tilde{\circ}g.\]
 
-It is known that $A_\infty$-structures on $A$ are determined by elements $\varphi\in\Hom(\mathcal{A}s^{¡},\End_A)$ of degree 1 such that $\varphi\star \varphi=0$ \cite[Proposition 10.1.3]{lodayvallette}. Since the convolution product coincides with the operation $\tilde{\circ}$, such an element $\varphi$ is sent via the above isomorphism to an element $m\in\s\End_A(\geq 1)$ of degree 1 satisfying $m\tilde{\circ}m=0$. Therefore, we see that this classical interpretation of $A_\infty$-algebras is equivalent to the one that Lemma \ref{twisting} provides in the case of the operad $\End_A$. See \cite[Proposition 10.1.11]{lodayvallette} for more details about convolution operads and the more classical operadic interpretion of $A_\infty$-agebras,  taking into account that in the dg-setting the definition has to be modified slightly (also the difference in sign conventions arise from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$, see Theorem \ref{markl}).% SOMEWHERE SAY THE DIFFERNCE BETWEEN UNDERLYING MODULES OR DG-MODULES
+It is known that $A_\infty$-structures on $A$ are determined by elements $\varphi\in\Hom(\mathcal{A}s^{¡},\End_A)$ of degree 1 such that $\varphi\star \varphi=0$ \cite[Proposition 10.1.3]{lodayvallette}. Since the convolution product coincides with the operation $\tilde{\circ}$, such an element $\varphi$ is sent via the above isomorphism to an element $m\in\s\End_A(\geq 1)$ of degree 1 satisfying $m\tilde{\circ}m=0$. Therefore, we see that this classical interpretation of $A_\infty$-algebras is equivalent to the one that Lemma \ref{twisting} provides in the case of the operad $\End_A$. See \cite[Proposition 10.1.11]{lodayvallette} for more details about convolution operads and the more classical operadic interpretion of $A_\infty$-agebras,  taking into account that in the dg-setting the definition has to be modified slightly (also the difference in sign conventions arise from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$, see Theorem \ref{markl}).
 
-Above we needed to specify that only positive arity was considered. This the case in many situation in the literature, but for our purposes, we cannot assume that operads have trivial 0 arity component in general, and this is what forces us to specify that $A_\infty$-multiplications are concentrated in positive arity. %(LATER WE HAVE LINFINITY, I COULD TRY SOMETHING WITH THAT BECAUSE IT'S VERY SIMILAR).  %INDEED AS (NS) OPERADS I BELIEVE, here we use $\sigma^{-1}$. THE THEOREM WHERE I CLAIM THE LAST ISOMORPHISM IS BELOW SO MAYBE REORDER OR REFERENCE
-MENTION THAT REPLACING END BY ANY OPERAD O IN THE CLASSICAL DEFINITION ONE OBTAINS THE NOTION OF AINFTY MULTIPLICATION
+What is more, replacing $\End_A$ by any operad $\OO$ and doing similar calculations to \cite[Proposition 10.1.11]{lodayvallette} we retrieve the notion of $A_\infty$-multiplication on $\OO$ given by \Cref{ainftymult}% SOMEWHERE SAY THE DIFFERNCE BETWEEN UNDERLYING MODULES OR DG-MODULES
+
+\begin{remark}
+Above we needed to specify that only positive arity was considered. This the case in many situation in the literature, but for our purposes, we cannot assume that operads have trivial 0 arity component in general, and this is what forces us to specify that $A_\infty$-multiplications are concentrated in positive arity.
+\end{remark} %(LATER WE HAVE LINFINITY, I COULD TRY SOMETHING WITH THAT BECAUSE IT'S VERY SIMILAR).  %INDEED AS (NS) OPERADS I BELIEVE, here we use $\sigma^{-1}$. THE THEOREM WHERE I CLAIM THE LAST ISOMORPHISM IS BELOW SO MAYBE REORDER OR REFERENCE
+
 %IN 10.1 THE CONNECTION BETWEEN PINFTY AND CONVOLUTION OPERAD IS DESCRIBED
 
 %TAKE NOTE OF ALL THE CONCEPTS USED HERE FOR AN INTRODUCTION CHAPTER FOR INSTANCE THE DEFINITION OF A INFTY FROM KOSZUL DUALITY
@@ -254,27 +281,19 @@ We know that when $\mathcal{O}$ is an operad, $\mathfrak{s}\OO$ is again  an ope
 &=(-1)^{\deg(f)(\deg(a)+n-1)}\s f(a)\tilde{\circ}_i\s f(b)
 \end{align*}
 
-Note that $\deg(a)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s f)=\deg(f)$, so the above relation is consistent with the Koszul sign rule. In any case, recall that a morphism of operads is necessarily of degree 0. Clearly $\s f$ preserves the unit, so $\s f$ is a morphism of operads. 
+Note that $\deg(a)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s f)=\deg(f)$, so the above relation is consistent with the Koszul sign rule. In any case, recall that a morphism of operads is necessarily of degree 0, but the above calcultion hints some monoidality properties of $\s$ that we will study afterwards. Clearly $\s f$ preserves the unit, so $\s f$ is a morphism of operads. 
 
 
-\begin{remark} This is a Remark for Constanze and I. In the above calculation, keeping the degree of $f$ during the calculation was unnecessary. As I said, the degree of $f$ must be zero because the degree of $f(a\tilde{\circ}b)$ is $\deg(f)+\deg(a)+\deg(b)$ and the degree of $f(a)\tilde{\circ}f(b)$ is $2\deg(f)+\deg(a)+\deg(b)$ (I am using $\deg$ here loosely, whatever degree we choose, it must be consistent for all of them, so the conclusion is the same). However, I thought that the fact that the commuting relation holds even with maps of  different degree should mean something about suspension. At first I thought it was a hint of lax monoidality, but it turned out that the functor wasn't lax monoidal. It can still show some feature of monoidality or of any other property. I thought that you could help me see through this. I believe it just shows that naturaily still holds (the axiom that failed was associativity).
-\end{remark}
+%\begin{remark} This is a Remark for Constanze and I. In the above calculation, keeping the degree of $f$ during the calculation was unnecessary. As I said, the degree of $f$ must be zero because the degree of $f(a\tilde{\circ}b)$ is $\deg(f)+\deg(a)+\deg(b)$ and the degree of $f(a)\tilde{\circ}f(b)$ is $2\deg(f)+\deg(a)+\deg(b)$ (I am using $\deg$ here loosely, whatever degree we choose, it must be consistent for all of them, so the conclusion is the same). However, I thought that the fact that the commuting relation holds even with maps of  different degree should mean something about suspension. At first I thought it was a hint of lax monoidality, but it turned out that the functor wasn't lax monoidal. It can still show some feature of monoidality or of any other property. I thought that you could help me see through this. I believe it just shows that naturaily still holds (the axiom that failed was associativity).
+%\end{remark}
 %The previous computation is a consequence of the more general fact. NOT SURE, ASSOCIATIVITY IS NOT WORKING (I AM USING AS A NATURAL TRANSFORMATION THE  MAP ADDING THE SIGN OF COMPOSITION, SINCE THE MAP INDUCED BY S DOES NOT ADD SIGNS. MAYBE WITH A DIFFFERENT DEFINITION OF THE TWO THE RESULT IS FINE) 
 
-Since operads are precisely monoids on the category $\mathbb{S}$-Mod of graded $\mathbb{S}$-modules, we have the following.
-\begin{propo}
-The endofunctor $\s:\mathbb{S}\mbox{-Mod}\to \mathbb{S}\mbox{-Mod}$ sends monoids to monoids and morphisms of monoids to morphisms of monoids, in other words, it induces a well defined endofunctor on the category of monoids $\mathrm{Mon}(\mathbb{S}\mbox{-Mod})$. \qed%is  lax monoidal with respect to the composition of $\mathbb{S}$-modules. 
 
-%NOTATION FOR THE CATEGORY OF S-MODULES: $\mathbb{S}\mbox{-Mod}$
-
-%PROVE ALSO OTHER COHERENCE AXIOMS %This composition is not symmetric so the functor cannot be symmetric. That is not necessary since the symmetry of the underlying tensor product  is used in the associativity isomorphism
-\end{propo}
-
-However, this functor is not lax monoidal in general as it fails to satisfy the associativity axiom. %SHOW IT, POSSIBLY  WITH AN EXAMPLE WHERE THERE ARE NOT SO MANY SIGNS
-
-\begin{remark}
-This shows a counterexample to the converse of the well known theorem that lax monoidal functors send monoids to monoids. Namely, a functor that sends monoids to monoids is not necessarily lax monoidal.
-\end{remark}
+%However, this functor is not lax monoidal in general as it fails to satisfy the associativity axiom. %SHOW IT, POSSIBLY  WITH AN EXAMPLE WHERE THERE ARE NOT SO MANY SIGNS
+%
+%\begin{remark}
+%This shows a counterexample to the converse of the well known theorem that lax monoidal functors send monoids to monoids. Namely, a functor that sends monoids to monoids is not necessarily lax monoidal.
+%\end{remark}
 %\begin{proof}
 %DRAW THE DIAGRAMS, DO THE CALCULATIONS, I SHOULD ALSO WRITE THE IMPLICATION LAX MONOIDAL W/R PLETHYSM $\Rightarrow$ PRESERVES OPERADS (FOLLOW FROM LAX MONOIDAL PRESSERVES MONOIDS, BUT I SHOULD WRITE THE PROOF)
 %\end{proof}
@@ -292,7 +311,7 @@ This shows a counterexample to the converse of the well known theorem that lax m
 The fact that $\s$ is a functor allows to describe algebras over operad using operadic suspension. For instance, an $A_\infty$-algebra is a map of operads $\OO\to\mathcal{P}$ where $\OO$ is an operad with $A_\infty$-multiplication. Since $\s$ is a functor, to this map corresponds a map $\s\OO\to\s\mathcal{P}$. Since in addition, the map $\s\OO\to\s\mathcal{P}$ is fully determined by the original map $\OO\to\mathcal{P}$, this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In fact, using Lemma \ref{inverse} from the Appendix, it is not hard to show the following.
 
 \begin{propo}
-The functor $\s$ is an equivalence of categories both at the level of collections and at the level of operads. \qed %it is not an isomorphism because at the level of collections, not every collection is EQUAL to some suspension
+The functor $\s$ is an equivalence of categories both at the level of collections (or $\mathbb{S}$-modules) and at the level of operads. \qed %it is not an isomorphism because at the level of collections, not every collection is EQUAL to some suspension
 \end{propo}
 In particular, for $A_\infty$-algebras it is more convenient to work with $\s\OO$ since the formulation of an $A_\infty$-multiplication on this operad is much simpler but we don't lose any information.
 
@@ -300,7 +319,7 @@ In particular, for $A_\infty$-algebras it is more convenient to work with $\s\OO
 %For Constanze. I'm implicitly using the equivalence between being an equivalence of categories and being fully faithfull and essentially surjective. Should I say this more explicitly? I am considering showing the equivalence of categories with the more general definition of equivalence of categories since this ones requires some form of choice (I'm ok with choice, but I could still add another proof in the appendix ore something).
 %\end{remark}
 
-Defining $\mathfrak{s}$ at the level of $\mathbb{S}$-modules also allows us to talk about $\infty$-morphisms of $A_\infty$-algebras in this setting, since they live in collections of the form\[\End^A_B=\{\Hom(A^{\otimes n},B)\}_{n\geq 1}.\] More precisely, there is a left module structure on $\End^A_B$ over the operad $\End_B$
+Defining $\mathfrak{s}$ at the level of collections also allows us to talk about $\infty$-morphisms of $A_\infty$-algebras in this setting, since they live in collections of the form\[\End^A_B=\{\Hom(A^{\otimes n},B)\}_{n\geq 1}.\] More precisely, there is a left module structure on $\End^A_B$ over the operad $\End_B$
 \[\End_B\circ \End^A_B\to \End^A_B\] given by compostion of maps 
 
 \[f\otimes g_1\otimes\cdots\otimes g_n\mapsto f(g_1\otimes\cdots\otimes g_n)\]
@@ -311,6 +330,74 @@ given by insertion of maps
 \[f\otimes 1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1}\mapsto f(1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1})\] for $f\in \End^A_B(n)$ and $g\in \End_A$.  In addition we have a composition $\End^B_C\circ \End^A_B\to\End^A_C$ analogous to the left module described above. They induce maps on the respective operadic suspensions, which differ from the original ones by some signs that can be calculated in an analogous way to what we do on the next sextion (see equation \ref{sigma}). These induced maps will give us the definition of  $\infty$-morphisms later in Lemma \ref{infinitymorphism}.
 
 For these collections we also have $\mathfrak{s}^{-1}\End^A_B\cong \End^{SA}_{SB}$ in analogy with Theorem \ref{markl}, and the proof is similar but shorter since we do not need to worry about insertions. 
+
+\subsection{Monoidal properties of operadic suspension}
+Now we are going to explore the monoidal properties of operadic suspension.
+
+Since operads are precisely monoids on the category $\mathbb{S}$-Mod of graded $\mathbb{S}$-modules, we have the following.
+\begin{propo}
+The endofunctor $\s:\mathbb{S}\mbox{-Mod}\to \mathbb{S}\mbox{-Mod}$ sends monoids to monoids and morphisms of monoids to morphisms of monoids, in other words, it induces a well defined endofunctor on the category of monoids $\mathrm{Mon}(\mathbb{S}\mbox{-Mod})$. \qed%is  lax monoidal with respect to the composition of $\mathbb{S}$-modules. 
+
+%NOTATION FOR THE CATEGORY OF S-MODULES: $\mathbb{S}\mbox{-Mod}$
+
+%PROVE ALSO OTHER COHERENCE AXIOMS %This composition is not symmetric so the functor cannot be symmetric. That is not necessary since the symmetry of the underlying tensor product  is used in the associativity isomorphism
+\end{propo}
+
+
+In fact, we can show a stronger result.
+
+\begin{propo}
+The functor $\s:\mathbb{S}\mbox{-Mod}\to \mathbb{S}\mbox{-Mod}$ defines a lax monoidal functor. When restricted to the subcategory of reduced operads, it is strong monoidal.
+\end{propo}
+\begin{proof}
+Firstly, we need to define the structure maps of a lax monoidal functor. Namely, we de define the unit morphism $\varepsilon:I\to\s I$ to be the map $\varepsilon(n):I(n)\to I(n)\otimes S^{n-1}k$ to be the identity for $n\neq 1$ and the isomorphism $k\cong k\otimes k$ for $n=1$. We also need to define a natural transformation $\mu:\s\OO\circ\s\PP\to\s(\OO\circ\PP)$. To define it, observe that for $\PP=\OO$ we would want the map
+
+\[\s\OO\circ\s\OO\xrightarrow{\mu}\s(\OO\circ\OO)\xrightarrow{\s\gamma}\s\OO\]
+ to coincide with the operadic composition $\tilde{\gamma}$ on $\s\OO$. 
+ 
+ As we show in \Cref{bracesign} $\tilde{\gamma}=(-1)^\eta\gamma$, $\s\gamma$ does not add any signs, so the sign must come entirely from the map $\s\OO\circ\s\OO\to\s(\OO\circ\OO)$. Therefore, we define the map \[\mu:\s\OO\circ\s\PP\to\s(\OO\circ\PP)\] as the map given by
+ \[a\otimes e^k\otimes b_1\otimes e^{i_1}\otimes\cdots\otimes b_k\otimes e^{i_k}\mapsto (-1)^\eta a\otimes b_1\otimes\cdots\otimes b_k \otimes e^n,\]
+ where $i_1+\cdots+i_k=n$ and 
+ \[\eta=\sum_{j<l}i_j\deg(b_l)+\sum_{j=1}^k (i_j+\deg(b_j)-1)(k-j),\]
+ which is the case $k_0=\cdots=k_n=0$ in \cref{bracesign}. Note that $(-1)^\eta$ only depends on degrees and arities, so the map is well defined. Another way to obtain this map is using the associativity isomorphisms and operadic composition on $\Lambda$ to obtain a map $\s\OO\circ\s\PP\to\s(\OO\circ\PP)$.
+ 
+We now show that $\mu$ is natural, or in other word, for $f:\OO\to\OO'$ and $g:\PP\to\PP'$, we show that the following diagram commutes.
+\[\begin{tikzcd}
+\mathfrak{s}\mathcal{O}\circ\mathfrak{s}\mathcal{P} \arrow[r, "\mathfrak{s}f\circ\mathfrak{s}g"] \arrow[d, "\mu"'] & \mathfrak{s}\mathcal{O}'\circ\mathfrak{s}\mathcal{P}' \arrow[d, "\mu"] \\
+\mathfrak{s}(\mathcal{O}\circ\mathcal{P}) \arrow[r, "\mathfrak{s}(f\circ g)"]                                      & \mathfrak{s}(\mathcal{O}'\circ\mathcal{P}')                           
+\end{tikzcd}\]
+ Let $c=a\otimes e^k\otimes b_1\otimes e^{i_1}\otimes\cdots\otimes b_k\otimes e^{i_k}\in \mathfrak{s}\mathcal{O}\circ\mathfrak{s}\mathcal{P}$ and let us compute $\s(f\circ g)(\mu(c))$. 
+ 
+\[\s(f\circ g)(\mu(c))=\s(f\circ g)((-1)^{\sum_{j<l}i_j\deg(b_l)+\sum_{j=1}^k (i_j+\deg(b_j)-1)(k-j)} a\otimes b_1\otimes\cdots\otimes b_k \otimes e^n)=\]
+\[(-1)^{\nu}f(a)\otimes g(b_1)\otimes\cdots\otimes g(b_k) \otimes e^n\]
+where
+\[\nu=\sum_{j<l}i_j\deg(b_l)+\sum_{j=1}^k (\deg(b_j)+i_j-1)(k-j)+k\deg(g)\deg(a)+\deg(g)\sum_{j=1}^k\deg(b_j)(k-j).\]
+
+Now let us compute $\mu((\s f\circ \s  g)(c))$. 
+
+%\[\mu((\s f\circ \s  g)(c))=\mu((-1)^{k\deg(g)(\deg(a)+k-1)+\deg(g)\sum_{j=1}^k(\deg(b_j)+i_j-1)(k-j)}\s f(a\otimes e^k)\otimes \s g(b_1\otimes e^{i_1})\otimes\cdots\otimes \s g(b_k\otimes e^{i_k}))=\]
+\[\mu((\s f\circ \s  g)(c))=(-1)^\sigma f(a)\otimes g(b_1)\otimes\cdots\otimes g(b_k) \otimes e^n,\]
+where 
+\[\sigma=k\deg(g)(\deg(a)+k-1)+\deg(g)\sum_{j=1}^k(\deg(b_j)+i_j-1)(k-j)+\]\[\sum_{j<l}i_j(\deg(b_j)+\deg(g))+\sum_{j=1}^k(i_j+\deg(b_j)+\deg(g)-1)(k-j).\]
+ 
+ Now we compare the two signs by computing $\nu+\sigma\mod 2$. After some cancellations of common terms and using that $k(k-1)=0\mod 2$ we get
+ 
+ \[\deg(g)\sum_{j=1}^k(i_j-1)(k-j)+\sum_{j<l}i_j\deg(g)+\sum_{j=1}^k\deg(g)(k-j)=\]
+ \[\deg(g)\sum_{j=1}^ki_j(k-j)+\deg(g)\sum_{j<l}i_j=\]
+ \[\deg(g)\left(\sum_{j=1}^k i_j(k-j)+\sum_{j=1}^k i_j(k-j)\right)=0\mod 2.\]
+ 
+ This shows naturality of $\mu$. Next, we have to show that $\mu$ and $\varepsilon$ satisfy the axioms of a lax monoidal functor. Unitality follows easily from the definitions. In the case of associativity, oberve that by the definition of $\mu$, the assoociativity axiom is equivalent to the associativity of the operadic composition $\tilde{\gamma}$ which we know to be true. This shows that $\s$ is a lax monoidal functor.
+ 
+In the case where the operads have trivial arity 0 component, we may define an inverse to the operadic composition on $\Lambda$. Namely, for $n>0$, we may define
+
+\[\Lambda(n)\to \bigoplus_{k\geq 0} \Lambda(k)\otimes\left(\bigoplus_{i_1+\cdots+i_k=n}\Lambda(i_1)\otimes\cdots\otimes\Lambda(i_k)\right)\]
+as the map
+\[e^n\mapsto\sum_{i_1+\cdots+i_k=n}(-1)^{\delta}e^k\otimes  e^{i_1}\otimes\cdots\otimes e^{i_k},\]
+where $\delta$ is just the same sign that shows up in the operadic composition on $\Lambda$ (see \Cref{bracesign}) and $i_1,\dots,i_k>0$. Since there are only finitely many ways of decomponsing $n$ into $k$ positive integers, the sum is finite and thus the map is well defined. In fact, this map defines a cooperad structure on the reduced sub-operad of $\Lambda$ with trivial arity 0 component. This map induces the morphism $\mu^{-1}:\s(\OO\circ\PP)\to \s\OO\circ\s\PP$ that we are looking for.
+
+The unit morphism $\varepsilon$ is always an isomorphism, so this shows $\s$ is strong monoidal in the reduced case.
+
+\end{proof}
 
 \section{Brace algebras}\label{sectionbraces}
 In this section we define a brace algebra structure for an arbitrary operad using operadic suspension. Using operadic suspension will have as a result  a generalization of the Lie bracket defined in \cite{RW}. First recall the definition of a brace algebra.
@@ -350,8 +437,8 @@ using the operadic composition $\tilde{\gamma}$ on $\mathfrak{s}\OO$ as
 
 \[b_n(f;g_1,\dots,g_n)=\sum\tilde{\gamma}(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1).\]
 
-\begin{remark} For Constanze and I. I am thinking of using tilde notation $\tilde{b}_n$ and $\tilde{\gamma}$ for the maps defined on operadic suspension, but I am not sure if this is going to be too cumbersome or unnecesssary. Here I am just using it for $\tilde{\gamma}$ because that operation does not appear too often.
-\end{remark}
+%\begin{remark} For Constanze and I. I am thinking of using tilde notation $\tilde{b}_n$ and $\tilde{\gamma}$ for the maps defined on operadic suspension, but I am not sure if this is going to be too cumbersome or unnecesssary. Here I am just using it for $\tilde{\gamma}$ because that operation does not appear too often.
+%\end{remark}
 We have the following relation between the brace maps $b_n$ defined on $\s\OO$ and the operadic composition $\gamma$ on $\OO$. 
 \begin{propo}\label{bracesign}
 For $f\in \s\OO(N)$ and $g_i\in\s\OO(a_i)$ of internal degree $q_i$ ($1\leq i\leq n$), we have
@@ -686,29 +773,29 @@ If in the proof above we replace $S$ with $S^{-1}$, we have that the map
 \]
 \end{remark}
 
-\subsection{Monoidality of operadic suspension}
-SOME BRIEF INTRO TO WHAT I'M DOING
-
-
-When studying the functorial properties of $\s$ it is natural to look for a natural transformation $\mu=\mu_{\OO,\PP}:\s\OO\circ\s\PP\to \s(\OO\circ\PP)$ PLETTHYSM such that the composition 
-\[\s\OO\circ\s\OO\xrightarrow{\mu_{\OO,\OO}} \s(\OO\circ\OO)\xrightarrow{\s\gamma} \s\OO\]
-is the composition $\tilde{\gamma}$ on $\s\OO$. Recall that $\tilde{\gamma}=(-1)^{\eta}\gamma$. Since the functor $\s$ does not add any signs to the above composition REFFERENCE TO THE DEFINITION OF THE FUNCTOR, the  sign $(-1)^{\eta}$ REFERENCE must come entirely from the natural a transformation $\mu$, and thus the definition of $\mu$ should extend this fact. WRITE IT EXPLICITLY FOR A SUMMAND OF THE PLETHYSM
-
-Recall the definition of the plethysm $\circ$
-
-The most natural way to define a map $\s\OO\circ\s\PP\to\s(\OO\circ\PP)$ is by reordering the factors using the symmetry morphism and apply the operadic composition on $\Lambda$, just like we did to obtain the sign $\eta$ REFERENCE TO THE PROOF. Therefore, following that process we obtain the map
-\[\mu:\s\OO\circ\s\PP\to\s(\OO\circ\PP)\]
-which acts on elements of each direct summannd as
-\[\mu(c\otimes e^k\otimes c_1\otimes e^{a_1}\otimes\cdots\otimes c_k\otimes e^{a_k})=(-1)^{\sum_{j<l}a_jq_l+\sum_{j=1}^k (a_j+q_j-1)(k-j)}c\otimes c_1\otimes\cdots\otimes c_k \otimes e^{a_1+\cdots+a_k},\]
-where $q_j$ is the degree of $c_j$ in $\PP$. Since the sign in the above equation is precisely $\eta$ in the case where $k_0=\cdots=k_n=0$, we will simply call it $\eta$. 
-
-Since we know that $\mu_{\OO,\OO}$ induces the operadic composition on $\s\OO$ REFERENCE TO THE EQUATION ABOVE WITH THE COMPOSITION, we know that $\mu$ sends monoids on CATEGORY OF COLLECTIONSS WITH PLETHYSIM  to SAME THING. It is possible to show that $\mu$ is indeed natural and in addition it satisfies the unitality axiom of monoidal functors RECALL UNIT IN THIS CATEGORY (I THINK IT WAS 0 EXCEPT K IN ARITY 1) I SHOULD ACTUALLY CHECK PROPERLY THAT THE AXIOM IS SATISFIED AS WELL AS NATURALIITY AND WRITE IT DOWN SOMEWHERE (NATURALITY IS IN MY NOTEBOOK)
-
-FOR UNITALITY I THINK 1$\to$ S1 IS A MORPHISM BECAUSE COMPOSITION IS AALWAYS 0
-
-CHECK VALUE OOF ETA IN THE UNITALITY AXIOMS (IN THE FIRST AXIOM ETA IS ZERRO BECAUSE IT IS THE CASE $n=1$ AND ALL K'S=0 AND THE  SECOND AXIOM IT IS THE CASE WELL ALL OF THEM ARE ARITY 1 AND DEGREE 0 SO ALSO VANISH)
-\url{https://ncatlab.org/nlab/show/monoidal+functor}
-
+%\subsection{Monoidality of operadic suspension}
+%SOME BRIEF INTRO TO WHAT I'M DOING
+%
+%
+%When studying the functorial properties of $\s$ it is natural to look for a natural transformation $\mu=\mu_{\OO,\PP}:\s\OO\circ\s\PP\to \s(\OO\circ\PP)$ PLETTHYSM such that the composition 
+%\[\s\OO\circ\s\OO\xrightarrow{\mu_{\OO,\OO}} \s(\OO\circ\OO)\xrightarrow{\s\gamma} \s\OO\]
+%is the composition $\tilde{\gamma}$ on $\s\OO$. Recall that $\tilde{\gamma}=(-1)^{\eta}\gamma$. Since the functor $\s$ does not add any signs to the above composition REFFERENCE TO THE DEFINITION OF THE FUNCTOR, the  sign $(-1)^{\eta}$ REFERENCE must come entirely from the natural a transformation $\mu$, and thus the definition of $\mu$ should extend this fact. WRITE IT EXPLICITLY FOR A SUMMAND OF THE PLETHYSM
+%
+%Recall the definition of the plethysm $\circ$
+%
+%The most natural way to define a map $\s\OO\circ\s\PP\to\s(\OO\circ\PP)$ is by reordering the factors using the symmetry morphism and apply the operadic composition on $\Lambda$, just like we did to obtain the sign $\eta$ REFERENCE TO THE PROOF. Therefore, following that process we obtain the map
+%\[\mu:\s\OO\circ\s\PP\to\s(\OO\circ\PP)\]
+%which acts on elements of each direct summannd as
+%\[\mu(c\otimes e^k\otimes c_1\otimes e^{a_1}\otimes\cdots\otimes c_k\otimes e^{a_k})=(-1)^{\sum_{j<l}a_jq_l+\sum_{j=1}^k (a_j+q_j-1)(k-j)}c\otimes c_1\otimes\cdots\otimes c_k \otimes e^{a_1+\cdots+a_k},\]
+%where $q_j$ is the degree of $c_j$ in $\PP$. Since the sign in the above equation is precisely $\eta$ in the case where $k_0=\cdots=k_n=0$, we will simply call it $\eta$. 
+%
+%Since we know that $\mu_{\OO,\OO}$ induces the operadic composition on $\s\OO$ REFERENCE TO THE EQUATION ABOVE WITH THE COMPOSITION, we know that $\mu$ sends monoids on CATEGORY OF COLLECTIONSS WITH PLETHYSIM  to SAME THING. It is possible to show that $\mu$ is indeed natural and in addition it satisfies the unitality axiom of monoidal functors RECALL UNIT IN THIS CATEGORY (I THINK IT WAS 0 EXCEPT K IN ARITY 1) I SHOULD ACTUALLY CHECK PROPERLY THAT THE AXIOM IS SATISFIED AS WELL AS NATURALIITY AND WRITE IT DOWN SOMEWHERE (NATURALITY IS IN MY NOTEBOOK)
+%
+%FOR UNITALITY I THINK 1$\to$ S1 IS A MORPHISM BECAUSE COMPOSITION IS AALWAYS 0
+%
+%CHECK VALUE OOF ETA IN THE UNITALITY AXIOMS (IN THE FIRST AXIOM ETA IS ZERRO BECAUSE IT IS THE CASE $n=1$ AND ALL K'S=0 AND THE  SECOND AXIOM IT IS THE CASE WELL ALL OF THEM ARE ARITY 1 AND DEGREE 0 SO ALSO VANISH)
+%\url{https://ncatlab.org/nlab/show/monoidal+functor}
+%
 
 
 \section{Koszul sign on operadic suspension}
