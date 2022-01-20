@@ -62,10 +62,10 @@
 
 %-----------------------------------------------------------
 
-\title{$A_\infty$-structures on operads}
+\title{$A_\infty$-algebras and operads}
 \author{Javier Aguilar Mart\'in}
 \institute{University of Kent}
-\date{YRM 2021}
+\date{Junior London Algebra Colloquium}
  
 \begin{document}
 \frame{\titlepage}
@@ -136,24 +136,62 @@
 \section{Framework}
 \begin{frame}
 \frametitle{Starting point}
+
 \begin{itemize}
-\item<1-> \textbf{Symmetric monoidal category of graded vector spaces} \item[$\ast$]<2-> Objects: graded vector spaces $V=\bigoplus_p V^p$ where $V^p$ is the degree $p$ component. (Example $\Q[x]$)
-\item[$\ast$]<3-> Morphisms: a linear map $f:V\to W$ is graded of degree $n$ if $f(V^p)\subseteq W^{p+n}$. (Example $x:\Q[x]\to \Q[x]$)
+\item<1-> \textbf{Symmetric monoidal category of graded $R$-modules} 
+%as vector spaces but we may have a ring that is not a field
+
+Let $R$ be a ring of characteristic distict of 2. 
+\item[$\ast$]<2-> Objects: graded $R$-modules $V=\bigoplus_p V^p$ where $V^p$ is the degree $p$ component. (Example $\Q[x]$)
+%direct sum can be taken over any abelian monoid (more structure depending on what you need), tipically the integers
+\item[$\ast$]<3-> Morphisms: $\hom(V,W)=\bigoplus_p \hom(V,W)^p$. A linear map $f:V\to W$ is of degree $p$ if $f(V^n)\subseteq W^{n+p}$ for all $n$. (Example $x:\Q[x]\to \Q[x]$)
 \item[$\ast$]<4-> Tensor product $(V\otimes W)^n=\bigoplus_{p+q=n} V^p\otimes W^q$. 
 \item[$\ast$]<5-> Symmetry $\tau:V\otimes W\to W\otimes V$, $\tau(a\otimes b)=(-1)^{\deg(a)\deg(b)}b\otimes a$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item<1-> \textbf{Symmetric monoidal category of chain complexes}
+\item[$\ast$]<2-> A chain complex $V$ is a graded $R$-module with a differential $d:V\to V$ of degree $1$ such that $d^2=0$.
+
+\[\cdots\to V^0\xrightarrow{d_0}V^1\xrightarrow{d_1}V^2\to\cdots\]
+%the map d is the same, but may act different on different ddegree components
+\item[]<3-> Example:
+\[0\to \Z\xrightarrow{\times 2}\Z\xrightarrow{q}\Z/2\Z\to 0\]
+\item[$\ast$]<4-> A chain map is a degree 0 map $f:V\to W$ such that $fd_V=d_Wf$. %usually they must be of degree 0, that's how the appear in topology, but one could let more degrees and would obtain different things, even getting a chain complex on the morphisms
+\item[]<5-> Example:
+\[
+\begin{tikzcd}
+\Z\ar[r,"\times 2"]\ar[d,"\times 2"] &\Z\ar[r,"q"]\ar[d,"\times 3"]&\Z/2\Z\ar[d,"0"]\\
+\Z\ar[r,"\times 3"] &\Z\ar[r,"q"]&\Z/3\Z
+\end{tikzcd}
+\]
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \begin{itemize}
 \item<1-> \textbf{Symmetric monoidal category of chain complexes}
-\item[$\ast$]<2-> A chain complex $V$ is a graded vector space with a differential $d:V\to V$ of degree $1$ such that $d^2=0$.
-\item[$\ast$]<3-> A chain map is a graded map $f:V\to W$ such that $fd_V=d_Wf$.
-\item[$\ast$]<4-> Same tensor product $V\otimes W$ with differential $d_V\otimes 1+1\otimes d_W$. %because it needs to be of degree 1$ %1 in the tensor means identity
+\item[$\ast$]<2-> Same tensor product $(V\otimes W)^n=\bigoplus_{p+q=n} V^p\otimes W^q$ with differential $d_V\otimes 1+1\otimes d_W$. %because it needs to be of degree 1$ %1 in the tensor means identity %talk about why this differential, maybe mention leibniz rule
 
-\item[$\ast$]<5-> Also same symmetry.
+\item[$\ast$]<3-> Also same symmetry $\tau:V\otimes W\to W\otimes V$, $\tau(a\otimes b)=(-1)^{\deg(a)\deg(b)}b\otimes a$.
+\end{itemize}
+\end{frame}
 
-\item[$\bullet$]<6-> A \textbf{homotopy} between $f,g$ is a map $h:V\to W$ of degree $-1$ $f-g=d_Wh-hd_V$ %there is a measure of how different they are, and if you know about homology this means that f and g are equal in homology which is setting d=0
+\section{Homotopy}
+\begin{frame}
+\frametitle{Homotopy}
+\begin{itemize}
+
+%one reason to stop at degree 0 for chain maps is that in degree 1 we have the following
+\item[]<1->Let $f,g:V\to W$ be maps of chain complexes.
+
+\item[$\bullet$]<2-> A \textbf{homotopy} between $f,g$ is a map $h:V\to W$ of degree $-1$ $f-g=d_Wh-hd_V$ %there is a measure of how different they are, and if you know about homology this means that f and g are equal in homology which is setting d=0
+IF THERE IS TIME MOTIVATE WITH SOMEE PICTURES IN TOPOLOGY
+\item[$\ast$]<3-> When such a homotopy exists, $f$ and $g$ are \textbf{homotopy equivalent} or \textbf{homotopic}.
+\item[$\ast$]<3-> Homotopy equivalence is an equivalence relation.
+%we may consider homotopic maps to be the same  and study properties that are preserved by homotopy or not (there are certain classificationss of spaces using homotopy)
 \end{itemize}
 \end{frame}
 
@@ -162,7 +200,7 @@
 \begin{frame}
 \frametitle{$A_\infty$-algebras}
 \begin{defi}
-An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a family of ``multiplications'' $m_i:A^{\otimes i}\to A$ of degree $2-i$ satisfying the relation %
+An $A_\infty$-\textbf{algebra} $A$ is a graded $R$-module equipped with a family of ``multiplications'' $m_i:A^{\otimes i}\to A$ of degree $2-i$ satisfying the relation %
 
 \[\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes s})=0\] %we are composing every map with itself
 \end{defi}
@@ -175,9 +213,9 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 \begin{frame}
 \frametitle{Some particular cases}
 \begin{itemize}
-\item<1-> We always have $m_1m_1=0$, so in particular $A$ is a chain complex.%CAN BE DEFINED ON THE CATEGORY OF CHAIN COMPLEX %THE OTHER RELATIONS INVOLVING M1 ARE A CONSEQUENCE OF MORPHISMS OF CHAIN COMPLEXES
+\item<1-> We always have $m_1m_1=0$, so in particular $A$ is a chain complex. %m1 of degree 2-1=1 %CAN BE DEFINED ON THE CATEGORY OF CHAIN COMPLEX %THE OTHER RELATIONS INVOLVING M1 ARE A CONSEQUENCE OF MORPHISMS OF CHAIN COMPLEXES
 \item<2-> If $m_i=0$ for $i\neq 2$, the relation becomes $m_2(1\otimes m_2)=m_2(m_2\otimes 1)$, so $A$ is an associative algebra.
-\item<3-> We also have the relation \[m_1m_2=m_2(m_1\otimes 1)+m_2(1\otimes m_1)\]%DG %MONOID IN CHAIN COMPLEX ANALOGUE TO MONOID IN K-VECT
+\item<3-> We also have the relation \[m_1m_2=m_2(m_1\otimes 1)+m_2(1\otimes m_1)\]%use this example to show the equivalence of possible definitions %DG %MONOID IN CHAIN COMPLEX ANALOGUE TO MONOID IN K-VECT
 \item[]<4-> This is the Leibniz rule, and $A$ is a differential graded (dg) algebra.
 
 \end{itemize}
@@ -185,6 +223,7 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 
 
 \begin{frame}
+%until here it doesn't seem to be relevant that there are two equivalent ways of defining things, why would you introduce chain complexes and homotopies? here is the reason
 \frametitle{$A_\infty$-algebras are homotopy associative algebras.}
 %how do they generalize associative algebras
 \begin{itemize}
@@ -221,7 +260,7 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 \begin{frame}
 \frametitle{Operads}
 	\begin{itemize}
-			\item<1-> An \textbf{operad} is a collection of spaces  $\mathcal{O}=\{\mathcal{O}(n)\}_{n\geq 0}$, whose points are thought to be $n$-ary operations $X^n\to X$. %decir que pueden ser (topological spaces, vector spaces, other objects) siempre que los axiomas tengan sentido, es decir, comentar que esto se puede hacer en cualquier categoría monoidal simétrica diciendo por encima lo que es: producto, unidad y axiomas. Poner algo de todos modos en alguna diapositiva
+			\item<1-> An \textbf{operad} is a collection of objects (spaces, modules, etc)  $\mathcal{O}=\{\mathcal{O}(n)\}_{n\geq 0}$, whose elements are thought to be $n$-ary operations $X^n\to X$. %decir que pueden ser (topological spaces, vector spaces, other objects) siempre que los axiomas tengan sentido, es decir, comentar que esto se puede hacer en cualquier categoría monoidal simétrica diciendo por encima lo que es: producto, unidad y axiomas. Poner algo de todos modos en alguna diapositiva
 			\item<2-> We represent $n$-ary operations as trees with the following shape
 			\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 			\clip(-2.13333333333334,-0.093333333333332) rectangle (12.006666666666668,3.5);
@@ -389,6 +428,8 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 	Associativity and the existence of identity allows to understand compositions in terms of insertions $$f\circ_i g=\gamma(f;1,\dots, 1,\underbrace{g}_{i},1,\dots, 1)$$ \pause
 	
 	Composition of insertions is thought as grafting one tree at a time.
+	
+	PICTURE OF THE INSERTION, I HAVE IT IN SOME OTHER SLIDES
 \end{frame}
 \begin{frame}
 	\begin{defi}
@@ -418,12 +459,12 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 \subsection{Algebras over an operad}
 \begin{frame}
 	\frametitle{Endomorphism operad}
-	%SI LA CATEGORÍA ES LO BASTANTE BUENA (CLOSED) TENEMOS LO SIGUIENTE, POR COMODIDAD LO DEFINIMOS EN ESTA CATEGORÍA
+	
 	\begin{defi}
-		Let $V$ be a vector space. The \textbf{endomorphism operad} $End_V = \{ \xi_V(n) \}_{n\geq 0}$ of $V$ consists of
+		Let $V$ be a graded $R$-module. The \textbf{endomorphism operad} $End_V = \{ \xi_V(n) \}_{n\geq 0}$ of $V$ consists of
 		\begin{itemize}
 			\item<1-> $\xi_V(n)=\hom(V^{\otimes n},V)
-			$ the space of linear maps $V^{\otimes n} \to V$.
+			$ the graded $R$-module of linear maps $V^{\otimes n} \to V$.
 			\item<2-> composition $\gamma(f; g_1, \dots, g_n)= f(g_1\otimes\dots\otimes g_n)$
 			\item<3-> identity $\operatorname{Id}_V$
 			\item<4->  symmetric group action $\gamma (f; g_1, \dots, g_n) \cdot \sigma = f (g_{\sigma^{-1}(1)} \otimes \dots \otimes g_{\sigma^{-1}(n)})$,  $\sigma \in \Sigma_n$ %in the graded setting there are signs
@@ -444,9 +485,11 @@ If $\mathcal{O}$ is another operad, each operad morphism $\mathcal{O} \to End_V$
 \frametitle{Some examples}
 
 \begin{itemize}
-\item<1-> \textbf{Non-symmetric associative operad}: $\mathcal{O}(2)=\mathbb{F} m_2$ where $\mathbb{F}$ is a field and $\mathcal{O}(n)=\mathbb{F}\mu_n$ for $n> 2$, $\mathcal{O}(1)=\mathbb{F}$, $\mathcal{O}(0)=0$.  %O(0)=F if there is a unit
-\item<2-> \textbf{Symmetric associative operad}: $\mathcal{O}(2)=\mathbb{F}m_2\oplus\mathbb{F}m_2(12)$ and $\mathcal{O}(n)=\bigoplus_{\sigma\in\Sigma_n}\mathbb{F}_\sigma$, $\mathcal{O}(1)=\mathbb{F}$, $\mathcal{O}(0)=0$. 
-\item<3-> \textbf{Commutative (symmetric) operad}: same vector spaces as non-symmetric associative operad. %it is necessarily symmetric
+\item<1-> \textbf{Non-symmetric associative operad}: $\mathcal{O}(2)=R m_2$ and $\mathcal{O}(n)=R\mu_n$ for $n> 2$, $\mathcal{O}(1)=R$, $\mathcal{O}(0)=0$ ($\mathcal{O}(0)=R$ if there is a unit). %in arity 1 we always have the identity map
+
+
+\item<2-> \textbf{Symmetric associative operad}: $\mathcal{O}(2)=Rm_2\oplus Rm_2(12)$ and $\mathcal{O}(n)=\bigoplus_{\sigma\in\Sigma_n}R_\sigma$, $\mathcal{O}(1)=R$, $\mathcal{O}(0)=0$. 
+\item<3-> \textbf{Commutative (symmetric) operad}: same modules as non-symmetric associative operad. %it is necessarily symmetric
 
 %\item<1-> An operad $\mathcal{O}$ is said to be \textbf{generated} by a set $S$ of elements if every element of $\mathcal{O}$ is a linear combination of compositions of elements in $S$ and actions of the symmetric groups on them.
 %\item<2-> Let $\mathcal{O}$ be generated by an operation $m\in\mathcal{O}(2)$ such that $m\circ_1 m=m\circ_2 m$. This implies $m(m,1)=m(1,m)$ so an algebra over $\mathcal{O}$ is an associative algebra.
@@ -475,8 +518,9 @@ $$\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0$$
 %\end{frame}
 \begin{frame}
 \frametitle{Operadic suspension}
+RELATION TO SHIFTT OF GRADED THINGS (I HAVE IT SOMEWHERE ELSE)
 \begin{itemize}
-\item<1-> Let $\Lambda(n)$ be a graded vector space concentrated in degree $n-1$ and generated by $e^n=e_1\land\cdots\land e_n$.
+\item<1-> Let $\Lambda(n)$ be a graded $R$-module concentrated in degree $n-1$ and spanned by $e^n=e_1\land\cdots\land e_n$. %for those who know abour rep theory, thiss is the sign representation of the  symmetric group
 \item<2-> Consider the sign action of the permutation group on $e$:
 \[(i\ i+1)\cdot e^n=e_1\land\cdots\land e_{i+1}\land e_i\land\cdots\land e_n=-e^n\]
 \item<3-> Define insertion maps $\circ_i:\Lambda(n)\otimes\Lambda(m)\to\Lambda(n+m-1)$ as
@@ -551,6 +595,7 @@ is a Lie bracket.
 \item<1-> Since $m\tilde{\circ}m=0$, the Jacobi identity implies that $[m,[m,]]=0$ for the bracket induced by $\tilde{\circ}$.
 \item<2-> Since $m$ is of degree $1$, this imples that the map $[m,]:\mathfrak{s}\mathcal{O}\to\mathfrak{s}\mathcal{O}$ turns $\mathfrak{s}\mathcal{O}$ into a chain complex. %this would actually be the shift but it's just arityty one so it doesn't change anything
 \item<3-> Indeed, it is possible to define an $A_\infty$-algebra structure on $\Sigma\mathfrak{s}\mathcal{O}$. %i don't have time for details
+DETAILS IF THERE IS TIME
 \end{itemize}
 \end{frame}
 
