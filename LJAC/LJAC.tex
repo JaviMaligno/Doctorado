@@ -141,13 +141,17 @@
 \item<1-> \textbf{Symmetric monoidal category of graded $R$-modules} 
 %as vector spaces but we may have a ring that is not a field
 
-Let $R$ be a ring of characteristic distinct of 2. 
+Let $R$ be a commutative ring of characteristic distinct of 2. 
 \item[$\ast$]<2-> Objects: graded $R$-modules $V=\bigoplus_p V^p$ where $V^p$ is the degree $p$ component. (Example $\Q[x]$)
 %direct sum can be taken over any abelian monoid (more structure depending on what you need), tipically the integers
 \item[$\ast$]<3-> Morphisms: $\hom(V,W)=\bigoplus_p \hom(V,W)^p$. A linear map $f:V\to W$ is of degree $p$ if $f(V^n)\subseteq W^{n+p}$ for all $n$. (Example $x:\Q[x]\to \Q[x]$)
 \item[$\ast$]<4-> Tensor product $(V\otimes W)^n=\bigoplus_{p+q=n} V^p\otimes_R W^q$. 
 \item[$\ast$]<5-> Symmetry $\tau:V\otimes W\to W\otimes V$, $\tau(a\otimes b)=(-1)^{\deg(a)\deg(b)}b\otimes a$.
 \end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Orientations}
+\includegraphics[scale=0.4]{orientation}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -181,7 +185,16 @@ Let $R$ be a ring of characteristic distinct of 2.
 
 \section{Homotopy}
 \begin{frame}
-\frametitle{Homotopy}
+\frametitle{Homotopy in Topology}
+\begin{itemize}
+\item<1-> Equivalence weaker than homeomorphism.
+\item<2-> $\mathbb{R}^n$ is homotopy equivalent to a single point.
+\item<3-> An open cylinder is homotopy equivalent to a circle ($S^1\times \mathbb{R}\simeq S^1\times \{*\}\cong S^1$).
+\item<4-> ``Holes'' are preserved.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Homotopy of chain complexes}
 \begin{itemize}
 
 %one reason to stop at degree 0 for chain maps is that in degree 1 we have the following
@@ -772,6 +785,19 @@ Up to shifts, the following maps define an $A_\infty$-algebra structure on $\mat
 \end{align*}
 \end{theorem}
 \end{frame}
+%\begin{frame}
+%
+%\end{frame}
+%\begin{frame}
+%%there is a relation between the original structurer and the induced one
+%\begin{theorem}[Gerstenhaber-Voronov]
+%The map $\Phi:\mathfrak{s}\mathcal{O}\to $ defined by \[\Phi(x)=\sum_{n\geq 0} x\{x_1,\dots, x_n\}\]
+%is a map of $A_\infty$-algebras, i.e. it satisfies 
+%\[\Phi(M_n)=M_n(\Phi^{\otimes n})\]
+%for all $n$.
+%
+%\end{theorem}
+%\end{frame}
 \begin{frame}
 	\begin{center}
 	\Huge{Thank you very much!}

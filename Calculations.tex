@@ -8,7 +8,8 @@
 %--------------------------------------------------------
 \begin{document}
 
-
+\section{Bigraded insertion}
+Solved by bidegree restrictions \url{https://math.stackexchange.com/questions/4114833/find-the-correct-sign-so-that-the-equation-is-satisfied/4405456#4405456}
 
 Let $A=\bigoplus_{i,k} A^i_k$ be a bigraded module and let us say we have a linear map $\circ :A\otimes A\to A$ of bidegree $(0,0)$. This operation satisfies certain associativity conditions of operads with respect to the braiding morphism $\gamma(a\otimes b)=(-1)^{kl+ij}b\otimes a$ for $a\in A^i_k$ and $b\in A^j_l$ (we say that $a$ has bidegree $(k,i)$ and $b$ has bidegree $(l,j)$, where the first component is the horizontal degree and the second component is the vertical degree). 
 
@@ -167,4 +168,72 @@ By the brace relation this equals
 \[\sum_{i+j=m}\sum_{l,k}(-1)^jb_1(b_1(m_{j,l};m_{ik});x)=0\]
 %For each position of insertion of x we have a 0 map applied to x, so the above sum is indeed equal to 0
 
+\newpage
+\section{Inverse of $\mu$}
+
+Let $A$ and $B$ be $(\N,\Z)$-graded modules.  For these modules we can write totalization with direct sums
+\[\Tot(A)^n=\bigoplus_{i\in\N} A_i^{n-i}.\]
+I am using the convention that the total degree is the sum of vertical and horizontal degrees. We know that the totalization is a lax monoidal functor with natural transformation
+\begin{align*}
+\mu: \Tot(A)\otimes \Tot(B)\to \Tot(A\otimes B)\\
+\mu(a\otimes b)_k\coloneqq\sum_{k_1+k_2=k}(-1)^{k_1n_2}a_{k_1}\otimes b_{k_2}
+\end{align*}
+where $a=(a_i)_i\in\Tot(A)^{n_1}$ and $b=(b_j)_j\in\Tot(B)^{n_2}$. In the $(\N,\Z)$-graded case, this  functor is said to be strong symmetric monoidal because tensor products distributes over direct sums. I am going to try to find the inverse $\mu^{-1}$ explicitly.
+
+\subsection{Calculation of $\mu^{-1}$}
+
+Let us try to define 
+
+\[\mu^{-1}:\Tot(A\otimes B)\to \Tot(A)\otimes \Tot(B)\]
+
+Let  $c\in\Tot(A\otimes B)^n$. By definition, we have
+\[\Tot(A\otimes B)^n=\bigoplus_k (A\otimes B)^{n-k}_k=\bigoplus_k\bigoplus_{n_1+n_2=n}\bigoplus_{k_1+k_2=k}A_{k_1}^{n_1-k_1}\otimes B_{k_2}^{n_2-k_2}\]
+And thus $c=(c_k)_k$, or written as a sum, $c=\sum_k c_k$, where 
+\[c_k=\sum_{n_1+n_2=n}\sum_{k_1+k_2=k}a_{k_1}\otimes b_{k_2}.\]
+%I am writing elements of direct sums as sequences when the direct sum is from totalization and as sums when the direct  sum is from bigraded module decomposition.
+
+
+
+We may eliminate the index $k$ by letting $k_1$ and $k_2$ vary freely so the above module is isomorphic to 
+
+\[\bigoplus_{n_1+n_2=n}\bigoplus_{k_1}\bigoplus_{k_2}\left(A_{k_1}^{n_1-k_1}\otimes B_{k_2}^{n_2-k_2}\right)\]
+
+
+Distributibity allows us to rewrite this as  
+
+\[\bigoplus_{n_1+n_2=n}\left(\bigoplus_{k_1}A^{n_1-k_1}_{k_1}\otimes \bigoplus_{k_2}B^{n_2-k_2}_{k_2}\right)=\bigoplus_{n_1+n_2=n}\Tot(A)^{n_1}\otimes \Tot(B)^{n_2}=(\Tot(A)\otimes \Tot(B))^n\]
+\[\bigoplus_{n_1+n_2=n}\bigoplus_{k_1}\bigoplus_{k_2} \left(A^{n_1-k_1}_{k_1}\otimes B^{n_2-k_2}_{k_2}\right).\]
+
+%And we can introduce a new index to group the factors in a more convenient way as follows
+%\[\bigoplus_k\bigoplus_{n_1+n_2=n}\bigoplus_{k_1+k_2=k} A^{n_1-k_1}_{k_1}\otimes B^{n_2-k_2}_{k_2}=\Tot(A\otimes B)^n.\]
+
+%Working our way backwards, this means that $c=\sum_kc_k$ is regrouped as follows
+This process translates into regrouping $c$ as follows
+
+\[c=\sum_k \sum_{n_1+n_2=n}\sum_{k_1+k_2=k}a_{k_1}\otimes b_{k_2}=\sum_{n_1+n_2=n}\sum_{k_1}\sum_{k_2}(a_{k_1}\otimes b_{k_2})=\sum_{n_1+n_2=n}\left(\sum_{k_1}a_{k_1}\right)\otimes\left(\sum_{k_2}b_{k_2}\right)\]
+and then we can just add the same sign as $\mu$, so that 
+\[\mu^{-1}(c)=\sum_{n_1+n_2=n}\left(\sum_{k_1}(-1)^{k_1n_2}a_{k_1}\right)\otimes\left(\sum_{k_2}b_{k_2}\right)\]
+
+\subsection{Checking that $\mu^{-1}$ is the inverse of $\mu$}
+
+Let $a\in\Tot(A)^{n_1}$ and $b\in\Tot(B)^{n_2}$. We have
+
+\[\mu^{-1}(\mu(a\otimes b))=\mu^{-1}\left(\sum_k \sum_{k_1+k_2=k}(-1)^{k_1n_2}a_{k_1}\otimes b_{k_2}\right).\]
+Here, we are focusing on only one decomposition $n_1+n_2=n$, so the result of applying $\mu^{-1}$ is simply
+\[(\sum_{k_1}a_{k_1})\otimes (\sum_{k_2}b_{k_2})=a\otimes b.\]
+
+Similarly, if $c\in\Tot(A\otimes B)^n$,
+
+\[\mu(\mu^{-1}(c))=\sum_{n_1+n_2=n}\mu\left((\sum_{k_1}(-1)^{k_1n_2}a_{k_1})\otimes(\sum_{k_2}b_{k_2})\right)=\sum_k\sum_{n_1+n_2}\sum_{k_1+k_2=k}a_{k_1}\otimes b_{k_2}=c.\]
+
+\subsection{Doubts}
+What I am unsure about is that in the definition of $\mu$, the total  degrees $n_1$ and $n_2$ are fixed, and therefore we know that $a_{k_1}$ has bidegree $(n_1-k_1,k_1)$ and similarly with $b_{k_2}$ - maybe it would be more clear to write $a_{k_1}^{n_1-k_1}$. However, when defining the inverse, we have 
+\[\mu^{-1}(c)=\sum_{n_1+n_2=n}\left(\sum_{k_1}(-1)^{k_1n_2}a_{k_1}\right)\otimes\left(\sum_{k_2}b_{k_2}\right).\]
+
+In these sums, the indices seem to be independent of $a_{k_1}$ and $b_{k_2}$. For instance, it looks like I could choose any other decomposition $n_1'+n_2'=n$, and then $a_{k_1}$ would be multiplied by $(-1)^{k_1n_2'}$. Again, probably writing the vertical degree as a superindex may clear this confusion, because the way it is written I see no connection between $n_2$ and the bidegree of $b_{k_2}$. Or maybe we can rely on the fact that $a_{k_1}\otimes b_{k_2}\in A^{n_1-k_1}_{k_1}\otimes B^{n_2-k_2}_{k_2}$, and therefore it is only going to appear in the sum as the term corresponding  to the decomposition $n_1+n_2=n$, and not in any other, since the sum comes from the given module decomposition.
+
+I also had the impression  that I should write $n_2$ in terms of things depending only on $n$ and $a_{k_1}$, since in the definition of $\mu^{-1}$, $n_2$ is in the sum over $k_1$ and doesn't seem to be related to $b_{k_2}$ (the comments above). For instance, I could write $n_2=n-n_1$. But apparently this happens not to be necessary.
+
+%Another thing that did not feel so satisfying is that I am reordering the sums. In the tuple notation you cannot do that. But actually, for $\mu$ you also ``reorder'' because the components of $a$ and $b$ are placed in very specific ways. I was trying to use each c_k independently but I need to use the whole c
 \end{document}
+
