@@ -1,11 +1,11 @@
 	\documentclass[twoside]{article}
 \usepackage{estilo-ejercicios}
 \setcounter{section}{0}
-\newtheorem{defin}{Definition}[section]
-\newtheorem{lem}[defin]{Lemma}
-\newtheorem{propo}[defin]{Proposition}
-\newtheorem{thm}[defin]{Theorem}
-\newtheorem{eje}[defin]{Example}
+%\newtheorem{defin}{Definition}[section]
+%\newtheorem{lem}[defin]{Lemma}
+%\newtheorem{propo}[defin]{Proposition}
+%\newtheorem{thm}[defin]{Theorem}
+%\newtheorem{eje}[defin]{Example}
 \renewcommand{\baselinestretch}{1,3}
 
 \usepackage{empheq}
@@ -18,25 +18,32 @@
 \maketitle
 
 \section{Introduction}
-I use an operadic totalization inspired by WHITEHOUSE to obtain an operation similar to the star operation in RLW and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra
+We use an operadic totalization inspired by WHITEHOUSE to obtain an operation similar to the star operation in RLW and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra.
+
+First we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. From this, we obtain a brace structure from which we can obtain a classical $A_\infty$-algebra. We use THEOREM FROM WHITEHOUSE to show that this structure is equivaalent to a derived $A_\infty$-algebra on the suspended bigraded operad.
 
 
 \section{Operadic totalization}
-Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE
+Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE. INCLUDING DEFINITION OF TWISTED COMPLEX
 
-I THINK I NEED  (N,Z)-BRIGRADED MODULES TO MAKE SURE THAT HORIZONTAL DEGREE IS NON-NEGATIVE WHEN DEFINING M AS AN ELEMENT OF TSO
+REDEFINE THINGS ACCORDING TO CONVENTIONS
 
-We are going to apply the totalization with compact support functor of WHITEHOUSE 4.13 to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. WHITEHOUSE 3.11 the functor $T$ with domain the category of bigraded modules and bidegree $(0,0)$ morphisms is lax monoidal, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules.  
+%I THINK I NEED  (N,Z)-BRIGRADED MODULES TO MAKE SURE THAT HORIZONTAL DEGREE IS NON-NEGATIVE WHEN DEFINING M AS AN ELEMENT OF TSO
 
-Therefore, let $\OO$ be a bigraded linear operad, i.e. an operad in te category  of bigraded $R$-modules. We define $T\OO$ as the operad of graded $R$-modules for which \[T\OO(n)^d=\bigoplus_{d=i+k} \OO(n)^k_i=\bigoplus_i \OO(n)^{d-i}_i\] is the image of $\OO(n)$ under the totalization functor and the insertion maps are given by the composition  %THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
+%We are going to apply the totalization with compact support functor of WHITEHOUSE 4.13 to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. WHITEHOUSE 3.11 the functor $T$ with domain the category of bigraded modules and bidegree $(0,0)$ morphisms is lax monoidal, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules.  
+
+We are going to apply the totalization  functor of WHITEHOUSE 4.13 to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. WHITEHOUSE CITE DEFINITION the functor $T$ with domain the category of bigraded modules (TWISTED COMPLEXES?) and bidegree $(0,0)$ morphisms (TWISTED COMPLEX MAPS?) is lax monoidal, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules. 
+
+Therefore, let $\OO$ be a bigraded linear operad, i.e. an operad in te category  of bigraded $R$-modules. We define $T\OO$ as the operad of graded $R$-modules for which \[T\OO(n)^d=\bigoplus_{i<0}\OO(n)^{d-i}_i\oplus\prod_{i\geq 0} \OO(n)^{d-i}_i\] is the image of $\OO(n)$ under the totalization functor and the insertion maps are given by the composition  %THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
 \[T\OO(n)\otimes T\OO(m)\xrightarrow{\mu} T(\OO(n)\otimes \OO(m)) \xrightarrow{T(\circ_r)} T\OO(n+m-1),\]
 that is explicitly 
 \[(a\bar{\circ}_rb)_k=\sum_{k_1+k_2=k} (-1)^{k_1n_2} a_{k_1}\circ_r b_{k_2}\]
 
 for $a=(a_i)_i\in T\OO(n)^{n_1}$ and $b=(b_j)_j\in T\OO(m)^{n_2}$.
 
+IT WILL BE MORE CLEAR IF I WRITE DOWN THE DEFINITION OF THE FUNCTOR AND THE PROPOSITTION WHERE $\mu$ IS DEFINED
 
-MAYBE I SHOULD WRITE THINGS LIKE SUMS BUT I THINK IT MAKES SENSE TO WRITE IT LIKE THIS BECAUSE I KNOW THIS COMES FROM A BIGRADED MODULE
+%MAYBE I SHOULD WRITE THINGS LIKE SUMS BUT I THINK IT MAKES SENSE TO WRITE IT LIKE THIS BECAUSE I KNOW THIS COMES FROM A BIGRADED MODULE
 %where $a\in\OO(n)^k_i$, $b\in\OO(m)^j_l$ and $\circ_r$ is the insertion map in $\OO$.
 
 %It can be checked that this is indeed an operad of graded vector spaces I 
@@ -45,7 +52,7 @@ SHOULD WRITE THE AXIOMS FOR GRADED OPERADS SOMEWHERE (MORE GENERALLY OPERAD IN S
 
 HEURISTICS FOR THIS SIGN AND ALTERNATIVE, REFERRING TO WHITEHOUSE (THIS  LAST PART POSSIBLE LATER WITH DERIVED A INFTY)
 
-MY TOTALIZATION IS WHAT SARAH CALLS TOTALIZATION WITH COMPACT SUPPORT, WHICH IS STRICT MONOIDAL (CHECK THIS BECAUSE LEMMA 4.5 IS AN EXTERNAL PRODUCT)
+%MY TOTALIZATION IS WHAT SARAH CALLS TOTALIZATION WITH COMPACT SUPPORT, WHICH IS STRICT MONOIDAL (CHECK THIS BECAUSE LEMMA 4.5 IS AN EXTERNAL PRODUCT)
 
 COMPOSITION OF ARBITRARY BIGRADING IS PRESERVED BY TOT SINCE ALL SIGNS INVOLVED ARE HORIZONTAL DEGREE SO IT IS ANALOGUE TO WHITEHOUSE (WRITE DOWN THE CALCULATIONS IF NEEDED)
 
@@ -98,9 +105,8 @@ Given a bigraded $R$-module $A$, there is an isomorphism of operads $\End_{ A}\c
 \end{thm}
 
  
- THIS IS SERIOUS, I'M GOING TO CALL IT THAT WAY, BUT PROBABLY YOU SHOULDN'T SHOW IT TO YOUR SUPERVISOR YET
- 
-Now we are going to combine vertical operadic suspension and totalization in what I call the \emph{Paula construction} of a bigraded operad. More precisely, the Paula construction of a bigraded operad $\OO$ is the graded operad $T\s\OO$. 
+
+Now we are going to combine vertical operadic suspension and totalization. More precisely, the totalized vertical suspension a bigraded operad $\OO$ is the graded operad $T\s\OO$. 
 
 %TsOO(n)^{n1} SOO(n)^{n1-k1}_k1  OO(n)^{n1-k1-n+1}_k1
 
@@ -112,6 +118,18 @@ This star operation is precisely the star operation from RWL, i.e the convolutio
 
 DESCRIBE DERIVED AINFTY MORPHISMS AND COMPOSITION WITH THIS (WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
 
+Before continuing, let us show a Lemma that allows us to work only with the single graded operadic suspension if needed.
+\begin{lemma}
+For a bigraded operad $\OO$ we have an isomorphism $T\s\OO\cong \s T\OO$, where the suspension on the left hand side is the bigraded version and on the right hand side is the single graded version. 
+\end{lemma}
+\begin{proof}
+For an element $(a_k)_k\in T\s\OO(n)$ the isomorphism is given by
+\begin{align*}
+f:T\s\OO&\cong \s T\OO\\
+(a_k)_k&\mapsto ((-1)^{kn}a_k)_k
+\end{align*}
+Cleary this map is bijective so we just need to check that it commutes with insertions. COMPLETE, MAYBE RESTRICT HOMOGENEOUS BIDEGREE IF NECESSARY
+\end{proof}
 
 \begin{remark}
 There exist other possible ways of totalizing operads by varying the natural transformation $\mu$. For instance, we can choose the totalization functor $T'$ which is the same as $T$ but  with $\mu$ defined in such a way that the insertion on $T'\OO$ is defined by \[(a\hat{\circ}b)_k=\sum_{k_1+k_2=k}(-1)^{k_2n_1}a_{k_1}\circ b_{k_2}.\] 
@@ -140,14 +158,18 @@ for all $u\geq 0$ and $v\geq 1$.
 Similarly, a \emph{derived $A_\infty$ multiplication} $m$ on a bigraded operad $\OO$ is an element $m=\sum_{ij}m_{ij}$ where $m_{ij}\in\OO(j)^{2-i-j}_i$ for each $j\geq 1$ such that 
 \[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}\circ_{r+1} m_{pq}=0.\]
 \end{definition}
-From the definition of $T\s\OO$, such a multiplication is equivalent to an element $m\in T\s\OO$ of degree 1 concentrated in positive arity satisfying $m\star m=0$. From this, it follows from our previous results that $m$ determines an $A_\infty$-algebra structre on $ST\s\OO\cong S\s T\OO$ IT WAS EQUALITY WITH THE ALTERNATIVE OPERATION that can be itereted to define an $A_\infty$-structure on $S\s\End_{S\s T\OO}$, which is related to the structure on $S\s T\OO$ by a map of $A_\infty$-algebras  $\Phi:S\s T\OO
+\begin{remark}
+One can readily check that, on any derived $A_\infty$-algebra $A$, the maps $d_i=m_{i1}$ MAYBE MULTIPLIED BY $(-1)^i$ CHECK CONVENTIONS define a twisted complex structure. This leads to the possibility of defining a derived $A_\infty$-algebra as a twisted complex with some extra structure. SEE  REMARK 4.48 FROM WHITEHOUSE
+\end{remark}
+From the definition of $T\s\OO$, such a multiplication is equivalent to an element $m\in T\s\OO$ of degree 1 concentrated in positive arity satisfying $m\star m=0$. From this, it follows from our previous results that $m$ determines an $A_\infty$-algebra structre on $ST\s\OO\cong S\s T\OO$ %IT WAS EQUALITY WITH THE ALTERNATIVE OPERATION 
+that can be iterated to define an $A_\infty$-structure on $S\s\End_{S\s T\OO}$, which is related to the structure on $S\s T\OO$ by a map of $A_\infty$-algebras  $\Phi:S\s T\OO
 \to  S\s\End_{S\s T\OO}$.  MAYBE WRITE THIS MORE EXPLICITLY 
 
-The goal now is showing that this structure is equivalent to a derived $A_\infty$-structure on $S\s \OO$. 
-%HERE THE STAR OPERATION, I NEED TO DEFINE DERIVED AINFTY MULTIPLICATION ON AN OPERAD, THEN STAR OPERATION, THEN ELEMENT OF PAULA CONSTRUCTION
+The goal now is showing that this $A_\infty$-structure on $ST\s\OO$ is equivalent to a derived $A_\infty$-structure on $S\s \OO$. 
+%HERE THE STAR OPERATION, I NEED TO DEFINE DERIVED AINFTY MULTIPLICATION ON AN OPERAD, THEN STAR OPERATION, THEN ELEMENT OF TOTALIZED VERTICAL SUSPENSION
 
 
-\subsection{Braces}\label{sectionbraces}
+\section{Braces}\label{sectionbraces}
 First recall the definition of a brace algebra.
 
 \begin{defi}\label{braces}
@@ -169,12 +191,12 @@ Some authors might use the notation $b_{1+n}$ instead of $b_n$, but the first el
 \end{remark}
 
 We can define braces on $T\s\OO$ via operadic composition. More precisely, we define the maps 
-$$b_n:T\mathfrak{s}\OO(N)\otimes T\mathfrak{s}\OO(a_1)\otimes\cdots\otimes T\mathfrak{s}\OO(a_n)\to T\mathfrak{s}\OO(N-\sum a_i)$$
+$$b^T_n:T\mathfrak{s}\OO(N)\otimes T\mathfrak{s}\OO(a_1)\otimes\cdots\otimes T\mathfrak{s}\OO(a_n)\to T\mathfrak{s}\OO(N-\sum a_i)$$
 using the operadic composition $\gamma$ on $T\mathfrak{s}\OO$ as
 
-\[b_n(f;g_1,\dots,g_n)=\sum\gamma(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1),\]
+\[b^T_n(f;g_1,\dots,g_n)=\sum\gamma(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1),\]
 
-where the sum runs over all possible ordering preserving insertions. The brace $b_n(f;g_1,\dots,g_n)$ vanishes whenever $n>N$ and $b_0(f)=f$.
+where the sum runs over all possible ordering preserving insertions. The brace $b^T_n(f;g_1,\dots,g_n)$ vanishes whenever $n>N$ and $b^T_0(f)=f$. We use the notation $b^T_n$ to distinguish this brace map from the brace $b_n$ that can be naturally defined on the bigraded operad $\s\OO$.
 
 The operadic composition can be described in terms of insertions in the obvious way, namely 
 
@@ -190,7 +212,7 @@ This is obtained by iteration of the last factor sign in EQUATION WITH THE SIGN 
 
  USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD (I WILL PROBABLY  WRITE THE COMPUTATION OF DEGREES DIFFERENTLY LATER BECAUSEE I AM IDENTIFYING THE BRACE AND ELEMENTS WITH THEIR SHIFTS HERE TO MAKE IT EASIER TO COMPPUTE)
 
-Let $m_{il}$ a component of the derived $A_\infty$-multiplication $m$ and $x_1,\dots, x_j\in\OO$ with $x_k$ of bidegree $(i_k,l_k)$, and let us compute the bidegree of $b_j(m_{il};x_1,\dots, x_j)$ in $S\s\OO$. By definition, the horizontala degree on $S\s\OO$ is the same as in $\OO$, so it is $i+\sum_{k=1}^ji_k$, meaning that the horizontal degree of the map $b_j(m_{il};-):S\s\OO^{\otimes j}\to S\s\OO$ is precisely $i$. Now let us compute the vertical degree. By definition it is given by the internal vertical degree plus the arity. Therefore, let us compute
+Let $m_{il}$ a component of the derived $A_\infty$-multiplication $m$ and $x_1,\dots, x_j\in\OO$ with $x_k$ of bidegree $(i_k,l_k)$, and let us compute the bidegree of $b_j(m_{il};x_1,\dots, x_j)$ in $S\s\OO$. By definition, the horizontal degree on $S\s\OO$ is the same as in $\OO$, so it is $i+\sum_{k=1}^ji_k$, meaning that the horizontal degree of the map $b_j(m_{il};-):S\s\OO^{\otimes j}\to S\s\OO$ is precisely $i$. Now let us compute the vertical degree. By definition it is given by the internal vertical degree plus the arity. Therefore, let us compute
 
 \[
 a(b_j(m_{il};x_1,\dots, x_j))+\deg(b_j(m_{il};x_1,\dots, x_j))
@@ -206,16 +228,157 @@ so the sum is $2-i-j+\sum (a(x_k)+\deg(x_k))$, so that the vertical degree of th
 THESE ARE CANDIDATES BEFORE SHIFTING  AND I ALSO NEED TO TOTALIZE
 
 \[M_{ij}(x_1,\dots, x_j)=\sum_l b_j(m_{il};x_1,\dots, x_j)\]
-\[M_{i1}(x)= \sum_l (b_1(m_{il};x)-(-1)^{|x|}b_1(x;m_{il}))\]
-to be a derived structure on that shift. THE SSIGN SHOULD BE THE SCALAR PRODUCT OF THE BIDEGREES
+\[M_{i1}(x)= \sum_l (b_1(m_{il};x)-(-1)^{\langle x,m_{il}\rangle}b_1(x;m_{il}))\]
+to be a derived structure on that shift. THE SSIGN SHOULD BE THE SCALAR PRODUCT OF THE BIDEGREES $\langle x,m_{il}\rangle=x_hi+x_v(1-i)$ (degrees in $\s\OO$)
 
 CHECK THAT THEY SATISFYI THE EQUATION UP TO SIGN AND WORRY LATER ABOUT THE SIGNS
 
 DO THE MI1 DEFINE A TWISTED COMPLEX? THIS IS A NECESSARY CONDITION TO SATISSFY THE DAINFTY EQUATION THAT MIGHT BE EASIER TO SHOW AND IIT WOULD MAKE EASIER TO CONNECT EVERYTHING HERE WITH SARAH
 
 
+\section{Using the theorem (better name will come)}
+
+VERY SKETCHY AT THE MOMENT
+
+We are going to use the following theorem from WHITEHOUSE (CITE) to show thate there is a derived $A_\infty$-structure on $A=S\s\OO$. Note that $TSB=STB$ for any bigraded module $B$, where $SB$ is the vertical suspension and $STB$ is the suspension as graded modules.
+
+THEOREM, REWRITE FOR CONVENTIONS
+
+There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded, meaning that there exists some integer $i$ such that $A_k^n=0$ for all $k>i$. In our case, this means that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ maps $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far MURO, RW, SARAH
+
+We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex WRITE DOWN THE TWO EQUIVALENT DEFINITIONS AND CITE HERE. We are going to do this by hand, but later we will prove another version of this theorem that works for bigraded modules and we will see that the induced twisted complex structure is the same that we are going to give. 
 
 
+PROOF OF TWISTED COMPLEX
+\section{I need to rewrite this but I'll leave it  here for now}
+I have the following candidates to induce derived $A_\infty$-structure on $S\s\OO$ after shifting (similar to what I did for $A_\infty$-algebras). 
+\[M_{ij}(x_1,\dots, x_j)=\sum_l b_j(m_{il};x_1,\dots, x_j)\]
+\[M_{i1}(x)= \sum_l (b_1(m_{il};x)-(-1)^{\langle x,m_{il}\rangle}b_1(x;m_{il}))\]
+
+To apply the theorem by Sarah I need the bigraded module $S\s\OO$ to be a twisted complex. Since all the arities involved are 1 and the shift is only vertical, while the signs appearing in the twisted complex equation are related only to the horizontal degree, this is identical to a twisted complex structure on $\s\OO$. The twisted complex structure should be given by the maps $\{M_{i1}\}_{i\geq 0}$. I am going to try to show that this the case. First I will try without signs, to see that at least it is conceptually possible, and  then I would work out the signs.
+
+Up to sign, the maps  $\{M_{i1}\}_{i\geq 0}$ must satisfy the equation
+
+\[\sum_{i+j=m} M_{i1}\circ M_{ji}=0,\]
+where $\circ$ is composition of maps. I may or may not omit the sum to avoid writing too much, as it just means that the composition on every degree must vanish.
+
+Therefre, up to signs I compute 
+
+\begin{align*}
+\sum_{i+j=m}M_{i1}(M_{j1}(x))=\sum_{i+j=m}M_{i1}\left(\sum_l b_1(m_{jl};x)+b_1(x;m_{jl})\right)=\\
+\sum_{i+j=m}\sum_{l,k}\left(b_1(m_{ik}; b_1(m_{jl};x))+b_1(m_{ik};b_1(x;m_{jl}))+b_1(b_1(m_{jl};x);m_{ik})+b_1(b_1(x;m_{jl});m_{ik})\right)
+\end{align*}
+
+%AT FIRST SIGHT IT DOESN'T LOOK POSSIBLE TO CANCEL THE LAST BRACE BECAUSE IT IS THE ONLY ONE WITH X AT THE BEGINNING, BUT THAT SHOULD HAVE BEEN THE SAME FOR THE CLASSICAL CASE, SO I SHOULD REVIEW THAT ONE
+%
+%ON THE CLASSICAL CASE IT WAS MUCH EASIER BECAUSE AFTER BRACE RELATION B(X;M,M) APPEARS TWICE WITH OPPOSITE SIGN, SO IT CANCELS. HERE IT IS NOT SO OBVIOUS BECAUSE THE SIGN IS NOT JUST $-1$ SO MAYBE IT CANCELS WITH OTHER SUMMANDS (RECALL THAT I AM OMITTING ONE SUM)
+
+Applying the brace relation we obtain
+
+\begin{align*}
+\sum_{i+j=m}\sum_{l,k}(b_1(m_{ik}; b_1(m_{jl};x))+b_1(m_{ik};b_1(x;m_{jl}))+\\
+ b_2(m_{jl};x,m_{ik})+b_1(m_{jl};b_1(x;m_{ik}))+b_2(m_{jl};m_{ik},x)+\\
+b_2(x;m_{jl},m_{ik})+b_1(x;b_1(m_{jl};m_{ik}))+b_2(x;m_{ik},m_{jl}))
+\end{align*}
+
+In the sum all terms of the form $b_1(x;b_1(m_{jl};m_{ik}))$ that can be seen in the last line should add up to vanish provided that $m$ is a $dA_\infty$-multiplication (meaning that up to sign $b_1(m;m)=0$). A sign of the form $(-1)^i$ (or maybe $(-1)^j$) should be in in front of each of these terms. Since $i$ and $j$ are interchangable (i.e. for each pair $(i,j)$ there is the pair $(j,i)$), the terms $b_2(x;m_{jl},m_{ik})+b_2(x;m_{ik},m_{jl}))$ in the last line should cancel as well (for this, the other appearance should come with opposite sign). Here it is relevant as well, that the sum covers all the values of $k$ and $l$, so that the pair $(j,i)$ comes with $l$ and $k$ interchanged as well. 
+
+Then $b_1(m_{ik};b_1(x;m_{jl}))$ in te first line should cancel with $b_1(m_{jl};b_1(x;m_{ik}))$ on the second line (but from a different summand, the one where $i$ and $j$ are interchanged). Finnaly, the reamining terms $b_1(m_{ik}; b_1(m_{jl};x))+b_2(m_{jl};x,m_{ik})+b_2(m_{jl};m_{ik},x)$ seem to be adding up to $b_1(b_1(m;m);x)$, but again some signs are going to be needed. That would cancel everything, so at least up to sign this makes sense.
+
+
+\subsection{Signed version}
+
+Now let us add signs. We now compute 
+\[\sum_{i+j=m} (-1)^iM_{i1}\circ M_{ji}\]
+recalling that for the usual sign convention of twisted complex from a $dA_\infty$-algebra we need to define $d_i=(-1)^im_{i1}$, so that the sign in tthe equation is $(-1)^j$ instead of $(-1)^i$. This being said, let us compute 
+\begin{align*}
+\sum_{i+j=m}(-1)^iM_{i1}(M_{j1}(x))=\sum_{i+j=m}(-1)^iM_{i1}\left(\sum_l b_1(m_{jl};x)-(-1)^{\langle x|m_{jl}\rangle}b_1(x;m_{jl})\right)=\\
+\sum_{i+j=m}(-1)^i\sum_{l,k}\left(b_1(m_{ik}; b_1(m_{jl};x))-(-1)^{\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\right.\\
+\left. -(-1)^{\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(b_1(m_{jl};x);m_{ik})+(-1)^{\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(b_1(x;m_{jl});m_{ik})\right)
+\end{align*}
+Observe that $\langle b_1(m_{jl};x)|m_{ik}\rangle=\langle m_{ij}|m_{ik}\rangle+\langle x|m_{ik}\rangle$ in the usual bigraded sign convention (also in the total graded convention). I am not going to explicitly compute these signs yet to see what properties we need from them.
+
+Applying the brace relation we obtain
+
+\begin{align*}
+\sum_{i+j=m}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\\
++(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))\\
++(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))
+\end{align*}
+
+Recall that $m$ being a $dA_\infty$-multiplication means that $\sum_{i+j=m}\sum_{k,l}(-1)^ib_1(m_{ik};m_{ij})=0$. Notice that the summand corresponding to each value of $i+j$ must vanish because it corresponds to a given horizontal degree. Let us check now the cancellations with the signs. First, let us check that the terms 
+\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))\]
+can be added up to vanish. For that, we compute the sign \[\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle=\langle m_{jl}|m_{ik}\rangle+\langle x|m_{ik}\rangle+\langle x|m_{jl}\rangle\]
+Recall that the braces are defined on the operadic suspension, so that the bidegree of $m_{ik}$ is $(i,1-i)$. Therefore, writing the bidegree of $x$ as $(x_h,x_v)$, the above equals 
+\[ji+(1-i)(1-j)+x_hi+x_v(1-i)+x_hj+x_v(1-j)\equiv 1+i+j + (i+j)x_h+(i+j)x_v\mod 2=\]
+\[(i+j)(1+x_h+x_v)=1+m(1+x)\]
+Since this sign is constant for all terms $b_1(m_{ik};m_{ij})$ that share the same horizontal degree $i+j=m$, we can rewrite
+\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))=-(-1)^{m(1+x)}b_1(x;(-1)^ib_1(m_{ik};m_{jl})),\]
+which vanishes when we consider the whole sum
+%Multiplying 0 by something is 0, some sum vanishe and you multiply it by a constant sign, it still vanishes
+\[\sum_{i+j=m}\sum_{k,l}-(-1)^{m(1+x)}b_1(x;(-1)^ib_1(m_{ik};m_{jl}))=0.\]
+Therefore, the equation after the brace relation reduces to
+\begin{align*}
+\sum_{i+j=m}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\\
++(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))
+\end{align*}
+Let us focus on the last line. For each pair $(i,j)$ we should have cancellation with the pair $(j,i)$, which adds the same elements, but with different signs. We also need to consider the pairs $(k,l)$ and $(l,k)$ to get a cancellation. Let us compare the signs. For the pair $((i,j),(k,l))$ we have precisely the last line of the above equation
+\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))\]
+
+For the pair $((j,i),(l,k))$ we have
+\[(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle+\langle x|m_{ik}\rangle}(b_2(x;m_{ik},m_{jl})+(-1)^{\langle m_{jl}|m_{ik}\rangle}b_2(x;m_{jl},m_{ik}))\]
+ Comparing the sign of $b_2(x;m_{jl},m_{ik})$ we find that for $((i,j),(k,l))$ we have
+
+\[-(-1)^{i+(i+j)(1+x)}b_2(x;m_{jl},m_{ik})=-(-1)^{j+(i+j)x}b_2(x;m_{jl},m_{ik})\]
+and for the pair $((j,i),(l,k))$ we have
+\[(-1)^{j+(i+j)x}b_2(x;m_{jl},m_{ik})\]
+As we see, we get opposite signs and thus cancellation. For $b_2(x;m_{ik},m_{jl})$ it is completely analogous. Thus, we have reduced our main equation to 
+\begin{align*}
+\sum_{i+j=m}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))
+\end{align*}
+In a similar fashion to the previous calculation, we are going to try to cancel $b_1(m_{ik};b_1(x;m_{jl}))$ in the first line with $b_1(m_{jl};b_1(x;m_{ik})$ in the last line by considering switched pairs. For the pair $((i,j),(k,l))$, the term in the first line is 
+\[-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))\]
+and for the pair $((j,i),(l,k))$ the term in the last line is
+\[-(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))=(-1)^{1+j+\langle m_{ik}|m_{jl}\rangle+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))=\]
+\[(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))\]
+which has precisely the opposite sign to the other pair, and thus cancels. This reduces the main equation to just 
+\begin{align*}
+\sum_{i+j=m}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))
+\end{align*}
+We want this therms to add up to something of the form $b_1(b_1(m;m);x)$. Notice that for that we need to switch some pairs. For simplity, we switch the pair of the first term and rewrite the sum after simplifying some signs as
+\begin{align*}
+\sum_{i+j=m}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})-(-1)^{i+\langle m_{jl}| m_{ik}\rangle}b_2(m_{jl};m_{ik},x))
+\end{align*}
+Simplifying further the signs we get
+\begin{align*}
+\sum_{i+j=m}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))
+ +(-1)^{j+\langle x|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})+(-1)^{j}b_2(m_{jl};m_{ik},x)).
+\end{align*}
+By the brace relation this equals
+\[\sum_{i+j=m}\sum_{l,k}(-1)^jb_1(b_1(m_{j,l};m_{ik});x)=0\]
+%For each position of insertion of x we have a 0 map applied to x, so the above sum is indeed equal to 0
+
+\section{A section just to separate the previous thing from the rest}
+LEMMA THAT THE INVERSE OF MU INDUCES THE INVERSE ENRICHED FUNCTOR?
+
+PROOF OF DAINFTY (CHAIN OF ISOS IN REVERESE):
+1- FIRST ISO DOES NOTHING
+2- SPLIT INTO FINDING ENRICHED MU-1 AND THEN ENRICHED TOT-1
+3- THE PROJECTION GIVES THE BIGRADED BRACE, SIGNS INCLUDED
+4- FINAL SIGN
+
+
+ALTERNATIVE VERSION
+
+SHOW THAT THE  RESULTING TWISTED COMPLEX IS THE SAME
 %\appendix
 %\renewcommand{\appendixname}{Appendix:}
 \begin{appendices}
@@ -225,296 +388,7 @@ DO THE MI1 DEFINE A TWISTED COMPLEX? THIS IS A NECESSARY CONDITION TO SATISSFY T
 
 
 
-%\begin{lemma}\label{binom}
-%For any integers $n$ and $m$, the following equiality  holds mod 2:
-%
-%$$\binom{n+m-1}{2}+\binom{n}{2}+\binom{m}{2}=(n-1)(m-1).$$
-%\end{lemma}
-%\begin{proof}
-%Let us compute 
-%
-%$$\binom{n+m-1}{2}+\binom{n}{2}+\binom{m}{2}+(n-1)(m-1)\mod 2.$$
-%
-%By definition, this equals
-%
-%\begin{gather*}
-%\frac{(n+m-1)(n+m-2)}{2}+\frac{n(n-1)}{2}+\frac{m(m-1)}{2}+(n-1)(m-1)=\\
-%\frac{(n^2+2nm-2n+m^2-2m-n-m+2)+(n^2-n)+(m^2-m)+2(nm-n-m+1)}{2}=\\
-%n^2+2nm-3n+m^2-3m+2=0\mod 2
-%\end{gather*}
-%as wanted.
-%
-%
-%\end{proof}
-%
-%I WILL HAVE TO CHECK THIS AGAIN
-%
-%\begin{lemma}
-%There are isomorphisms of operads $\mathfrak{s}^{-1}\mathfrak{s}\OO\cong\OO\cong\mathfrak{s}\mathfrak{s}^{-1}\OO$.
-%\end{lemma}
-%\begin{proof}
-%We are only showing the first isomorphism since the other one is analogous. We only need to look at the isomorphism
-%\begin{align*}
-%(\mathcal{O}(n)\otimes\Sigma^{n-1}sig_n\otimes \Sigma^{1-n}sig_n)\otimes (\mathcal{O}(m)\otimes\Sigma^{m-1}sig_m\otimes \Sigma^{1-m}sig_m)\cong\\ (\mathcal{O}(m)\otimes \mathcal{O}(m))\otimes (\Sigma^{n-1}sig_n\otimes \Sigma^{m-1}sig_m)\otimes (\Sigma^{1-n}sig_n\otimes \Sigma^{1-m}sig_m).
-%\end{align*}
-%After insertions, the only sign that do not cancel is $(-1)^{(n-1)(m-1)}$. So we need to find an automorphism $f$ of $\OO$ such that, for $a\in\OO(n)$ and $b\in\OO(m)$,
-%
-%$$f(a\circ_i b)=(-1)^{(n-1)(m-1)}f(a)\circ_i f(b).$$
-%
-%By the previous lemma it can be checked that $f(a)=(-1)^{\binom{n}{2}}a$ is such an automorphism.
-%%It can be checked that $f(a)=(-1)^{\frac{n(n+1)}{2}+1}a$ is such an automorphism.
-%\end{proof}
-%
-%
-%
-%Recall that we define the \emph{suspension} or \emph{shift} of a graded module $A$ is the graded module $S A$ having degree components $(S A)^i=A^{i-1}$.
-%
-%\begin{theorem}\label{proofthm}
-%There is an isomorphism of operads $\End_{S A}\cong \mathfrak{s}^{-1}\End_A$.
-%\end{theorem}
-%\begin{proof}
-%For each $n$, we clearly have an isomorphism of graded modules
-%
-%$$\End_{S A}(n)=\Hom((S A)^{\otimes n},S A)\cong\Hom(A^{\otimes n},A)\otimes S^{1-n}sig_n= \mathfrak{s}^{-1}\End_A(n)$$
-%
-%given by the map $\sigma^{-1}$ defined before as $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$, where $\circ$ denotes the composition of maps. We must show that this map is an isomorphism of operads, in other words, it commutes with insertions and with the symmetric group action.
-%
-%Let us first check that $\sigma^{-1}$ commutes with insertions. Let $F\in \End_{S A}(n)$ and $G\in \End_{S A}(m)$. On the one had we have 
-%
-%$$\sigma^{-1}(F\circ_i G)=(-1)^{\binom{n+m-1}{2}+\deg(G)(i-1)}S^{-1}\circ F(S^{\otimes i-1}\otimes G(S^{\otimes m})\otimes S^{\otimes n-i}),$$
-%
-%and on the other hand
-%
-%$$\sigma^{-1}(F)\tilde{\circ}_i\sigma^{-1}(G)=(-1)^{(n-1)(m-1)+(n-1)(\deg(G)+m-1)+(i-1)(m-1)}\sigma^{-1}(F)\circ_i\sigma^{-1}(G)=$$
-%$$(-1)^{\binom{n}{2}+\binom{m}{2}+(n-1)(m-1)+(n-1)(\deg(G)+m-1)+(i-1)(m-1)+(\deg(G)+m-1)(n-i)}\Sigma^{-1}\circ F(S^{\otimes i-1}\otimes G(S^{\otimes m})\otimes S^{\otimes n-i}).$$
-%
-%By lemma \ref{binom}, 
-%
-%$$\binom{n+m-1}{2}=\binom{n}{2}+\binom{m}{2}+(n-1)(m-1)\mod 2,$$
-%
-%so we only need to check the equation
-%
-%$$\deg(G)(i-1)=(n-1)(\deg(G)+m-1)+(i-1)(m-1)+(\deg(G)+m-1)(n-i)\mod 2,$$
-%
-%and for this it is enough to develop the right hand side.
-%
-%Now we are going to show that $\sigma^{-1}$ commutes with the action of th symmetric group. Recall that on $\End_{S A}$ we have the usual action, whilst on $\mathfrak{s}^{-1}\End_A$ the action is twisted by the sign of the permutation. It is enough to show this for transpositions of the form $\tau=(i\ i+1)$ since they generate the symmetric group.
-%
-%Let us write $(-1)^v$ for $(-1)^{\deg(v)}$. On the one hand, 
-%
-%$$\sigma^{-1}(F\tau)(v_1\otimes\cdots\otimes v_n)=(-1)^{\sum_{j=1}^n (n-j)v_j}S^{-1}\circ (F\tau)(S v_1\otimes\cdots\otimes S v_n)=$$
-%
-%$$(-1)^{\sum_{j=1}^n (n-j)v_j+(v_i-1)(v_{i+1}-1)}S^{-1}\circ F(S v_1\otimes\cdots\otimes S v_{i+1}\otimes S v_i\otimes\cdots\otimes S v_n).$$
-%
-%On the other hand
-%
-%$$(\sigma^{-1}(F)\tau) (v_1\otimes\cdots\otimes v_n)=(-1)^{v_iv_{i+1}-1}S^{-1}\circ F\circ S^{\otimes n}(v_1\otimes\cdots\otimes v_{i+1}\otimes v_i\otimes\cdots\otimes v_n)=$$
-%
-%$$(-1)^{v_iv_{i+1}-1+\sum_{j\neq i,i+1}(n-j)v_j +(n-i-1)v_i+(n-i)v_{i+1}}S^{-1}\circ f(S v_1\otimes\cdots\otimes S v_{i+1}\otimes S v_i\otimes\cdots\otimes S v_n).$$
-%
-%Now we just have to check that the signs are the same. Modulo $2$, the sign of the first map is
-%
-%$$v_iv_{i+1}+v_i+v_{i+1}-1+\sum_{j=1}^n(n-j)v_j=$$
-%$$v_iv_{i+1}-1+\sum_{j\neq i,i+1}^n(n-j)v_j+(n-i-1)v_i+(n-i)v_{i+1},$$
-%
-%which indeed coincides with the sign on the second map.
-%
-%%\url{https://mathoverflow.net/questions/366792/detailed-proof-of-mathfraks-1-mathrmend-v-cong-mathrmend-sigma-v}
-%\end{proof}
-%
-%\begin{remark}
-%If in the proof above we replace $S$ with $S^{-1}$, we have that the map
-%
-%\[\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}\]
-% transforms into $(-1)^{\binom{n}{2}}S\circ F\circ (S^{-1})^{\otimes n}=S\circ F\circ (S^{\otimes n})^{-1}$. This is the map $\overline{\sigma}(F)$ from page 9 of \cite{RW}, and following the same proof we have done above but with this change of $S$ into $S^{-1}$ we get the isomorphism of operads
-%
-%\[
-%\overline{\sigma}:\End_A\cong\s\End_{SA}.
-%\]
-%\end{remark}
-%
-%\section{Sign of the braces}\label{rw}
-%I THINK THERE IS NO EQUIVALENT FOR THIS SINCE THIS ONE WAS ALREADY USED TO THE DERIVED CASE BUT NEEDED TO INTRODUCE SOME EXTRA SHIFT AFTERWARDS
-%
-%
-%Let us use the same strategy as \cite{RW} used to find the signs of the bracket $[f,g]$, but here we are going to use it to find the sign of the braces. Let $A$ be a graded module and $f\in C^{N,i}(A,A)=\hom(A^{\otimes N},A)^i$. Let $S(A)$ be the graded module with $S(A)^v=A^{v+1}$, and so the suspension or \emph{shift} map $S:A\to S(A)$ given by the identity map has internal degree $-1$. Define $\sigma(f)$ as the map making the following diagram commutative
-%\[
-%\begin{tikzcd}
-%S(A)^{\otimes N}\arrow[r, "\sigma(f)"]\arrow[d, "(S^{-1})^{\otimes N}"'] & S(A)\\
-%A^{\otimes N}\arrow[r,"f"] & A\arrow[u, "S"']
-%\end{tikzcd}
-%\]
-%
-%Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in C^{N,i+N-1}(A,A)$. 
-%
-%\begin{remark}
-%In \cite{RW} there is a sign $(-1)^{N+i-1}$ in front of $f$ but it seems to be irrelevant for our purposes. Another fact to remark is that the suspension of graded modules used here (and in \cite{RW}) is the opposite that we have used to define the operadic suspension. This does not change the signs or the procedure, but in the statement of theorem \ref{markl} operadic desuspension should be changed to operadic suspension. %My suspensions is better because it gives the total degree %If I modify the theorem to End_{sO}=sEnd_{SsO} I have to change the phrase
-%\end{remark}
-%
-%Notice that, by the Koszul sign rule $(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^{N-1} j}Id=(-1)^{\frac{N(N-1)}{2}}Id=(-1)^{\binom{N}{2}}Id$, so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in C^{m,j}(S(A),S(A))$, we have
-%\[
-%\sigma^{-1}(F)=(-1)^{\binom{m}{2}}S^{-1}\circ F\circ S^{\otimes m}\in C^{m,j-m+1}(A,A).
-%\]
-%
-%For $g_j\in C^{a_j,q_j}(A,A)$, let us write $f[g_1,\dots, g_n]$ for the map \[\sum_{k_0+\cdots+k_n=N-n}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})\in C^{N-n+\sum a_j, i+\sum q_j}(A,A).\]
-%
-%We define \[b_n(f;g_1,\dots, g_n)=\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])\in C^{N-n+\sum a_j, i+\sum q_j}(A,A),\] so that
-%%recall the degree of \sigma^{-1}(F)
-%\[b_n(f;g_1,\dots, g_n)=(-1)^{\eta}f[g_1,\dots, g_n].\]
-%
-%We will see that this $b_n(f;g_1,\dots, g_n)$ is the same as in Definition \ref{braces}. The purpose of this Appendix is to find $\eta$, so let us compute it.
-%\begin{align*}
-%&\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])=\\ &=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ (\sigma(f)(1^{\otimes k_0}\otimes \sigma(g_1)\otimes 1^{\otimes k_1}\otimes\cdots\otimes \sigma(g_n)\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}\\
-%&=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ S\circ f\circ (S^{-1})^{\otimes N}\circ \\ &(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes 1^{\otimes k_1}\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ  S^{\otimes N-n+\sum a_j}\\
-%&=(-1)^{\binom{N-n+\sum a_j}{2}}f\circ ((S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\\ &\circ(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}.
-%\end{align*}
-%
-%
-%
-%
-%Now we move each $1^{\otimes k_{j-1}}\otimes S\circ g_j\circ (S^{-1})^{a_j}$ to apply $(S^{-1})^{k_{j-1}}\otimes S^{-1}$ to it. Doing this to all of them produces a sign
-%
-%\[
-%(-1)^{(a_1+q_1-1)(n-1+\sum k_l)+(a_2+q_2-1)(n-2+\sum_2^n k_l)+\cdots+(a_n+q_n-1)k_n}=(-1)^{\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)},
-%\]
-% and we call the exponent
-% 
-% $$\varepsilon=\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l).$$ So now we have, decomposing $S^{\otimes N-n+\sum a_j}$,
-% 
-% \[
-% (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon}f\circ((S^{-1})^{k_0}\otimes  g_1\circ (S^{-1})^{\otimes a_1}\otimes\cdots \otimes  g_n\circ (S^{-1})^{\otimes a_n}\otimes  (S^{-1})^{k_n})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n}).
-% \]
-% 
-% Now we turn the tensor of inverses into inverses of tensors by introducing the appropriate signs. More precisely we introduce the sign
-% \begin{equation}\label{delta}
-% (-1)^{\delta}=(-1)^{\binom{k_0}{2}+\sum(\binom{a_j}{2}+\binom{k_j}{2})}
-%  \end{equation}
-% 
-%  
-%So we now have
-%\[
-% (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon+\delta}f\circ((S^{k_0})^{-1}\otimes  g_1\circ (S^{\otimes a_1})^{-1}\otimes\cdots \otimes  g_n\circ (S^{\otimes a_n})^{-1}\otimes  (S^{k_n})^{-1})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n})
-% \]
-% And the next step is moving each component of the last tensor product in front of its inverse. This will produce the sign $(-1)^\gamma$, where
-% 
-% \begin{gather*}\gamma=-k_0\sum_1^n(k_j+a_j+q_j)-a_1(\sum_1^n k_j+\sum_2^n (a_j+q_j))-\cdots -a_nk_n\equiv\\ \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l)).
-% \end{gather*}
-% 
-%
-% 
-% So in the end we have
-% \[
-% b_n(f;g_1,\dots,g_n)=\sum_{k_0+\cdots+k_n=N-n} (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon+\delta+\gamma}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n}).
-% \]
-%This means that 
-% $$\eta=\binom{N-n+\sum a_j}{2}+\varepsilon+\delta+\gamma.$$
-%  Next, we are going to simplify this sign to get rid of the binomial coefficients.
-% 
-% \begin{remark}
-%If the number top of a binomial coefficient is less than 2, then the coefficient is 0. In the case of arities or $k_j$ this is because $(S^{-1})^{\otimes 1}=(S^{\otimes 1})^{-1}$ (and if the tensor is taken 0 times then it is the identity and the equality also holds, so there are no signs).
-%\end{remark}
-%
-%
-%\subsection{Simplifying sign}
-%
-%
-%Notice that $N-n+\sum a_j=\sum k_i +\sum a_j$. In general, consider a finite sum $\sum b_i$. We can simplify $\mod 2$ the binomial coefficients
-%
-%$$\binom{\sum b_i}{2}+\sum\binom{b_i}{2}$$
-%
-%in the followin way. Note that all terms will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator. More precisely, we have the following equality $\mod 2$:
-%
-%$$\binom{\sum b_i}{2}+\sum\binom{b_i}{2}=\sum_{i<j}b_ib_j.$$
-%So the result of applying this to $\binom{N-n+\sum a_j}{2}+\delta$ (recall $\delta$ from \ref{delta}) in our sign $\eta$ is
-%
-%\begin{equation}\label{simply}
-%\sum_{0\leq i<l\leq n}k_ik_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{i,j}k_ia_j.
-%\end{equation}
-%
-%Recall $\gamma$ in the sign:
-%
-%\begin{equation*}\label{gamma}
-%\gamma= \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l)).
-%\end{equation*}
-%
-%As we see, all the sums in the previous simplification appear in $\gamma$ so we can cancel them. Let us rewrite $\gamma$ in a way that this becomes more clear:
-%
-%$$\sum_{0\leq j<l\leq n}k_jk_l+\sum_{0\leq j<l\leq n}k_ja_l+\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j\leq l\leq n}a_jk_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{1\leq j<l\leq n}a_jq_l.$$
-%
-%So after adding the expression \ref{simply} modulo 2 we have only the terms that include the internal degrees, i.e.
-%\begin{equation}\label{sofar}
-%\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l.
-%\end{equation}
-%Let us move now to the $\varepsilon$ term in the sign to rewrite it. 
-%$$\varepsilon=\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)=\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l$$
-%
-%We may add this to what we had in \ref{sofar} in such a way that the brace sign becomes
-%
-%\begin{equation}\label{sigma}
-%\eta=\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l.
-%\end{equation}
-%as announced at the end of Section \ref{sectionbraces}.
-%%
-%%\section{On the degree of $M_j$ and Koszul rule}\label{Ab1}
-%%
-%%Here we discuss the necessity of using the total degree, which becomes natural in the shift of the operadic supension $\Sigma\s\OO$. 
-%%
-%%
-%%Let $\mathcal{O}=\prod_n\OO(n)$ be an operad in a graded category with an $A_\infty$-multiplication $m=m_1+m_2+\cdots$. We denote by $\OO(n)_p$ the degree $p$ component of $\OO(n)$ and define the \emph{total degree} of an element $f\in \OO(n)_p$ as $||f||=n+p=a(f)+\deg(f)$, where $a(f)=n$ is the \emph{(operadic) arity} of $f$ and to $\deg(f)=p$ is the \emph{internal degree} of $f$. 
-%%
-%%
-%%
-%%The classical way to define an $A_\infty$-algebra structure on $\OO$ from $m$ is defining
-%%
-%%$$M_n(x_1,\dots, x_n)=b_n(m;x_1,\dots, x_n)=\sum_{j\geq n}b_n(m_j;x_1,\dots, x_n)$$
-%%
-%%for $n>1$ and 
-%%
-%%$$M_1(x)=[m,x]=b_1(m;x)-(-1)^{||x||-1}b_1(x;m)=\sum_j b_1(m_j;x)-(-1)^{||x||-1}\sum_jb_1(x;m_j).$$ 
-%%
-%%
-%%This construction can be iterated to an $A_\infty$ structure on $\End_\OO$ with an analogue definition of maps $\overline{M}_i$ 
-%%However, to distinguish the braces on $\End_\OO$ from those on $\OO$, the notation $B_n$ is used instead of $b_n$. Namely, if $n>1$,  
-%%$$\overline{M}_n(f_1,\dots, f_n)=B_n(M;f_1,\dots, f_n)= B_n(M;f_1,\dots, f_n)$$
-%%
-%%and
-%%
-%%$$\overline{M}_1(x)=[M,f]=B_1(M;f)-(-1)^{||f||-1}B_1(f;M).$$ 
-%%
-%%\subsection{Degree and arity considerations}
-%%
-%%We have to make sure that $a(M_j)=j$ and $\deg(M_j)=2-j$, considering the operadic arity and the internal degree as those measured in $End_\OO$ provided that $\OO$ has the total degree. The first equality is clear. To show the second we compute $||M_j(x_1,\dots, x_j)||$ since the internal degree of $M_j$ depends on the grading of $\OO$, on which we have defined a grading in terms of the total degree. To compute this quantity, let us define $M_j^l=b_j(m_l;x_1,\dots, x_j)$, which is a summand of $M_j(x_1,\dots, x_j)$. Now we have 
-%%
-%%$$a(M_j^l)=l-j+\sum_i a(x_i)$$
-%%
-%%and
-%%
-%%$$\deg(M_j^l)=\deg(m_l)+\sum_i\deg(x_i)=2-l+\sum_i \deg(x_i).$$ 
-%%
-%%These are the operadic arity and internal degree in $\OO$, so $$||M_j^l||=2-j+\sum_i(a(x_i)+\deg(x_i))=2-j+\sum_i||x_i||.$$ 
-%%
-%%This is independent of $l$, and therefore we see that $\deg(M_j)=2-j$, and the same argument is valid for $\overline{M}_j$.
-%%
-%%Therefore, it is natural to define $M_j\in\End_{\Sigma\s\OO}$. The suspension $\s\OO$ provide us with the signs we need and the additional shift produces the degree that we need. It can be checked that with other possible ``total'' degree conventions such us $a(x)+\deg(x)-1$, $a(x)-\deg(x)+1$, $a(x)-\deg(x)$ or $a(x)-\deg(x)+2$ (coming respectively from $\s\OO$, $\s^{-1}\OO$, $\Sigma^{-1}\s^{-1}\OO$ and $\Sigma\s^{-1}\OO$), the maps $M_j$ don't have the required degree.
-%%
-%%\begin{remark}\label{remark3}
-%%
-%%
-%%Assuming $M_j\in \End_{\Sigma\mathfrak{s}\OO}$, it has been proved that it is possible to define it so that $\deg(M)=2-j$ (and obviously the arity is $j$). So if I have to apply the Koszul rule here, the degree used is just $2-j$. If we get to define $M_j\in\mathfrak{s}\End_{\Sigma\mathfrak{s}\OO}$, then $M_j$ is actually $M_j\otimes e_J$ where $e_J=e_1\land\dots\land e_j$ has degree $j-1$. So 
-%%
-%%$$M_j\otimes e_J(x_1,\dots, x_j)=(-1)^{(j-1)(||x_1||+\cdots+||x_j||)}M_j(x_1,\dots, x_j)\otimes e_J$$
-%%being $||x||$ the total degree (the natural degree on $\Sigma\mathfrak{s}\OO$, recall that $M_j$ wa defined via composition on this odd operad). So passing by the $M_j$ component would yield a sign depending on its internal degree, i.e. $2-j$.
-%%
-%%For instance, if in the associative case we define $M_2$ such that $$0=M_2\tilde{\circ}M_2=M_2\tilde{\circ}_2 M_2+M_2\tilde{\circ}_1 M_2$$ in the suspension, evaluating at $(x,y,z)$ gives us on the first summand
-%%
-%%$$(M_2\tilde{\circ}_2M_2)(x,y,z)=(M_2(1,M_2(1,1))\otimes (e_1\land e_2\land e_3))(x,y,z)=(-1)^{(||x||+||y||+||z||)(3-1)}M_2(x,M_2(y,z))$$
-%%
-%%and on the second summand
-%%$$(M_2\tilde{\circ}_1M_2)(x,y,z)=-(M_2(M_2(1,1),1)\otimes (e_1\land e_2\land e_3))(x,y,z)=-(-1)^{(||x||+||y||+||z||)(3-1)}M_2(x,M_2(y,z))$$
-%%
-%%Adding the two of them equals zero so we get the associativity condition $M_2(x,M_2(y,z))=M_2(M_2(x,y),z)$. Note that here $x$ is beeing permuted with $M_2$ but no extra signs appears, which is equivalent to apply the Koszul rule with the internal degree of $M_2$ in $\End_{\Sigma\s\OO}$, which is $2-2=0$, and is in fact what we have done in the evaluation.
-%%
-%%\end{remark}
+
 \end{appendices}
 %\phantomsection
 \bibliographystyle{ieeetr}
