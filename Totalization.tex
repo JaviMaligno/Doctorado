@@ -17,24 +17,120 @@
 \author{Javier Aguilar Martín}
 \maketitle
 
+
 \section{Introduction}
 We use an operadic totalization inspired by WHITEHOUSE to obtain an operation similar to the star operation in RLW and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra.
 
 First we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. From this, we obtain a brace structure from which we can obtain a classical $A_\infty$-algebra. We use THEOREM FROM WHITEHOUSE to show that this structure is equivaalent to a derived $A_\infty$-algebra on the suspended bigraded operad.
 
-
-\section{Operadic totalization}
+\section{Brackground and conventions}
 Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE. INCLUDING DEFINITION OF TWISTED COMPLEX
 
 REDEFINE THINGS ACCORDING TO CONVENTIONS
+
+Let $\CC$ be a category and let $A$, $B$ be arbitrary
+objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is
+symmetric monoidal closed, then we denote its internal hom-object by $[A,B] ∈ \CC$.
+
+We collect some preliminary definitions. Most of them come from WHITEHOUSE SECTION but we adapt them here to our conventions.
+
+\subsection{Filtered Modules and complexes}
+INCLUSION IS REVERSED
+\begin{defin}
+A \emph{filtered $R$-module} $(A, F)$ is given by a family of $R$-modules $\{F_pA\}_{p∈\Z}$ indexed by
+the integers such that $F_{p}A ⊆ F_{p-1}A$ for all $p ∈ \Z$ and $A = ∪F_pA$. A morphism of filtered modules is a morphism $f : A → B$ of $R$-modules which is compatible with filtrations: 
+\[f(F_pA) ⊂ F_pB \text{ for all }p ∈ \Z.\]
+\end{defin}
+
+\begin{defin}\label{filteredcomplex}
+A \emph{filtered complex} $(K, d, F)$ is a complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. Its morphisms are given by
+morphisms of complexes $f : K → L$ compatible with filtrations: \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
+\end{defin}
+
+We denote by $\fc$ the category of filtered complexes of R-modules.
+
+$-1$ CHANGED TO 1 (IT MUST BE LIKE THIS BECAUSE I THE MAPS PRESERVING FILTRATION WILL BE LEVEL 0 AND I WANT THE WHOLE AINFTY OPERAD TO BE MAPPED TO THAT, SO R MUST BE IN LEVEL 0 AS WELL)
+\begin{defin}\label{filteredtensor}
+The tensor product of two filtered $R$-modules $(A, F)$ and $(B, F)$ is a filtered $R$-module,
+with
+ \[F_p(A ⊗ B) :=\sum_{i+j=p}\Ima(F_iA ⊗ F_jB → A ⊗ B).\]
+This makes the category of filtered $R$-modules into a symmetric monoidal category, where the unit is given by $R$ with the trivial filtration $0 = F_{1}R ⊂ F_0R = R$.
+\end{defin}
+
+\subsection{Bigraded modules, vertical bicomplexes, twisted complexes and sign conventions}
+
+TRY TO INCLUDE ONLY THE NECESSARY
+\begin{defin}
+We consider $(\Z,\Z)$-bigraded
+$R$-modules $A = \{A^j_i\}$, where elements of $A^j_i$ are said to have bidegree $(i, j)$. We sometimes refer to $i$
+as the \emph{horizontal} degree and $j$ the \emph{vertical degree}. The \emph{total degree} of an element $a ∈ A^j_i$ is $|a| = i+j$.
+\end{defin}
+\begin{defin}
+A \emph{morphism of bidegree $(p, q)$} maps $A^j_i$ to $A^{j+q}_{i+p}$. The tensor product of two bigraded $R$-modules $A$
+and $B$ is the bigraded $R$-module $A ⊗ B$ given by
+\[(A ⊗ B)^j_i \coloneqq\bigoplus_{p,q}A^q_p ⊗ B^{j−q}_{i−p} .\]
+\end{defin}
+
+We denote by $\bgmod$ the category whose objects are bigraded $R$-modules and whose morphisms
+are morphisms of bigraded $R$-modules of bidegree $(0, 0)$. It is symmetric monoidal with the above
+tensor product.
+
+We introduce the following scalar product notation for bidegrees: for $x$, $y$ of bidegree $(x_1, x_2)$, $(y_1, y_2)$
+respectively, we let $\langle x, y\rangle = x_1y_1 + x-2y_2$.
+
+The symmetry isomorphism
+\[τ_{A⊗B} : A ⊗ B → B ⊗ A\]
+is given by
+\[a ⊗ b \mapsto (−1)^{\langle a,b\rangle}b ⊗ a.\]
+We follow the Koszul sign rule: if $f : A → B$ and $g : C → D$ are bigraded morphisms, then the
+morphism $f ⊗ g : A ⊗ C → B ⊗ D$ is defined by
+\[(f ⊗ g)(a ⊗ c) \coloneqq (−1)^{\langle g,a\rangle}f(a) ⊗ g(c).\]
+
+\begin{defin}
+A \emph{vertical bicomplex} is a bigraded $R$-module $A$ equipped with a vertical differential $d^A : A → A$ of bidegree $(0, 1)$. A morphism of vertical bicomplexes is a morphism of bigraded modules
+of bidegree $(0, 0)$ commuting with the vertical differential.
+\end{defin}
+
+We denote by $\vbc$ the category of vertical bicomplexes. The tensor product of two vertical bicomplexes $A$ and $B$ is given by endowing the tensor product of underlying bigraded modules with
+vertical differential \[d^{A⊗B} := d^A ⊗ 1 + 1 ⊗ d^B : (A ⊗ B)^v_u → (A ⊗ B)^{v+1}_u .\] This makes $\vbc$ into a
+symmetric monoidal category.
+
+The symmetric monoidal categories $(\mathrm{C}_R,⊗,R)$, $(\bgmod,⊗,R)$ and $(\vbc,⊗,R)$ are related by embeddings $\mathrm{C}_R\to\vbc$ and $\bgmod \to\vbc$ which are monoidal and full.
+
+
+
+\begin{defin}\label{delta1}
+Let $A,B$ be bigraded modules. We define $[A,B]^∗_∗$
+to be the bigraded module of morphisms of bigraded modules $A → B$. Furthermore, if $A,B$ are vertical bicomplexes, and $f ∈
+[A,B]^v_u$, we define
+\[δ(f) := d_Bf − (−1)^vfd_A.\]
+\end{defin}
+
+\begin{lemma}
+If $A$, $B$ are vertical bicomplexes, then $([A,B]^∗_∗
+, δ)$ is a vertical bicomplex.
+\end{lemma}
+\begin{proof}
+Direct computation shows $\delta^2=0$.
+\end{proof}
+END OF PAGE 5, I DEFINE THE SHIFT LATER, SO MAYBE IT IS NOT NECESSARY
+
+\section{Totalization}
+DEFINITION WITH FILTRATION, DIFFERENTIAL, MONOIDALITY
+\section{Enriched categories and enriched totalization}
+NOT SURE IF I'M GOING TO NEED SO MUCH BACKGROUND (CERTAINLY DO NOT INCLUDE PROOFS) I WOULD LIKE TO INCLUDE THE PROOF OF THE INVERSE INDUCING THE INVERSE TRANSFORMATION
+
+MAYBE INCLUDE HERE THE ENRICHED CATEGORIES THAT I AM GOING TO NEED AND ALSO ENRICHED TOTALIZATION (I ONLY NEED THE INVERSE)
+\section{Operadic totalization}
+
 
 %I THINK I NEED  (N,Z)-BRIGRADED MODULES TO MAKE SURE THAT HORIZONTAL DEGREE IS NON-NEGATIVE WHEN DEFINING M AS AN ELEMENT OF TSO
 
 %We are going to apply the totalization with compact support functor of WHITEHOUSE 4.13 to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. WHITEHOUSE 3.11 the functor $T$ with domain the category of bigraded modules and bidegree $(0,0)$ morphisms is lax monoidal, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules.  
 
-We are going to apply the totalization  functor of WHITEHOUSE 4.13 to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. WHITEHOUSE CITE DEFINITION the functor $T$ with domain the category of bigraded modules (TWISTED COMPLEXES?) and bidegree $(0,0)$ morphisms (TWISTED COMPLEX MAPS?) is lax monoidal, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules. 
+We are going to apply the totalization  functor of CITE PREVIOUS SECTION to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. Tthe functor $T$ with domain the category $\bgmod$ (TWISTED COMPLEXES?) and bidegree $(0,0)$ morphisms (TWISTED COMPLEX MAPS?) is lax monoidal REFERENCE TO THEOREM, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules. 
 
-Therefore, let $\OO$ be a bigraded linear operad, i.e. an operad in te category  of bigraded $R$-modules. We define $T\OO$ as the operad of graded $R$-modules for which \[T\OO(n)^d=\bigoplus_{i<0}\OO(n)^{d-i}_i\oplus\prod_{i\geq 0} \OO(n)^{d-i}_i\] is the image of $\OO(n)$ under the totalization functor and the insertion maps are given by the composition  %THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
+Therefore, let $\OO$ be a bigraded operad, i.e. an operad in te category  of bigraded $R$-modules. We define $T\OO$ as the operad of graded $R$-modules for which \[T\OO(n)^d=\bigoplus_{i<0}\OO(n)^{d-i}_i\oplus\prod_{i\geq 0} \OO(n)^{d-i}_i\] is the image of $\OO(n)$ under the totalization functor and the insertion maps are given by the composition  %THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
 \[T\OO(n)\otimes T\OO(m)\xrightarrow{\mu} T(\OO(n)\otimes \OO(m)) \xrightarrow{T(\circ_r)} T\OO(n+m-1),\]
 that is explicitly 
 \[(a\bar{\circ}_rb)_k=\sum_{k_1+k_2=k} (-1)^{k_1n_2} a_{k_1}\circ_r b_{k_2}\]
