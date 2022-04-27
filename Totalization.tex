@@ -13,7 +13,7 @@
 %--------------------------------------------------------
 \begin{document}
 
-\title{Totalization of bigraded operads}
+\title{Derived $A_\infty$-structures on operads}
 \author{Javier Aguilar Martín}
 \maketitle
 
@@ -21,7 +21,7 @@
 \section{Introduction}
 We use an operadic totalization inspired by WHITEHOUSE to obtain an operation similar to the star operation in RLW and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra.
 
-First we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. From this, we obtain a brace structure from which we can obtain a classical $A_\infty$-algebra. We use THEOREM FROM WHITEHOUSE to show that this structure is equivaalent to a derived $A_\infty$-algebra on the suspended bigraded operad.
+We start by collecting some preliminary definitions and results from WHITEHOUSE. We then define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. From this, we obtain a brace structure from which we can obtain a classical $A_\infty$-algebra. We use THEOREM FROM WHITEHOUSE to show that this structure is equivalent to a derived $A_\infty$-algebra on the suspended bigraded operad.
 
 \section{Brackground and conventions}
 Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE. INCLUDING DEFINITION OF TWISTED COMPLEX
@@ -106,18 +106,93 @@ to be the bigraded module of morphisms of bigraded modules $A → B$. Furthermor
 \[δ(f) := d_Bf − (−1)^vfd_A.\]
 \end{defin}
 
-\begin{lemma}
+\begin{lem}
 If $A$, $B$ are vertical bicomplexes, then $([A,B]^∗_∗
 , δ)$ is a vertical bicomplex.
-\end{lemma}
+\end{lem}
 \begin{proof}
 Direct computation shows $\delta^2=0$.
 \end{proof}
 END OF PAGE 5, I DEFINE THE SHIFT LATER, SO MAYBE IT IS NOT NECESSARY
 
-\section{Totalization}
+I CHANGED HORIZONTAL DEGREE SIGNS
+\begin{defin}\label{twistedcomplex} A \emph{twisted complex} $(A, d_m)$ is a bigraded $R$-module $A = \{A^j_i \}$ together with a family
+of morphisms $\{d_m : A → A\}_{m≥0}$ of bidegree $(m,1−m )$ such that for all $m ≥ 0$,
+CHECK CONVENTION IN CASE IT IS EASIER TO TAKE $(-1)^j$
+\[\sum_{i+j=m}(−1)^id_id_j = 0.\]
+
+\end{defin}
+
+\begin{defin}\label{twistedmorphisms}
+A morphism of twisted complexes $f : (A, d^A_m) → (B, d^B_m)$ is given by a family of morphisms of $R$-modules $\{f_m : A → B\}_{m≥0}$ of bidegree $(m,−m)$ such that for all $m ≥ 0$,
+\[\sum_{i+j=m}d^B_if_j =\sum_{i+j=m}(−1)^if_id^A_j.\]
+The composition of morphisms is given by $(g \circ f)_m :=\sum_{i+j=m} g_if_j$.
+
+A morphism $f = \{f_m\}_{m≥0}$ is
+said to be \emph{strict} if $f_i = 0$ for all $i > 0$. The \emph{identity} morphism $1_A : A → A$ is the strict morphism
+given by $(1_A)_0(x) = x.$ A morphism $f = \{f_i\}$ is an isomorphism if and only if $f_0$ is an isomorphism of
+bigraded $R$-modules. Indeed, an inverse of $f$ is obtained from an inverse of $f_0$ by solving a triangular system.
+\end{defin}
+Denote by $\tc$ the category of twisted complexes.The following construction endows $\tc$ with a symmetric monoidal structure. See LEMMA 3.3 for a proof.
+\begin{lem}\label{tensortwisted}
+The category $(\tc,⊗,R)$ is symmetric monoidal, where the monoidal structure is given
+by the bifunctor
+\[⊗ : \tc × \tc → \tc\]
+which on objects is given by $((A, d^A_m), (B, d^B_m)) → (A ⊗ B, d^A_m ⊗ 1 + 1 ⊗ d^B_m)$ and on morphisms is
+given by $(f, g) → f ⊗ g$, where $(f ⊗ g)_m :=\sum_{i+j=m} f_i ⊗ g_j$. In particular, by the Koszul sign rule we
+have that \[(f_i ⊗g_j)(a⊗b) = (−1)^{\langle g_j ,a\rangle}f_i(a)⊗g_j(b).\] The symmetry isomorphism is given by the strict
+morphism of twisted complexes
+\[τ_{A⊗B} : A ⊗ B → B ⊗ A\]
+defined by
+\[a ⊗ b\mapsto (−1)^{\langle a,b,\rangle}b ⊗ a.\]
+\end{lem}
+
+The internal hom on bigraded modules can be extended to twisted complexes via the following lemma whose proof is in LEMMA 3.4.
+\begin{lem}\label{di} Let $A,B$ be twisted complexes. For $f ∈ [A,B]^v_u$, setting
+\[(d_if) := (−1)^{i(u+v)}d^B_if − (−1)^vfd^A_i,\]
+for $i ≥ 0$, endows $[A,B]^∗_∗$ with the structure of a twisted complex.
+\end{lem}
+
+
+\subsection{Totalization}
 DEFINITION WITH FILTRATION, DIFFERENTIAL, MONOIDALITY
-\section{Enriched categories and enriched totalization}
+
+
+CHOOSE NOTATION, T OR TOT
+
+\begin{defin}
+The \emph{totalization} $\Tot(A)$ of a bigraded $R$-module $A = \{A^j_i \}$ the graded $R$-module is given by
+\[\Tot(A)^n \coloneqq
+\bigoplus_{i<0}A^{n-i}_i ⊕\prod_{i\geq 0}A^{n-i}_i .\]
+The \emph{column filtration} of $\Tot(A)$ is the filtration given by \[F_p\Tot(A)^n \coloneqq\prod_{i\geq p} A^{n-i}_i .\]
+\end{defin}
+
+Given a twisted complex $(A, dm_)$, define a map $d : \Tot(A) → \Tot(A)$ of degree 1 by letting
+\[d(a)_j \coloneqq \sum_{m≥0}(−1)^{mn}d_m(a_{j-m}),\]
+for $a = (a_i)_{i∈\Z} ∈ \Tot(A)^n$,
+where $a_i ∈ A^{n-i}_i$ denotes the $i$-th component of $a$, and $d(a)_j$ denotes the $j$-th component of $d(a)$. Note
+that, for a given $j ∈ \Z$ there is a sufficiently large $m ≥ 0$ such that $a_{j-m′} = 0$ for all $m′ ≥ m$. Hence
+$d(a)_j$ is given by a finite sum. Also, for negative $j$ sufficiently large, one has $a_{j-m} = 0$ for all $m ≥ 0$, which
+implies $d(a)_j = 0$.
+
+Given a morphism $f : (A, d_m) → (B, d_m)$ of twisted complexes, let $\Tot(f) : \Tot(A) → \Tot(B)$ be
+the map of degree 0 defined by
+\[(\Tot(f)(a))_j \coloneqq \sum_{m≥0}(−1)^{mn}f_m(a_{j-m}),\]
+ for $a = (a_i)_{i∈\Z} ∈ \Tot(A)^n$.
+ 
+\begin{thm}
+The assignments $(A, d_m) \mapsto (\Tot(A), d, F)$, where $F$ is the column filtration of $\Tot(A)$,
+and $f \mapsto \Tot(f)$ define a functor $\Tot : \tc \to \fc$ which is an isomorphism of categories when restricted to its image.
+\end{thm}
+\begin{proof}
+See THEOREM 3.8.
+\end{proof}
+MAYBE IT IS USEFUL TO INCLUDE THE DEFINITIONN OF THE INVERSE WHICH COMES  RIGHT AFTER THE THEOREM (CHECKING CONVENTIONS, CONSIDER DEFINING SPLIT OR JUST SAYING THE COMPLEX IS OF THE FORM TOT(A))
+
+DEFINITION OF BOUNDED CATEGORIES, TAKING INTO ACOUND THAT NOW THE BOUNDEDNESS IS IN THE OPPOSITE DIRECTION
+
+PROPOSITION 3.11 VERY IMPORTANT
+\subsection{Enriched categories and enriched totalization}
 NOT SURE IF I'M GOING TO NEED SO MUCH BACKGROUND (CERTAINLY DO NOT INCLUDE PROOFS) I WOULD LIKE TO INCLUDE THE PROOF OF THE INVERSE INDUCING THE INVERSE TRANSFORMATION
 
 MAYBE INCLUDE HERE THE ENRICHED CATEGORIES THAT I AM GOING TO NEED AND ALSO ENRICHED TOTALIZATION (I ONLY NEED THE INVERSE)
@@ -215,9 +290,9 @@ This star operation is precisely the star operation from RWL, i.e the convolutio
 DESCRIBE DERIVED AINFTY MORPHISMS AND COMPOSITION WITH THIS (WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
 
 Before continuing, let us show a Lemma that allows us to work only with the single graded operadic suspension if needed.
-\begin{lemma}
+\begin{lem}
 For a bigraded operad $\OO$ we have an isomorphism $T\s\OO\cong \s T\OO$, where the suspension on the left hand side is the bigraded version and on the right hand side is the single graded version. 
-\end{lemma}
+\end{lem}
 \begin{proof}
 For an element $(a_k)_k\in T\s\OO(n)$ the isomorphism is given by
 \begin{align*}
