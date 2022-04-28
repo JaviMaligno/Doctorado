@@ -8,6 +8,8 @@
 %\newtheorem{eje}[defin]{Example}
 \renewcommand{\baselinestretch}{1,3}
 
+%\usepackage{calligra}
+%\usepackage[T1]{fontenc}
 \usepackage{empheq}
 \newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
 %--------------------------------------------------------
@@ -21,7 +23,7 @@
 \section{Introduction}
 We use an operadic totalization inspired by WHITEHOUSE to obtain an operation similar to the star operation in RLW and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra.
 
-We start by collecting some preliminary definitions and results from WHITEHOUSE. We then define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. From this, we obtain a brace structure from which we can obtain a classical $A_\infty$-algebra. We use THEOREM FROM WHITEHOUSE to show that this structure is equivalent to a derived $A_\infty$-algebra on the suspended bigraded operad.
+We start by collecting some preliminary definitions and results from WHITEHOUSE that we adapt to our conventions. We then define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. From this, we obtain a brace structure from which we can obtain a classical $A_\infty$-algebra. We use THEOREM FROM WHITEHOUSE to show that this structure is equivalent to a derived $A_\infty$-algebra on the suspended bigraded operad.
 
 \section{Brackground and conventions}
 Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE. INCLUDING DEFINITION OF TWISTED COMPLEX
@@ -60,6 +62,8 @@ This makes the category of filtered $R$-modules into a symmetric monoidal catego
 \subsection{Bigraded modules, vertical bicomplexes, twisted complexes and sign conventions}
 
 TRY TO INCLUDE ONLY THE NECESSARY
+
+SPECIFY THAT BIGRADED MAP RAISES BOTH DEGREES
 \begin{defin}
 We consider $(\Z,\Z)$-bigraded
 $R$-modules $A = \{A^j_i\}$, where elements of $A^j_i$ are said to have bidegree $(i, j)$. We sometimes refer to $i$
@@ -113,7 +117,7 @@ If $A$, $B$ are vertical bicomplexes, then $([A,B]^∗_∗
 \begin{proof}
 Direct computation shows $\delta^2=0$.
 \end{proof}
-END OF PAGE 5, I DEFINE THE SHIFT LATER, SO MAYBE IT IS NOT NECESSARY
+END OF PAGE 5, I DEFINE THE SHIFT LATER, SO MAYBE IT IS NOT NECESSARY, BUT THINK ABOUT SHIFT OF MAPS (IS IT NECESSARY  TO ADD THAT SIGN?) AND COMPARE WITH THE GRADED CASE
 
 I CHANGED HORIZONTAL DEGREE SIGNS
 \begin{defin}\label{twistedcomplex} A \emph{twisted complex} $(A, d_m)$ is a bigraded $R$-module $A = \{A^j_i \}$ together with a family
@@ -153,7 +157,7 @@ The internal hom on bigraded modules can be extended to twisted complexes via th
 for $i ≥ 0$, endows $[A,B]^∗_∗$ with the structure of a twisted complex.
 \end{lem}
 
-
+UNDERLINED CATEGORIES?
 \subsection{Totalization}
 DEFINITION WITH FILTRATION, DIFFERENTIAL, MONOIDALITY
 
@@ -236,51 +240,50 @@ NOT SURE IF I'M GOING TO NEED SO MUCH GENERAL BACKGROUND (CERTAINLY DO NOT INCLU
 
 MAYBE INCLUDE HERE THE ENRICHED CATEGORIES THAT I AM GOING TO NEED AND ALSO ENRICHED TOTALIZATION (I ONLY NEED THE INVERSE)
 
-SAY SOMETHING ABOUT WHERE THE DEFINITIONS COME FROM, AND ADJUST TO CONVENTIONS, CHECK IF I NEED SOME RESULTS
+SAY SOMETHING ABOUT WHERE THE DEFINITIONS COME FROM (WHITEHOUSE), AND ADJUST TO CONVENTIONS, CHECK IF I NEED SOME RESULTS
 
-Definition 3.32
-\begin{defin}[Weird enrichment]\label{weirdenrichment}
+START WITH SOME SENTENCES ABOUT DEFINING A BUNCH OF USEFUL ENRICHED CATEGORIES
+
+\begin{defin}\label{weirdenrichment}
 Let $A,B,C$ be bigraded modules. We denote by $\underline{\mathpzc{bgMod}_R}(A,B)$ the bigraded module given by
-\[\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u−j}\]
+\[\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u+j}\]
 where $[A,B]$ is the inner hom-object of bigraded modules. More precisely, $g ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ is given
-by $g := (g_0, g_1, g_2, \dots )$, where $g_j : A → B$ is a map of bigraded modules of bidegree $(u − j, v − j)$.
+by $g := (g_0, g_1, g_2, \dots )$, where $g_j : A → B$ is a map of bigraded modules of bidegree $(u + j, v − j)$.
 
 Moreover, we define a composition morphism
 \[c : \underline{\mathpzc{bgMod}_R}(B,C) ⊗ \underline{\mathpzc{bgMod}_R}(A,B) → \underline{\mathpzc{bgMod}_R}(A,C)\]
 by
 \[c(f, g)_m :=\sum_{i+j=m}(−1)^{i|g|}f_ig_j .\]
 \end{defin}
-Try to find a conceptual explanation of the sign in the above composition map.
 
-Definition 4.17
 \begin{defin}\label{delta2}
 Let $(A, d^A_i), (B, d^B_i)$ be twisted complexes, $f ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ and consider $d^A :=(d^A_i)_i ∈ \underline{\mathpzc{bgMod}_R}(A,A)^1_0$
 and $d^B := (d^B_i)_i ∈ \underline{\mathpzc{bgMod}_R}(B,B)^1_0$. We define
 \[δ(f) := c(d^B, f) − (−1)^{\langle f,d^A\rangle}c(f, d^A) ∈ \underline{\mathpzc{bgMod}_R}(A,B)^{v+1}_u\]
-where $\langle f, d^A\rangle$ is the scalar product for the bidegrees and $c$ is the composition morphism described in Definition 3.32. More precisely,
+where $\langle f, d^A\rangle$ is the scalar product for the bidegrees and $c$ is the composition morphism described in \Cref{weirdenrichment} More precisely,
 \[(δ(f))_m :=\sum_{i+j=m}(−1)^{i|f|}d^B_if_j − (−1)^{v+i}f_id^A_j.\]
 \end{defin}
-Lemma 4.18? (in results obvsly)
 
-Definition 4.19
-\begin{defin}[Twisted complex weird enrichment]
+The following lemma justifies the above definition. For a proof see LEMMA 4.18
+
+\begin{lem}
+The following equations hold
+\begin{align*}
+c(d^A, d^A) = 0,
+δ^2 = 0,
+δ(c(f, g)) = c(δ(f), g) + (−1)^v c(f, δ(g)),
+\end{align*}
+where the bidegree of $f$ is $(u, v)$. Furthermore, $f ∈ \ubgMod(A,B)$ is a map of twisted complexes if and
+only if $δ(f) = 0$. In particular, $f$ is a morphism in $\tc$ if and only if the bidegree of $f$ is $(0, 0)$ and
+$δ(f) = 0$. Moreover, for $f$, $g$ morphisms in $\tc$, we have that $c(f, g) = f\circ g$, where the latter denotes
+composition in $\tc$.
+\end{lem}
+
+\begin{defin}
 For $A,B$ twisted complexes, we define $\underline{t\mathcal{C}_R}(A,B)$ to be the vertical bicomplex
 $\underline{t\mathcal{C}_R}(A,B) := (\underline{\mathpzc{bgMod}_R}(A,B), δ)$.
 \end{defin}
 
-Definition 4.23
-\begin{defin}\label{utC}
-The $\vbc$-enriched category of twisted complexes $\utC$ is the enriched category given by the following data.
-\begin{enumerate}[(1)]
-\item The objects of $\utC$ are twisted complexes.
-\item For $A,B$ twisted complexes the hom-object is the vertical bicomplex $\utC(A,B)$.
-\item The composition morphism $c : \utC(B,C)⊗\utC(A,B) → \utC(A,C)$ is given by Definition 3.32.
-\item The unit morphism $R → \utC(A,A)$ is given by the morphism of vertical bicomplexes sending
-$1 ∈ R$ to $1_A : A → A$, the strict morphism of twisted complexes given by the identity of $A$.
-\end{enumerate}
-\end{defin}
-
-Definition 4.24
 \begin{defin}\label{ubgMod}
 We denote by $\ubgMod$ the $\bgmod$-enriched category of bigraded modules given
 by the following data.
@@ -288,84 +291,146 @@ by the following data.
 \begin{enumerate}[(1)]
 \item The objects of $\ubgMod$ are bigraded modules.
 \item For $A,B$ bigraded modules the hom-object is the bigraded module $\ubgMod(A,B)$.
-\item The composition morphism $c : \ubgMod(B,C) ⊗ \ubgMod(A,B) → \ubgMod(A,C)$ is given by
-Definition 3.32.
+\item The composition morphism $c : \ubgMod(B,C) ⊗ \ubgMod(A,B) → \ubgMod(A,C)$ is given by \Cref{weirdenrichment}.
 \item The unit morphism $R → \ubgMod(A,A)$ is given by the morphism of bigraded modules that
 sends $1 ∈ R$ to $1_A : A → A$, the strict morphism given by the identity of $A$.
 \end{enumerate}
 \end{defin}
 
-This next tensor corresponds to $\underline{\otimes}$ in the categorical setup.
+\begin{defin}\label{utC}
+The $\vbc$-enriched category of twisted complexes $\utC$ is the enriched category given by the following data.
+\begin{enumerate}[(1)]
+\item The objects of $\utC$ are twisted complexes.
+\item For $A,B$ twisted complexes the hom-object is the vertical bicomplex $\utC(A,B)$.
+\item The composition morphism $c : \utC(B,C)⊗\utC(A,B) → \utC(A,C)$ is given by \Cref{weirdenrichment}.
+\item The unit morphism $R → \utC(A,A)$ is given by the morphism of vertical bicomplexes sending
+$1 ∈ R$ to $1_A : A → A$, the strict morphism of twisted complexes given by the identity of $A$.
+\end{enumerate}
+\end{defin}
 
-Lemma 4.27
-\begin{defin}\label{tensorenriched}
+
+
+
+The next tensor corresponds to $\underline{\otimes}$ in the categorical setting. SO MAYBE CHANGE NOTATION TTO MAKE IT CONSISTENT?
+
+
+\begin{lem}\label{tensorenriched}
 The monoidal structure of $\utC$ is given by the following map of vertical bicomplexes.
 \[\widehat{⊗}: \utC(A,B) ⊗ \utC(A′,B′) → \utC(A ⊗ A′,B ⊗ B′)\]
 \[(f, g) → (f\widehat{⊗}g)_m :=\sum_{i+j=m}(−1)^{ij}f_i ⊗ g_j\]
 The monoidal structure of $\ubgMod$ is given by the restriction of this map.
-\end{defin}
+\end{lem}
+\begin{proof}
+See LEMMA 4.27
+\end{proof}
 
 
-Definition 4.28
 
 \begin{defin}\label{ufMod}
-The $\bgmod$-enriched category of filtered modules $\ufMod$ is the enriched category
-given by the following data.
+The $\bgmod$-enriched category of filtered modules $\ufMod$ is the enriched category given by the following data.
+I HAVE TO KEEP J+U SO THAT THE DEGREES MATCH IN ENRICH TOT (ALTERNATIVELY KEEP V-U BUT I DON'T LIKE THAT)
 \begin{enumerate}[(1)]
 \item The objects of $\ufMod$ are filtered modules.
 \item For filtered modules $(K, F)$ and $(L, F)$, the bigraded module $\ufMod(K,L)$ is given by
-\[\ufMod(K,L)^v_u :=\{f : K → L\mid f(F_qK^m) ⊂ F_{q+u}L^{m+v−u}, ∀m, q ∈ \Z\}.\]
+\[\ufMod(K,L)^v_u :=\{f : K → L\mid f(F_qK^m) ⊂ F_{q+u}L^{m+u+v}, ∀m, q ∈ \Z\}.\]
 \item The composition morphism is given by $c(f, g) = (−1)^{u|g|}fg$, where $f$ has bidegree $(u, v)$.
 \item The unit morphism is given by the map $R → \ufMod(K,K)$ given by $1 → 1_K$.
 \end{enumerate}
 \end{defin}
 
-Definition 4.31
+
 \begin{defin}\label{fmoddifferential}
 Let $(K, d^K, F)$ and $(L, d^L, F)$ be filtered complexes. We define $\ufC(K,L)$ to be the
 vertical bicomplex whose underlying bigraded module is $\ufMod(K,L)$ with vertical differential
 \[δ(f) := c(d^L, f) − (−1)^{\langle f,d^K\rangle}c(f, d^K) = d^Lf − (−1)^{v+u}fd^K = d^Lf − (−1)^{|f|}fd^K\]
-for $f ∈ \ufMod(K,L)^v_u$. Composition from $\ufMod$.
+for $f ∈ \ufMod(K,L)^v_u$, where $c$ is the composition map from \Cref{ufMod}.
 \end{defin}
 
-Definition 4.33
+
 \begin{defin}\label{ufC}
 The $\vbc$-enriched category of filtered complexes $\ufC$ is the enriched category given
 by the following data.
 \begin{enumerate}[(1)]
 \item The objects of $\ufC$ are filtered complexes.
 \item For $K,L$ filtered complexes the hom-object is the vertical bicomplex $\ufC(K,L)$.
-\item The composition morphism is given as in $\ufMod$ in Definition 4.28 
+\item The composition morphism is given as in $\ufMod$ in \Cref{ufMod}. 
 \item The unit morphism is given by the map $R → \ufC(K,K)$ given by $1 → 1_K$.
 We denote by $\usfC$ the full subcategory of $\ufC$ whose objects are split filtered complexes.
 
 \end{enumerate}
 \end{defin}
 
-Lemma 4.36
+The enriched monoidal structure is given by the following lemma.
 \begin{defin}\label{tensorenriched2}
 The monoidal structure of fMod R is given by the following map of vertical bicomplexes.
 \[\widehat{⊗}: \ufC(K,L) ⊗ \ufC(K′,L′) → \ufC(K ⊗ K′,L ⊗ L′),\]
 \[(f, g) → f\widehat{⊗}g := (−1)^{u|g|}f ⊗ g\]
 where $f$ has bidegree $(u, v)$.
 \end{defin}
+\begin{proof}
+See LEMMA 4.36
+\end{proof}
+LEMMA 4.35 I WILL NEED THE ADJUNCTION (AND MAYBE THE OTHER  ADJUNCTION AS WELL)
 
-Definition 4.38
+We now define an enriched version of the totalization functor. CHECK TOT, OR JUST OMIT IT BECAUSE I DON'T NEED IT
 \begin{defin}\label{enrichedtot}
 Let $A,B$ be bigraded modules and $f ∈ \ubgMod (A,B)^v_u$ we define
+
 \[\Tot(f) ∈ \ufMod(\Tot(A),\Tot(B))^v_u\]
 to be given on any $a ∈ \Tot(A)^n$ by
 \[(\Tot(f)(a)))_{j+u} :=
-\sum_{m≥0}(−1)^{(m+u)n}f_m(a_{j+m}) ∈ B^{j+n+v}_{j+u} ⊂ \Tot(B)^{n+v−u}.\]
+\sum_{m≥0}(−1)^{(m+u)n}f_m(a_{j-m}) ∈ B^{n-j+v}_{j+u} ⊂ \Tot(B)^{n+u+v}.\]
 Let $K = \Tot(A)$, $L = \Tot(B)$ and $g ∈ \ufMod(K,L)^v_u$ we define
 \[f := \Tot^{−1}(g) ∈ \ubgMod(A,B)^v_u\]
 to be $f := (f_0, f_1,\dots)$ where $f_i$ is given on each $A^{m+j}_j$ by the composite
 \begin{align*}
-f_i : A^{m+j}_j \hookrightarrow\prod_{k≤j}A^{m+k}_k = F_j(\Tot(A)^m)\xrightarrow{g}&F_{j+u}(\Tot(B)^{m+v−u})\\
-&=\prod_{l≤j+u}B^{m+v−u+l}_l\xrightarrow{×(−1)^{(i+u)m}} B^{m+j+v−i}_{j+u−i} ,
+f_i : A^{m-j}_j \hookrightarrow\prod_{k\geq j}A^{m-k}_k = F_j(\Tot(A)^m)\xrightarrow{g}&F_{j+u}(\Tot(B)^{m+u+v})\\
+&=\prod_{l\geq j+u}B^{m+u+v-l}_l\xrightarrow{×(−1)^{(i+u)m}} B^{m-j+v−i}_{j+u+i} ,
 \end{align*}
 where the last map is a projection and multiplication with the indicated sign.
+
+I HAVE TO KEEP J+U SO THAT THE DEGREES MATCH  (ALTERNATIVELY KEEP V-U BUT I DON'T LIKE THAT)
 \end{defin} 
+
+\begin{thm}
+Let $A$, $B$ be twisted complexes. The assignments $\mathfrak{Tot}(A) := \Tot(A)$ and
+\begin{align*}
+\mathfrak{Tot}_{A,B} : \utC(A,B)& → \ufC(Tot(A),Tot(B))\\
+f &→ \Tot(f)
+\end{align*}
+define a $\vbc$-enriched functor $\mathfrak{Tot} : \utC → \ufC$ which restricts to an isomorphism onto its image. Furthermore, this functor restricts to a $\bgmod$-enriched functor \[\mathfrak{Tot} : \ubgMod → \ufMod\]
+ which also restricts to an isomorphism onto its image.
+\end{thm}
+\begin{proof}
+THEOREM 4.39
+\end{proof}
+
+\begin{propo}
+The enriched functors
+\[\mathfrak{Tot} : \ubgMod  → \ufMod ,\hspace{1cm} \mathfrak{Tot} : \utC → \ufC\]
+are lax symmetric monoidal in the enriched sense and when restricted to the bounded case they are strong symmetric monoidal in the enriched sense.
+\end{propo}
+\begin{proof}
+PROP 4.40
+\end{proof}
+
+We now define an enriched endomorphism operad. I THINK I ONLY NEED THIS DEFINITION AND NOT THE PREVIOUS OR THE NEXT LEMMA
+\begin{defin}
+Let $\underline{\mathscr{C}}$ be a monoidal $\mathscr{V}$-enriched category and $A$ an object of $\uC$. We define $\uEnd_A$
+to be the collection in $\mathscr{V}$ given by
+\[\uEnd_A(n) \coloneqq \uC (A^{⊗n},A) \text{ for }n ≥ 1.\]
+\end{defin}
+AT SOME POINT DO SOME MENTION TO THE DIFFERENT CASES THAT I AM GOING TO USE BEECAUSE THE NOTATION IS GOING TO BE THE SSAME
+
+PROP 4.46 I WANT TO GIVE A MORE DETAILED PROOF, BUT MAYBE THE MISSING DETAILS SHOULD BE GIVEN  IN THE GENERAL SETTING
+
+LEMMMA 4.54 MAYBE WITH THE INVERSE
+
+ONLY MENTION 4.47 WHEN YOU REACH THE PROOF OF THE LONG ISO
+
+REMARK 4.48 TO MOTIVATE THE ALTERNATIVE VERSION 
+
+PROP 4.55 REPHRASED
 \section{Operadic totalization}
 
 
@@ -486,8 +551,12 @@ POSSIBLY FILL IN SOME DETAILS OF THESE ISOMORPHISMS
 AT THE END  OF THE PROOF OF WHITEHOUSE 4.47 WHERE AINFTY ON TWISTED COMPLEX IS EQUIVALENT TO DERIVED-AINFTY THIS ISOMORPHISM IS  USED SINCE APLIED TO MIJ  THE EXPONENT IS PRECISELY IJ
 
 ALSO IN THAT THEOREM THE DIFERENTIALS OF THE TWISTED COMPLEX CORRESPOND PRECISELY TO MI1 SIMILAR TO MY MI1 BEING LIKE DIFFERENTIALS (I SHOULD CHECK IF THEY SATISFY THE TWISTED COMPLEX RELATION)
+
+
+DEF 4.51 FILTERED (SO MAYBE CHANGE TITLE TO FILTERED AINFTY AND DAINFTY)
 \end{remark}
 \section{Derived $A_\infty$-algebras}
+DEFINE THE OPERAD,BOTH FREE WITH A DIFFERENTIAL AND ALSO WITH ALL THE DIFFERENTIALS INSIDE
   \begin{definition}
   Using the notation in \cite{RW}, a \emph{derived $A_\infty$-algebra} on a $(\N,\Z)$-bigraded $R$-module $A$ consist of a family of $R$-linear maps 
 \[m_{ij}:A^{\otimes j}\to A\]
