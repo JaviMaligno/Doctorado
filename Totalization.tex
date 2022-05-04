@@ -26,9 +26,9 @@ We use an operadic totalization inspired by WHITEHOUSE to obtain an operation si
 We start by collecting some preliminary definitions and results from WHITEHOUSE that we adapt to our conventions. We then define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. From this, we obtain a brace structure from which we can obtain a classical $A_\infty$-algebra. We use THEOREM FROM WHITEHOUSE to show that this structure is equivalent to a derived $A_\infty$-algebra on the suspended bigraded operad.
 
 \section{Brackground and conventions}
-Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE. INCLUDING DEFINITION OF TWISTED COMPLEX
+Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. %COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE. INCLUDING DEFINITION OF TWISTED COMPLEX
 
-REDEFINE THINGS ACCORDING TO CONVENTIONS
+%REDEFINE THINGS ACCORDING TO CONVENTIONS
 
 Let $\CC$ be a category and let $A$, $B$ be arbitrary
 objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is
@@ -51,7 +51,7 @@ morphisms of complexes $f : K → L$ compatible with filtrations: \[f(F_pK) ⊂ 
 
 We denote by $\fmod$ and $\fc$ the categories of filtered modules and filtered complexes of $R$-modules, respectively.
 
-$-1$ CHANGED TO 1 (IT MUST BE LIKE THIS BECAUSE I THE MAPS PRESERVING FILTRATION WILL BE LEVEL 0 AND I WANT THE WHOLE AINFTY OPERAD TO BE MAPPED TO THAT, SO R MUST BE IN LEVEL 0 AS WELL)
+%$-1$ CHANGED TO 1 (IT MUST BE LIKE THIS BECAUSE I THE MAPS PRESERVING FILTRATION WILL BE LEVEL 0 AND I WANT THE WHOLE AINFTY OPERAD TO BE MAPPED TO THAT, SO R MUST BE IN LEVEL 0 AS WELL)
 \begin{defin}\label{filteredtensor}
 The tensor product of two filtered $R$-modules $(A, F)$ and $(B, F)$ is a filtered $R$-module,
 with
@@ -61,9 +61,8 @@ This makes the category of filtered $R$-modules into a symmetric monoidal catego
 
 \subsection{Bigraded modules, vertical bicomplexes, twisted complexes and sign conventions}
 
-TRY TO INCLUDE ONLY THE NECESSARY
+%TRY TO INCLUDE ONLY THE NECESSARY
 
-SPECIFY THAT BIGRADED MAP RAISES BOTH DEGREES
 \begin{defin}
 We consider $(\Z,\Z)$-bigraded
 $R$-modules $A = \{A^j_i\}$, where elements of $A^j_i$ are said to have bidegree $(i, j)$. We sometimes refer to $i$
@@ -74,7 +73,6 @@ A \emph{morphism of bidegree $(p, q)$} maps $A^j_i$ to $A^{j+q}_{i+p}$. The tens
 and $B$ is the bigraded $R$-module $A ⊗ B$ given by
 \[(A ⊗ B)^j_i \coloneqq\bigoplus_{p,q}A^q_p ⊗ B^{j−q}_{i−p} .\]
 \end{defin}
-
 We denote by $\bgmod$ the category whose objects are bigraded $R$-modules and whose morphisms
 are morphisms of bigraded $R$-modules of bidegree $(0, 0)$. It is symmetric monoidal with the above
 tensor product.
@@ -148,7 +146,7 @@ have that \[(f_i ⊗g_j)(a⊗b) = (−1)^{\langle g_j ,a\rangle}f_i(a)⊗g_j(b).
 morphism of twisted complexes
 \[τ_{A⊗B} : A ⊗ B → B ⊗ A\]
 defined by
-\[a ⊗ b\mapsto (−1)^{\langle a,b,\rangle}b ⊗ a.\]
+\[a ⊗ b\mapsto (−1)^{\langle a,b\rangle}b ⊗ a.\]
 \end{lem}
 
 The internal hom on bigraded modules can be extended to twisted complexes via the following lemma whose proof is in LEMMA 3.4.
@@ -159,7 +157,7 @@ for $i ≥ 0$, endows $[A,B]^∗_∗$ with the structure of a twisted complex.
 
 UNDERLINED CATEGORIES?
 \subsection{Totalization}
-DEFINITION WITH FILTRATION, DIFFERENTIAL, MONOIDALITY
+%DEFINITION WITH FILTRATION, DIFFERENTIAL, MONOIDALITY
 
 
 CHOOSE NOTATION, T OR TOT
@@ -171,7 +169,7 @@ The \emph{totalization} $\Tot(A)$ of a bigraded $R$-module $A = \{A^j_i \}$ the 
 The \emph{column filtration} of $\Tot(A)$ is the filtration given by \[F_p\Tot(A)^n \coloneqq\prod_{i\geq p} A^{n-i}_i .\]
 \end{defin}
 
-Given a twisted complex $(A, dm_)$, define a map $d : \Tot(A) → \Tot(A)$ of degree 1 by letting
+Given a twisted complex $(A, d_m)$, define a map $d : \Tot(A) → \Tot(A)$ of degree 1 by letting
 \[d(a)_j \coloneqq \sum_{m≥0}(−1)^{mn}d_m(a_{j-m}),\]
 for $a = (a_i)_{i∈\Z} ∈ \Tot(A)^n$,
 where $a_i ∈ A^{n-i}_i$ denotes the $i$-th component of $a$, and $d(a)_j$ denotes the $j$-th component of $d(a)$. Note
@@ -191,13 +189,28 @@ and $f \mapsto \Tot(f)$ define a functor $\Tot : \tc \to \fc$ which is an isomor
 \begin{proof}
 See THEOREM 3.8.
 \end{proof}
-MAYBE IT IS USEFUL TO INCLUDE THE DEFINITIONN OF THE INVERSE WHICH COMES  RIGHT AFTER THE THEOREM (CHECKING CONVENTIONS, CONSIDER DEFINING SPLIT OR JUST SAYING THE COMPLEX IS OF THE FORM TOT(A))
+For a filtered complex of the form $(\Tot(A),d,F)\in\sfc$, where $A = \{A^j_i \}$ is a bigraded $R$-module, we can recover the twisted complex structure on  $A$ as follows. For all $m ≥ 0$, let
+$d_m : A → A$ be the morphism of bidegree $(m,1-m)$ defined by 
+\[d_m(a) = (−1)^{nm}d(a)_{i+m},\] 
+where $a ∈ A^{n-i}_i$ and $d(a)_k$ denotes the $k$-th component of $d(a)$, which lies in $A^{n+1-k}_k$.
 
-We will consider the following bounded categories since the totalizaton functor has better properties when restricted to them. 
-I THINK I WON'T NEED TO SPECIFY THE SPLIT CATEGORIES
+%Let us denote the image of $\Tot$ by $\sfc$ and define the inverse $\Tot^{-1}:\sfc\to\tc$ as follows. Let $(\Tot(A),d,F)\in\sfc$, where $A = \{A^j_i \}$ is a bigraded $R$-module. For all $m ≥ 0$, let
+%$d_m : A → A$ be the morphism of bidegree $(m,1-m)$ defined by 
+%\[d_m(a) = (−1)^{nm}d(a)_{i−m},\] 
+%CHECK
+%where $a ∈ A^{n-i}_i$ and $d(a)_k$ denotes the $k$-th component of $d(a)$, which lies in $A^{n+1-k}_k$. Since $d$ is compatible
+%with the filtration $F$, we have $d_i = 0$ for $i < 0$ CHECK. Then $(A, d_m)$ is a twisted complex and its filtered
+%total complex is $(\Tot(A), d, F)$. Lastly, let $f : (\Tot(A), d, F) → (\Tot(B), d, F)$ be a morphism of split
+%filtered complexes. For all $m ≥ 0$, let $f_m : A → B$ be the morphism of bidegree $(m,−m)$ defined by
+%\[f_m(a) = (−1)^{nm}f(a)_{i−m},\] SAME AS D where $a ∈ A^{n-i}_i$ and $f(a)_k$ denotes the $k$-th component of $f(a)$, which lies
+%in $B^{n-k}_k$. Since $f$ is compatible with the filtration $F$, we have that $f_i = 0$ for $i < 0$  SAME AS D. Then the family
+%$\{f_m\}_{m≥0}$ is a morphism of twisted complexes whose total morphism is $f$.
+
+We will consider the following bounded categories since the totalization functor has better properties when restricted to them. 
+%I THINK I WON'T NEED TO SPECIFY THE SPLIT CATEGORIES
 \begin{defin}
 We let $\tc^b$, $\vbc^b$, $\bgmod^b$ be the full subcategories of \emph{horizontally bounded on the right} graded twisted
-complexes, vertical bicomplexes and bigraded modules respectively. This means that if $A=\{A^j_i\}$ is an object on any of this categories, then there exists $i$ such that $A^j_{i'}=0$ for $i'>i$.
+complexes, vertical bicomplexes and bigraded modules respectively. This means that if $A=\{A^j_i\}$ is an object of any of this categories, then there exists $i$ such that $A^j_{i'}=0$ for $i'>i$.
 
 We let $\fmod^b$, $\fc^b$ be the full subcategories of bounded filtered modules, respectively complexes, i.e.
 the full subcategories of objects $(K, F)$ such that there exists some $p$ with the property that $F_{p'}K^n = 0$ for all $p> p'$. We refer to all of these as the bounded subcategories of $\tc$, $\vbc$, $\bgmod$, $\fmod$ and $\fc$   respectively.
@@ -236,14 +249,22 @@ is given on pure tensors (for notational convenience) as
 \[\mu^{-1}(a_{(1)}\otimes\cdots\otimes a_{(m)})=(-1)^{\sum_{j=2}^m n_j\sum_{i=1}^{j-1}k_i}a_{(1)}\otimes\cdots\otimes a_{(m)},\]
 where $a_{(l)}\in (A_{(m)})_{k_l}^{n_l-k_l}$.
 \subsection{Enriched categories and enriched totalization}
+\subsubsection{Monoidal categories over  a base}
 NOT SURE IF I'M GOING TO NEED SO MUCH GENERAL BACKGROUND (CERTAINLY DO NOT INCLUDE PROOFS) I WOULD LIKE TO INCLUDE THE PROOF OF THE INVERSE INDUCING THE INVERSE TRANSFORMATION
 
-MAYBE INCLUDE HERE THE ENRICHED CATEGORIES THAT I AM GOING TO NEED AND ALSO ENRICHED TOTALIZATION (I ONLY NEED THE INVERSE)
+CITE RIEHL AS WELL
 
+I MAY NOT  NEED MUCH (BUT I DO MENTION ENRICHED CATEGORIES, I COULD TRY TO ONLY SHOW RESULTS FOR PARTICULAR CATEGORIES) 
+
+WHAT I REALLY NEED IS THEE DEFINITION OF ENRICHED MU AND I CAN DEFINE IT EXPLICITELY IN THE LEMMA THAT IT IS USED (OR WITH AN EXTRA LEMMA IN WHICH I ALSO SHOW THE INVERSE), FOR THAT I WILL NEED THE ADJUNCTION FROM 4.35 (I CAN CITE IT IN THE PROOF OR WRITE IT AS A LEMMA AS WELL
+
+
+
+
+\subsubsection{Enriched categories and totalization}
 SAY SOMETHING ABOUT WHERE THE DEFINITIONS COME FROM (WHITEHOUSE), AND ADJUST TO CONVENTIONS, CHECK IF I NEED SOME RESULTS
 
 START WITH SOME SENTENCES ABOUT DEFINING A BUNCH OF USEFUL ENRICHED CATEGORIES
-
 \begin{defin}\label{weirdenrichment}
 Let $A,B,C$ be bigraded modules. We denote by $\underline{\mathpzc{bgMod}_R}(A,B)$ the bigraded module given by
 \[\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u+j}\]
@@ -328,7 +349,7 @@ See LEMMA 4.27
 
 \begin{defin}\label{ufMod}
 The $\bgmod$-enriched category of filtered modules $\ufMod$ is the enriched category given by the following data.
-I HAVE TO KEEP J+U SO THAT THE DEGREES MATCH IN ENRICH TOT (ALTERNATIVELY KEEP V-U BUT I DON'T LIKE THAT)
+%I HAVE TO KEEP J+U SO THAT THE DEGREES MATCH IN ENRICH TOT (ALTERNATIVELY KEEP V-U BUT I DON'T LIKE THAT)
 \begin{enumerate}[(1)]
 \item The objects of $\ufMod$ are filtered modules.
 \item For filtered modules $(K, F)$ and $(L, F)$, the bigraded module $\ufMod(K,L)$ is given by
@@ -362,7 +383,7 @@ We denote by $\usfC$ the full subcategory of $\ufC$ whose objects are split filt
 
 The enriched monoidal structure is given by the following lemma.
 \begin{defin}\label{tensorenriched2}
-The monoidal structure of fMod R is given by the following map of vertical bicomplexes.
+The monoidal structure of $\ufC$ is given by the following map of vertical bicomplexes.
 \[\widehat{⊗}: \ufC(K,L) ⊗ \ufC(K′,L′) → \ufC(K ⊗ K′,L ⊗ L′),\]
 \[(f, g) → f\widehat{⊗}g := (−1)^{u|g|}f ⊗ g\]
 where $f$ has bidegree $(u, v)$.
@@ -370,9 +391,9 @@ where $f$ has bidegree $(u, v)$.
 \begin{proof}
 See LEMMA 4.36
 \end{proof}
-LEMMA 4.35 I WILL NEED THE ADJUNCTION (AND MAYBE THE OTHER  ADJUNCTION AS WELL)
+LEMMA 4.35 I WILL NEED THE ADJUNCTION (AND MAYBE THE OTHER  ADJUNCTION AS WELL) JUST CITE IT WHEN I USE IT
 
-We now define an enriched version of the totalization functor. CHECK TOT, OR JUST OMIT IT BECAUSE I DON'T NEED IT
+We now define an enriched version of the totalization functor. %CHECK TOT, OR JUST OMIT IT BECAUSE I DON'T NEED IT
 \begin{defin}\label{enrichedtot}
 Let $A,B$ be bigraded modules and $f ∈ \ubgMod (A,B)^v_u$ we define
 
@@ -389,7 +410,7 @@ f_i : A^{m-j}_j \hookrightarrow\prod_{k\geq j}A^{m-k}_k = F_j(\Tot(A)^m)\xrighta
 \end{align*}
 where the last map is a projection and multiplication with the indicated sign.
 
-I HAVE TO KEEP J+U SO THAT THE DEGREES MATCH  (ALTERNATIVELY KEEP V-U BUT I DON'T LIKE THAT)
+%I HAVE TO KEEP J+U SO THAT THE DEGREES MATCH  (ALTERNATIVELY KEEP V-U BUT I DON'T LIKE THAT)
 \end{defin} 
 
 \begin{thm}
@@ -414,7 +435,7 @@ are lax symmetric monoidal in the enriched sense and when restricted to the boun
 PROP 4.40
 \end{proof}
 
-We now define an enriched endomorphism operad. I THINK I ONLY NEED THIS DEFINITION AND NOT THE PREVIOUS OR THE NEXT LEMMA
+We now define an enriched endomorphism operad. %I THINK I ONLY NEED THIS DEFINITION AND NOT THE PREVIOUS OR THE NEXT LEMMA
 \begin{defin}
 Let $\underline{\mathscr{C}}$ be a monoidal $\mathscr{V}$-enriched category and $A$ an object of $\uC$. We define $\uEnd_A$
 to be the collection in $\mathscr{V}$ given by
@@ -444,23 +465,22 @@ PROP 4.55 REPHRASED
 
 %We are going to apply the totalization with compact support functor of WHITEHOUSE 4.13 to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. WHITEHOUSE 3.11 the functor $T$ with domain the category of bigraded modules and bidegree $(0,0)$ morphisms is lax monoidal, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules.  
 
-We are going to apply the totalization  functor of CITE PREVIOUS SECTION to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. Tthe functor $T$ with domain the category $\bgmod$ (TWISTED COMPLEXES?) and bidegree $(0,0)$ morphisms (TWISTED COMPLEX MAPS?) is lax monoidal REFERENCE TO THEOREM, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules. 
+We are going to apply the totalization  functor of CITE PREVIOUS SECTION to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. Tthe functor $\Tot$ with domain the category $\bgmod$ (TWISTED COMPLEXES?) and bidegree $(0,0)$ morphisms (TWISTED COMPLEX MAPS?) is lax monoidal REFERENCE TO THEOREM, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules. 
 
-Therefore, let $\OO$ be a bigraded operad, i.e. an operad in te category  of bigraded $R$-modules. We define $T\OO$ as the operad of graded $R$-modules for which \[T\OO(n)^d=\bigoplus_{i<0}\OO(n)^{d-i}_i\oplus\prod_{i\geq 0} \OO(n)^{d-i}_i\] is the image of $\OO(n)$ under the totalization functor and the insertion maps are given by the composition  %THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
-\[T\OO(n)\otimes T\OO(m)\xrightarrow{\mu} T(\OO(n)\otimes \OO(m)) \xrightarrow{T(\circ_r)} T\OO(n+m-1),\]
+Therefore, let $\OO$ be a bigraded operad, i.e. an operad in te category  of bigraded $R$-modules. We define $\Tot\OO$ as the operad of graded $R$-modules for which \[\Tot(\OO(n))^d=\bigoplus_{i<0}\OO(n)^{d-i}_i\oplus\prod_{i\geq 0} \OO(n)^{d-i}_i\] is the image of $\OO(n)$ under the totalization functor and the insertion maps are given by the composition  %THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
+\[\Tot(\OO(n))\otimes \Tot(\OO(m))\xrightarrow{\mu} \Tot(\OO(n)\otimes \OO(m)) \xrightarrow{\Tot(\circ_r)} \Tot(\OO(n+m-1)),\]
 that is explicitly 
 \[(a\bar{\circ}_rb)_k=\sum_{k_1+k_2=k} (-1)^{k_1n_2} a_{k_1}\circ_r b_{k_2}\]
 
-for $a=(a_i)_i\in T\OO(n)^{n_1}$ and $b=(b_j)_j\in T\OO(m)^{n_2}$.
+for $a=(a_i)_i\in \Tot(\OO(n))^{n_1}$ and $b=(b_j)_j\in \Tot(\OO(m))^{n_2}$.
 
-IT WILL BE MORE CLEAR IF I WRITE DOWN THE DEFINITION OF THE FUNCTOR AND THE PROPOSITTION WHERE $\mu$ IS DEFINED
 
 %MAYBE I SHOULD WRITE THINGS LIKE SUMS BUT I THINK IT MAKES SENSE TO WRITE IT LIKE THIS BECAUSE I KNOW THIS COMES FROM A BIGRADED MODULE
 %where $a\in\OO(n)^k_i$, $b\in\OO(m)^j_l$ and $\circ_r$ is the insertion map in $\OO$.
 
 %It can be checked that this is indeed an operad of graded vector spaces I 
 
-SHOULD WRITE THE AXIOMS FOR GRADED OPERADS SOMEWHERE (MORE GENERALLY OPERAD IN SYMMETRIC MONOIDAL CATEGORY LIKE WARD), AND I MIGHT ALSO WRITE THE PROOF OF THIS FACT
+SHOULD WRITE THE AXIOMS FOR GRADED OPERADS SOMEWHERE (MORE GENERALLY OPERAD IN SYMMETRIC MONOIDAL CATEGORY LIKE WARD), AND I MIGHT ALSO WRITE THE PROOF THAT THIS IS AN OPERAD (BUT SHOULD FOLLOW FROM LAX MONOIDALITY)
 
 HEURISTICS FOR THIS SIGN AND ALTERNATIVE, REFERRING TO WHITEHOUSE (THIS  LAST PART POSSIBLE LATER WITH DERIVED A INFTY)
 
@@ -518,7 +538,7 @@ Given a bigraded $R$-module $A$, there is an isomorphism of operads $\End_{ A}\c
 
  
 
-Now we are going to combine vertical operadic suspension and totalization. More precisely, the totalized vertical suspension a bigraded operad $\OO$ is the graded operad $T\s\OO$. 
+Now we are going to combine vertical operadic suspension and totalization. More precisely, the totalized vertical suspension a bigraded operad $\OO$ is the graded operad $\Tot(\s\OO)$. 
 
 %TsOO(n)^{n1} SOO(n)^{n1-k1}_k1  OO(n)^{n1-k1-n+1}_k1
 
@@ -535,9 +555,9 @@ Before continuing, let us show a Lemma that allows us to work only with the sing
 For a bigraded operad $\OO$ we have an isomorphism $T\s\OO\cong \s T\OO$, where the suspension on the left hand side is the bigraded version and on the right hand side is the single graded version. 
 \end{lem}
 \begin{proof}
-For an element $(a_k)_k\in T\s\OO(n)$ the isomorphism is given by
+For an element $(a_k)_k\in \Tot(\s\OO(n))$ the isomorphism is given by
 \begin{align*}
-f:T\s\OO&\cong \s T\OO\\
+f:\Tot(\s\OO)&\cong \s \Tot(\OO)\\
 (a_k)_k&\mapsto ((-1)^{kn}a_k)_k
 \end{align*}
 Cleary this map is bijective so we just need to check that it commutes with insertions. COMPLETE, MAYBE RESTRICT HOMOGENEOUS BIDEGREE IF NECESSARY
@@ -549,9 +569,9 @@ There exist other possible ways of totalizing operads by varying the natural tra
 
 This is also a valid approach for our purposes and there is simply a sign difference, but we have chosen our convention to be consistent with other conventions and constructions (SIGN FOR INFINITY MORPHISMS AND CONVOLUTION OPERAD). However, let us mention some differences and relations between $T$ and $T'$ . %There are of course many other possible conventions MAYBE NOT MENTION THE EXACT DIFFRENES, JUST STOP HERE BECAUSE THERE ARE MORE CONVENTIONS AND I DON'T THINK I WILL TREAT ALL OF THEM IN DETAIL, BUT THE DIFFERENCE BETWEEN IDENTITY AND ISOMORPHISM MIGHT BE WORTH MENTION
 
-First of all, $T$ and $T'$ are isomorphic. The isomorphism $f:T\OO\cong T'\OO$ given by $f((a_k))=((-1)^{k(n_1-k)}a_k)$. MAYBE ALL OF THEM ARE ISOMORPHIC, THINK OF THIS USING JUST THAT A TOTALIZATION IS A FUNCTOR THAT SENDS A BIGRADED OPERAD TO A GRADED OPERAD, MAYBE ALSO USE THAT THE UNDERLYING MODULE IS ALWAYS THE SAME SO THAT THE ONLY MODIFICATION IS THE INSERTION
+First of all, $\Tot$ and $\Tot'$ are isomorphic. The isomorphism $f:\Tot(\OO)\cong \Tot'\OO$ given by $f((a_k))=((-1)^{k(n_1-k)}a_k)$. MAYBE ALL OF THEM ARE ISOMORPHIC, THINK OF THIS USING JUST THAT A TOTALIZATION IS A FUNCTOR THAT SENDS A BIGRADED OPERAD TO A GRADED OPERAD, MAYBE ALSO USE THAT THE UNDERLYING MODULE IS ALWAYS THE SAME SO THAT THE ONLY MODIFICATION IS THE INSERTION
 
-It can be readily verified that $T'\s\OO=\s T'\OO$. With the original totalization we have a non identity isomorphism $f_n:T\s\OO(n)\cong\s T\OO(n)$ given by $f((a_k))=((-1)^{kn}a_k)$. We will use this isomorphism later.
+It can be readily verified that $\Tot'(\s\OO)=\s \Tot'(\OO)$. With the original totalization we have a non identity isomorphism given by LEMMA ABOVE. We will use this isomorphism later.
 
 POSSIBLY FILL IN SOME DETAILS OF THESE ISOMORPHISMS
 
@@ -597,11 +617,11 @@ Since the composition morphism
 in $\ubgMod$ is induced from the one in $\utC$ by forgetting the differential, these two presentations
 are equivalent.
 \end{remark}
-From the definition of $T\s\OO$, such a multiplication is equivalent to an element $m\in T\s\OO$ of degree 1 concentrated in positive arity satisfying $m\star m=0$. From this, it follows from our previous results that $m$ determines an $A_\infty$-algebra structre on $ST\s\OO\cong S\s T\OO$ %IT WAS EQUALITY WITH THE ALTERNATIVE OPERATION 
-that can be iterated to define an $A_\infty$-structure on $S\s\End_{S\s T\OO}$, which is related to the structure on $S\s T\OO$ by a map of $A_\infty$-algebras  $\Phi:S\s T\OO
-\to  S\s\End_{S\s T\OO}$.  MAYBE WRITE THIS MORE EXPLICITLY 
+From the definition of $\Tot(\s\OO)$, such a multiplication is equivalent to an element $m\in \Tot(\s\OO)$ of degree 1 concentrated in positive arity satisfying $m\star m=0$. From this, it follows from our previous results that $m$ determines an $A_\infty$-algebra structre on $S\Tot(\s\OO)\cong S\s \Tot(\OO)$ %IT WAS EQUALITY WITH THE ALTERNATIVE OPERATION 
+that can be iterated to define an $A_\infty$-structure on $S\s\End_{S\s \Tot(\OO)}$, which is related to the structure on $S\s \Tot(\OO)$ by a map of $A_\infty$-algebras  $\Phi:S\s \Tot(\OO)
+\to  S\s\End_{S\s \Tot(\OO)}$.  MAYBE WRITE THIS MORE EXPLICITLY 
 
-The goal now is showing that this $A_\infty$-structure on $ST\s\OO$ is equivalent to a derived $A_\infty$-structure on $S\s \OO$. 
+The goal now is showing that this $A_\infty$-structure on $S\Tot(\s\OO)$ is equivalent to a derived $A_\infty$-structure on $S\s \OO$. 
 %HERE THE STAR OPERATION, I NEED TO DEFINE DERIVED AINFTY MULTIPLICATION ON AN OPERAD, THEN STAR OPERATION, THEN ELEMENT OF TOTALIZED VERTICAL SUSPENSION
 
 
@@ -626,8 +646,8 @@ where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n|x_p|\sum_{q=i}^{i_p}|
 Some authors might use the notation $b_{1+n}$ instead of $b_n$, but the first element is usually going to have a different role than the others. A shorter notation for $b_n(x;x_1,\dots,x_n)$ found in the literature is $x\{x_1,\dots, x_n\}$. Also note that we have used the notation $|x_p|$ for the degree of $x_p$ in $A$. 
 \end{remark}
 
-We can define braces on $T\s\OO$ via operadic composition. More precisely, we define the maps 
-$$b^T_n:T\mathfrak{s}\OO(N)\otimes T\mathfrak{s}\OO(a_1)\otimes\cdots\otimes T\mathfrak{s}\OO(a_n)\to T\mathfrak{s}\OO(N-\sum a_i)$$
+We can define braces on $\Tot(\s\OO)$ via operadic composition. More precisely, we define the maps 
+\[b^T_n:\Tot(\mathfrak{s}\OO(N))\otimes \Tot(\mathfrak{s}\OO(a_1))\otimes\cdots\otimes \Tot(\mathfrak{s}\OO(a_n))\to \Tot(\mathfrak{s}\OO(N-\sum a_i))\]
 using the operadic composition $\gamma$ on $T\mathfrak{s}\OO$ as
 
 \[b^T_n(f;g_1,\dots,g_n)=\sum\gamma(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1),\]
@@ -644,7 +664,7 @@ where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $
 
 \[\varepsilon
 =p_0(a_1+q_1+p_1-1)+(p_0+p_1)(a_2+q_2+p_2-1)+\cdots=\sum_{i=1}^n(a_i+q_i+a_i-1)\sum_{j=0}^{i-1}p_j\]\[=\sum_{0\leq j<i\leq n}p_j(a_i+q_i+p_i-1).\]
-This is obtained by iteration of the last factor sign in EQUATION WITH THE SIGN ABOVE which is precisely the sign determined by totalization. Therefore, if $(-1)^\eta$ is the sign produced by operadic suspension and $(-1)^{\varepsilon_k}$ the sign produced by totalization, the factor sign that distinguishes the brace in $T\s\OO$ from the usual operadic composition in $\OO$ is $(-1)^{\eta+\varepsilon_k}$ THE K IS BECAUSE I'M PLANNING TO REWRITE THINGS AS SUMS IN TOTALIZATION, I MIGHT ABOUT THIS, I WILL HAVE TO CHANGE THE NOTATION FOR THE MAPS BEING COMPOSED AND THEIR DEGREES
+This is obtained by iteration of the last factor sign in EQUATION WITH THE SIGN ABOVE which is precisely the sign determined by totalization. Therefore, if $(-1)^\eta$ is the sign produced by operadic suspension and $(-1)^{\varepsilon_k}$ the sign produced by totalization, the factor sign that distinguishes the brace in $\Tot(\s\OO)$ from the usual operadic composition in $\OO$ is $(-1)^{\eta+\varepsilon_k}$ THE K IS BECAUSE I'M PLANNING TO REWRITE THINGS AS SUMS IN TOTALIZATION, I MIGHT ABOUT THIS, I WILL HAVE TO CHANGE THE NOTATION FOR THE MAPS BEING COMPOSED AND THEIR DEGREES
 
  USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD (I WILL PROBABLY  WRITE THE COMPUTATION OF DEGREES DIFFERENTLY LATER BECAUSEE I AM IDENTIFYING THE BRACE AND ELEMENTS WITH THEIR SHIFTS HERE TO MAKE IT EASIER TO COMPPUTE)
 
@@ -676,7 +696,7 @@ DO THE MI1 DEFINE A TWISTED COMPLEX? THIS IS A NECESSARY CONDITION TO SATISSFY T
 
 VERY SKETCHY AT THE MOMENT
 
-We are going to use the following theorem from WHITEHOUSE (CITE) to show thate there is a derived $A_\infty$-structure on $A=S\s\OO$. Note that $TSB=STB$ for any bigraded module $B$, where $SB$ is the vertical suspension and $STB$ is the suspension as graded modules.
+We are going to use the following theorem from WHITEHOUSE (CITE) to show thate there is a derived $A_\infty$-structure on $A=S\s\OO$. Note that $\Tot(SB)=S\Tot(B)$ for any bigraded module $B$, where $SB$ is the vertical suspension of $B$ and $S\Tot(B)$ is the suspension of $\Tot(B)$ as graded modules.
 
 THEOREM, REWRITE FOR CONVENTIONS
 
