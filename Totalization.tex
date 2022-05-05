@@ -618,10 +618,9 @@ in $\ubgMod$ is induced from the one in $\utC$ by forgetting the differential, t
 are equivalent.
 \end{remark}
 From the definition of $\Tot(\s\OO)$, such a multiplication is equivalent to an element $m\in \Tot(\s\OO)$ of degree 1 concentrated in positive arity satisfying $m\star m=0$. From this, it follows from our previous results that $m$ determines an $A_\infty$-algebra structre on $S\Tot(\s\OO)\cong S\s \Tot(\OO)$ %IT WAS EQUALITY WITH THE ALTERNATIVE OPERATION 
-that can be iterated to define an $A_\infty$-structure on $S\s\End_{S\s \Tot(\OO)}$, which is related to the structure on $S\s \Tot(\OO)$ by a map of $A_\infty$-algebras  $\Phi:S\s \Tot(\OO)
-\to  S\s\End_{S\s \Tot(\OO)}$.  MAYBE WRITE THIS MORE EXPLICITLY 
+that can be iterated to define an $A_\infty$-structure on $S\s\End_{S\s \Tot(\OO)}$.%THIS PART ONLY IF I CAN DO THE SAME IN THE DERIVED CASE, which is related to the structure on $S\s \Tot(\OO)$ by a map of $A_\infty$-algebras  $\Phi:S\s \Tot(\OO)\to  S\s\End_{S\s \Tot(\OO)}$.  MAYBE WRITE THIS MORE EXPLICITLY 
 
-The goal now is showing that this $A_\infty$-structure on $S\Tot(\s\OO)$ is equivalent to a derived $A_\infty$-structure on $S\s \OO$. 
+The goal now is showing that this $A_\infty$-structure on $S\Tot(\s\OO)$ is equivalent to a derived $A_\infty$-structure on $S\s \OO$ and compute the structure maps explicitly. 
 %HERE THE STAR OPERATION, I NEED TO DEFINE DERIVED AINFTY MULTIPLICATION ON AN OPERAD, THEN STAR OPERATION, THEN ELEMENT OF TOTALIZED VERTICAL SUSPENSION
 
 
@@ -668,7 +667,7 @@ This is obtained by iteration of the last factor sign in EQUATION WITH THE SIGN 
 
  USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD (I WILL PROBABLY  WRITE THE COMPUTATION OF DEGREES DIFFERENTLY LATER BECAUSEE I AM IDENTIFYING THE BRACE AND ELEMENTS WITH THEIR SHIFTS HERE TO MAKE IT EASIER TO COMPPUTE)
 
-Let $m_{il}$ a component of the derived $A_\infty$-multiplication $m$ and $x_1,\dots, x_j\in\OO$ with $x_k$ of bidegree $(i_k,l_k)$, and let us compute the bidegree of $b_j(m_{il};x_1,\dots, x_j)$ in $S\s\OO$. By definition, the horizontal degree on $S\s\OO$ is the same as in $\OO$, so it is $i+\sum_{k=1}^ji_k$, meaning that the horizontal degree of the map $b_j(m_{il};-):S\s\OO^{\otimes j}\to S\s\OO$ is precisely $i$. Now let us compute the vertical degree. By definition it is given by the internal vertical degree plus the arity. Therefore, let us compute
+Let $m_{il}$ a component of the derived $A_\infty$-multiplication $m$ and $x_1,\dots, x_j\in\OO$ with $x_k$ of bidegree $(i_k,l_k)$, and let us compute the bidegree of $b_j(m_{il};x_1,\dots, x_j)$ in $S\s\OO$. By definition, the horizontal degree on $S\s\OO$ is the same as in $\OO$, so it is $i+\sum_{k=1}^ji_k$, meaning that the horizontal degree of the map $b_j(m_{il};-):(S\s\OO)^{\otimes j}\to S\s\OO$ is precisely $i$. Now let us compute the vertical degree. By definition it is given by the internal vertical degree plus the arity. Therefore, let us compute
 
 \[
 a(b_j(m_{il};x_1,\dots, x_j))+\deg(b_j(m_{il};x_1,\dots, x_j))
@@ -700,9 +699,9 @@ We are going to use the following theorem from WHITEHOUSE (CITE) to show thate t
 
 THEOREM, REWRITE FOR CONVENTIONS
 
-There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded, meaning that there exists some integer $i$ such that $A_k^n=0$ for all $k>i$. In our case, this means that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ maps $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far MURO, RW, SARAH
+There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^n=0$ for all $k>i$. In our case $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right this means that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ maps $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far MURO, RW, SARAH
 
-We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex WRITE DOWN THE TWO EQUIVALENT DEFINITIONS AND CITE HERE. We are going to do this by hand, but later we will prove another version of this theorem that works for bigraded modules and we will see that the induced twisted complex structure is the same that we are going to give. 
+We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex WRITE DOWN THE TWO EQUIVALENT DEFINITIONS AND CITE HERE. We are going to do this by hand, but later we will provide another version of this theorem that works for bigraded modules and we will see that the induced twisted complex structure is the same that we are going to give by hand.
 
 
 PROOF OF TWISTED COMPLEX
@@ -835,6 +834,23 @@ PROOF OF DAINFTY (CHAIN OF ISOS IN REVERESE):
 ALTERNATIVE VERSION
 
 SHOW THAT THE  RESULTING TWISTED COMPLEX IS THE SAME
+
+I START WRITING HERE
+
+We start with the $A_\infty$-structure on $S\s\Tot(\OO)$ given by maps
+\[M_j:(S\Tot(\s\OO))^{\otimes j}\to S\Tot(\s\OO)\]
+induced by shifting brace maps
+\[b_j(m;-):(\Tot(\s\OO))^{\otimes j}\to \Tot(\s\OO),\]
+where $m=\sum_{i,j}m_{ij}\in\s\Tot(\OO)$ is the derived $A_\infty$-multiplication of $\OO$. The graded module $S\Tot(\s\OO)$ is endowed with the structure of a filtered complex with differential $M_1$ and filtration induced by the column filtration on $\Tot(\s\OO)$ since the shift is only vertical. MORE DETAIL ON THIS? (LIKE  EXPLIIT FILTRATION AND MAYBE CHECK THAT THE DIFFERENTIAL PRESERVES FILTRATION WHICH FOLLOWS FROM THE HORIZONTAL DEGREES OF THE MIJ BEING POSITTIVE)
+We can view $M_j$ as the image of a morphism of operads of filtered complexes $f:\mathcal{A}_\infty\to \End_{\Tot(S\s\OO)}$, in such a way that $M_j=f(\mu_j)$ for $\mu_j\in\mathcal{A}_\infty(j)$. 
+
+We work our way backwards through the proof of WHITEHOUSE THEOREM. The isomorphism WRITE ISO (CHECK COMMANDS) does not modify the map $M_j$ at all. 
+
+THE FINAL SIGN CHANGE COINCIDES WITH THE ISOMORPHISM COMMUTING SUSPESION AND TOT SO IN THE END IT CANCELS
+
+We are going to split the isomorphism THE ENRICHED ONE in two parts. DO THIS IN A VERSION OF LEMMA 4.54
+
+TOT-1 ALREADY SPLIT THINGS AND THEN IT IS THE FINAL CHANGE
 %\appendix
 %\renewcommand{\appendixname}{Appendix:}
 \begin{appendices}
