@@ -189,7 +189,7 @@ and $f \mapsto \Tot(f)$ define a functor $\Tot : \tc \to \fc$ which is an isomor
 \begin{proof}
 See THEOREM 3.8.
 \end{proof}
-For a filtered complex of the form $(\Tot(A),d,F)\in\sfc$, where $A = \{A^j_i \}$ is a bigraded $R$-module, we can recover the twisted complex structure on  $A$ as follows. For all $m ≥ 0$, let
+For a filtered complex of the form $(\Tot(A),d,F)$, where $A = \{A^j_i \}$ is a bigraded $R$-module, we can recover the twisted complex structure on  $A$ as follows. For all $m ≥ 0$, let
 $d_m : A → A$ be the morphism of bidegree $(m,1-m)$ defined by 
 \[d_m(a) = (−1)^{nm}d(a)_{i+m},\] 
 where $a ∈ A^{n-i}_i$ and $d(a)_k$ denotes the $k$-th component of $d(a)$, which lies in $A^{n+1-k}_k$.
@@ -450,9 +450,33 @@ $F : \CC → \DD$ be a lax monoidal functor over $\VV$ . Then for any $X ∈ \CC
 
 \end{propo}
 \begin{proof}
-PROP 4.46 I WANT TO GIVE A MORE DETAILED PROOF DEFINING THE MAP FROM THE MONOIDAL THING
+The proof is in PROP 4.46 
 \end{proof}
-LEMMMA 4.54 MAYBE WITH THE INVERSE
+
+\begin{lem}\label{inverse}
+For any twisted complex $A$ there is a morphism of operads
+\[\uEnd_A →\uEnd_{\Tot(A)},\]
+which is an isomorphism of operads if $A$ is bounded.
+\end{lem}
+
+The proof of the above Lemma can be found in LEMMA 4.54, but we are going to construct the inverse in the bounded case explicitly (the construction for the direct map is analogue but here we just need the inverse).
+
+The inverse is give by the composite
+\[\uEnd_{\Tot(A)}(n)=\ufC(\Tot(A)^{\otimes n},\Tot(A))\to \ufC(\Tot(A^{\otimes n}),\Tot(A))\to\utC(A^{\otimes n},A)=\uEnd_A(n) \]
+
+The second map is given by $\mathfrak{Tot}^{-1}$ defined in DEFINITION ENRICHED TOT. Let $R$ be concentrated in bidegree $(0,0)$ with trivial vertical differential. We describe now the first map as the following composite
+\begin{align*}
+\ufC(\Tot(A)^{\otimes n},\Tot(A))\cong R\otimes\ufC(\Tot(A)^{\otimes n},\Tot(A))\\
+\xrightarrow{\underline{\mu}^{-1}\otimes 1}\ufC(\Tot(A^{\otimes n}),\Tot(A)^{\otimes n})\otimes\ufC(\Tot(A)^{\otimes n},\Tot(A))\\
+\xrightarrow{c}\ufC(\Tot(A^{\otimes n}),\Tot(A))
+\end{align*}
+Now, $\underline{\mu}^{-1}$ is the adjoint of $\mu^{-1}$ under the adjunction CITE HERE, MAYBE I CAN JUST CITE THE THEOREM. Explicitly this is the map 
+\begin{align*}
+R &\to \ufC(\Tot(A^{\otimes n}),\Tot(A)^{\otimes n})\\
+1 &\mapsto (c\mapsto \mu^{-1}(c))
+\end{align*}
+
+
 
 ONLY MENTION 4.47 WHEN YOU REACH THE PROOF OF THE LONG ISO
 
@@ -551,7 +575,7 @@ This star operation is precisely the star operation from RWL, i.e the convolutio
 DESCRIBE DERIVED AINFTY MORPHISMS AND COMPOSITION WITH THIS (WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
 
 Before continuing, let us show a Lemma that allows us to work only with the single graded operadic suspension if needed.
-\begin{lem}
+\begin{lem}\label{extrasign}
 For a bigraded operad $\OO$ we have an isomorphism $T\s\OO\cong \s T\OO$, where the suspension on the left hand side is the bigraded version and on the right hand side is the single graded version. 
 \end{lem}
 \begin{proof}
@@ -703,6 +727,7 @@ There are several important assumptions to make in order to use the theorem. Fir
 
 We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex WRITE DOWN THE TWO EQUIVALENT DEFINITIONS AND CITE HERE. We are going to do this by hand, but later we will provide another version of this theorem that works for bigraded modules and we will see that the induced twisted complex structure is the same that we are going to give by hand.
 
+With these assumption, by THEOREM we can guarantee the existence of a derived $A_\infty$-algebra structure on $A$ provided that $\Tot(A)$ has an $A_\infty$-algebra structure.
 
 PROOF OF TWISTED COMPLEX
 \section{I need to rewrite this but I'll leave it  here for now}
@@ -837,20 +862,31 @@ SHOW THAT THE  RESULTING TWISTED COMPLEX IS THE SAME
 
 I START WRITING HERE
 
-We start with the $A_\infty$-structure on $S\s\Tot(\OO)$ given by maps
+We start with the $A_\infty$-structure on $S\s\Tot(\OO)$, which is equivalent to an $A_\infty$-structure on $S\Tot(\s\OO)$ via the isomorphism $S\s\Tot(\OO)\cong S\Tot(\s\OO)$ from \Cref{extrasign}. This isomorphism introduces some signs that will cancel with the sigs introduced by the isomorphism FIRST ISO OF THE CHAIN so we will omit them. The $A_\infty$-structuure is therefore given by maps THINK WHERE I HAVE TO PUT SUSPENSION
 \[M_j:(S\Tot(\s\OO))^{\otimes j}\to S\Tot(\s\OO)\]
 induced by shifting brace maps
-\[b_j(m;-):(\Tot(\s\OO))^{\otimes j}\to \Tot(\s\OO),\]
-where $m=\sum_{i,j}m_{ij}\in\s\Tot(\OO)$ is the derived $A_\infty$-multiplication of $\OO$. The graded module $S\Tot(\s\OO)$ is endowed with the structure of a filtered complex with differential $M_1$ and filtration induced by the column filtration on $\Tot(\s\OO)$ since the shift is only vertical. MORE DETAIL ON THIS? (LIKE  EXPLIIT FILTRATION AND MAYBE CHECK THAT THE DIFFERENTIAL PRESERVES FILTRATION WHICH FOLLOWS FROM THE HORIZONTAL DEGREES OF THE MIJ BEING POSITTIVE)
+\[b_j^T(m;-):(\Tot(\s\OO))^{\otimes j}\to \Tot(\s\OO),\]
+where $m=\sum_{i,j}m_{ij}\in\Tot(\s\OO)$ is the derived $A_\infty$-multiplication of $\OO$. The graded module $S\Tot(\s\OO)$ is endowed with the structure of a filtered complex with differential $M_1$ and filtration induced by the column filtration on $\Tot(\s\OO)$ since the shift is only vertical. MORE DETAIL ON THIS? (LIKE  EXPLIIT FILTRATION AND MAYBE CHECK THAT THE DIFFERENTIAL PRESERVES FILTRATION WHICH FOLLOWS FROM THE HORIZONTAL DEGREES OF THE MIJ BEING POSITTIVE)
 We can view $M_j$ as the image of a morphism of operads of filtered complexes $f:\mathcal{A}_\infty\to \End_{\Tot(S\s\OO)}$, in such a way that $M_j=f(\mu_j)$ for $\mu_j\in\mathcal{A}_\infty(j)$. 
 
-We work our way backwards through the proof of WHITEHOUSE THEOREM. The isomorphism WRITE ISO (CHECK COMMANDS) does not modify the map $M_j$ at all. 
+We work our way backwards through the proof of WHITEHOUSE THEOREM. The isomorphism WRITE ISO (CHECK COMMANDS) does not modify the map $M_j$ at all, but allows us to see it as a element of $\uEnd_{\Tot(A)}$ of bidegree $(0,2-j)$. 
 
-THE FINAL SIGN CHANGE COINCIDES WITH THE ISOMORPHISM COMMUTING SUSPESION AND TOT SO IN THE END IT CANCELS
 
-We are going to split the isomorphism THE ENRICHED ONE in two parts. DO THIS IN A VERSION OF LEMMA 4.54
 
-TOT-1 ALREADY SPLIT THINGS AND THEN IT IS THE FINAL CHANGE
+The isomorphism THE ENRICHED ONE in the direction we are followig has been described after \Cref{inverse}. Under this isomorphism, $f$ is sent firstly to the map \[\mu_j\mapsto \mathfrak{Tot}^{-1}\circ c(M_j,\mu^{-1})=\mathfrak{Tot}^{-1}\circ M_j\circ \mu^{-1},\] where $c$ is the composition in $\ufC$. The functor $\mathfrak{Tot}^{-1}$ decomposes $M_j$ into a sum of maps $M_j=\sum_i M_{ij}$. More explicitly, let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{m-k}_k$. Then we have
+\begin{align*}
+\mathfrak{Tot}^{-1}(M_j( \mu^{-1}(x_1\otimes\cdots\otimes x_j)))&=\mathfrak{Tot}^{-1}(Sb_j^T(m;(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j))))\\
+&=\sum_i(-1)^{im}\sum_l Sb_j^T(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\\
+&=\sum_i(-1)^{im}\sum_l(-1)^{i(m-1)} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\\
+&=\sum_i\sum_l(-1)^{i} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))
+\end{align*}
+so that $M_{ij}(x_1,\dots,x_j)=\sum_l(-1)^{i} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))$, where $b_j$ is the brace on $A=S\s\OO$.
+
+
+
+According to the isomorphism FIRST ISO this defines a derived $A_\infty$-structure on the twisted complex $S\s\OO$ up to a sign that cancels with the sign introduced by the iso from \Cref{extrasign}.
+
+NOW WITH ALL THE SIGNS AND
 %\appendix
 %\renewcommand{\appendixname}{Appendix:}
 \begin{appendices}
