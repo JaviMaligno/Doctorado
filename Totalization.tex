@@ -681,7 +681,7 @@ The operadic composition can be described in terms of insertions in the obvious 
 
 $$\gamma(f;h_1,\dots, h_N)=(\cdots(f\star_1 h_1)\star_{1+a(h_1)}h_2\cdots)\star_{1+\sum a(h_p)}h_N,$$
 
-where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign iterating the same argument as in the graded case. In fact, there is a sign factor identical to the graded case replacing internal degree by vertical (internal) degree that comes from operadic suspension. Therefore we only need to compute the sign factor corresponding to totalization. Given $f_{p_0}\in \OO(N)^{q_0}_{p_0}$ and  $g_i\in\OO(a_i)^{q_i}_{p_i}$ for $1\leq i\leq n$ such that $p_0+p_1+\cdots+p_n=k$, the factor sign we are looking for is determined by the exponent
+where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign iterating the same argument as in the graded case. In fact, there is a sign factor identical to the graded case replacing internal degree by vertical (internal) degree that comes from operadic suspension. In fact, this sign determines the brace $b_j$ on $\s\OO$. Therefore we only need to compute the sign factor corresponding to totalization. Given $f_{p_0}\in \OO(N)^{q_0}_{p_0}$ and  $g_i\in\OO(a_i)^{q_i}_{p_i}$ for $1\leq i\leq n$ such that $p_0+p_1+\cdots+p_n=k$, the factor sign we are looking for is determined by the exponent
 
 %\[\varepsilon_k=p_1(N+q_0+p_0-1)+p_2(N+a_1+q_0+q_1+p_0+p_1-2)+\cdots=\sum_{i=1}^np_i(\sum_{j=0}^{i-1}(a_j+q_j+p_j)+N-i).\]
 
@@ -723,7 +723,7 @@ We are going to use the following theorem from WHITEHOUSE (CITE) to show thate t
 
 THEOREM, REWRITE FOR CONVENTIONS
 
-There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^n=0$ for all $k>i$. In our case $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right this means that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ maps $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far MURO, RW, SARAH
+There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^n=0$ for all $k>i$. In our case $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right this means that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ maps $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far MURO, RW, SARAH. Under this assumption we may replace all direct products by direct sums.
 
 We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex WRITE DOWN THE TWO EQUIVALENT DEFINITIONS AND CITE HERE. We are going to do this by hand, but later we will provide another version of this theorem that works for bigraded modules and we will see that the induced twisted complex structure is the same that we are going to give by hand.
 
@@ -862,31 +862,39 @@ SHOW THAT THE  RESULTING TWISTED COMPLEX IS THE SAME
 
 I START WRITING HERE
 
-We start with the $A_\infty$-structure on $S\s\Tot(\OO)$, which is equivalent to an $A_\infty$-structure on $S\Tot(\s\OO)$ via the isomorphism $S\s\Tot(\OO)\cong S\Tot(\s\OO)$ from \Cref{extrasign}. This isomorphism introduces some signs that will cancel with the sigs introduced by the isomorphism FIRST ISO OF THE CHAIN so we will omit them. The $A_\infty$-structuure is therefore given by maps THINK WHERE I HAVE TO PUT SUSPENSION
+We start with the $A_\infty$-structure on $S\Tot(\s\OO)$ given by maps
+EXPLAIN WHY WE START WITH THIS (THERE IS THIS STRUCTURE BY PREVIOUS ARTICLE)
+ %This isomorphism introduces some signs that will cancel with the sigs introduced by the isomorphism FIRST ISO OF THE CHAIN so we will omit them. The $A_\infty$-structure is therefore given by maps THINK WHERE I HAVE TO PUT SUSPENSION
 \[M_j:(S\Tot(\s\OO))^{\otimes j}\to S\Tot(\s\OO)\]
 induced by shifting brace maps
 \[b_j^T(m;-):(\Tot(\s\OO))^{\otimes j}\to \Tot(\s\OO),\]
 where $m=\sum_{i,j}m_{ij}\in\Tot(\s\OO)$ is the derived $A_\infty$-multiplication of $\OO$. The graded module $S\Tot(\s\OO)$ is endowed with the structure of a filtered complex with differential $M_1$ and filtration induced by the column filtration on $\Tot(\s\OO)$ since the shift is only vertical. MORE DETAIL ON THIS? (LIKE  EXPLIIT FILTRATION AND MAYBE CHECK THAT THE DIFFERENTIAL PRESERVES FILTRATION WHICH FOLLOWS FROM THE HORIZONTAL DEGREES OF THE MIJ BEING POSITTIVE)
-We can view $M_j$ as the image of a morphism of operads of filtered complexes $f:\mathcal{A}_\infty\to \End_{\Tot(S\s\OO)}$, in such a way that $M_j=f(\mu_j)$ for $\mu_j\in\mathcal{A}_\infty(j)$. 
+Since $S\Tot(\s\OO)\cong \Tot(S\s\OO)$, we can view $M_j$ as the image of a morphism of operads of filtered complexes $f:\mathcal{A}_\infty\to \End_{\Tot(S\s\OO)}$, in such a way that $M_j=f(\mu_j)$ for $\mu_j\in\mathcal{A}_\infty(j)$. 
 
-We work our way backwards through the proof of WHITEHOUSE THEOREM. The isomorphism WRITE ISO (CHECK COMMANDS) does not modify the map $M_j$ at all, but allows us to see it as a element of $\uEnd_{\Tot(A)}$ of bidegree $(0,2-j)$. 
+We now work our way backwards through the proof of WHITEHOUSE THEOREM. The isomorphism WRITE ISO (CHECK COMMANDS) does not modify the map $M_j$ at all, but allows us to see it as a element of $\uEnd_{\Tot(A)}$ of bidegree $(0,2-j)$. 
 
 
 
-The isomorphism THE ENRICHED ONE in the direction we are followig has been described after \Cref{inverse}. Under this isomorphism, $f$ is sent firstly to the map \[\mu_j\mapsto \mathfrak{Tot}^{-1}\circ c(M_j,\mu^{-1})=\mathfrak{Tot}^{-1}\circ M_j\circ \mu^{-1},\] where $c$ is the composition in $\ufC$. The functor $\mathfrak{Tot}^{-1}$ decomposes $M_j$ into a sum of maps $M_j=\sum_i M_{ij}$. More explicitly, let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{m-k}_k$. Then we have
+The isomorphism THE ENRICHED ONE in the direction we are followig has been described after \Cref{inverse}. Under this isomorphism, $f$ is sent to the map \[\mu_j\mapsto \mathfrak{Tot}^{-1}\circ c(M_j,\mu^{-1})=\mathfrak{Tot}^{-1}\circ M_j\circ \mu^{-1},\] where $c$ is the composition in $\ufC$. The functor $\mathfrak{Tot}^{-1}$ decomposes $M_j$ into a sum of maps $M_j=\sum_i \widetilde{M}_{ij}$, where each $\widetilde{M}_{ij}$ is of bidegree $(i,2-j-i)$. More explicitly, let $A=S\s\OO$ and let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{n-k}_k$. Then we have
 \begin{align*}
 \mathfrak{Tot}^{-1}(M_j( \mu^{-1}(x_1\otimes\cdots\otimes x_j)))&=\mathfrak{Tot}^{-1}(Sb_j^T(m;(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j))))\\
-&=\sum_i(-1)^{im}\sum_l Sb_j^T(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\\
-&=\sum_i(-1)^{im}\sum_l(-1)^{i(m-1)} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\\
-&=\sum_i\sum_l(-1)^{i} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))
+&=\sum_i(-1)^{in}\sum_l Sb_j^T(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\\
+&=\sum_i(-1)^{in}\sum_l(-1)^{i(n-j)} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\\
+&=\sum_i\sum_l(-1)^{ij} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))
 \end{align*}
-so that $M_{ij}(x_1,\dots,x_j)=\sum_l(-1)^{i} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))$, where $b_j$ is the brace on $A=S\s\OO$.
+so that $\widetilde{M}_{ij}(x_1,\dots,x_j)=\sum_l(-1)^{ij} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))$, where $b_j$ is the brace on $A=S\s\OO$. CITE THE SIGN DIFFERENCE
 
 
 
-According to the isomorphism FIRST ISO this defines a derived $A_\infty$-structure on the twisted complex $S\s\OO$ up to a sign that cancels with the sign introduced by the iso from \Cref{extrasign}.
+According to the isomorphism FIRST ISO, the maps $M_{ij}=(-1)^{ij}\widetilde{M}_{ij}$ define an $A_\infty$-structure on $S\s\OO$.
 
-NOW WITH ALL THE SIGNS AND
+NOW WITH ALL THE SIGNS (PROBABLY REWRITE THIS AS A LEMMA OR PROP AS I DID IN THE CLASSICAL CASE)
+
+Let $y_v = Sx_v$ for $v=1,\dots, j$ and let $x_v$ be of bidegree $(k_v,n_v-k_v)$. Tfull expression of the maps $M_{ij}$ with signs included is given by
+\[M_{ij}(y_1,\dots,y_j)= (-1)^{\sum_{v=2}^j n_v\sum_{w=1}^{v-1}k_w+\sum_{v=1}^j(j-v)(n_v-k_v)}\sum_lSb_j(m_{il};x_1,\dots, x_j) \]
+
+
+
 %\appendix
 %\renewcommand{\appendixname}{Appendix:}
 \begin{appendices}
