@@ -686,7 +686,10 @@ where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $
 %\[\varepsilon_k=p_1(N+q_0+p_0-1)+p_2(N+a_1+q_0+q_1+p_0+p_1-2)+\cdots=\sum_{i=1}^np_i(\sum_{j=0}^{i-1}(a_j+q_j+p_j)+N-i).\]
 
 \[\varepsilon
-=p_0(a_1+q_1+p_1-1)+(p_0+p_1)(a_2+q_2+p_2-1)+\cdots=\sum_{i=1}^n(a_i+q_i+a_i-1)\sum_{j=0}^{i-1}p_j\]\[=\sum_{0\leq j<i\leq n}p_j(a_i+q_i+p_i-1).\]
+=p_0(a_1+q_1+p_1-1)+(p_0+p_1)(a_2+q_2+p_2-1)+\cdots=\sum_{i=1}^n(a_i+q_i+a_i-1)\sum_{j=0}^{i-1}p_j\]
+\begin{equation}\label{epsilon}
+=\sum_{0\leq j<i\leq n}p_j(a_i+q_i+p_i-1).
+\end{equation}
 This is obtained by iteration of the last factor sign in EQUATION WITH THE SIGN ABOVE which is precisely the sign determined by totalization. Therefore, if $(-1)^\eta$ is the sign produced by operadic suspension and $(-1)^{\varepsilon_k}$ the sign produced by totalization, the factor sign that distinguishes the brace in $\Tot(\s\OO)$ from the usual operadic composition in $\OO$ is $(-1)^{\eta+\varepsilon_k}$ THE K IS BECAUSE I'M PLANNING TO REWRITE THINGS AS SUMS IN TOTALIZATION, I MIGHT ABOUT THIS, I WILL HAVE TO CHANGE THE NOTATION FOR THE MAPS BEING COMPOSED AND THEIR DEGREES
 
  USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD (I WILL PROBABLY  WRITE THE COMPUTATION OF DEGREES DIFFERENTLY LATER BECAUSEE I AM IDENTIFYING THE BRACE AND ELEMENTS WITH THEIR SHIFTS HERE TO MAKE IT EASIER TO COMPPUTE)
@@ -862,8 +865,20 @@ SHOW THAT THE  RESULTING TWISTED COMPLEX IS THE SAME
 
 I START WRITING HERE
 
+
+
+\begin{propo}
+Let $A=S\s\OO$ and let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{n-k}_k$. Let $x_v = Sy_v$ for $v=1,\dots, j$ and let $y_v$ be of bidegree $(k_v,n_v-k_v)$. The following maps $M_{ij}$ determine a derived $A_\infty$-algebra structure on $A$.
+%\[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=2}^j n_v\sum_{w=1}^{v-1}k_w+\sum_{v=1}^j(j-v)(n_v-k_v)+\sum_{1\leq v<w\leq j}k_v(a_w+n_w-1)}\sum_lSb_j(m_{il};y_1,\dots, y_j) \]
+
+THINGS CANCEL, INCLUDE CALCULATION (THE SIGN FROM MU CANCELS THE SIGN FROM EPSILON BECAUSE IT ALSO COMES FROM MU, JUST LEAVING THE PART CORRESPONDING TO M-IL). SINCE THE ELEMNT IS FROM SO ITS VERTICAL DEGREE INCLUDES ARITY -1
+\[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=1}^j(j-v)(n_v-k_v)}\sum_lSb_j(m_{il};y_1,\dots, y_j) \]
+\end{propo}
+Note that we abuse of notation and identify $x_1\otimes\cdots\otimes x_j$ with an element of $\Tot(A^{\otimes j})$ with only one non-zero component. For a general element, extend linearly.
+
+\begin{proof}
 We start with the $A_\infty$-structure on $S\Tot(\s\OO)$ given by maps
-EXPLAIN WHY WE START WITH THIS (THERE IS THIS STRUCTURE BY PREVIOUS ARTICLE)
+EXPLAIN WHY WE START WITH THIS (THERE IS THIS STRUCTURE BY PREVIOUS ARTICLE AND THE FACT THAT M * M = 0)
  %This isomorphism introduces some signs that will cancel with the sigs introduced by the isomorphism FIRST ISO OF THE CHAIN so we will omit them. The $A_\infty$-structure is therefore given by maps THINK WHERE I HAVE TO PUT SUSPENSION
 \[M_j:(S\Tot(\s\OO))^{\otimes j}\to S\Tot(\s\OO)\]
 induced by shifting brace maps
@@ -875,26 +890,21 @@ We now work our way backwards through the proof of WHITEHOUSE THEOREM. The isomo
 
 
 
-The isomorphism THE ENRICHED ONE in the direction we are followig has been described after \Cref{inverse}. Under this isomorphism, $f$ is sent to the map \[\mu_j\mapsto \mathfrak{Tot}^{-1}\circ c(M_j,\mu^{-1})=\mathfrak{Tot}^{-1}\circ M_j\circ \mu^{-1},\] where $c$ is the composition in $\ufC$. The functor $\mathfrak{Tot}^{-1}$ decomposes $M_j$ into a sum of maps $M_j=\sum_i \widetilde{M}_{ij}$, where each $\widetilde{M}_{ij}$ is of bidegree $(i,2-j-i)$. More explicitly, let $A=S\s\OO$ and let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{n-k}_k$. Then we have
+The isomorphism THE ENRICHED ONE in the direction we are followig has been described after \Cref{inverse}. Under this isomorphism, $f$ is sent to the map \[\mu_j\mapsto \mathfrak{Tot}^{-1}\circ c(M_j,\mu^{-1})=\mathfrak{Tot}^{-1}\circ M_j\circ \mu^{-1},\] where $c$ is the composition in $\ufC$. The functor $\mathfrak{Tot}^{-1}$ decomposes $M_j$ into a sum of maps $M_j=\sum_i \widetilde{M}_{ij}$, where each $\widetilde{M}_{ij}$ is of bidegree $(i,2-j-i)$. More explicitly, let $A=S\s\OO$ and let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{n-k}_k$. We abuse of notation and identify $x_1\otimes\cdots\otimes x_j$ with an element of $\Tot(A^{\otimes j})$ with only one non-zero component. For a general element, extend linearly. Then we have
+
+%I AM ABUSING NOTATION, THE ELEMENTS SHOULD BE IN TOT(A x ... x A) SO I AM REFERRING TO STRINGS WITH ONLY ONE NON-ZERO COMPONENT
 \begin{align*}
 \mathfrak{Tot}^{-1}(M_j( \mu^{-1}(x_1\otimes\cdots\otimes x_j)))&=\mathfrak{Tot}^{-1}(Sb_j^T(m;(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j))))\\
 &=\sum_i(-1)^{in}\sum_l Sb_j^T(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\\
-&=\sum_i(-1)^{in}\sum_l(-1)^{i(n-j)} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\\
-&=\sum_i\sum_l(-1)^{ij} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))
+&=\sum_i(-1)^{in}\sum_l(-1)^{\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\\
+&=\sum_i\sum_l(-1)^{in+\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))
 \end{align*}
-so that $\widetilde{M}_{ij}(x_1,\dots,x_j)=\sum_l(-1)^{ij} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))$, where $b_j$ is the brace on $A=S\s\OO$. CITE THE SIGN DIFFERENCE
-
+so that \[\widetilde{M}_{ij}(x_1,\dots,x_j)=\sum_l(-1)^{in+\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j))),\] where $b_j$ is the brace on $\s\OO$ and $\varepsilon$ is given in \Cref{epsilon}. 
 
 
 According to the isomorphism FIRST ISO, the maps $M_{ij}=(-1)^{ij}\widetilde{M}_{ij}$ define an $A_\infty$-structure on $S\s\OO$.
 
-NOW WITH ALL THE SIGNS (PROBABLY REWRITE THIS AS A LEMMA OR PROP AS I DID IN THE CLASSICAL CASE)
-
-Let $y_v = Sx_v$ for $v=1,\dots, j$ and let $x_v$ be of bidegree $(k_v,n_v-k_v)$. Tfull expression of the maps $M_{ij}$ with signs included is given by
-\[M_{ij}(y_1,\dots,y_j)= (-1)^{\sum_{v=2}^j n_v\sum_{w=1}^{v-1}k_w+\sum_{v=1}^j(j-v)(n_v-k_v)}\sum_lSb_j(m_{il};x_1,\dots, x_j) \]
-
-
-
+\end{proof}
 %\appendix
 %\renewcommand{\appendixname}{Appendix:}
 \begin{appendices}
