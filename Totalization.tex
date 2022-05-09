@@ -246,8 +246,11 @@ Therefore, $\mu^{-1}$ can be defined as
 Inductively, one can deduce that the natural transformation 
 \[\mu^{-1}:\Tot(A_{(1)}\otimes\cdots\otimes A_{(m)})\to \Tot(A_{(1)})\otimes\cdots\otimes \Tot(A_{(m)})\]
 is given on pure tensors (for notational convenience) as
-\[\mu^{-1}(a_{(1)}\otimes\cdots\otimes a_{(m)})=(-1)^{\sum_{j=2}^m n_j\sum_{i=1}^{j-1}k_i}a_{(1)}\otimes\cdots\otimes a_{(m)},\]
+\begin{equation}\label{mu}
+\mu^{-1}(a_{(1)}\otimes\cdots\otimes a_{(m)})=(-1)^{\sum_{j=2}^m n_j\sum_{i=1}^{j-1}k_i}a_{(1)}\otimes\cdots\otimes a_{(m)},
+\end{equation}
 where $a_{(l)}\in (A_{(m)})_{k_l}^{n_l-k_l}$.
+
 \subsection{Enriched categories and enriched totalization}
 \subsubsection{Monoidal categories over  a base}
 NOT SURE IF I'M GOING TO NEED SO MUCH GENERAL BACKGROUND (CERTAINLY DO NOT INCLUDE PROOFS) I WOULD LIKE TO INCLUDE THE PROOF OF THE INVERSE INDUCING THE INVERSE TRANSFORMATION
@@ -868,41 +871,45 @@ I START WRITING HERE
 
 
 \begin{propo}
-Let $A=S\s\OO$ and let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{n-k}_k$. Let $x_v = Sy_v$ for $v=1,\dots, j$ and let $y_v$ be of bidegree $(k_v,n_v-k_v)$. The following maps $M_{ij}$ determine a derived $A_\infty$-algebra structure on $A$.
+Let $A=S\s\OO$ where $\OO$ is an operad horizontally bounded on the right with a derived $A_\infty$-multiplication $m=\sum_{ij}m_{ij}\in\OO$. Let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{n-k}_k$ and let $x_v = Sy_v$ for $v=1,\dots, j$ and $y_v$ be of bidegree $(k_v,n_v-k_v)$. The following maps $M_{ij}$ determine a derived $A_\infty$-algebra structure on $A$.
 %\[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=2}^j n_v\sum_{w=1}^{v-1}k_w+\sum_{v=1}^j(j-v)(n_v-k_v)+\sum_{1\leq v<w\leq j}k_v(a_w+n_w-1)}\sum_lSb_j(m_{il};y_1,\dots, y_j) \]
 
-THINGS CANCEL, INCLUDE CALCULATION (THE SIGN FROM MU CANCELS THE SIGN FROM EPSILON BECAUSE IT ALSO COMES FROM MU, JUST LEAVING THE PART CORRESPONDING TO M-IL). SINCE THE ELEMNT IS FROM SO ITS VERTICAL DEGREE INCLUDES ARITY -1
-\[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=1}^j(j-v)(n_v-k_v)}\sum_lSb_j(m_{il};y_1,\dots, y_j) \]
+%THINGS CANCEL, INCLUDE CALCULATION (THE SIGN FROM MU CANCELS THE SIGN FROM EPSILON BECAUSE IT ALSO COMES FROM MU, JUST LEAVING THE PART CORRESPONDING TO M-IL). SINCE THE ELEMNT IS FROM SO ITS VERTICAL DEGREE INCLUDES ARITY -1
+\[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=1}^j(j-v)(n_v-k_v)}\sum_lSb_j(m_{il};y_1,\dots, y_j). \]
 \end{propo}
 Note that we abuse of notation and identify $x_1\otimes\cdots\otimes x_j$ with an element of $\Tot(A^{\otimes j})$ with only one non-zero component. For a general element, extend linearly.
 
 \begin{proof}
-We start with the $A_\infty$-structure on $S\Tot(\s\OO)$ given by maps
-EXPLAIN WHY WE START WITH THIS (THERE IS THIS STRUCTURE BY PREVIOUS ARTICLE AND THE FACT THAT M * M = 0)
+Since $m$ is a derived $A_\infty$-multiplication $\OO$, we have that $m\star m=0$ when we view $m$ as an element of $\Tot(\s\OO)$. By PREVIOUS ARTICLE this defines an $A_\infty$-algebra structure on $S\Tot(\s\OO)$ given by maps
  %This isomorphism introduces some signs that will cancel with the sigs introduced by the isomorphism FIRST ISO OF THE CHAIN so we will omit them. The $A_\infty$-structure is therefore given by maps THINK WHERE I HAVE TO PUT SUSPENSION
 \[M_j:(S\Tot(\s\OO))^{\otimes j}\to S\Tot(\s\OO)\]
 induced by shifting brace maps
-\[b_j^T(m;-):(\Tot(\s\OO))^{\otimes j}\to \Tot(\s\OO),\]
-where $m=\sum_{i,j}m_{ij}\in\Tot(\s\OO)$ is the derived $A_\infty$-multiplication of $\OO$. The graded module $S\Tot(\s\OO)$ is endowed with the structure of a filtered complex with differential $M_1$ and filtration induced by the column filtration on $\Tot(\s\OO)$ since the shift is only vertical. MORE DETAIL ON THIS? (LIKE  EXPLIIT FILTRATION AND MAYBE CHECK THAT THE DIFFERENTIAL PRESERVES FILTRATION WHICH FOLLOWS FROM THE HORIZONTAL DEGREES OF THE MIJ BEING POSITTIVE)
+\[b_j^T(m;-):(\Tot(\s\OO))^{\otimes j}\to \Tot(\s\OO).\]
+ The graded module $S\Tot(\s\OO)$ is endowed with the structure of a filtered complex with differential $M_1$ and filtration induced by the column filtration on $\Tot(\s\OO)$.% since the shift is only vertical. MORE DETAIL ON THIS? (LIKE  EXPLIIT FILTRATION AND MAYBE CHECK THAT THE DIFFERENTIAL PRESERVES FILTRATION WHICH FOLLOWS FROM THE HORIZONTAL DEGREES OF THE MIJ BEING POSITTIVE)
 Since $S\Tot(\s\OO)\cong \Tot(S\s\OO)$, we can view $M_j$ as the image of a morphism of operads of filtered complexes $f:\mathcal{A}_\infty\to \End_{\Tot(S\s\OO)}$, in such a way that $M_j=f(\mu_j)$ for $\mu_j\in\mathcal{A}_\infty(j)$. 
 
 We now work our way backwards through the proof of WHITEHOUSE THEOREM. The isomorphism WRITE ISO (CHECK COMMANDS) does not modify the map $M_j$ at all, but allows us to see it as a element of $\uEnd_{\Tot(A)}$ of bidegree $(0,2-j)$. 
 
 
 
-The isomorphism THE ENRICHED ONE in the direction we are followig has been described after \Cref{inverse}. Under this isomorphism, $f$ is sent to the map \[\mu_j\mapsto \mathfrak{Tot}^{-1}\circ c(M_j,\mu^{-1})=\mathfrak{Tot}^{-1}\circ M_j\circ \mu^{-1},\] where $c$ is the composition in $\ufC$. The functor $\mathfrak{Tot}^{-1}$ decomposes $M_j$ into a sum of maps $M_j=\sum_i \widetilde{M}_{ij}$, where each $\widetilde{M}_{ij}$ is of bidegree $(i,2-j-i)$. More explicitly, let $A=S\s\OO$ and let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{n-k}_k$. We abuse of notation and identify $x_1\otimes\cdots\otimes x_j$ with an element of $\Tot(A^{\otimes j})$ with only one non-zero component. For a general element, extend linearly. Then we have
+The isomorphism THE ENRICHED ONE in the direction we are following has been described after \Cref{inverse}. Under this isomorphism, $f$ is sent to the map \[\mu_j\mapsto \mathfrak{Tot}^{-1}\circ c(M_j,\mu^{-1})=\mathfrak{Tot}^{-1}\circ M_j\circ \mu^{-1},\] where $c$ is the composition in $\ufC$. The functor $\mathfrak{Tot}^{-1}$ decomposes $M_j$ into a sum of maps $M_j=\sum_i \widetilde{M}_{ij}$, where each $\widetilde{M}_{ij}$ is of bidegree $(i,2-j-i)$. More explicitly, let $A=S\s\OO$ and let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{n-k}_k$. We abuse of notation and identify $x_1\otimes\cdots\otimes x_j$ with an element of $\Tot(A^{\otimes j})$ with only one non-zero component. For a general element, extend linearly. Then we have
 
 %I AM ABUSING NOTATION, THE ELEMENTS SHOULD BE IN TOT(A x ... x A) SO I AM REFERRING TO STRINGS WITH ONLY ONE NON-ZERO COMPONENT
-\begin{align*}
-\mathfrak{Tot}^{-1}(M_j( \mu^{-1}(x_1\otimes\cdots\otimes x_j)))&=\mathfrak{Tot}^{-1}(Sb_j^T(m;(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j))))\\
-&=\sum_i(-1)^{in}\sum_l Sb_j^T(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\\
-&=\sum_i(-1)^{in}\sum_l(-1)^{\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\\
+\begin{align}\label{totsign}
+\mathfrak{Tot}^{-1}(M_j( \mu^{-1}(x_1\otimes\cdots\otimes x_j)))&=\mathfrak{Tot}^{-1}(Sb_j^T(m;(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j))))\nonumber\\
+&=\sum_i(-1)^{in}\sum_l Sb_j^T(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\nonumber\\
+&=\sum_i(-1)^{in}\sum_l(-1)^{\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\nonumber\\
 &=\sum_i\sum_l(-1)^{in+\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))
-\end{align*}
+\end{align}
 so that \[\widetilde{M}_{ij}(x_1,\dots,x_j)=\sum_l(-1)^{in+\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j))),\] where $b_j$ is the brace on $\s\OO$ and $\varepsilon$ is given in \Cref{epsilon}. 
 
 
-According to the isomorphism FIRST ISO, the maps $M_{ij}=(-1)^{ij}\widetilde{M}_{ij}$ define an $A_\infty$-structure on $S\s\OO$.
+According to the isomorphism FIRST ISO, the maps $M_{ij}=(-1)^{ij}\widetilde{M}_{ij}$ define an $A_\infty$-structure on $S\s\OO$. Therefore we now just have to work out the signs. Notice that $n_v$ is the total degree of $y_v$ as an element of $\s\OO$ and recall that $n$ is the total degree of $x_1\otimes\cdots\otimes x_j\in A^{\otimes j}$. Therefore, $\varepsilon$ can be written as
+\[\varepsilon= i(n-j)+\sum_{1\leq v<w\leq j}k_vn_w.\]
+The sign produced by $\mu^{-1}$, as we saw in \Cref{mu}, is precisely determined by the exponent 
+\[\sum_{w=2}^jn_w\sum_{v=1}^{w-1}k_v=\sum_{1\leq v<w\leq j}k_vn_w,\]so this sign cancels the right hand summand of $\varepsilon$. %In fact, both signs come from $\mu$, so the cancellation was expected. 
+Finally, the sign $(-1)^{i(n-j)}$ left from $\varepsilon$ cancels with $(-1)^{in}$ in \Cref{totsign} and $(-1)^{ij}$ from the FIRST ISO (CITE). This means that we only need to consider signs produced by vertical shifts. This calculation has been done previously in PREVIOUS ARTICLE and as we claimed the result is 
+\[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=1}^j(j-v)(n_v-k_v)}\sum_lSb_j(m_{il};y_1,\dots, y_j). \]
 
 \end{proof}
 %\appendix
