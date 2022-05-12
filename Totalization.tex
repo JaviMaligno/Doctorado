@@ -59,6 +59,13 @@ with
 This makes the category of filtered $R$-modules into a symmetric monoidal category, where the unit is given by $R$ with the trivial filtration $0 = F_{1}R ⊂ F_0R = R$.
 \end{defin}
 
+
+\begin{defin}\label{filterend}
+Let $K$ and $L$ be filtered complexes. We define $\underline{\Hom}(K,L)$ the filtered complex with differential SAME AS USUAL and filtration $F$ given by 
+\[F_p\underline{\Hom}(K,L)=\{f:K\to L\mid f(F_qK)\subset F_{q+p}L\text{ for all }q ∈ \Z.\}\]
+In particular, $\Hom_{\fmod}(K,L)=F_0\underline{\Hom}(K,L)$.
+\end{defin}
+
 \subsection{Bigraded modules, vertical bicomplexes, twisted complexes and sign conventions}
 
 %TRY TO INCLUDE ONLY THE NECESSARY
@@ -521,7 +528,9 @@ I SHOULD DEFINE END-TOT AND SAY THAT ALTERNATIVE WE  CAN JUST USE THE ONES THAT 
 We are going to apply the totalization  functor of CITE PREVIOUS SECTION to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. Tthe functor $\Tot$ with domain the category $\bgmod$ (TWISTED COMPLEXES?) and bidegree $(0,0)$ morphisms (TWISTED COMPLEX MAPS?) is lax monoidal REFERENCE TO THEOREM, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules. 
 
 Therefore, let $\OO$ be a bigraded operad, i.e. an operad in te category  of bigraded $R$-modules. We define $\Tot(\OO)$ as the operad of graded $R$-modules for which \[\Tot(\OO(n))^d=\bigoplus_{i<0}\OO(n)^{d-i}_i\oplus\prod_{i\geq 0} \OO(n)^{d-i}_i\] is the image of $\OO(n)$ under the totalization functor and the insertion maps are given by the composition  %THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
-\[\Tot(\OO(n))\otimes \Tot(\OO(m))\xrightarrow{\mu} \Tot(\OO(n)\otimes \OO(m)) \xrightarrow{\Tot(\circ_r)} \Tot(\OO(n+m-1)),\]
+\begin{equation}\label{insertion}
+\Tot(\OO(n))\otimes \Tot(\OO(m))\xrightarrow{\mu} \Tot(\OO(n)\otimes \OO(m)) \xrightarrow{\Tot(\circ_r)} \Tot(\OO(n+m-1)),
+\end{equation}
 that is explicitly 
 \[(a\bar{\circ}_rb)_k=\sum_{k_1+k_2=k} (-1)^{k_1n_2} a_{k_1}\circ_r b_{k_2}\]
 
@@ -699,6 +708,8 @@ on each $R$-module $A^i$ such that for all $i ≥ 1$ and all $p_1,\dots , p_i �
 \[m_i(F_{p_1}A^{n_1} ⊗ \cdots ⊗ F_{p_i}A^{n_i} ) ⊆ F_{p_1+\cdots
 +p_i}A^{n_1+\cdots+n_i+2−i}.\]
 \end{defin}
+
+
 \begin{remark}
 THE OTHER POSIBILITY FOR DEFINING $\End_K$ COULD BE STATED HERE, MAYBE DENOTE $\End^0_K$ THE OTHER
 
@@ -966,6 +977,7 @@ in the direction we are following is the result of applying $\Hom_{\vbOp}(\calA_
 \end{align}
 so that \[\widetilde{M}_{ij}(x_1,\dots,x_j)=\sum_l(-1)^{in+\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j))),\] where $b_j$ is the brace on $\s\OO$ and $\varepsilon$ is given in \Cref{epsilon}. 
 
+I NEED TO MAKE CLEAR THAT THE DIFFERENTIAL ON ENDA IS GIVEN BY [D0,]
 
 According to the isomorphism 
 \begin{equation}\label{firstiso}
@@ -975,7 +987,7 @@ According to the isomorphism
  the maps $M_{ij}=(-1)^{ij}\widetilde{M}_{ij}$ define an $A_\infty$-structure on $S\s\OO$. Therefore we now just have to work out the signs. Notice that $n_v$ is the total degree of $y_v$ as an element of $\s\OO$ and recall that $n$ is the total degree of $x_1\otimes\cdots\otimes x_j\in A^{\otimes j}$. Therefore, $\varepsilon$ can be written as
 \[\varepsilon= i(n-j)+\sum_{1\leq v<w\leq j}k_vn_w.\]
 The sign produced by $\mu^{-1}$, as we saw in \Cref{mu}, is precisely determined by the exponent 
-\[\sum_{w=2}^jn_w\sum_{v=1}^{w-1}k_v=\sum_{1\leq v<w\leq j}k_vn_w,\]so this sign cancels the right hand summand of $\varepsilon$. %In fact, both signs come from $\mu$, so the cancellation was expected. 
+\[\sum_{w=2}^jn_w\sum_{v=1}^{w-1}k_v=\sum_{1\leq v<w\leq j}k_vn_w,\]so this sign cancels the right hand summand of $\varepsilon$. This cancellation was expected since this sign comes from $\mu^{-1}$ and operadic composition is defined using $\mu$ (\Cref{insertion}).%In fact, both signs come from $\mu$, so the cancellation was expected. 
 Finally, the sign $(-1)^{i(n-j)}$ left from $\varepsilon$ cancels with $(-1)^{in}$ in \Cref{totsign} and $(-1)^{ij}$ from the isomorphism (\ref{firstiso}). This means that we only need to consider signs produced by vertical shifts. This calculation has been done previously in PREVIOUS ARTICLE and as we claimed the result is 
 \[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=1}^j(j-v)(n_v-k_v)}\sum_lSb_j(m_{il};y_1,\dots, y_j). \]
 
