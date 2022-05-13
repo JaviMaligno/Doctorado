@@ -61,7 +61,7 @@ This makes the category of filtered $R$-modules into a symmetric monoidal catego
 
 
 \begin{defin}\label{filterend}
-Let $K$ and $L$ be filtered complexes. We define $\underline{\Hom}(K,L)$ the filtered complex with differential SAME AS USUAL and filtration $F$ given by 
+Let $K$ and $L$ be filtered complexes. We define $\underline{\Hom}(K,L)$ the filtered complex whose underlying chain complex is $\Hom_{\mathrm{C}_R}(K,L)$ and the filtration $F$ given by 
 \[F_p\underline{\Hom}(K,L)=\{f:K\to L\mid f(F_qK)\subset F_{q+p}L\text{ for all }q ∈ \Z.\}\]
 In particular, $\Hom_{\fmod}(K,L)=F_0\underline{\Hom}(K,L)$.
 \end{defin}
@@ -502,23 +502,7 @@ The map $\underline{\mu}^{-1}$ is the adjoint of $\mu^{-1}$ under the bijection 
 %ONLY MENTION 4.47 WHEN YOU REACH THE PROOF OF THE LONG ISO
 
 
-\begin{thm}\label{whitehouse}
-Let $(A, d^A) ∈ \tc^b$ be an twisted complex horizontaly bounded on the right and $A$ its underlying
-bigraded module. We have natural bijections
-\begin{align*}
-\Hom_{\mathrm{vbOp},d^A}(d\calA_∞,\End_A) &\cong
-\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_A)\\
-&\cong \Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\\
-&\cong \Hom_{\mathrm{fCOp}}(\calA_∞,\End_{\Tot(A)}),
-\end{align*}
-where $\vbOp$ and $\fCOp$ denote the categories of operads in $\vbc$ and $\fc$ respectively, and $\Hom_{\vbOp,d^A}$
-denotes the subset of morphisms which send $μ_{i1}$ to $d^A_i$. We view $\mathcal{A}_∞$ as an operad in $\vbc$ sitting in
-horizontal degree zero or as an operad in filtered complexes with trivial filtration.
-\end{thm}
-\begin{proof}
-PROP 4.55
-\end{proof}
-I SHOULD DEFINE END-TOT AND SAY THAT ALTERNATIVE WE  CAN JUST USE THE ONES THAT PRESERVE FILTRATION BECAUSE THAT  IS PRECISELY THE IMAGE OF THE MAPS
+
 \section{Operadic totalization and vertical operadic suspension}
 \subsection{Operadic totalization}
 %I THINK I NEED  (N,Z)-BRIGRADED MODULES TO MAKE SURE THAT HORIZONTAL DEGREE IS NON-NEGATIVE WHEN DEFINING M AS AN ELEMENT OF TSO
@@ -591,7 +575,9 @@ The symmetric monoidal structure produces the sign $(-1)^{(n-1)j}$ in the isomor
 \begin{equation}\label{sign}
 a\tilde{\circ}_{r+1}b=(-1)^{(n-1)j+(n-1)(m-1)+r(m-1)}a\circ_{r+1} b.
 \end{equation}
-As can be seen, this is the same sign as the graded operadic suspension but with vertical degree.
+As can be seen, this is the same sign as the single graded operadic suspension but with vertical degree. In particular, this operation leads to the Lie bracket from RW, which implies that $m=\sum_{i,j}m_{ij}$ is a derived $A_\infty$-multiplication if and only if
+\[\sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0\]
+for the brace induced by $\tilde{\circ}$ (see \Cref{braces} to recall the definition of a brace).
 
 We of course have the following theorem with similar proof to the graded case, where all the suspensions are vertical.
 \begin{thm}\label{markl}
@@ -673,29 +659,18 @@ of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
 for all $u\geq 0$ and $v\geq 1$. 
 
 
-Similarly, a \emph{derived $A_\infty$ multiplication} $m$ on a bigraded operad $\OO$ is an element $m=\sum_{ij}m_{ij}$ where $m_{ij}\in\OO(j)^{2-i-j}_i$ for each $j\geq 1$ such that 
+Similarly, a \emph{derived $A_\infty$ multiplication} on a bigraded operad $\OO$ is an element $m=\sum_{ij}m_{ij}$ where $m_{ij}\in\OO(j)^{2-i-j}_i$ for each $j\geq 1$ such that 
 \[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}\circ_{r+1} m_{pq}=0.\]
 \end{definition}
-\begin{remark}
-One can check that, on any derived $A_\infty$-algebra $A$, the maps $d_i=(-1)^{i}m_{i1}$ define a twisted complex structure. This leads to the possibility of defining a derived $A_\infty$-algebra as a twisted complex with some extra structure. SEE  REMARK 4.48 BELOW  SO LEAVE THIS AS AN EXAMPLE, AS WELL AS AINTTY ALGEBRAS (THAT WAY I CAN WRITE THE RELATIONS AND REFER TO THEM)
-\end{remark}
-
-
-\begin{remark}
-MAYBE BETTER AFTER THE LONG ISO BEFORE  STATING THE COROLLARY
-Note that as in the case of $A_∞$-algebras in $\mathrm{C}_R$  we have two equivalent descriptions of $A_∞$-algebras in $\tc$.
-MAKE SURE  I HAVE STATED THAT FIRST EQUIVALENCE SOMEWHERE (IN THE OTHER ARTICLE FOR INSTANCE)
-\begin{enumerate}[(1)]
-\item A twisted complex $(A, d^A)$ together with a morphism $A_∞ → \uEnd_A$ of operads in $\vbc$, which is determined by a family of elements $M_i ∈ \utC(A^{⊗i},A)^{2−i}_0$ for $i ≥ 2$ for which the $A_\infty$-relations REFERENCE? holds for $i\geq 2$, where the composition is the one prescribed by the composition morphisms of $\utC$.
-\item A bigraded module $A$ together with a family of elements $M_i ∈ \ubgMod(A^{⊗i},A)^{2−i}_0$ for $i ≥ 1$ for
-which all the $A_\infty$ relations hold, where the composition is the one prescribed by the composition
-morphisms of $\ubgMod$.
+\begin{ex}\
+\begin{enumerate}
+\item One can check that, on any derived $A_\infty$-algebra $A$, the maps $d_i=(-1)^{i}m_{i1}$ define a twisted complex structure. This leads to the possibility of defining a derived $A_\infty$-algebra as a twisted complex with some extra structure (see \Cref{equivalent}).
+\item An $A_\infty$-algebra is the same as a derived $A_\infty$-algebra such that $m_{ij}=0$ for all $i>0$.
 \end{enumerate}
-OR  MAYBE RECALL THE RELATIONS HERE
-Since the composition morphism
-in $\ubgMod$ is induced from the one in $\utC$ by forgetting the differential, these two presentations
-are equivalent.
-\end{remark}
+\end{ex}
+
+
+
 From the definition of $\Tot(\s\OO)$, such a multiplication is equivalent to an element $m\in \Tot(\s\OO)$ of degree 1 concentrated in positive arity satisfying $m\star m=0$. From this, it follows from our previous results that $m$ determines an $A_\infty$-algebra structre on $S\Tot(\s\OO)\cong S\s \Tot(\OO)$ %IT WAS EQUALITY WITH THE ALTERNATIVE OPERATION 
 that can be iterated to define an $A_\infty$-structure on $S\s\End_{S\s \Tot(\OO)}$.%THIS PART ONLY IF I CAN DO THE SAME IN THE DERIVED CASE, which is related to the structure on $S\s \Tot(\OO)$ by a map of $A_\infty$-algebras  $\Phi:S\s \Tot(\OO)\to  S\s\End_{S\s \Tot(\OO)}$.  MAYBE WRITE THIS MORE EXPLICITLY 
 
@@ -710,14 +685,15 @@ on each $R$-module $A^i$ such that for all $i ≥ 1$ and all $p_1,\dots , p_i �
 \end{defin}
 
 
-\begin{remark}
-THE OTHER POSIBILITY FOR DEFINING $\End_K$ COULD BE STATED HERE, MAYBE DENOTE $\End^0_K$ THE OTHER
-
+\begin{remark}\label{filterversion}
 Consider $\calA_∞$ as an operad in filtered complexes with the trivial filtration and let $K$
 be a filtered complex. There is a one-to-one correspondence between filtered $A_∞$-algebra structures on $K$ and
-morphisms of operads in filtered complexes $A_∞ → \End_K$. To see this, notice that if one forgets the
+morphisms of operads in filtered complexes $\calA_∞ → \underline{\End}_K$ (recall $\underline{\Hom}$ from \Cref{filterend}). To see this, notice that if one forgets the
 filtrations such a map of operads gives an $A_∞$-algebra structure on $K$. The fact that this is a map of operads
-in filtered complexes implies that all the $m_i$'s respect the filtrations.
+in filtered complexes implies that all the $m_i$'s respect the filtrations. 
+
+Since the image of $\calA_∞$ lies in $\End_K=F_0\underline{\End}_K$, if we regard $\calA_∞$ as an operad in chain complexes, then we get a one-to-one correspondence between filtered $A_∞$-algebra structures on $K$ and
+morphisms of operads in chain complexes $\calA_∞ → \End_K$.
 \end{remark}
 DEF 4.53 (NOT SURE IF I NEED IT)
 \section{Braces}\label{sectionbraces}
@@ -753,7 +729,8 @@ The operadic composition can be described in terms of insertions in the obvious 
 
 $$\gamma(f;h_1,\dots, h_N)=(\cdots(f\star_1 h_1)\star_{1+a(h_1)}h_2\cdots)\star_{1+\sum a(h_p)}h_N,$$
 
-where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign iterating the same argument as in the graded case. In fact, there is a sign factor identical to the graded case replacing internal degree by vertical (internal) degree that comes from operadic suspension. In fact, this sign determines the brace $b_j$ on $\s\OO$. Therefore we only need to compute the sign factor corresponding to totalization. Given $f_{p_0}\in \OO(N)^{q_0}_{p_0}$ and  $g_i\in\OO(a_i)^{q_i}_{p_i}$ for $1\leq i\leq n$ such that $p_0+p_1+\cdots+p_n=k$, the factor sign we are looking for is determined by the exponent
+where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign iterating the same argument as in the graded case. In fact, there is a sign factor identical to the graded case replacing internal degree by vertical (internal) degree that comes from operadic suspension. In fact, this sign determines the brace $b_j$ on $\s\OO$. Therefore we only need to compute the sign factor corresponding to totalization. Given $f_{p_0}\in \OO(N)^{q_0}_{p_0}$ and  $g_i\in\OO(a_i)^{q_i}_{p_i}$ for $1\leq i\leq n$, %such that $p_0+p_1+\cdots+p_n=k$, 
+the factor sign we are looking for is determined by the exponent
 
 %\[\varepsilon_k=p_1(N+q_0+p_0-1)+p_2(N+a_1+q_0+q_1+p_0+p_1-2)+\cdots=\sum_{i=1}^np_i(\sum_{j=0}^{i-1}(a_j+q_j+p_j)+N-i).\]
 
@@ -762,7 +739,8 @@ where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $
 \begin{equation}\label{epsilon}
 =\sum_{0\leq j<i\leq n}p_j(a_i+q_i+p_i-1).
 \end{equation}
-This is obtained by iteration of the last factor sign in EQUATION WITH THE SIGN ABOVE which is precisely the sign determined by totalization. Therefore, if $(-1)^\eta$ is the sign produced by operadic suspension and $(-1)^{\varepsilon_k}$ the sign produced by totalization, the factor sign that distinguishes the brace in $\Tot(\s\OO)$ from the usual operadic composition in $\OO$ is $(-1)^{\eta+\varepsilon_k}$ THE K IS BECAUSE I'M PLANNING TO REWRITE THINGS AS SUMS IN TOTALIZATION, I MIGHT ABOUT THIS, I WILL HAVE TO CHANGE THE NOTATION FOR THE MAPS BEING COMPOSED AND THEIR DEGREES
+This is obtained by iteration of the last factor sign in \Cref{star} which is precisely the sign determined by totalization. Note that $a_i+q_i+p_i-1$ is precisely the total degree of $g_i$ in $\Tot(\s\OO)$. Therefore, if $(-1)^\eta$ is the sign produced by operadic suspension and $(-1)^{\varepsilon}$ the sign produced by totalization, the factor sign that distinguishes the brace on $\Tot(\s\OO)$ from the usual operadic composition on $\OO$ is $(-1)^{\eta+\varepsilon}$ %THE K IS BECAUSE I'M PLANNING TO REWRITE THINGS AS SUMS IN TOTALIZATION, I MIGHT ABOUT THIS, I WILL HAVE TO CHANGE THE NOTATION FOR THE MAPS BEING COMPOSED AND THEIR DEGREES
+MAYBE WRITE THIS AS A LEMMA LIKE I DID IN THE CLASSICAL CASE?
 
  USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD (I WILL PROBABLY  WRITE THE COMPUTATION OF DEGREES DIFFERENTLY LATER BECAUSEE I AM IDENTIFYING THE BRACE AND ELEMENTS WITH THEIR SHIFTS HERE TO MAKE IT EASIER TO COMPPUTE)
 
@@ -787,155 +765,50 @@ to be a derived structure on that shift. THE SSIGN SHOULD BE THE SCALAR PRODUCT 
 
 CHECK THAT THEY SATISFYI THE EQUATION UP TO SIGN AND WORRY LATER ABOUT THE SIGNS
 
-DO THE MI1 DEFINE A TWISTED COMPLEX? THIS IS A NECESSARY CONDITION TO SATISSFY THE DAINFTY EQUATION THAT MIGHT BE EASIER TO SHOW AND IIT WOULD MAKE EASIER TO CONNECT EVERYTHING HERE WITH SARAH
+DO THE MI1 DEFINE A TWISTED COMPLEX? THIS IS A NECESSARY CONDITION TO SATISSFY THE DAINFTY EQUATION THAT MIGHT BE EASIER TO SHOW AND IIT WOULD MAKE EASIER TO CONNECT EVERYTHING HERE WITH 
 
 
-\section{Using the theorem (better name will come)}
 
-VERY SKETCHY AT THE MOMENT
+\section{Derived $A_\infty$-structure on an operad}
 
-We are going to use the following theorem from WHITEHOUSE (CITE) to show thate there is a derived $A_\infty$-structure on $A=S\s\OO$. Note that $\Tot(SB)=S\Tot(B)$ for any bigraded module $B$, where $SB$ is the vertical suspension of $B$ and $S\Tot(B)$ is the suspension of $\Tot(B)$ as graded modules.
 
-THEOREM, REWRITE FOR CONVENTIONS
+We are going to use the following theorem from WHITEHOUSE (CITE) to show that there is a derived $A_\infty$-structure on $A=S\s\OO$. Note that $\Tot(SB)=S\Tot(B)$ for any bigraded module $B$, where $SB$ is the vertical suspension of $B$ and $S\Tot(B)$ is the suspension of $\Tot(B)$ as graded modules.
 
-There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^n=0$ for all $k>i$. In our case $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right this means that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ maps $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far MURO, RW, SARAH. Under this assumption we may replace all direct products by direct sums.
+\begin{thm}\label{whitehouse}
+Let $(A, d^A) ∈ \tc^b$ be an twisted complex horizontaly bounded on the right and $A$ its underlying
+chain complex. We have natural bijections %this means that A has d0 as a differential and End_A has [d0,-]
+\begin{align*}
+\Hom_{\mathrm{vbOp},d^A}(d\calA_∞,\End_A) &\cong
+\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_A)\\
+&\cong \Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\\
+&\cong \Hom_{\mathrm{fCOp}}(\calA_∞,\underline{\End}_{\Tot(A)}),
+\end{align*}
+where $\vbOp$ and $\fCOp$ denote the categories of operads in $\vbc$ and $\fc$ respectively, and $\Hom_{\vbOp,d^A}$
+denotes the subset of morphisms which send $μ_{i1}$ to $d^A_i$. We view $\mathcal{A}_∞$ as an operad in $\vbc$ sitting in
+horizontal degree zero or as an operad in filtered complexes with trivial filtration.
+\end{thm}
+\begin{proof}
+PROP 4.55
+\end{proof}
 
-We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex WRITE DOWN THE TWO EQUIVALENT DEFINITIONS AND CITE HERE. We are going to do this by hand, but later we will provide another version of this theorem that works for bigraded modules and we will see that the induced twisted complex structure is the same that we are going to give by hand.
+\begin{remark}
+According to \Cref{filterversion}, the last isomorphism can be replaced by 
+\[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\cong \Hom_{\mathrm{COp}}(\calA_∞,\End_{\Tot(A)}),\]
+where $\mathrm{COp}$ is the category of operads in chain complexes. 
+\end{remark}
+There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^n=0$ for all $k>i$. In our case $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far MURO, RW, SARAH. Under this assumption we may replace all direct products by direct sums.
+
+We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex (See \Cref{equivalent}). We do this explicitly in \Cref{twistedoperad}, but later we will provide another version of this theorem that works for bigraded modules and we will see that the induced twisted complex structure is the same that we give in \Cref{twistedoperad}.
 
 With these assumption, by THEOREM we can guarantee the existence of a derived $A_\infty$-algebra structure on $A$ provided that $\Tot(A)$ has an $A_\infty$-algebra structure.
 
-PROOF OF TWISTED COMPLEX
-\section{I need to rewrite this but I'll leave it  here for now}
-I have the following candidates to induce derived $A_\infty$-structure on $S\s\OO$ after shifting (similar to what I did for $A_\infty$-algebras). 
-\[M_{ij}(x_1,\dots, x_j)=\sum_l b_j(m_{il};x_1,\dots, x_j)\]
-\[M_{i1}(x)= \sum_l (b_1(m_{il};x)-(-1)^{\langle x,m_{il}\rangle}b_1(x;m_{il}))\]
 
-To apply the theorem by Sarah I need the bigraded module $S\s\OO$ to be a twisted complex. Since all the arities involved are 1 and the shift is only vertical, while the signs appearing in the twisted complex equation are related only to the horizontal degree, this is identical to a twisted complex structure on $\s\OO$. The twisted complex structure should be given by the maps $\{M_{i1}\}_{i\geq 0}$. I am going to try to show that this the case. First I will try without signs, to see that at least it is conceptually possible, and  then I would work out the signs.
-
-Up to sign, the maps  $\{M_{i1}\}_{i\geq 0}$ must satisfy the equation
-
-\[\sum_{i+j=m} M_{i1}\circ M_{ji}=0,\]
-where $\circ$ is composition of maps. I may or may not omit the sum to avoid writing too much, as it just means that the composition on every degree must vanish.
-
-Therefre, up to signs I compute 
-
-\begin{align*}
-\sum_{i+j=m}M_{i1}(M_{j1}(x))=\sum_{i+j=m}M_{i1}\left(\sum_l b_1(m_{jl};x)+b_1(x;m_{jl})\right)=\\
-\sum_{i+j=m}\sum_{l,k}\left(b_1(m_{ik}; b_1(m_{jl};x))+b_1(m_{ik};b_1(x;m_{jl}))+b_1(b_1(m_{jl};x);m_{ik})+b_1(b_1(x;m_{jl});m_{ik})\right)
-\end{align*}
-
-%AT FIRST SIGHT IT DOESN'T LOOK POSSIBLE TO CANCEL THE LAST BRACE BECAUSE IT IS THE ONLY ONE WITH X AT THE BEGINNING, BUT THAT SHOULD HAVE BEEN THE SAME FOR THE CLASSICAL CASE, SO I SHOULD REVIEW THAT ONE
-%
-%ON THE CLASSICAL CASE IT WAS MUCH EASIER BECAUSE AFTER BRACE RELATION B(X;M,M) APPEARS TWICE WITH OPPOSITE SIGN, SO IT CANCELS. HERE IT IS NOT SO OBVIOUS BECAUSE THE SIGN IS NOT JUST $-1$ SO MAYBE IT CANCELS WITH OTHER SUMMANDS (RECALL THAT I AM OMITTING ONE SUM)
-
-Applying the brace relation we obtain
-
-\begin{align*}
-\sum_{i+j=m}\sum_{l,k}(b_1(m_{ik}; b_1(m_{jl};x))+b_1(m_{ik};b_1(x;m_{jl}))+\\
- b_2(m_{jl};x,m_{ik})+b_1(m_{jl};b_1(x;m_{ik}))+b_2(m_{jl};m_{ik},x)+\\
-b_2(x;m_{jl},m_{ik})+b_1(x;b_1(m_{jl};m_{ik}))+b_2(x;m_{ik},m_{jl}))
-\end{align*}
-
-In the sum all terms of the form $b_1(x;b_1(m_{jl};m_{ik}))$ that can be seen in the last line should add up to vanish provided that $m$ is a $dA_\infty$-multiplication (meaning that up to sign $b_1(m;m)=0$). A sign of the form $(-1)^i$ (or maybe $(-1)^j$) should be in in front of each of these terms. Since $i$ and $j$ are interchangable (i.e. for each pair $(i,j)$ there is the pair $(j,i)$), the terms $b_2(x;m_{jl},m_{ik})+b_2(x;m_{ik},m_{jl}))$ in the last line should cancel as well (for this, the other appearance should come with opposite sign). Here it is relevant as well, that the sum covers all the values of $k$ and $l$, so that the pair $(j,i)$ comes with $l$ and $k$ interchanged as well. 
-
-Then $b_1(m_{ik};b_1(x;m_{jl}))$ in te first line should cancel with $b_1(m_{jl};b_1(x;m_{ik}))$ on the second line (but from a different summand, the one where $i$ and $j$ are interchanged). Finnaly, the reamining terms $b_1(m_{ik}; b_1(m_{jl};x))+b_2(m_{jl};x,m_{ik})+b_2(m_{jl};m_{ik},x)$ seem to be adding up to $b_1(b_1(m;m);x)$, but again some signs are going to be needed. That would cancel everything, so at least up to sign this makes sense.
-
-
-\subsection{Signed version}
-
-Now let us add signs. We now compute 
-\[\sum_{i+j=m} (-1)^iM_{i1}\circ M_{ji}\]
-recalling that for the usual sign convention of twisted complex from a $dA_\infty$-algebra we need to define $d_i=(-1)^im_{i1}$, so that the sign in tthe equation is $(-1)^j$ instead of $(-1)^i$. This being said, let us compute 
-\begin{align*}
-\sum_{i+j=m}(-1)^iM_{i1}(M_{j1}(x))=\sum_{i+j=m}(-1)^iM_{i1}\left(\sum_l b_1(m_{jl};x)-(-1)^{\langle x|m_{jl}\rangle}b_1(x;m_{jl})\right)=\\
-\sum_{i+j=m}(-1)^i\sum_{l,k}\left(b_1(m_{ik}; b_1(m_{jl};x))-(-1)^{\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\right.\\
-\left. -(-1)^{\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(b_1(m_{jl};x);m_{ik})+(-1)^{\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(b_1(x;m_{jl});m_{ik})\right)
-\end{align*}
-Observe that $\langle b_1(m_{jl};x)|m_{ik}\rangle=\langle m_{ij}|m_{ik}\rangle+\langle x|m_{ik}\rangle$ in the usual bigraded sign convention (also in the total graded convention). I am not going to explicitly compute these signs yet to see what properties we need from them.
-
-Applying the brace relation we obtain
-
-\begin{align*}
-\sum_{i+j=m}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\\
-+(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))\\
-+(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))
-\end{align*}
-
-Recall that $m$ being a $dA_\infty$-multiplication means that $\sum_{i+j=m}\sum_{k,l}(-1)^ib_1(m_{ik};m_{ij})=0$. Notice that the summand corresponding to each value of $i+j$ must vanish because it corresponds to a given horizontal degree. Let us check now the cancellations with the signs. First, let us check that the terms 
-\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))\]
-can be added up to vanish. For that, we compute the sign \[\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle=\langle m_{jl}|m_{ik}\rangle+\langle x|m_{ik}\rangle+\langle x|m_{jl}\rangle\]
-Recall that the braces are defined on the operadic suspension, so that the bidegree of $m_{ik}$ is $(i,1-i)$. Therefore, writing the bidegree of $x$ as $(x_h,x_v)$, the above equals 
-\[ji+(1-i)(1-j)+x_hi+x_v(1-i)+x_hj+x_v(1-j)\equiv 1+i+j + (i+j)x_h+(i+j)x_v\mod 2=\]
-\[(i+j)(1+x_h+x_v)=1+m(1+x)\]
-Since this sign is constant for all terms $b_1(m_{ik};m_{ij})$ that share the same horizontal degree $i+j=m$, we can rewrite
-\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))=-(-1)^{m(1+x)}b_1(x;(-1)^ib_1(m_{ik};m_{jl})),\]
-which vanishes when we consider the whole sum
-%Multiplying 0 by something is 0, some sum vanishe and you multiply it by a constant sign, it still vanishes
-\[\sum_{i+j=m}\sum_{k,l}-(-1)^{m(1+x)}b_1(x;(-1)^ib_1(m_{ik};m_{jl}))=0.\]
-Therefore, the equation after the brace relation reduces to
-\begin{align*}
-\sum_{i+j=m}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\\
-+(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))
-\end{align*}
-Let us focus on the last line. For each pair $(i,j)$ we should have cancellation with the pair $(j,i)$, which adds the same elements, but with different signs. We also need to consider the pairs $(k,l)$ and $(l,k)$ to get a cancellation. Let us compare the signs. For the pair $((i,j),(k,l))$ we have precisely the last line of the above equation
-\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))\]
-
-For the pair $((j,i),(l,k))$ we have
-\[(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle+\langle x|m_{ik}\rangle}(b_2(x;m_{ik},m_{jl})+(-1)^{\langle m_{jl}|m_{ik}\rangle}b_2(x;m_{jl},m_{ik}))\]
- Comparing the sign of $b_2(x;m_{jl},m_{ik})$ we find that for $((i,j),(k,l))$ we have
-
-\[-(-1)^{i+(i+j)(1+x)}b_2(x;m_{jl},m_{ik})=-(-1)^{j+(i+j)x}b_2(x;m_{jl},m_{ik})\]
-and for the pair $((j,i),(l,k))$ we have
-\[(-1)^{j+(i+j)x}b_2(x;m_{jl},m_{ik})\]
-As we see, we get opposite signs and thus cancellation. For $b_2(x;m_{ik},m_{jl})$ it is completely analogous. Thus, we have reduced our main equation to 
-\begin{align*}
-\sum_{i+j=m}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))
-\end{align*}
-In a similar fashion to the previous calculation, we are going to try to cancel $b_1(m_{ik};b_1(x;m_{jl}))$ in the first line with $b_1(m_{jl};b_1(x;m_{ik})$ in the last line by considering switched pairs. For the pair $((i,j),(k,l))$, the term in the first line is 
-\[-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))\]
-and for the pair $((j,i),(l,k))$ the term in the last line is
-\[-(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))=(-1)^{1+j+\langle m_{ik}|m_{jl}\rangle+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))=\]
-\[(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))\]
-which has precisely the opposite sign to the other pair, and thus cancels. This reduces the main equation to just 
-\begin{align*}
-\sum_{i+j=m}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))
-\end{align*}
-We want this therms to add up to something of the form $b_1(b_1(m;m);x)$. Notice that for that we need to switch some pairs. For simplity, we switch the pair of the first term and rewrite the sum after simplifying some signs as
-\begin{align*}
-\sum_{i+j=m}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})-(-1)^{i+\langle m_{jl}| m_{ik}\rangle}b_2(m_{jl};m_{ik},x))
-\end{align*}
-Simplifying further the signs we get
-\begin{align*}
-\sum_{i+j=m}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))
- +(-1)^{j+\langle x|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})+(-1)^{j}b_2(m_{jl};m_{ik},x)).
-\end{align*}
-By the brace relation this equals
-\[\sum_{i+j=m}\sum_{l,k}(-1)^jb_1(b_1(m_{j,l};m_{ik});x)=0\]
-%For each position of insertion of x we have a 0 map applied to x, so the above sum is indeed equal to 0
-
-\section{A section just to separate the previous thing from the rest}
 LEMMA THAT THE INVERSE OF MU INDUCES THE INVERSE ENRICHED FUNCTOR?
-
-PROOF OF DAINFTY (CHAIN OF ISOS IN REVERESE):
-1- FIRST ISO DOES NOTHING
-2- SPLIT INTO FINDING ENRICHED MU-1 AND THEN ENRICHED TOT-1
-3- THE PROJECTION GIVES THE BIGRADED BRACE, SIGNS INCLUDED
-4- FINAL SIGN
 
 
 ALTERNATIVE VERSION
 
 SHOW THAT THE  RESULTING TWISTED COMPLEX IS THE SAME
-
-I START WRITING HERE
 
 
 
@@ -954,12 +827,12 @@ Since $m$ is a derived $A_\infty$-multiplication $\OO$, we have that $m\star m=0
 \[M_j:(S\Tot(\s\OO))^{\otimes j}\to S\Tot(\s\OO)\]
 induced by shifting brace maps
 \[b_j^T(m;-):(\Tot(\s\OO))^{\otimes j}\to \Tot(\s\OO).\]
- The graded module $S\Tot(\s\OO)$ is endowed with the structure of a filtered complex with differential $M_1$ and filtration induced by the column filtration on $\Tot(\s\OO)$. % since the shift is only vertical. MORE DETAIL ON THIS? (LIKE  EXPLIIT FILTRATION AND MAYBE CHECK THAT THE DIFFERENTIAL PRESERVES FILTRATION WHICH FOLLOWS FROM THE HORIZONTAL DEGREES OF THE MIJ BEING POSITTIVE)
+ The graded module $S\Tot(\s\OO)$ is endowed with the structure of a filtered complex with differential $M_1$ and filtration induced by the column filtration on $\Tot(\s\OO)$. Note that $b^T_j(m;-)$ preserves the column filtration since every component $b^T_j(m_{ij};-)$ has positive horizontal degree. % since the shift is only vertical. MORE DETAIL ON THIS? (LIKE  EXPLIIT FILTRATION AND MAYBE CHECK THAT THE DIFFERENTIAL PRESERVES FILTRATION WHICH FOLLOWS FROM THE HORIZONTAL DEGREES OF THE MIJ BEING POSITTIVE)
  
 Since $S\Tot(\s\OO)\cong \Tot(S\s\OO)$, we can view $M_j$ as the image of a morphism of operads of filtered complexes $f:\mathcal{A}_\infty\to \End_{\Tot(S\s\OO)}$, in such a way that $M_j=f(\mu_j)$ for $\mu_j\in\mathcal{A}_\infty(j)$. 
 
 We now work our way backwards through the proof of \Cref{whitehouse}. The isomorphism 
-\[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\cong \Hom_{\mathrm{fCOp}}(\calA_∞,\End_{\Tot(A)})\]
+\[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\cong \Hom_{\mathrm{COp}}(\calA_∞,\End_{\Tot(A)})\]
 does not modify the map $M_j$ at all, but allows us to see it as a element of $\uEnd_{\Tot(A)}$ of bidegree $(0,2-j)$. 
 
 
@@ -977,7 +850,6 @@ in the direction we are following is the result of applying $\Hom_{\vbOp}(\calA_
 \end{align}
 so that \[\widetilde{M}_{ij}(x_1,\dots,x_j)=\sum_l(-1)^{in+\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j))),\] where $b_j$ is the brace on $\s\OO$ and $\varepsilon$ is given in \Cref{epsilon}. 
 
-I NEED TO MAKE CLEAR THAT THE DIFFERENTIAL ON ENDA IS GIVEN BY [D0,]
 
 According to the isomorphism 
 \begin{equation}\label{firstiso}
@@ -992,11 +864,152 @@ Finally, the sign $(-1)^{i(n-j)}$ left from $\varepsilon$ cancels with $(-1)^{in
 \[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=1}^j(j-v)(n_v-k_v)}\sum_lSb_j(m_{il};y_1,\dots, y_j). \]
 
 \end{proof}
+
+\begin{remark}\label{equivalent}
+Note that as in the case of $A_∞$-algebras in $\mathrm{C}_R$  
+we have two equivalent descriptions of $A_∞$-algebras in $\tc$.
+%MAKE SURE  I HAVE STATED THAT FIRST EQUIVALENCE SOMEWHERE (IN THE OTHER ARTICLE FOR INSTANCE)
+\begin{enumerate}[(1)]
+\item A twisted complex $(A, d^A)$ together with a morphism $\calA_∞ → \uEnd_A$ of operads in $\vbc$, which is determined by a family of elements $M_i ∈ \utC(A^{⊗i},A)^{2−i}_0$ for $i ≥ 2$ for which the $A_\infty$-relations holds for $i\geq 2$, where the composition is the one prescribed by the composition morphisms of $\utC$.
+\item A bigraded module $A$ together with a family of elements $M_i ∈ \ubgMod(A^{⊗i},A)^{2−i}_0$ for $i ≥ 1$ for
+which all the $A_\infty$ relations hold, where the composition is the one prescribed by the composition
+morphisms of $\ubgMod$.
+\end{enumerate}
+Since the composition morphism
+in $\ubgMod$ is induced from the one in $\utC$ by forgetting the differential, these two presentations
+are equivalent.
+\end{remark}
+
+\section{Twisted complex on an operad}\label{twistedoperad}
+In this section we provide a description of the twisted complex structure on an operad $\OO$ with a derived $A_\infty$-multiplication.
+
+\begin{lem}
+Let $\OO$ be an operad with a derived $A_\infty$-multiplication $m\in\s\OO$. Then $S\s\OO$ becomes a twisted complex with structure maps
+\[M_{i1}(x)= \sum_l (Sb_1(m_{il};S^{-1}x)-(-1)^{\langle x,m_{il}\rangle}Sb_1(S^{-1}x;m_{il})).\]
+\end{lem}
+\begin{proof}
+
+
+Througout the proof we omit the shift maps. Let us first check the twisted complex equation up to signs, to give a conceptual proof before introducing the signs. Up to sign, the maps  $\{M_{i1}\}_{i\geq 0}$ must satisfy the equation
+
+\[\sum_{i+j=u} M_{i1}\circ M_{j1}=0,\]
+for all $u$, where $\circ$ is composition of maps. %I may or may not omit the sum to avoid writing too much, as it just means that the composition on every degree must vanish.
+
+Therefore, up to signs we have to compute compute 
+
+\begin{align*}
+&\sum_{i+j=u}M_{i1}(M_{j1}(x))=\sum_{i+j=u}M_{i1}\left(\sum_l b_1(m_{jl};x)+b_1(x;m_{jl})\right)=\\
+&\sum_{i+j=u}\sum_{l,k}\left(b_1(m_{ik}; b_1(m_{jl};x))+b_1(m_{ik};b_1(x;m_{jl}))+b_1(b_1(m_{jl};x);m_{ik})+b_1(b_1(x;m_{jl});m_{ik})\right).
+\end{align*}
+
+%AT FIRST SIGHT IT DOESN'T LOOK POSSIBLE TO CANCEL THE LAST BRACE BECAUSE IT IS THE ONLY ONE WITH X AT THE BEGINNING, BUT THAT SHOULD HAVE BEEN THE SAME FOR THE CLASSICAL CASE, SO I SHOULD REVIEW THAT ONE
+%
+%ON THE CLASSICAL CASE IT WAS MUCH EASIER BECAUSE AFTER BRACE RELATION B(X;M,M) APPEARS TWICE WITH OPPOSITE SIGN, SO IT CANCELS. HERE IT IS NOT SO OBVIOUS BECAUSE THE SIGN IS NOT JUST $-1$ SO MAYBE IT CANCELS WITH OTHER SUMMANDS (RECALL THAT I AM OMITTING ONE SUM)
+
+Applying the brace relation we obtain
+
+\begin{align*}
+\sum_{i+j=u}\sum_{l,k}(b_1(m_{ik}; b_1(m_{jl};x))+b_1(m_{ik};b_1(x;m_{jl}))+\\
+ b_2(m_{jl};x,m_{ik})+b_1(m_{jl};b_1(x;m_{ik}))+b_2(m_{jl};m_{ik},x)+\\
+b_2(x;m_{jl},m_{ik})+b_1(x;b_1(m_{jl};m_{ik}))+b_2(x;m_{ik},m_{jl})).
+\end{align*}
+
+In the sum, all terms of the form $b_1(x;b_1(m_{jl};m_{ik}))$ that can be seen in the last line should add up to vanish provided that $m$ is a $dA_\infty$-multiplication (meaning that up to sign $b_1(m;m)=0$) %A sign of the form $(-1)^i$ %(or maybe $(-1)^j$, depending on the convention) 
+ Since $i$ and $j$ are interchangable (i.e. for each pair $(i,j)$ there is the pair $(j,i)$), the terms $b_2(x;m_{jl},m_{ik})+b_2(x;m_{ik},m_{jl})$ in the last line should cancel as well (for this, we should have the pair $(j,i)$ with the opposite sign). Here it is also relevant that the sum runs through all possible values of $k$ and $l$, so that the pair $(j,i)$ appears with $l$ and $k$ interchanged as well. So far the entire last line vanishes up to sign.
+
+Then $b_1(m_{ik};b_1(x;m_{jl}))$ on the first line should cancel with $b_1(m_{jl};b_1(x;m_{ik}))$ on the second line (but from a different summand, the one where $i$ and $j$ are interchanged). Finnaly, the remaining terms $b_1(m_{ik}; b_1(m_{jl};x))+b_2(m_{jl};x,m_{ik})+b_2(m_{jl};m_{ik},x)$ add up to $b_1(b_1(m;m);x)$ up to sign. That would cancel everything.
+
+
+
+Let us now add signs. We now compute for all $u$
+\[\sum_{i+j=u} (-1)^iM_{i1}\circ M_{j1}.\]
+%recalling that for the usual sign convention of twisted complex from a $dA_\infty$-algebra we need to define $d_i=(-1)^im_{i1}$, so that the sign in the equation is $(-1)^j$ instead of $(-1)^i$. This being said, let us compute 
+For $x\in\s\OO$, by definition, we have
+\begin{align*}
+\sum_{i+j=u}(-1)^iM_{i1}(M_{j1}(x))=\sum_{i+j=u}(-1)^iM_{i1}\left(\sum_l b_1(m_{jl};x)-(-1)^{\langle x|m_{jl}\rangle}b_1(x;m_{jl})\right)=\\
+\sum_{i+j=u}(-1)^i\sum_{l,k}\left(b_1(m_{ik}; b_1(m_{jl};x))-(-1)^{\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\right.\\
+\left. -(-1)^{\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(b_1(m_{jl};x);m_{ik})+(-1)^{\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(b_1(x;m_{jl});m_{ik})\right).
+\end{align*}
+Observe that $\langle b_1(m_{jl};x)|m_{ik}\rangle=\langle m_{ij}|m_{ik}\rangle+\langle x|m_{ik}\rangle$. %in the usual bigraded sign convention (also in the total graded convention). I am not going to explicitly compute these signs yet to see what properties we need from them.
+
+Applying the brace relation we obtain
+
+\begin{align}
+\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\nonumber\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\nonumber\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\label{twistedequation}\\
++(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))\nonumber\\
++(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik}))).\nonumber
+\end{align}
+
+Recall that $m$ being a $dA_\infty$-multiplication means that $\sum_{i+j=u}\sum_{k,l}(-1)^ib_1(m_{jl};m_{ik})=0$. %Notice that the summand corresponding to each value of $i+j$ must vanish because it corresponds to a given horizontal degree. 
+Let us check now the cancellations with the signs. First, let us check that the terms 
+\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))\]
+can be added up to vanish. For that, we compute the sign \[\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle=\langle m_{jl}|m_{ik}\rangle+\langle x|m_{ik}\rangle+\langle x|m_{jl}\rangle.\]
+Recall that the braces are defined on the operadic suspension, so that the bidegree of $m_{ik}$ is $(i,1-i)$. Therefore, writing the bidegree of $x$ as $(x_h,x_v)$ and $|x|=x_h+x_v$, the above equals 
+\[ji+(1-i)(1-j)+x_hi+x_v(1-i)+x_hj+x_v(1-j)\equiv 1+i+j + (i+j)x_h+(i+j)x_v\mod 2=\]
+\[1+(i+j)(1+x_h+x_v)=1+u(1+|x|).\]
+Since this sign is constant for all terms $b_1(m_{ik};m_{ij})$ that share the same horizontal degree $i+j=u$, we can rewrite
+\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))=-(-1)^{u(1+|x|)}b_1(x;(-1)^ib_1(m_{ik};m_{jl})).\]
+Hence, 
+%Multiplying 0 by something is 0, some sum vanishes and you multiply it by a constant sign, it still vanishes
+\[\sum_{i+j=u}\sum_{k,l}-(-1)^{u(1+|x|)}b_1(x;(-1)^ib_1(m_{ik};m_{jl}))=0.\]
+Therefore, the expression (\ref{twistedequation}) after the brace relation reduces to
+\begin{align}
+\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\nonumber\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\label{twistedequation2}\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\nonumber\\
++(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl})).\nonumber
+\end{align}
+Let us focus on the last line. For each pair $(i,j)$ we should have cancellation with the pair $(j,i)$, which adds the same elements, but with different signs. We also need to consider the pairs $(k,l)$ and $(l,k)$ to get a cancellation. Let us compare the signs. For the pair $((i,j),(k,l))$ we have precisely the last line of the above equation
+\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))\]
+
+For the pair $((j,i),(l,k))$ we have
+\[(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle+\langle x|m_{ik}\rangle}(b_2(x;m_{ik},m_{jl})+(-1)^{\langle m_{jl}|m_{ik}\rangle}b_2(x;m_{jl},m_{ik})).\]
+ Comparing the sign of $b_2(x;m_{jl},m_{ik})$ we find that for $((i,j),(k,l))$ we have
+
+\[-(-1)^{i+(i+j)(1+|x|)}b_2(x;m_{jl},m_{ik})=-(-1)^{j+u|x|}b_2(x;m_{jl},m_{ik})\]
+and for the pair $((j,i),(l,k))$ we have
+\[(-1)^{j+u|x|}b_2(x;m_{jl},m_{ik}).\]
+As we see, we get opposite signs and thus cancellation. For $b_2(x;m_{ik},m_{jl})$ it is completely analogous. Thus, we have reduced expression (\ref{twistedequation2}) to
+\begin{align}
+\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\nonumber\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\label{twistedequation3}\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik})).\nonumber
+\end{align}
+In a similar fashion to the previous calculation, we are going to cancel $b_1(m_{ik};b_1(x;m_{jl}))$ in the first line with $b_1(m_{jl};b_1(x;m_{ik})$ in the last line by considering switched pairs. For the pair $((i,j),(k,l))$, the term in the first line is 
+\[-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))\]
+and for the pair $((j,i),(l,k))$ the term in the last line is
+\[-(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))=(-1)^{1+j+\langle m_{ik}|m_{jl}\rangle+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))=\]
+\[(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl})),\]
+which has precisely the opposite sign to the other pair, and thus cancels. This reduces expression (\ref{twistedequation3}) to 
+\begin{align}
+\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))&\label{twistedequation4}\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})&+(-1)^{i+\langle m_{jl}|m_{ik}\rangle}b_2(m_{jl};m_{ik},x)).\nonumber
+\end{align}
+We want this terms to add up to something of the form $b_1(b_1(m;m);x)$. Notice that for this we need to switch some pairs. For simplity, we switch the pair of the first term and rewrite the sum as
+\begin{align}
+\sum_{i+j=u}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))&\\
+ -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})&+(-1)^{i+\langle m_{jl}| m_{ik}\rangle}b_2(m_{jl};m_{ik},x)).\nonumber
+\end{align}
+Simplifying the signs we get
+\begin{align*}
+\sum_{i+j=u}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))
+ +(-1)^{j+\langle x|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})+(-1)^{j}b_2(m_{jl};m_{ik},x)).
+\end{align*}
+By the brace relation and this equals
+\[\sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0.\]
+%For each position of insertion of x we have a 0 map applied to x, so the above sum is indeed equal to 0
+\end{proof}
+
 %\appendix
 %\renewcommand{\appendixname}{Appendix:}
+
 \begin{appendices}
 \appendix
 \gdef\thesection{Appendix \Alph{section}}
+
+
 \section{Some proofs and details}
 
 
