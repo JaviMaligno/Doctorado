@@ -271,8 +271,30 @@ I MAY NOT  NEED MUCH (BUT I DO MENTION ENRICHED CATEGORIES, I COULD TRY TO ONLY 
 WHAT I REALLY NEED IS THEE DEFINITION OF ENRICHED MU AND I CAN DEFINE IT EXPLICITELY IN THE LEMMA THAT IT IS USED (OR WITH AN EXTRA LEMMA IN WHICH I ALSO SHOW THE INVERSE) USING LEMMA 4.35
 
 
+\begin{defin}
+Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a monoidal category over $\VV$ if we have an external tensor product $∗ :\VV × \CC → \CC$ such that we have natural isomorphisms:
+\begin{enumerate}[$\bullet$]
+\item  $1 ∗ X \cong X$ for all $X ∈ \CC$,
+\item $(C ⊗ D) ∗ X \cong C ∗ (D ∗ X)$ for all $C,D ∈ \VV$ and $X ∈ \CC$,
+\item $C ∗ (X ⊗ Y ) \cong (C ∗ X) ⊗ Y \cong X ⊗ (C ∗ Y )$ for all $C ∈ \VV$ and $X, Y ∈ \CC$.
+\end{enumerate}
+\end{defin}
+We will also assume that there is a bifunctor $\uC(−,−) : \CC^{op} × \CC → \VV$ such that we have natural
+bijections
+\[\Hom_\CC(C ∗ X, Y ) \cong \Hom_\VV (C,\uC(X, Y )).\]
+NOT SURE IF I NEED TO STATE EVERYTHING THAT FOLLOWS FROM THIS
 
+\begin{defin}
+LAX FUNCTOR AND LAX MONOIDAL FUNCTOR
+\end{defin}
 
+\begin{propo}
+4.11
+\end{propo}
+
+\begin{lem}
+INVERSE NATURAL TRANSFORMATION
+\end{lem}
 \subsubsection{Enriched categories and totalization}
 SAY SOMETHING ABOUT WHERE THE DEFINITIONS COME FROM (WHITEHOUSE), AND ADJUST TO CONVENTIONS, CHECK IF I NEED SOME RESULTS
 
@@ -520,19 +542,29 @@ that is explicitly
 
 for $a=(a_i)_i\in \Tot(\OO(n))^{n_1}$ and $b=(b_j)_j\in \Tot(\OO(m))^{n_2}$.
 
+More generally, operadic composition $\bar{\gamma}$ is defined by the composite
+\begin{equation*}
+\Tot(\OO(N))\otimes \Tot(\OO(a_1))\otimes\cdots\otimes \Tot(\OO(a_N))\xrightarrow{\mu} \Tot(\OO(N)\otimes \OO(a_1)\otimes\cdots\otimes \OO(a_N)) \xrightarrow{\Tot(\gamma)} \Tot(\OO(\sum a_i)),
+\end{equation*}
 
+This map can be computed explicitly by iteration of the insertion $\bar{\circ}$. %For simplicity, we abuse of notation by omitting sums
+
+\begin{equation}\label{totcomp}
+\bar{\gamma}(x;x^1,\dots, x^N)_k=\sum_{k_0+k_1+\cdots+k_N=k}(-1)^{\sum_{j=1}^m n_j\sum_{i=0}^{j-1}k_i}\gamma(x_{k_0};x^1_{k_1},\dots, x^N_{k_N})
+\end{equation}
+for $x=(x_k)_k\in\Tot(\OO(N))^{n_0}$ and $x^i=(x^i_k)_k\in\Tot(\OO(a_i))^{n_i}$. 
+Notice that the sign is precisely the same appearing in \Cref{mu}.
 %MAYBE I SHOULD WRITE THINGS LIKE SUMS BUT I THINK IT MAKES SENSE TO WRITE IT LIKE THIS BECAUSE I KNOW THIS COMES FROM A BIGRADED MODULE
 %where $a\in\OO(n)^k_i$, $b\in\OO(m)^j_l$ and $\circ_r$ is the insertion map in $\OO$.
 
 %It can be checked that this is indeed an operad of graded vector spaces I 
 
-SHOULD WRITE THE AXIOMS FOR GRADED OPERADS SOMEWHERE (MORE GENERALLY OPERAD IN SYMMETRIC MONOIDAL CATEGORY LIKE WARD), AND I MIGHT ALSO WRITE THE PROOF THAT THIS IS AN OPERAD (BUT SHOULD FOLLOW FROM LAX MONOIDALITY)
 
 HEURISTICS FOR THIS SIGN AND ALTERNATIVE, REFERRING TO WHITEHOUSE (THIS  LAST PART POSSIBLE LATER WITH DERIVED A INFTY)
 
 %MY TOTALIZATION IS WHAT SARAH CALLS TOTALIZATION WITH COMPACT SUPPORT, WHICH IS STRICT MONOIDAL (CHECK THIS BECAUSE LEMMA 4.5 IS AN EXTERNAL PRODUCT)
 
-COMPOSITION OF ARBITRARY BIGRADING IS PRESERVED BY TOT SINCE ALL SIGNS INVOLVED ARE HORIZONTAL DEGREE SO IT IS ANALOGUE TO WHITEHOUSE (WRITE DOWN THE CALCULATIONS IF NEEDED)
+%COMPOSITION OF ARBITRARY BIGRADING IS PRESERVED BY TOT SINCE ALL SIGNS INVOLVED ARE HORIZONTAL DEGREE SO IT IS ANALOGUE TO WHITEHOUSE (WRITE DOWN THE CALCULATIONS IF NEEDED)
 
 \subsection{Vertical operadic suspension}
 On an bigraded operad we can use operadic suspension on the vertical degree with analogue results to those of the graded case MAYBE SPECIFY SOME OF THEM
@@ -561,19 +593,19 @@ In a similar way we can define $\Lambda^-(n)=S^{1-n}sig_n$, with the same insert
 Let $\mathcal{O}$ be a bigraded linear operad, i.e. an operad on the category of bigraded $R$-modules. The \emph{vertical operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of the operads $\OO$ and $\Lambda$, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition and symmetric group action. Similarly, we define the \emph{vertical operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$. %POSSIBLY EXCLUDE SYMMETRIC GROUP ACTION, ALTHOUGH IT MAKES SENSE ON ITS OWN
 \end{definition}
 
-CONSIDER CHANGING THE NOTATION FOR BIDEGREE TO BE CONSISTENT
+CONSIDER CHANGING THE NOTATION FOR BIDEGREE TO BE CONSISTENT (I THINK THE BEST OPTION IS USING D FOR TOTAL DEGREES, IS A LOT TO CHANGE BUT OTHERWISE I WILL HAVE TO USE FUNNY NOTATION FOR ARITIES), SHOULD I USE TOTAL-HORZNTAL FOR VERTICAL DEGREE HERE? IT FEELS INNECESSARY EVEN THOUGH IT WOULD BE CONSISTENT
 
-We may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$. For $a\in\OO(n)$ of bidegree $(k,i)$, its ``natural'' bidegree in $\s\OO$ is $(k,i+n-1)$. To distinguish both degrees we call $(k,i)$ the \emph{internal bidegree} of $a$, since this is the degree that $a$ inherits from the grading of $\OO$. If we write $\circ_{r+1}$ for the operadic insertion on $\OO$ and $\tilde{\circ}_{r+1}$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. Let $a\in\OO(n)^i_k$ and $b\in\OO(m)^j_l$, and let us compute $a\tilde{\circ}_{r+1} b$.
+We may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$. For $a\in\OO(n)$ of bidegree $(k,d-k)$, its ``natural'' bidegree in $\s\OO$ is $(k,d+n-k-1)$. To distinguish both degrees we call $(k,d-k)$ the \emph{internal bidegree} of $a$, since this is the degree that $a$ inherits from the grading of $\OO$. If we write $\circ_{r+1}$ for the operadic insertion on $\OO$ and $\tilde{\circ}_{r+1}$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. Let $a\in\OO(n)^{d-k}_k$ and $b\in\OO(m)^{q-l}_l$, and let us compute $a\tilde{\circ}_{r+1} b$.
 
 \begin{align*}
 \mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
 &\xrightarrow{\circ_{r+1}\otimes\circ_{r+1}} \OO(m+n-1)\otimes \Lambda(n+m-1)=\mathfrak{s}\OO(n+m-1).
 \end{align*}
 
-The symmetric monoidal structure produces the sign $(-1)^{(n-1)j}$ in the isomorphism $\Lambda(n)\otimes \OO(m)\cong\OO(m)\otimes\Lambda(n)$, and the operadic structure of $\Lambda$ produces the sign $(-1)^{(n-1)(m-1)+r(m-1)}$, so 
+The symmetric monoidal structure produces the sign $(-1)^{(n-1)(q-l)}$ in the isomorphism $\Lambda(n)\otimes \OO(m)\cong\OO(m)\otimes\Lambda(n)$, and the operadic structure of $\Lambda$ produces the sign $$(-1)^{(n-1)(m-1)+r(m-1)},$$ so 
 
 \begin{equation}\label{sign}
-a\tilde{\circ}_{r+1}b=(-1)^{(n-1)j+(n-1)(m-1)+r(m-1)}a\circ_{r+1} b.
+a\tilde{\circ}_{r+1}b=(-1)^{(n-1)(q-l)+(n-1)(m-1)+r(m-1)}a\circ_{r+1} b.
 \end{equation}
 As can be seen, this is the same sign as the single graded operadic suspension but with vertical degree. In particular, this operation leads to the Lie bracket from RW, which implies that $m=\sum_{i,j}m_{ij}$ is a derived $A_\infty$-multiplication if and only if
 \[\sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0\]
@@ -719,27 +751,29 @@ Some authors might use the notation $b_{1+n}$ instead of $b_n$, but the first el
 
 We can define braces on $\Tot(\s\OO)$ via operadic composition. More precisely, we define the maps 
 \[b^T_n:\Tot(\mathfrak{s}\OO(N))\otimes \Tot(\mathfrak{s}\OO(a_1))\otimes\cdots\otimes \Tot(\mathfrak{s}\OO(a_n))\to \Tot(\mathfrak{s}\OO(N-\sum a_i))\]
-using the operadic composition $\gamma$ on $T\mathfrak{s}\OO$ as
+using the operadic composition $\gamma^\star$ on $T\mathfrak{s}\OO$ as
 
-\[b^T_n(f;g_1,\dots,g_n)=\sum\gamma(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1),\]
+\[b^T_n(f;g_1,\dots,g_n)=\sum\gamma^\star(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1),\]
 
 where the sum runs over all possible ordering preserving insertions. The brace $b^T_n(f;g_1,\dots,g_n)$ vanishes whenever $n>N$ and $b^T_0(f)=f$. We use the notation $b^T_n$ to distinguish this brace map from the brace $b_n$ that can be naturally defined on the bigraded operad $\s\OO$.
 
 The operadic composition can be described in terms of insertions in the obvious way, namely 
 
-$$\gamma(f;h_1,\dots, h_N)=(\cdots(f\star_1 h_1)\star_{1+a(h_1)}h_2\cdots)\star_{1+\sum a(h_p)}h_N,$$
+\[\gamma^\star(f;h_1,\dots, h_N)=(\cdots(f\star_1 h_1)\star_{1+a(h_1)}h_2\cdots)\star_{1+\sum a(h_p)}h_N,\]
 
-where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign iterating the same argument as in the graded case. In fact, there is a sign factor identical to the graded case replacing internal degree by vertical (internal) degree that comes from operadic suspension. In fact, this sign determines the brace $b_j$ on $\s\OO$. Therefore we only need to compute the sign factor corresponding to totalization. Given $f_{p_0}\in \OO(N)^{q_0}_{p_0}$ and  $g_i\in\OO(a_i)^{q_i}_{p_i}$ for $1\leq i\leq n$, %such that $p_0+p_1+\cdots+p_n=k$, 
-the factor sign we are looking for is determined by the exponent
+where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign applying the same strategy as in the single-graded case. In fact, there is a sign factor identical to the graded case replacing internal degree by vertical (internal) degree that comes from operadic suspension. This is the sign that determines the brace $b_j$ on $\s\OO$. The other factor signs are produced by totalization. This was computed in \Cref{totcomp}. 
 
-%\[\varepsilon_k=p_1(N+q_0+p_0-1)+p_2(N+a_1+q_0+q_1+p_0+p_1-2)+\cdots=\sum_{i=1}^np_i(\sum_{j=0}^{i-1}(a_j+q_j+p_j)+N-i).\]
-
-\[\varepsilon
-=p_0(a_1+q_1+p_1-1)+(p_0+p_1)(a_2+q_2+p_2-1)+\cdots=\sum_{i=1}^n(a_i+q_i+a_i-1)\sum_{j=0}^{i-1}p_j\]
-\begin{equation}\label{epsilon}
-=\sum_{0\leq j<i\leq n}p_j(a_i+q_i+p_i-1).
-\end{equation}
-This is obtained by iteration of the last factor sign in \Cref{star} which is precisely the sign determined by totalization. Note that $a_i+q_i+p_i-1$ is precisely the total degree of $g_i$ in $\Tot(\s\OO)$. Therefore, if $(-1)^\eta$ is the sign produced by operadic suspension and $(-1)^{\varepsilon}$ the sign produced by totalization, the factor sign that distinguishes the brace on $\Tot(\s\OO)$ from the usual operadic composition on $\OO$ is $(-1)^{\eta+\varepsilon}$ %THE K IS BECAUSE I'M PLANNING TO REWRITE THINGS AS SUMS IN TOTALIZATION, I MIGHT ABOUT THIS, I WILL HAVE TO CHANGE THE NOTATION FOR THE MAPS BEING COMPOSED AND THEIR DEGREES
+%Therefore we only need to compute the sign factor corresponding to totalization. Given $f_{p_0}\in \OO(N)^{q_0}_{p_0}$ and  $g_i\in\OO(a_i)^{q_i}_{p_i}$ for $1\leq i\leq n$, %such that $p_0+p_1+\cdots+p_n=k$, 
+%the factor sign we are looking for is determined by the exponent
+%
+%%\[\varepsilon_k=p_1(N+q_0+p_0-1)+p_2(N+a_1+q_0+q_1+p_0+p_1-2)+\cdots=\sum_{i=1}^np_i(\sum_{j=0}^{i-1}(a_j+q_j+p_j)+N-i).\]
+%
+%\[\varepsilon
+%=p_0(a_1+q_1+p_1-1)+(p_0+p_1)(a_2+q_2+p_2-1)+\cdots=\sum_{i=1}^n(a_i+q_i+a_i-1)\sum_{j=0}^{i-1}p_j\]
+%\begin{equation}\label{epsilon}
+%=\sum_{0\leq j<i\leq n}p_j(a_i+q_i+p_i-1).
+%\end{equation}
+%This is obtained by iteration of the last factor sign in \Cref{star} which is precisely the sign determined by totalization. Note that $a_i+q_i+p_i-1$ is precisely the total degree of $g_i$ in $\Tot(\s\OO)$. Therefore, if $(-1)^\eta$ is the sign produced by operadic suspension and $(-1)^{\varepsilon}$ the sign produced by totalization, the factor sign that distinguishes the brace on $\Tot(\s\OO)$ from the usual operadic composition on $\OO$ is $(-1)^{\eta+\varepsilon}$ %THE K IS BECAUSE I'M PLANNING TO REWRITE THINGS AS SUMS IN TOTALIZATION, I MIGHT ABOUT THIS, I WILL HAVE TO CHANGE THE NOTATION FOR THE MAPS BEING COMPOSED AND THEIR DEGREES
 MAYBE WRITE THIS AS A LEMMA LIKE I DID IN THE CLASSICAL CASE?
 
  USING BRACES TO DEFINE A DERIVED AINFTY ALGEBRA ON THE OPERAD (I WILL PROBABLY  WRITE THE COMPUTATION OF DEGREES DIFFERENTLY LATER BECAUSEE I AM IDENTIFYING THE BRACE AND ELEMENTS WITH THEIR SHIFTS HERE TO MAKE IT EASIER TO COMPPUTE)
@@ -802,10 +836,6 @@ We also need to provide $A$ with a twisted complex structure. The reason for thi
 
 With these assumption, by THEOREM we can guarantee the existence of a derived $A_\infty$-algebra structure on $A$ provided that $\Tot(A)$ has an $A_\infty$-algebra structure.
 
-
-LEMMA THAT THE INVERSE OF MU INDUCES THE INVERSE ENRICHED FUNCTOR?
-
-
 ALTERNATIVE VERSION
 
 SHOW THAT THE  RESULTING TWISTED COMPLEX IS THE SAME
@@ -848,7 +878,7 @@ in the direction we are following is the result of applying $\Hom_{\vbOp}(\calA_
 &=\sum_i(-1)^{in}\sum_l(-1)^{\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))\nonumber\\
 &=\sum_i\sum_l(-1)^{in+\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j)))
 \end{align}
-so that \[\widetilde{M}_{ij}(x_1,\dots,x_j)=\sum_l(-1)^{in+\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j))),\] where $b_j$ is the brace on $\s\OO$ and $\varepsilon$ is given in \Cref{epsilon}. 
+so that \[\widetilde{M}_{ij}(x_1,\dots,x_j)=\sum_l(-1)^{in+\varepsilon} Sb_j(m_{il};(S^{-1})^{\otimes j}(\mu^{-1}(x_1\otimes\cdots\otimes x_j))),\] where $b_j$ is the brace on $\s\OO$ and $\varepsilon$ is given in \Cref{totcomp}. 
 
 
 According to the isomorphism 
@@ -859,7 +889,7 @@ According to the isomorphism
  the maps $M_{ij}=(-1)^{ij}\widetilde{M}_{ij}$ define an $A_\infty$-structure on $S\s\OO$. Therefore we now just have to work out the signs. Notice that $n_v$ is the total degree of $y_v$ as an element of $\s\OO$ and recall that $n$ is the total degree of $x_1\otimes\cdots\otimes x_j\in A^{\otimes j}$. Therefore, $\varepsilon$ can be written as
 \[\varepsilon= i(n-j)+\sum_{1\leq v<w\leq j}k_vn_w.\]
 The sign produced by $\mu^{-1}$, as we saw in \Cref{mu}, is precisely determined by the exponent 
-\[\sum_{w=2}^jn_w\sum_{v=1}^{w-1}k_v=\sum_{1\leq v<w\leq j}k_vn_w,\]so this sign cancels the right hand summand of $\varepsilon$. This cancellation was expected since this sign comes from $\mu^{-1}$ and operadic composition is defined using $\mu$ (\Cref{insertion}).%In fact, both signs come from $\mu$, so the cancellation was expected. 
+\[\sum_{w=2}^jn_w\sum_{v=1}^{w-1}k_v=\sum_{1\leq v<w\leq j}k_vn_w,\]so this sign cancels the right hand summand of $\varepsilon$. This cancellation was expected since this sign comes from $\mu^{-1}$ and operadic composition is defined using $\mu$ (\Cref{insertion}). %In fact, both signs come from $\mu$, so the cancellation was expected. 
 Finally, the sign $(-1)^{i(n-j)}$ left from $\varepsilon$ cancels with $(-1)^{in}$ in \Cref{totsign} and $(-1)^{ij}$ from the isomorphism (\ref{firstiso}). This means that we only need to consider signs produced by vertical shifts. This calculation has been done previously in PREVIOUS ARTICLE and as we claimed the result is 
 \[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=1}^j(j-v)(n_v-k_v)}\sum_lSb_j(m_{il};y_1,\dots, y_j). \]
 
