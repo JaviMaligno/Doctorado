@@ -61,7 +61,7 @@ This makes the category of filtered $R$-modules into a symmetric monoidal catego
 
 
 \begin{defin}\label{filterend}
-Let $K$ and $L$ be filtered complexes. We define $\underline{\Hom}(K,L)$ the filtered complex whose underlying chain complex is $\Hom_{\mathrm{C}_R}(K,L)$ and the filtration $F$ given by 
+Let $K$ and $L$ be filtered complexes. We define $\underline{\Hom}(K,L)$ to be the filtered complex whose underlying chain complex is $\Hom_{\mathrm{C}_R}(K,L)$ and the filtration $F$ given by 
 \[F_p\underline{\Hom}(K,L)=\{f:K\to L\mid f(F_qK)\subset F_{q+p}L\text{ for all }q ∈ \Z.\}\]
 In particular, $\Hom_{\fmod}(K,L)=F_0\underline{\Hom}(K,L)$.
 \end{defin}
@@ -122,7 +122,7 @@ If $A$, $B$ are vertical bicomplexes, then $([A,B]^∗_∗
 \begin{proof}
 Direct computation shows $\delta^2=0$.
 \end{proof}
-END OF PAGE 5, I DEFINE THE SHIFT LATER, SO MAYBE IT IS NOT NECESSARY, BUT THINK ABOUT SHIFT OF MAPS (IS IT NECESSARY  TO ADD THAT SIGN?) AND COMPARE WITH THE GRADED CASE
+%END OF PAGE 5, I DEFINE THE SHIFT LATER, SO MAYBE IT IS NOT NECESSARY, BUT THINK ABOUT SHIFT OF MAPS (IS IT NECESSARY  TO ADD THAT SIGN?) AND COMPARE WITH THE GRADED CASE
 
 %I CHANGED HORIZONTAL DEGREE SIGNS
 \begin{defin}\label{twistedcomplex} A \emph{twisted complex} $(A, d_m)$ is a bigraded $R$-module $A = \{A^j_i \}$ together with a family
@@ -164,7 +164,7 @@ The internal hom on bigraded modules can be extended to twisted complexes via th
 for $i ≥ 0$, endows $[A,B]^∗_∗$ with the structure of a twisted complex.
 \end{lem}
 
-UNDERLINED CATEGORIES?
+%UNDERLINED CATEGORIES?
 \subsection{Totalization}\label{total}
 %DEFINITION WITH FILTRATION, DIFFERENTIAL, MONOIDALITY
 
@@ -262,14 +262,14 @@ where $a_{(l)}\in (A_{(m)})_{k_l}^{n_l-k_l}$.
 
 \subsection{Enriched categories and enriched totalization}
 \subsubsection{Monoidal categories over  a base}
-NOT SURE IF I'M GOING TO NEED SO MUCH GENERAL BACKGROUND (CERTAINLY DO NOT INCLUDE PROOFS) I WOULD LIKE TO INCLUDE THE PROOF OF THE INVERSE INDUCING THE INVERSE TRANSFORMATION
+%NOT SURE IF I'M GOING TO NEED SO MUCH GENERAL BACKGROUND (CERTAINLY DO NOT INCLUDE PROOFS) I WOULD LIKE TO INCLUDE THE PROOF OF THE INVERSE INDUCING THE INVERSE TRANSFORMATION
 
-CITE RIEHL AS WELL
 
-I MAY NOT  NEED MUCH (BUT I DO MENTION ENRICHED CATEGORIES, I COULD TRY TO ONLY SHOW RESULTS FOR PARTICULAR CATEGORIES) 
+%I MAY NOT  NEED MUCH (BUT I DO MENTION ENRICHED CATEGORIES, I COULD TRY TO ONLY SHOW RESULTS FOR PARTICULAR CATEGORIES) 
 
-WHAT I REALLY NEED IS THEE DEFINITION OF ENRICHED MU AND I CAN DEFINE IT EXPLICITELY IN THE LEMMA THAT IT IS USED (OR WITH AN EXTRA LEMMA IN WHICH I ALSO SHOW THE INVERSE) USING LEMMA 4.35
+%WHAT I REALLY NEED IS THEE DEFINITION OF ENRICHED MU AND I CAN DEFINE IT EXPLICITELY IN THE LEMMA THAT IT IS USED (OR WITH AN EXTRA LEMMA IN WHICH I ALSO SHOW THE INVERSE) USING LEMMA 4.35
 
+We collect some notions and results about enriched categories from RIEHL and WHITEHOUSE that we will need as a categorical setting for our results on derived $A_\infty$-algebras.
 
 \begin{defin}
 Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a monoidal category over $\VV$ if we have an external tensor product $∗ :\VV × \CC → \CC$ such that we have natural isomorphisms:
@@ -279,19 +279,57 @@ Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a
 \item $C ∗ (X ⊗ Y ) \cong (C ∗ X) ⊗ Y \cong X ⊗ (C ∗ Y )$ for all $C ∈ \VV$ and $X, Y ∈ \CC$.
 \end{enumerate}
 \end{defin}
+\begin{remark}\label{underline}
 We will also assume that there is a bifunctor $\uC(−,−) : \CC^{op} × \CC → \VV$ such that we have natural
 bijections
 \[\Hom_\CC(C ∗ X, Y ) \cong \Hom_\VV (C,\uC(X, Y )).\]
-NOT SURE IF I NEED TO STATE EVERYTHING THAT FOLLOWS FROM THIS
+Under this assumption we get a $\VV$-enriched category $\uC$ with the same objects as $\CC$ and with hom-objects given by $\uC (−,−)$. The unit
+morphism $u_A : 1 → \uC (A,A)$ corresponds to the identity map in $\CC$ under the adjunction and the
+composition morphism is given by the adjoint of the composite
+\[(\\uC (B,C) ⊗ \uC (A,B)) ∗ A
+\cong \uC (B,C) ∗ (\uC (A,B) ∗ A)
+\xrightarrow{id∗ev_{AB}}
+\uC (B,C) ∗ B
+\xrightarrow{ev_{BC}} C,\]
+where $ev_{AB}$ is the adjoint of the identity $\uC (A,B) → \uC (A,B)$. Furthermore, $\uC$ is a monoidal $\VV$-enriched category, namely we have an
+enriched functor
+\[\underline{⊗} : \uC × \uC → \uC\]
+where $\uC × \uC$ is the enriched category with objects $\mathrm{Ob}(\CC ) × \mathrm{Ob}(\CC )$ and hom-objects
+\[\uC × \uC ((X, Y ), (W,Z)) \coloneqq \uC (X,W) ⊗ \uC (Y,Z).\]
+In particular we get maps in $\VV$
+\[\uC (X,W) ⊗ \uC (Y,Z) → \uC (X ⊗ Y,W ⊗ Z),\]
+given by the adjoint of the composite
+\[(\uC (X,W) ⊗ \uC (Y,Z)) ∗ (X ⊗ Y )\cong (\uC (X,W) ∗ X) ⊗ (\uC (Y,Z) ∗ Y )
+\xrightarrow{ev_{XW}⊗ev_{Y Z}} W ⊗ Z\]
+\end{remark}
 
 \begin{defin}
-LAX FUNCTOR AND LAX MONOIDAL FUNCTOR
+Let $\CC$ and $\DD$ be monoidal categories over $\VV$. A \emph{lax functor over $\VV$} consists of a functor $F : \CC → \DD$ together with a natural transformation \[ν_F : − ∗_\DD F(−) ⇒ F(− ∗_\CC −)\]
+which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. (See [Rie14,
+Proposition 10.1.5] REFERENCE) for explicit diagrams stating the coherence axioms.) If $ν_F$ is a natural isomorphism
+we say $F$ is a \emph{functor over $\VV$}.
+Let $F,G : \CC → \DD$ be lax functors over $\VV$. A \emph{natural transformation over $\VV$} is a natural transformation
+$μ : F ⇒ G$ such that for any $C ∈ \VV$ and for any $X ∈ \CC$ we have
+\[ν_G \circ (1 ∗_\DD μ_X) = μ_C∗_\CC X \circ ν_F .\]
+A \emph{(lax) monoidal functor over $\VV$} is a triple $(F, \epsilon, μ)$, where $F : \CC → \DD$ is a lax functor over $\VV$,
+$\epsilon : 1_\DD → F(1_\CC)$ is a morphism in $\DD$ and
+\[μ : F(−) ⊗ F(−) ⇒ F(− ⊗ −)\]
+is a natural transformation over $\VV$ satisfying the standard unit and associativity conditions. If $ν_F$
+and $μ$ are natural isomorphisms then we say that $F$ is \emph{monoidal over $\VV$}. 
 \end{defin}
 
 \begin{propo}
-4.11
+Let $F,G : \CC → \DD$ be lax functors over $\VV$. Then $F$ and $G$ extend to $\VV$-enriched
+functors
+\[\underline{F},\underline{G} : \uC → \uD\]
+where $\uC$ and $\uD$ denote the $\VV$-enriched categories corresponding to $\CC$ and $\DD$ as described in \Cref{underline}. Moreover, any natural transformation $μ : F ⇒ G$ over $\VV$ also extends to a $\VV$-enriched natural
+transformation
+\[\underline{μ} : \underline{F} ⇒ \underline{G}.\]
+In particular, if $F$ is (lax) monoidal over $\VV$, then $F$ is (lax) monoidal in the enriched sense.
 \end{propo}
-
+\begin{proof}
+PROP 4.11
+\end{proof}
 \begin{lem}
 INVERSE NATURAL TRANSFORMATION
 \end{lem}
@@ -299,6 +337,8 @@ INVERSE NATURAL TRANSFORMATION
 SAY SOMETHING ABOUT WHERE THE DEFINITIONS COME FROM (WHITEHOUSE), AND ADJUST TO CONVENTIONS, CHECK IF I NEED SOME RESULTS
 
 START WITH SOME SENTENCES ABOUT DEFINING A BUNCH OF USEFUL ENRICHED CATEGORIES
+
+We define here some useful enriched categories and results from WHITEHOUSE. Some of them had to be modified to adjust them to our conventions. 
 \begin{defin}\label{weirdenrichment}
 Let $A,B,C$ be bigraded modules. We denote by $\underline{\mathpzc{bgMod}_R}(A,B)$ the bigraded module given by
 \[\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u+j}\]
@@ -366,13 +406,13 @@ $1 ∈ R$ to $1_A : A → A$, the strict morphism of twisted complexes given by 
 
 
 
-The next tensor corresponds to $\underline{\otimes}$ in the categorical setting. SO MAYBE CHANGE NOTATION TTO MAKE IT CONSISTENT?
+The next tensor corresponds to $\underline{\otimes}$ in the categorical setting of \Cref{underline}.
 
 
 \begin{lem}\label{tensorenriched}
 The monoidal structure of $\utC$ is given by the following map of vertical bicomplexes.
-\[\widehat{⊗}: \utC(A,B) ⊗ \utC(A′,B′) → \utC(A ⊗ A′,B ⊗ B′)\]
-\[(f, g) → (f\widehat{⊗}g)_m :=\sum_{i+j=m}(−1)^{ij}f_i ⊗ g_j\]
+\[\underline{⊗}: \utC(A,B) ⊗ \utC(A′,B′) → \utC(A ⊗ A′,B ⊗ B′)\]
+\[(f, g) → (f\underline{⊗}g)_m :=\sum_{i+j=m}(−1)^{ij}f_i ⊗ g_j\]
 The monoidal structure of $\ubgMod$ is given by the restriction of this map.
 \end{lem}
 \begin{proof}
@@ -418,8 +458,8 @@ We denote by $\usfC$ the full subcategory of $\ufC$ whose objects are split filt
 The enriched monoidal structure is given by the following lemma.
 \begin{defin}\label{tensorenriched2}
 The monoidal structure of $\ufC$ is given by the following map of vertical bicomplexes.
-\[\widehat{⊗}: \ufC(K,L) ⊗ \ufC(K′,L′) → \ufC(K ⊗ K′,L ⊗ L′),\]
-\[(f, g) → f\widehat{⊗}g := (−1)^{u|g|}f ⊗ g\]
+\[\underline{⊗}: \ufC(K,L) ⊗ \ufC(K′,L′) → \ufC(K ⊗ K′,L ⊗ L′),\]
+\[(f, g) → f\underline{⊗}g := (−1)^{u|g|}f ⊗ g\]
 where $f$ has bidegree $(u, v)$.
 \end{defin}
 \begin{proof}
@@ -486,7 +526,7 @@ to be the collection in $\mathscr{V}$ given by
 \end{defin}
 AT SOME POINT DO SOME MENTION TO THE DIFFERENT CASES THAT I AM GOING TO USE BEECAUSE THE NOTATION IS GOING TO BE THE SSAME
 
-\begin{propo}
+\begin{propo}\label{morphism}
 Let $\CC$ and $\DD$ be monoidal categories over $\VV$ . Let
 $F : \CC → \DD$ be a lax monoidal functor over $\VV$ . Then for any $X ∈ \CC$ there is an operad morphism
 \[\uEnd_X→\uEnd_{F(X)}.\]
@@ -499,10 +539,14 @@ The proof is in PROP 4.46
 \begin{lem}\label{inverse}
 For any twisted complex $A$ there is a morphism of operads
 \[\uEnd_A →\uEnd_{\Tot(A)},\]
-which is an isomorphism of operads if $A$ is bounded.
+which is an isomorphism of operads if $A$ is bounded. The same holds true if $A$ is just a bigraded module.
 \end{lem}
-
-The proof of the above Lemma can be found in LEMMA 4.54, but we are going to construct the inverse in the bounded case explicitly (the construction for the direct map is analogue but here we just need the inverse).
+\begin{proof}
+The proof of in the case of a $A$ beig a twisted complex can be found in LEMMA 4.54. For the bigraded module case, we are going to do it analogously. First, by THEOREM 4.39 we know that $\mathfrak{Tot}:\ubgMod\to\ufMod$ is $\bgmod$-enriched. In fact, by LEMMA 4.37 it is lax monoidal in the enriched sense. In addition, both $\ubgMod$ and $\ufMod$ are monoidal over $\bgmod$ by LEMMA 4.15. With all of this we may apply \Cref{morphism} to $\mathfrak{Tot}:\ubgMod\to\ufMod$ to obtain the desired map
+\[\uEnd_A →\uEnd_{\Tot(A)}.\]
+ The fact that it is an isomorphism in the bounded is analogous to the twisted complex case. 
+\end{proof}
+We are going to construct the inverse in the bounded case explicitly (the construction for the direct map is analogue but here we just need the inverse). We do it for a twisted complex $A$, but it is done similarly for a bigraded module.
 
 The inverse is given by the composite
 \[\uEnd_{\Tot(A)}(n)=\ufC(\Tot(A)^{\otimes n},\Tot(A))\to \ufC(\Tot(A^{\otimes n}),\Tot(A))\to\utC(A^{\otimes n},A)=\uEnd_A(n) \]
@@ -549,8 +593,12 @@ More generally, operadic composition $\bar{\gamma}$ is defined by the composite
 
 This map can be computed explicitly by iteration of the insertion $\bar{\circ}$. %For simplicity, we abuse of notation by omitting sums
 
+\begin{equation}%\label{totcomp}
+\bar{\gamma}(x;x^1,\dots, x^N)_k=\sum_{k_0+k_1+\cdots+k_N=k}(-1)^{\varepsilon}\gamma(x_{k_0};x^1_{k_1},\dots, x^N_{k_N})
+\end{equation}
+where 
 \begin{equation}\label{totcomp}
-\bar{\gamma}(x;x^1,\dots, x^N)_k=\sum_{k_0+k_1+\cdots+k_N=k}(-1)^{\sum_{j=1}^m n_j\sum_{i=0}^{j-1}k_i}\gamma(x_{k_0};x^1_{k_1},\dots, x^N_{k_N})
+\varepsilon=\sum_{j=1}^m n_j\sum_{i=0}^{j-1}k_i
 \end{equation}
 for $x=(x_k)_k\in\Tot(\OO(N))^{n_0}$ and $x^i=(x^i_k)_k\in\Tot(\OO(a_i))^{n_i}$. 
 Notice that the sign is precisely the same appearing in \Cref{mu}.
@@ -608,7 +656,9 @@ The symmetric monoidal structure produces the sign $(-1)^{(n-1)(q-l)}$ in the is
 a\tilde{\circ}_{r+1}b=(-1)^{(n-1)(q-l)+(n-1)(m-1)+r(m-1)}a\circ_{r+1} b.
 \end{equation}
 As can be seen, this is the same sign as the single graded operadic suspension but with vertical degree. In particular, this operation leads to the Lie bracket from RW, which implies that $m=\sum_{i,j}m_{ij}$ is a derived $A_\infty$-multiplication if and only if
-\[\sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0\]
+\begin{equation}\label{sharp}
+\sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0
+\end{equation}
 for the brace induced by $\tilde{\circ}$ (see \Cref{braces} to recall the definition of a brace).
 
 We of course have the following theorem with similar proof to the graded case, where all the suspensions are vertical.
@@ -740,21 +790,21 @@ for all $j ≥ 1$, $p_1,\dots p_j ∈ \Z$ and $n_1,\dots , n_j ≥ 0$.
 \end{defin}
 
 \section{Braces}\label{sectionbraces}
-First recall the definition of a brace algebra.
+First recall the definition of a brace algebra and introduce the definition for the bigraded case.
 
-\begin{defi}\label{braces}
-A brace algebra on a graded module $A$ consists of a family of maps \[b_n:A^{\otimes 1+n}\to A\] called \emph{braces}, that we evaluate on $(x,x_1,\dots, x_n)$ as $b_n(x;x_1,\dots, x_n)$, satisfying the \emph{brace relation}
+\begin{defin}\label{braces}
+A brace algebra on a (bi)graded module $A$ consists of a family of maps \[b_n:A^{\otimes 1+n}\to A\] called \emph{braces}, that we evaluate on $(x,x_1,\dots, x_n)$ as $b_n(x;x_1,\dots, x_n)$, satisfying the \emph{brace relation}
 
-I GUESS I DON'T NEED TO WRITE IT AGAIN IF THIS IS A CONTINUATION
+
 \begin{align*}
 b_m(b_n(x;x_1,\dots, x_n);y_1,\dots,y_m)=&\\
 \sum_{i_1,\dots, i_n, j_1\dots, j_n}(-1)^{\varepsilon}&b_l(x; y_1,\dots, y_{i_1},b_{j_1}(x_1;y_{i_1+1},\dots, y_{i_1+j_1}),\dots, b_{j_n}(x_n;y_{i_n+1},\dots, y_{i_n+j_n}),\dots,y_m)
 \end{align*}
-where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n|x_p|\sum_{q=i}^{i_p}|y_q|,$ i.e. the sign is picked up by the $x_i$'s passing by the $y_i$'s in the shuffle.
+where $l=n+\sum_{p=1}^n i_p$ and in the single graded case $\varepsilon=\sum_{p=1}^n|x_p|\sum_{q=i}^{i_p}|y_q|,$ i.e. the sign is picked up by the $x_i$'s passing by the $y_i$'s in the shuffle. In the bigraded case, $\varepsilon=\sum_{p=1}^n\sum_{q=i}^{i_p}\langle x_p,y_q\rangle$.
 
 
 
-\end{defi}
+\end{defin}
 
 %\begin{remark}
 %Some authors might use the notation $b_{1+n}$ instead of $b_n$, but the first element is usually going to have a different role than the others. A shorter notation for $b_n(x;x_1,\dots,x_n)$ found in the literature is $x\{x_1,\dots, x_n\}$. Also note that we have used the notation $|x_p|$ for the degree of $x_p$ in $A$. 
@@ -789,9 +839,9 @@ The other factor signis  produced by totalization. This was computed in \Cref{to
 \begin{lem}
 We have
 \begin{equation}\label{bracetot}
-b_j^T(x;x^1,\dots, x^N)_k=\sum_{k_0+k_1+\cdots+k_N=k}(-1)^{\sum_{j=1}^m n_j\sum_{i=0}^{j-1}k_i+\eta}\gamma(x_{k_0};x^1_{k_1},\dots, x^N_{k_N})
+b_j^T(x;x^1,\dots, x^N)_k=\sum_{k_0+k_1+\cdots+k_N=k}(-1)^{\eta+\sum_{j=1}^m n_j\sum_{i=0}^{j-1}k_i}\gamma(x_{k_0};x^1_{k_1},\dots, x^N_{k_N})
 \end{equation}
-for $x=(x_k)_k\in\Tot(\s\OO(N))^{n_0}$ and $x^i=(x^i_k)_k\in\Tot(\s\OO(a_i))^{n_i}$. 
+for $x=(x_k)_k\in\Tot(\s\OO(N))^{n_0}$ and $x^i=(x^i_k)_k\in\Tot(\s\OO(a_i))^{n_i}$, where $\eta$ is defined in the previous lemma. 
 \end{lem}
 %Therefore we only need to compute the sign factor corresponding to totalization. Given $f_{p_0}\in \OO(N)^{q_0}_{p_0}$ and  $g_i\in\OO(a_i)^{q_i}_{p_i}$ for $1\leq i\leq n$, %such that $p_0+p_1+\cdots+p_n=k$, 
 %the factor sign we are looking for is determined by the exponent
@@ -862,17 +912,14 @@ where $\mathrm{COp}$ is the category of operads in chain complexes.
 \end{remark}
 There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^n=0$ for all $k>i$. In our case $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far MURO, RW, SARAH. Under this assumption we may replace all direct products by direct sums.
 
-We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex (See \Cref{equivalent}). We do this explicitly in \Cref{twistedoperad}, but later we will provide another version of this theorem that works for bigraded modules and we will see that the induced twisted complex structure is the same that we give in \Cref{twistedoperad}.
+We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex (See \Cref{equivalent}). We do this explicitly in \Cref{twistedoperad}. However, we also provide another version of this theorem that works for bigraded modules, \Cref{alternative}. In Section \Cref{twistedoperad} we also see that the twisted complex structure induced by \Cref{alternative} is the same that we give in \Cref{twistedoperad}.
 
 With these assumption, by THEOREM we can guarantee the existence of a derived $A_\infty$-algebra structure on $A$ provided that $\Tot(A)$ has an $A_\infty$-algebra structure.
 
-ALTERNATIVE VERSION
-
-SHOW THAT THE  RESULTING TWISTED COMPLEX IS THE SAME
 
 
 
-\begin{propo}
+\begin{propo}\label{derivedmaps}
 Let $A=S\s\OO$ where $\OO$ is an operad horizontally bounded on the right with a derived $A_\infty$-multiplication $m=\sum_{ij}m_{ij}\in\OO$. Let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{n-k}_k$ and let $x_v = Sy_v$ for $v=1,\dots, j$ and $y_v$ be of bidegree $(k_v,n_v-k_v)$. The following maps $M_{ij}$ determine a derived $A_\infty$-algebra structure on $A$.
 %\[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=2}^j n_v\sum_{w=1}^{v-1}k_w+\sum_{v=1}^j(j-v)(n_v-k_v)+\sum_{1\leq v<w\leq j}k_v(a_w+n_w-1)}\sum_lSb_j(m_{il};y_1,\dots, y_j) \]
 
@@ -932,7 +979,7 @@ we have two equivalent descriptions of $A_∞$-algebras in $\tc$.
 \begin{enumerate}[(1)]
 \item A twisted complex $(A, d^A)$ together with a morphism $\calA_∞ → \uEnd_A$ of operads in $\vbc$, which is determined by a family of elements $M_i ∈ \utC(A^{⊗i},A)^{2−i}_0$ for $i ≥ 2$ for which the $A_\infty$-relations holds for $i\geq 2$, where the composition is the one prescribed by the composition morphisms of $\utC$.
 \item A bigraded module $A$ together with a family of elements $M_i ∈ \ubgMod(A^{⊗i},A)^{2−i}_0$ for $i ≥ 1$ for
-which all the $A_\infty$ relations hold, where the composition is the one prescribed by the composition
+which all the $A_\infty$ relations hold REFERENCE, where the composition is the one prescribed by the composition
 morphisms of $\ubgMod$.
 \end{enumerate}
 Since the composition morphism
@@ -940,12 +987,40 @@ in $\ubgMod$ is induced from the one in $\utC$ by forgetting the differential, t
 are equivalent.
 \end{remark}
 
+This equivalence allows us to formulate the following alternative version of \Cref{whitehouse}.
+\begin{corollary}\label{alternative}
+Given a bigraded module $A$ horizontally bounded on the right we have isomorphhisms
+\begin{align*}
+\Hom_{\mathrm{bgOp}}(d\calA_∞,\End_A) &\cong
+\Hom_{\mathrm{bgOp}}(\calA_∞, \uEnd_A)\\
+&\cong \Hom_{\mathrm{bgOp}}(\calA_∞, \uEnd_{\Tot(A)})\\
+&\cong \Hom_{\mathrm{fOp}}(\calA_∞,\underline{\End}_{\Tot(A)}),
+\end{align*}
+where $\mathrm{bgOp}$ is the category of operads of bigraded modules and $\mathrm{fOp}$ is the category of operads of filtered modules. %REFERENCE TO WHAT DEFINITIONS OF THE OPERADS I AM USING
+\end{corollary}
+\begin{proof}
+Let us look at the first isomorphism
+
+\[\Hom_{\mathrm{bgOp}}(\calA_∞, \uEnd_A)\cong \Hom_{\mathrm{bgOp}}(d\calA_∞,\End_A).\]
+
+Let $f:\calA_\infty\to\uEnd_A$ be a map of operads in $\mathrm{bgOp}$. This is equivalent to maps in $\mathrm{bgOp}$
+\[\calA_\infty(v)\to\uEnd_A(v)\]
+for each $v\geq 1$, which are determined by elements $M_v\coloneqq f(\mu_v)\in\uEnd_A(v)$ for $v\geq 1$ of bidegree $(0,2-v)$ satisfying the $A_\infty$-equation with respect to the composition in $\ubgMod$. Moreover, $M_v\coloneqq (\tilde{m}_{0v},\tilde{m}_{1v},\dots)$ where $\tilde{m}_{uv}\coloneqq (M_v)_u:A^{\otimes n}\to A$ is a map of bidegree $(u,2-v-u)$. Since the composition in $\ubgMod$ is the same as in $\utC$, the computation of the $A_\infty$-equation becomes analogous to the computation done in PROP 4.47, showing that the maps $m_{ij}=(-1)^i\tilde{m}_{ij}$ for $i\geq 0$ and $j\geq 0$ define a derived $A_\infty$-algebra structure on $A$.
+
+The second isomorphism
+\[\Hom_{\mathrm{bgOp}}(\calA_∞, \uEnd_A)\cong \Hom_{\mathrm{bgOp}}(\calA_∞, \uEnd_{\Tot(A)})\]
+follows from the bigraded module case of \Cref{inverse}. Finally, the isomorphism
+\[\Hom_{\mathrm{bgOp}}(\calA_∞, \uEnd_{\Tot(A)})\cong \Hom_{\mathrm{fOp}}(\calA_∞,\underline{\End}_{\Tot(A)})\]
+is analogous to the last isomorphism of \Cref{whitehouse}, replacing the quasi-free relation by the full $A_\infty$-algebra relations. 
+\end{proof}
+
 \section{Twisted complex on an operad}\label{twistedoperad}
 In this section we provide a description of the twisted complex structure on an operad $\OO$ with a derived $A_\infty$-multiplication.
 
-\begin{lem}
+\begin{lem}\label{twistedmaps}
 Let $\OO$ be an operad with a derived $A_\infty$-multiplication $m\in\s\OO$. Then $S\s\OO$ becomes a twisted complex with structure maps
-\[M_{i1}(x)= \sum_l (Sb_1(m_{il};S^{-1}x)-(-1)^{\langle x,m_{il}\rangle}Sb_1(S^{-1}x;m_{il})).\]
+\[M_{i1}(x)= \sum_l (Sb_1(m_{il};S^{-1}x)-(-1)^{\langle x,m_{il}\rangle}Sb_1(S^{-1}x;m_{il})),\]
+where $x\in (S\s\OO)^{n-k}_k$ and $\langle x,m_{il}\rangle=ik+(1-i)(n-1-k)$.
 \end{lem}
 \begin{proof}
 
@@ -1006,9 +1081,9 @@ Recall that $m$ being a $dA_\infty$-multiplication means that $\sum_{i+j=u}\sum_
 Let us check now the cancellations with the signs. First, let us check that the terms 
 \[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))\]
 can be added up to vanish. For that, we compute the sign \[\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle=\langle m_{jl}|m_{ik}\rangle+\langle x|m_{ik}\rangle+\langle x|m_{jl}\rangle.\]
-Recall that the braces are defined on the operadic suspension, so that the bidegree of $m_{ik}$ is $(i,1-i)$. Therefore, writing the bidegree of $x$ as $(x_h,x_v)$ and $|x|=x_h+x_v$, the above equals 
-\[ji+(1-i)(1-j)+x_hi+x_v(1-i)+x_hj+x_v(1-j)\equiv 1+i+j + (i+j)x_h+(i+j)x_v\mod 2=\]
-\[1+(i+j)(1+x_h+x_v)=1+u(1+|x|).\]
+Recall that the braces are defined on the operadic suspension, so that the bidegree of $m_{ik}$ is $(i,1-i)$. Therefore, writing the bidegree of $x$ as $(k,n-k)$, so that the total degree is $|x|=n$, the above equals 
+\[ji+(1-i)(1-j)+ki+(n-k)(1-i)+kj+(n-k)(1-j)\equiv 1+i+j + (i+j)k+(i+j)(n-k)\mod 2=\]
+\[1+(i+j)(1+n)=1+u(1+|x|).\]
 Since this sign is constant for all terms $b_1(m_{ik};m_{ij})$ that share the same horizontal degree $i+j=u$, we can rewrite
 \[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))=-(-1)^{u(1+|x|)}b_1(x;(-1)^ib_1(m_{ik};m_{jl})).\]
 Hence, 
@@ -1057,11 +1132,27 @@ Simplifying the signs we get
 \sum_{i+j=u}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))
  +(-1)^{j+\langle x|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})+(-1)^{j}b_2(m_{jl};m_{ik},x)).
 \end{align*}
-By the brace relation and this equals
+By the brace relation and \Cref{sharp} this equals
 \[\sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0.\]
 %For each position of insertion of x we have a 0 map applied to x, so the above sum is indeed equal to 0
 \end{proof}
 
+
+Recall that if $\OO$ is an operad with a derived $A_\infty$-multiplication, there is an $A_\infty$-algebra structure on $B=\Tot(S\s\OO)$ given by maps $M_j:B^{\otimes j}\to B$ induced by braces. We show next that the twisted complex structure induced from the map $M_1$ via \Cref{alternative} is the same as the one we have given above.
+
+\begin{corollary}
+Let $\OO$ be a bigraded operad with a derived $A_\infty$-multiplication and let \[\widetilde{M}_{i1}:S\s\OO\to S\s\OO\] be the arity 1 derived $A_\infty$-algebra maps induced by \Cref{alternative} from \[M_1:\Tot(S\s\OO)\to \Tot(S\s\OO).\]
+Then $\widetilde{M}_{i1}=M_{i1}$, where $M_{i1}$ is defined in \Cref{twistedmaps}.
+\end{corollary}
+\begin{proof}
+Notice that the proof of \Cref{alternative} is essentially the same as the proof \Cref{whitehouse}. This means that the proof of this result is an arity 1 restriction of the proof of \Cref{derivedmaps}. Then we apply \Cref{totsign} to the case $j=1$. Recall that for $x\in (S\s\OO)^{n-k}_{k}$
+\[M_1(x)=b_1^T(m;S^{-1}x)-(-1)^{n-1}b_1^T(S^{-1}x;m).\]
+ In this case, there is no $\mu$ involved. Therefore, introducing here also the final extra sign $(-1)^i$ from the proof of \Cref{derivedmaps}, we get from \Cref{totsign} that
+\[\widetilde{M}_{i1}(x)=(-1)^i\sum_l((-1)^{in+i(n-1)} Sb_1(m_{il};S^{-1}x)-(-1)^{n-1+in+k}Sb_1(S^{-1}x;m_{il})),\] where $b_1$ is the brace on $\s\OO$. Simplifying signs we obtain
+\[\widetilde{M}_{i1}(x)=\sum_l Sb_1(m_{il};S^{-1}x)-(-1)^{\langle  m_{il},x\rangle}Sb_1(m_{il};S^{-1}x))=M_{i1}(x),\]
+
+where $\langle  m_{il},x\rangle=ik+(1-i)(n-1-k)$, as claimed.
+\end{proof}
 %\appendix
 %\renewcommand{\appendixname}{Appendix:}
 
@@ -1070,7 +1161,7 @@ By the brace relation and this equals
 \gdef\thesection{Appendix \Alph{section}}
 
 
-\section{Some proofs and details}
+%\section{Some proofs and details}
 
 
 
