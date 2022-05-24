@@ -318,7 +318,7 @@ is a natural transformation over $\VV$ satisfying the standard unit and associat
 and $μ$ are natural isomorphisms then we say that $F$ is \emph{monoidal over $\VV$}. 
 \end{defin}
 
-\begin{propo}
+\begin{propo}\label{enrichedtrans}
 Let $F,G : \CC → \DD$ be lax functors over $\VV$. Then $F$ and $G$ extend to $\VV$-enriched
 functors
 \[\underline{F},\underline{G} : \uC → \uD\]
@@ -331,12 +331,27 @@ In particular, if $F$ is (lax) monoidal over $\VV$, then $F$ is (lax) monoidal i
 PROP 4.11
 \end{proof}
 \begin{lem}
-INVERSE NATURAL TRANSFORMATION
+Let $F,G:\CC\to\DD$ lax functors over $\VV$ and let $\mu : F\Rightarrow G$ a natural transformation over $\VV$. For every $X\in\CC$ and $Y\in\DD$ there is a map \[\uD(GX,Y)\to\uD(FX,Y)\] that is an isomorphism if $\mu$ is an isomorphism.
 \end{lem}
-\subsubsection{Enriched categories and totalization}
-SAY SOMETHING ABOUT WHERE THE DEFINITIONS COME FROM (WHITEHOUSE), AND ADJUST TO CONVENTIONS, CHECK IF I NEED SOME RESULTS
+\begin{proof}
+By \Cref{enrichedtrans} there is a $\VV$-enriched natural transformation 
+\[\underline{\mu}:\underline{F}\to\underline{G}\]
+whose component \[\underline{\mu}_X:1\to\uD(FX,GX)\] is defined to be the adjoint of $\mu_X:FX\to GX$. The map $\uD(GX,Y)\to\uD(FX,Y)$ is defined as the composite
 
-START WITH SOME SENTENCES ABOUT DEFINING A BUNCH OF USEFUL ENRICHED CATEGORIES
+\begin{equation}\label{enrichedmap}
+\uD(GX,Y)\cong\uD(GX,Y)\otimes 1\xrightarrow{1\otimes\umu_X}\uD(GX,Y)\otimes\uD(FX,GX)\xrightarrow{c}\uD(FX,Y)
+\end{equation}
+where $c$ is the composition map in the enriched setting. 
+
+When $\mu$ is an isomorphism we may analogously define the following map
+
+\[\uD(FX,Y)\cong\uD(FX,Y)\otimes 1\xrightarrow{1\otimes\umui_X}\uD(FX,Y)\otimes\uD(GX,FX)\xrightarrow{c}\uD(GX,Y).\]
+
+We show that this map is the inverse of the map in \Cref{enrichedmap}.
+
+COMM DIAGRAM
+\end{proof}
+\subsubsection{Enriched categories and totalization}
 
 We define here some useful enriched categories and results from WHITEHOUSE. Some of them had to be modified to adjust them to our conventions. 
 \begin{defin}\label{weirdenrichment}
@@ -546,7 +561,7 @@ The proof of in the case of a $A$ beig a twisted complex can be found in LEMMA 4
 \[\uEnd_A →\uEnd_{\Tot(A)}.\]
  The fact that it is an isomorphism in the bounded is analogous to the twisted complex case. 
 \end{proof}
-We are going to construct the inverse in the bounded case explicitly (the construction for the direct map is analogue but here we just need the inverse). We do it for a twisted complex $A$, but it is done similarly for a bigraded module.
+We are going to construct the inverse in the bounded case explicitly followig \Cref{enrichedmap} (the construction for the direct map is analogue but here we just need the inverse). We do it for a twisted complex $A$, but it is done similarly for a bigraded module.
 
 The inverse is given by the composite
 \[\uEnd_{\Tot(A)}(n)=\ufC(\Tot(A)^{\otimes n},\Tot(A))\to \ufC(\Tot(A^{\otimes n}),\Tot(A))\to\utC(A^{\otimes n},A)=\uEnd_A(n) \]
