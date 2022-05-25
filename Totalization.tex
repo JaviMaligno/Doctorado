@@ -349,7 +349,15 @@ When $\mu$ is an isomorphism we may analogously define the following map
 
 We show that this map is the inverse of the map in \Cref{enrichedmap}.
 
-COMM DIAGRAM
+\[
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAdD5gEQAoA4gA1SATQCUXCHgC28AATEQAX1LpMufIRQAmCtTpNW7Lr0EiJU2fFP8AYiOHiVakBmx4CRcvpoMWbIic3PzCYuLyLuoeWkQAzL6GASYhfA7hUW4antokpMQG-sZBtubhVlhycKVhTpnuml66+YVGgcFmYZYc0pU2qelOFVWK9dmxKGQ6rcklqV2SPdbVA45Ci70jNSIOzqrRjbk+cTPFHfYWG8vbpLtjMU3ICSd+bSlm6d2bCkr7WQ+5MgvJJnFQGGBQADm8CIoAAZgAnCAyJA+EA4CBIMgg9rEYb9ZgyZgAfSEmURyKQenRmMQaKK7S4AGMCJDyUiUYhsRikAkcewmezKXSaDzEAAWV6zEB4pZ9FZMNAAC3opKFnMlNKpUrOgpojHoACMYIwAArjJogRgwOE4dVY0W0gCsOsZHBZYDZfwpnIAbI6kJqGexZd84PJBd6OUgXVrEP7+UFQ8tFPjw6YiVg1VHhQmxQB2V0CtOjHOcwtx6nBoKR1w+3kBxAADiLcw9Xrr0ebjYAnK2ZWmM8ws2SyzHGy3EyAmSXfp3hZqxTox4hqWLNcawFBefS3kE+E7nPqsGB2lBpDgIfbEBX1zRN9vEHFd9K+HEj1ajSbzQD2AisJCSp2sep7sOeOCXtuK6TmKCaMCeZ4Xle-Z8DoH4GsaZoWtoID-oBdorrGYp8vBoFBOBkEgChxDoV+WG-kEeFAdeaJirGpGIRByFTnw4p7JQyhAA
+\begin{tikzcd}
+{\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", dotted, bend left]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", dotted] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
+                                                                                     & {\uD(GX,Y)\otimes\uD(GX,GX)} \arrow[lu, "c"] \arrow[lu]                                                  & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes 1} \arrow[ld, "1\otimes 1\otimes \umui_X"] \arrow[rdd, "c\otimes 1"] \arrow[ru, "(1)"', dotted] &                                                                                \\
+                                                                                     & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes \uD(GX,FX)} \arrow[u, "1\otimes c"] \arrow[ld, "c\otimes 1"]          &                                                                                                                                    &                                                                                \\
+{\uD(FX,Y)\otimes\uD(GX,FX)} \arrow[uuu, "c"] \arrow[ruu, "(3)"', dotted, bend left] & {}                                                                                                       &                                                                                                                                    & {\uD(FX,Y)\otimes 1} \arrow[ll, "1\otimes\umui_X"] \arrow[llu, "(2)"', dotted]
+\end{tikzcd}
+\]
 \end{proof}
 \subsubsection{Enriched categories and totalization}
 
