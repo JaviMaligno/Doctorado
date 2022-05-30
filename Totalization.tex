@@ -782,10 +782,13 @@ of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
 \[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}(1^{\otimes r}\otimes m_{pq}\otimes 1^{\otimes t})=0\]
 for all $u\geq 0$ and $v\geq 1$. 
 
+TO BE CONSISTENT WITH THE PREVIOUS ONE, DEFINE IT AS A MAP OF OPERADS AND THEN DO THIS AS A LEMMA?
 
-Similarly, a \emph{derived $A_\infty$ multiplication} on a bigraded operad $\OO$ is an element $m=\sum_{ij}m_{ij}$ where $m_{ij}\in\OO(j)^{2-i-j}_i$ for each $j\geq 1$ such that 
+Similarly, a \emph{derived $A_\infty$-multiplication} on a bigraded operad $\OO$ is an element $m=\sum_{ij}m_{ij}$ where $m_{ij}\in\OO(j)^{2-i-j}_i$ for each $j\geq 1$ such that 
 \[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}\circ_{r+1} m_{pq}=0.\]
 \end{definition}
+
+DEFFINITION OF DERIVED A-INFTY MORPHISM (WITH THE SIGNS I GET FROM STAR)
 \begin{ex}\
 \begin{enumerate}
 \item One can check that, on any derived $A_\infty$-algebra $A$, the maps $d_i=(-1)^{i}m_{i1}$ define a twisted complex structure. This leads to the possibility of defining a derived $A_\infty$-algebra as a twisted complex with some extra structure (see \Cref{equivalent}).
@@ -793,8 +796,16 @@ Similarly, a \emph{derived $A_\infty$ multiplication} on a bigraded operad $\OO$
 \end{enumerate}
 \end{ex}
 
+For bigraded modules $A$ and $B$ we may define the collection $\End^A_B=\{\Hom(A^{\otimes n}, B)\}_{n\geq 1}$ of bigraded modules,  in analogy with the single graded case. Recall that this collection has a left module structure over $\End_B$
+\[\End_B\circ \End^A_B\to \End^A_B\]
+given by composition of maps. Similarly, given a bigraded module $C$ we can define composition maps
+\[\End^B_C\circ \End^A_B\to \End^A_C.\]
+The collection $\End^A_B$ also has an infinitesimal right module structure over $\End_A$
+\[\End^A_B\circ_{(1)}\End_A\to \End^A_B\]
+given by insertion of maps.
+I NEED TO BE SURE HOW TO WORK WITH TOTALIZATION TOGETHER WITH THE ABOVE OPERATIONNS
 
-
+THIS WILL BE INCLUDED IN THE LEMMA ABOUT DERIVED A-INFTY MULT
 From the definition of $\Tot(\s\OO)$, a derived $A_\infty$-multiplication is equivalent to an element $m\in \Tot(\s\OO)$ of degree 1 concentrated in positive arity satisfying $m\star m=0$. From this, it follows from our previous results PREVIOUS ARTICLE that $m$ determines an $A_\infty$-algebra structre on $S\Tot(\s\OO)\cong S\s \Tot(\OO)$ %IT WAS EQUALITY WITH THE ALTERNATIVE OPERATION 
 that can be iterated to define an $A_\infty$-structure on $S\s\End_{S\s \Tot(\OO)}$.%THIS PART ONLY IF I CAN DO THE SAME IN THE DERIVED CASE, which is related to the structure on $S\s \Tot(\OO)$ by a map of $A_\infty$-algebras  $\Phi:S\s \Tot(\OO)\to  S\s\End_{S\s \Tot(\OO)}$.  MAYBE WRITE THIS MORE EXPLICITLY 
 
