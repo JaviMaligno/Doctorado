@@ -22,9 +22,9 @@
 
 
 \section{Introduction}
-We use an operadic totalization inspired by the totalization functor described in WHITEHOUSE to obtain an operation similar to the star operation in RLW and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra.
+We use an operadic totalization inspired by the totalization functor described in \cite{whitehouse} to obtain an operation similar to the star operation in \cite{LRW} and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra.
 
-We start \Cref{background} by collecting some preliminary definitions and results from WHITEHOUSE that we adapt to our conventions. In \Cref{operadic}, we then define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. From this, we obtain in \Cref{sectionbraces} a brace structure from which we can obtain a classical $A_\infty$-algebra. Finally, in \Cref{derivedstructure}, we use THEOREM FROM WHITEHOUSE to show that this structure is equivalent to a derived $A_\infty$-algebra on the suspended bigraded operad.
+We start \Cref{background} by collecting some preliminary definitions and results from \cite{whitehouse} that we adapt to our conventions. In \Cref{operadic}, we then define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. From this, we obtain in \Cref{sectionbraces} a brace structure from which we can obtain a classical $A_\infty$-algebra. Finally, in \Cref{derivedstructure}, we use \cite[Proposition 4.55]{whitehouse} to show that this structure is equivalent to a derived $A_\infty$-algebra on the suspended bigraded operad.
 
 \section{Brackground and conventions}\label{background}
 Let us start by  fixing some notation and conventions. Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. %COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE. INCLUDING DEFINITION OF TWISTED COMPLEX
@@ -35,11 +35,11 @@ Let $\CC$ be a category and let $A$, $B$ be arbitrary
 objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is
 symmetric monoidal closed, then we denote its internal hom-object by $[A,B] ∈ \CC$.
 
-We collect some preliminary definitions. Most of them come from WHITEHOUSE SECTION but we adapt them here to our conventions.
+We collect some preliminary definitions. Most of them come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
 
 \subsection{Filtered Modules and complexes}
 %INCLUSION IS REVERSED
-We collect some definitions about filtered modules and  filtered complexes.
+We collect some definitions about filtered modules and filtered complexes.
 
 \begin{defin}
 A \emph{filtered $R$-module} $(A, F)$ is given by a family of $R$-modules $\{F_pA\}_{p∈\Z}$ indexed by
@@ -149,7 +149,7 @@ said to be \emph{strict} if $f_i = 0$ for all $i > 0$. The \emph{identity} morph
 given by $(1_A)_0(x) = x.$ A morphism $f = \{f_i\}$ is an isomorphism if and only if $f_0$ is an isomorphism of
 bigraded $R$-modules. Indeed, an inverse of $f$ is obtained from an inverse of $f_0$ by solving a triangular system.
 \end{defin}
-Denote by $\tc$ the category of twisted complexes.The following construction endows $\tc$ with a symmetric monoidal structure. See LEMMA 3.3 for a proof.
+Denote by $\tc$ the category of twisted complexes. The following construction endows $\tc$ with a symmetric monoidal structure. See \cite[Lemma 3.3]{whitehouse} for a proof.
 \begin{lem}\label{tensortwisted}
 The category $(\tc,⊗,R)$ is symmetric monoidal, where the monoidal structure is given
 by the bifunctor
@@ -163,7 +163,7 @@ defined by
 \[a ⊗ b\mapsto (−1)^{\langle a,b\rangle}b ⊗ a.\]
 \end{lem}
 
-The internal hom on bigraded modules can be extended to twisted complexes via the following lemma whose proof is in LEMMA 3.4.
+The internal hom on bigraded modules can be extended to twisted complexes via the following lemma whose proof is in \cite[Lemma 3.4]{whitehouse}.
 \begin{lem}\label{di} Let $A,B$ be twisted complexes. For $f ∈ [A,B]^v_u$, setting
 \[(d_if) := (−1)^{i(u+v)}d^B_if − (−1)^vfd^A_i,\]
 for $i ≥ 0$, endows $[A,B]^∗_∗$ with the structure of a twisted complex.
@@ -172,7 +172,7 @@ for $i ≥ 0$, endows $[A,B]^∗_∗$ with the structure of a twisted complex.
 %UNDERLINED CATEGORIES?
 \subsection{Totalization}\label{total}
 %DEFINITION WITH FILTRATION, DIFFERENTIAL, MONOIDALITY
-Here we recall the definition of the totalization functor from WHITEHOUSE and some of the structure that it comes with.
+Here we recall the definition of the totalization functor from \cite{whitehouse} and some of the structure that it comes with.
 
 %CHOOSE NOTATION, T OR TOT
 
@@ -183,7 +183,7 @@ The \emph{totalization} $\Tot(A)$ of a bigraded $R$-module $A = \{A^j_i \}$ the 
 The \emph{column filtration} of $\Tot(A)$ is the filtration given by \[F_p\Tot(A)^n \coloneqq\prod_{i\geq p} A^{n-i}_i .\]
 \end{defin}
 
-Given a twisted complex $(A, d_m)$, define a map $d : \Tot(A) → \Tot(A)$ of degree 1 by letting
+Given a twisted complex $(A, d_m)$, define a map $d : \Tot(A) → \Tot(A)$ of degree $1$ by letting
 \[d(a)_j \coloneqq \sum_{m≥0}(−1)^{mn}d_m(a_{j-m}),\]
 for $a = (a_i)_{i∈\Z} ∈ \Tot(A)^n$,
 where $a_i ∈ A^{n-i}_i$ denotes the $i$-th component of $a$, and $d(a)_j$ denotes the $j$-th component of $d(a)$. Note
@@ -201,7 +201,7 @@ The assignments $(A, d_m) \mapsto (\Tot(A), d, F)$, where $F$ is the column filt
 and $f \mapsto \Tot(f)$ define a functor $\Tot : \tc \to \fc$ which is an isomorphism of categories when restricted to its image.
 \end{thm}
 \begin{proof}
-See THEOREM 3.8.
+See \cite[Theorem 3.8]{whitehouse}.
 \end{proof}
 For a filtered complex of the form $(\Tot(A),d,F)$, where $A = \{A^j_i \}$ is a bigraded $R$-module, we can recover the twisted complex structure on  $A$ as follows. For all $m ≥ 0$, let
 $d_m : A → A$ be the morphism of bidegree $(m,1-m)$ defined by 
@@ -242,7 +242,7 @@ When restricted to the bounded case, $\Tot : \bgmod^b
 strong symmetric monoidal functors.
 \end{propo}
 \begin{proof}
-See PROPOSITION 3.11.
+See \cite[Proposition 3.11]{whitehouse}.
 \end{proof}
 
 In the bounded case, the inverse
@@ -274,7 +274,7 @@ where $a_{(l)}\in (A_{(m)})_{k_l}^{n_l-k_l}$.
 
 %WHAT I REALLY NEED IS THEE DEFINITION OF ENRICHED MU AND I CAN DEFINE IT EXPLICITELY IN THE LEMMA THAT IT IS USED (OR WITH AN EXTRA LEMMA IN WHICH I ALSO SHOW THE INVERSE) USING LEMMA 4.35
 
-We collect some notions and results about enriched categories from RIEHL and WHITEHOUSE that we will need as a categorical setting for our results on derived $A_\infty$-algebras.
+We collect some notions and results about enriched categories from \cite{riehl} and \cite[\S 4.2]{whitehouse} that we will need as a categorical setting for our results on derived $A_\infty$-algebras.
 
 \begin{defin}
 Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a monoidal category over $\VV$ if we have an external tensor product $∗ :\VV × \CC → \CC$ such that we have natural isomorphisms:
@@ -291,7 +291,7 @@ bijections
 Under this assumption we get a $\VV$-enriched category $\uC$ with the same objects as $\CC$ and with hom-objects given by $\uC (−,−)$. The unit
 morphism $u_A : 1 → \uC (A,A)$ corresponds to the identity map in $\CC$ under the adjunction and the
 composition morphism is given by the adjoint of the composite
-\[(\\uC (B,C) ⊗ \uC (A,B)) ∗ A
+\[(\uC (B,C) ⊗ \uC (A,B)) ∗ A
 \cong \uC (B,C) ∗ (\uC (A,B) ∗ A)
 \xrightarrow{id∗ev_{AB}}
 \uC (B,C) ∗ B
@@ -310,8 +310,7 @@ given by the adjoint of the composite
 
 \begin{defin}
 Let $\CC$ and $\DD$ be monoidal categories over $\VV$. A \emph{lax functor over $\VV$} consists of a functor $F : \CC → \DD$ together with a natural transformation \[ν_F : − ∗_\DD F(−) ⇒ F(− ∗_\CC −)\]
-which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. (See [Rie14,
-Proposition 10.1.5] REFERENCE) for explicit diagrams stating the coherence axioms.) If $ν_F$ is a natural isomorphism
+which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. (See \cite[Proposition 10.1.5]{riehl} for explicit diagrams stating the coherence axioms.) If $ν_F$ is a natural isomorphism
 we say $F$ is a \emph{functor over $\VV$}.
 Let $F,G : \CC → \DD$ be lax functors over $\VV$. A \emph{natural transformation over $\VV$} is a natural transformation
 $μ : F ⇒ G$ such that for any $C ∈ \VV$ and for any $X ∈ \CC$ we have
@@ -333,7 +332,7 @@ transformation
 In particular, if $F$ is (lax) monoidal over $\VV$, then $F$ is (lax) monoidal in the enriched sense.
 \end{propo}
 \begin{proof}
-PROP 4.11
+See \cite[Proposition 4.11]{whitehous}.
 \end{proof}
 \begin{lem}
 Let $F,G:\CC\to\DD$ lax functors over $\VV$ and let $\mu : F\Rightarrow G$ a natural transformation over $\VV$. For every $X\in\CC$ and $Y\in\DD$ there is a map \[\uD(GX,Y)\to\uD(FX,Y)\] that is an isomorphism if $\mu$ is an isomorphism.
@@ -364,11 +363,20 @@ We show that this map is the inverse of the map in \Cref{enrichedmap}.
 \end{tikzcd}
 }
 \]
+
+In the diagram, $\alpha_X$ is adjoint to $id_X:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. 
 \end{proof}
-In the diagram, $\alpha_X$ is adjoint to $id_X:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ is the inverse of $\umu_X$. Finally, diagram (5) commutes because we are composing with an identity map. 
+
+\begin{lem}\label{4.15}
+The category $\fc$ is monoidal over $\vbc$. By restriction, $\fmod$ is monoidal over $\bgmod$.
+\end{lem}
+\begin{proof}
+See \cite[Lemma 4.15]{whitehouse} for the proof and more details.
+\end{proof}
+
 \subsubsection{Enriched categories and totalization}
 
-We define here some useful enriched categories and results from WHITEHOUSE. Some of them had to be modified to adjust them to our conventions. 
+We define here some useful enriched categories and results from \cite[\S 4.3 and 4.4]{whitehouse}. Some of them had to be modified to adjust them to our conventions. 
 \begin{defin}\label{weirdenrichment}
 Let $A,B,C$ be bigraded modules. We denote by $\underline{\mathpzc{bgMod}_R}(A,B)$ the bigraded module given by
 \[\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u+j}\]
@@ -389,7 +397,7 @@ where $\langle f, d^A\rangle$ is the scalar product for the bidegrees and $c$ is
 \[(δ(f))_m :=\sum_{i+j=m}(−1)^{i|f|}d^B_if_j − (−1)^{v+i}f_id^A_j.\]
 \end{defin}
 
-The following lemma justifies the above definition. For a proof see LEMMA 4.18
+The following lemma justifies the above definition. For a proof see \cite[Lemma 4.18]{whitehouse}.
 
 \begin{lem}
 The following equations hold
@@ -446,7 +454,7 @@ The monoidal structure of $\utC$ is given by the following map of vertical bicom
 The monoidal structure of $\ubgMod$ is given by the restriction of this map.
 \end{lem}
 \begin{proof}
-See LEMMA 4.27
+See \cite[Lemma 4.27]{whitehouse}
 \end{proof}
 
 
@@ -493,7 +501,7 @@ The monoidal structure of $\ufC$ is given by the following map of vertical bicom
 where $f$ has bidegree $(u, v)$.
 \end{defin}
 \begin{proof}
-See LEMMA 4.36
+See \cite[Lemma 4.36]{whitehouse}.
 \end{proof}
 
 
@@ -504,7 +512,7 @@ given by
 \[f\mapsto \tilde{f}: a\mapsto (k\mapsto f(a\otimes k)).\]
 \end{lem}
 \begin{proof}
-The proof is included in the proof of LEMMA 4.35.
+The proof is included in the proof of \cite[Lemma 4.35]{whitehouse}.
 \end{proof}
 We now define an enriched version of the totalization functor. %CHECK TOT, OR JUST OMIT IT BECAUSE I DON'T NEED IT
 \begin{defin}\label{enrichedtot}
@@ -526,7 +534,7 @@ where the last map is a projection and multiplication with the indicated sign.
 %I HAVE TO KEEP J+U SO THAT THE DEGREES MATCH  (ALTERNATIVELY KEEP V-U BUT I DON'T LIKE THAT)
 \end{defin} 
 
-\begin{thm}
+\begin{thm}\label{4.39}
 Let $A$, $B$ be twisted complexes. The assignments $\mathfrak{Tot}(A) := \Tot(A)$ and
 \begin{align*}
 \mathfrak{Tot}_{A,B} : \utC(A,B)& → \ufC(\Tot(A),\Tot(B))\\
@@ -536,16 +544,16 @@ define a $\vbc$-enriched functor $\mathfrak{Tot} : \utC → \ufC$ which restrict
  which also restricts to an isomorphism onto its image.
 \end{thm}
 \begin{proof}
-THEOREM 4.39
+See \cite[Theorem 4.39]{whitehouse}.
 \end{proof}
 
-\begin{propo}
+\begin{propo}\label{4.40}
 The enriched functors
 \[\mathfrak{Tot} : \ubgMod  → \ufMod ,\hspace{1cm} \mathfrak{Tot} : \utC → \ufC\]
 are lax symmetric monoidal in the enriched sense and when restricted to the bounded case they are strong symmetric monoidal in the enriched sense.
 \end{propo}
 \begin{proof}
-PROP 4.40
+See \cite[Proposition 4.40]{whitehouse}.
 \end{proof}
 
 We now define an enriched endomorphism operad. %I THINK I ONLY NEED THIS DEFINITION AND NOT THE PREVIOUS OR THE NEXT LEMMA
@@ -563,7 +571,7 @@ $F : \CC → \DD$ be a lax monoidal functor over $\VV$ . Then for any $X ∈ \CC
 
 \end{propo}
 \begin{proof}
-The proof is in PROP 4.46 
+The proof is in \cite[Proposition 4.46]{whitehouse}. 
 \end{proof}
 
 \begin{lem}\label{inverse}
@@ -572,7 +580,7 @@ Let $A$ be a twisted complex. Consider $\uEnd_A(n)=\utC(A^{\otimes n},A)$ and $\
 which is an isomorphism of operads if $A$ is bounded. The same holds true if $A$ is just a bigraded module. In that case, we use the enriched operads $\uEnd_A(n)=\ubgMod(A^{\otimes n},A)$ and $\uEnd_{\Tot(A)}(n)=\ufMod(\Tot(A)^{\otimes n},\Tot(A))$.
 \end{lem}
 \begin{proof}
-The proof of in the case of a $A$ beig a twisted complex can be found in LEMMA 4.54. For the bigraded module case, we are going to do it analogously. First, by THEOREM 4.39 we know that $\mathfrak{Tot}:\ubgMod\to\ufMod$ is $\bgmod$-enriched. In fact, by LEMMA 4.37 it is lax monoidal in the enriched sense. In addition, both $\ubgMod$ and $\ufMod$ are monoidal over $\bgmod$ by LEMMA 4.15. With all of this we may apply \Cref{morphism} to $\mathfrak{Tot}:\ubgMod\to\ufMod$ to obtain the desired map
+The proof of in the case of a $A$ beig a twisted complex can be found in \cite[Lemma 4.54]{whitehouse}. For the bigraded module case, we are going to do it analogously. First, by \Cref{4.39} we know that $\mathfrak{Tot}:\ubgMod\to\ufMod$ is $\bgmod$-enriched. In fact, by \Cref{4.40} it is lax monoidal in the enriched sense. In addition, both $\bgmod$ and $\fmod$ are monoidal over $\bgmod$. In the case of $\bgmod$ it is in the obvious way and for $\fmod$ is given by \Cref{4.15}. With all of this we may apply \Cref{morphism} to $\mathfrak{Tot}:\ubgMod\to\ufMod$ to obtain the desired map
 \[\uEnd_A →\uEnd_{\Tot(A)}.\]
  The fact that it is an isomorphism in the bounded is analogous to the twisted complex case. 
 \end{proof}
@@ -708,11 +716,11 @@ This operad has an insertion map explicitly given by
 \end{equation}
 for $a=(a_i)_i\in \Tot(\s\OO(n))^{n_1}$ and $b=(b_j)_j\in \Tot(\s\OO(m))^{n_2}$. As usual, denote \[a\star b=\sum_{r=0}^{m-1}a\star_{r+1}b.\]
 
-This star operation is precisely the star operation from RWL, i.e the convolution operation on $\Hom((dAs)^!, \End_A)$ (see the reference for details). 
+This star operation is precisely the star operation from \cite[\S 5.1]{LRW}, i.e the convolution operation on $\Hom((dAs)^!, \End_A)$ (see \cite{LRW} for details). 
 
 DESCRIBE DERIVED AINFTY MORPHISMS AND COMPOSITION WITH THIS %(WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
 
-Before continuing, let us show a Lemma that allows us to work only with the single graded operadic suspension if needed.
+Before continuing, let us show a lemma that allows us to work only with the single graded operadic suspension if needed.
 \begin{lem}\label{extrasign}
 For a bigraded operad $\OO$ we have an isomorphism $\Tot(\s\OO)\cong \s \Tot(\OO)$, where the suspension on the left hand side is the bigraded version and on the right hand side is the single graded version. 
 \end{lem}
@@ -916,7 +924,7 @@ for $x=(x_k)_k\in\Tot(\s\OO(N))^{n_0}$ and $x^i=(x^i_k)_k\in\Tot(\s\OO(a_i))^{n_
 \section{Derived $A_\infty$-structure on an operad}\label{derivedstructure}
 
 
-We are going to use the following theorem from WHITEHOUSE (CITE) to show that there is a derived $A_\infty$-structure on $A=S\s\OO$. Note that $\Tot(SB)=S\Tot(B)$ for any bigraded module $B$, where $SB$ is the vertical suspension of $B$ and $S\Tot(B)$ is the suspension of $\Tot(B)$ as graded modules.
+We are going to use the following theorem from \cite{whitehouse} to show that there is a derived $A_\infty$-structure on $A=S\s\OO$. Note that $\Tot(SB)=S\Tot(B)$ for any bigraded module $B$, where $SB$ is the vertical suspension of $B$ and $S\Tot(B)$ is the suspension of $\Tot(B)$ as graded modules.
 
 \begin{thm}\label{whitehouse}
 Let $(A, d^A) ∈ \tc^b$ be an twisted complex horizontaly bounded on the right and $A$ its underlying
@@ -932,7 +940,7 @@ denotes the subset of morphisms which send $μ_{i1}$ to $d^A_i$. We view $\mathc
 horizontal degree zero or as an operad in filtered complexes with trivial filtration.
 \end{thm}
 \begin{proof}
-PROP 4.55
+See \cite[Poposition 4.55]{whitehouse}.
 \end{proof}
 
 \begin{remark}
@@ -940,11 +948,11 @@ According to \Cref{filterversion}, the last isomorphism can be replaced by
 \[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\cong \Hom_{\mathrm{COp}}(\calA_∞,\End_{\Tot(A)}),\]
 where $\mathrm{COp}$ is the category of operads in chain complexes. 
 \end{remark}
-There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^n=0$ for all $k>i$. In our case $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far MURO, RW, SARAH. Under this assumption we may replace all direct products by direct sums.
+There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^n=0$ for all $k>i$. In our case $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far (some of them are in \cite[Remark 6.5]{muro}, \cite{RW}, and \cite[\S 5]{women}). Under this assumption we may replace all direct products by direct sums.
 
 We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex (See \Cref{equivalent}). We do this explicitly in \Cref{twistedoperad}. However, we also provide another version of this theorem that works for bigraded modules, \Cref{alternative}. In Section \Cref{twistedoperad} we also see that the twisted complex structure induced by \Cref{alternative} is the same that we give in \Cref{twistedoperad}.
 
-With these assumption, by THEOREM we can guarantee the existence of a derived $A_\infty$-algebra structure on $A$ provided that $\Tot(A)$ has an $A_\infty$-algebra structure.
+With these assumption, by \Cref{whitehouse} we can guarantee the existence of a derived $A_\infty$-algebra structure on $A$ provided that $\Tot(A)$ has an $A_\infty$-algebra structure.
 
 
 
@@ -1035,7 +1043,7 @@ Let us look at the first isomorphism
 
 Let $f:\calA_\infty\to\uEnd_A$ be a map of operads in $\mathrm{bgOp}$. This is equivalent to maps in $\mathrm{bgOp}$
 \[\calA_\infty(v)\to\uEnd_A(v)\]
-for each $v\geq 1$, which are determined by elements $M_v\coloneqq f(\mu_v)\in\uEnd_A(v)$ for $v\geq 1$ of bidegree $(0,2-v)$ satisfying the $A_\infty$-equation with respect to the composition in $\ubgMod$. Moreover, $M_v\coloneqq (\tilde{m}_{0v},\tilde{m}_{1v},\dots)$ where $\tilde{m}_{uv}\coloneqq (M_v)_u:A^{\otimes n}\to A$ is a map of bidegree $(u,2-v-u)$. Since the composition in $\ubgMod$ is the same as in $\utC$, the computation of the $A_\infty$-equation becomes analogous to the computation done in PROP 4.47, showing that the maps $m_{ij}=(-1)^i\tilde{m}_{ij}$ for $i\geq 0$ and $j\geq 0$ define a derived $A_\infty$-algebra structure on $A$.
+for each $v\geq 1$, which are determined by elements $M_v\coloneqq f(\mu_v)\in\uEnd_A(v)$ for $v\geq 1$ of bidegree $(0,2-v)$ satisfying the $A_\infty$-equation with respect to the composition in $\ubgMod$. Moreover, $M_v\coloneqq (\tilde{m}_{0v},\tilde{m}_{1v},\dots)$ where $\tilde{m}_{uv}\coloneqq (M_v)_u:A^{\otimes n}\to A$ is a map of bidegree $(u,2-v-u)$. Since the composition in $\ubgMod$ is the same as in $\utC$, the computation of the $A_\infty$-equation becomes analogous to the computation done in \cite[Prop 4.47]{whitehouse}, showing that the maps $m_{ij}=(-1)^i\tilde{m}_{ij}$ for $i\geq 0$ and $j\geq 0$ define a derived $A_\infty$-algebra structure on $A$.
 
 The second isomorphism
 \[\Hom_{\mathrm{bgOp}}(\calA_∞, \uEnd_A)\cong \Hom_{\mathrm{bgOp}}(\calA_∞, \uEnd_{\Tot(A)})\]
