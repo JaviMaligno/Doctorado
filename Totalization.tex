@@ -90,7 +90,7 @@ are morphisms of bigraded $R$-modules of bidegree $(0, 0)$. It is symmetric mono
 tensor product.
 
 We introduce the following scalar product notation for bidegrees: for $x$, $y$ of bidegree $(x_1, x_2)$, $(y_1, y_2)$
-respectively, we let $\langle x, y\rangle = x_1y_1 + x-2y_2$.
+respectively, we let $\langle x, y\rangle = x_1y_1 + x_2y_2$.
 
 The symmetry isomorphism
 \[τ_{A⊗B} : A ⊗ B → B ⊗ A\]
@@ -245,7 +245,17 @@ strong symmetric monoidal functors.
 See \cite[Proposition 3.11]{whitehouse}.
 \end{proof}
 
-In the bounded case, the inverse
+\begin{lem}\label{mui}
+In the conditions of \Cref{monoidal} for the bounded case, the inverse
+\[\mu^{-1}:\Tot(A_{(1)}\otimes\cdots\otimes A_{(m)})\to \Tot(A_{(1)})\otimes\cdots\otimes \Tot(A_{(m)})\]
+is given on pure tensors (for notational convenience) as
+\begin{equation}\label{mu}
+\mu^{-1}(a_{(1)}\otimes\cdots\otimes a_{(m)})=(-1)^{\sum_{j=2}^m n_j\sum_{i=1}^{j-1}k_i}a_{(1)}\otimes\cdots\otimes a_{(m)},
+\end{equation}
+where $a_{(l)}\in (A_{(m)})_{k_l}^{n_l-k_l}$.
+\end{lem}
+\begin{proof}
+For the case $m=2$,
 \[\mu^{-1}:\Tot(A\otimes B)\to \Tot(A)\otimes \Tot(B)\]
 is computed explicitly as follows.
 Let  $c\in\Tot(A\otimes B)^n$. By definition, we have
@@ -257,13 +267,8 @@ Here we introduced superscripts to indicate the vertical degree, which unlike in
 Therefore, $\mu^{-1}$ can be defined as
 \[\mu^{-1}(c)=\sum_{n_1+n_2=n}\left(\sum_{k_1}(-1)^{k_1n_2}a_{k_1}\right)\otimes\left(\sum_{k_2}b_{k_2}\right).\]
 
-Inductively, one can deduce that the natural transformation 
-\[\mu^{-1}:\Tot(A_{(1)}\otimes\cdots\otimes A_{(m)})\to \Tot(A_{(1)})\otimes\cdots\otimes \Tot(A_{(m)})\]
-is given on pure tensors (for notational convenience) as
-\begin{equation}\label{mu}
-\mu^{-1}(a_{(1)}\otimes\cdots\otimes a_{(m)})=(-1)^{\sum_{j=2}^m n_j\sum_{i=1}^{j-1}k_i}a_{(1)}\otimes\cdots\otimes a_{(m)},
-\end{equation}
-where $a_{(l)}\in (A_{(m)})_{k_l}^{n_l-k_l}$.
+The general case follows inductively.
+\end{proof}
 
 \subsection{Enriched categories and enriched totalization}
 \subsubsection{Monoidal categories over  a base}
@@ -354,8 +359,8 @@ When $\mu$ is an isomorphism we may analogously define the following map
 We show that this map is the inverse of the map in \Cref{enrichedmap}.
 
 \[
-\adjustbox{scale=1,center}{%
-\begin{tikzcd}[column sep = 1pt]
+\adjustbox{scale=0.76,center}{%
+\begin{tikzcd}[column sep = 0pt, row sep = 20pt]
 {\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
                                                                                      & {\uD(GX,Y)\otimes\uD(GX,GX)} \arrow[lu, "c"] \arrow[lu]                                                  & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes 1} \arrow[ld, "1\otimes 1\otimes \umui_X"] \arrow[rdd, "c\otimes 1"] \arrow[ru, "(1)"', phantom] &                                                                                \\
                                                                                      & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes \uD(GX,FX)} \arrow[u, "1\otimes c"] \arrow[ld, "c\otimes 1"]          &                                                                                                                                    &                                                                                \\
@@ -364,7 +369,19 @@ We show that this map is the inverse of the map in \Cref{enrichedmap}.
 }
 \]
 
-In the diagram, $\alpha_X$ is adjoint to $id_X:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. 
+%
+%\[
+%\adjustbox{scale=1,center}{%
+%\begin{tikzcd}[column sep = 1pt]
+%{\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
+%                                                                                     & {\uD(GX,Y)\otimes\uD(GX,GX)} \arrow[lu, "c"] \arrow[lu]                                                  & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes 1} \arrow[ld, "1\otimes 1\otimes \umui_X"] \arrow[rdd, "c\otimes 1"] \arrow[ru, "(1)"', phantom] &                                                                                \\
+%                                                                                     & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes \uD(GX,FX)} \arrow[u, "1\otimes c"] \arrow[ld, "c\otimes 1"]          &                                                                                                                                    &                                                                                \\
+%{\uD(FX,Y)\otimes\uD(GX,FX)} \arrow[uuu, "c"] \arrow[ruu, "(3)"', phantom, bend left] & {}                                                                                                       &                                                                                                                                    & {\uD(FX,Y)\otimes 1} \arrow[lll, "1\otimes\umui_X"] \arrow[llu, "(2)"', phantom]
+%\end{tikzcd}
+%}
+%\]
+
+In the diagram, $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. 
 \end{proof}
 
 \begin{lem}\label{4.15}
@@ -584,8 +601,17 @@ The proof of in the case of a $A$ beig a twisted complex can be found in \cite[L
 \[\uEnd_A →\uEnd_{\Tot(A)}.\]
  The fact that it is an isomorphism in the bounded is analogous to the twisted complex case. 
 \end{proof}
+
 We are going to construct the inverse in the bounded case explicitly followig \Cref{enrichedmap} (the construction for the direct map is analogue but here we just need the inverse). We do it for a twisted complex $A$, but it is done similarly for a bigraded module.
 
+\begin{lem}\label{composition}
+In the conditions of \Cref{inverse} for the bounded case, the inverse is given by the map
+\begin{align*}
+\uEnd_{\Tot(A)}&\to\uEnd_A\\
+f & \mapsto \Tot^{-1}(f\circ \mu^{-1}).
+\end{align*}
+\end{lem}
+\begin{proof}
 The inverse is given by the composite
 \[\uEnd_{\Tot(A)}(n)=\ufC(\Tot(A)^{\otimes n},\Tot(A))\to \ufC(\Tot(A^{\otimes n}),\Tot(A))\to\utC(A^{\otimes n},A)=\uEnd_A(n) \]
 
@@ -593,13 +619,22 @@ The second map is given by $\mathfrak{Tot}^{-1}$ defined in \Cref{enrichedtot}. 
 \begin{align*}
 \ufC(\Tot(A)^{\otimes n},\Tot(A))\cong R\otimes\ufC(\Tot(A)^{\otimes n},\Tot(A))\\
 \xrightarrow{\underline{\mu}^{-1}\otimes 1}\ufC(\Tot(A^{\otimes n}),\Tot(A)^{\otimes n})\otimes\ufC(\Tot(A)^{\otimes n},\Tot(A))\\
-\xrightarrow{c}\ufC(\Tot(A^{\otimes n}),\Tot(A)).
+\xrightarrow{c}\ufC(\Tot(A^{\otimes n}),\Tot(A)), 
 \end{align*}
-The map $\underline{\mu}^{-1}$ is the adjoint of $\mu^{-1}$ under the bijection from \Cref{adjunction}. Explicitly,
+where $c$ is the composition in $\ufC$, which is defined in \Cref{ufMod}. The map $\underline{\mu}^{-1}$ is the adjoint of $\mu^{-1}$ under the bijection from \Cref{adjunction}. Explicitly,
 \begin{align*}
 \underline{\mu}^{-1}:R &\to \ufC(\Tot(A^{\otimes n}),\Tot(A)^{\otimes n})\\
-1 &\mapsto (c\mapsto \mu^{-1}(c))
+1 &\mapsto (a\mapsto \mu^{-1}(a)).
 \end{align*}
+Putting all together we get the map 
+\begin{align*}
+\uEnd_{\Tot(A)}&\to\uEnd_A\\
+f & \mapsto \Tot^{-1}(c(f, \mu^{-1})).
+\end{align*}
+Since the total degree of $\mu^{-1}$ is 0, composition reduces to $c(f,\mu^{-1})=f\circ \mu^{-1}$ and we get the desired map.
+\end{proof}
+
+
 
 
 
@@ -629,16 +664,19 @@ More generally, operadic composition $\bar{\gamma}$ is defined by the composite
 \Tot(\OO(N))\otimes \Tot(\OO(a_1))\otimes\cdots\otimes \Tot(\OO(a_N))\xrightarrow{\mu} \Tot(\OO(N)\otimes \OO(a_1)\otimes\cdots\otimes \OO(a_N)) \xrightarrow{\Tot(\gamma)} \Tot(\OO(\sum a_i)),
 \end{equation*}
 
-This map can be computed explicitly by iteration of the insertion $\bar{\circ}$. %For simplicity, we abuse of notation by omitting sums
+This map can be computed explicitly by iteration of the insertion $\bar{\circ}$, giving the following.  %For simplicity, we abuse of notation by omitting sums
 
-\begin{equation}%\label{totcomp}
+\begin{lem}\label{totcomp}
+The operadic composition $\bar{\gamma}$ on $\Tot(\OO)$ is given by
+\begin{equation*}%\label{totcomp}
 \bar{\gamma}(x;x^1,\dots, x^N)_k=\sum_{k_0+k_1+\cdots+k_N=k}(-1)^{\varepsilon}\gamma(x_{k_0};x^1_{k_1},\dots, x^N_{k_N})
-\end{equation}
-where 
-\begin{equation}\label{totcomp}
+\end{equation*}
+for $x=(x_k)_k\in\Tot(\OO(N))^{n_0}$ and $x^i=(x^i_k)_k\in\Tot(\OO(a_i))^{n_i}$, where 
+\begin{equation}
 \varepsilon=\sum_{j=1}^m n_j\sum_{i=0}^{j-1}k_i
 \end{equation}
-for $x=(x_k)_k\in\Tot(\OO(N))^{n_0}$ and $x^i=(x^i_k)_k\in\Tot(\OO(a_i))^{n_i}$. 
+and $\gamma$ is the operadic composition on $\OO$.
+\end{lem}
 Notice that the sign is precisely the same appearing in \Cref{mu}.
 %MAYBE I SHOULD WRITE THINGS LIKE SUMS BUT I THINK IT MAKES SENSE TO WRITE IT LIKE THIS BECAUSE I KNOW THIS COMES FROM A BIGRADED MODULE
 %where $a\in\OO(n)^k_i$, $b\in\OO(m)^j_l$ and $\circ_r$ is the insertion map in $\OO$.
@@ -961,7 +999,7 @@ where $\mathrm{COp}$ is the category of operads in chain complexes.
 \end{remark}
 There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^n=0$ for all $k>i$. In our case $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far (some of them are in \cite[Remark 6.5]{muro}, \cite{RW}, and \cite[\S 5]{women}). Under this assumption we may replace all direct products by direct sums.
 
-We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex (See \Cref{equivalent}). We do this explicitly in \Cref{twistedoperad}. However, we also provide another version of this theorem that works for bigraded modules, \Cref{alternative}. In Section \Cref{twistedoperad} we also see that the twisted complex structure induced by \Cref{alternative} is the same that we give in \Cref{twistedoperad}.
+We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex (See \Cref{equivalent}). We do this explicitly in \Cref{twistedoperad}, but it also follows from \Cref{mi1}. We also provide another version of this theorem that works for bigraded modules, \Cref{alternative}. 
 
 With these assumption, by \Cref{whitehouse} we can guarantee the existence of a derived $A_\infty$-algebra structure on $A$ provided that $\Tot(A)$ has an $A_\infty$-algebra structure.
 
@@ -1014,7 +1052,7 @@ According to the isomorphism
 \end{equation}
  the maps $M_{ij}=(-1)^{ij}\widetilde{M}_{ij}$ define an $A_\infty$-structure on $S\s\OO$. Therefore we now just have to work out the signs. Notice that $n_v$ is the total degree of $y_v$ as an element of $\s\OO$ and recall that $n$ is the total degree of $x_1\otimes\cdots\otimes x_j\in A^{\otimes j}$. Therefore, $\varepsilon$ can be written as
 \[\varepsilon= i(n-j)+\sum_{1\leq v<w\leq j}k_vn_w.\]
-The sign produced by $\mu^{-1}$, as we saw in \Cref{mu}, is precisely determined by the exponent 
+The sign produced by $\mu^{-1}$, as we saw in \Cref{mui}, is precisely determined by the exponent 
 \[\sum_{w=2}^jn_w\sum_{v=1}^{w-1}k_v=\sum_{1\leq v<w\leq j}k_vn_w,\]so this sign cancels the right hand summand of $\varepsilon$. This cancellation was expected since this sign comes from $\mu^{-1}$ and operadic composition is defined using $\mu$ (\Cref{insertion}). %In fact, both signs come from $\mu$, so the cancellation was expected. 
 Finally, the sign $(-1)^{i(n-j)}$ left from $\varepsilon$ cancels with $(-1)^{in}$ in \Cref{totsign} and $(-1)^{ij}$ from the isomorphism (\ref{firstiso}). This means that we only need to consider signs produced by vertical shifts. This calculation has been done previously in PREVIOUS ARTICLE and as we claimed the result is 
 \[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=1}^j(j-v)(n_v-k_v)}\sum_lSb_j(m_{il};y_1,\dots, y_j). \]
@@ -1063,8 +1101,22 @@ follows from the bigraded module case of \Cref{inverse}. Finally, the isomorphis
 is analogous to the last isomorphism of \Cref{whitehouse}, replacing the quasi-free relation by the full $A_\infty$-algebra relations. 
 \end{proof}
 
+\begin{corollary}\label{mi1}
+Let $\OO$ be a bigraded operad with a derived $A_\infty$-multiplication and let \[M_{i1}:S\s\OO\to S\s\OO\] be the arity 1 derived $A_\infty$-algebra maps induced by \Cref{alternative} from \[M_1:\Tot(S\s\OO)\to \Tot(S\s\OO).\]
+Then \[M_{i1}(x)= \sum_l (Sb_1(m_{il};S^{-1}x)-(-1)^{\langle x,m_{il}\rangle}Sb_1(S^{-1}x;m_{il})),\]
+where $x\in (S\s\OO)^{n-k}_k$ and $\langle x,m_{il}\rangle=ik+(1-i)(n-1-k)$.
+\end{corollary}
+\begin{proof}
+Notice that the proof of \Cref{alternative} is essentially the same as the proof \Cref{whitehouse}. This means that the proof of this result is an arity 1 restriction of the proof of \Cref{derivedmaps}. Then we apply \Cref{totsign} to the case $j=1$. Recall that for $x\in (S\s\OO)^{n-k}_{k}$
+\[M_1(x)=b_1^T(m;S^{-1}x)-(-1)^{n-1}b_1^T(S^{-1}x;m).\]
+ In this case, there is no $\mu$ involved. Therefore, introducing here also the final extra sign $(-1)^i$ from the proof of \Cref{derivedmaps}, we get from \Cref{totsign} that
+\[\widetilde{M}_{i1}(x)=(-1)^i\sum_l((-1)^{in+i(n-1)} Sb_1(m_{il};S^{-1}x)-(-1)^{n-1+in+k}Sb_1(S^{-1}x;m_{il})),\] where $b_1$ is the brace on $\s\OO$. Simplifying signs we obtain
+\[\widetilde{M}_{i1}(x)=\sum_l Sb_1(m_{il};S^{-1}x)-(-1)^{\langle  m_{il},x\rangle}Sb_1(m_{il};S^{-1}x))=M_{i1}(x),\]
+
+where $\langle  m_{il},x\rangle=ik+(1-i)(n-1-k)$, as claimed.
+\end{proof}
 \section{Twisted complex on an operad}\label{twistedoperad}
-In this section we provide a description of the twisted complex structure on an operad $\OO$ with a derived $A_\infty$-multiplication.
+In this section we provide a description of the twisted complex structure on an operad $\OO$ with a derived $A_\infty$-multiplication. More precisely, we show by hand that the maps found in \Cref{mi1} define a twisted complex structure on $S\s\OO$.
 
 \begin{lem}\label{twistedmaps}
 Let $\OO$ be an operad with a derived $A_\infty$-multiplication $m\in\s\OO$. Then $S\s\OO$ becomes a twisted complex with structure maps
