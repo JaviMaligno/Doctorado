@@ -245,6 +245,14 @@ strong symmetric monoidal functors.
 See \cite[Proposition 3.11]{whitehouse}.
 \end{proof}
 
+\begin{remark}\label{heuristic}
+There is a certain heuristic to obtain the sign appearing in the definition of $\mu$ in \Cref{monoidal}. In the bounded case, we can write \[\Tot(A)=\bigoplus_i A_i^{n-i}\]
+and direct sum conmutes with tensor products. Therefore, we have
+\[\Tot(A)\otimes\Tot(B)=(\bigoplus A_i^{n-i})\otimes \Tot(B)\cong \bigoplus_i  (A_i^{n-i}\otimes \Tot(B)).\]
+
+In the isomorphism we can interpret that each $A_i^{n-i}$ passes by $\Tot(B)$. Since $\Tot(B)$ is total graded, we can think of this degree as being the horizontal degree, while having 0 vertical degree. Thus, using the Koszul sign rule we would get precisely the sign from \Cref{monoidal}. This explanation is just an intuition, and opens the door for other possible sign choices: what if we decide to distribute $\Tot(A)$ over $\bigoplus_i B_i^{n-i}$ instead, or if we consider the total degree as the vertical degree? These alternatives lead to valid definitions of $\mu$, and we will explore the consequences of some of them in \Cref{othermu}.
+\end{remark}
+
 \begin{lem}\label{mui}
 In the conditions of \Cref{monoidal} for the bounded case, the inverse
 \[\mu^{-1}:\Tot(A_{(1)}\otimes\cdots\otimes A_{(m)})\to \Tot(A_{(1)})\otimes\cdots\otimes \Tot(A_{(m)})\]
@@ -759,9 +767,9 @@ This star operation is precisely the star operation from \cite[\S 5.1]{LRW}, i.e
 DESCRIBE DERIVED AINFTY MORPHISMS AND COMPOSITION WITH THIS %(WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
 
 Before continuing, let us show a lemma that allows us to work only with the single graded operadic suspension if needed.
-\begin{lem}\label{extrasign}
+\begin{propo}\label{extrasign}
 For a bigraded operad $\OO$ we have an isomorphism $\Tot(\s\OO)\cong \s \Tot(\OO)$, where the suspension on the left hand side is the bigraded version and on the right hand side is the single graded version. 
-\end{lem}
+\end{propo}
 \begin{proof}
  Note that we may identify each element $a=(a_k\otimes e^n )_k\in\Tot(\s\OO(n))$ with the element $a=(a_k)_k\otimes e^n\in\s\Tot(\OO(n))$. Thus, for an element $(a_k)_k\in \Tot(\s\OO(n))$ the isomorphism is given by
 \begin{align*}
@@ -787,16 +795,16 @@ as desired.
 \end{proof}
 
 
-\begin{remark}
-IS THIS WORTH?
+\begin{remark}\label{othermu}
 
-There exist other possible ways of totalizing operads by varying the natural transformation $\mu$. For instance, we can choose the totalization functor $\Tot'$ which is the same as $\Tot$ but  with $\mu$ defined in such a way that the insertion on $\Tot'\OO$ is defined by \[(a\hat{\circ}b)_k=\sum_{k_1+k_2=k}(-1)^{k_2n_1}a_{k_1}\circ b_{k_2}.\] 
+
+As we mentioned in \Cref{heuristic}, there exist other possible ways of totalizing by varying the natural transformation $\mu$. For instance, we can choose the totalization functor $\Tot'$ which is the same as $\Tot$ but with a natural transformation $\mu'$ defined in such a way that the insertion on $\Tot'(\OO)$ is defined by \[(a\hat{\circ}b)_k=\sum_{k_1+k_2=k}(-1)^{k_2n_1}a_{k_1}\circ b_{k_2}.\] 
 
 This is also a valid approach for our purposes and there is simply a sign difference, but we have chosen our convention to be consistent with other conventions, like the derived $A_\infty$-equation. However, let us mention some differences and relations between $\Tot$ and $\Tot'$ . %There are of course many other possible conventions MAYBE NOT MENTION THE EXACT DIFFRENES, JUST STOP HERE BECAUSE THERE ARE MORE CONVENTIONS AND I DON'T THINK I WILL TREAT ALL OF THEM IN DETAIL, BUT THE DIFFERENCE BETWEEN IDENTITY AND ISOMORPHISM MIGHT BE WORTH MENTION
 
-First of all, $\Tot$ and $\Tot'$ are isomorphic. The isomorphism $f:\Tot(\OO)\cong \Tot'\OO$ given by $f((a_k))=((-1)^{k(n_1-k)}a_k)$. MAYBE ALL OF THEM ARE ISOMORPHIC, THINK OF THIS USING JUST THAT A TOTALIZATION IS A LAX SYMMETRIC MONOIDAL FUNCTOR FROM BIGRADED MODULES TO GRADED MODULES %, MAYBE ALSO USE THAT THE UNDERLYING MODULE IS ALWAYS THE SAME SO THAT THE ONLY MODIFICATION IS THE INSERTION
+First of all, $\Tot$ and $\Tot'$ are isomorphic. The isomorphism $f:\Tot(\OO)\cong \Tot'\OO$ given by $f((a_k))=((-1)^{k(n_1-k)}a_k)$. %MAYBE ALL OF THEM ARE ISOMORPHIC, THINK OF THIS USING JUST THAT A TOTALIZATION IS A LAX SYMMETRIC MONOIDAL FUNCTOR FROM BIGRADED MODULES TO GRADED MODULES %, MAYBE ALSO USE THAT THE UNDERLYING MODULE IS ALWAYS THE SAME SO THAT THE ONLY MODIFICATION IS THE INSERTION
 
-It can be verified that $\Tot'(\s\OO)=\s \Tot'(\OO)$. With the original totalization we have a non identity isomorphism given by \Cref{extrasign}. %We will use this isomorphism later.
+It can also be verified that $\Tot'(\s\OO)=\s \Tot'(\OO)$. With the original totalization we have a non identity isomorphism given by \Cref{extrasign}. Similar relations can be found among the other alternatives mentioned in \Cref{heuristic}. %We will use this isomorphism later.
 
 %POSSIBLY FILL IN SOME DETAILS OF THESE ISOMORPHISMS
 
@@ -813,7 +821,7 @@ It can be verified that $\Tot'(\s\OO)=\s \Tot'(\OO)$. With the original totaliza
 SHOULD I INCLUDE THE DEFINITION OF THE DERIVED A INFINITY OPERAD (POSSIBLY SEVERAL VERSIONS DEPENDING ON THE UNDERLYING STRUCTURE) HERE OR LEAVE IT IN INTRO CHAPTER?
 
 %DEFINE THE OPERAD,BOTH FREE WITH A DIFFERENTIAL AND ALSO WITH ALL THE DIFFERENTIALS INSIDE
-  \begin{definition}
+  \begin{defin}
   Using the notation in \cite{RW}, a \emph{derived $A_\infty$-algebra} on a $(\Z,\Z)$-bigraded $R$-module $A$ consist of a family of $R$-linear maps 
 \[m_{ij}:A^{\otimes j}\to A\]
 of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
@@ -821,10 +829,7 @@ of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
 for all $u\geq 0$ and $v\geq 1$. 
 
 TO BE CONSISTENT WITH THE PREVIOUS ONE, DEFINE IT AS A MAP OF OPERADS AND THEN DO THIS AS A LEMMA?
-
-Similarly, a \emph{derived $A_\infty$-multiplication} on a bigraded operad $\OO$ is an element $m=\sum_{ij}m_{ij}$ where $m_{ij}\in\OO(j)^{2-i-j}_i$ for each $j\geq 1$ such that 
-\[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}\circ_{r+1} m_{pq}=0.\]
-\end{definition}
+\end{defin}
 
 DEFFINITION OF DERIVED A-INFTY MORPHISM (WITH THE SIGNS I GET FROM STAR)
 \begin{ex}\
@@ -841,10 +846,48 @@ given by composition of maps. Similarly, given a bigraded module $C$ we can defi
 The collection $\End^A_B$ also has an infinitesimal right module structure over $\End_A$
 \[\End^A_B\circ_{(1)}\End_A\to \End^A_B\]
 given by insertion of maps.
-I NEED TO BE SURE HOW TO WORK WITH TOTALIZATION TOGETHER WITH THE ABOVE OPERATIONNS
 
-THIS WILL BE INCLUDED IN THE LEMMA ABOUT DERIVED A-INFTY MULT
-From the definition of $\Tot(\s\OO)$, a derived $A_\infty$-multiplication is equivalent to an element $m\in \Tot(\s\OO)$ of degree 1 concentrated in positive arity satisfying $m\star m=0$. From this, it follows from our previous results PREVIOUS ARTICLE that $m$ determines an $A_\infty$-algebra structre on $S\Tot(\s\OO)\cong S\s \Tot(\OO)$ %IT WAS EQUALITY WITH THE ALTERNATIVE OPERATION 
+Similarly to the single graded case, we may describe derived $\infty$-morphisms in terms of the above operations.
+
+\begin{lem}\label{dinfinitymorphism}
+A derived $\infty$-morphism of $A_\infty$-algebras $A\to B$ with respective structure maps $m^A$ and $m^B$ is equivalent to an element $f\in\Tot(\s\End^A_B)$ of degree 0 concentrated in positive arity such that \[\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),\] 
+
+where \[\lambda:\Tot(\mathfrak{s}\End_B)\circ \Tot(\mathfrak{s}\End^A_B)\to \Tot(\mathfrak{s}\End^A_B)\] is induced by the left module struncture on $\End^A_B$ and \[\rho:\Tot(\mathfrak{s}\End_B)\circ_{(1)}\Tot(\mathfrak{s}\End^A_B)\to \Tot(\mathfrak{s}\End^A_B)\] is induced by the right infinitesimal module structure on $\End^A_B$. 
+
+In addition, the composition of $\infty$-morphisms is given by the natural composition \[\Tot(\s\End^B_C)\circ \Tot(\s\End^A_B)\to \Tot(\s\End^A_C).\]
+\end{lem}
+\begin{proof}
+Since $f_j=(f_{ij})_i\in\Tot(\s\End^A_B(j))$ is of degree $0$, we have that that $f_{ij}$ is of bidegree $(i,1-i-j)$. Thus, the equation
+
+\[\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),\] 
+
+coincides with the one defining $\infty$-morphisms of $A_\infty$-algebras (\Cref{dinftymorphism}) up to sign. The signs that appear in the above equation are obtained in a similar way to that on $\gamma^\star$ (see \Cref{bracetot}). Thus, it is enough to plug in the sign provided by \Cref{bracetot} the corresponding degrees and arities to obtain the desired result. The composition of derived $\infty$-morphisms follows similarly.
+\end{proof}
+
+In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition can be written in terms of operadic composition as $f\star m=\tilde\gamma^\star(m\circ f)$. 
+
+
+\begin{defin}
+A \emph{derived $A_\infty$-multiplication} on a bigraded operad $\OO$ is a map of operads $d\calA_\infty\to\OO$.
+\end{defin}
+
+\begin{lem}\label{mstar}
+A derived $A_\infty$-multiplication on a bigraded operad $\OO$ is equivalent to an element $m\in\Tot(\s\OO)$ of degree 1 concentrated in positive arity such that $m\star m = 0$. 
+%$m=\sum_{ij}m_{ij}$ where $m_{ij}\in\OO(j)^{2-i-j}_i$ for each $j\geq 1$ such that 
+%\[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}\circ_{r+1} %m_{pq}=0.\]
+\end{lem}
+\begin{proof}
+A derived $A_\infty$-multiplication on $\OO$ is by definition a map 
+\[f:d\calA_\infty\to\OO.\]
+Since $\calA_\infty$ is generated by elements $\mu_{ij}$ of bidegree $(i,2-i-j)$, such a map is determined by the elements $m_{ij}=f(\mu_{ij})\in\OO^{2-i-j}_i$. Consider $m_j = (m_{ij})_i\in\Tot(\s\OO(j))$. We have that $\deg(m_j)=1$ for all $j$. Therefore, let $m=m_1+m_2+\cdots\in\Tot(\s\OO)$. We may check that $m\star m=0$. For that we just need to check \Cref{star}. On arity $n$, this amounts to compute 
+\[(m\star m)_k = \sum_{r=0}^{n-1}\underset{j+q=n-1}{\sum_{i+p=k}}(-1)^{rp+j-r-1+ pj}m_{ij}\circ_{r+1}m_{pq}=0.\]
+The above expression vanishes precisely because the elements $m_{ij}$ satisfy the derived $A_\infty$-equation.
+
+Conversely, let $m\in\Tot(\s\OO)$ of degree 1, is concentrated in positive arity and satisfying $m\star m=0$. We can split $m$ into its arity and horizontal degree components as $m=\sum_{i,j}m_{ij}$. As we have seen, the fact that $m\star m=0$ is equivalent to the elements $m_{ij}$ satisfying the derived $A_\infty$-equation, and therefore, a map $f:d\calA_\infty\to\OO$ is determined by $f(\mu_{ij})=m_{ij}$, which are of bidegree $(i,2-i-j)$. 
+\end{proof}
+
+
+From \Cref{mstar} and our previous results PREVIOUS ARTICLE, it follows that $m$ determines an $A_\infty$-algebra structre on $S\Tot(\s\OO)\cong S\s \Tot(\OO)$ %IT WAS EQUALITY WITH THE ALTERNATIVE OPERATION 
 that can be iterated to define an $A_\infty$-structure on $S\s\End_{S\s \Tot(\OO)}$.%THIS PART ONLY IF I CAN DO THE SAME IN THE DERIVED CASE, which is related to the structure on $S\s \Tot(\OO)$ by a map of $A_\infty$-algebras  $\Phi:S\s \Tot(\OO)\to  S\s\End_{S\s \Tot(\OO)}$.  MAYBE WRITE THIS MORE EXPLICITLY 
 
 The goal now is showing that this $A_\infty$-structure on $S\Tot(\s\OO)$ is equivalent to a derived $A_\infty$-structure on $S\s \OO$ and compute the structure maps explicitly. For this, we need a filtered version of $A_\infty$-algebras.
@@ -1006,13 +1049,13 @@ With these assumption, by \Cref{whitehouse} we can guarantee the existence of a 
 
 
 
-\begin{propo}\label{derivedmaps}
-Let $A=S\s\OO$ where $\OO$ is an operad horizontally bounded on the right with a derived $A_\infty$-multiplication $m=\sum_{ij}m_{ij}\in\OO$. Let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{n-k}_k$ and let $x_v = Sy_v$ for $v=1,\dots, j$ and $y_v$ be of bidegree $(k_v,n_v-k_v)$. The following maps $M_{ij}$ determine a derived $A_\infty$-algebra structure on $A$.
+\begin{thm}\label{derivedmaps}
+Let $A=S\s\OO$ where $\OO$ is an operad horizontally bounded on the right with a derived $A_\infty$-multiplication $m=\sum_{ij}m_{ij}\in\OO$. Let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{n-k}_k$ and let $x_v = Sy_v$ for $v=1,\dots, j$ and $y_v$ be of bidegree $(k_v,n_v-k_v)$. The following maps $M_{ij}$ for $j\geq 2$ determine a derived $A_\infty$-algebra structure on $A$.
 %\[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=2}^j n_v\sum_{w=1}^{v-1}k_w+\sum_{v=1}^j(j-v)(n_v-k_v)+\sum_{1\leq v<w\leq j}k_v(a_w+n_w-1)}\sum_lSb_j(m_{il};y_1,\dots, y_j) \]
 
 %THINGS CANCEL, INCLUDE CALCULATION (THE SIGN FROM MU CANCELS THE SIGN FROM EPSILON BECAUSE IT ALSO COMES FROM MU, JUST LEAVING THE PART CORRESPONDING TO M-IL). SINCE THE ELEMNT IS FROM SO ITS VERTICAL DEGREE INCLUDES ARITY -1
 \[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=1}^j(j-v)(n_v-k_v)}\sum_lSb_j(m_{il};y_1,\dots, y_j). \]
-\end{propo}
+\end{thm}
 Note that we abuse of notation and identify $x_1\otimes\cdots\otimes x_j$ with an element of $\Tot(A^{\otimes j})$ with only one non-zero component. For a general element, extend linearly.
 
 \begin{proof}
