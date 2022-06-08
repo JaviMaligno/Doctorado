@@ -66,7 +66,7 @@
 
 %-----------------------------------------------------------
 
-\title{What are derived $A_\infty$-structures}
+\title{What are derived $A_\infty$-structures?}
 \author{Javier Aguilar Mart\'in}
 \institute{University of Kent}
 \date{}
@@ -119,23 +119,23 @@
 %\end{frame}
 %}
 
-\begin{frame}
-INTRO: ASS TO AINFTY TO DAINFTY
-
-ASSOCIATIVITY, NON ASSOCIATIVITY, SOMETHING IN BETWEEN WHERE WE CAN CONTROL THE LACK OF ASSOCIATIVITY
-
-A PATH BETWEEN THE TWO WAYS OF MULTIPLYING 3 ELEMENTS (THIS IS AN  INTUITION FOR HOMOTOPY) TRANSLATE TO ALGEBRA IN TERMS OF BOUNDARY (I WILL HAVE TO CLEAR THAT THE BOUNDARY MAP IS THE BRACKET, NOT D1 ITSELF)
-
-WE CALL M3 THE WHOLE SEGMENT (MULTIPLICATION) AND TAKE BOUNDARRY
-
-PENTAGON (MUST BE FILLED TO HAVE A BOUNDARY) TO PATHS AND HOMOTOPY IN BETWEEN ORIENTATION FOR SIGNS
-
-DIMENSION VS DEGREE
-
-THEN ACTUAL DEFINITIONS (PROBABLY IN TERMS OF BOUNDARIES, AND THEN DEFINING BOUNDARIES IN TERMS OF D1), MAYBE SHOW BASIC CASES RECALLING THE PICTURES
-
-UNIQUENESS THEOREMS, FIELD ASSUMPTION, DERIVED
-\end{frame}
+%\begin{frame}
+%INTRO: ASS TO AINFTY TO DAINFTY
+%
+%ASSOCIATIVITY, NON ASSOCIATIVITY, SOMETHING IN BETWEEN WHERE WE CAN CONTROL THE LACK OF ASSOCIATIVITY
+%
+%A PATH BETWEEN THE TWO WAYS OF MULTIPLYING 3 ELEMENTS (THIS IS AN  INTUITION FOR HOMOTOPY) TRANSLATE TO ALGEBRA IN TERMS OF BOUNDARY (I WILL HAVE TO CLEAR THAT THE BOUNDARY MAP IS THE BRACKET, NOT D1 ITSELF)
+%
+%WE CALL M3 THE WHOLE SEGMENT (MULTIPLICATION) AND TAKE BOUNDARRY
+%
+%PENTAGON (MUST BE FILLED TO HAVE A BOUNDARY) TO PATHS AND HOMOTOPY IN BETWEEN ORIENTATION FOR SIGNS
+%
+%DIMENSION VS DEGREE
+%
+%THEN ACTUAL DEFINITIONS (PROBABLY IN TERMS OF BOUNDARIES, AND THEN DEFINING BOUNDARIES IN TERMS OF D1), MAYBE SHOW BASIC CASES RECALLING THE PICTURES
+%
+%UNIQUENESS THEOREMS, FIELD ASSUMPTION, DERIVED
+%\end{frame}
 \section{Introduction}
 \begin{frame}
 \frametitle{Generalizations of associativity}
@@ -196,20 +196,110 @@ Associative algebras $\Rightarrow$ $A_\infty$-algebras $\Rightarrow$ Derived $A_
 \section{Intuition}
 \begin{frame}
 \frametitle{Measuring the lack of associativity}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.4754147032867557,3.0232148286639604) rectangle (19.120035850521916,5.479981492497846);
+\draw (2.597746585817424,4.85720404521118) node[anchor=north west] {$a(bc)$};
+\draw (4.531591708240773,4.808857917150597) node[anchor=north west] {$(ab)c$};
+\draw<2-> (3.,4.)-- (5.,4.);
+\draw<2-> (3,3.7406400196404) node[anchor=north west] {$m_3(a,b,c)$};
+\draw<3-> [->] (3.,4.) -- (4.132736151740957,4.);
+\begin{scriptsize}
+\draw [fill=black] (3.,4.) circle (2.5pt);
+\draw [fill=black] (5.,4.) circle (2.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\begin{itemize}
+\item<4-> Geometrically, $\partial(m_3(a,b,c))=\{a(bc),(ab)c\}$.
+\item<5-> Algebraically, $\partial(m_3(a,b,c))= (ab)c-a(bc)$, or
+\[\partial(m_3(a,b,c))=m_2(m_2(a,b), c)-m_2(a, m_2(b,c)).\]
+\end{itemize}
+%IMAGINE PRODUCTS AS POINTS IN THE SPACE, START CALLING IT M2(X,Y)?
 
-IMAGINE PRODUCTS AS POINTS IN THE SPACE, START CALLING IT M2(X,Y)?
+%SEVERAL SLIDES: DISJOINT POINT, POINTS JOINED BY A PATH, CALL IT M3 (THE BOUNDARY OF M3 IS THE 2 POINTS), CHOOSE ORIETATION (THE BOUNDARY IS THE DIFFERENCE OF THE POINTS)
 
-SEVERAL SLIDES: DISJOINT POINT, POINTS JOINED BY A PATH, CALL IT M3 (THE BOUNDARY OF M3 IS THE 2 POINTS), CHOOSE ORIETATION (THE BOUNDARY IS THE DIFFERENCE OF THE POINTS)
-
-PROBABLY INCLUDE TREES, WHEN A NODE HAS N BRANCHES IT IS MN
+%PROBABLY INCLUDE TREES, WHEN A NODE HAS N BRANCHES IT IS MN
 \end{frame}
 
 \begin{frame}
-PENTAGON, DIRECTION OF PATHS, ORIENTATION OF PENTAGON, SIGNS
-
-MENTION THAT IT CAN BE GENERALIZED TO HIGHER DIMENSIONS
+%PENTAGON, DIRECTION OF PATHS, ORIENTATION OF PENTAGON, SIGNS
+\definecolor{zzttqq}{rgb}{0.6,0.2,0.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.3275591973205874,-0.38685809569094237) rectangle (9.456589431026222,4.804555737079);
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (2.,1.) -- (4.,1.) -- (4.618033988749895,2.9021130325903064) -- (3.,4.077683537175253) -- (1.3819660112501053,2.9021130325903073) -- cycle;
+\draw [color=zzttqq] (2.,1.)-- (4.,1.);
+\draw [color=zzttqq] (4.,1.)-- (4.618033988749895,2.9021130325903064);
+\draw [color=zzttqq] (4.618033988749895,2.9021130325903064)-- (3.,4.077683537175253);
+\draw [color=zzttqq] (3.,4.077683537175253)-- (1.3819660112501053,2.9021130325903073);
+\draw [color=zzttqq] (1.3819660112501053,2.9021130325903073)-- (2.,1.);
+\draw (2.2,4.8) node[anchor=north west] {$(a(bc))d$};
+\draw (4.605831960418,3.3) node[anchor=north west] {$((ab)c)d$};
+\draw (-0.287131707673,3.3) node[anchor=north west] {$(ab)(cd)$};
+\draw (0.3,1.1) node[anchor=north west] {$a(b(cd))$};
+\draw (4.0835012940154,1.1) node[anchor=north west] {$a((bc)d)$};
+\draw<2-> (3.,2.)-- (3.,2.5);
+\draw<2-> (3.,2.5)-- (2.5003101320434795,2.823227149181719);
+\draw<2-> (3.,2.5)-- (2.8259485989935587,2.836252687859722);
+\draw<2-> (3.,2.5)-- (3.1320487579266336,2.8297399185207204);
+\draw<2-> (3.,2.5)-- (3.4186106088427035,2.8167143798427174);
+\draw<2-> (2.7051847,1.8788257123772178) node[anchor=north west] {$m_4$};
+\draw<2-> (4.252245084234906,3.598246700522905)-- (4.258757853573909,3.9694745528459943);
+\draw<2-> (4.258757853573909,3.9694745528459943)-- (4.5778835511849865,4.177883171694044);
+\draw<2-> (4.258757853573909,3.9694745528459943)-- (4.0633747734038606,4.164857633016041);
+\draw<2-> (4.0633747734038606,4.164857633016041)-- (3.8289150771998033,4.314651327813078);
+\draw<2-> (4.0633747734038606,4.164857633016041)-- (4.050349234725857,4.360240713186088);
+\draw<2-> (4.0633747734038606,4.164857633016041)-- (4.245732314895905,4.314651327813078);
+\draw<2-> (5.00121355822009,1.357854047906367)-- (5.00121355822009,1.7355946695684576);
+\draw<2-> (5.00121355822009,1.7355946695684576)-- (4.708138937965018,1.9440032884165077);
+\draw<2-> (5.00121355822009,1.7355946695684576)-- (5.00121355822009,2.1003097525525454);
+\draw<2-> (5.00121355822009,2.1003097525525454)-- (4.851419863423053,2.315231140739597);
+\draw<2-> (5.00121355822009,2.1003097525525454)-- (5.1249561756611195,2.295692832722592);
+\draw<2-> (5.00121355822009,1.7355946695684576)-- (5.307313717153164,1.9505160577555094);
+\draw<2-> (3.0213316791636062,-0.2312616708100148)-- (3.014818909824605,0.19206833622508687);
+\draw<2-> (3.014818909824605,0.19206833622508687)-- (2.7152315202305317,0.459091879124151);
+\draw<2-> (3.014818909824605,0.19206833622508687)-- (3.3209190687576795,0.4460663404461479);
+\draw<2-> (3.3209190687576795,0.4460663404461479)-- (3.1125104499096286,0.7521664993792214);
+\draw<2-> (3.3209190687576795,0.4460663404461479)-- (3.327431838096681,0.7717048073962262);
+\draw<2-> (3.3209190687576795,0.4460663404461479)-- (3.5228149182667288,0.7391409607012183);
+\draw<2-> (1.712265042024287,3.4940423910988803)-- (1.7057522726852854,3.897834090116977);
+\draw<2-> (1.7057522726852854,3.897834090116977)-- (1.4061648830912123,4.132293786321034);
+\draw<2-> (1.4061648830912123,4.132293786321034)-- (1.1261158015141441,4.3407024051690835);
+\draw<2-> (1.4061648830912123,4.132293786321034)-- (1.4973436538372347,4.3732662518640915);
+\draw<2-> (1.7057522726852854,3.897834090116977)-- (1.7187778113632886,4.197421479711049);
+\draw<2-> (1.7057522726852854,3.897834090116977)-- (1.9923141236013553,4.145319324999036);
+\draw<2-> (1.0023731840731138,1.3057518931943544)-- (1.0088859534121155,1.6900052841954467);
+\draw<2-> (1.0088859534121155,1.6900052841954467)-- (0.6181197930720201,2.028669289823528);
+\draw<2-> (1.0088859534121155,1.6900052841954467)-- (1.,2.);
+\draw<2-> (1.0088859534121155,1.6900052841954467)-- (1.2824222656501822,2.002618212467522);
+\draw<2-> (1.2824222656501822,2.002618212467522)-- (1.1326285708531456,2.341282218095603);
+\draw<2-> (1.2824222656501822,2.002618212467522)-- (1.4387287297862204,2.315231140739597);
+\draw<2-> (3.,4.077683537175253)-- (4.618033988749895,2.9021130325903064);
+\draw<2-> (4.618033988749895,2.9021130325903064)-- (4.,1.);
+\draw<2-> (4.,1.)-- (2.,1.);
+\draw<2-> (2.,1.)-- (1.3819660112501053,2.9021130325903073);
+\draw<2-> (1.3819660112501053,2.9021130325903073)-- (3.,4.077683537175253);
+\draw<3-> [->] (3.,4.077683537175253) -- (3.895997820398156,3.4267030156558835);
+\draw<3-> [->] (4.618033988749895,2.9021130325903064) -- (4.263241770003597,1.8101748618369442);
+\draw<3-> [->] (4.,1.) -- (2.8910762923835747,1.);
+\draw<3-> [->] (3.,4.077683537175253) -- (2.1179720645146554,3.4368527311563817);
+\draw<3-> [->] (1.3819660112501053,2.9021130325903073) -- (1.7339911627499194,1.8186910191477048);
+\draw<4-> [shift={(3.0017933711466016,3.376812542996852)}] plot[domain=-4.688583954199619:0.02083032003621599,variable=\t]({1.*0.27361383422126806*cos(\t r)+0.*0.27361383422126806*sin(\t r)},{0.*0.27361383422126806*cos(\t r)+1.*0.27361383422126806*sin(\t r)});
+\draw<4-> [->] (3.,3.65) -- (3.15,3.65);
+\begin{scriptsize}
+\draw [fill=black] (2.,1.) circle (2.5pt);
+\draw [fill=black] (4.,1.) circle (2.5pt);
+\draw [fill=black] (4.618033988749895,2.9021130325903064) circle (2.5pt);
+\draw [fill=black] (3.,4.077683537175253) circle (2.5pt);
+\draw [fill=black] (1.3819660112501053,2.9021130325903073) circle (2.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+%MENTION THAT IT CAN BE GENERALIZED TO HIGHER DIMENSIONS
 \end{frame}
-
+\begin{frame}
+ \begin{align*}
+\partial(m_4)=&m_2(m_3(a,b,c), d)-m_3(m_2(a,b), c, d)\\
+&+m_3(a, m_2(b,c), d)-m_3(a, b, m_2(c,d))+m_2(a, m_3(b,c,d)).
+\end{align*}
+\end{frame}
 \section{Algebra interlude}
 \begin{frame}
 \frametitle{Dimension vs degree}
@@ -231,12 +321,12 @@ MENTION THAT IT CAN BE GENERALIZED TO HIGHER DIMENSIONS
 \begin{frame}
 \frametitle{$A_\infty$-algebras}
 \begin{defi}
-An $A_\infty$-\emph{algebra} $A$ is a vector space over a field $k$ equipped with a family of ``multiplications'' $m_n:A^{\otimes n}\to A$ of degree $i-2$ for $n\geq 2$ satisfying the relation
+An $A_\infty$-\textbf{algebra} $A$ is a vector space over a field $k$ equipped with a family of ``multiplications'' $m_n:A^{\times n}\to A$ of degree $i-2$ for $n\geq 2$ and a boundary operator $\partial$ satisfying the relation
 
-\[\partial(m_n)=\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes s})\] %we are composing every map with itself
+\[\partial(m_n)=\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(id^{ r}, m_s, id^{ s})\] %we are composing every map with itself
 \end{defi}
 
-I CAN SAY $A$ IS A CHAIN COMPLEX SO THAT DELTA CAN BE DEFINED, OR DEFINE THIS AS SATISFFYING THAT DLTA IS A DIFFERNTIAL AND AVOID M1 (OR  SIMPLY SAY THAT IT COMES WITH DELTA)
+%I CAN SAY $A$ IS A CHAIN COMPLEX SO THAT DELTA CAN BE DEFINED, OR DEFINE THIS AS SATISFFYING THAT DLTA IS A DIFFERNTIAL AND AVOID M1 (OR  SIMPLY SAY THAT IT COMES WITH DELTA)
 \end{frame}
 
 
@@ -245,19 +335,19 @@ I CAN SAY $A$ IS A CHAIN COMPLEX SO THAT DELTA CAN BE DEFINED, OR DEFINE THIS AS
 
 \begin{frame}
 \frametitle{Some particular cases}
-MAYBE AVOID TENSOR PRODUCTS AND WRITE EVERYTHING AS COMPONENTS
+%MAYBE AVOID TENSOR PRODUCTS AND WRITE EVERYTHING AS COMPONENTS
 
-USE BLACKBOARD TO BETTER DESCRIBE WITH PICTURES (OR INCLUDE THEM BEFORE)
+%USE BLACKBOARD TO BETTER DESCRIBE WITH PICTURES (OR INCLUDE THEM BEFORE)
 \begin{itemize}
 \item<1-> $\partial(m_2)=0$ (the boundary of a point is empty).
-\item<2-> $\partial(m_3)=m_2(m_2\otimes 1)-m_2(1\otimes m_2)$.
+\item<2-> $\partial(m_3)=m_2(m_2, id)-m_2(id, m_2)$.
 \begin{itemize}
 \item<3-> An associative algebra is an $A_\infty$-algebra with $\partial=0$ and $m_n=0$ for $n>2$.
-\item<3-> If we only require $m_n=0$ for $n>2$ we say that $A$ is a \textbf{dg-algebra}. %this not just a subproduct, it  is very important
+\item<4-> If we only require $m_n=0$ for $n>2$ we say that $A$ is a \textbf{dg-algebra}. %this not just a subproduct, it  is very important
 \end{itemize}
-\item<4-> The pentagon relation \begin{align*}
-\partial(m_4)=&m_2(m_3\otimes 1)-m_3(m_2\otimes 1\otimes 1)\\
-&+m_3(1\otimes m_2\otimes 1)-m_3(1\otimes 1\otimes m_2)+m_2(1\otimes m_3).
+\item<5-> The pentagon relation \begin{align*}
+\partial(m_4)=&m_2(m_3, id)-m_3(m_2, id, id)\\
+&+m_3(id, m_2, id)-m_3(id, id, m_2)+m_2(id, m_3).
 \end{align*}
 \end{itemize}
 \end{frame}
@@ -289,9 +379,9 @@ We would like to extend this result to a ground ring $k$ that is not necessarily
 \begin{frame}
 \frametitle{Derived $A_\infty$-algebras}
 \begin{defi}
-A \textbf{derived $A_\infty$-algebra} $A$ is a bigraded $k$-module equipped with a family of ``multiplications'' $m_{un}:A^{\otimes n}\to A$ of bidegree $(u,n+u-2)$ for $n\geq 2$ and $u\geq 0$ satisfying the relation
+A \textbf{derived $A_\infty$-algebra} $A$ is a bigraded $k$-module equipped with a family of ``multiplications'' $m_{un}:A^{\times n}\to A$ of bidegree $(u,n+u-2)$ for $n\geq 2$ and $u\geq 0$  and a boundary operator $\partial$ satisfying the relation
 
-\[\partial(m_{un})=\underset{j=r+1+t}{\sum_{i+p=u,r+s+t=n}}(-1)^{rq+t+pj}m_{ij}(1^{\otimes r}\otimes m_{pq}\otimes 1^{\otimes s})\] %we are composing every map with itself
+\[\partial(m_{un})=\underset{j=r+1+t}{\sum_{i+p=u,r+s+t=n}}(-1)^{rq+t+pj}m_{ij}(id^{ r}, m_{pq}, id^{ s})\] %we are composing every map with itself
 \end{defi}
 \end{frame}
 
