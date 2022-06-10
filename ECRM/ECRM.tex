@@ -66,7 +66,7 @@
 
 %-----------------------------------------------------------
 
-\title{What are derived $A_\infty$-structures?}
+\title{What are derived $A_\infty$-algebras?}
 \author{Javier Aguilar Mart\'in}
 \institute{University of Kent}
 \date{}
@@ -211,7 +211,7 @@ Associative algebras $\Rightarrow$ $A_\infty$-algebras $\Rightarrow$ Derived $A_
 \begin{itemize}
 \item<4-> Geometrically, $\partial(m_3(a,b,c))=\{a(bc),(ab)c\}$.
 \item<5-> Algebraically, $\partial(m_3(a,b,c))= (ab)c-a(bc)$, or
-\[\partial(m_3(a,b,c))=m_2(m_2(a,b), c)-m_2(a, m_2(b,c)).\]
+\item[]<6>\[\partial(m_3(a,b,c))=m_2(m_2(a,b), c)-m_2(a, m_2(b,c)).\]
 \end{itemize}
 %IMAGINE PRODUCTS AS POINTS IN THE SPACE, START CALLING IT M2(X,Y)?
 
@@ -224,7 +224,7 @@ Associative algebras $\Rightarrow$ $A_\infty$-algebras $\Rightarrow$ Derived $A_
 %PENTAGON, DIRECTION OF PATHS, ORIENTATION OF PENTAGON, SIGNS
 \definecolor{zzttqq}{rgb}{0.6,0.2,0.}
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-\clip(-1.3275591973205874,-0.38685809569094237) rectangle (9.456589431026222,4.804555737079);
+\clip(-2.4,-0.38685809569094237) rectangle (9.456589431026222,4.804555737079);
 \fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (2.,1.) -- (4.,1.) -- (4.618033988749895,2.9021130325903064) -- (3.,4.077683537175253) -- (1.3819660112501053,2.9021130325903073) -- cycle;
 \draw [color=zzttqq] (2.,1.)-- (4.,1.);
 \draw [color=zzttqq] (4.,1.)-- (4.618033988749895,2.9021130325903064);
@@ -308,20 +308,36 @@ Associative algebras $\Rightarrow$ $A_\infty$-algebras $\Rightarrow$ Derived $A_
 \item<1-> \textbf{Geometrical dimension}: 0 (points), 1 (lines), 2 (planes), etc
 \item<2-> \textbf{Algebraic degree}: If $A=\bigoplus_{i\in\mathbb{N}} A_i$, we say $A_i$ is the $i$-th degree component.
 \begin{itemize}
-\item<3-> Example: $R[x]=\bigoplus_i R[x]_i$ (polynomials of degree $i$).
+\item<3-> Example: $k[x]=\bigoplus_i k[x]_i$ (polynomials of degree $i$).
 \end{itemize}
 \item<4-> A map $f:A\to B$ is of \textbf{degree} $i$ if $f(A_j)\subset B_{j+i}$ for all $j$.
 \begin{itemize}
-\item<5-> Example: $x:R[x]\to R[x]$ is of degree 1 (multiplication by $x$).
+\item<5-> Example: $x:k[x]\to k[x]$ is of degree 1 (multiplication by $x$).
 \end{itemize}
+
 \end{itemize}
 \end{frame}
+\begin{frame}
+\frametitle{Boundary vs differentials}
+\begin{itemize}
+\item In geometry we have boundary maps $\partial$.
 
+\item<2-> A map $d:A\to A$ of degree $-1$ such that $d\circ d=0$ is called a \textbf{differential}. %Analogous to boundary
+% HAS DEGREE -1 (IT DECREASES DIMENSION)  AND SQUARES TO 0 (BOUNDARY OF BOUNDARY IS EMPTY)
+\begin{itemize}
+\item<3-> A vector space with a differential is called a \textbf{chain complex}.
+\end{itemize}
+\item<4-> If $(A,d_A)$ and $(B,d_B)$ are chain complexes, so is $\hom_k(B,A)$ with differential
+\[\partial(f)=d_A\circ f - (-1)^{\deg(f)}f\circ d_B.\] 
+\item<5-> For $B=A^n$ we have 
+\[d_{A^n}= \sum_{r+1+s=n} 1^r\times d_A\times 1^s.\]
+\end{itemize}
+\end{frame}
 \section{$A_\infty$-algebras}
 \begin{frame}
 \frametitle{$A_\infty$-algebras}
 \begin{defi}
-An $A_\infty$-\textbf{algebra} $A$ is a vector space over a field $k$ equipped with a family of ``multiplications'' $m_n:A^{\times n}\to A$ of degree $i-2$ for $n\geq 2$ and a boundary operator $\partial$ satisfying the relation
+An $A_\infty$-\textbf{algebra} $A$ is a chain complex over a field $k$ equipped with a family of ``multiplications'' $m_n:A^{\times n}\to A$ of degree $n-2$ for $n\geq 2$ satisfying the relation
 
 \[\partial(m_n)=\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(id^{ r}, m_s, id^{ s})\] %we are composing every map with itself
 \end{defi}
@@ -371,15 +387,16 @@ We would like to extend this result to a ground ring $k$ that is not necessarily
 \begin{itemize}
 \item We add an extra degree $A=\bigoplus_{i,j} A_i^j$, where $A_i^j$ is the bidegree $(i,j)$ component, and generalize previous definitions.
 \begin{itemize}
-\item<2-> Example: $A=R[x,y]$, $x:A\to A$ is of bidegree $(1,0)$.
+\item<2-> Example: $A=k[x,y]$, $x:A\to A$ is of bidegree $(1,0)$.
 \end{itemize}
+\item<3-> Differentials now have bidegree $(0,-1)$. 
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Derived $A_\infty$-algebras}
 \begin{defi}
-A \textbf{derived $A_\infty$-algebra} $A$ is a bigraded $k$-module equipped with a family of ``multiplications'' $m_{un}:A^{\times n}\to A$ of bidegree $(u,n+u-2)$ for $n\geq 2$ and $u\geq 0$  and a boundary operator $\partial$ satisfying the relation
+A \textbf{derived $A_\infty$-algebra} $A$ is a bigraded  chain complex over $k$ equipped with a family of ``multiplications'' $m_{un}:A^{\times n}\to A$ of bidegree $(u,n+u-2)$ for $n\geq 2$ and $u\geq 0$ satisfying the relation
 
 \[\partial(m_{un})=\underset{j=r+1+t}{\sum_{i+p=u,r+s+t=n}}(-1)^{rq+t+pj}m_{ij}(id^{ r}, m_{pq}, id^{ s})\] %we are composing every map with itself
 \end{defi}
@@ -411,6 +428,11 @@ Any ``nice enough'' bidg-algebra can be ``replaced'' by a minimal derived $A_\in
 %\item<3-> The higher relations are a homotopy coherent extension of this fact. %m3 satisfies some relation up to homotopy given by m4 and so on
 %\end{itemize}
 %\end{frame}
+\begin{frame}
+\begin{center}
+\Huge{Thank you very much!}
+\end{center}
+\end{frame}
 
 
 \end{document}
