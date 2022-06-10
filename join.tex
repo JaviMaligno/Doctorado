@@ -1,0 +1,45 @@
+	\documentclass[twoside]{article}
+\usepackage{estilo-ejercicios}
+\setcounter{section}{0}
+\usepackage{subfiles}
+\usepackage{empheq}
+\usepackage{adjustbox}
+
+
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+
+\renewcommand{\baselinestretch}{1,3}
+
+
+%Below to introduce ¡ in mathmode https://tex.stackexchange.com/questions/471464/inverted-exclamation-mark-in-mathmode
+\DeclareMathSymbol{\mathinvertedexclamationmark}{\mathclose}{operators}{'074}
+\DeclareMathSymbol{\mathexclamationmark}{\mathclose}{operators}{'041}
+
+\makeatletter
+\newcommand{\raisedmathinvertedexclamationmark}{%
+  \mathclose{\mathpalette\raised@mathinvertedexclamationmark\relax}%
+}
+\newcommand{\raised@mathinvertedexclamationmark}[2]{%
+  \raisebox{\depth}{$\m@th#1\mathinvertedexclamationmark$}%
+}
+\begingroup\lccode`~=`! \lowercase{\endgroup
+  \def~}{\@ifnextchar`{\raisedmathinvertedexclamationmark\@gobble}{\mathexclamationmark}}
+\mathcode`!="8000
+\makeatother
+
+%--------------------------------------------------------
+\begin{document}
+
+
+\title{Derived $A_\infty$-structures on operads}
+\author{Javier Aguilar Martín}
+%\date{ }
+\maketitle
+
+\section{Introduction}
+ABSTRACT IN THIS ONE, APPENDICES ALL TOGETHER IN A SEPARETED FILE, BIBLIOGRAPHY IN THIS ONE
+\subfile{SubSuspensionMultiplication}
+\subfile{SubTotalization}
+
+
+\end{document}
