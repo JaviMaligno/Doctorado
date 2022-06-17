@@ -692,10 +692,6 @@ Notice that the sign is precisely the same appearing in \Cref{mu}.
 %It can be checked that this is indeed an operad of graded vector spaces I 
 
 
-HEURISTICS FOR THIS SIGN AND ALTERNATIVE?
-
-%MY TOTALIZATION IS WHAT SARAH CALLS TOTALIZATION WITH COMPACT SUPPORT, WHICH IS STRICT MONOIDAL (CHECK THIS BECAUSE LEMMA 4.5 IS AN EXTERNAL PRODUCT)
-
 %COMPOSITION OF ARBITRARY BIGRADING IS PRESERVED BY TOT SINCE ALL SIGNS INVOLVED ARE HORIZONTAL DEGREE SO IT IS ANALOGUE TO WHITEHOUSE (WRITE DOWN THE CALCULATIONS IF NEEDED)
 
 \subsection{Vertical operadic suspension}
@@ -758,13 +754,13 @@ Now we are going to combine vertical operadic suspension and totalization. More 
 
 This operad has an insertion map explicitly given by
 \begin{equation}\label{star}
-(a\star_{r+1} b)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1n_2}a_{k_1}\circ_{r+1}b_{k_2}
+(a\star_{r+1} b)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-k_2-m+1)+(n-1)(m-1)+r(m-1)+k_1n_2}a_{k_1}\circ_{r+1}b_{k_2}
 \end{equation}
 for $a=(a_i)_i\in \Tot(\s\OO(n))^{n_1}$ and $b=(b_j)_j\in \Tot(\s\OO(m))^{n_2}$. As usual, denote \[a\star b=\sum_{r=0}^{m-1}a\star_{r+1}b.\]
 
 This star operation is precisely the star operation from \cite[\S 5.1]{LRW}, i.e the convolution operation on $\Hom((dAs)^!, \End_A)$ (see \cite{LRW} for details). 
 
-DESCRIBE DERIVED AINFTY MORPHISMS AND COMPOSITION WITH THIS %(WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
+%(WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
 
 Before continuing, let us show a lemma that allows us to work only with the single graded operadic suspension if needed.
 \begin{propo}\label{extrasign}
@@ -827,11 +823,17 @@ SHOULD I INCLUDE THE DEFINITION OF THE DERIVED A INFINITY OPERAD (POSSIBLY SEVER
 of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
 \[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}(1^{\otimes r}\otimes m_{pq}\otimes 1^{\otimes t})=0\]
 for all $u\geq 0$ and $v\geq 1$. 
-
-TO BE CONSISTENT WITH THE PREVIOUS ONE, DEFINE IT AS A MAP OF OPERADS AND THEN DO THIS AS A LEMMA?
 \end{defin}
 
-DEFFINITION OF DERIVED A-INFTY MORPHISM (WITH THE SIGNS I GET FROM STAR)
+\begin{defin}
+Let $A$ and $B$ be derived $A_\infty$-algebras with respective structure maps $m^A$ and $m^B$. An $\infty$\textbf{-morphism} of derived $A_\infty$ algebras $f:A\to B$ is a family of maps $f_{st}:A^{\otimes t}\to B$ of bidegree $(s,1-s-t)$ satifying
+\begin{equation}\label{dinftymaps}
+\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}f_{ij}(1^{\otimes r}\otimes m_{pq}^A\otimes 1^{\otimes s})=\underset{v=q_1+\cdots +q_j}{\sum_{u=i+p_1+\cdots +p_j}}(-1)^{\epsilon} m^B_{ij}(f_{p_1 q_1}\otimes\cdots\otimes f_{p_j q_j})
+\end{equation}
+for all $u\geq 0$ and $v\geq 1$, where
+\[\epsilon = u + \sum_{1\leq w < l \leq j} q_w(1-p_l-q_l)  + \sum_{w=1}^j p_w(j-w).\]
+%I am confindent that this is the same as in RW, it is a matter of grouping differently (taking in to account how many times things are added up) and sometimes change w by j-w. But maybe I should write it down.
+\end{defin}
 \begin{ex}\
 \begin{enumerate}
 \item One can check that, on any derived $A_\infty$-algebra $A$, the maps $d_i=(-1)^{i}m_{i1}$ define a twisted complex structure. This leads to the possibility of defining a derived $A_\infty$-algebra as a twisted complex with some extra structure (see \Cref{equivalent}).
@@ -967,7 +969,7 @@ where
 The other factor signis  produced by totalization. This was computed in \Cref{totcomp}. Combining both factors we obtain the following.
 
 \begin{lem}
-We have
+We have WATCH OUT, I SHOULD INCLUDE IDENTITIES
 \begin{equation}\label{bracetot}
 b_j^T(x;x^1,\dots, x^N)_k=\sum_{k_0+k_1+\cdots+k_N=k}(-1)^{\eta+\sum_{j=1}^m n_j\sum_{i=0}^{j-1}k_i}\gamma(x_{k_0};x^1_{k_1},\dots, x^N_{k_N})
 \end{equation}
