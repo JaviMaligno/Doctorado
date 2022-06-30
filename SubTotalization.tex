@@ -1,4 +1,4 @@
-\documentclass[../join.tex]{subfiles}
+\documentclass[join.tex]{subfiles}
 %\usepackage{estilo-ejercicios}%
 %\setcounter{section}{0}
 %\newtheorem{defin}{Definition}[section]
@@ -18,10 +18,8 @@
 
 
 
-\section{Introduction}
-We use an operadic totalization inspired by the totalization functor described in \cite{whitehouse} to obtain an operation similar to the star operation in \cite{LRW} and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra.
 
-We start \Cref{background} by collecting some preliminary definitions and results from \cite{whitehouse} that we adapt to our conventions. In \Cref{operadic}, we then define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. From this, we obtain in \Cref{sectionbraces} a brace structure from which we can obtain a classical $A_\infty$-algebra. Finally, in \Cref{derivedstructure}, we use \cite[Proposition 4.55]{whitehouse} to show that this structure is equivalent to a derived $A_\infty$-algebra on the suspended bigraded operad.
+
 
 \section{Brackground and conventions}\label{background}
 Let us start by  fixing some notation and conventions. Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. %COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE. INCLUDING DEFINITION OF TWISTED COMPLEX
@@ -689,10 +687,6 @@ Notice that the sign is precisely the same appearing in \Cref{mu}.
 %It can be checked that this is indeed an operad of graded vector spaces I 
 
 
-HEURISTICS FOR THIS SIGN AND ALTERNATIVE?
-
-%MY TOTALIZATION IS WHAT SARAH CALLS TOTALIZATION WITH COMPACT SUPPORT, WHICH IS STRICT MONOIDAL (CHECK THIS BECAUSE LEMMA 4.5 IS AN EXTERNAL PRODUCT)
-
 %COMPOSITION OF ARBITRARY BIGRADING IS PRESERVED BY TOT SINCE ALL SIGNS INVOLVED ARE HORIZONTAL DEGREE SO IT IS ANALOGUE TO WHITEHOUSE (WRITE DOWN THE CALCULATIONS IF NEEDED)
 
 \subsection{Vertical operadic suspension}
@@ -702,9 +696,11 @@ On an bigraded operad we can use operadic suspension on the vertical degree with
 
  %for a commutative (at least with 1\neq 0) ring the rank is well defined, in general it is not
 
-Therefore, in analogy to the single graded cases, let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in bidegree $(0,0)$. This is a free $R$-module of rank one that comes with a natural action of the symmetric group $S_n$ that multiplies each element by the sign of each given permutation. I MIGHT LEAVE OUT THE SYMMETRIC GROUP  ACTION UNLESS I FIND OUT HOW TO MODIFY IT IN TOTALIZATION, I SHOULD THINK ABOUT IT
+%Therefore, in analogy to the single graded cases, let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in bidegree $(0,0)$. This is a free $R$-module of rank one that comes with a natural action of the symmetric group $S_n$ that multiplies each element by the sign of each given permutation. %I MIGHT LEAVE OUT THE SYMMETRIC GROUP  ACTION UNLESS I FIND OUT HOW TO MODIFY IT IN TOTALIZATION, I SHOULD THINK ABOUT IT
 
-We define $\Lambda(n)=S^{n-1}sign_n$, where  $S$ is a vertical shift of degree so that $\Lambda(n)$ is concentrated on bidegree  $(0,n-1)$.
+%We define $\Lambda(n)=S^{n-1}sign_n$, where  $S$ is a vertical shift of degree so that $\Lambda(n)$ is concentrated on bidegree  $(0,n-1)$.
+We define $\Lambda(n)=S^{n-1}R$, where  $S$ is a vertical shift of degree so that $\Lambda(n)$ is the underlying ring $R$ concentrated in bidegree  $(0,n-1)$. As in the single graded case, we express the basis element of $\Lambda(n)$ as $e^n=e_1\land\cdots\land e_n$.
+
 The operad structure on the bigraded $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ is the same as in the graded case, namely
 
 \[
@@ -716,7 +712,8 @@ The operad structure on the bigraded $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ is the s
 
 
 
-In a similar way we can define $\Lambda^-(n)=S^{1-n}sig_n$, with the same insertion maps.
+%In a similar way we can define $\Lambda^-(n)=S^{1-n}sig_n$, with the same insertion maps.
+In a similar way we can define $\Lambda^-(n)=S^{1-n}R$, with the same insertion maps.
 %The sign might arise naturally from the permutation action. If I have the wedge of n wedge the wedge of m-1 (because the final result must be n+m-1 in total), I would permute the last m-1 until the reach the i-th position via transpositions, each transpotision produces a minus sign. Or simply considering the lat m as a single element of degree m-1 being permuted in the wedge
 \begin{definition}
 Let $\mathcal{O}$ be a bigraded linear operad, i.e. an operad on the category of bigraded $R$-modules. The \emph{vertical operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of the operads $\OO$ and $\Lambda$, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition and symmetric group action. Similarly, we define the \emph{vertical operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$. %POSSIBLY EXCLUDE SYMMETRIC GROUP ACTION, ALTHOUGH IT MAKES SENSE ON ITS OWN
@@ -736,7 +733,7 @@ The symmetric monoidal structure produces the sign $(-1)^{(n-1)(q-l)}$ in the is
 \begin{equation}\label{sign}
 a\tilde{\circ}_{r+1}b=(-1)^{(n-1)(q-l)+(n-1)(m-1)+r(m-1)}a\circ_{r+1} b.
 \end{equation}
-As can be seen, this is the same sign as the single graded operadic suspension but with vertical degree. In particular, this operation leads to the Lie bracket from RW, which implies that $m=\sum_{i,j}m_{ij}$ is a derived $A_\infty$-multiplication if and only if
+As can be seen, this is the same sign as the single graded operadic suspension but with vertical degree. In particular, this operation leads to the Lie bracket from \cite{RW}, which implies that $m=\sum_{i,j}m_{ij}$ is a derived $A_\infty$-multiplication if and only if
 \begin{equation}\label{sharp}
 \sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0
 \end{equation}
@@ -755,13 +752,13 @@ Now we are going to combine vertical operadic suspension and totalization. More 
 
 This operad has an insertion map explicitly given by
 \begin{equation}\label{star}
-(a\star_{r+1} b)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1n_2}a_{k_1}\circ_{r+1}b_{k_2}
+(a\star_{r+1} b)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-k_2-m+1)+(n-1)(m-1)+r(m-1)+k_1n_2}a_{k_1}\circ_{r+1}b_{k_2}
 \end{equation}
 for $a=(a_i)_i\in \Tot(\s\OO(n))^{n_1}$ and $b=(b_j)_j\in \Tot(\s\OO(m))^{n_2}$. As usual, denote \[a\star b=\sum_{r=0}^{m-1}a\star_{r+1}b.\]
 
 This star operation is precisely the star operation from \cite[\S 5.1]{LRW}, i.e the convolution operation on $\Hom((dAs)^{!}, \End_A)$ (see \cite{LRW} for details). 
 
-DESCRIBE DERIVED AINFTY MORPHISMS AND COMPOSITION WITH THIS %(WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
+%(WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
 
 Before continuing, let us show a lemma that allows us to work only with the single graded operadic suspension if needed.
 \begin{propo}\label{extrasign}
@@ -815,7 +812,8 @@ It can also be verified that $\Tot'(\s\OO)=\s \Tot'(\OO)$. With the original tot
 
 
 \section{Derived $A_\infty$-algebras and filtered $A_\infty$-algebras}
-SHOULD I INCLUDE THE DEFINITION OF THE DERIVED A INFINITY OPERAD (POSSIBLY SEVERAL VERSIONS DEPENDING ON THE UNDERLYING STRUCTURE) HERE OR LEAVE IT IN INTRO CHAPTER?
+
+In this section we recall some definitions about derived $A_\infty$-algebras and present some ways of interpreting them in terms of operads and collections.
 
 %DEFINE THE OPERAD,BOTH FREE WITH A DIFFERENTIAL AND ALSO WITH ALL THE DIFFERENTIALS INSIDE
   \begin{defin}
@@ -824,11 +822,30 @@ SHOULD I INCLUDE THE DEFINITION OF THE DERIVED A INFINITY OPERAD (POSSIBLY SEVER
 of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
 \[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}(1^{\otimes r}\otimes m_{pq}\otimes 1^{\otimes t})=0\]
 for all $u\geq 0$ and $v\geq 1$. 
-
-TO BE CONSISTENT WITH THE PREVIOUS ONE, DEFINE IT AS A MAP OF OPERADS AND THEN DO THIS AS A LEMMA?
 \end{defin}
 
-DEFFINITION OF DERIVED A-INFTY MORPHISM (WITH THE SIGNS I GET FROM STAR)
+According to the above definition, there are two equivalent ways of defining the operad of derived $A_\infty$-algebras $d\calA_\infty$ depending on the underlying category. We give the two of them here as we are going to use both.
+
+\begin{defin}
+The operad $d\calA_\infty$ in $\bgmod$ is the operad generated by $\{m_{ij}\}_{i\geq 0,j\geq 1}$ subject to the derived $A_\infty$-relation
+
+\[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}\gamma(m_{ij};1^{ r}, m_{pq}, 1^{t})=0\]
+for all $u\geq 0$ and $v\geq 1$. 
+
+The operad $d\calA_\infty$ in $\vbc$ is the quasi-free operad generated by $\{m_{ij}\}_{(i,j)\neq (0,1)}$ with vertical differential given by
+\[\partial_\infty(m_{uv})=-\underset{j=r+1+t, (i,j)\neq (0,1)\neq (p,q)}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}\gamma(m_{ij};1^{ r}, m_{pq}, 1^{t}).\]
+\end{defin}
+%NOT EXACTLY THE SAME AS LWR, BUT THE ONE THAT SARAH USES
+
+\begin{defin}
+Let $A$ and $B$ be derived $A_\infty$-algebras with respective structure maps $m^A$ and $m^B$. An $\infty$-morphism of derived $A_\infty$ algebras $f:A\to B$ is a family of maps $f_{st}:A^{\otimes t}\to B$ of bidegree $(s,1-s-t)$ satifying
+\begin{equation}\label{dinftymaps}
+\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}f_{ij}(1^{\otimes r}\otimes m_{pq}^A\otimes 1^{\otimes s})=\underset{v=q_1+\cdots +q_j}{\sum_{u=i+p_1+\cdots +p_j}}(-1)^{\epsilon} m^B_{ij}(f_{p_1 q_1}\otimes\cdots\otimes f_{p_j q_j})
+\end{equation}
+for all $u\geq 0$ and $v\geq 1$, where
+\[\epsilon = u + \sum_{1\leq w < l \leq j} q_w(1-p_l-q_l)  + \sum_{w=1}^j p_w(j-w).\]
+%I am confindent that this is the same as in RW, it is a matter of grouping differently (taking in to account how many times things are added up) and sometimes change w by j-w. But maybe I should write it down.
+\end{defin}
 \begin{ex}\
 \begin{enumerate}
 \item One can check that, on any derived $A_\infty$-algebra $A$, the maps $d_i=(-1)^{i}m_{i1}$ define a twisted complex structure. This leads to the possibility of defining a derived $A_\infty$-algebra as a twisted complex with some extra structure (see \Cref{equivalent}).
@@ -858,10 +875,10 @@ Since $f_j=(f_{ij})_i\in\Tot(\s\End^A_B(j))$ is of degree $0$, we have that that
 
 \[\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),\] 
 
-coincides with the one defining $\infty$-morphisms of $A_\infty$-algebras (\Cref{dinftymorphism}) up to sign. The signs that appear in the above equation are obtained in a similar way to that on $\gamma^\star$ (see \Cref{bracetot}). Thus, it is enough to plug in the sign provided by \Cref{bracetot} the corresponding degrees and arities to obtain the desired result. The composition of derived $\infty$-morphisms follows similarly.
+coincides with the one defining $\infty$-morphisms of $A_\infty$-algebras (\Cref{dinftymaps}) up to sign. The signs that appear in the above equation are obtained in a similar way to that on the brace $b_j^T$ (see \Cref{bracetot}). Thus, it is enough to plug in the sign provided by \Cref{bracetot} the corresponding degrees and arities to obtain the desired result. The composition of derived $\infty$-morphisms follows similarly.
 \end{proof}
 
-In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition can be written in terms of operadic composition as $f\star m=\tilde\gamma^\star(m\circ f)$. 
+In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition can be written in terms of operadic composition as $f\star m=\gamma^\star(m\circ f)$, where $\gamma^*$ is the composition map with derived from the $\star$ operation (see \Cref{gammastar}). Here, $\circ$ is the plethysm of maps of collections, not to be confused with composition of maps. 
 
 
 \begin{defin}
@@ -876,7 +893,7 @@ A derived $A_\infty$-multiplication on a bigraded operad $\OO$ is equivalent to 
 \begin{proof}
 A derived $A_\infty$-multiplication on $\OO$ is by definition a map 
 \[f:d\calA_\infty\to\OO.\]
-Since $\calA_\infty$ is generated by elements $\mu_{ij}$ of bidegree $(i,2-i-j)$, such a map is determined by the elements $m_{ij}=f(\mu_{ij})\in\OO^{2-i-j}_i$. Consider $m_j = (m_{ij})_i\in\Tot(\s\OO(j))$. We have that $\deg(m_j)=1$ for all $j$. Therefore, let $m=m_1+m_2+\cdots\in\Tot(\s\OO)$. We may check that $m\star m=0$. For that we just need to check \Cref{star}. On arity $n$, this amounts to compute 
+Since $\calA_\infty$ is generated by elements $\mu_{ij}$ of bidegree $(i,2-i-j)$, such a map is determined by the elements $m_{ij}=f(\mu_{ij})\in\OO^{2-i-j}_i(j)$. Consider $m_j = (m_{ij})_i\in\Tot(\s\OO(j))$. We have that $\deg(m_j)=1$ for all $j$. Therefore, let $m=m_1+m_2+\cdots\in\Tot(\s\OO)$. We may check that $m\star m=0$. For that we just need to check \Cref{star}. On arity $n$, this amounts to compute 
 \[(m\star m)_k = \sum_{r=0}^{n-1}\underset{j+q=n-1}{\sum_{i+p=k}}(-1)^{rp+j-r-1+ pj}m_{ij}\circ_{r+1}m_{pq}=0.\]
 The above expression vanishes precisely because the elements $m_{ij}$ satisfy the derived $A_\infty$-equation.
 
@@ -939,7 +956,7 @@ where $l=n+\sum_{p=1}^n i_p$ and in the single graded case $\varepsilon=\sum_{p=
 
 We can define braces on $\Tot(\s\OO)$ via operadic composition. More precisely, we define the maps 
 \[b^T_n:\Tot(\mathfrak{s}\OO(N))\otimes \Tot(\mathfrak{s}\OO(a_1))\otimes\cdots\otimes \Tot(\mathfrak{s}\OO(a_n))\to \Tot(\mathfrak{s}\OO(N-\sum a_i))\]
-using the operadic composition $\gamma^\star$ on $T\mathfrak{s}\OO$ as
+using the operadic composition $\gamma^\star$ on $\Tot(\mathfrak{s}\OO)$ as
 
 \[b^T_n(f;g_1,\dots,g_n)=\sum\gamma^\star(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1),\]
 
@@ -947,7 +964,9 @@ where the sum runs over all possible ordering preserving insertions. The brace $
 
 The operadic composition can be described in terms of insertions in the obvious way, namely 
 
-\[\gamma^\star(f;h_1,\dots, h_N)=(\cdots(f\star_1 h_1)\star_{1+a(h_1)}h_2\cdots)\star_{1+\sum a(h_p)}h_N,\]
+\begin{equation}\label{gammastar}
+\gamma^\star(f;h_1,\dots, h_N)=(\cdots(f\star_1 h_1)\star_{1+a(h_1)}h_2\cdots)\star_{1+\sum a(h_p)}h_N,
+\end{equation}
 
 where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign applying the same strategy as in the single-graded case. In fact, there is a sign factor that comes from vertical operadic suspension identical to the graded case replacing internal degree by vertical (internal) degree. This is the sign that determines the brace $b_j$ on $\s\OO$. Explicitly, it is given by the following lemma, whose proof is identical to the single graded case.
 
@@ -961,14 +980,14 @@ where
 \[\eta=\sum_{0\leq j<l\leq n}h_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)h_l.\]
 \end{lem}
 
-The other factor signis  produced by totalization. This was computed in \Cref{totcomp}. Combining both factors we obtain the following.
+The other sign factor is produced by totalization. This was computed in \Cref{totcomp}. Combining both factors we obtain the following.
 
 \begin{lem}
-We have
+We have 
 \begin{equation}\label{bracetot}
-b_j^T(x;x^1,\dots, x^N)_k=\sum_{k_0+k_1+\cdots+k_N=k}(-1)^{\eta+\sum_{j=1}^m n_j\sum_{i=0}^{j-1}k_i}\gamma(x_{k_0};x^1_{k_1},\dots, x^N_{k_N})
+b_j^T(x;x^1,\dots, x^N)_k=\underset{h_0+h_1+\cdots+h_N=j-N}{\sum_{k_0+k_1+\cdots+k_N=k}}(-1)^{\eta+\sum_{j=1}^m n_j\sum_{i=0}^{j-1}k_i}\gamma(x_{k_0};1^{h_0},x^1_{k_1},1^{h_1},\dots, x^N_{k_N},1^{h_N})
 \end{equation}
-for $x=(x_k)_k\in\Tot(\s\OO(N))^{n_0}$ and $x^i=(x^i_k)_k\in\Tot(\s\OO(a_i))^{n_i}$, where $\eta$ is defined in the previous lemma. 
+for $x=(x_k)_k\in\Tot(\s\OO(N))^{n_0}$ and $x^i=(x^i_k)_k\in\Tot(\s\OO(a_i))^{n_i}$, where $\eta$ is defined in \Cref{bigradedsign}. 
 \end{lem}
 %Therefore we only need to compute the sign factor corresponding to totalization. Given $f_{p_0}\in \OO(N)^{q_0}_{p_0}$ and  $g_i\in\OO(a_i)^{q_i}_{p_i}$ for $1\leq i\leq n$, %such that $p_0+p_1+\cdots+p_n=k$, 
 %the factor sign we are looking for is determined by the exponent
@@ -1156,161 +1175,7 @@ Notice that the proof of \Cref{alternative} is essentially the same as the proof
 where $\langle  m_{il},x\rangle=ik+(1-i)(n-1-k)$, as claimed.
 \end{proof}
 
-\begin{appendices}
-\appendix
-\gdef\thesection{Appendix \Alph{section}}
-\section{Twisted complex on an operad}\label{twistedoperad}
-In this section we provide a description of the twisted complex structure on an operad $\OO$ with a derived $A_\infty$-multiplication. More precisely, we show by hand that the maps found in \Cref{mi1} define a twisted complex structure on $S\s\OO$.
 
-\begin{lem}\label{twistedmaps}
-Let $\OO$ be an operad with a derived $A_\infty$-multiplication $m\in\s\OO$. Then $S\s\OO$ becomes a twisted complex with structure maps
-\[M_{i1}(x)= \sum_l (Sb_1(m_{il};S^{-1}x)-(-1)^{\langle x,m_{il}\rangle}Sb_1(S^{-1}x;m_{il})),\]
-where $x\in (S\s\OO)^{n-k}_k$ and $\langle x,m_{il}\rangle=ik+(1-i)(n-1-k)$.
-\end{lem}
-\begin{proof}
-
-
-Througout the proof we omit the shift maps. Let us first check the twisted complex equation up to signs, to give a conceptual proof before introducing the signs. Up to sign, the maps  $\{M_{i1}\}_{i\geq 0}$ must satisfy the equation
-
-\[\sum_{i+j=u} M_{i1}\circ M_{j1}=0,\]
-for all $u$, where $\circ$ is composition of maps. %I may or may not omit the sum to avoid writing too much, as it just means that the composition on every degree must vanish.
-
-Therefore, up to signs we have to compute compute 
-
-\begin{align*}
-&\sum_{i+j=u}M_{i1}(M_{j1}(x))=\sum_{i+j=u}M_{i1}\left(\sum_l b_1(m_{jl};x)+b_1(x;m_{jl})\right)=\\
-&\sum_{i+j=u}\sum_{l,k}\left(b_1(m_{ik}; b_1(m_{jl};x))+b_1(m_{ik};b_1(x;m_{jl}))+b_1(b_1(m_{jl};x);m_{ik})+b_1(b_1(x;m_{jl});m_{ik})\right).
-\end{align*}
-
-%AT FIRST SIGHT IT DOESN'T LOOK POSSIBLE TO CANCEL THE LAST BRACE BECAUSE IT IS THE ONLY ONE WITH X AT THE BEGINNING, BUT THAT SHOULD HAVE BEEN THE SAME FOR THE CLASSICAL CASE, SO I SHOULD REVIEW THAT ONE
-%
-%ON THE CLASSICAL CASE IT WAS MUCH EASIER BECAUSE AFTER BRACE RELATION B(X;M,M) APPEARS TWICE WITH OPPOSITE SIGN, SO IT CANCELS. HERE IT IS NOT SO OBVIOUS BECAUSE THE SIGN IS NOT JUST $-1$ SO MAYBE IT CANCELS WITH OTHER SUMMANDS (RECALL THAT I AM OMITTING ONE SUM)
-
-Applying the brace relation we obtain
-
-\begin{align*}
-\sum_{i+j=u}\sum_{l,k}(b_1(m_{ik}; b_1(m_{jl};x))+b_1(m_{ik};b_1(x;m_{jl}))+\\
- b_2(m_{jl};x,m_{ik})+b_1(m_{jl};b_1(x;m_{ik}))+b_2(m_{jl};m_{ik},x)+\\
-b_2(x;m_{jl},m_{ik})+b_1(x;b_1(m_{jl};m_{ik}))+b_2(x;m_{ik},m_{jl})).
-\end{align*}
-
-In the sum, all terms of the form $b_1(x;b_1(m_{jl};m_{ik}))$ that can be seen in the last line should add up to vanish provided that $m$ is a $dA_\infty$-multiplication (meaning that up to sign $b_1(m;m)=0$) %A sign of the form $(-1)^i$ %(or maybe $(-1)^j$, depending on the convention) 
- Since $i$ and $j$ are interchangable (i.e. for each pair $(i,j)$ there is the pair $(j,i)$), the terms $b_2(x;m_{jl},m_{ik})+b_2(x;m_{ik},m_{jl})$ in the last line should cancel as well (for this, we should have the pair $(j,i)$ with the opposite sign). Here it is also relevant that the sum runs through all possible values of $k$ and $l$, so that the pair $(j,i)$ appears with $l$ and $k$ interchanged as well. So far the entire last line vanishes up to sign.
-
-Then $b_1(m_{ik};b_1(x;m_{jl}))$ on the first line should cancel with $b_1(m_{jl};b_1(x;m_{ik}))$ on the second line (but from a different summand, the one where $i$ and $j$ are interchanged). Finnaly, the remaining terms $b_1(m_{ik}; b_1(m_{jl};x))+b_2(m_{jl};x,m_{ik})+b_2(m_{jl};m_{ik},x)$ add up to $b_1(b_1(m;m);x)$ up to sign. That would cancel everything.
-
-
-
-Let us now add signs. We now compute for all $u$
-\[\sum_{i+j=u} (-1)^iM_{i1}\circ M_{j1}.\]
-%recalling that for the usual sign convention of twisted complex from a $dA_\infty$-algebra we need to define $d_i=(-1)^im_{i1}$, so that the sign in the equation is $(-1)^j$ instead of $(-1)^i$. This being said, let us compute 
-For $x\in\s\OO$, by definition, we have
-\begin{align*}
-\sum_{i+j=u}(-1)^iM_{i1}(M_{j1}(x))=\sum_{i+j=u}(-1)^iM_{i1}\left(\sum_l b_1(m_{jl};x)-(-1)^{\langle x|m_{jl}\rangle}b_1(x;m_{jl})\right)=\\
-\sum_{i+j=u}(-1)^i\sum_{l,k}\left(b_1(m_{ik}; b_1(m_{jl};x))-(-1)^{\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\right.\\
-\left. -(-1)^{\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(b_1(m_{jl};x);m_{ik})+(-1)^{\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(b_1(x;m_{jl});m_{ik})\right).
-\end{align*}
-Observe that $\langle b_1(m_{jl};x)|m_{ik}\rangle=\langle m_{ij}|m_{ik}\rangle+\langle x|m_{ik}\rangle$. %in the usual bigraded sign convention (also in the total graded convention). I am not going to explicitly compute these signs yet to see what properties we need from them.
-
-Applying the brace relation we obtain
-
-\begin{align}
-\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\nonumber\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\nonumber\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\label{twistedequation}\\
-+(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))\nonumber\\
-+(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik}))).\nonumber
-\end{align}
-
-Recall that $m$ being a $dA_\infty$-multiplication means that $\sum_{i+j=u}\sum_{k,l}(-1)^ib_1(m_{jl};m_{ik})=0$. %Notice that the summand corresponding to each value of $i+j$ must vanish because it corresponds to a given horizontal degree. 
-Let us check now the cancellations with the signs. First, let us check that the terms 
-\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))\]
-can be added up to vanish. For that, we compute the sign \[\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle=\langle m_{jl}|m_{ik}\rangle+\langle x|m_{ik}\rangle+\langle x|m_{jl}\rangle.\]
-Recall that the braces are defined on the operadic suspension, so that the bidegree of $m_{ik}$ is $(i,1-i)$. Therefore, writing the bidegree of $x$ as $(k,n-k)$, so that the total degree is $|x|=n$, the above equals 
-\[ji+(1-i)(1-j)+ki+(n-k)(1-i)+kj+(n-k)(1-j)\equiv 1+i+j + (i+j)k+(i+j)(n-k)\mod 2=\]
-\[1+(i+j)(1+n)=1+u(1+|x|).\]
-Since this sign is constant for all terms $b_1(m_{ik};m_{ij})$ that share the same horizontal degree $i+j=u$, we can rewrite
-\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))=-(-1)^{u(1+|x|)}b_1(x;(-1)^ib_1(m_{ik};m_{jl})).\]
-Hence, 
-%Multiplying 0 by something is 0, some sum vanishes and you multiply it by a constant sign, it still vanishes
-\[\sum_{i+j=u}\sum_{k,l}-(-1)^{u(1+|x|)}b_1(x;(-1)^ib_1(m_{ik};m_{jl}))=0.\]
-Therefore, the expression (\ref{twistedequation}) after the brace relation reduces to
-\begin{align}
-\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\nonumber\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\label{twistedequation2}\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\nonumber\\
-+(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl})).\nonumber
-\end{align}
-Let us focus on the last line. For each pair $(i,j)$ we should have cancellation with the pair $(j,i)$, which adds the same elements, but with different signs. We also need to consider the pairs $(k,l)$ and $(l,k)$ to get a cancellation. Let us compare the signs. For the pair $((i,j),(k,l))$ we have precisely the last line of the above equation
-\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))\]
-
-For the pair $((j,i),(l,k))$ we have
-\[(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle+\langle x|m_{ik}\rangle}(b_2(x;m_{ik},m_{jl})+(-1)^{\langle m_{jl}|m_{ik}\rangle}b_2(x;m_{jl},m_{ik})).\]
- Comparing the sign of $b_2(x;m_{jl},m_{ik})$ we find that for $((i,j),(k,l))$ we have
-
-\[-(-1)^{i+(i+j)(1+|x|)}b_2(x;m_{jl},m_{ik})=-(-1)^{j+u|x|}b_2(x;m_{jl},m_{ik})\]
-and for the pair $((j,i),(l,k))$ we have
-\[(-1)^{j+u|x|}b_2(x;m_{jl},m_{ik}).\]
-As we see, we get opposite signs and thus cancellation. For $b_2(x;m_{ik},m_{jl})$ it is completely analogous. Thus, we have reduced expression (\ref{twistedequation2}) to
-\begin{align}
-\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\nonumber\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\label{twistedequation3}\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik})).\nonumber
-\end{align}
-In a similar fashion to the previous calculation, we are going to cancel $b_1(m_{ik};b_1(x;m_{jl}))$ in the first line with $b_1(m_{jl};b_1(x;m_{ik})$ in the last line by considering switched pairs. For the pair $((i,j),(k,l))$, the term in the first line is 
-\[-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))\]
-and for the pair $((j,i),(l,k))$ the term in the last line is
-\[-(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))=(-1)^{1+j+\langle m_{ik}|m_{jl}\rangle+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))=\]
-\[(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl})),\]
-which has precisely the opposite sign to the other pair, and thus cancels. This reduces expression (\ref{twistedequation3}) to 
-\begin{align}
-\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))&\label{twistedequation4}\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})&+(-1)^{i+\langle m_{jl}|m_{ik}\rangle}b_2(m_{jl};m_{ik},x)).\nonumber
-\end{align}
-We want this terms to add up to something of the form $b_1(b_1(m;m);x)$. Notice that for this we need to switch some pairs. For simplity, we switch the pair of the first term and rewrite the sum as
-\begin{align}
-\sum_{i+j=u}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))&\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})&+(-1)^{i+\langle m_{jl}| m_{ik}\rangle}b_2(m_{jl};m_{ik},x)).\nonumber
-\end{align}
-Simplifying the signs we get
-\begin{align*}
-\sum_{i+j=u}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))
- +(-1)^{j+\langle x|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})+(-1)^{j}b_2(m_{jl};m_{ik},x)).
-\end{align*}
-By the brace relation and \Cref{sharp} this equals
-\[\sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0.\]
-%For each position of insertion of x we have a 0 map applied to x, so the above sum is indeed equal to 0
-\end{proof}
-
-
-Recall that if $\OO$ is an operad with a derived $A_\infty$-multiplication, there is an $A_\infty$-algebra structure on $B=\Tot(S\s\OO)$ given by maps $M_j:B^{\otimes j}\to B$ induced by braces. We show next that the twisted complex structure induced from the map $M_1$ via \Cref{alternative} is the same as the one we have given above.
-
-\begin{corollary}
-Let $\OO$ be a bigraded operad with a derived $A_\infty$-multiplication and let \[\widetilde{M}_{i1}:S\s\OO\to S\s\OO\] be the arity 1 derived $A_\infty$-algebra maps induced by \Cref{alternative} from \[M_1:\Tot(S\s\OO)\to \Tot(S\s\OO).\]
-Then $\widetilde{M}_{i1}=M_{i1}$, where $M_{i1}$ is defined in \Cref{twistedmaps}.
-\end{corollary}
-\begin{proof}
-Notice that the proof of \Cref{alternative} is essentially the same as the proof \Cref{whitehouse}. This means that the proof of this result is an arity 1 restriction of the proof of \Cref{derivedmaps}. Then we apply \Cref{totsign} to the case $j=1$. Recall that for $x\in (S\s\OO)^{n-k}_{k}$
-\[M_1(x)=b_1^T(m;S^{-1}x)-(-1)^{n-1}b_1^T(S^{-1}x;m).\]
- In this case, there is no $\mu$ involved. Therefore, introducing here also the final extra sign $(-1)^i$ from the proof of \Cref{derivedmaps}, we get from \Cref{totsign} that
-\[\widetilde{M}_{i1}(x)=(-1)^i\sum_l((-1)^{in+i(n-1)} Sb_1(m_{il};S^{-1}x)-(-1)^{n-1+in+k}Sb_1(S^{-1}x;m_{il})),\] where $b_1$ is the brace on $\s\OO$. Simplifying signs we obtain
-\[\widetilde{M}_{i1}(x)=\sum_l Sb_1(m_{il};S^{-1}x)-(-1)^{\langle  m_{il},x\rangle}Sb_1(m_{il};S^{-1}x))=M_{i1}(x),\]
-
-where $\langle  m_{il},x\rangle=ik+(1-i)(n-1-k)$, as claimed.
-\end{proof}
-%\appendix
-%\renewcommand{\appendixname}{Appendix:}
-
-
-
-
-%\section{Some proofs and details}
-
-
-
-
-\end{appendices}
 %\phantomsection
-\bibliographystyle{ieeetr}
-\bibliography{newbibliography}
+
 \end{document}

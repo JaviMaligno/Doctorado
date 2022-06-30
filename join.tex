@@ -31,15 +31,59 @@
 \begin{document}
 
 
-\title{Derived $A_\infty$-structures on operads}
+\title{$A_\infty$ and derived $A_\infty$-structures on operads}
 \author{Javier Aguilar Martín}
 %\date{ }
 \maketitle
 
+\begin{abstract}
+
+
+%SINCE I'M NOT IMPOSING O(0)=0 (I NEED B0 IN THE BRACES AND THE END OPERAD IS USUALLY NON 0 THERE), I PROBABLY NEED TO SPECIFY THAT THE ARITY 0 COMPONENT OF M IS 0 (UNLESS I CONSIDER UNITAL CASE SPEFICALLY), THIS CAN BE DONE BY USING SOME  NOTATION OF THE POSITIVE ARITY PART
+
+
+
+
+In this text we study the brace structure on an operad of graded $R$-modules using a construction called \emph{operadic suspension} and use it to define $A_\infty$-algebra structures on certain operads. This construction provides us an operadic context from which $A_\infty$-algebras arise in a natural way. We focus on the relation between the brace structure on an operad and its operadic composition, with the endomorphism operad as our main example. This relation allows us to generalize the Lie bracket defined in \cite{RW}. Then we prove some results about $A_\infty$-algebras on operads that were originally claimed by Gerstenhaber and Voronov \cite{GV}.
+\end{abstract}
+
 \section{Introduction}
-ABSTRACT IN THIS ONE, APPENDICES ALL TOGETHER IN A SEPARETED FILE, BIBLIOGRAPHY IN THIS ONE
+
+RESTRUCTURE TO MAKE JUST ONE
+
+I SHOULD COMBINE BACKGROUND AND CONVENTIONS FROM BOTH
+
+REFERENCES PREVIOUS ARTICLE 
+\subsection{Intro 1}
+
+There are a number of mathematical fields in which $A_\infty$-structures arise, ranging from topology to mathematial physics. To study these structures, different interpretations of $A_\infty$-algebras have been given. From the original definition in 1968 \cite{STASHEFF}, to alternative definitions in terms of tensor coalgebras (\cite{keller}, \cite{penkava}),  approaches that use the machinery of operads (\cite{LRW}, \cite{lodayvallette}) or certain Lie brackets \cite{RW} to obtain these algebras. 
+
+$A_\infty$-structures have also been combined with brace structures (\cite{GV},\cite{lada}) which involved certain signs. Typically, these signs were different for each author and no satisfactory explanaition was given. 
+
+Here we used an operadic approach to obtain these signs in a more conceptual and consistent way. As a consequence, we will generalize the Lie bracket used in \cite{RW} and will give a very simple interpretation of $A_\infty$-algebras. The difference between our operadic approach and others mentioned before is that ours uses much more elementary tools and can be use to talk about $A_\infty$-structrures on any operad. We hope that this provides a useful way of thinking about $A_\infty$-structures. 
+
+The text is organized as follows. In Section \ref{Sec1} we recall some basic definitions and establish some conventions. In Section \ref{Sec2} we define a device called \emph{operadic suspension} that will help us obtain the signs that we want and link this device to the classical operadic approach to $A_\infty$-algebras. We also take this construction to the level of the underlying collections of the operads to also obtain a nice description of $\infty$-morphisms of $A_\infty$-algebras. We then explore the functorial properties of operadic suspension, being monoidality (\Cref{monoidality}) the most remarkable of them. In Section \ref{sectionbraces} we study the brace algebra induced by operadic supension and obtain a relevant result, Proposition \ref{bracesign}, which stablishes a relation between the canonical brace structure on an operad and the one induced by its operadic suspension. We show that as a particular case of this result we obtain the Lie bracket from \cite{RW}.
+
+Following Gerstenhaber and Voronov's terminology, if $\OO$ is an operad with an $A_\infty$-multiplication $m\in\OO$, it is natural to ask whether there are linear maps $M_j:\OO^{\otimes j}\to \OO$ satisfying the $A_\infty$-algebra axioms. In Section \ref{sect2} we use the aforementioned brace structure to define such linear maps on a shifted version of the operadic suspension. We then iterate this process in Section \ref{sect3} to define an $A_\infty$-structure on the Hochschild complex of an operad with $A_\infty$-multiplication. This iteration process was inspired by the work of Getzler in \cite{getzler}.
+
+Finally, we prove our main result, Theorem \ref{theorem}, which relates the $A_\infty$-structure on an operad with the one induced on its Hochschild complex, more precisely, there is a morphism of $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$. This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we introduce a suitable context and prove the theorem. We also draw a connection between our framework and the one from Gerstenhaber and Voronov.
+
+
+%DO I NEED TO MENTION THE APPENDICES?
+
+\subsection{Intro 2}
+STYLE, SHOULD I USE THEOREM STYLE FOR DEFINITIONS AND EVERYTHING ELSE AS WELL? IN THAT CASE HOW SHOULD I HIGHLIGH THE NAMES OF THE THINGS I DEFINE?
+
+We use an operadic totalization inspired by the totalization functor described in \cite{whitehouse} to obtain an operation similar to the star operation in \cite{LRW} and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra.
+
+We start \Cref{background} by collecting some preliminary definitions and results from \cite{whitehouse} that we adapt to our conventions. In \Cref{operadic}, we then define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. From this, we obtain in \Cref{sectionbraces} a brace structure from which we can obtain a classical $A_\infty$-algebra. Finally, in \Cref{derivedstructure}, we use \cite[Proposition 4.55]{whitehouse} to show that this structure is equivalent to a derived $A_\infty$-algebra on the suspended bigraded operad.
+
 \subfile{SubSuspensionMultiplication}
 \subfile{SubTotalization}
+\subfile{appendices}
 
+
+\bibliographystyle{ieeetr}
+\bibliography{newbibliography}
 
 \end{document}
