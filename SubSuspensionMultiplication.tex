@@ -1,4 +1,4 @@
-\documentclass[../join.tex]{subfiles}
+\documentclass[join.tex]{subfiles}
 %\usepackage{estilo-ejercicios}
 
 
@@ -11,85 +11,6 @@
 
 %\section*{Abstract}
 
-
-\section{Background and conventions}\label{Sec1}
-%MAYBE OMIT ALL MENTION TO SYMMETRIC GROUPS BECAUSE I'M NOT REALLY GONNA USE THEM
-We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions.
-
-Our base category is the category of graded $R$-modules and graded maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $a\in A^i$ we write $\deg(a)=i$. The $R$-modules $\Hom_R(A,B)$ are naturally graded by \[\Hom_R(A,B)^i=\prod_k\Hom_R(A^k,B^{k+i}).\]
-
-We adopt the following Koszul sign convention: for $a\in A$, $b\in B$, $f\in\Hom_R(A,C)$ and $g\in\Hom_R(B,D)$
-
-\[(f\otimes g)(a\otimes b)=(-1)^{\deg(a)\deg(g)}f(a)\otimes g(b).\] %NOT SURE IF SUM OR PROD %I think it's prod because it's all homomorphisms that raise the degree by iFFFLVVVV
-
-\begin{defin}
-For a graded $R$-module $A$ we consider the \emph{shift} or \emph{suspension} $SA$ for which $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
-\end{defin}
-\begin{defin}
-An $A_\infty$-algebra is a graded $R$-module $A$ together with a family of maps $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying for all $n\geq 1$ the equation
-
-\begin{equation}\label{ainftyequation}
-\sum_{r+s+t=n}(-1)^{rs+t}m_{r+t+1}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t})=0.
-\end{equation}
-\end{defin}
-%This is equivalent to define it on SA without signs,  but there's not need to point that out here and it also depends on the convention of S^n^{-1}
-The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. 
-
-\begin{defin}\label{inftymorphism}
-An $\infty$-morphism of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $1-n$ satisfying for all $n\geq 1$ the equation
-\[\sum_{r+s+t=n} (-1)^{rs+t}f_{r+1+t}(1^{\otimes r} \otimes m_s\otimes 1^{\otimes t})=\sum_{i_1+\cdots+i_k=n} (-1)^s m_k(f_{i_1}\otimes\cdots\otimes f_{i_k}),\]
-where
-
-\[s=\sum_{\alpha<\beta}i_\alpha(1-i_\beta).\]
-The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by 
-
-\[(gf)_n=\sum_r\sum_{i_1+\cdots+i_r=n}(-1)^s g_r(f_{i_1}\otimes\cdots
-\otimes f_{i_r}).\]
-\end{defin}
-%I THINK I AM GOING TO OMIT ALL MENTIONS TO SYMETRIC GROUPS OR MAYBE JUST SAY THAT THE RESULTS  FOR SYMMETRIC VERSIONS ARE ANALOGOUS
-
-%IN A THESIS CHAPTER I WOULD PUT MOST OF THESE DEFINITION AT THE INTRO CHAPTER
-\begin{defin}\label{collections}
-A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules. We call the integer $n$ the \emph{arity}. When there is an action of the symmetric group $\Sigma_n$ on each $\OO(n)$ we say that the collection is an $\mathbb{S}-$module. A map of collections $f:\OO\to\mathcal{P}$ is a family of maps $f_n:\OO(n)\to\mathcal{P}(n)$. A map of collection is a map of $\mathbb{S}-$modules when it preserves the symmetric group action.
-\end{defin}
-
-\begin{defin}
-The \emph{plethysm} or \emph{composite} $\OO\circ\PP$ of two collections $\OO$ and $\PP$ given by
-\[(\OO\circ\PP)(n)=\bigoplus_{k\geq 0}\OO(k)\otimes \left(\bigoplus_{i_1+\cdots+i_k=n} \PP(i_1)\otimes\cdots\otimes \PP(i_k)\right).\]
-\end{defin}
-There is a definition for $\mathbb{S}$-modules that requires some tools from the representation theory of symmetric groups that we are not going to introduce here. The reader is referred to \cite{lodayvallette} for the details. 
-
-\begin{defin}
-The \emph{plethysm} or \emph{composite} $f\circ g$ of maps $f:\OO\to\OO'$ and $g:\PP\to\PP'$ is given by
-\[(f\circ g)(a\otimes b_1\otimes\cdots\otimes b_k)=(-1)^{\varepsilon} f(a)\otimes g(b_1)\otimes\cdots\otimes g(b_k),\]
-where $\varepsilon$ is the Koszul sign obtained from swaping each $g$ by the correspoding elements. 
-\end{defin}
-
-It is known that the category of collections with plethysm is a monoidal category, where the unit is the collection $I(1)=R$ and $I(n)=0$ for $n\neq 1$. 
-\begin{defin}
-A (non-symmetric) \emph{operad} is a collection $\OO=\{\OO(n)\}$ where there is a distinguished \emph{identiy} element $1\in\OO(1)$ and with \emph{insertion maps} 
-\[\circ_i:\OO(n)\otimes \OO(m)\to \OO(m+n-1)\]
-for each $1\leq i\leq n$ satisfying natural uunitality and associativity axioms. Insertion maps can be iterated to define \emph{composition maps} \[\gamma(a;b_1,\dots, b_n)=(\cdots(a\circ_1 b_1)\circ_2 b_2\cdots
-)\circ_n b_n).\]
-If $\OO$ is an $\mathbb{S}-$module and the insertion maps satisfy some additional axioms regarding the symmetric group action, we say that $\OO$ is a symmetric operad. See \cite{lodayvallette} for more details.
-
-A map of operads (resp. symmetric operads) is a map of collections (resp. $\mathbb{S}-$modules) that is compatible with insertions.
-\end{defin}
-
-It is also known that an operad $\OO$ is equivalent to a monoid in the monoidal category of collections with plethysm, where the multiplication  map is given precisely by the composition $\gamma:\OO\circ\OO\to\OO$. See \cite[\S 5]{lodayvallette} for more details. 
-
-\begin{defin} An operad $\OO$ is called \emph{reduced} if $\OO(0)=0$.\end{defin}
-
-\begin{defin}
-The \emph{endomorphism operad} $\End_A$ of a graded $R$-module $A$ is given by the modules \[\End_A(n)=\hom(A^{\otimes n},A).\] Insertion maps are given by
-\[f\circ_i g=f(1^{\otimes i-1}\otimes g\otimes 1^{\otimes n-i})\]
-for $f\in\End_A(n)$ and $g\in\End_A(m)$. The identity element is given by the identity map and there is a symmetric group action given by permuting the inputs.
-
-An algebra over an operad $\OO$ is a map of operads $\OO\to\End_A$. By adjunction, this is equivalent to a colllection of maps $\OO(n)\otimes A^{\otimes n}\to A$ for each $\geq 0$.  
-\end{defin}
-The $\mathcal{A}_\infty$-operad is the non-symmetric operad whose algebras are $A_\infty$-algebras. Therefore, it is generated by elements $\mu_i\in\mathcal{A}_\infty(i)$ satisfying the operadic version of the $A_\infty$-equation. More details about this operad can be found in \cite[Chapter 9]{lodayvallette}
-
- 
 
 \section{Operadic suspension}\label{Sec2}
 
@@ -219,6 +140,26 @@ Even though $\sigma$ is only a map of graded modules, it can be shown in a compl
 This isomorphism can also  be proved in a more direct way using the isomorphism \[\s\s^{-1}\OO\cong\OO\] from \Cref{inverse} in the Appendix, namely, since $\End_{SA}\cong \s^{-1}\End_A$, then we have \[\s\End_{SA}\cong \s\s^{-1}\End_A\cong \End_A.\]
 In this case the isomorphism map that we obtain goes in the opposite direction to $\overline{\sigma}$, and it is precisely its inverse.
 
+We also have the following convenient result concerning operadic suspension.
+
+\begin{lem}\label{inverse}
+There are isomorphisms of operads $\mathfrak{s}^{-1}\mathfrak{s}\OO\cong\OO\cong\mathfrak{s}\mathfrak{s}^{-1}\OO$.
+\end{lem}
+\begin{proof}
+We are only showing the first isomorphism since the other one is analogous. Note that as graded $R$-modules \[\s^{-1}\s\OO(n)= \OO(n)\otimes S^{1-n}R\otimes S^{n-1}R\cong\OO(n),\] 
+and any automorphism of $\OO(n)$ determines such an isomorphism. Therefore, we are going to find an automorphism $f$ of $\OO(n)$ such that the above isomorphism induces a map of operads, i.e $f$ induces a map that preserves insertions. Observe that the insertion in $\s^{-1}\s\OO$ differs from that of $\OO$ in just a sign. The insertion on $\s^{-1}\s\OO$ is defined as the composition of the isomorphism
+\begin{align*}
+(\mathcal{O}(n)\otimes S^{n-1}sig_n\otimes S^{1-n}sig_n)\otimes (\mathcal{O}(m)\otimes S^{m-1}sig_m\otimes S^{1-m}sig_m)\cong\\ (\mathcal{O}(m)\otimes \mathcal{O}(m))\otimes (S^{n-1}sig_n\otimes S^{m-1}sig_m)\otimes (S^{1-n}sig_n\otimes S^{1-m}sig_m)
+\end{align*}
+and the tensor product of the insertions correspoding to each operad. After all these maps, the only sign left is $(-1)^{(n-1)(m-1)}$. So we need to find an automorphism $f$ of $\OO$ such that, for $a\in\OO(n)$ and $b\in\OO(m)$,
+
+$$f(a\circ_i b)=(-1)^{(n-1)(m-1)}f(a)\circ_i f(b).$$
+
+By \Cref{binom}, $f(a)=(-1)^{\binom{n}{2}}a$ is such an automorphism.
+%It can be checked that $f(a)=(-1)^{\frac{n(n+1)}{2}+1}a$ is such an automorphism.
+\end{proof}
+
+
 \subsection{Functorial properties of operadic suspension}\label{functorial}
 
 
@@ -270,7 +211,7 @@ Note that $\deg(a)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s 
 
 
 
-The fact that $\s$ is a functor allows to describe algebras over operad using operadic suspension. For instance, an $A_\infty$-algebra is a map of operads $\OO\to\mathcal{P}$ where $\OO$ is an operad with $A_\infty$-multiplication. Since $\s$ is a functor, to this map corresponds a map $\s\OO\to\s\mathcal{P}$. Since in addition, the map $\s\OO\to\s\mathcal{P}$ is fully determined by the original map $\OO\to\mathcal{P}$, this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In fact, using \Cref{inverse} from the Appendix, it is not hard to show the following.
+The fact that $\s$ is a functor allows to describe algebras over operad using operadic suspension. For instance, an $A_\infty$-algebra is a map of operads $\OO\to\mathcal{P}$ where $\OO$ is an operad with $A_\infty$-multiplication. Since $\s$ is a functor, to this map corresponds a map $\s\OO\to\s\mathcal{P}$. Since in addition, the map $\s\OO\to\s\mathcal{P}$ is fully determined by the original map $\OO\to\mathcal{P}$, this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In fact, using \Cref{inverse}, it is not hard to show the following.
 
 \begin{propo}
 The functor $\s$ is an equivalence of categories both at the level of collections (or $\mathbb{S}$-modules) and at the level of operads. \qed %it is not an isomorphism because at the level of collections, not every collection is EQUAL to some suspension
@@ -292,6 +233,7 @@ given by insertion of maps
 \[f\otimes 1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1}\mapsto f(1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1})\] for $f\in \End^A_B(n)$ and $g\in \End_A$.  In addition we have a composition $\End^B_C\circ \End^A_B\to\End^A_C$ analogous to the left module described above. They induce maps on the respective operadic suspensions, which differ from the original ones by some signs that can be calculated in an analogous way to what we do on the next sextion (see equation \ref{sigma}). These induced maps will give us the definition of  $\infty$-morphisms later in \Cref{infinitymorphism}.
 
 For these collections we also have $\mathfrak{s}^{-1}\End^A_B\cong \End^{SA}_{SB}$ in analogy with Theorem \ref{markl}, and the proof is similar but shorter since we do not need to worry about insertions. 
+
 
 \subsection{Monoidal properties of operadic suspension}
 Now we are going to explore the monoidal properties of operadic suspension.
@@ -707,7 +649,7 @@ For $j>1$ it is a direct consequence of \Cref{lemmadegree}. For $j=1$ we have th
 
 The problem we have encountered with the degrees can be resolved using shift maps as the following proposition shows. Recall that the \emph{shift} of a graded module $A$ is given by $SA^i=A^{i-1}$ and that we have maps $A\to SA$ of degree 1 given by the identity. 
 
-\begin{propo}
+\begin{propo}\label{ainftystructure}
 If $\OO$ is an operad with an $A_\infty$-multiplication $m\in\OO$, then there is an $A_\infty$-algebra structure on the shifted module $S\s\OO$. 
 \end{propo}
 \begin{proof}
@@ -978,7 +920,7 @@ The minus sign comes from the fact that $b_1(z_i;m)$ comes from $M'_1(z_i)$, so 
 We have given an implicit definition of the components of the $A_\infty$-algebra structure on $S\s\OO$, namely, \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
 but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$.  This explicit formulas will make more clear the connection with the work of Gerstenhaber and Voronov.  We also hope that these explicit expression can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
 
-\begin{lem}
+\begin{lem}\label{explicit}
 For $x,x_1,\dots,x_n\in\s\OO$, we have the following expressions.
 
 \begin{align*}
