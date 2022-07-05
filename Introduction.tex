@@ -82,6 +82,74 @@ MAYBE THIS IS THE PLACE FOR FIXING R COMMUTATIVE WITH UNIT AND CHAR NOT 2 (POSSI
 
 
 \end{itemize}
+
+\begin{propo}
+Let $\OO$ be an operad in a symmetric monoidal catgory $\CC$. If $F:\CC\to\DD$ is a lax monoidal functor, then $F(\OO)$ has the sttructure of an operad in $\DD$.
+\end{propo}
+\begin{proof}
+Let $\varepsilon: 1_\DD\to F(1_\CC)$ and $\mu\coloneqq\mu_{A,B}: F(A)\otimes F(B)\to F(A\otimes B)$ be the structure maps of the lax monoidal functor $F$. 
+
+Let us first define the structure maps for the operad $F(\OO)$ in terms of insertions. Let $e:1_\CC\to\OO(1)$ be the unit of $\OO$. We define the unit $e_F:1_\DD\to F(\OO(1))$ as the composite
+\[1_\DD\xrightarrow{\varepsilon} F(1)\xrightarrow{F(e)} F(\OO(1)).\]
+Let $\circ_i :\OO(n)\otimes\OO(m)\to\OO(n+m-1)$ be the insertion map on $\OO$. We define the insertion map $\circ_i^F:F(\OO(n))\otimes F(\OO(m))\to F(\OO(n+m-1))$ as the composite
+\[F(\OO(n))\otimes F(\OO(m))\xrightarrow{\mu} F(\OO(n)\otimes\OO(m))\xrightarrow{F(\circ_i)} F(\OO(n+m-1)).\]
+
+We show now that $F(\OO)$ satisfies the unit axioms with the above structure maps. We only show the unit axiom with respect to the right unitor, the axiom with respect to the left unitor is analogous.
+
+
+ Let $\lambda_\CC$ and $\lambda_\DD$ be the right unitors of $\CC$ and $\DD$ respectively. Since $\OO$ is an opererad, we have that the following diagram commutes.
+% \[
+% \begin{tikzcd}
+% \OO(n)\otimes 1\arrow[r, "id\otimes e"]\arrow[rr, bend right = 20, "\lambda_\CC"] & \OO(n)\otimes \OO(1)\arrow[r, "\circ_i"]& \OO(n) 
+% \end{tikzcd}
+% \]
+ 
+  \[
+ \begin{tikzcd}
+ \OO(n)\otimes 1_\CC\arrow[r, "\lambda_\CC"]\arrow[d, "id\otimes e"] &  \OO(n) \\
+ \OO(n)\otimes \OO(1)\arrow[ur, bend right = 10, "\circ_i"]&
+ \end{tikzcd}
+ \]
+ 
+Applying $F$ and introducing $\mu$ we get the following commutative diagram.
+\begin{equation}\label{unitaux}
+\begin{tikzcd}
+F(\OO(n))\otimes F(1_\CC)\arrow[r,"\mu"]\arrow[d, "id\otimes F(e)"] & F(\OO(n)\otimes 1_\CC)\arrow[r, "F(\lambda_\CC)"]\arrow[d, "F(id\otimes e)"]&
+F(\OO(n))\\
+F(\OO(n))\otimes F(\OO(1))\arrow[r,"\mu"] & F(\OO(n)\otimes \OO(1))\arrow[ur, bend right = 15, "F(\circ_i)"']
+\end{tikzcd}
+\end{equation}
+
+We need to show that the following diagram commutes.
+
+  \[
+ \begin{tikzcd}
+F( \OO(n))\otimes 1_\DD\arrow[r, "\lambda_\DD"]\arrow[d, "id\otimes e_F"] &  F(\OO(n)) \\
+ F(\OO(n))\otimes F(\OO(1))\arrow[ur, bend right = 10, "\circ_i^F"]&
+ \end{tikzcd}
+ \]
+ 
+% Let us develop the diagram using the definition of the corresponding maps.
+% 
+% \[
+%\begin{tikzcd}
+%F( \OO(n))\otimes 1_\DD\arrow[r, "\lambda_\DD"]\arrow[d, "id\otimes F(e)\circ \varepsilon"] &  F(\OO(n)) \\
+% F(\OO(n))\otimes F(\OO(1))\arrow[u, "\mu"] & \\
+% F(\OO(
+%\end{tikzcd} 
+ %\]
+ By monoidality of $F$ we know that $\lambda_\DD$ satisfies the following commutative diagram.
+ 
+ \[
+ \begin{tikzcd}
+ F(\OO(n))\otimes 1_\DD\arrow[d, "\lambda_\DD"]\arrow[r, "id\otimes \varepsilon"] & F(\OO(n))\otimes F(1)\arrow[d,"\mu"]\\
+ F(\OO(n)) & F(\OO(n)\otimes 1_\CC)\arrow[l, "F(\lambda)"]
+ \end{tikzcd}
+ \]
+ Or, in other words, $\lambda_\DD = F(\lambda)\circ \mu(id\otimes \varepsilon)$.  On the other hand by diagram (\ref{unitaux}) we have that $F(\lambda)\circ \mu = F(\circ_i)\circ \mu(id\otimes F(e))$, meaning that
+ \[\lambda_\DD =  F(\circ_i)\circ \mu(id\otimes F(e))\circ \mu(id\otimes \varepsilon) = \circ_i^F(id\otimes  e_F)\]
+ as we wanted to show.
+\end{proof}
 %\phantomsection
 \bibliographystyle{ieeetr}
 \bibliography{newbibliography}

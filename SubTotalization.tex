@@ -134,7 +134,9 @@ This operad has an insertion map explicitly given by
 \end{equation}
 for $a=(a_i)_i\in \Tot(\s\OO(n))^{n_1}$ and $b=(b_j)_j\in \Tot(\s\OO(m))^{n_2}$. As usual, denote \[a\star b=\sum_{r=0}^{m-1}a\star_{r+1}b.\]
 
-This star operation is precisely the star operation from \cite[\S 5.1]{LRW}, i.e the convolution operation on $\Hom((dAs)^{!}, \End_A)$ (see \cite{LRW} for details). 
+This star operation is precisely the star operation from \cite[\S 5.1]{LRW}, i.e the convolution operation on $\Hom((dAs)^{!}, \End_A)$ (see \cite{LRW} for details). In particular, we can recover the Lie bracket from in \cite{LRW}. We do this in \Cref{biliebracket}.
+
+%THEIR BRACKET IS  EXACTLY THE ONE I WOULD DEFINEE, BECAUSE THEIR TOTAL DEGREE DOES NOT SUBTRACT 1 LIKE SUSPENSION DOES
 
 %(WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
 
@@ -311,8 +313,8 @@ $f : (A,m_i) → (B,m_i)$ of $A_∞$-algebras such that each map $f_j : A^{⊗j}
 for all $j ≥ 1$, $p_1,\dots p_j ∈ \Z$ and $n_1,\dots , n_j ≥ 0$.
 \end{defin}
 
-\section{Bigraded braces}\label{sectionbraces}
-We are going to define a brace structure using totalization. First we introduce the definition for the bigraded case.
+\section{Bigraded braces and totalized braces}\label{sectionbraces}
+We are going to define a brace structure using totalization. First we introduce the definition of braces for the bigraded case.
 
 \begin{defin}\label{braces}
 A brace algebra on a bigraded module $A$ consists of a family of maps \[b_n:A^{\otimes 1+n}\to A\] called \emph{braces}, that we evaluate on $(x,x_1,\dots, x_n)$ as $b_n(x;x_1,\dots, x_n)$, satisfying the \emph{brace relation}
@@ -332,21 +334,23 @@ where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n\sum_{q=i}^{i_p}\langl
 %Some authors might use the notation $b_{1+n}$ instead of $b_n$, but the first element is usually going to have a different role than the others. A shorter notation for $b_n(x;x_1,\dots,x_n)$ found in the literature is $x\{x_1,\dots, x_n\}$. Also note that we have used the notation $|x_p|$ for the degree of $x_p$ in $A$. 
 %\end{remark}
 
-We can define braces on $\Tot(\s\OO)$ via operadic composition. More precisely, we define the maps 
+As one might expect, we can define bigraded brace maps $b_n$ on a bigraded operad $\OO$ and also on its operadic suspension $\s\OO$, obtaining similar signs as in the single graded case, but with vertical (internal) degrees (see \Cref{bracesign}). 
+
+We can also define braces on $\Tot(\s\OO)$ via operadic composition. In this case, these are usual single graded braces. More precisely, we define the maps 
 \[b^T_n:\Tot(\mathfrak{s}\OO(N))\otimes \Tot(\mathfrak{s}\OO(a_1))\otimes\cdots\otimes \Tot(\mathfrak{s}\OO(a_n))\to \Tot(\mathfrak{s}\OO(N-\sum a_i))\]
 using the operadic composition $\gamma^\star$ on $\Tot(\mathfrak{s}\OO)$ as
 
 \[b^T_n(f;g_1,\dots,g_n)=\sum\gamma^\star(f;1,\dots,1,g_1,1,\dots,1,g_n,1,\dots,1),\]
 
-where the sum runs over all possible ordering preserving insertions. The brace $b^T_n(f;g_1,\dots,g_n)$ vanishes whenever $n>N$ and $b^T_0(f)=f$. We use the notation $b^T_n$ to distinguish this brace map from the brace $b_n$ that can be naturally defined on the bigraded operad $\s\OO$.
+where the sum runs over all possible ordering preserving insertions. The brace $b^T_n(f;g_1,\dots,g_n)$ vanishes whenever $n>N$ and $b^T_0(f)=f$. We use the notation $b^T_n$ to distinguish this brace map from the bigraded brace $b_n$ that can be naturally defined on the bigraded operad $\s\OO$.
 
-The operadic composition can be described in terms of insertions in the obvious way, namely 
+Operadic composition can be described in terms of insertions in the obvious way, namely 
 
 \begin{equation}\label{gammastar}
 \gamma^\star(f;h_1,\dots, h_N)=(\cdots(f\star_1 h_1)\star_{1+a(h_1)}h_2\cdots)\star_{1+\sum a(h_p)}h_N,
 \end{equation}
 
-where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign applying the same strategy as in the single-graded case. In fact, there is a sign factor that comes from vertical operadic suspension identical to the graded case replacing internal degree by vertical (internal) degree. This is the sign that determines the brace $b_j$ on $\s\OO$. Explicitly, it is given by the following lemma, whose proof is identical to the single graded case.
+where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign applying the same strategy as in the single-graded case. In fact, as we said, there is a sign factor that comes from vertical operadic suspension that is identical to the graded case, but replacing internal degree by vertical (internal) degree. This is the sign that determines the brace $b_n$ on $\s\OO$. Explicitly, it is given by the following lemma, whose proof is identical to the single graded case.
 
 
  
@@ -404,8 +408,15 @@ for $x=(x_k)_k\in\Tot(\s\OO(N))^{n_0}$ and $x^i=(x^i_k)_k\in\Tot(\s\OO(a_i))^{n_
 %CHECK THAT THEY SATISFYI THE EQUATION UP TO SIGN AND WORRY LATER ABOUT THE SIGNS
 %
 %DO THE MI1 DEFINE A TWISTED COMPLEX? THIS IS A NECESSARY CONDITION TO SATISSFY THE DAINFTY EQUATION THAT MIGHT BE EASIER TO SHOW AND IIT WOULD MAKE EASIER TO CONNECT EVERYTHING HERE WITH 
+\begin{corollary}\label{biliebracket}
+ For $\OO = \End_A$, the endormorphism operad of a bigraded module, the brace $b_1^T(f;g)$ is the operation $f\star g$ defined in \cite{LRW} that induces a Lie bracket. More precisely,
+\[
+[f,g]=b_1(f;g)-(-1)^{NM}b_1(g;f)
+\]
+for $f\in\s\Tot(\End_A)^N$ and $g\in\s\Tot(\End_A)^M$, is the same bracket that was defined in \cite{LRW}. 
+\end{corollary}
 
-
+Notice that in \cite{LRW} the sign in the bracket is $(-1)^{(N+1)(M+1)}$, but this is because their total degree differs by 1 with respect to ours.
 
 \section{Derived $A_\infty$-structure on an operad}\label{derivedstructure}
 
