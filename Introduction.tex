@@ -86,6 +86,8 @@ MAYBE THIS IS THE PLACE FOR FIXING R COMMUTATIVE WITH UNIT AND CHAR NOT 2 (POSSI
 \begin{propo}
 Let $\OO$ be an operad in a symmetric monoidal catgory $\CC$. If $F:\CC\to\DD$ is a lax monoidal functor, then $F(\OO)$ has the sttructure of an operad in $\DD$.
 \end{propo}
+
+REFERENCE THE AXIOMS WHEN I WRITE THEM DOWN
 \begin{proof}
 Let $\varepsilon: 1_\DD\to F(1_\CC)$ and $\mu\coloneqq\mu_{A,B}: F(A)\otimes F(B)\to F(A\otimes B)$ be the structure maps of the lax monoidal functor $F$. 
 
@@ -146,9 +148,58 @@ F( \OO(n))\otimes 1_\DD\arrow[r, "\lambda_\DD"]\arrow[d, "id\otimes e_F"] &  F(\
  F(\OO(n)) & F(\OO(n)\otimes 1_\CC)\arrow[l, "F(\lambda)"]
  \end{tikzcd}
  \]
- Or, in other words, $\lambda_\DD = F(\lambda)\circ \mu(id\otimes \varepsilon)$.  On the other hand by diagram (\ref{unitaux}) we have that $F(\lambda)\circ \mu = F(\circ_i)\circ \mu(id\otimes F(e))$, meaning that
- \[\lambda_\DD =  F(\circ_i)\circ \mu(id\otimes F(e))\circ \mu(id\otimes \varepsilon) = \circ_i^F(id\otimes  e_F)\]
+ Or, in other words, $\lambda_\DD = F(\lambda)\circ \mu(id\otimes \varepsilon)$.  On the other hand by diagram (\ref{unitaux}) we have that $F(\lambda)\circ \mu = (F(\circ_i)\circ \mu)(id\otimes F(e))$, meaning that
+ \[\lambda_\DD =  F(\circ_i)\circ \mu\circ (id\otimes F(e))\circ (id\otimes \varepsilon) = \circ_i^F(id\otimes  e_F)\]
  as we wanted to show.
+ 
+ Next we need to show that the associativity axioms of operads hold for $F(\OO)$. Let us first prove the one that does not involve the symmetry isomorphism. 
+ 
+ Let $a_\CC$ and $a_\DD$ the associators for $\CC$ and $\DD$, respectively. For $i\leq j\leq i+m-1$ we have the following commutative diagram.
+ 
+ \[
+\begin{tikzcd}
+(\OO(n)\otimes \OO(m))\otimes \OO(l) \arrow[r, "a_\CC"]\arrow[d, "\circ_i\otimes"] & \OO(n)\otimes (\OO(m)\otimes\OO(l))\arrow[d, "id\otimes\circ_{j-i+1}"]\\
+\OO(n+m-1)\otimes\OO(l)\arrow[d, "\circ_j"] & \OO(n)\otimes\OO(m+l-1)\arrow[dl, bend left = 10, "\circ_i"]\\
+\OO(n+m+l-2) & 
+\end{tikzcd} 
+ \]
+ 
+ Applying $F$ we obtain the following commutative diagram.
+  \begin{equation}\label{assaux}
+\begin{tikzcd}
+F((\OO(n)\otimes \OO(m))\otimes \OO(l)) \arrow[r, "F(a_\CC)"]\arrow[d, "F(\circ_i\otimes id)"] & F(\OO(n)\otimes (\OO(m)\otimes\OO(l)))\arrow[d, "F(id\otimes\circ_{j-i+1})"]\\
+F(\OO(n+m-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & F(\OO(n)\otimes\OO(m+l-1))\arrow[dl, bend left = 10, "F(\circ_i)"]\\
+F(\OO(n+m+l-2)) & 
+\end{tikzcd} 
+   \end{equation}
+   
+   According to the definition of $\circ_i^F$, we need to show that the following diagram commutes. 
+   
+   \[   
+\begin{tikzcd}
+(F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l)) \arrow[r, "a_\DD"] \arrow[d, "\mu\otimes id"] & F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes \mu"]\\
+F(\OO(n)\otimes \OO(m))\otimes F(\OO(l))\arrow[d, red, "F(\circ_i)\otimes id"] & F(\OO(n))\otimes F(\OO(m)\otimes\OO(l))\arrow[d, red, "id\otimes F(\circ_{j+i-1})"]\\
+F(\OO(n+m-1))\otimes F(\OO(l))\arrow[d, red, "\mu"] & F(\OO(n))\otimes F(\OO(m+l-1))\arrow[d, red, "\mu"]\\
+F(\OO(n+m-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & F(\OO(n)\otimes\OO(m+l-1))\arrow[dl, bend left = 10, "F(\circ_i)"]\\
+F(\OO(n+m+l-2)) & 
+\end{tikzcd}   
+   \]
+   
+   By naturality of $\mu$ we  have that \[\mu\circ (F(\circ_i)\otimes id)= F( \circ_i \otimes iid)\circ \mu\] and \[\mu\circ (id \otimes F(\circ_{j-i+1}))= F(id\otimes \circ_{j-i+1})\circ \mu.\]
+    Therefore we can replace the red arrows accordingly. We can also subdivide the above diagram into two by using $F(a_\CC)$ as follows.
+   
+      \[   
+\begin{tikzcd}
+(F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l)) \arrow[r, "a_\DD"] \arrow[d, "\mu\otimes id"] & F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes \mu"]\\
+F(\OO(n)\otimes \OO(m))\otimes F(\OO(l))\arrow[d, red, "\mu"] & F(\OO(n))\otimes F(\OO(m)\otimes\OO(l))\arrow[d, red, "\mu"]\\
+F((\OO(n)\otimes\OO(m))\otimes\OO(l))\arrow[d, red, "F(\circ_i\otimes id)"]\arrow[r, dashed, "F(a_\DD)"] & F(\OO(n))\otimes F(\OO(n)\otimes(\OO(m)\otimes\OO(l)))\arrow[d, red, "F(id\otimes \circ_{j-1+1})"]\\
+F(\OO(n+m-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & F(\OO(n)\otimes\OO(m+l-1))\arrow[dl, bend left = 10, "F(\circ_i)"]\\
+F(\OO(n+m+l-2)) & 
+\end{tikzcd}   
+   \]
+   Now, the top diagram commutes because it is the hexagon axiom of lax monoidal functors. The bottom diagram is precisely diagram (\ref{assaux}), so it commutes and we get the desired associativity axiom.
+   
+   Finally, we need to show that the associativity axioms involving the symmetry isomorphism hold for $F(\OO)$. Since they are analogous to each other, we only prove the first one.
 \end{proof}
 %\phantomsection
 \bibliographystyle{ieeetr}
