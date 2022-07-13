@@ -8,7 +8,7 @@
 
 In this section we include all necessary background and the conventions we use throughout the article. It is divided in two parts, one corresponding to classical $A_\infty$-algebras and another one for derived $A_\infty$-algebras.
 
-\subsection{For the study of $A_\infty$-algebras}
+\subsection{$A_\infty$-algebras}
 
 Let us start by recalling some background definitions and results that we will need to study $A_\infty$-algebras, as well as stating some conventions.
 
@@ -45,9 +45,15 @@ The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by
 \[(gf)_n=\sum_r\sum_{i_1+\cdots+i_r=n}(-1)^s g_r(f_{i_1}\otimes\cdots
 \otimes f_{i_r}).\]
 \end{defin}
+
+
 %I THINK I AM GOING TO OMIT ALL MENTIONS TO SYMETRIC GROUPS OR MAYBE JUST SAY THAT THE RESULTS  FOR SYMMETRIC VERSIONS ARE ANALOGOUS
 
 %IN A THESIS CHAPTER I WOULD PUT MOST OF THESE DEFINITION AT THE INTRO CHAPTER
+
+We will discuss these topics in the language of operads, for which we need some more definitions.
+
+\subsection{Operads}
 \begin{defin}\label{collections}
 A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules. We call the integer $n$ the \emph{arity}. When there is an action of the symmetric group $\Sigma_n$ on each $\OO(n)$ we say that the collection is an $\mathbb{S}-$module. A map of collections $f:\OO\to\mathcal{P}$ is a family of maps $f_n:\OO(n)\to\mathcal{P}(n)$. A map of collection is a map of $\mathbb{S}-$modules when it preserves the symmetric group action.
 \end{defin}
@@ -411,7 +417,7 @@ transformation
 In particular, if $F$ is (lax) monoidal over $\VV$, then $F$ is (lax) monoidal in the enriched sense.
 \end{propo}
 \begin{proof}
-See \cite[Proposition 4.11]{whitehous}.
+See \cite[Proposition 4.11]{whitehouse}.
 \end{proof}
 \begin{lem}
 Let $F,G:\CC\to\DD$ lax functors over $\VV$ and let $\mu : F\Rightarrow G$ a natural transformation over $\VV$. For every $X\in\CC$ and $Y\in\DD$ there is a map \[\uD(GX,Y)\to\uD(FX,Y)\] that is an isomorphism if $\mu$ is an isomorphism.

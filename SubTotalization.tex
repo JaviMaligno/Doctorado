@@ -20,178 +20,7 @@
 
 
 
-
-
-
-\section{Operadic totalization and vertical operadic suspension}\label{operadic}
-\subsection{Operadic totalization}
-%I THINK I NEED  (N,Z)-BRIGRADED MODULES TO MAKE SURE THAT HORIZONTAL DEGREE IS NON-NEGATIVE WHEN DEFINING M AS AN ELEMENT OF TSO
-
-%We are going to apply the totalization with compact support functor of WHITEHOUSE 4.13 to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. WHITEHOUSE 3.11 the functor $T$ with domain the category of bigraded modules and bidegree $(0,0)$ morphisms is lax monoidal, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules.  
-
-We are going to apply the totalization  functor defined in \Cref{total} to operads. By \Cref{monoidal} and the fact that the image of an operad under a lax monoidal functor is also an operad (THIS WILL BE IN BRACKGROUND CHAPTER), this will define a functor from operads in brigraded modules (resp. twisted complexes) to operads in graded modules (resp. chain complexes). %and we are going to simply call it \emph{totalization (functor)} and denote it as $\Tot$. Tthe functor $\Tot$ with domain the category $\bgmod$ (TWISTED COMPLEXES?) and bidegree $(0,0)$ morphisms (TWISTED COMPLEX MAPS?) is lax monoidal REFERENCE TO THEOREM, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules. 
-
-Therefore, let $\OO$ be either a bigraded operad, i.e. an operad in te category of bigraded $R$-modules or an operad in twisted complexes. We define $\Tot(\OO)$ as the operad of graded $R$-modules (or chain complexes) for which \[\Tot(\OO(n))^d=\bigoplus_{i<0}\OO(n)^{d-i}_i\oplus\prod_{i\geq 0} \OO(n)^{d-i}_i\] is the image of $\OO(n)$ under the totalization functor and the insertion maps are given by the composition  %THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
-\begin{equation}\label{insertion}
-\Tot(\OO(n))\otimes \Tot(\OO(m))\xrightarrow{\mu} \Tot(\OO(n)\otimes \OO(m)) \xrightarrow{\Tot(\circ_r)} \Tot(\OO(n+m-1)),
-\end{equation}
-that is explicitly 
-\[(a\bar{\circ}_rb)_k=\sum_{k_1+k_2=k} (-1)^{k_1n_2} a_{k_1}\circ_r b_{k_2}\]
-
-for $a=(a_i)_i\in \Tot(\OO(n))^{n_1}$ and $b=(b_j)_j\in \Tot(\OO(m))^{n_2}$.
-
-More generally, operadic composition $\bar{\gamma}$ is defined by the composite
-\begin{equation*}
-\Tot(\OO(N))\otimes \Tot(\OO(a_1))\otimes\cdots\otimes \Tot(\OO(a_N))\xrightarrow{\mu} \Tot(\OO(N)\otimes \OO(a_1)\otimes\cdots\otimes \OO(a_N)) \xrightarrow{\Tot(\gamma)} \Tot(\OO(\sum a_i)),
-\end{equation*}
-
-This map can be computed explicitly by iteration of the insertion $\bar{\circ}$, giving the following.  %For simplicity, we abuse of notation by omitting sums
-
-\begin{lem}\label{totcomp}
-The operadic composition $\bar{\gamma}$ on $\Tot(\OO)$ is given by
-\begin{equation*}%\label{totcomp}
-\bar{\gamma}(x;x^1,\dots, x^N)_k=\sum_{k_0+k_1+\cdots+k_N=k}(-1)^{\varepsilon}\gamma(x_{k_0};x^1_{k_1},\dots, x^N_{k_N})
-\end{equation*}
-for $x=(x_k)_k\in\Tot(\OO(N))^{n_0}$ and $x^i=(x^i_k)_k\in\Tot(\OO(a_i))^{n_i}$, where 
-\begin{equation}
-\varepsilon=\sum_{j=1}^m n_j\sum_{i=0}^{j-1}k_i
-\end{equation}
-and $\gamma$ is the operadic composition on $\OO$.
-\end{lem}
-Notice that the sign is precisely the same appearing in \Cref{mu}.
-%MAYBE I SHOULD WRITE THINGS LIKE SUMS BUT I THINK IT MAKES SENSE TO WRITE IT LIKE THIS BECAUSE I KNOW THIS COMES FROM A BIGRADED MODULE
-%where $a\in\OO(n)^k_i$, $b\in\OO(m)^j_l$ and $\circ_r$ is the insertion map in $\OO$.
-
-%It can be checked that this is indeed an operad of graded vector spaces I 
-
-
-%COMPOSITION OF ARBITRARY BIGRADING IS PRESERVED BY TOT SINCE ALL SIGNS INVOLVED ARE HORIZONTAL DEGREE SO IT IS ANALOGUE TO WHITEHOUSE (WRITE DOWN THE CALCULATIONS IF NEEDED)
-
-\subsection{Vertical operadic suspension}
-On an bigraded operad we can use operadic suspension on the vertical degree with analogue results to those of the graded case. %MAYBE SPECIFY SOME OF THEM
-
-%Everything should be valid for R-modules (char not 2, as in fields). The sign representation would have to be a free R-module of rank 1
-
- %for a commutative (at least with 1\neq 0) ring the rank is well defined, in general it is not
-
-%Therefore, in analogy to the single graded cases, let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in bidegree $(0,0)$. This is a free $R$-module of rank one that comes with a natural action of the symmetric group $S_n$ that multiplies each element by the sign of each given permutation. %I MIGHT LEAVE OUT THE SYMMETRIC GROUP  ACTION UNLESS I FIND OUT HOW TO MODIFY IT IN TOTALIZATION, I SHOULD THINK ABOUT IT
-
-%We define $\Lambda(n)=S^{n-1}sign_n$, where  $S$ is a vertical shift of degree so that $\Lambda(n)$ is concentrated on bidegree  $(0,n-1)$.
-We define $\Lambda(n)=S^{n-1}R$, where  $S$ is a vertical shift of degree so that $\Lambda(n)$ is the underlying ring $R$ concentrated in bidegree  $(0,n-1)$. As in the single graded case, we express the basis element of $\Lambda(n)$ as $e^n=e_1\land\cdots\land e_n$.
-
-The operad structure on the bigraded $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ is the same as in the graded case, namely
-
-\[
-\begin{tikzcd}
-\Lambda(n)\otimes\Lambda(m) \arrow[r, "\circ_{r+1}"] & \Lambda(n+m-1)\\
-(e_1\land\cdots\land e_n)\otimes(e_1\land\cdots\land e_m)\arrow[r, mapsto] & (-1)^{(n-r-1)(m-1)}e_1\land\cdots\land e_{n+m-1}.
-\end{tikzcd}
-\]
-
-
-
-%In a similar way we can define $\Lambda^-(n)=S^{1-n}sig_n$, with the same insertion maps.
-In a similar way we can define $\Lambda^-(n)=S^{1-n}R$, with the same insertion maps.
-%The sign might arise naturally from the permutation action. If I have the wedge of n wedge the wedge of m-1 (because the final result must be n+m-1 in total), I would permute the last m-1 until the reach the i-th position via transpositions, each transpotision produces a minus sign. Or simply considering the lat m as a single element of degree m-1 being permuted in the wedge
-\begin{definition}
-Let $\mathcal{O}$ be a bigraded linear operad, i.e. an operad on the category of bigraded $R$-modules. The \emph{vertical operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of the operads $\OO$ and $\Lambda$, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition and symmetric group action. Similarly, we define the \emph{vertical operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$. %POSSIBLY EXCLUDE SYMMETRIC GROUP ACTION, ALTHOUGH IT MAKES SENSE ON ITS OWN
-\end{definition}
-
-CONSIDER CHANGING THE NOTATION FOR BIDEGREE TO BE CONSISTENT (I THINK THE BEST OPTION IS USING D FOR TOTAL DEGREES, IS A LOT TO CHANGE BUT OTHERWISE I WILL HAVE TO USE FUNNY NOTATION FOR ARITIES), SHOULD I USE TOTAL-HORZNTAL FOR VERTICAL DEGREE HERE? IT FEELS INNECESSARY EVEN THOUGH IT WOULD BE CONSISTENT
-
-We may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$. For $a\in\OO(n)$ of bidegree $(k,d-k)$, its ``natural'' bidegree in $\s\OO$ is $(k,d+n-k-1)$. To distinguish both degrees we call $(k,d-k)$ the \emph{internal bidegree} of $a$, since this is the degree that $a$ inherits from the grading of $\OO$. If we write $\circ_{r+1}$ for the operadic insertion on $\OO$ and $\tilde{\circ}_{r+1}$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. Let $a\in\OO(n)^{d-k}_k$ and $b\in\OO(m)^{q-l}_l$, and let us compute $a\tilde{\circ}_{r+1} b$.
-
-\begin{align*}
-\mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
-&\xrightarrow{\circ_{r+1}\otimes\circ_{r+1}} \OO(m+n-1)\otimes \Lambda(n+m-1)=\mathfrak{s}\OO(n+m-1).
-\end{align*}
-
-The symmetric monoidal structure produces the sign $(-1)^{(n-1)(q-l)}$ in the isomorphism $\Lambda(n)\otimes \OO(m)\cong\OO(m)\otimes\Lambda(n)$, and the operadic structure of $\Lambda$ produces the sign $$(-1)^{(n-1)(m-1)+r(m-1)},$$ so 
-
-\begin{equation}\label{sign}
-a\tilde{\circ}_{r+1}b=(-1)^{(n-1)(q-l)+(n-1)(m-1)+r(m-1)}a\circ_{r+1} b.
-\end{equation}
-As can be seen, this is the same sign as the single graded operadic suspension but with vertical degree. In particular, this operation leads to the Lie bracket from \cite{RW}, which implies that $m=\sum_{i,j}m_{ij}$ is a derived $A_\infty$-multiplication if and only if
-\begin{equation}\label{sharp}
-\sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0
-\end{equation}
-for the brace induced by $\tilde{\circ}$ (see \Cref{braces} to recall the definition of a brace).
-
-We of course have the following theorem with similar proof to the graded case, where all the suspensions are vertical.
-\begin{thm}\label{markl}
-Given a bigraded $R$-module $A$, there is an isomorphism of operads $\End_{ A}\cong \mathfrak{s}\End_{SA}$, where $\End_A$ is the endomorphism operad of $A$.\qed
-\end{thm}
-
-\subsection{Vertical suspension and totalization} 
-
-Now we are going to combine vertical operadic suspension and totalization. More precisely, the totalized vertical suspension a bigraded operad $\OO$ is the graded operad $\Tot(\s\OO)$. 
-
-%TsOO(n)^{n1} SOO(n)^{n1-k1}_k1  OO(n)^{n1-k1-n+1}_k1
-
-This operad has an insertion map explicitly given by
-\begin{equation}\label{star}
-(a\star_{r+1} b)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-k_2-m+1)+(n-1)(m-1)+r(m-1)+k_1n_2}a_{k_1}\circ_{r+1}b_{k_2}
-\end{equation}
-for $a=(a_i)_i\in \Tot(\s\OO(n))^{n_1}$ and $b=(b_j)_j\in \Tot(\s\OO(m))^{n_2}$. As usual, denote \[a\star b=\sum_{r=0}^{m-1}a\star_{r+1}b.\]
-
-This star operation is precisely the star operation from \cite[\S 5.1]{LRW}, i.e the convolution operation on $\Hom((dAs)^{!}, \End_A)$ (see \cite{LRW} for details). In particular, we can recover the Lie bracket from in \cite{LRW}. We do this in \Cref{biliebracket}.
-
-%THEIR BRACKET IS  EXACTLY THE ONE I WOULD DEFINEE, BECAUSE THEIR TOTAL DEGREE DOES NOT SUBTRACT 1 LIKE SUSPENSION DOES
-
-%(WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
-
-Before continuing, let us show a lemma that allows us to work only with the single graded operadic suspension if needed.
-\begin{propo}\label{extrasign}
-For a bigraded operad $\OO$ we have an isomorphism $\Tot(\s\OO)\cong \s \Tot(\OO)$, where the suspension on the left hand side is the bigraded version and on the right hand side is the single graded version. 
-\end{propo}
-\begin{proof}
- Note that we may identify each element $a=(a_k\otimes e^n )_k\in\Tot(\s\OO(n))$ with the element $a=(a_k)_k\otimes e^n\in\s\Tot(\OO(n))$. Thus, for an element $(a_k)_k\in \Tot(\s\OO(n))$ the isomorphism is given by
-\begin{align*}
-f:\Tot(\s\OO(n))&\cong \s \Tot(\OO(n))\\
-(a_k)_k&\mapsto ((-1)^{kn}a_k)_k
-\end{align*}
-Cleary this map is bijective so we just need to check that it commutes with insertions. Recall from \Cref{star} that the insertion on $\Tot(\s\OO)$ is given by
-\begin{equation*}
-(a\star_{r+1} b)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1n_2}a_{k_1}\circ_{r+1}b_{k_2}
-\end{equation*}
-for $a=(a_i)_i\in \Tot(\s\OO(n))^{n_1}$ and $b=(b_j)_j\in \Tot(\s\OO(m))^{n_2}$. Similarly, we may compute the insertion on $\s\Tot(\OO)$ by combining the sign produced first by $\Tot$ and then by $\s$. This results in  the following insertion map 
-\begin{equation*}
-(a\star_{r+1}' b)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(n_2-m+1)}a_{k_1}\circ_{r+1}b_{k_2}
-\end{equation*}
-for $a=(a_i)_i\in \s\Tot(\OO(n))^{n_1}$ and $b=(b_j)_j\in \s\Tot(\OO(m))^{n_2}$. Now let us show that $f(a\star b)=f(a)\star f(b)$. We have
-\begin{align*}
-f((a\star_{r+1} b))_k&=\sum_{k_1+k_2=k}(-1)^{k(n+m-1)+(n-1)(n_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1n_2}a_{k_1}\circ_{r+1}b_{k_2}\\
-&=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(n_2-m+1)}f(a_{k_1})\circ_{r+1}f(b_{k_2})\\
-&=(f(a)\star f(b))_k
-\end{align*}
-%I skipped one calculation but it is just that
-as desired.
-\end{proof}
-
-
-\begin{remark}\label{othermu}
-
-
-As we mentioned in \Cref{heuristic}, there exist other possible ways of totalizing by varying the natural transformation $\mu$. For instance, we can choose the totalization functor $\Tot'$ which is the same as $\Tot$ but with a natural transformation $\mu'$ defined in such a way that the insertion on $\Tot'(\OO)$ is defined by \[(a\hat{\circ}b)_k=\sum_{k_1+k_2=k}(-1)^{k_2n_1}a_{k_1}\circ b_{k_2}.\] 
-
-This is also a valid approach for our purposes and there is simply a sign difference, but we have chosen our convention to be consistent with other conventions, like the derived $A_\infty$-equation. However, let us mention some differences and relations between $\Tot$ and $\Tot'$ . %There are of course many other possible conventions MAYBE NOT MENTION THE EXACT DIFFRENES, JUST STOP HERE BECAUSE THERE ARE MORE CONVENTIONS AND I DON'T THINK I WILL TREAT ALL OF THEM IN DETAIL, BUT THE DIFFERENCE BETWEEN IDENTITY AND ISOMORPHISM MIGHT BE WORTH MENTION
-
-First of all, $\Tot$ and $\Tot'$ are isomorphic. The isomorphism $f:\Tot(\OO)\cong \Tot'\OO$ given by $f((a_k))=((-1)^{k(n_1-k)}a_k)$. %MAYBE ALL OF THEM ARE ISOMORPHIC, THINK OF THIS USING JUST THAT A TOTALIZATION IS A LAX SYMMETRIC MONOIDAL FUNCTOR FROM BIGRADED MODULES TO GRADED MODULES %, MAYBE ALSO USE THAT THE UNDERLYING MODULE IS ALWAYS THE SAME SO THAT THE ONLY MODIFICATION IS THE INSERTION
-
-It can also be verified that $\Tot'(\s\OO)=\s \Tot'(\OO)$. With the original totalization we have a non identity isomorphism given by \Cref{extrasign}. Similar relations can be found among the other alternatives mentioned in \Cref{heuristic}. %We will use this isomorphism later.
-
-%POSSIBLY FILL IN SOME DETAILS OF THESE ISOMORPHISMS
-
-
-\end{remark}
-%AT THE END  OF THE PROOF OF WHITEHOUSE 4.47 WHERE AINFTY ON TWISTED COMPLEX IS EQUIVALENT TO DERIVED-AINFTY THIS ISOMORPHISM IS  USED SINCE APLIED TO MIJ  THE EXPONENT IS PRECISELY IJ
-
-%ALSO IN THAT THEOREM THE DIFERENTIALS OF THE TWISTED COMPLEX CORRESPOND PRECISELY TO MI1 SIMILAR TO MY MI1 BEING LIKE DIFFERENTIALS (I SHOULD CHECK IF THEY SATISFY THE TWISTED COMPLEX RELATION)
-
-
-
-
-\section{Derived $A_\infty$-algebras and filtered $A_\infty$-algebras}
+\section{Derived $A_\infty$-algebras and filtered $A_\infty$-algebras}\label{deriveddef}
 
 In this section we recall some definitions about derived $A_\infty$-algebras and present some ways of interpreting them in terms of operads and collections.
 
@@ -313,10 +142,182 @@ $f : (A,m_i) → (B,m_i)$ of $A_∞$-algebras such that each map $f_j : A^{⊗j}
 for all $j ≥ 1$, $p_1,\dots p_j ∈ \Z$ and $n_1,\dots , n_j ≥ 0$.
 \end{defin}
 
-\section{Bigraded braces and totalized braces}\label{sectionbraces}
-We are going to define a brace structure using totalization. First we introduce the definition of braces for the bigraded case.
+We will study the notions from this section from an operadic point of view. For that purpuse we introduce some useful constructions in the next section.
 
-\begin{defin}\label{braces}
+\section{Operadic totalization and vertical operadic suspension}\label{operadic}
+\subsection{Operadic totalization}
+%I THINK I NEED  (N,Z)-BRIGRADED MODULES TO MAKE SURE THAT HORIZONTAL DEGREE IS NON-NEGATIVE WHEN DEFINING M AS AN ELEMENT OF TSO
+
+%We are going to apply the totalization with compact support functor of WHITEHOUSE 4.13 to operads and we are going to simply call it \emph{totalization (functor)} and denote it as $T$. WHITEHOUSE 3.11 the functor $T$ with domain the category of bigraded modules and bidegree $(0,0)$ morphisms is lax monoidal, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules.  
+
+We are going to apply the totalization  functor defined in \Cref{total} to operads. By \Cref{monoidal} and the fact that the image of an operad under a lax monoidal functor is also an operad, this will define a functor from operads in brigraded modules (resp. twisted complexes) to operads in graded modules (resp. chain complexes). %and we are going to simply call it \emph{totalization (functor)} and denote it as $\Tot$. Tthe functor $\Tot$ with domain the category $\bgmod$ (TWISTED COMPLEXES?) and bidegree $(0,0)$ morphisms (TWISTED COMPLEX MAPS?) is lax monoidal REFERENCE TO THEOREM, so applying LAX MONOIDAL PRESERVES OPERADS we can conclude that it takes operads of bigraded modules to operads of graded modules. 
+
+Therefore, let $\OO$ be either a bigraded operad, i.e. an operad in te category of bigraded $R$-modules or an operad in twisted complexes. We define $\Tot(\OO)$ as the operad of graded $R$-modules (or chain complexes) for which \[\Tot(\OO(n))^d=\bigoplus_{i<0}\OO(n)^{d-i}_i\oplus\prod_{i\geq 0} \OO(n)^{d-i}_i\] is the image of $\OO(n)$ under the totalization functor and the insertion maps are given by the composition  %THE SECOND IF I WANT TO ORDER THEM BY HORIZONTAL DEGREE AND WRITE SUMS LIKE WHITEHOUSE and comes equipped with insertion maps \[a\bar{\circ}_rb=(-1)^{l(i+k)} a\circ_r b\]
+\begin{equation}\label{insertion}
+\Tot(\OO(n))\otimes \Tot(\OO(m))\xrightarrow{\mu} \Tot(\OO(n)\otimes \OO(m)) \xrightarrow{\Tot(\circ_r)} \Tot(\OO(n+m-1)),
+\end{equation}
+that is explicitly 
+\[(a\bar{\circ}_rb)_k=\sum_{k_1+k_2=k} (-1)^{k_1n_2} a_{k_1}\circ_r b_{k_2}\]
+
+for $a=(a_i)_i\in \Tot(\OO(n))^{n_1}$ and $b=(b_j)_j\in \Tot(\OO(m))^{n_2}$.
+
+More generally, operadic composition $\bar{\gamma}$ is defined by the composite
+\begin{equation*}
+\Tot(\OO(N))\otimes \Tot(\OO(a_1))\otimes\cdots\otimes \Tot(\OO(a_N))\xrightarrow{\mu} \Tot(\OO(N)\otimes \OO(a_1)\otimes\cdots\otimes \OO(a_N)) \xrightarrow{\Tot(\gamma)} \Tot(\OO(\sum a_i)),
+\end{equation*}
+
+This map can be computed explicitly by iteration of the insertion $\bar{\circ}$, giving the following.  %For simplicity, we abuse of notation by omitting sums
+
+\begin{lem}\label{totcomp}
+The operadic composition $\bar{\gamma}$ on $\Tot(\OO)$ is given by
+\begin{equation*}%\label{totcomp}
+\bar{\gamma}(x;x^1,\dots, x^N)_k=\sum_{k_0+k_1+\cdots+k_N=k}(-1)^{\varepsilon}\gamma(x_{k_0};x^1_{k_1},\dots, x^N_{k_N})
+\end{equation*}
+for $x=(x_k)_k\in\Tot(\OO(N))^{n_0}$ and $x^i=(x^i_k)_k\in\Tot(\OO(a_i))^{n_i}$, where 
+\begin{equation}
+\varepsilon=\sum_{j=1}^m n_j\sum_{i=0}^{j-1}k_i
+\end{equation}
+and $\gamma$ is the operadic composition on $\OO$.
+\end{lem}
+Notice that the sign is precisely the same appearing in \Cref{mu}.
+%MAYBE I SHOULD WRITE THINGS LIKE SUMS BUT I THINK IT MAKES SENSE TO WRITE IT LIKE THIS BECAUSE I KNOW THIS COMES FROM A BIGRADED MODULE
+%where $a\in\OO(n)^k_i$, $b\in\OO(m)^j_l$ and $\circ_r$ is the insertion map in $\OO$.
+
+%It can be checked that this is indeed an operad of graded vector spaces I 
+
+
+%COMPOSITION OF ARBITRARY BIGRADING IS PRESERVED BY TOT SINCE ALL SIGNS INVOLVED ARE HORIZONTAL DEGREE SO IT IS ANALOGUE TO WHITEHOUSE (WRITE DOWN THE CALCULATIONS IF NEEDED)
+
+\subsection{Vertical operadic suspension}
+On an bigraded operad we can use operadic suspension on the vertical degree with analogue results to those of the graded case. %MAYBE SPECIFY SOME OF THEM
+
+%Everything should be valid for R-modules (char not 2, as in fields). The sign representation would have to be a free R-module of rank 1
+
+ %for a commutative (at least with 1\neq 0) ring the rank is well defined, in general it is not
+
+%Therefore, in analogy to the single graded cases, let $sig_n$ be the sign representation of the symmetric group on $n$ symbols concentrated in bidegree $(0,0)$. This is a free $R$-module of rank one that comes with a natural action of the symmetric group $S_n$ that multiplies each element by the sign of each given permutation. %I MIGHT LEAVE OUT THE SYMMETRIC GROUP  ACTION UNLESS I FIND OUT HOW TO MODIFY IT IN TOTALIZATION, I SHOULD THINK ABOUT IT
+
+%We define $\Lambda(n)=S^{n-1}sign_n$, where  $S$ is a vertical shift of degree so that $\Lambda(n)$ is concentrated on bidegree  $(0,n-1)$.
+We define $\Lambda(n)=S^{n-1}R$, where  $S$ is a vertical shift of degree so that $\Lambda(n)$ is the underlying ring $R$ concentrated in bidegree  $(0,n-1)$. As in the single graded case, we express the basis element of $\Lambda(n)$ as $e^n=e_1\land\cdots\land e_n$.
+
+The operad structure on the bigraded $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ is the same as in the graded case, namely
+
+\[
+\begin{tikzcd}
+\Lambda(n)\otimes\Lambda(m) \arrow[r, "\circ_{r+1}"] & \Lambda(n+m-1)\\
+(e_1\land\cdots\land e_n)\otimes(e_1\land\cdots\land e_m)\arrow[r, mapsto] & (-1)^{(n-r-1)(m-1)}e_1\land\cdots\land e_{n+m-1}.
+\end{tikzcd}
+\]
+
+
+
+%In a similar way we can define $\Lambda^-(n)=S^{1-n}sig_n$, with the same insertion maps.
+In a similar way we can define $\Lambda^-(n)=S^{1-n}R$, with the same insertion maps.
+%The sign might arise naturally from the permutation action. If I have the wedge of n wedge the wedge of m-1 (because the final result must be n+m-1 in total), I would permute the last m-1 until the reach the i-th position via transpositions, each transpotision produces a minus sign. Or simply considering the lat m as a single element of degree m-1 being permuted in the wedge
+\begin{definition}
+Let $\mathcal{O}$ be a bigraded linear operad, i.e. an operad on the category of bigraded $R$-modules. The \emph{vertical operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of the operads $\OO$ and $\Lambda$, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition and symmetric group action. Similarly, we define the \emph{vertical operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$. %POSSIBLY EXCLUDE SYMMETRIC GROUP ACTION, ALTHOUGH IT MAKES SENSE ON ITS OWN
+\end{definition}
+
+CONSIDER CHANGING THE NOTATION FOR BIDEGREE TO BE CONSISTENT (I THINK THE BEST OPTION IS USING D FOR TOTAL DEGREES, IS A LOT TO CHANGE BUT OTHERWISE I WILL HAVE TO USE FUNNY NOTATION FOR ARITIES), SHOULD I USE TOTAL-HORZNTAL FOR VERTICAL DEGREE HERE? IT FEELS INNECESSARY EVEN THOUGH IT WOULD BE CONSISTENT
+
+We may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$. For $a\in\OO(n)$ of bidegree $(k,d-k)$, its ``natural'' bidegree in $\s\OO$ is $(k,d+n-k-1)$. To distinguish both degrees we call $(k,d-k)$ the \emph{internal bidegree} of $a$, since this is the degree that $a$ inherits from the grading of $\OO$. If we write $\circ_{r+1}$ for the operadic insertion on $\OO$ and $\tilde{\circ}_{r+1}$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. Let $a\in\OO(n)^{d-k}_k$ and $b\in\OO(m)^{q-l}_l$, and let us compute $a\tilde{\circ}_{r+1} b$.
+
+\begin{align*}
+\mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
+&\xrightarrow{\circ_{r+1}\otimes\circ_{r+1}} \OO(m+n-1)\otimes \Lambda(n+m-1)=\mathfrak{s}\OO(n+m-1).
+\end{align*}
+
+The symmetric monoidal structure produces the sign $(-1)^{(n-1)(q-l)}$ in the isomorphism $\Lambda(n)\otimes \OO(m)\cong\OO(m)\otimes\Lambda(n)$, and the operadic structure of $\Lambda$ produces the sign $$(-1)^{(n-1)(m-1)+r(m-1)},$$ so 
+
+\begin{equation}\label{sign}
+a\tilde{\circ}_{r+1}b=(-1)^{(n-1)(q-l)+(n-1)(m-1)+r(m-1)}a\circ_{r+1} b.
+\end{equation}
+As can be seen, this is the same sign as the single graded operadic suspension but with vertical degree. In particular, this operation leads to the Lie bracket from \cite{RW}, which implies that $m=\sum_{i,j}m_{ij}$ is a derived $A_\infty$-multiplication if and only if
+\begin{equation}\label{sharp}
+\sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0
+\end{equation}
+for the brace induced by $\tilde{\circ}$ (see \Cref{bibraces} to recall the definition of a brace).
+
+We of course have the following theorem with similar proof to the graded case, where all the suspensions are vertical.
+\begin{thm}\label{markl}
+Given a bigraded $R$-module $A$, there is an isomorphism of operads $\End_{ A}\cong \mathfrak{s}\End_{SA}$, where $\End_A$ is the endomorphism operad of $A$.\qed
+\end{thm}
+
+\subsection{Vertical suspension and totalization} 
+
+Now we are going to combine vertical operadic suspension and totalization. More precisely, the totalized vertical suspension a bigraded operad $\OO$ is the graded operad $\Tot(\s\OO)$. 
+
+%TsOO(n)^{n1} SOO(n)^{n1-k1}_k1  OO(n)^{n1-k1-n+1}_k1
+
+This operad has an insertion map explicitly given by
+\begin{equation}\label{star}
+(a\star_{r+1} b)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-k_2-m+1)+(n-1)(m-1)+r(m-1)+k_1n_2}a_{k_1}\circ_{r+1}b_{k_2}
+\end{equation}
+for $a=(a_i)_i\in \Tot(\s\OO(n))^{n_1}$ and $b=(b_j)_j\in \Tot(\s\OO(m))^{n_2}$. As usual, denote \[a\star b=\sum_{r=0}^{m-1}a\star_{r+1}b.\]
+
+This star operation is precisely the star operation from \cite[\S 5.1]{LRW}, i.e the convolution operation on $\Hom((dAs)^{!}, \End_A)$ (see \cite{LRW} for details). In particular, we can recover the Lie bracket from in \cite{LRW}. We do this in \Cref{biliebracket}.
+
+%THEIR BRACKET IS  EXACTLY THE ONE I WOULD DEFINEE, BECAUSE THEIR TOTAL DEGREE DOES NOT SUBTRACT 1 LIKE SUSPENSION DOES
+
+%(WILL HAVE TO TALK ABOUT TOTALIZING COLLECTIONS)
+
+Before continuing, let us show a lemma that allows us to work only with the single graded operadic suspension if needed.
+\begin{propo}\label{extrasign}
+For a bigraded operad $\OO$ we have an isomorphism $\Tot(\s\OO)\cong \s \Tot(\OO)$, where the suspension on the left hand side is the bigraded version and on the right hand side is the single graded version. 
+\end{propo}
+\begin{proof}
+ Note that we may identify each element $a=(a_k\otimes e^n )_k\in\Tot(\s\OO(n))$ with the element $a=(a_k)_k\otimes e^n\in\s\Tot(\OO(n))$. Thus, for an element $(a_k)_k\in \Tot(\s\OO(n))$ the isomorphism is given by
+\begin{align*}
+f:\Tot(\s\OO(n))&\cong \s \Tot(\OO(n))\\
+(a_k)_k&\mapsto ((-1)^{kn}a_k)_k
+\end{align*}
+Cleary this map is bijective so we just need to check that it commutes with insertions. Recall from \Cref{star} that the insertion on $\Tot(\s\OO)$ is given by
+\begin{equation*}
+(a\star_{r+1} b)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1n_2}a_{k_1}\circ_{r+1}b_{k_2}
+\end{equation*}
+for $a=(a_i)_i\in \Tot(\s\OO(n))^{n_1}$ and $b=(b_j)_j\in \Tot(\s\OO(m))^{n_2}$. Similarly, we may compute the insertion on $\s\Tot(\OO)$ by combining the sign produced first by $\Tot$ and then by $\s$. This results in  the following insertion map 
+\begin{equation*}
+(a\star_{r+1}' b)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(n_2-m+1)}a_{k_1}\circ_{r+1}b_{k_2}
+\end{equation*}
+for $a=(a_i)_i\in \s\Tot(\OO(n))^{n_1}$ and $b=(b_j)_j\in \s\Tot(\OO(m))^{n_2}$. Now let us show that $f(a\star b)=f(a)\star f(b)$. We have
+\begin{align*}
+f((a\star_{r+1} b))_k&=\sum_{k_1+k_2=k}(-1)^{k(n+m-1)+(n-1)(n_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1n_2}a_{k_1}\circ_{r+1}b_{k_2}\\
+&=\sum_{k_1+k_2=k}(-1)^{(n-1)(n_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(n_2-m+1)}f(a_{k_1})\circ_{r+1}f(b_{k_2})\\
+&=(f(a)\star f(b))_k
+\end{align*}
+%I skipped one calculation but it is just that
+as desired.
+\end{proof}
+
+
+\begin{remark}\label{othermu}
+
+
+As we mentioned in \Cref{heuristic}, there exist other possible ways of totalizing by varying the natural transformation $\mu$. For instance, we can choose the totalization functor $\Tot'$ which is the same as $\Tot$ but with a natural transformation $\mu'$ defined in such a way that the insertion on $\Tot'(\OO)$ is defined by \[(a\hat{\circ}b)_k=\sum_{k_1+k_2=k}(-1)^{k_2n_1}a_{k_1}\circ b_{k_2}.\] 
+
+This is also a valid approach for our purposes and there is simply a sign difference, but we have chosen our convention to be consistent with other conventions, like the derived $A_\infty$-equation. However, let us mention some differences and relations between $\Tot$ and $\Tot'$ . %There are of course many other possible conventions MAYBE NOT MENTION THE EXACT DIFFRENES, JUST STOP HERE BECAUSE THERE ARE MORE CONVENTIONS AND I DON'T THINK I WILL TREAT ALL OF THEM IN DETAIL, BUT THE DIFFERENCE BETWEEN IDENTITY AND ISOMORPHISM MIGHT BE WORTH MENTION
+
+First of all, $\Tot$ and $\Tot'$ are isomorphic. The isomorphism $f:\Tot(\OO)\cong \Tot'\OO$ given by $f((a_k))=((-1)^{k(n_1-k)}a_k)$. %MAYBE ALL OF THEM ARE ISOMORPHIC, THINK OF THIS USING JUST THAT A TOTALIZATION IS A LAX SYMMETRIC MONOIDAL FUNCTOR FROM BIGRADED MODULES TO GRADED MODULES %, MAYBE ALSO USE THAT THE UNDERLYING MODULE IS ALWAYS THE SAME SO THAT THE ONLY MODIFICATION IS THE INSERTION
+
+It can also be verified that $\Tot'(\s\OO)=\s \Tot'(\OO)$. With the original totalization we have a non identity isomorphism given by \Cref{extrasign}. Similar relations can be found among the other alternatives mentioned in \Cref{heuristic}. %We will use this isomorphism later.
+
+%POSSIBLY FILL IN SOME DETAILS OF THESE ISOMORPHISMS
+
+
+\end{remark}
+%AT THE END  OF THE PROOF OF WHITEHOUSE 4.47 WHERE AINFTY ON TWISTED COMPLEX IS EQUIVALENT TO DERIVED-AINFTY THIS ISOMORPHISM IS  USED SINCE APLIED TO MIJ  THE EXPONENT IS PRECISELY IJ
+
+%ALSO IN THAT THEOREM THE DIFERENTIALS OF THE TWISTED COMPLEX CORRESPOND PRECISELY TO MI1 SIMILAR TO MY MI1 BEING LIKE DIFFERENTIALS (I SHOULD CHECK IF THEY SATISFY THE TWISTED COMPLEX RELATION)
+
+
+
+
+
+
+\section{Bigraded braces and totalized braces}\label{sectionbibraces}
+We are going to define a brace structure using totalization. First we introduce the definition of braces for the bigraded case, which is analogue to the single graded version we defined in \Cref{braces}.
+
+\begin{defin}\label{bibraces}
 A brace algebra on a bigraded module $A$ consists of a family of maps \[b_n:A^{\otimes 1+n}\to A\] called \emph{braces}, that we evaluate on $(x,x_1,\dots, x_n)$ as $b_n(x;x_1,\dots, x_n)$, satisfying the \emph{brace relation}
 
 
