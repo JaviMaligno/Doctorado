@@ -60,7 +60,7 @@ A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules
 
 \begin{defin}
 The \emph{plethysm} or \emph{composite} $\OO\circ\PP$ of two collections $\OO$ and $\PP$ given by
-\[(\OO\circ\PP)(n)=\bigoplus_{k\geq 0}\OO(k)\otimes \left(\bigoplus_{i_1+\cdots+i_k=n} \PP(i_1)\otimes\cdots\otimes \PP(i_k)\right).\]
+\[(\OO\circ\PP)(n)=\bigoplus_{N\geq 0}\OO(N)\otimes \left(\bigoplus_{a_1+\cdots+a_k=n} \PP(a_1)\otimes\cdots\otimes \PP(a_k)\right).\]
 \end{defin}
 There is a definition for $\mathbb{S}$-modules that requires some tools from the representation theory of symmetric groups that we are not going to introduce here. The reader is referred to \cite{lodayvallette} for the details. 
 
@@ -663,6 +663,12 @@ to be the collection in $\mathscr{V}$ given by
 \[\uEnd_A(n) \coloneqq \uC (A^{⊗n},A) \text{ for }n ≥ 1.\]
 \end{defin}
 %AT SOME POINT DO SOME MENTION TO THE DIFFERENT CASES THAT I AM GOING TO USE BEECAUSE THE NOTATION IS GOING TO BE THE SSAME
+\begin{lemma}
+For $A\in\uC$, the collection $\uEnd_A$ defines an operad in $\VV$. 
+\end{lemma}
+\begin{proof}
+See \cite[Proposition 4.43]{whitehouse}.
+\end{proof}
 
 \begin{propo}\label{morphism}
 Let $\CC$ and $\DD$ be monoidal categories over $\VV$ . Let

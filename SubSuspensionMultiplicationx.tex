@@ -132,12 +132,17 @@ When we obtain the signs for the full operadic composition on operadic suspensio
 Given a graded $R$-module $A$, there is an isomorphism of operads $\sigma^{-1}:\End_{S A}\cong \mathfrak{s}^{-1}\End_A$, where $\End_A$ is the endomorphism operad of $A$.
 \end{thm}
 The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit (see  \ref{proofthm} for a detailed proof), but in the case of the operadic suspension defined above, the isomorphism is given by \[\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,\] where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. The symbol $\circ$ here is just composition of maps.
-Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from \cite{RW}, where this map is the inverse of a map $\sigma$. 
+Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from \cite{RW}, where a twisted version of this map is the inverse of a map $\sigma$. Here, we define $\sigma:\End_A(n)\to\End_{SA}(n)$ as the map of graded modules given by
+\begin{equation}\label{sigma}
+\sigma(f)= S\circ f \circ (S^{-1})^{\otimes n}.
+\end{equation}
 
 In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $x$ and $x$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (which is a map of graded modules, not of operads), and then applying the isomorphism induced by $\sigma^{-1}$. In the end this is the same as simply sending $x$ and $y$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
 
 Even though $\sigma$ is only a map of graded modules, it can be shown in a completely analogous way to Theorem \ref{markl} that $\overline{\sigma}=(-1)^{\binom{n}{2}}\sigma$ induces an isomorphism of operads
-\[\End_{A}\cong\mathfrak{s}\End_{SA}.\]
+\begin{equation}\label{barsigma}
+\overline{\sigma}:\End_{A}\cong\mathfrak{s}\End_{SA}.
+\end{equation}
 This isomorphism can also  be proved in a more direct way using the isomorphism \[\s\s^{-1}\OO\cong\OO\] from \Cref{inverse}, namely, since $\End_{SA}\cong \s^{-1}\End_A$, then we have \[\s\End_{SA}\cong \s\s^{-1}\End_A\cong \End_A.\]
 In this case the isomorphism map that we obtain goes in the opposite direction to $\overline{\sigma}$, and it is precisely its inverse.
 
@@ -258,10 +263,10 @@ Firstly, we need to define the structure maps of a lax monoidal functor. Namely,
 \[\s\OO\circ\s\OO\xrightarrow{\mu}\s(\OO\circ\OO)\xrightarrow{\s\gamma}\s\OO\]
  to coincide with the operadic composition $\tilde{\gamma}$ on $\s\OO$. 
  
- As we show in \Cref{bracesign} $\tilde{\gamma}=(-1)^\eta\gamma$, $\s\gamma$ does not add any signs, so the sign must come entirely from the map $\s\OO\circ\s\OO\to\s(\OO\circ\OO)$. Therefore, we define the map \[\mu:\s\OO\circ\s\PP\to\s(\OO\circ\PP)\] as the map given by
- \[x\otimes e^k\otimes x_1\otimes e^{i_1}\otimes\cdots\otimes x_k\otimes e^{i_k}\mapsto (-1)^\eta x\otimes x_1\otimes\cdots\otimes x_k \otimes e^n,\]
- where $i_1+\cdots+i_k=n$ and 
- \[\eta=\sum_{j<l}i_j\deg(b_l)+\sum_{j=1}^k (i_j+\deg(b_j)-1)(k-j),\]
+ As we show in \Cref{bracesign} $\tilde{\gamma}=(-1)^\eta\gamma$, and $\s\gamma$ does not add any signs, so the sign must come entirely from the map $\s\OO\circ\s\OO\to\s(\OO\circ\OO)$. Therefore, we define the map \[\mu:\s\OO\circ\s\PP\to\s(\OO\circ\PP)\] as the map given by
+ \[x\otimes e^N\otimes x_1\otimes e^{a_1}\otimes\cdots\otimes x_N\otimes e^{a_N}\mapsto (-1)^\eta x\otimes x_1\otimes\cdots\otimes x_N \otimes e^n,\]
+ where $a_1+\cdots+a_N=n$ and 
+ \[\eta=\sum_{j<l}a_j\deg(b_l)+\sum_{j=1}^N (a_j+\deg(b_j)-1)(N-j),\]
  which is the case $k_0=\cdots=k_n=0$ in \cref{bracesign}. Note that $(-1)^\eta$ only depends on degrees and arities, so the map is well defined. Another way to obtain this map is using the associativity isomorphisms and operadic composition on $\Lambda$ to obtain a map $\s\OO\circ\s\PP\to\s(\OO\circ\PP)$.
  
 We now show that $\mu$ is natural, or in other word, for $f:\OO\to\OO'$ and $g:\PP\to\PP'$, we show that the following diagram commutes.
@@ -269,35 +274,35 @@ We now show that $\mu$ is natural, or in other word, for $f:\OO\to\OO'$ and $g:\
 \mathfrak{s}\mathcal{O}\circ\mathfrak{s}\mathcal{P} \arrow[r, "\mathfrak{s}f\circ\mathfrak{s}g"] \arrow[d, "\mu"'] & \mathfrak{s}\mathcal{O}'\circ\mathfrak{s}\mathcal{P}' \arrow[d, "\mu"] \\
 \mathfrak{s}(\mathcal{O}\circ\mathcal{P}) \arrow[r, "\mathfrak{s}(f\circ g)"]                                      & \mathfrak{s}(\mathcal{O}'\circ\mathcal{P}')                           
 \end{tikzcd}\]
- Let $c=x\otimes e^k\otimes x_1\otimes e^{i_1}\otimes\cdots\otimes x_k\otimes e^{i_k}\in \mathfrak{s}\mathcal{O}\circ\mathfrak{s}\mathcal{P}$ and let us compute $\s(f\circ g)(\mu(c))$. 
+ Let $c=x\otimes e^N\otimes x_1\otimes e^{a_1}\otimes\cdots\otimes x_N\otimes e^{a_N}\in \mathfrak{s}\mathcal{O}\circ\mathfrak{s}\mathcal{P}$ and let us compute $\s(f\circ g)(\mu(c))$. 
  
-\[\s(f\circ g)(\mu(c))=\s(f\circ g)((-1)^{\sum_{j<l}i_j\deg(x_l)+\sum_{j=1}^k (i_j+\deg(x_j)-1)(k-j)} x\otimes x_1\otimes\cdots\otimes x_k \otimes e^n)=\]
-\[(-1)^{\nu}f(x)\otimes g(x_1)\otimes\cdots\otimes g(x_k) \otimes e^n\]
+\[\s(f\circ g)(\mu(c))=\s(f\circ g)((-1)^{\sum_{j<l}a_j\deg(x_l)+\sum_{j=1}^N (a_j+\deg(x_j)-1)(N-j)} x\otimes x_1\otimes\cdots\otimes x_N \otimes e^n)=\]
+\[(-1)^{\nu}f(x)\otimes g(x_1)\otimes\cdots\otimes g(x_N) \otimes e^n\]
 where
-\[\nu=\sum_{j<l}i_j\deg x_l)+\sum_{j=1}^k (\deg(x_j)+i_j-1)(k-j)+k\deg(g)\deg(x)+\deg(g)\sum_{j=1}^k\deg(x_j)(k-j).\]
+\[\nu=\sum_{j<l}a_j\deg(x_l)+\sum_{j=1}^N (\deg(x_j)+a_j-1)(N-j)+N\deg(g)\deg(x)+\deg(g)\sum_{j=1}^N\deg(x_j)(N-j).\]
 
 Now let us compute $\mu((\s f\circ \s  g)(c))$. 
 
 %\[\mu((\s f\circ \s  g)(c))=\mu((-1)^{k\deg(g)(\deg(a)+k-1)+\deg(g)\sum_{j=1}^k(\deg(b_j)+i_j-1)(k-j)}\s f(a\otimes e^k)\otimes \s g(b_1\otimes e^{i_1})\otimes\cdots\otimes \s g(b_k\otimes e^{i_k}))=\]
-\[\mu((\s f\circ \s  g)(c))=(-1)^\sigma f(x)\otimes g(x_1)\otimes\cdots\otimes g(x_k) \otimes e^n,\]
+\[\mu((\s f\circ \s  g)(c))=(-1)^\sigma f(x)\otimes g(x_1)\otimes\cdots\otimes g(x_N) \otimes e^n,\]
 where 
-\[\sigma=k\deg(g)(\deg(x)+k-1)+\deg(g)\sum_{j=1}^k(\deg(x_j)+i_j-1)(k-j)+\]\[\sum_{j<l}i_j(\deg(x_j)+\deg(g))+\sum_{j=1}^k(i_j+\deg(x_j)+\deg(g)-1)(k-j).\]
+\[\sigma=N\deg(g)(\deg(x)+N-1)+\deg(g)\sum_{j=1}^N(\deg(x_j)+a_j-1)(N-j)+\]\[\sum_{j<l}a_j(\deg(x_j)+\deg(g))+\sum_{j=1}^N(a_j+\deg(x_j)+\deg(g)-1)(N-j).\]
  
- Now we compare the two signs by computing $\nu+\sigma\mod 2$. After some cancellations of common terms and using that $k(k-1)=0\mod 2$ we get
+ Now we compare the two signs by computing $\nu+\sigma\mod 2$. After some cancellations of common terms and using that $N(N-1)=0\mod 2$ we get
  
- \[\deg(g)\sum_{j=1}^k(i_j-1)(k-j)+\sum_{j<l}i_j\deg(g)+\sum_{j=1}^k\deg(g)(k-j)=\]
- \[\deg(g)\sum_{j=1}^ki_j(k-j)+\deg(g)\sum_{j<l}i_j=\]
- \[\deg(g)\left(\sum_{j=1}^k i_j(k-j)+\sum_{j=1}^k i_j(k-j)\right)=0\mod 2.\]
+ \[\deg(g)\sum_{j=1}^N(a_j-1)(N-j)+\sum_{j<l}a_j\deg(g)+\sum_{j=1}^N\deg(g)(N-j)=\]
+ \[\deg(g)\sum_{j=1}^Na_j(N-j)+\deg(g)\sum_{j<l}a_j=\]
+ \[\deg(g)\left(\sum_{j=1}^N a_j(N-j)+\sum_{j=1}^N a_j(N-j)\right)=0\mod 2.\]
  
  This shows naturality of $\mu$. %Next, we have to show that $\mu$ and $\varepsilon$ satisfy the axioms of a lax monoidal functor. 
  Unitality follows directly from the definitions by direct computation. In the case of associativity, oberve that by the definition of $\mu$, the associativity axiom for $\mu$ is equivalent to the associativity of the operadic composition $\tilde{\gamma}$, which we know to be true. This shows that $\s$ is a lax monoidal functor.
  
 In the case where the operads have trivial arity 0 component, we may define an inverse to the operadic composition on $\Lambda$. Namely, for $n>0$, we may define
 
-\[\Lambda(n)\to \bigoplus_{k\geq 0} \Lambda(k)\otimes\left(\bigoplus_{i_1+\cdots+i_k=n}\Lambda(i_1)\otimes\cdots\otimes\Lambda(i_k)\right)\]
+\[\Lambda(n)\to \bigoplus_{N\geq 0} \Lambda(N)\otimes\left(\bigoplus_{a_1+\cdots+a_N=n}\Lambda(a_1)\otimes\cdots\otimes\Lambda(a_N)\right)\]
 as the map
-\[e^n\mapsto\sum_{i_1+\cdots+i_k=n}(-1)^{\delta}e^k\otimes  e^{i_1}\otimes\cdots\otimes e^{i_k},\]
-where $\delta$ is just the same sign that shows up in the operadic composition on $\Lambda$ (see \Cref{bracesign}) and $i_1,\dots,i_k>0$. Since there are only finitely many ways of decomponsing $n$ into $k$ positive integers, the sum is finite and thus the map is well defined. In fact, this map defines a cooperad structure on the reduced sub-operad of $\Lambda$ with trivial arity 0 component. This map induces the morphism $\mu^{-1}:\s(\OO\circ\PP)\to \s\OO\circ\s\PP$ that we are looking for.
+\[e^n\mapsto\sum_{a_1+\cdots+a_N=n}(-1)^{\delta}e^N\otimes  e^{a_1}\otimes\cdots\otimes e^{a_N},\]
+where $\delta$ is just the same sign that shows up in the operadic composition on $\Lambda$ (see \Cref{bracesign}) and $a_1,\dots,a_k>0$. Since there are only finitely many ways of decomponsing $n$ into $N$ positive integers, the sum is finite and thus the map is well defined. In fact, this map defines a cooperad structure on the reduced sub-operad of $\Lambda$ with trivial arity 0 component. This map induces the morphism $\mu^{-1}:\s(\OO\circ\PP)\to \s\OO\circ\s\PP$ that we are looking for.
 
 The unit morphism $\varepsilon$ is always an isomorphism, so this shows $\s$ is strong monoidal in the reduced case.
 
@@ -563,7 +568,7 @@ In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition ca
 %Continuing with the operadic suspension and the brace structure obtained from it, we then define an $A_\infty$-algebra structure on $\s\OO$.
 
 
-\section{$A_\infty$-algebra structures on an operad}\label{sect2}
+\section{$A_\infty$-algebra structures on operads}\label{sect2}
 
 
 Let $\OO$ be an operad of graded $R$-modules and $\s\OO$ its operadic suspension. Let us consider the underlying graded module of the operad $\s\OO$, which we  call $\s\OO$ again by abuse of notation, i.e. \[\s\OO=\prod_n \s\OO(n)\] with grading given by its \emph{natural degree}, i.e. if $x\in \s\OO(n)$ recall that its natural degree is \[|x|=n+\deg(x)-1,\] where $\deg(x)$ is its internal degree (the degree as an element of $\OO(n))$. 
@@ -662,7 +667,7 @@ Note in the proof of \Cref{lemmadegree} that a way to turn $M'_j$ into a map of 
 \end{tikzcd}
 \]
 
-In other words, $M_j=\overline{\sigma}(M'_j)$, where $\overline{\sigma}(F)=S\circ F\circ (S^{\otimes n})^{-1}$ for $F\in\End_{\s\OO}(n)$ is the map inducing an isomorphism $\End_{\s\OO}\cong \s\End_{S\s\OO}$. Since $\overline{\sigma}$ is an operad morphism, for $M=M_1+M_2+\cdots$, we have
+In other words, $M_j=\overline{\sigma}(M'_j)$, where $\overline{\sigma}(F)=S\circ F\circ (S^{\otimes n})^{-1}$ for $F\in\End_{\s\OO}(n)$ is the map inducing an isomorphism $\End_{\s\OO}\cong \s\End_{S\s\OO}$ (\Cref{barsigma}). Since $\overline{\sigma}$ is an operad morphism, for $M=M_1+M_2+\cdots$, we have
 
 \[
 M\tilde{\circ}M=\overline{\sigma}(M')\tilde{\circ}\overline{\sigma}(M')=\overline{\sigma}(M'\circ M')=0.
@@ -673,7 +678,7 @@ So now we have that $M\in\s\End_{S\s\OO}$ is an element of natural degree 1 and 
 \end{proof}
 Notice that $M$ is defined as an structure map on $S\s\OO$. This kind of shifted operad is called \emph{odd operad} in \cite{ward}. This means that $S\s\OO$ is not an operad anymore, since the associativity relation for graded operads involves signs that depend on the degrees, which are now shifted. 
 
-\section{Iterating the process}\label{sect3}
+\subsection{Iterating the process}\label{sect3}
 
 Now we can apply the same construction to the operad $\s\End_{S\s\OO}$ and we get $A_\infty$-algebra structure given by maps
 \[\overline{M}_j:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO}\]
@@ -714,7 +719,7 @@ S\s\OO\arrow[rr, "\Phi"]\arrow[d] & & S\s\End_{S\s\OO}\\
 \s\OO\arrow[r, "\Phi'"]& \End_{\s\OO}\arrow[r, "\cong"]& \s\End_{S\s\OO}\arrow[u]
 \end{tikzcd}
 \]
-where the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\sigma}$. Note that the degree of the map $\Phi$ is zero.
+where the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given in \Cref{barsigma}. Note that the degree of the map $\Phi$ is zero.
 
 \begin{remark}
 Notice that we have only used the operadic structure on $\s\OO$ to define an $A_\infty$-algebra structure on $S\s\OO$, so the constructions and results in these sections are valid if we replace $\s\OO$ by any graded module $A$ such that $SA$ is an $A_\infty$-algebra. 
@@ -754,9 +759,9 @@ is defined by
 &\mathcal{M}_j(f_1, \dots, f_j)=B_j(M';f_1,\dots, f_j) &\text{ for }j>1,\\
 &\mathcal{M}_1(f)=B_1(M';f)-(-1)^{|f|}B_1(f;M'),
 \end{align*}
- where $B_j$ is the natural brace structure map on the operad $\End_{\s\OO}$, i.e. 
-\[B_j(f;f_1,\dots, f_j)=\sum_{k_0+\cdots+k_j=a(f)-j} f(1^{\otimes k_0}\otimes f_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes f_j\otimes 1^{\otimes k_j}).\]
- The $1$'s in the brace structure are identity maps. In the above definition, $|f|$ denotes the degree of $f$ as an element of $\End_{\s\OO}$, which is the same as the degree $\overline{\sigma}(f)\in \s\End_{S\s\OO}$ because $\overline{\sigma}$ is an isomorphism.  %the degree as a map sO^n\to sO, which is computed by evaluating and computing arity +degree-1
+ where $B_j$ is the natural brace structure map on the operad $\End_{\s\OO}$, i.e. for $f\in\End_{\s\OO}(n)$, 
+\[B_j(f;f_1,\dots, f_j)=\sum_{k_0+\cdots+k_j=n-j} f(1^{\otimes k_0}\otimes f_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes f_j\otimes 1^{\otimes k_j}).\]
+ The $1$'s in the brace structure are identity maps. In the above definition, $|f|$ denotes the degree of $f$ as an element of $\End_{\s\OO}$, which is the same as the degree $\overline{\sigma}(f)\in \s\End_{S\s\OO}$ because $\overline{\sigma}$ is an isomorphism, as mentioned in \Cref{barsigma}.  %the degree as a map sO^n\to sO, which is computed by evaluating and computing arity +degree-1
  \subsection*{Commutativity of the right blue square}
  Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and $M=\overline{\sigma}(M')$. Then we have for $j>1$
  
@@ -914,7 +919,7 @@ The minus sign comes from the fact that $b_1(z_i;m)$ comes from $M'_1(z_i)$, so 
  In the case $n=0$, we have to note that $B_1(b_0(x);m)$ vanishes because of arity reasons: $b_0(x)$ is a map of arity 0, so we cannot insert any inputs. And this finishes the proof.
  \end{proof}
  
- \section{Explicit $A_\infty$-algebra structure}\label{sect4}
+ \subsection{Explicit $A_\infty$-algebra structure}\label{sect4}
 % PROBABLY ALSO INCLUDE THE COMPUTATION OF THE AINFTY EQUATION
 
 We have given an implicit definition of the components of the $A_\infty$-algebra structure on $S\s\OO$, namely, \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
