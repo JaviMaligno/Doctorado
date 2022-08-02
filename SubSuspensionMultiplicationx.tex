@@ -42,7 +42,22 @@ Let $\mathcal{O}$ be an operad. The \emph{operadic suspension} $\mathfrak{s}\OO$
 \end{defin}
 %CAN THIS BE DEFFINED IN A MORE GENERAL CATEGORY? I don't think so because we need to modify insertions in any case, but maybe it can be defined by using the symmetry  isomorphism
 
-Even though the elements of $\s\OO$ are tensor products of the form $x\otimes e^n$, we may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$ and simply write $x$ as an abuse of notation. For $x\in\OO(n)$ of degree $\deg(x)$, its ``natural'' degree in $\s\OO$ is $|x|=\deg(x)+n-1$. To distinguish both degrees we call $\deg(x)$ the \emph{internal degree} of $x$, since this is the degree that $x$ inherits from the grading of $\OO$. If we write $\circ_i$ for the operadic insertion on $\OO$ and $\tilde{\circ}_i$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. Let $x\in\OO(n)$ and $y\in\OO(m)$, and let us compute $(x\otimes e^n)\tilde{\circ}_i (y\otimes e^m)$, which we will usually write as $x\tilde{\circ}x$ as an abuse of notation.
+Even though the elements of $\s\OO$ are tensor products of the form $x\otimes e^n$, we may identify the elements of $\mathcal{O}$ with the elements the elements of $\mathfrak{s}\OO$ and simply write $x$ as an abuse of notation. 
+
+\begin{defin}
+For $x\in\OO(n)$ of degree $\deg(x)$, its \emph{natural degree} in $\s\OO$ is $|x|=\deg(x)+n-1$. To distinguish both degrees we call $\deg(x)$ the \emph{internal degree} of $x$, since this is the degree that $x$ inherits from the grading of $\OO$. 
+\end{defin}
+
+If we write $\circ_i$ for the operadic insertion on $\OO$ and $\tilde{\circ}_i$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. 
+
+\begin{lem}\label{tilde}
+For $x\in\OO(n)$ and $y\in\OO(m)$ we have
+\[(x\otimes e^n)\tilde{\circ}_i(y\otimes e^m)=(-1)^{(n-1)(m-1)+(n-1)\deg(y)+(i-1)(m-1)}(x\circ_i y)\otimes e^{n+m-1},\]
+or written more compactly,
+\[x\tilde{\circ}_iy=(-1)^{(n-1)(m-1)+(n-1)\deg(y)+(i-1)(m-1)}x\circ_i y.\]
+\end{lem}
+\begin{proof}
+Let $x\in\OO(n)$ and $y\in\OO(m)$, and let us compute $(x\otimes e^n)\tilde{\circ}_i (y\otimes e^m)$, which we will usually write as $x\tilde{\circ}y$ as an abuse of notation.
 
 \begin{align*}
 \mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
@@ -51,13 +66,13 @@ Even though the elements of $\s\OO$ are tensor products of the form $x\otimes e^
 
 The symmetric monoidal structure produces the sign $(-1)^{(n-1)\deg(y)}$ in the isomorphism $\Lambda(n)\otimes \OO(m)\cong\OO(m)\otimes\Lambda(n)$, and the operadic structure of $\Lambda$ produces the sign $(-1)^{(n-i)(m-1)}$, so 
 
+\[(x\otimes e^n)\tilde{\circ}_i(y\otimes e^m)=(-1)^{(n-1)\deg(y)+(n-i)(m-1)}(x\circ_i y)\otimes e^{n+m-1}.\]
+
+More compactly, this can be written as
 \begin{equation}\label{tildecircle}
 x\tilde{\circ}_iy=(-1)^{(n-1)\deg(y)+(n-i)(m-1)}x\circ_i y.
 \end{equation}
 
-More explicitly, this can be written as
-
-\[(x\otimes e^n)\tilde{\circ}_i(y\otimes e^m)=(-1)^{(n-1)\deg(y)+(n-i)(m-1)}(x\circ_i y)\otimes e^{n+m-1}.\]
 Now we can rewrite the exponent using that we have mod 2
 
 \[(n-i)(m-1)=(n-1-i-1)(m-1)=(n-1)(m-1)+(i-1)(m-1)\]
@@ -65,8 +80,13 @@ Now we can rewrite the exponent using that we have mod 2
 so we conclude 
 
 \[x\tilde{\circ}_iy=(-1)^{(n-1)(m-1)+(n-1)\deg(y)+(i-1)(m-1)}x\circ_i y.\]
+\end{proof}
 
-This is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras (\cref{ainftyequation}) is derived.
+\begin{remark}
+The sign from \Cref{tilde} is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras (\cref{ainftyequation}) is derived. This means that if $m_s\in\OO(s)$ has degree $2-s$ and $m_{r+1+t}\in \OO(r+1+t)$ has degree $1-r-t$, we get (abusing notation) that
+
+\[m_{r+1+t}\tilde{\circ_{r+1}}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s.\]
+\end{remark}
 
 Next, we are going to use the above fact to obtain an way to describe $A_\infty$-algebras in simplified operadic terms. We are also going to compare this description with a classical approach that is more general but requires heavier operadic machinery. 
 
@@ -131,7 +151,7 @@ When we obtain the signs for the full operadic composition on operadic suspensio
 \begin{thm}\label{markl}(\cite[Chapter 3, Lemma 3.16]{operads})
 Given a graded $R$-module $A$, there is an isomorphism of operads $\sigma^{-1}:\End_{S A}\cong \mathfrak{s}^{-1}\End_A$, where $\End_A$ is the endomorphism operad of $A$.
 \end{thm}
-The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit (see  \ref{proofthm} for a detailed proof), but in the case of the operadic suspension defined above, the isomorphism is given by \[\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,\] where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. The symbol $\circ$ here is just composition of maps.
+The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit (see  \Cref{proofthm} for a detailed proof), but in the case of the operadic suspension defined above, the isomorphism is given by \[\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,\] where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. The symbol $\circ$ here is just composition of maps.
 Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from \cite{RW}, where a twisted version of this map is the inverse of a map $\sigma$. Here, we define $\sigma:\End_A(n)\to\End_{SA}(n)$ as the map of graded modules given by
 \begin{equation}\label{sigma}
 \sigma(f)= S\circ f \circ (S^{-1})^{\otimes n}.
@@ -168,13 +188,22 @@ By \Cref{binom}, $f(x)=(-1)^{\binom{n}{2}}x$ is such an automorphism.
 \subsection{Functorial properties of operadic suspension}\label{functorial}
 
 
-Here we study operadic suspension at the level of the underlying collections or as an endofunctor. Recall from definition \ref{collections} that a collection is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules.
+Here we study operadic suspension at the level of the underlying collections as an endofunctor. Recall from definition \ref{collections} that a collection is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules.
 
-We define the suspension of a collection $\OO$ as $\mathfrak{s}\OO(n)=\OO(n)\otimes k[n-1]$, where $k[n-1]$ is the ground ring concentrated in degree $n-1$. %The ring $k[n-1]$ can of course be equipped with the sign action of the symmetric group, so we may have a diagonal action on the tensor product.
+We define the suspension of a collection $\OO$ as $\mathfrak{s}\OO(n)=\OO(n)\otimes R[n-1]$, where $R[n-1]$ is the ground ring concentrated in degree $n-1$. We first show that $\s$ is a functor both on collections and on operads.%The ring $k[n-1]$ can of course be equipped with the sign action of the symmetric group, so we may have a diagonal action on the tensor product.
+Given a morphism of collections $f:\OO\to\mathcal{P}$, there is an obvious induced morphism \[\s f:\s\OO\to\s\mathcal{P}\] given simply by 
 
-Given a morphism of collections $f:\OO\to\mathcal{P}$, there is an obvious induced morphism \[\s f:\s\OO\to\s\mathcal{P}\] given simply by \[\s f(x\otimes e^n)=f(x)\otimes e^n.\] Since morphisms of collections preserve arity, this map is well defined because $e^n$ is the same for $x$ and $f(x)$. Note that if $f$ is homogeneous, the degree of $\s f$ is the same as that of $f$.
+\begin{equation}\label{sf}
+\s f(x\otimes e^n)=f(x)\otimes e^n.
+\end{equation}
+Since morphisms of collections preserve arity, this map is well defined because $e^n$ is the same for $x$ and $f(x)$. Note that if $f$ is homogeneous, the degree of $\s f$ is the same as that of $f$.
 
-This assigment preserves composition of maps. Indeed, given $g:\mathcal{P}\to\CC$, by definition $\s(g\circ f)(x\otimes e^n)=g(f(x))\otimes e^n$, and also $(\s g\circ \s f)(x\otimes e^n)=\s g (f(x)\otimes e^n)=g(f(x))\otimes e^n$. This means that $\s$ defines an endofunctor on the category $\mathrm{Col}$ of collections.
+\begin{lem}
+The assigment $\OO\mapsto \s\OO$ and $f\mapsto \s f$ is a functor both the category $\mathrm{Col}$ of collections and the category $\mathrm{Op}$ of operads.
+\end{lem}
+
+\begin{proof}
+The assigment preserves composition of maps. Indeed, given $g:\mathcal{P}\to\CC$, by definition $\s(g\circ f)(x\otimes e^n)=g(f(x))\otimes e^n$, and also $(\s g\circ \s f)(x\otimes e^n)=\s g (f(x)\otimes e^n)=g(f(x))\otimes e^n$. This means that $\s$ defines an endofunctor on the category $\mathrm{Col}$ of collections.
 
 %THIS WORKS AT THE LEVEL OF S-MODULES, MIGHT BE RELEVANT FOR THE MONOIDALITY, I COULD USE TENSOR PRODUCT OF S-MODULES (MAYBE MODIFIED SO THAT O(N)XO(M) IS A COMPONENT OF O(N+M+1)) OR THE PLETHYSM WHICH I KNOW IS MONOIDAL AND COULD BE THE BASIS FOR BRACES
 We know that when $\mathcal{O}$ is an operad, $\mathfrak{s}\OO$ is again  an operad. What is more, if $f$ is a map of operads, then the map $\s f$ is again a map of operads, since for $a\in\OO(n)$ and $b\in\OO(m)$ we have
@@ -190,7 +219,7 @@ We know that when $\mathcal{O}$ is an operad, $\mathfrak{s}\OO$ is again  an ope
 
 Note that $\deg(x)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s f)=\deg(f)$, so the above relation is consistent with the Koszul sign rule. In any case, recall that a morphism of operads is necessarily of degree 0, but the above calcultion hints some monoidality properties of $\s$ that we will study afterwards. Clearly $\s f$ preserves the unit, so $\s f$ is a morphism of operads. 
 
-
+\end{proof}
 %\begin{remark} This is a Remark for Constanze and I. In the above calculation, keeping the degree of $f$ during the calculation was unnecessary. As I said, the degree of $f$ must be zero because the degree of $f(a\tilde{\circ}b)$ is $\deg(f)+\deg(a)+\deg(b)$ and the degree of $f(a)\tilde{\circ}f(b)$ is $2\deg(f)+\deg(a)+\deg(b)$ (I am using $\deg$ here loosely, whatever degree we choose, it must be consistent for all of them, so the conclusion is the same). However, I thought that the fact that the commuting relation holds even with maps of  different degree should mean something about suspension. At first I thought it was a hint of lax monoidality, but it turned out that the functor wasn't lax monoidal. It can still show some feature of monoidality or of any other property. I thought that you could help me see through this. I believe it just shows that naturaily still holds (the axiom that failed was associativity).
 %\end{remark}
 %The previous computation is a consequence of the more general fact. NOT SURE, ASSOCIATIVITY IS NOT WORKING (I AM USING AS A NATURAL TRANSFORMATION THE  MAP ADDING THE SIGN OF COMPOSITION, SINCE THE MAP INDUCED BY S DOES NOT ADD SIGNS. MAYBE WITH A DIFFFERENT DEFINITION OF THE TWO THE RESULT IS FINE) 
@@ -593,7 +622,7 @@ Let $m\in\s\OO$ be of natural degree 1 and concentrated in positive arity such t
 \begin{equation}\label{Ainftyeq}
 \sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0.
 \end{equation} 
-Such $m$ is said to be an \emph{$A_\infty$-multiplication} on $\OO$ and as we saw in the previous text its existence is equivalent to a map of operads $\mathcal{A}_\infty\to \OO$ from the operad $\mathcal{A}_\infty$ of $A_\infty$-algebras to $\OO$. We may call each $m_j$ the $j$-th \emph{component} of $m$.
+Such $m$ is said to be an \emph{$A_\infty$-multiplication} on $\OO$ and as we saw in \Cref{twisting} its existence is equivalent to a map of operads $\mathcal{A}_\infty\to \OO$ from the operad $\mathcal{A}_\infty$ of $A_\infty$-algebras to $\OO$. We may call each $m_j$ the $j$-th \emph{component} of $m$.
 \end{defin}
 
 \begin{remark}\label{multiplicationalgebra}
