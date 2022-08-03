@@ -160,7 +160,7 @@ such us those produced by operadic the insertion $\s f\tilde{\circ}_{k} \s g$. I
 \end{gather*}
 To go from the first line to the second we switch $e^{m+n-1}$ of degree $m+n-2$  with $a_{k-1}\otimes b\otimes a_{n-k}$. To go from the second line to the third we apply the usual sign rule for graded maps.
 
-The purpose of this last remark is not only review the Koszul sign rule but also remind that the insertion $\s f\tilde{\circ}_{k} \s g$ is of the above form, so that the $\Lambda$ component is always at the end and does not play a role in the application of the sign rule with the composed maps. In other words, it does not affect their individual degrees, just the degree of the overal composition. %I do this because I made some mistakes with  respect to this
+The purpose of this last remark is not only review the Koszul sign rule but also remind that the insertion $\s f\tilde{\circ}_{k} \s g$ is of the above form, so that the $e^{m+n-1}$ component is always at the end and does not play a role in the application of the sign rule with the composed maps. In other words, it does not affect their individual degrees, just the degree of the overall composition. %I do this because I made some mistakes with  respect to this
 
 \section{Sign of the braces}\label{rw}
 
@@ -484,22 +484,23 @@ By the brace relation and \Cref{sharp} this equals
 %For each position of insertion of x we have a 0 map applied to x, so the above sum is indeed equal to 0
 \end{proof}
 
+The reader can see that the twisted complex structure given by the above Lemma is the same as the one given by \Cref{mi1}.
 
-Recall that if $\OO$ is an operad with a derived $A_\infty$-multiplication, there is an $A_\infty$-algebra structure on $B=\Tot(S\s\OO)$ given by maps $M_j:B^{\otimes j}\to B$ induced by braces. We show next that the twisted complex structure induced from the map $M_1$ via \Cref{alternative} is the same as the one we have given above.
-
-\begin{corollary}
-Let $\OO$ be a bigraded operad with a derived $A_\infty$-multiplication and let \[\widetilde{M}_{i1}:S\s\OO\to S\s\OO\] be the arity 1 derived $A_\infty$-algebra maps induced by \Cref{alternative} from \[M_1:\Tot(S\s\OO)\to \Tot(S\s\OO).\]
-Then $\widetilde{M}_{i1}=M_{i1}$, where $M_{i1}$ is defined in \Cref{twistedmaps}.
-\end{corollary}
-\begin{proof}
-Notice that the proof of \Cref{alternative} is essentially the same as the proof \Cref{whitehouse}. This means that the proof of this result is an arity 1 restriction of the proof of \Cref{derivedmaps}. Then we apply \Cref{totsign} to the case $j=1$. Recall that for $x\in (S\s\OO)^{n-k}_{k}$
-\[M_1(x)=b_1^T(m;S^{-1}x)-(-1)^{n-1}b_1^T(S^{-1}x;m).\]
- In this case, there is no $\mu$ involved. Therefore, introducing here also the final extra sign $(-1)^i$ from the proof of \Cref{derivedmaps}, we get from \Cref{totsign} that
-\[\widetilde{M}_{i1}(x)=(-1)^i\sum_l((-1)^{in+i(n-1)} Sb_1(m_{il};S^{-1}x)-(-1)^{n-1+in+k}Sb_1(S^{-1}x;m_{il})),\] where $b_1$ is the brace on $\s\OO$. Simplifying signs we obtain
-\[\widetilde{M}_{i1}(x)=\sum_l Sb_1(m_{il};S^{-1}x)-(-1)^{\langle  m_{il},x\rangle}Sb_1(m_{il};S^{-1}x))=M_{i1}(x),\]
-
-where $\langle  m_{il},x\rangle=ik+(1-i)(n-1-k)$, as claimed.
-\end{proof}
+%Recall that if $\OO$ is an operad with a derived $A_\infty$-multiplication, there is an $A_\infty$-algebra structure on $B=\Tot(S\s\OO)$ given by maps $M_j:B^{\otimes j}\to B$ induced by braces. We show next that the twisted complex structure induced from the map $M_1$ via \Cref{alternative} is the same as the one we have given above.
+%
+%\begin{corollary}
+%Let $\OO$ be a bigraded operad with a derived $A_\infty$-multiplication and let \[\widetilde{M}_{i1}:S\s\OO\to S\s\OO\] be the arity 1 derived $A_\infty$-algebra maps induced by \Cref{alternative} from \[M_1:\Tot(S\s\OO)\to \Tot(S\s\OO).\]
+%Then $\widetilde{M}_{i1}=M_{i1}$, where $M_{i1}$ is defined in \Cref{twistedmaps}.
+%\end{corollary}
+%\begin{proof}
+%Notice that the proof of \Cref{alternative} is essentially the same as the proof \Cref{whitehouse}. This means that the proof of this result is an arity 1 restriction of the proof of \Cref{derivedmaps}. Then we apply \Cref{totsign} to the case $j=1$. Recall that for $x\in (S\s\OO)^{n-k}_{k}$
+%\[M_1(x)=b_1^T(m;S^{-1}x)-(-1)^{n-1}b_1^T(S^{-1}x;m).\]
+% In this case, there is no $\mu$ involved. Therefore, introducing here also the final extra sign $(-1)^i$ from the proof of \Cref{derivedmaps}, we get from \Cref{totsign} that
+%\[\widetilde{M}_{i1}(x)=(-1)^i\sum_l((-1)^{in+i(n-1)} Sb_1(m_{il};S^{-1}x)-(-1)^{n-1+in+k}Sb_1(S^{-1}x;m_{il})),\] where $b_1$ is the brace on $\s\OO$. Simplifying signs we obtain
+%\[\widetilde{M}_{i1}(x)=\sum_l Sb_1(m_{il};S^{-1}x)-(-1)^{\langle  m_{il},x\rangle}Sb_1(m_{il};S^{-1}x))=M_{i1}(x),\]
+%
+%where $\langle  m_{il},x\rangle=ik+(1-i)(n-1-k)$, as claimed.
+%\end{proof}
 %\appendix
 %\renewcommand{\appendixname}{Appendix:}
 
