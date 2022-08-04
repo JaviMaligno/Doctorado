@@ -151,7 +151,7 @@ and any automorphism of $\OO(n)$ determines such an isomorphism. Therefore, we a
 \begin{align*}
 (\mathcal{O}(n)\otimes S^{n-1}sig_n\otimes S^{1-n}sig_n)\otimes (\mathcal{O}(m)\otimes S^{m-1}sig_m\otimes S^{1-m}sig_m)\cong\\ (\mathcal{O}(m)\otimes \mathcal{O}(m))\otimes (S^{n-1}sig_n\otimes S^{m-1}sig_m)\otimes (S^{1-n}sig_n\otimes S^{1-m}sig_m)
 \end{align*}
-and the tensor product of the insertions correspoding to each operad. After all these maps, the only sign left is $(-1)^{(n-1)(m-1)}$. So we need to find an automorphism $f$ of $\OO$ such that, for $a\in\OO(n)$ and $b\in\OO(m)$,
+and the tensor product of the insertions corresponding to each operad. After all these maps, the only sign left is $(-1)^{(n-1)(m-1)}$. So we need to find an automorphism $f$ of $\OO$ such that, for $a\in\OO(n)$ and $b\in\OO(m)$,
 
 $$f(a\circ_i b)=(-1)^{(n-1)(m-1)}f(a)\circ_i f(b).$$
 
@@ -183,7 +183,7 @@ We know that when $\mathcal{O}$ is an operad, $\mathfrak{s}\OO$ is again  an ope
 &=(-1)^{\deg(f)(\deg(a)+n-1)}\s f(a)\tilde{\circ}_i\s f(b)
 \end{align*}
 
-Note that $\deg(a)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s f)=\deg(f)$, so the above relation is consistent with the Koszul sign rule. In any case, recall that a morphism of operads is necessarily of degree 0, but the above calcultion hints some monoidality properties of $\s$ that we will study afterwards. Clearly $\s f$ preserves the unit, so $\s f$ is a morphism of operads. 
+Note that $\deg(a)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s f)=\deg(f)$, so the above relation is consistent with the Koszul sign rule. In any case, recall that a morphism of operads is necessarily of degree 0, but the above calculation hints some monoidality properties of $\s$ that we will study afterwards. Clearly $\s f$ preserves the unit, so $\s f$ is a morphism of operads. 
 
 
 %\begin{remark} This is a Remark for Constanze and I. In the above calculation, keeping the degree of $f$ during the calculation was unnecessary. As I said, the degree of $f$ must be zero because the degree of $f(a\tilde{\circ}b)$ is $\deg(f)+\deg(a)+\deg(b)$ and the degree of $f(a)\tilde{\circ}f(b)$ is $2\deg(f)+\deg(a)+\deg(b)$ (I am using $\deg$ here loosely, whatever degree we choose, it must be consistent for all of them, so the conclusion is the same). However, I thought that the fact that the commuting relation holds even with maps of  different degree should mean something about suspension. At first I thought it was a hint of lax monoidality, but it turned out that the functor wasn't lax monoidal. It can still show some feature of monoidality or of any other property. I thought that you could help me see through this. I believe it just shows that naturaily still holds (the axiom that failed was associativity).
@@ -229,7 +229,7 @@ for $f\in\End_B(n)$ and $g_i\in \End^A_B$, and also an infinitesimal right modul
 \[\End^A_B \circ_{(1)} \End_A\to \End^A_B\]
 given by insertion of maps
 
-\[f\otimes 1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1}\mapsto f(1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1})\] for $f\in \End^A_B(n)$ and $g\in \End_A$.  In addition we have a composition $\End^B_C\circ \End^A_B\to\End^A_C$ analogous to the left module described above. They induce maps on the respective operadic suspensions, which differ from the original ones by some signs that can be calculated in an analogous way to what we do on the next sextion (see equation \ref{sigma}). These induced maps will give us the definition of  $\infty$-morphisms later in \Cref{infinitymorphism}.
+\[f\otimes 1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1}\mapsto f(1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1})\] for $f\in \End^A_B(n)$ and $g\in \End_A$.  In addition we have a composition $\End^B_C\circ \End^A_B\to\End^A_C$ analogous to the left module described above. They induce maps on the respective operadic suspensions, which differ from the original ones by some signs that can be calculated in an analogous way to what we do on the next section (see equation \ref{sigma}). These induced maps will give us the definition of  $\infty$-morphisms later in \Cref{infinitymorphism}.
 
 For these collections we also have $\mathfrak{s}^{-1}\End^A_B\cong \End^{SA}_{SB}$ in analogy with Theorem \ref{markl}, and the proof is similar but shorter since we do not need to worry about insertions. 
 
@@ -368,7 +368,7 @@ The operadic composition can be described in terms of insertions in the obvious 
 
 \[\tilde{\gamma}(f;h_1,\dots, h_N)=(\cdots(f\tilde{\circ}_1 h_1)\tilde{\circ}_{1+a(h_1)}h_2\cdots)\tilde{\circ}_{1+\sum a(h_p)}h_N,\]
 
-where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). So we just have to find out the sign iterating the same argument as in the $i$-th insertion. In this case, each $\Lambda(a_i)$ produces a sign given by the exponent $$(a_i-1)(N-k_0+\cdots-k_{i-1}-i).$$ 
+where $a(h_p)$ is the arity of $h_p$ (in this case $h_p$ is either $1$ or some $g_i$). So we just have to find out the sign iterating the same argument as in the $i$-th insertion. In this case, each $\Lambda(a_i)$ produces a sign given by the exponent \[(a_i-1)(N-k_0+\cdots-k_{i-1}-i).\]
 
 For this, recall that the degree of $\Lambda(a_i)$ is $a_i-1$ and that the generator of this space is inserted in the position $1+\sum_{j=0}^{i-1}k_j+\sum_{j=1}^{i-1}a_j$ of a wedge of $N+\sum_{j=1}^{i-1}a_j-i+1$ generators. Therefore, performing this insertion as described in the previous section yields the aforementioned sign. Now, since $N-n=k_0+\cdots+k_n$, we have that
 \[(a_i-1)(N-k_0+\cdots+k_{i-1}-i)=(a_i-1)(n-i+\sum_{l=i}^nk_l).\]
@@ -414,7 +414,7 @@ b_1(f;g)=\sum_i f\tilde{\circ}_i g=f\tilde{\circ}g,
 \]
 so the notation $f\tilde{\circ} g$ is suggestive for operadic suspension. The notation $f\circ g$ will still be used whenever the insertion maps are denoted by $\circ_i$.
 
-In \cite{RW}, the sign is computed using a strategy that we generalize in \ref{rw} (see expression \ref{sigma}). The approach we have followed here has the advantage that the brace relation follows immediatly from the associativity axiom of operadic composition. This approach also works for any operad since the difference between $\gamma$ and $\tilde{\gamma}$ is going to be the same sign. 
+In \cite{RW}, the sign is computed using a strategy that we generalize in \ref{rw} (see expression \ref{sigma}). The approach we have followed here has the advantage that the brace relation follows immediately from the associativity axiom of operadic composition. This approach also works for any operad since the difference between $\gamma$ and $\tilde{\gamma}$ is going to be the same sign. 
 
 Finally, as we mentioned before in Section \ref{functorial}, we can show the following alternative description of $\infty$-morphisms of $A_\infty$-algebras and their composition in terms of suspension of collections (recall definition \ref{infinitymorphism}).
 
@@ -423,7 +423,7 @@ Finally, as we mentioned before in Section \ref{functorial}, we can show the fol
 \begin{lem}\label{infinitymorphism}
 An $\infty$-morphism of $A_\infty$-algebras $A\to B$ with respective structure maps $m^A$ and $m^B$ is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that \[\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),\] 
 
-where \[\lambda:\mathfrak{s}\End_B\circ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the left module struncture on $\End^A_B$ and \[\rho:\mathfrak{s}\End_B\circ_{(1)}\mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the right infinitesimal module structure on $\End^A_B$ (see Section \ref{functorial} to recall these module structures ). 
+where \[\lambda:\mathfrak{s}\End_B\circ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the left module structure on $\End^A_B$ and \[\rho:\mathfrak{s}\End_B\circ_{(1)}\mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the right infinitesimal module structure on $\End^A_B$ (see Section \ref{functorial} to recall these module structures). 
 
 In addition, the composition of $\infty$-morphisms is given by the natural composition \[\s\End^B_C\circ \s\End^A_B\to \s\End^A_C.\]
 \end{lem}
@@ -653,7 +653,7 @@ The problem we have encountered with the degrees can be resolved using shift map
 If $\OO$ is an operad with an $A_\infty$-multiplication $m\in\OO$, then there is an $A_\infty$-algebra structure on the shifted module $S\s\OO$. 
 \end{propo}
 \begin{proof}
-Note in the proof of \Cref{lemmadegree} that a way to turn $M'_j$ into a map of degree $2-j$ is introducing a grading on $\s\OO$ given by arity plus internal degree (without substracting one). This is equivalent to defining an $A_\infty$-algebra structure $M$ on $S\s\OO$ shifting the map $M'=M'_1+M'_2+\cdots$, where $S$ is the shift of graded modules. Therefore, we define $M_j$ to be the map making the following diagram commute.
+Note in the proof of \Cref{lemmadegree} that a way to turn $M'_j$ into a map of degree $2-j$ is introducing a grading on $\s\OO$ given by arity plus internal degree (without subtracting one). This is equivalent to defining an $A_\infty$-algebra structure $M$ on $S\s\OO$ shifting the map $M'=M'_1+M'_2+\cdots$, where $S$ is the shift of graded modules. Therefore, we define $M_j$ to be the map making the following diagram commute.
 
 \[
 \begin{tikzcd}
@@ -724,7 +724,7 @@ Notice that we have only used the operadic structure on $\s\OO$ to define an $A_
 The map $\Phi$ defined above is a morphism of $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
 
 \[\Phi(M_j)=\overline{M}_j(\Phi^{\otimes j})\]
-holds, where the $M_j$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\OO$ and $\overline{M}_j$ is the $j$-th componnent of the $A_\infty$-algebra structure on $S\s\End_{S\s\OO}$. 
+holds, where the $M_j$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\OO$ and $\overline{M}_j$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\End_{S\s\OO}$. 
 \end{thm}
 \begin{proof}
 Let us have a look at the following diagram
@@ -745,7 +745,7 @@ Let us have a look at the following diagram
 S\s\OO\arrow[rrrr, bend right=10, "\Phi"']\arrow[ur,red]& & & & S\s\End_{S\s\OO}
 \end{tikzcd}
 \]
-where the diagonal red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commute. But these arrows are defined so that they commute whith the red and blue arrows, so it is enough to show that the inner blue diagram commutes. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}_j$ that we are going to define next, so it will be enough to show that the two squares commute. The commutativity of the  left square will be more involved as we will have to distinguish between different kinds of insertions.
+where the diagonal red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commute. But these arrows are defined so that they commute with the red and blue arrows, so it is enough to show that the inner blue diagram commutes. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}_j$ that we are going to define next, so it will be enough to show that the two squares commute. The commutativity of the  left square will be more involved as we will have to distinguish between different kinds of insertions.
 
  The map 
 \[\mathcal{M}_j:(\End_{\s\OO})^{\otimes j}\to\End_{\s\OO}\]
@@ -775,7 +775,7 @@ is defined by
 %PART OF THE PROOF CAN BE SEEN AS SHOWING EXACTLY WHAT THEY SAID (IT DOESN'T DEPEND ON THE PARTICULAR OPERAD AS LONG AS THE BRACE STRUCTURE IS THE NATURAL ONE ON THAT OPERAD), SO TELL IT MAYBE DURING THE PROOF. THE PROOF IS QUITE LONG, IT PROBABLY DESERVES ITS OWN SECTION, OR MAYBE INDICATING THAT THE CALCULATIONS FOR THE FIRST HALF OF DIAGRAM ARE IN ANOTHER SECTION
 %\vspace{0.5cm}
 
-The proof that the left blue square commutes consists of several lenghty calculations so we are going to devote the next section to that. However, it is worth noting that the commutativity of the left square does not depend on the particular operad $\s\OO$, so it is still valid if $m$ satisfies $m\circ m=0$ for any circle operation defined in terms of insertions. This is essentialy the original statement in \cite{GV}.
+The proof that the left blue square commutes consists of several lengthy calculations so we are going to devote the next section to that. However, it is worth noting that the commutativity of the left square does not depend on the particular operad $\s\OO$, so it is still valid if $m$ satisfies $m\circ m=0$ for any circle operation defined in terms of insertions. This is essentially the original statement in \cite{GV}.
 \subsection*{Commutativity of the left blue square}
 We are going to show here that the left blue square in the diagram of the proof of Theorem \ref{theorem} commutes, i.e. that 
 

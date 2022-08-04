@@ -138,7 +138,7 @@ Let $\End_A$ be the endomorphism operad of some $R$-module $A$ and consider the 
 For $a\in A^{\otimes n}$ we have \[(f\otimes e^n)(a)=(-1)^{\deg(a)(n-1)}f(a)\otimes e^n\]
 
 because $\deg(e^n)=n-1$. Note that $f\otimes e^n=g\otimes e^n$ if and only if $f=g$. In addition, it is not possible that $f\otimes e^n=g\otimes e^m$ for $n\neq m$. %the 0  map is a different map oon arity n or m
-The reader may notice that $f(a)\otimes  e^n\notin A$, but it can be identified with an element of $S^{n-1}A$. This is a reminiscense of the isomorphism $\s^{-1}\End_A\cong \End_{SA}$. %A map of degree d on SA^n->SA corresponds to a map of degree d-n+1 on A^n->A 
+The reader may notice that $f(a)\otimes  e^n\notin A$, but it can be identified with an element of $S^{n-1}A$. This is a reminiscence of the isomorphism $\s^{-1}\End_A\cong \End_{SA}$. %A map of degree d on SA^n->SA corresponds to a map of degree d-n+1 on A^n->A 
  
 
 If we take the tensor product of $f\otimes e^n\in\s\End_A(n)$ and $g\otimes e^m\in\s\End_A(m)$ and apply it to $a\otimes b\in A^{\otimes n}\otimes A^{\otimes m}$, we have
@@ -397,7 +397,7 @@ b_2(x;m_{jl},m_{ik})+b_1(x;b_1(m_{jl};m_{ik}))+b_2(x;m_{ik},m_{jl})).
 \end{align*}
 
 In the sum, all terms of the form $b_1(x;b_1(m_{jl};m_{ik}))$ that can be seen in the last line should add up to vanish provided that $m$ is a $dA_\infty$-multiplication (meaning that up to sign $b_1(m;m)=0$) %A sign of the form $(-1)^i$ %(or maybe $(-1)^j$, depending on the convention) 
- Since $i$ and $j$ are interchangable (i.e. for each pair $(i,j)$ there is the pair $(j,i)$), the terms $b_2(x;m_{jl},m_{ik})+b_2(x;m_{ik},m_{jl})$ in the last line should cancel as well (for this, we should have the pair $(j,i)$ with the opposite sign). Here it is also relevant that the sum runs through all possible values of $k$ and $l$, so that the pair $(j,i)$ appears with $l$ and $k$ interchanged as well. So far the entire last line vanishes up to sign.
+ Since $i$ and $j$ are interchangeable (i.e. for each pair $(i,j)$ there is the pair $(j,i)$), the terms $b_2(x;m_{jl},m_{ik})+b_2(x;m_{ik},m_{jl})$ in the last line should cancel as well (for this, we should have the pair $(j,i)$ with the opposite sign). Here it is also relevant that the sum runs through all possible values of $k$ and $l$, so that the pair $(j,i)$ appears with $l$ and $k$ interchanged as well. So far the entire last line vanishes up to sign.
 
 Then $b_1(m_{ik};b_1(x;m_{jl}))$ on the first line should cancel with $b_1(m_{jl};b_1(x;m_{ik}))$ on the second line (but from a different summand, the one where $i$ and $j$ are interchanged). Finnaly, the remaining terms $b_1(m_{ik}; b_1(m_{jl};x))+b_2(m_{jl};x,m_{ik})+b_2(m_{jl};m_{ik},x)$ add up to $b_1(b_1(m;m);x)$ up to sign. That would cancel everything.
 
@@ -469,7 +469,7 @@ which has precisely the opposite sign to the other pair, and thus cancels. This 
 \sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))&\label{twistedequation4}\\
  -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})&+(-1)^{i+\langle m_{jl}|m_{ik}\rangle}b_2(m_{jl};m_{ik},x)).\nonumber
 \end{align}
-We want this terms to add up to something of the form $b_1(b_1(m;m);x)$. Notice that for this we need to switch some pairs. For simplity, we switch the pair of the first term and rewrite the sum as
+We want this terms to add up to something of the form $b_1(b_1(m;m);x)$. Notice that for this we need to switch some pairs. For simplicity, we switch the pair of the first term and rewrite the sum as
 \begin{align}
 \sum_{i+j=u}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))&\\
  -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})&+(-1)^{i+\langle m_{jl}| m_{ik}\rangle}b_2(m_{jl};m_{ik},x)).\nonumber
