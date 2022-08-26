@@ -255,17 +255,6 @@ In particular, for $A_\infty$-algebras it is more convenient to work with $\s\OO
 %For Constanze. I'm implicitly using the equivalence between being an equivalence of categories and being fully faithfull and essentially surjective. Should I say this more explicitly? I am considering showing the equivalence of categories with the more general definition of equivalence of categories since this ones requires some form of choice (I'm ok with choice, but I could still add another proof in the appendix ore something).
 %\end{remark}
 
-Defining $\mathfrak{s}$ at the level of collections also allows us to talk about $\infty$-morphisms of $A_\infty$-algebras in this setting, since they live in collections of the form\[\End^A_B=\{\Hom(A^{\otimes n},B)\}_{n\geq 1}.\] More precisely, there is a left module structure on $\End^A_B$ over the operad $\End_B$
-\[\End_B\circ \End^A_B\to \End^A_B\] given by compostion of maps 
-
-\[f\otimes g_1\otimes\cdots\otimes g_n\mapsto f(g_1\otimes\cdots\otimes g_n)\]
-for $f\in\End_B(n)$ and $g_i\in \End^A_B$, and also an infinitesimal right module structure over the operad  $\End_A$ 
-\[\End^A_B \circ_{(1)} \End_A\to \End^A_B\]
-given by insertion of maps
-
-\[f\otimes 1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1}\mapsto f(1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1})\] for $f\in \End^A_B(n)$ and $g\in \End_A$.  In addition we have a composition $\End^B_C\circ \End^A_B\to\End^A_C$ analogous to the left module described above. They induce maps on the respective operadic suspensions, which differ from the original ones by some signs that can be calculated in an analogous way to what we do on the next sextion (see equation \ref{sigma}). These induced maps will give us the definition of  $\infty$-morphisms later in \Cref{infinitymorphism}.
-
-For these collections we also have $\mathfrak{s}^{-1}\End^A_B\cong \End^{SA}_{SB}$ in analogy with Theorem \ref{markl}, and the proof is similar but shorter since we do not need to worry about insertions. 
 
 
 \subsection{Monoidal properties of operadic suspension}\label{monoidal}
@@ -450,14 +439,26 @@ so the notation $f\tilde{\circ} g$ is suggestive for operadic suspension. The no
 
 In \cite{RW}, the sign is computed using a strategy that we generalize in \ref{rw} (see expression \ref{sigma}). The approach we have followed here has the advantage that the brace relation follows immediatly from the associativity axiom of operadic composition. This approach also works for any operad since the difference between $\gamma$ and $\tilde{\gamma}$ is going to be the same sign. 
 
-Finally, as we mentioned before in Section \ref{functorial}, we can show the following alternative description of $\infty$-morphisms of $A_\infty$-algebras and their composition in terms of suspension of collections (recall definition \ref{infinitymorphism}).
+\subsection{Reinterpretation of $\infty$-morphisms}\label{reinterpretation}
+Finally, as we mentioned before, we can show an alternative description of $\infty$-morphisms of $A_\infty$-algebras and their composition in terms of suspension of collections (recall \Cref{infinitymorphism}).
+
+Defining $\mathfrak{s}$ at the level of collections as we did in \Cref{functorial} allows us to talk about $\infty$-morphisms of $A_\infty$-algebras in this setting, since they live in collections of the form\[\End^A_B=\{\Hom(A^{\otimes n},B)\}_{n\geq 1}.\] More precisely, there is a left module structure on $\End^A_B$ over the operad $\End_B$
+\[\End_B\circ \End^A_B\to \End^A_B\] given by compostion of maps 
+
+\[f\otimes g_1\otimes\cdots\otimes g_n\mapsto f(g_1\otimes\cdots\otimes g_n)\]
+for $f\in\End_B(n)$ and $g_i\in \End^A_B$, and also an infinitesimal right module structure over the operad  $\End_A$ 
+\[\End^A_B \circ_{(1)} \End_A\to \End^A_B\]
+given by insertion of maps
+
+\[f\otimes 1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1}\mapsto f(1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1})\] for $f\in \End^A_B(n)$ and $g\in \End_A$.  In addition we have a composition $\End^B_C\circ \End^A_B\to\End^A_C$ analogous to the left module described above. They induce maps on the respective operadic suspensions, which differ from the original ones by some signs that can be calculated in an analogous way to what we do on equation \ref{sigma}. These induced maps will give us the characterization of $\infty$-morphisms in \Cref{infinitymorphisms}.
+
+For these collections we also have $\mathfrak{s}^{-1}\End^A_B\cong \End^{SA}_{SB}$ in analogy with Theorem \ref{markl}, and the proof is similar but shorter since we do not need to worry about insertions. 
 
 
-
-\begin{lem}\label{infinitymorphism}
+\begin{lem}\label{infinitymorphisms}
 An $\infty$-morphism of $A_\infty$-algebras $A\to B$ with respective structure maps $m^A$ and $m^B$ is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that \[\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),\] 
 
-where \[\lambda:\mathfrak{s}\End_B\circ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the left module struncture on $\End^A_B$ and \[\rho:\mathfrak{s}\End_B\circ_{(1)}\mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the right infinitesimal module structure on $\End^A_B$ (see Section \ref{functorial} to recall these module structures ). 
+where \[\lambda:\mathfrak{s}\End_B\circ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the left module structure on $\End^A_B$ and \[\rho:\mathfrak{s}\End_B\circ_{(1)}\mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the right infinitesimal module structure on $\End^A_B$. 
 
 In addition, the composition of $\infty$-morphisms is given by the natural composition \[\s\End^B_C\circ \s\End^A_B\to \s\End^A_C.\]
 \end{lem}
