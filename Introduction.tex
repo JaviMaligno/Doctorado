@@ -37,12 +37,104 @@
 
 MAYBE THIS IS THE PLACE FOR FIXING R COMMUTATIVE WITH UNIT AND CHAR NOT 2 (POSSIBLY 0 OR NOT A FACTORIAL (representation theory things that I doubt I would need to clarify))
 \begin{itemize}
-
+\item MAYBE SOMETHING ABOUT GRADED / BIGRADED MODULES?
 
 \item MAYBE BASIC REVIEW OF CATEGORY THEORY INCLUDING EQUIVALENCE OF CATEGORIES
 
+FIND AN ACTUAL REFERENCE, I'M USING \url{https://math.ucr.edu/home/baez/qg-fall2004/definitions.pdf} BECAUSE IT'S PRACTICAL
+
+FILL WITH SOME TEXT INTRODUCING WHAT WE ARE GOING TO DISCUSS
+\subsection{Categories, Functors, Natural transformations}
+IS THIS TOO ELEMENTARY TO BE INCLUDED?
+
+THE ITEMS LOOK WEIRD BECAUSE AT THE MOMENT THHEY ARE INSIDE ANOTHER ITEMIZE, BUT THEY  WON'T BE IN THE END
+\begin{defin}
+A \emph{category} $\CC$ consist of
+\begin{itemize}
+\item a collection $\ob(\CC)$ of \emph{objects},
+CHECK NOTATION FOR HOM SET TO BE CONSISTENT
+\item for any pair of objects $x,y\in\ob(\CC)$, a set $\hom(x,y)$ of \emph{morphisms} (If $f\in\hom(x,y)$, we write $f:x\to y $)
+\end{itemize}
+equipped with
+CHECK NOTATION FOR IDENTITY MORPHISM
+\begin{itemize}
+\item an \emph{identity morphism} $1_x: x → x$ for any object $x$,
+\item for any pair of morphisms $f: x → y$ and $g: y → z$, a morphism $fg: x → z$ called the \emph{composite} or \emph{composition}
+of $f$ and $g$, sometimes written as $f\circ g$,
+\end{itemize}
+such that
+\begin{itemize}
+\item for any morphism $f: x → y$, the \emph{left and right unit laws} hold: $1_xf = f = f1_y$,
+\item for any triple of morphisms $f: w → x$, $g: x → y$, $h: y → z$, the \emph{associative law} holds:
+$(fg)h = f(gh)$.
+\end{itemize}
+\end{defin}
+We usually write $x ∈ \CC$ as an abbreviation for $x ∈ \ob(\CC)$. 
+
+\begin{defin}
+An \emph{isomorphism} is a morphism $f: x → y$
+with an \emph{inverse}, i.e. a morphism $g: y → x$ such that $fg = 1_x$ and $gf = 1_y$.
+\end{defin}
+
+
+EXAMPLES
+
+
+\begin{defin}
+Given categories $\CC$, $\DD$, a \emph{functor} $F: \CC → \DD$ consists of
+\begin{itemize}
+\item a function $F: \ob(\CC) → \ob(\DD)$,
+\item for any pair of objects $x, y ∈ \ob(\CC)$, a function $F: \hom(x, y) → \hom(F(x), F(y))$
+\end{itemize}
+such that
+\begin{itemize}
+\item $F$ preserves identities: for any object $x ∈ \ob(\CC)$, $F(1_x) = 1_{F (x)}$,
+\item $F$ preserves composition: for any pair of morphisms $f: x → y$, $g: y → z$ in $\CC$, $F(fg) =
+F(f)F(g)$.
+\end{itemize}
+\end{defin}
+
+IDENTITY FUNCTOR, COMPOSITION OF FUNCTORS (CHECK IDENTITY AND ASSOCIATIVE LAW OR SAY IT IS NOT HARD), EXAMPLES
+
+\begin{defin}
+Given functors $F, G: \CC → \DD$, a \emph{natural transformation} $α: F ⇒ G$ consists of a function $α$ mapping each object $x ∈ \CC$ to a morphism $α_x: F(x) → G(x)$ such that for any morphism $f: x → y$ in $\CC$, the following diagram commutes
+\[
+\begin{tikzcd}
+F(x)\arrow[r, "F(f)"]\arrow[d, "\alpha_x"] & F(y)\arrow[d, "\alpha_y"]\\
+G(x)\arrow[r, "G(f)"] & G(y)
+\end{tikzcd}
+\]
+\end{defin}
+
+IDENTITY AND COMPOSITION OF NATURAL TRANSFORMATION, IDENTITY AND ASSOCIATIVE LAW
+
+
+\begin{defin}
+Given functors $F, G: \CC → \DD$, a \emph{natural isomorphism} $α: F ⇒ G$ is a natural
+transformation that has an \emph{inverse}, i.e. a natural transformation $β: G ⇒ F$ such that $αβ = 1_F$ and
+$βα = 1_G$.
+\end{defin}
+
+\begin{lem}
+A natural transformation $α: F ⇒ G$ is a natural isomorphism if and only if for every
+object $x ∈ \CC$, the morphism $α_x$ is invertible.
+\end{lem}
+\begin{proof}
+PROVE OR FIND REFERENCE
+\end{proof}
+
+\begin{defin}
+A functor $F: \CC → \DD$ is an equivalence if it has a \emph{weak inverse}, that is, a functor
+$G: \DD → \CC$ such that there exist natural isomorphisms $α: FG ⇒ 1_\CC$, $β: GF ⇒ 1_\DD$.
+\end{defin}
+
+\begin{lem}
+EQUIVALENCE IN TERMS OF FULLY FAITHFUL (FOR THAT I WILL NEED THE DEFINITIONS  AS WELL)
+\end{lem}
+
 
 \item SYMMETRIC (CLOSED) MONOIDAL CATEGORIES, EXAMPLES
+\subsection{Monoidal, Braided and Symmetric Monoidal Categories}
 
 \item LAX/STRICT MONOIDAL FUNCTORS
 
