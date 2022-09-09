@@ -164,6 +164,30 @@ and a natural transformation
 for all $x,y\in\CC$ satisfying natural unitality associativity and symmetry axioms. A lax monoidal functor is called \emph{strong monoidal} if $\varepsilon$ and $\mu_{x,y}$ are isomorphisms for all $x,y\in\CC$.
 \end{defin}
 
+
+\begin{defin}
+Suppose $(F,\mu,\varepsilon)$ and $(F, \nu, \epsilon)$ are monoidal functors between the symmetric monoidal categories $\CC$ and $\DD$. Then a natural transformation $\alpha:F\to G$ is \emph{monoidal} if the diagrams
+\[
+\begin{tikzcd}
+F(x)\otimes_\DD F(y)\arrow[r, "\alpha_x\otimes_\DD\alpha_y"]\arrow[d,"\mu_{x,u}"] & G(x)\otimes_\DD G(y)\arrow[d, "\nu_{x,y}"]\\
+F(x\otimes_\CC y)\arrow[r, "\alpha_{x\otimes_\CC y}"] & G(x\otimes_\DD y)
+\end{tikzcd}
+\]
+
+and
+\[
+\begin{tikzcd}
+1_\DD\arrow[d, "\varepsilon"]\arrow[dr, "\epsilon"]&\\
+F(1)\arrow[r, "\alpha_1"] &  G(1)
+\end{tikzcd}
+\]
+commute.
+\end{defin}
+
+\begin{defin}
+If $\CC$ and $\DD$ are symmetric monoidal categories, a lax monoidal functor $F: \CC → \DD$ is an \emph{monoidal
+equivalence} if there is a lax monoidal functor $G: \DD → \CC$ such that there exist monoidal natural isomorphisms $α: FG ⇒ id_\CC$, $β: GF ⇒ id_\DD$.
+\end{defin}
 \item ENRICHED VERSION OF THE ABOVE THINGS, INCLUDING THE CONTENT IN SARAH'S PAPER
 
 
