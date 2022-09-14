@@ -15,9 +15,16 @@ Let us start by recalling some background definitions and results that we will n
 %MAYBE OMIT ALL MENTION TO SYMMETRIC GROUPS BECAUSE I'M NOT REALLY GONNA USE THEM
 We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions.
 
-Our base category is the category of graded $R$-modules and graded maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The $R$-modules $\Hom_R(A,B)$ are naturally graded by \[\Hom_R(A,B)^i=\prod_k\Hom_R(A^k,B^{k+i}).\]
+Our base category is the category of graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convntion:
 
-We adopt the following Koszul sign convention: for $x\in A$, $y\in B$, $f\in\Hom_R(A,C)$ and $g\in\Hom_R(B,D)$
+\begin{align*}
+\tau_{A,B}:A\otimes B&\to B\otimes A\\
+x\otimes y &\mapsto (-1)^{\deg(x)\deg(y)}y\otimes x.
+\end{align*}
+
+ Our convention is that a map $f:A\to B$ of degree $i$ satisfies $f(A^n)\subseteq B^{n+i}$ for all $n$. The $R$-modules $\Hom_R(A,B)$ are naturally graded by \[\Hom_R(A,B)^i=\prod_k\Hom_R(A^k,B^{k+i}).\]
+
+We also adopt the following Koszul sign convention: for $x\in A$, $y\in B$, $f\in\Hom_R(A,C)$ and $g\in\Hom_R(B,D)$
 
 \[(f\otimes g)(a\otimes b)=(-1)^{\deg(x)\deg(g)}f(x)\otimes g(y).\] %NOT SURE IF SUM OR PROD %I think it's prod because it's all homomorphisms that raise the degree by iFFFLVVVV
 
@@ -78,7 +85,7 @@ where $\varepsilon$ is the Koszul sign obtained from swapping each $g$ by the co
 
 It is known that the category of collections with plethysm is a monoidal category, where the unit is the collection $I(1)=R$ and $I(n)=0$ for $n\neq 1$. 
 \begin{defin}
-A (non-symmetric) \emph{operad} is a collection $\OO=\{\OO(n)\}$ where there is a distinguished \emph{identity} element $1\in\OO(1)$ and with \emph{insertion maps} 
+A \emph{(non-symmetric) operad} is a collection $\OO=\{\OO(n)\}$ where there is a distinguished \emph{identity} element $1\in\OO(1)$ and with \emph{insertion maps} 
 \[\circ_i:\OO(n)\otimes \OO(m)\to \OO(m+n-1)\]
 for each $1\leq i\leq n$ satisfying natural uunitality and associativity axioms. Insertion maps can be iterated to define \emph{composition maps} \[\gamma(x;x_1,\dots, x_n)=(\cdots(x\circ_1 x_1)\circ_2 x_2\cdots
 )\circ_n x_n).\]

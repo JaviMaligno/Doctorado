@@ -36,14 +36,14 @@
 \section{Introduction}
 
 MAYBE THIS IS THE PLACE FOR FIXING R COMMUTATIVE WITH UNIT AND CHAR NOT 2 (POSSIBLY 0 OR NOT A FACTORIAL (representation theory things that I doubt I would need to clarify))
-\begin{itemize}
-\item MAYBE SOMETHING ABOUT GRADED / BIGRADED MODULES?
+%\begin{itemize}
+%\item MAYBE SOMETHING ABOUT GRADED / BIGRADED MODULES?
 
-\item MAYBE BASIC REVIEW OF CATEGORY THEORY INCLUDING EQUIVALENCE OF CATEGORIES
+%\item MAYBE BASIC REVIEW OF CATEGORY THEORY INCLUDING EQUIVALENCE OF CATEGORIES
 
-FIND AN ACTUAL REFERENCE, I'M USING \url{https://math.ucr.edu/home/baez/qg-fall2004/definitions.pdf} BECAUSE IT'S PRACTICAL
+%FIND AN ACTUAL REFERENCE, I'M USING \url{https://math.ucr.edu/home/baez/qg-fall2004/definitions.pdf} BECAUSE IT'S PRACTICAL
 
-FILL WITH SOME TEXT INTRODUCING WHAT WE ARE GOING TO DISCUSS
+%FILL WITH SOME TEXT INTRODUCING WHAT WE ARE GOING TO DISCUSS
 %\subsection{Categories, Functors, Natural transformations}
 %IS THIS TOO ELEMENTARY TO BE INCLUDED?
 %
@@ -136,7 +136,7 @@ FILL WITH SOME TEXT INTRODUCING WHAT WE ARE GOING TO DISCUSS
 %\item SYMMETRIC (CLOSED) MONOIDAL CATEGORIES, EXAMPLES
 \subsection{Symmetric Monoidal Categories}
 
-We assume that the reader is familiar with the basic terminology of category theory. For an introduction to this topic we refer the reader to \cite{maclane}. Here we briefly recall the notion of symmetric monoidal categories and several versions of monoidal functors. The detailed definitions with all the precise diagrams can also be found in \cite{maclane}.
+We assume that the reader is familiar with the basic terminology of category theory. For an introduction to this topic we refer the reader to \cite{maclane}. Here we briefly recall the notion of symmetric monoidal categories and several versions of monoidal functors. The detailed definitions with all the precise diagrams can also be found in \cite{maclane} and in \cite{borceux}.
 
 \begin{defin}
 A \emph{symmetric monoidal category} is a category $\CC$ equipped with a functor 
@@ -144,24 +144,28 @@ A \emph{symmetric monoidal category} is a category $\CC$ equipped with a functor
 called \emph{tensor product}, an object
 \[1\in\CC\]
 called \emph{unit object}, a natural isomorphism
-\[a_{x,y,z} : (x \otimes y) \otimes z \to x \otimes (y \otimes z)\]
-for all objects $x,y,z\in\CC$ called \emph{associators}, a natural isomorphism
-\[\lambda_x:1\otimes x\to x\]
-for every $x\in\CC$ called \emph{left unitor}, a natural isomorphism
-\[\rho_x:x\otimes 1\to x\]
-for every $x\in\CC$ called \emph{right unitor}, and a natural isomorphism
-\[\gamma_{x,y}:x\otimes y \to y\otimes x\]
-for all $x,y\in\CC$ called \emph{braiding} or \emph{symmetry isomorphism}. These morphisms satisfy natural unitality and associativity axioms.
+\[a_{A,B,C} : (A \otimes B) \otimes C \to A \otimes (B \otimes C)\]
+for all objects $A,B,C\in\CC$ called \emph{associators}, a natural isomorphism
+\[\lambda_A:1\otimes A\to A\]
+for every $A\in\CC$ called \emph{left unitor}, a natural isomorphism
+\[\rho_A:A\otimes 1\to A\]
+for every $A\in\CC$ called \emph{right unitor}, and a natural isomorphism
+\[\tau_{A,B}:A\otimes B \to B\otimes A\]
+for all $A,B\in\CC$ called \emph{braiding} or \emph{symmetry isomorphism}. These morphisms satisfy natural unitality and associativity axioms.
 \end{defin}
 
+\begin{remark}
+If we drop the symmetry isomorphism we get what is simply called a \emph{monoidal category}.
+\end{remark}
+
 \begin{defin}
-Let $(\CC,\otimes_\CC, 1_\CC)$ and $(\DD, \otimes_\DD, 1_\DD)$ be symmetric monoidal categories. A \emph{(lax) monoidal functor} between tem is a functor
+Let $(\CC,\otimes_\CC, 1_\CC)$ and $(\DD, \otimes_\DD, 1_\DD)$ be symmetric monoidal categories. A \emph{(lax) monoidal functor} between them is a functor
 \[F:\CC\to\DD\]
 with a morphism
 \[\varepsilon:1_\DD\to F(1_\CC)\]
 and a natural transformation
-\[\mu_{x,y}:F(x)\otimes_\DD  F(y)\to F(x\otimes_\CC y)\]
-for all $x,y\in\CC$ satisfying natural unitality associativity and symmetry axioms. A lax monoidal functor is called \emph{strong monoidal} if $\varepsilon$ and $\mu_{x,y}$ are isomorphisms for all $x,y\in\CC$.
+\[\mu_{A,B}:F(A)\otimes_\DD  F(B)\to F(A\otimes_\CC B)\]
+for all $A,B\in\CC$ satisfying natural unitality associativity and symmetry axioms. A lax monoidal functor is called \emph{strong monoidal} if $\varepsilon$ and $\mu_{A,B}$ are isomorphisms for all $A,B\in\CC$.
 \end{defin}
 
 
@@ -169,8 +173,8 @@ for all $x,y\in\CC$ satisfying natural unitality associativity and symmetry axio
 Suppose $(F,\mu,\varepsilon)$ and $(F, \nu, \epsilon)$ are monoidal functors between the symmetric monoidal categories $\CC$ and $\DD$. Then a natural transformation $\alpha:F\to G$ is \emph{monoidal} if the diagrams
 \[
 \begin{tikzcd}
-F(x)\otimes_\DD F(y)\arrow[r, "\alpha_x\otimes_\DD\alpha_y"]\arrow[d,"\mu_{x,u}"] & G(x)\otimes_\DD G(y)\arrow[d, "\nu_{x,y}"]\\
-F(x\otimes_\CC y)\arrow[r, "\alpha_{x\otimes_\CC y}"] & G(x\otimes_\DD y)
+F(A)\otimes_\DD F(B)\arrow[r, "\alpha_A\otimes_\DD\alpha_B"]\arrow[d,"\mu_{A,B}"] & G(A)\otimes_\DD G(B)\arrow[d, "\nu_{A,B}"]\\
+F(A\otimes_\CC B)\arrow[r, "\alpha_{A\otimes_\CC B}"] & G(A\otimes_\DD B)
 \end{tikzcd}
 \]
 
@@ -188,7 +192,33 @@ commute.
 If $\CC$ and $\DD$ are symmetric monoidal categories, a lax monoidal functor $F: \CC → \DD$ is an \emph{monoidal
 equivalence} if there is a lax monoidal functor $G: \DD → \CC$ such that there exist monoidal natural isomorphisms $α: FG ⇒ id_\CC$, $β: GF ⇒ id_\DD$.
 \end{defin}
-\item ENRICHED VERSION OF THE ABOVE THINGS, INCLUDING THE CONTENT IN SARAH'S PAPER
+
+\begin{defin}
+A symmetric monoidal category $\CC$ is \emph{closed} if for every object $A\in\CC$ the tensor product functor $A\otimes -:\CC\to\CC$ has a right adjoint functor $[A,-]:\CC\to\CC$. In other words, for all $A,B,C\in \CC$ we have a natural bijection between the hom-sets
+\[\Hom_\CC(A\otimes B, C)\cong \Hom_\CC(A, [B,C])\]
+natural in all arguments. The object $[A,B]$ is called the \emph{internal hom}.
+\end{defin}
+
+
+\begin{defin}
+Let $\VV$ a monoidal category. A $\VV$-\emph{category} $\CC$ ($\VV$-\emph{
+enrihed catgory} or \emph{category enriched over} $\VV$) consists of
+\begin{itemize}
+\item a set $\mathrm{Ob}(\CC)$ of objects in $\CC$,
+\item for each pair $(A,B)$ of objects in $\CC$ an object $\CC(A,B)\in\VV$ called the \emph{hom-object} or \emph{object of morphisms} from $A$ to $B$,
+\item for every triple $(A,B,C)$ of objects in $\CC$ a morphism
+\[\circ_{A,B,C}:\CC(B,C)\otimes\CC(A,B)\to \CC(A,C)\]
+in $\VV$ called \emph{composition morphism},
+\item and for each object $A$ in $\CC$ a morphism $u_A:1\to \CC(A,A)$ called the \emph{identity element}. 
+\end{itemize}
+All this data is subject to associativity and unitality constrains that can be seen in detail in \cite{borceux}.
+\end{defin}
+
+THE CONTENT OF SARAH'S PAPER COULD COME HERE
+
+\subsection{Operads}
+A BIT MORE OF WHAT IS IN JOIN, LIKE COOPERADS (THIS SHOULD ACTUALLY BE ADDED THERE) AND SOME OF THE STUFF IN THE ITEM BELOW (CHECK WHAT IS NECESSARY) AND THE LONG PROOF AT THE END OF THIS
+\begin{itemize}
 
 
 \item S-MODULES/COLLECTIONS IN THE NON SYMMETRRIC CASE, OPERADS (SYMMETRIC AND NS)- POSSIBLY SEVERAL DEFINITIONS, AT LEAST CLASSICAL, PARTIAL AND THEIR EQUIVALENCE AND MONOIDAL, EXAMPLES, (INFINITESIMAL SEE 10.2.4) MODULE OVER AN OPERAD, QUASI-FREE OPERAD, PRE-LIE ALGEBRA DEFINED BY INSERTIONS, FORGETFUL FUNCTOR FROM SYM TO NS? SHOULD WRITE THE AXIOMS FOR GRADED OPERADS SOMEWHERE (MORE GENERALLY OPERAD IN SYMMETRIC MONOIDAL CATEGORY LIKE WARD), AND I MIGHT ALSO WRITE THE PROOF THAT THIS IS AN OPERAD (BUT SHOULD FOLLOW FROM LAX MONOIDALITY)
