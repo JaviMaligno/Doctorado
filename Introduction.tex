@@ -219,6 +219,7 @@ THE CONTENT OF SARAH'S PAPER COULD COME HERE (BUT IT IS SPECIFIC ENOUGH TO BE WR
 \subsection{Operads}
 A BIT MORE OF WHAT IS IN JOIN, LIKE COOPERADS (THIS SHOULD ACTUALLY BE ADDED THERE) AND SOME OF THE STUFF IN THE ITEM BELOW (CHECK WHAT IS NECESSARY) 
 
+SAY SOMETHING TO INTRODUCE IT AND MENTION THE MAIN REFERENCES
 We start defining the underlying object of an operad.
 
 \begin{defin}\label{collections}
@@ -237,13 +238,13 @@ The \emph{plethysm} or \emph{composite} $f\circ g$ of maps $f:\OO\to\OO'$ and $g
 where $\varepsilon$ is the Koszul sign obtained from swapping each $g$ by the correspoding elements. 
 \end{defin}
 
-HADAMARD PRODUCT %, TENSOR PRODUCT OF S-MODULES
+ %, TENSOR PRODUCT OF S-MODULES
 
 It is known that the category of collections with plethysm is a monoidal category, where the unit is the collection $I(1)=R$ and $I(n)=0$ for $n\neq 1$. 
 \begin{defin}
 A \emph{(non-symmetric) operad} is a collection $\OO=\{\OO(n)\}$ where there is a distinguished \emph{identity} element $1\in\OO(1)$ and with \emph{insertion maps} 
 \[\circ_i:\OO(n)\otimes \OO(m)\to \OO(m+n-1)\]
-for each $1\leq i\leq n$ satisfying natural unitality and associativity axioms. HERE WRITE DOWN THE ASSOCIATIVITY AXIOMS EXPLICITLY
+for each $1\leq i\leq n$ satisfying natural unitality and associativity axioms. HERE WRITE DOWN THE ASSOCIATIVITY AXIOMS EXPLICITLY AND REFER TO WARD BECAUSE IT IS NOT THE STANDARD
 
 Insertion maps can be iterated to define \emph{composition maps} \[\gamma(x;x_1,\dots, x_n)=(\cdots(x\circ_1 x_1)\circ_2 x_2\cdots
 )\circ_n x_n).\]
@@ -255,6 +256,8 @@ A map of operads (resp. symmetric operads) is a map of collections (resp. $\math
 It is also known that an operad $\OO$ is equivalent to a monoid in the monoidal category of collections with plethysm, where the multiplication  map is given precisely by the composition $\gamma:\OO\circ\OO\to\OO$. See \cite[\S 5]{lodayvallette} for more details. 
 
 \begin{defin} An operad $\OO$ is called \emph{reduced} if $\OO(0)=0$.\end{defin}
+
+\begin{defin} Let $\OO$ and $\PP$ be operads. The \emph{Hadamard product} $\OO\otimes\PP$ is given on each arity component by $(\OO\otimes\PP)(n)=\OO(n)\otimes\PP(n)$. The structure maps are given by diagonal composition and diagonal symmetric group action in the case of symmetric operads. \end{defin}
 
 \begin{defin}
 The \emph{endomorphism operad} $\End_A$ of a graded $R$-module $A$ is given by the modules \[\End_A(n)=\hom(A^{\otimes n},A).\] Insertion maps are given by
