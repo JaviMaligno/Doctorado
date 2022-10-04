@@ -300,10 +300,25 @@ All the above definitions generalize with no substantial changes to the bigraded
 \subsubsection{Cooperads}
 
 The monoidal definition of operad (\Cref{monoid}) allows to define the dual notion of a cooperad.
-COOPERAD DEFINITION LODAY-VALLET 5.8.1 (INCLUDE THE MENTION TO THE OPPOSITE CATEGORY AND STUFF)
 
 
-SAY SOMETHING ABOUT THE REFERENCE FOR THIS RESULT (ALSO LIVE IT FOR THE END OF THE SECTION BECAUSE IT'S VERY LONG)
+
+\begin{defin}
+Let $\OO$ be a collection. A \emph{cooperad} is a structure of comonoid on $\OO$ in the monoidal category $(\col, \bar{\circ},I)$, where \[(\PP\bar{\circ}\mathcal{Q})(n) \coloneqq
+\bigoplus_r \bigoplus_{n=i_1+\cdots+i_r}(\PP(r)\otimes \QQ(i_1)\otimes\cdots\otimes \QQ(i_r)),\]
+and  $I$ is the collection such that $I(0)=R$ and is trivial elsewhere.
+See \cite[\S 5.7.1]{lodayvallette} for more details and the symmetric version.
+\end{defin}
+
+
+Note that this is not the exact dual notion of an operad. To define the exact dual of the notion of operad, one should instead consider
+the monoidal product
+\[(\PP\hat{\circ}\QQ)(n) =\prod_{r\geq 0}(\PP(r)\otimes \prod_{n=i_1+\cdots+i_r}(\QQ(i_1)\otimes\cdots\otimes \QQ(i_r)))\]
+in the category of collections, where the sums are replaced by products. In that case, a cooperad is defined as a comonoid $\Delta:\OO\to\OO\hat{\circ}\OO$.
+When $\OO(0) = 0$ (the operad is reduced), the right-hand side product is equal to a sum. In this case, we are back to the previous denition.
+
+
+SAY SOMETHING ABOUT THE REFERENCE FOR THIS RESULT (ALSO LIVE IT FOR THE END OF THE SECTION BECAUSE IT'S VERY LONG) 
 \begin{propo}
 Any symmetric lax monoidal functor $F:\CC\to\DD$ induces a functor $\underline{F}:\mathrm{Op}_\CC\to \mathrm{Op}_\DD$ between the categories of operads in $\CC$ and $\DD$, respectively.
 \end{propo}
