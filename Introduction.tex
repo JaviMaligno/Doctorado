@@ -35,7 +35,7 @@
 
 \section{Introduction}
 
-MAYBE THIS IS THE PLACE FOR FIXING R COMMUTATIVE WITH UNIT AND CHAR NOT 2 (POSSIBLY 0 OR NOT A FACTORIAL (representation theory things that I doubt I would need to clarify))
+%MAYBE THIS IS THE PLACE FOR FIXING R COMMUTATIVE WITH UNIT AND CHAR NOT 2 (POSSIBLY 0 OR NOT A FACTORIAL (representation theory things that I doubt I would need to clarify))
 %\begin{itemize}
 %\item MAYBE SOMETHING ABOUT GRADED / BIGRADED MODULES?
 
@@ -244,7 +244,7 @@ It is known that the category of collections with plethysm is a monoidal categor
 \begin{defin}
 A \emph{(non-symmetric) operad} is a collection $\OO=\{\OO(n)\}$ where there is a distinguished \emph{identity} element $1\in\OO(1)$ and with \emph{insertion maps} 
 \[\circ_i:\OO(n)\otimes \OO(m)\to \OO(m+n-1)\]
-for each $1\leq i\leq n$ satisfying natural unitality and associativity axioms. HERE REFER TO WARD BECAUSE ITS THE ONE THAT I USE, NOT LODAY AND VALETTE (MAYBE MENTION THAT IT IS SLIGHTLY DIFFERENT FROM LV)
+for each $1\leq i\leq n$ satisfying natural unitality and associativity axioms (see \cite[\S 1.1.2]{ward}). 
 
 Insertion maps can be iterated to define \emph{composition maps} \[\gamma(x;x_1,\dots, x_n)=(\cdots(x\circ_1 x_1)\circ_2 x_2\cdots
 )\circ_n x_n).\]
@@ -318,14 +318,15 @@ in the category of collections, where the sums are replaced by products. In that
 When $\OO(0) = 0$ (the operad is reduced), the right-hand side product is equal to a sum. In this case, we are back to the previous denition.
 
 
-SAY SOMETHING ABOUT THE REFERENCE FOR THIS RESULT (ALSO LIVE IT FOR THE END OF THE SECTION BECAUSE IT'S VERY LONG) 
+
+The following result is stated and prove in \cite[Proposition 3.1.1(a)]{fresse}, but the proof omits many details, so we are writing down the full proof here.
 \begin{propo}
-Any symmetric lax monoidal functor $F:\CC\to\DD$ induces a functor $\underline{F}:\mathrm{Op}_\CC\to \mathrm{Op}_\DD$ between the categories of operads in $\CC$ and $\DD$, respectively.
+Any symmetric lax monoidal functor $F:\CC\to\DD$ induces a functor $\underline{F}:\mathrm{Op}_\CC\to \mathrm{Op}_\DD$ between the categories of operads in $\CC$ and $\DD$, respectively. The result is also true for cooperads.
 \end{propo}
 
-REFERENCE THE AXIOMS WHEN I WRITE THEM DOWN
+%REFERENCE THE AXIOMS WHEN I WRITE THEM DOWN
 \begin{proof}
-Let $\OO$ be an operad in $\CC$ and let $F:\CC\to\DD$ be a symmetric lax monoidal functor. On objects, we define $\underline{F}(\OO)= F(\OO)$ and on morphisms we define $\underline{F}(f)=F(f)$ for $f:\OO\to\PP$. 
+We prove the result for operads, since for cooperads is dual. Let $\OO$ be an operad in $\CC$ and let $F:\CC\to\DD$ be a symmetric lax monoidal functor. On objects, we define $\underline{F}(\OO)= F(\OO)$ and on morphisms we define $\underline{F}(f)=F(f)$ for $f:\OO\to\PP$. 
 
 Let $\varepsilon: 1_\DD\to F(1_\CC)$ and $\mu\coloneqq\mu_{A,B}: F(A)\otimes F(B)\to F(A\otimes B)$ be the structure maps of the lax monoidal functor $F$. 
 
@@ -536,12 +537,12 @@ F(\OO(n+m-1))\arrow[r, "F(f_{n+m-1})"] & F(\PP(n+m-1))
    \]
    The top subdiagram commutes because $\mu$ is natural and the bottom part is precisely diagram  (\ref{mapaux}), which commutes. This finishes the proof.
 \end{proof}
-SAME WITH COOPERADS? PROBABLY BY ABSTRACT NONSENSE OF OPPOSITE CATEGORY
+%SAME WITH COOPERADS? PROBABLY BY ABSTRACT NONSENSE OF OPPOSITE CATEGORY
 
 \begin{itemize}
 
 
-\item S-MODULES/COLLECTIONS IN THE NON SYMMETRRIC CASE, OPERADS (SYMMETRIC AND NS)- POSSIBLY SEVERAL DEFINITIONS, AT LEAST CLASSICAL, PARTIAL AND THEIR EQUIVALENCE AND MONOIDAL, EXAMPLES, (INFINITESIMAL SEE 10.2.4) MODULE OVER AN OPERAD, QUASI-FREE OPERAD, PRE-LIE ALGEBRA DEFINED BY INSERTIONS, FORGETFUL FUNCTOR FROM SYM TO NS? SHOULD WRITE THE AXIOMS FOR GRADED OPERADS SOMEWHERE (MORE GENERALLY OPERAD IN SYMMETRIC MONOIDAL CATEGORY LIKE WARD), AND I MIGHT ALSO WRITE THE PROOF THAT THIS IS AN OPERAD (BUT SHOULD FOLLOW FROM LAX MONOIDALITY)
+%\item S-MODULES/COLLECTIONS IN THE NON SYMMETRRIC CASE, OPERADS (SYMMETRIC AND NS)- POSSIBLY SEVERAL DEFINITIONS, AT LEAST CLASSICAL, PARTIAL AND THEIR EQUIVALENCE AND MONOIDAL, EXAMPLES, (INFINITESIMAL SEE 10.2.4) MODULE OVER AN OPERAD, QUASI-FREE OPERAD, PRE-LIE ALGEBRA DEFINED BY INSERTIONS, FORGETFUL FUNCTOR FROM SYM TO NS? SHOULD WRITE THE AXIOMS FOR GRADED OPERADS SOMEWHERE (MORE GENERALLY OPERAD IN SYMMETRIC MONOIDAL CATEGORY LIKE WARD), AND I MIGHT ALSO WRITE THE PROOF THAT THIS IS AN OPERAD (BUT SHOULD FOLLOW FROM LAX MONOIDALITY)
 
 
 
