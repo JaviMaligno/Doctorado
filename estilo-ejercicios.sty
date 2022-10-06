@@ -39,42 +39,20 @@
 %\theoremstyle{definition}
 \newtheorem{defin}{Definition}[section]
 \newtheorem{ex}[defin]{Example}
-\theoremstyle{remark}
-\newtheorem{remark}[defin]{Remark}
 
-\theoremstyle{theorem}
+%\theoremstyle{theorem}
 \newtheorem{lem}[defin]{Lemma}
 \newtheorem{propo}[defin]{Proposition}
 \newtheorem{thm}[defin]{Theorem}
 \newtheorem{corollary}[defin]{Corollary}
 
-\newtheorem{ejer}{Ejercicio}
-\newtheorem{lemma}{Lemma}
-\newtheorem{ej}{Ejemplo}
-\newtheorem{coro}{Corolario}
-\newtheorem{prop}{Proposición}
-\newtheorem{observacion}{Observación}
-\newtheorem*{defi}{Definición}
-\newtheorem*{definition}{Definition}
-\newtheorem*{sol}{Solución}
-\newtheorem*{teorema}{Teorema}
-\newtheorem*{theorem}{Theorem}
-\newtheorem*{dem}{Demostración}
-\newtheorem{ejercicioaux}{Ejercicio}
-\newenvironment{ejercicio}[1]
-  {\renewcommand\theejercicioaux{#1}\ejercicioaux\label{ejer:#1}}
-  {\endejercicioaux}
-\newcounter{ejercounter}[section]
-\setcounter{ejercounter}{\value{ejercicioaux}}
-\newenvironment{solucion}{\begin{trivlist}
- \item[\hskip \labelsep {\textit{Solución}.}\hskip \labelsep]}{\end{trivlist}}
-\setlength{\parindent}{0pt}
-\newtheorem{nota}{Nota}
 
-\newtheorem{remarqueaux}{Remarque}
-\newenvironment{remarque}[1]
-  {\renewcommand\theremarqueaux{#1}\remarqueaux\label{ejer:#1}}
-  {\endremarqueaux}
+
+
+\theoremstyle{remark}
+\newtheorem{remark}[defin]{Remark}
+
+\newtheorem{ejer}{Ejercicio}
 
 \newtheorem{manualtheoreminner}{Theorem}
 \newenvironment{manualtheorem}[1]{%

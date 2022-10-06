@@ -163,11 +163,11 @@ Even though $\sigma$ is only a map of graded modules, it can be shown in a compl
 \begin{equation}\label{barsigma}
 \overline{\sigma}:\End_{A}\cong\mathfrak{s}\End_{SA}.
 \end{equation}
-This isomorphism can also  be proved in a more direct way using the isomorphism \[\s\s^{-1}\OO\cong\OO\] from \Cref{inverse}, namely, since $\End_{SA}\cong \s^{-1}\End_A$, then we have \[\s\End_{SA}\cong \s\s^{-1}\End_A\cong \End_A.\]
+This isomorphism can also  be proved in a more direct way using the isomorphism \[\s\s^{-1}\OO\cong\OO\] from \Cref{suspiso}, namely, since $\End_{SA}\cong \s^{-1}\End_A$, then we have \[\s\End_{SA}\cong \s\s^{-1}\End_A\cong \End_A.\]
 In this case the isomorphism map that we obtain goes in the opposite direction to $\overline{\sigma}$, and it is precisely its inverse.
 
 
-\begin{lem}\label{inverse}
+\begin{lem}\label{suspiso}
 There are isomorphisms of operads $\mathfrak{s}^{-1}\mathfrak{s}\OO\cong\OO\cong\mathfrak{s}\mathfrak{s}^{-1}\OO$.
 \end{lem}
 \begin{proof}
@@ -244,7 +244,7 @@ Note that $\deg(x)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s 
 
 
 
-The fact that $\s$ is a functor allows to describe algebras over operad using operadic suspension. For instance, an $A_\infty$-algebra is a map of operads $\OO\to\mathcal{P}$ where $\OO$ is an operad with $A_\infty$-multiplication. Since $\s$ is a functor, to this map corresponds a map $\s\OO\to\s\mathcal{P}$. Since in addition, the map $\s\OO\to\s\mathcal{P}$ is fully determined by the original map $\OO\to\mathcal{P}$, this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In fact, using \Cref{inverse}, it is not hard to show the following.
+The fact that $\s$ is a functor allows to describe algebras over operad using operadic suspension. For instance, an $A_\infty$-algebra is a map of operads $\OO\to\mathcal{P}$ where $\OO$ is an operad with $A_\infty$-multiplication. Since $\s$ is a functor, to this map corresponds a map $\s\OO\to\s\mathcal{P}$. Since in addition, the map $\s\OO\to\s\mathcal{P}$ is fully determined by the original map $\OO\to\mathcal{P}$, this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In fact, using \Cref{suspiso}, it is not hard to show the following.
 
 \begin{propo}
 The functor $\s$ is an equivalence of categories both at the level of collections and at the level of operads. \qed %it is not an isomorphism because at the level of collections, not every collection is EQUAL to some suspension
@@ -257,7 +257,7 @@ In particular, for $A_\infty$-algebras it is more convenient to work with $\s\OO
 
 
 
-\subsection{Monoidal properties of operadic suspension}\label{monoidal}
+\subsection{Monoidal properties of operadic suspension}\label{monoidalsusp}
 Now we are going to explore the monoidal properties of operadic suspension.
 
 Since operads are precisely monoids on the category $\mathrm{Col}$ of collections, we have the following.

@@ -13,9 +13,9 @@ In this section we include all necessary background and the conventions we use t
 Let us start by recalling some background definitions and results that we will need to study $A_\infty$-algebras, as well as stating some conventions.
 
 %MAYBE OMIT ALL MENTION TO SYMMETRIC GROUPS BECAUSE I'M NOT REALLY GONNA USE THEM
-We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions.
+We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions. For more details and intuition the reader is referred to \cite{keller} and \cite[\S 9.2]{lodayvallette}.
 
-Our base category is the category of graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convntion:
+Our base category is the category of graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convention:
 
 \begin{align*}
 \tau_{A,B}:A\otimes B&\to B\otimes A\\
@@ -26,7 +26,7 @@ x\otimes y &\mapsto (-1)^{\deg(x)\deg(y)}y\otimes x.
 
 We also adopt the following Koszul sign convention: for $x\in A$, $y\in B$, $f\in\Hom_R(A,C)$ and $g\in\Hom_R(B,D)$
 
-\[(f\otimes g)(a\otimes b)=(-1)^{\deg(x)\deg(g)}f(x)\otimes g(y).\] %NOT SURE IF SUM OR PROD %I think it's prod because it's all homomorphisms that raise the degree by iFFFLVVVV
+\[(f\otimes g)(a\otimes b)=(-1)^{\deg(x)\deg(g)}f(x)\otimes g(y).\] %NOT SURE IF SUM OR PROD %I think it's prod because it's all homomorphisms that raise the degree by i
 
 \begin{defin}
 For a graded $R$-module $A$ we consider the \emph{shift} or \emph{suspension} $SA$ for which $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
@@ -676,9 +676,9 @@ to be the collection in $\mathscr{V}$ given by
 \[\uEnd_A(n) \coloneqq \uC (A^{⊗n},A) \text{ for }n ≥ 1.\]
 \end{defin}
 %AT SOME POINT DO SOME MENTION TO THE DIFFERENT CASES THAT I AM GOING TO USE BEECAUSE THE NOTATION IS GOING TO BE THE SSAME
-\begin{lemma}
+\begin{lem}
 For $A\in\uC$, the collection $\uEnd_A$ defines an operad in $\VV$. 
-\end{lemma}
+\end{lem}
 \begin{proof}
 See \cite[Proposition 4.43]{whitehouse}.
 \end{proof}
