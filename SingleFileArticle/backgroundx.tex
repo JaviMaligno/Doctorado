@@ -12,7 +12,7 @@ In this section we include all necessary background and the conventions we use t
 
 Let us start by recalling some background definitions and results that we will need to study $A_\infty$-algebras, as well as stating some conventions.
 
-%MAYBE OMIT ALL MENTION TO SYMMETRIC GROUPS BECAUSE I'M NOT REALLY GONNA USE THEM
+
 We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions. For more details and intuition the reader is referred to \cite{keller} and \cite[\S 9.2]{lodayvallette}.
 
 Our base category is the category of graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convention:
@@ -57,9 +57,7 @@ The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by
 A \emph{morphism} of $A_\infty$-algebras is a degree 0 map $f:A\to B$ such that
 \[f(m^A_j)=m^B_j\circ f^{\otimes j}.\]
 \end{defin}
-%I THINK I AM GOING TO OMIT ALL MENTIONS TO SYMETRIC GROUPS OR MAYBE JUST SAY THAT THE RESULTS  FOR SYMMETRIC VERSIONS ARE ANALOGOUS
 
-%IN A THESIS CHAPTER I WOULD PUT MOST OF THESE DEFINITION AT THE INTRO CHAPTER
 
 We will discuss these topics in the language of operads, for which we need some more definitions.
 
@@ -112,9 +110,6 @@ All the above definitions generalize with no substantial changes to the bigraded
 \subsection{For the study of derived $A_\infty$-algebras}\label{background}
 
 Now  we move to the background and conventions that we need in order to study derived $A_\infty$-algebras. We collect some preliminary definitions. Most of them come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
-%Let us start by  fixing some notation and conventions. Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. %COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE. INCLUDING DEFINITION OF TWISTED COMPLEX
-
-%REDEFINE THINGS ACCORDING TO CONVENTIONS
 
 Let $\CC$ be a category and let $A$, $B$ be arbitrary
 objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is
@@ -123,7 +118,7 @@ symmetric monoidal closed, then we denote its internal hom-object by $[A,B] ∈ 
 
 
 \subsubsection{Filtered Modules and complexes}
-%INCLUSION IS REVERSED
+
 We collect some definitions about filtered modules and filtered complexes.
 
 \begin{defin}
@@ -139,7 +134,8 @@ morphisms of complexes $f : K → L$ compatible with filtrations: \[f(F_pK) ⊂ 
 
 We denote by $\fmod$ and $\fc$ the categories of filtered modules and filtered complexes of $R$-modules, respectively.
 
-%$-1$ CHANGED TO 1 (IT MUST BE LIKE THIS BECAUSE I THE MAPS PRESERVING FILTRATION WILL BE LEVEL 0 AND I WANT THE WHOLE AINFTY OPERAD TO BE MAPPED TO THAT, SO R MUST BE IN LEVEL 0 AS WELL)
+%I reversed inclusion from the original sourcce. As a consequence I used F_1 instead of F_{-1}. I do it because the maps preserving filtratiion will be in level 0 and I want the whole A_\infty operad to be mapped to that level, so R must be in level 0 as well
+
 \begin{defin}\label{filteredtensor}
 The tensor product of two filtered $R$-modules $(A, F)$ and $(B, F)$ is a filtered $R$-module,
 with
@@ -158,7 +154,7 @@ In particular, $\Hom_{\fmod}(K,L)=F_0\underline{\Hom}(K,L)$.
 
 
 We collect some definitions of basic categories that we need to use and stablish some conventions.
-%TRY TO INCLUDE ONLY THE NECESSARY
+
 
 \begin{defin}
 We consider $(\Z,\Z)$-bigraded
@@ -212,14 +208,12 @@ If $A$, $B$ are vertical bicomplexes, then $([A,B]^∗_∗
 \begin{proof}
 Direct computation shows $\delta^2=0$.
 \end{proof}
-%END OF PAGE 5, I DEFINE THE SHIFT LATER, SO MAYBE IT IS NOT NECESSARY, BUT THINK ABOUT SHIFT OF MAPS (IS IT NECESSARY  TO ADD THAT SIGN?) AND COMPARE WITH THE GRADED CASE
 
-%I CHANGED HORIZONTAL DEGREE SIGNS
+
+%the horizontal degree sign is changed to fit in the total degree convention
 \begin{defin}\label{twistedcomplex} A \emph{twisted complex} $(A, d_m)$ is a bigraded $R$-module $A = \{A^j_i \}$ together with a family
 of morphisms $\{d_m : A → A\}_{m≥0}$ of bidegree $(m,1−m )$ such that for all $m ≥ 0$,
-%CHECK CONVENTION IN CASE IT IS EASIER TO TAKE $(-1)^j$ 
-
-%FROM DAINFTY ONE GETS J, BUT MI1 SATISFIES I, SO IN ANY CASE I WOULD HAVE TO DO SOME CHANGE OF VARIABLES
+%some sources have (-1)^j, but they're equivalent and this is easier for me.
 \[\sum_{i+j=m}(−1)^id_id_j = 0.\]
 
 \end{defin}
@@ -254,12 +248,10 @@ The internal hom on bigraded modules can be extended to twisted complexes via th
 for $i ≥ 0$, endows $[A,B]^∗_∗$ with the structure of a twisted complex.
 \end{lem}
 
-%UNDERLINED CATEGORIES?
 \subsubsection{Totalization}\label{total}
-%DEFINITION WITH FILTRATION, DIFFERENTIAL, MONOIDALITY
+
 Here we recall the definition of the totalization functor from \cite{whitehouse} and some of the structure that it comes with.
 
-%CHOOSE NOTATION, T OR TOT
 
 \begin{defin}
 The \emph{totalization} $\Tot(A)$ of a bigraded $R$-module $A = \{A^j_i \}$ the graded $R$-module is given by
@@ -293,20 +285,10 @@ $d_m : A → A$ be the morphism of bidegree $(m,1-m)$ defined by
 \[d_m(x) = (−1)^{nm}d(x)_{i+m},\] 
 where $x ∈ A^{n-i}_i$ and $d(x)_k$ denotes the $k$-th component of $d(x)$, which lies in $A^{n+1-k}_k$.
 
-%Let us denote the image of $\Tot$ by $\sfc$ and define the inverse $\Tot^{-1}:\sfc\to\tc$ as follows. Let $(\Tot(A),d,F)\in\sfc$, where $A = \{A^j_i \}$ is a bigraded $R$-module. For all $m ≥ 0$, let
-%$d_m : A → A$ be the morphism of bidegree $(m,1-m)$ defined by 
-%\[d_m(a) = (−1)^{nm}d(a)_{i−m},\] 
-%CHECK
-%where $a ∈ A^{n-i}_i$ and $d(a)_k$ denotes the $k$-th component of $d(a)$, which lies in $A^{n+1-k}_k$. Since $d$ is compatible
-%with the filtration $F$, we have $d_i = 0$ for $i < 0$ CHECK. Then $(A, d_m)$ is a twisted complex and its filtered
-%total complex is $(\Tot(A), d, F)$. Lastly, let $f : (\Tot(A), d, F) → (\Tot(B), d, F)$ be a morphism of split
-%filtered complexes. For all $m ≥ 0$, let $f_m : A → B$ be the morphism of bidegree $(m,−m)$ defined by
-%\[f_m(a) = (−1)^{nm}f(a)_{i−m},\] SAME AS D where $a ∈ A^{n-i}_i$ and $f(a)_k$ denotes the $k$-th component of $f(a)$, which lies
-%in $B^{n-k}_k$. Since $f$ is compatible with the filtration $F$, we have that $f_i = 0$ for $i < 0$  SAME AS D. Then the family
-%$\{f_m\}_{m≥0}$ is a morphism of twisted complexes whose total morphism is $f$.
+
 
 We will consider the following bounded categories since the totalization functor has better properties when restricted to them. 
-%I THINK I WON'T NEED TO SPECIFY THE SPLIT CATEGORIES
+
 \begin{defin}
 We let $\tc^b$, $\vbc^b$, $\bgmod^b$ be the full subcategories of \emph{horizontally bounded on the right} graded twisted
 complexes, vertical bicomplexes and bigraded modules respectively. This means that if $A=\{A^j_i\}$ is an object of any of this categories, then there exists $i$ such that $A^j_{i'}=0$ for $i'>i$.
@@ -368,12 +350,7 @@ The general case follows inductively.
 
 \subsubsection{Enriched categories and enriched totalization}
 \subsubsection*{Monoidal categories over  a base}
-%NOT SURE IF I'M GOING TO NEED SO MUCH GENERAL BACKGROUND (CERTAINLY DO NOT INCLUDE PROOFS) I WOULD LIKE TO INCLUDE THE PROOF OF THE INVERSE INDUCING THE INVERSE TRANSFORMATION
 
-
-%I MAY NOT  NEED MUCH (BUT I DO MENTION ENRICHED CATEGORIES, I COULD TRY TO ONLY SHOW RESULTS FOR PARTICULAR CATEGORIES) 
-
-%WHAT I REALLY NEED IS THEE DEFINITION OF ENRICHED MU AND I CAN DEFINE IT EXPLICITELY IN THE LEMMA THAT IT IS USED (OR WITH AN EXTRA LEMMA IN WHICH I ALSO SHOW THE INVERSE) USING LEMMA 4.35
 
 We collect some notions and results about enriched categories from \cite{riehl} and \cite[\S 4.2]{whitehouse} that we will need as a categorical setting for our results on derived $A_\infty$-algebras.
 
@@ -465,17 +442,6 @@ We show that this map is the inverse of the map in \Cref{enrichedmap}.
 }
 \]
 
-%
-%\[
-%\adjustbox{scale=1,center}{%
-%\begin{tikzcd}[column sep = 1pt]
-%{\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
-%                                                                                     & {\uD(GX,Y)\otimes\uD(GX,GX)} \arrow[lu, "c"] \arrow[lu]                                                  & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes 1} \arrow[ld, "1\otimes 1\otimes \umui_X"] \arrow[rdd, "c\otimes 1"] \arrow[ru, "(1)"', phantom] &                                                                                \\
-%                                                                                     & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes \uD(GX,FX)} \arrow[u, "1\otimes c"] \arrow[ld, "c\otimes 1"]          &                                                                                                                                    &                                                                                \\
-%{\uD(FX,Y)\otimes\uD(GX,FX)} \arrow[uuu, "c"] \arrow[ruu, "(3)"', phantom, bend left] & {}                                                                                                       &                                                                                                                                    & {\uD(FX,Y)\otimes 1} \arrow[lll, "1\otimes\umui_X"] \arrow[llu, "(2)"', phantom]
-%\end{tikzcd}
-%}
-%\]
 
 In the diagram, $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. 
 \end{proof}
@@ -574,8 +540,7 @@ See \cite[Lemma 4.27]{whitehouse}
 
 \begin{defin}\label{ufMod}
 The $\bgmod$-enriched category of filtered modules $\ufMod$ is the enriched category given by the following data.
-%I HAVE TO KEEP J+U SO THAT THE DEGREES MATCH IN ENRICH TOT (ALTERNATIVELY KEEP V-U BUT I DON'T LIKE THAT)
-\begin{enumerate}[(1)]
+%I keep j+u from the original source so that degrees match in enriched totalization. Alternatively one can keep v-u
 \item The objects of $\ufMod$ are filtered modules.
 \item For filtered modules $(K, F)$ and $(L, F)$, the bigraded module $\ufMod(K,L)$ is given by
 \[\ufMod(K,L)^v_u :=\{f : K → L\mid f(F_qK^m) ⊂ F_{q+u}L^{m+u+v}, ∀m, q ∈ \Z\}.\]
@@ -627,7 +592,7 @@ given by
 \begin{proof}
 The proof is included in the proof of \cite[Lemma 4.35]{whitehouse}.
 \end{proof}
-We now define an enriched version of the totalization functor. %CHECK TOT, OR JUST OMIT IT BECAUSE I DON'T NEED IT
+We now define an enriched version of the totalization functor. 
 \begin{defin}\label{enrichedtot}
 Let $A,B$ be bigraded modules and $f ∈ \ubgMod (A,B)^v_u$ we define
 
@@ -644,7 +609,7 @@ f_i : A^{m-j}_j \hookrightarrow\prod_{k\geq j}A^{m-k}_k = F_j(\Tot(A)^m)\xrighta
 \end{align*}
 where the last map is a projection and multiplication with the indicated sign.
 
-%I HAVE TO KEEP J+U SO THAT THE DEGREES MATCH  (ALTERNATIVELY KEEP V-U BUT I DON'T LIKE THAT)
+
 \end{defin} 
 
 \begin{thm}\label{4.39}
@@ -669,13 +634,13 @@ are lax symmetric monoidal in the enriched sense and when restricted to the boun
 See \cite[Proposition 4.40]{whitehouse}.
 \end{proof}
 
-We now define an enriched endomorphism operad. %I THINK I ONLY NEED THIS DEFINITION AND NOT THE PREVIOUS OR THE NEXT LEMMA
+We now define an enriched endomorphism operad.
 \begin{defin}
 Let $\underline{\mathscr{C}}$ be a monoidal $\mathscr{V}$-enriched category and $A$ an object of $\uC$. We define $\uEnd_A$
 to be the collection in $\mathscr{V}$ given by
 \[\uEnd_A(n) \coloneqq \uC (A^{⊗n},A) \text{ for }n ≥ 1.\]
 \end{defin}
-%AT SOME POINT DO SOME MENTION TO THE DIFFERENT CASES THAT I AM GOING TO USE BEECAUSE THE NOTATION IS GOING TO BE THE SSAME
+
 \begin{lem}
 For $A\in\uC$, the collection $\uEnd_A$ defines an operad in $\VV$. 
 \end{lem}
@@ -736,11 +701,6 @@ f & \mapsto \Tot^{-1}(c(f, \mu^{-1})).
 Since the total degree of $\mu^{-1}$ is 0, composition reduces to $c(f,\mu^{-1})=f\circ \mu^{-1}$ and we get the desired map.
 \end{proof}
 
-
-
-
-
-%ONLY MENTION 4.47 WHEN YOU REACH THE PROOF OF THE LONG ISO
 
 
 \end{document}
