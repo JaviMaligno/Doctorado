@@ -1,4 +1,4 @@
-	\documentclass[twoside]{article}
+	\documentclass[twoside]{book}
 \usepackage{estilo-ejercicios}
 \setcounter{section}{0}
 \usepackage{adjustbox}
@@ -34,7 +34,8 @@
 \author{Javier Aguilar Martín}
 \maketitle
 
-\section{Introduction}
+\chapter{Background and conventions}
+
 
 %MAYBE THIS IS THE PLACE FOR FIXING R COMMUTATIVE WITH UNIT AND CHAR NOT 2 (POSSIBLY 0 OR NOT A FACTORIAL (representation theory things that I doubt I would need to clarify))
 %\begin{itemize}
@@ -135,7 +136,7 @@
 %
 %
 %\item SYMMETRIC (CLOSED) MONOIDAL CATEGORIES, EXAMPLES
-\subsection{Symmetric Monoidal Categories}
+\section{Symmetric Monoidal Categories}
 
 We assume that the reader is familiar with the basic terminology of category theory. For an introduction to this topic we refer the reader to \cite{maclane}. Here we briefly recall the notion of symmetric monoidal categories and several versions of monoidal functors. The detailed definitions with all the precise diagrams can also be found in \cite{maclane} and in \cite{borceux}.
 
@@ -217,20 +218,20 @@ All this data is subject to associativity and unitality constrains that can be s
 
 %THE CONTENT OF SARAH'S PAPER COULD COME HERE (BUT IT IS SPECIFIC ENOUGH TO BE WRITTEN BEFORE THE STUFF IT IS MADE FOR)
 \section{$A_\infty$-algebras}
-INTRODUCE IT 
 
-VERY LIKELY TO MOVE THIS SECTION BEFORE THE SECTION ABOUT OPERADS SO I'LL WRITTE IT AS SUCH
 
-Let us start by recalling some background definitions and results that we will need to study $A_\infty$-algebras, as well as stating some conventions.
+%Let us start by recalling some background definitions and results that we will need to study $A_\infty$-algebras, as well as stating some conventions.
 
 %MAYBE OMIT ALL MENTION TO SYMMETRIC GROUPS BECAUSE I'M NOT REALLY GONNA USE THEM
 
 
-I THINK FOR THIS I SHOULDN'T ASSUME THIS FAMILIARITY IN THE THESIS, SO PROBABLY ADD MORE DETAILS AND INTUITION
 
-We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions. 
 
-Our base category is the category of graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convention:
+%We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but 
+
+In this section we first establish notation and assumptions about graded modules. We are also going to briefly recall some of the basic definitions regarding $A_\infty$-algebras.
+
+Our base category is the category of $\Z$-graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convention:
 
 \begin{align*}
 \tau_{A,B}:A\otimes B&\to B\otimes A\\
@@ -247,6 +248,9 @@ We also adopt the following Koszul sign convention: for $x\in A$, $y\in B$, $f\i
 \begin{defin}
 For a graded $R$-module $A$ we consider the \emph{shift} or \emph{suspension} $SA$ for which $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
 \end{defin}
+
+With all the notations and conventions established we can introduce $A_\infty$-algebras. 
+
 \begin{defin}
 An $A_\infty$-algebra is a graded $R$-module $A$ together with a family of maps $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying for all $n\geq 1$ the equation
 
@@ -255,7 +259,7 @@ An $A_\infty$-algebra is a graded $R$-module $A$ together with a family of maps 
 \end{equation}
 \end{defin}
 %This is equivalent to define it on SA without signs,  but there's not need to point that out here and it also depends on the convention of S^n^{-1}
-The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. 
+The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. This seemingly obscure definition captures the idea of an algebra that is associative up to homotopy. For more details about this the reader is referred to \cite{keller} and to \cite[\S 9.2]{lodayvallette}, where they use a different sign convention but the concepts are the same.
 
 \begin{defin}\label{inftymorphism}
 An $\infty$-morphism of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $1-n$ satisfying for all $n\geq 1$ the equation
@@ -269,14 +273,20 @@ The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by
 \otimes f_{i_r}).\]
 \end{defin}
 
+Similarly to the $A_\infty$-equation (\cref{ainftyequation}), the above definition captures the idea of a map that is a morphism of algebras up to homotopy. Again, the reader can find more details in \cite{keller} and \cite[\S 9.2]{lodayvallette}.
+
+We also need another, perhaps more intuitive, notion of morphism of $A_\infty$-algebras.
+
 \begin{defin}
 A \emph{morphism} of $A_\infty$-algebras is a degree 0 map $f:A\to B$ such that
 \[f(m^A_j)=m^B_j\circ f^{\otimes j}.\]
 \end{defin}
 
-We will discuss these topics in the language of operads, which will  be introduced in the next CHAPTER? SECTION?
+Since we are working with $\Z$-graded modules, requiring that the map has degree 0 is redundant, but it is good to have that in mind for the calculations.
 
-\subsection{Operads}
+We will discuss these topics in the language of operads, which will be introduced in the next section.
+
+\section{Operads}
 %A BIT MORE OF WHAT IS IN JOIN, LIKE COOPERADS (THIS SHOULD ACTUALLY BE ADDED THERE) AND SOME OF THE STUFF IN THE ITEM BELOW (CHECK WHAT IS NECESSARY) 
 
 SAY SOMETHING TO INTRODUCE IT AND MENTION THE MAIN REFERENCES
@@ -359,10 +369,12 @@ commutes for all $n$.
 The $\mathcal{A}_\infty$-operad is the non-symmetric operad whose algebras are $A_\infty$-algebras. WAS DEFINED BEFORE, SO REFERENCE Therefore, it is generated by elements $\mu_i\in\mathcal{A}_\infty(i)$ satisfying the operadic version of the $A_\infty$-equation.WRITE EXPLICITLY More details about this operad can be found in \cite[Chapter 9]{lodayvallette}.
 \end{defin}
 
+MORPHISMS OF ALGEBRAS OVER THE INFITY OPERAD ARE MORPHISM OF AINFTY. INFTYMORPHISM ALSO ARISE FROM OPERADS IN A DIFFERENT WAY, REFER TO LODAYVALLETTEE AND TO MY SECTION (SOMEWHAT SIMILAR BUT DIFFERENT IN APPROACH)
+
 EQUIVALENTLY, AS A QUASI-FREE OPERAD (OPERAD WITH DIFFERENTIAL)
 
 
-\subsubsection{Cooperads}
+\subsection{Cooperads}
 
 The monoidal definition of operad (\Cref{monoid}) allows to define the dual notion of a cooperad.
 
@@ -623,7 +635,7 @@ F(\OO(n+m-1))\arrow[r, "F(f_{n+m-1})"] & F(\PP(n+m-1))
 
 %\item BAR-COBAR  CONSTRUCTION FOR ALGEBRAS AND OPERADS?
 \end{itemize}
-\subsection{For the study of derived $A_\infty$-algebras}\label{background}
+\section{Base categories and Totalization}\label{categories}
 MAYBE CHANGE THE TITLE HERE TO "SOME USEFUL  CATEGORIES AND CONVENTIONS" OR SMTH LIKE THAT
 
 Now  we move to the background and conventions that we need in order to study derived $A_\infty$-algebras. We collect some preliminary definitions. Most of them come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
@@ -635,7 +647,7 @@ Let $\CC$ be a category and let $A$, $B$ be arbitrary
 objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is
 symmetric monoidal closed, then we denote its internal hom-object by $[A,B] ∈ \CC$.
 
-\subsubsection{Filtered Modules and complexes}
+\subsection{Filtered Modules and complexes}
 %INCLUSION IS REVERSED
 We collect some definitions about filtered modules and filtered complexes.
 
@@ -667,7 +679,7 @@ Let $K$ and $L$ be filtered complexes. We define $\underline{\Hom}(K,L)$ to be t
 In particular, $\Hom_{\fmod}(K,L)=F_0\underline{\Hom}(K,L)$.
 \end{defin}
 
-\subsubsection{Bigraded modules, vertical bicomplexes, twisted complexes and sign conventions}
+\subsection{Bigraded modules, vertical bicomplexes, twisted complexes and sign conventions}
 
 
 We collect some definitions of basic categories that we need to use and stablish some conventions.
@@ -769,7 +781,7 @@ for $i ≥ 0$, endows $[A,B]^∗_∗$ with the structure of a twisted complex.
 
 I STILL DON'T  KNOW WHERE TO PUT WHAT COMES NEXT, EITHER HERE OR BEFORE OPERADIC TOTALIZATION
 
-\subsubsection{Totalization}\label{total}
+\subsection{Totalization}\label{total}
 %DEFINITION WITH FILTRATION, DIFFERENTIAL, MONOIDALITY
 Here we recall the definition of the totalization functor from \cite{whitehouse} and some of the structure that it comes with.
 
@@ -880,8 +892,8 @@ Therefore, $\mu^{-1}$ can be defined as
 The general case follows inductively.
 \end{proof}
 
-\subsubsection{Enriched categories and enriched totalization}
-\subsubsection*{Monoidal categories over  a base}
+\section{Enriched categories and enriched totalization}
+\subsection{Monoidal categories over  a base}
 %NOT SURE IF I'M GOING TO NEED SO MUCH GENERAL BACKGROUND (CERTAINLY DO NOT INCLUDE PROOFS) I WOULD LIKE TO INCLUDE THE PROOF OF THE INVERSE INDUCING THE INVERSE TRANSFORMATION
 
 
@@ -1001,7 +1013,7 @@ The category $\fc$ is monoidal over $\vbc$. By restriction, $\fmod$ is monoidal 
 See \cite[Lemma 4.15]{whitehouse} for the proof and more details.
 \end{proof}
 
-\subsubsection*{Enriched categories and totalization}
+\subsection{Enriched categories and totalization}
 
 We define here some useful enriched categories and results from \cite[\S 4.3 and 4.4]{whitehouse}. Some of them had to be modified to adjust them to our conventions. 
 \begin{defin}\label{weirdenrichment}
