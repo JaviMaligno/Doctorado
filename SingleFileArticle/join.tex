@@ -337,7 +337,7 @@ We denote by $\fmod$ and $\fc$ the categories of filtered modules and filtered c
 %I reversed inclusion from the original sourcce. As a consequence I used F_1 instead of F_{-1}. I do it because the maps preserving filtratiion will be in level 0 and I want the whole A_\infty operad to be mapped to that level, so R must be in level 0 as well
 
 \begin{defin}\label{filteredtensor}
-The tensor product of two filtered $R$-modules $(A, F)$ and $(B, F)$ is a filtered $R$-module,
+The \emph{tensor product of two filtered $R$-modules} $(A, F)$ and $(B, F)$ is a filtered $R$-module,
 with
  \[F_p(A ⊗ B) :=\sum_{i+j=p}\Ima(F_iA ⊗ F_jB → A ⊗ B).\]
 This makes the category of filtered $R$-modules into a symmetric monoidal category, where the unit is given by $R$ with the trivial filtration $0 = F_{1}R ⊂ F_0R = R$.
@@ -425,7 +425,7 @@ The composition of morphisms is given by $(g \circ f)_m :=\sum_{i+j=m} g_if_j$.
 
 A morphism $f = \{f_m\}_{m≥0}$ is
 said to be \emph{strict} if $f_i = 0$ for all $i > 0$. The \emph{identity} morphism $1_A : A → A$ is the strict morphism
-given by $(1_A)_0(x) = x.$ A morphism $f = \{f_i\}$ is an isomorphism if and only if $f_0$ is an isomorphism of
+given by $(1_A)_0(x) = x.$ A morphism $f = \{f_i\}$ is an \emph{isomorphism} if and only if $f_0$ is an isomorphism of
 bigraded $R$-modules. Indeed, an inverse of $f$ is obtained from an inverse of $f_0$ by solving a triangular system.
 \end{defin}
 Denote by $\tc$ the category of twisted complexes. The following construction endows $\tc$ with a symmetric monoidal structure. See \cite[Lemma 3.3]{whitehouse} for a proof.
@@ -494,7 +494,7 @@ We let $\tc^b$, $\vbc^b$, $\bgmod^b$ be the full subcategories of \emph{horizont
 complexes, vertical bicomplexes and bigraded modules respectively. This means that if $A=\{A^j_i\}$ is an object of any of this categories, then there exists $i$ such that $A^j_{i'}=0$ for $i'>i$.
 
 We let $\fmod^b$, $\fc^b$ be the full subcategories of bounded filtered modules, respectively complexes, i.e.
-the full subcategories of objects $(K, F)$ such that there exists some $p$ with the property that $F_{p'}K^n = 0$ for all $p> p'$. We refer to all of these as the bounded subcategories of $\tc$, $\vbc$, $\bgmod$, $\fmod$ and $\fc$ respectively.
+the full subcategories of objects $(K, F)$ such that there exists some $p$ with the property that $F_{p'}K^n = 0$ for all $p> p'$. We refer to all of these as the \emph{bounded subcategories} of $\tc$, $\vbc$, $\bgmod$, $\fmod$ and $\fc$ respectively.
 \end{defin}
 
 \begin{propo}\label{monoidal}
@@ -555,7 +555,7 @@ The general case follows inductively.
 We collect some notions and results about enriched categories from \cite{riehl} and \cite[\S 4.2]{whitehouse} that we will need as a categorical setting for our results on derived $A_\infty$-algebras.
 
 \begin{defin}
-Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a monoidal category over $\VV$ if we have an external tensor product $∗ :\VV × \CC → \CC$ such that we have natural isomorphisms:
+Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a \emph{monoidal category over $\VV$} if we have an external tensor product $∗ :\VV × \CC → \CC$ such that we have natural isomorphisms:
 \begin{enumerate}[$\bullet$]
 \item  $1 ∗ X \cong X$ for all $X ∈ \CC$,
 \item $(C ⊗ D) ∗ X \cong C ∗ (D ∗ X)$ for all $C,D ∈ \VV$ and $X ∈ \CC$,
@@ -697,7 +697,7 @@ $\underline{t\mathcal{C}_R}(A,B) := (\underline{\mathpzc{bgMod}_R}(A,B), δ)$.
 \end{defin}
 
 \begin{defin}\label{ubgMod}
-We denote by $\ubgMod$ the $\bgmod$-enriched category of bigraded modules given
+We denote by $\ubgMod$ the \emph{$\bgmod$-enriched category of bigraded modules} given
 by the following data.
 
 \begin{enumerate}[(1)]
@@ -710,7 +710,7 @@ sends $1 ∈ R$ to $1_A : A → A$, the strict morphism given by the identity of
 \end{defin}
 
 \begin{defin}\label{utC}
-The $\vbc$-enriched category of twisted complexes $\utC$ is the enriched category given by the following data.
+The \emph{$\vbc$-enriched category of twisted complexes} $\utC$ is the enriched category given by the following data.
 \begin{enumerate}[(1)]
 \item The objects of $\utC$ are twisted complexes.
 \item For $A,B$ twisted complexes the hom-object is the vertical bicomplex $\utC(A,B)$.
@@ -739,7 +739,7 @@ See \cite[Lemma 4.27]{whitehouse}
 
 
 \begin{defin}\label{ufMod}
-The $\bgmod$-enriched category of filtered modules $\ufMod$ is the enriched category given by the following data.
+The \emph{$\bgmod$-enriched category of filtered modules} $\ufMod$ is the enriched category given by the following data.
 %I keep j+u from the original source so that degrees match in enriched totalization. Alternatively one can keep v-u
 \begin{enumerate}
 \item The objects of $\ufMod$ are filtered modules.
@@ -760,7 +760,7 @@ for $f ∈ \ufMod(K,L)^v_u$, where $c$ is the composition map from \Cref{ufMod}.
 
 
 \begin{defin}\label{ufC}
-The $\vbc$-enriched category of filtered complexes $\ufC$ is the enriched category given
+The \emph{$\vbc$-enriched category of filtered complexes} $\ufC$ is the enriched category given
 by the following data.
 \begin{enumerate}[(1)]
 \item The objects of $\ufC$ are filtered complexes.
@@ -979,7 +979,7 @@ Next, we are going to use the above fact to obtain an way to describe $A_\infty$
 
 
 \begin{defin}\label{ainftymult}
-An operad $\OO$ is said to have an $A_\infty$-multiplication if there is a map $\mathcal{A}_\infty\to\OO$ from the operad of $A_\infty$-algebras.
+An operad $\OO$ is said to have an \emph{$A_\infty$-multiplication} if there is a map $\mathcal{A}_\infty\to\OO$ from the operad of $A_\infty$-algebras.
 \end{defin}
 
  Therefore, we have the following. 
@@ -1430,7 +1430,9 @@ Notice that $M$ is defined as an structure map on $S\s\OO$. This kind of shifted
 \subsection{Iterating the process}\label{sect3}
 
 Now we can apply the same construction to the operad $\s\End_{S\s\OO}$ and we get $A_\infty$-algebra structure given by maps
-\[\overline{M}_j:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO}\]
+\begin{equation}\label{barmaps}
+\overline{M}_j:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO}
+\end{equation}
 obtained using $\overline{\sigma}$ from maps
 \[\overline{M}'_j:(\s\End_{S\s\OO})^{\otimes j}\to \s\End_{S\s\OO}\]
 defined as
@@ -1442,8 +1444,9 @@ where $\overline{B}_j$ denotes the brace map on $\s\End_{S\s\OO}$.
 
 We define the Hochschild complex as done by Ward in \cite{ward}.
 \begin{defin}
-The Hochschild cochains of a graded module $A$ to be the graded module $S\s\End_A$. In particular, $S\s\End_{S\s\OO}$ is the module of Hochschild cochains of $S\s\OO$.
+We define the \emph{Hochschild cochains} of a graded module $A$ to be the graded module $S\s\End_A$. If  $(A,d)$ is a chain complex, then $S\s\End_A$ is endowedwith a differential $\partial(f)=[d,f]=d\circ f -(-1)^{|f|}f\circ d$ where $|f|$ is the natural degree of $|f|$ and $\circ$ is the plethysm operation given by insertions.
 \end{defin}
+In particular, $S\s\End_{S\s\OO}$ is the module of Hochschild cochains of $S\s\OO$. If $\OO$ has an $A_\infty$-multipliication, then the differential of the Hochschild complex is $\overline{M}_1$ from \Cref{barmaps}.
 \begin{remark}
 The functor $S\s$ is called the ``oddification'' of an operad in the literature. %Ward but the whole thesis 
 The reader might find odd to define the Hochschild complex in this way instead of just $\End_A$. The reason is that the operadic suspension provides the necessary signs and the extra shift gives us the appropriate degrees. In addition, this definition allows the extra structure to arise naturally instead of having to define the signs by hand. For instance, if we have an associative multiplication $m_2\in\End_A(2)=\Hom(A^{\otimes 2},A)$, the element $m_2$ would not satisfy the equation $m_2\circ m_2=0$ and thus cannot be used to induce a multiplication on $\End_A$ as we did above.
@@ -1993,7 +1996,7 @@ In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition ca
 We are going to define a brace structure using totalization. First we introduce the definition of braces for the bigraded case, which is analogue to the single graded version we defined in \Cref{braces}.
 
 \begin{defin}\label{bibraces}
-A brace algebra on a bigraded module $A$ consists of a family of maps \[b_n:A^{\otimes 1+n}\to A\] called \emph{braces}, that we evaluate on $(x,x_1,\dots, x_n)$ as $b_n(x;x_1,\dots, x_n)$, satisfying the \emph{brace relation}
+A \emph{brace algebra} on a bigraded module $A$ consists of a family of maps \[b_n:A^{\otimes 1+n}\to A\] called \emph{braces}, that we evaluate on $(x,x_1,\dots, x_n)$ as $b_n(x;x_1,\dots, x_n)$, satisfying the \emph{brace relation}
 
 
 \begin{align*}
@@ -2205,13 +2208,17 @@ where $\langle  m_{il},x\rangle=ik+(1-i)(d-1-k)$, as claimed.
 
 Note that the maps given by \Cref{derivedmaps} and \Cref{mi1} formally look the same as their single graded analogues (see \Cref{explicit}) but with an extra index that is fixed for each $M_{ij}$. This means that we can follow the same procedure as in \Cref{sect3} to define higher derived $A_\infty$-maps. 
 
-More precisely, let $\overline{B}_j$ be the bigraded brace map on $\s\End_{S\s\OO}$ and consider the maps\[\overline{M}'_{ij}:(\s\End_{S\s\OO})^{\otimes j}\to \s\End_{S\s\OO}\]
+More precisely, let $\overline{B}_j$ be the bigraded brace map on $\s\End_{S\s\OO}$ and consider the maps
+
+\begin{equation}\label{barbimaps}
+\overline{M}'_{ij}:(\s\End_{S\s\OO})^{\otimes j}\to \s\End_{S\s\OO}
+\end{equation}
 defined as 
 \begin{align*}
 &\overline{M}'_{ij}(f_1,\dots,f_j)=\overline{B}_j(M_{i\bullet};f_1,\dots, f_j) & j>1,\\
-&\overline{M}'_{i1}(f)=\overline{B}_1(M_{i\bullet};f)-(-1)^{|f|}\overline{B}_1(f;M_{i\bullet}),
+&\overline{M}'_{i1}(f)=\overline{B}_1(M_{i\bullet};f)-(-1)^{ip+(1-i)q}\overline{B}_1(f;M_{i\bullet}),
 \end{align*}
-where $M_{i\bullet}=\sum_j M_{ij}$. We define 
+for $f$ of natural bidegree $(p,q)$, where $M_{i\bullet}=\sum_j M_{ij}$. We define 
 \[\overline{M}_{ij}:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO}\]
 as \[\overline{M}_{ij} = \overline{\sigma}(M'_{ij})=S\circ M'_{ij}\circ (S^{\otimes n})^{-1}.\]
 
@@ -2233,8 +2240,9 @@ and the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\s
 
 In this setting we have the bigraded version of \Cref{theorem}. But before stating the theorem, for the sake of completeness let us state the definition of the Hochschild complex of a bigraded module.
 \begin{defin}
-We define the \emph{Hochschild cochain complex} of a bigraded module $A$ to be the bigraded module $S\s\End_A$. In particular, $S\s\End_{S\s\OO}$ is the Hochschild cochain complex of $S\s\OO$.
+We define the \emph{Hochschild cochain complex} of a bigraded module $A$ to be the bigraded module $S\s\End_A$. If $(A,d)$ is a vertical bicomplex, then the Hochschild complex has a differential given by $\partial(f)=[d,f]=d\circ f-(-1)^{q}f\circ d$, where $f$ has natural bidigree $(p,q)$ and $\circ$ is the plethysm corresponding to operadic insertions.
 \end{defin}
+In particular, $S\s\End_{S\s\OO}$ is the Hochschild cochain complex of $S\s\OO$. If $\OO$ has a derived $A_\infty$-multiplication, then the differential of the Hochschild complex $S\s\End_{S\s\OO}$ is given by $\overline{M}_{01}$ from \Cref{barbimaps}.
 
 \begin{thm}\label{bigradedtheorem}
 The map $\Phi$ defined above is a morphism of derived $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation

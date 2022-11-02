@@ -606,13 +606,16 @@ where $\langle  m_{il},x\rangle=ik+(1-i)(d-1-k)$, as claimed.
 
 Note that the maps given by \Cref{derivedmaps} and \Cref{mi1} formally look the same as their single graded analogues (see \Cref{explicit}) but with an extra index that is fixed for each $M_{ij}$. This means that we can follow the same procedure as in \Cref{sect3} to define higher derived $A_\infty$-maps. 
 
-More precisely, let $\overline{B}_j$ be the bigraded brace map on $\s\End_{S\s\OO}$ and consider the maps\[\overline{M}'_{ij}:(\s\End_{S\s\OO})^{\otimes j}\to \s\End_{S\s\OO}\]
+More precisely, let $\overline{B}_j$ be the bigraded brace map on $\s\End_{S\s\OO}$ and consider the maps 
+\begin{equation}\label{barbimaps}
+\overline{M}'_{ij}:(\s\End_{S\s\OO})^{\otimes j}\to \s\End_{S\s\OO}
+\end{equation}
 defined as 
 \begin{align*}
 &\overline{M}'_{ij}(f_1,\dots,f_j)=\overline{B}_j(M_{i\bullet};f_1,\dots, f_j) & j>1,\\
-&\overline{M}'_{i1}(f)=\overline{B}_1(M_{i\bullet};f)-(-1)^{|f|}\overline{B}_1(f;M_{i\bullet}),
+&\overline{M}'_{i1}(f)=\overline{B}_1(M_{i\bullet};f)-(-1)^{ip+(1-i)q}\overline{B}_1(f;M_{i\bullet}),
 \end{align*}
-where $M_{i\bullet}=\sum_j M_{ij}$. We define 
+for $f$ of natural bidegree $(p,q)$, where $M_{i\bullet}=\sum_j M_{ij}$. We define 
 \[\overline{M}_{ij}:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO}\]
 as \[\overline{M}_{ij} = \overline{\sigma}(M'_{ij})=S\circ M'_{ij}\circ (S^{\otimes n})^{-1}.\]
 
@@ -634,8 +637,9 @@ and the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\s
 
 In this setting we have the bigraded version of \Cref{theorem}. But before stating the theorem, for the sake of completeness let us state the definition of the Hochschild complex of a bigraded module.
 \begin{defin}
-We define the \emph{Hochschild cochain complex} of a bigraded module $A$ to be the bigraded module $S\s\End_A$. In particular, $S\s\End_{S\s\OO}$ is the Hochschild cochain complex of $S\s\OO$.
+We define the \emph{Hochschild cochain complex} of a bigraded module $A$ to be the bigraded module $S\s\End_A$. If $(A,d)$ is a vertical bicomplex, then the Hochschild complex has a differential given by $\partial(f)=[d,f]=d\circ f-(-1)^{q}f\circ d$, where $f$ has natural bidigree $(p,q)$ and $\circ$ is the plethysm corresponding to operadic inertions.
 \end{defin}
+In particular, $S\s\End_{S\s\OO}$ is the Hochschild cochain complex of $S\s\OO$. If $\OO$ has a derived $A_\infty$-multiplication, then the differential of the Hochschild complex $S\s\End_{S\s\OO}$ is given by $\overline{M}_{01}$ from \Cref{barbimaps}.
 %\phantomsection
 \begin{thm}\label{bigradedtheorem}
 The map $\Phi$ defined above is a morphism of derived $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation

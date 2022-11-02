@@ -711,7 +711,9 @@ Notice that $M$ is defined as an structure map on $S\s\OO$. This kind of shifted
 \subsection{Iterating the process}\label{sect3}
 
 Now we can apply the same construction to the operad $\s\End_{S\s\OO}$ and we get $A_\infty$-algebra structure given by maps
-\[\overline{M}_j:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO}\]
+\begin{equation}\label{barmaps}
+\overline{M}_j:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO}
+\end{equation}
 obtained using $\overline{\sigma}$ from maps
 \[\overline{M}'_j:(\s\End_{S\s\OO})^{\otimes j}\to \s\End_{S\s\OO}\]
 defined as
@@ -723,8 +725,9 @@ where $\overline{B}_j$ denotes the brace map on $\s\End_{S\s\OO}$.
 
 We define the Hochschild complex as done by Ward in \cite{ward}.
 \begin{defin}
-The Hochschild cochains of a graded module $A$ to be the graded module $S\s\End_A$. In particular, $S\s\End_{S\s\OO}$ is the module of Hochschild cochains of $S\s\OO$.
+We define the \emph{Hochschild cochains} of a graded module $A$ to be the graded module $S\s\End_A$. If  $(A,d)$ is a chain complex, then $S\s\End_A$ is endowedwith a differential $\partial(f)=[d,f]=d\circ f -(-1)^{|f|}f\circ d$ where $|f|$ is the natural degree of $|f|$ and $\circ$ is the plethysm operation given by insertions.
 \end{defin}
+In particular, $S\s\End_{S\s\OO}$ is the module of Hochschild cochains of $S\s\OO$. If $\OO$ has an $A_\infty$-multipliication, then the differential of the Hochschild complex $S\s\End_{S\s\OO}$ is $\overline{M}_1$ from \Cref{barmaps}.
 \begin{remark}
 The functor $S\s$ is called the ``oddification'' of an operad in the literature. %Ward but the whole thesis 
 The reader might find odd to define the Hochschild complex in this way instead of just $\End_A$. The reason is that the operadic suspension provides the necessary signs and the extra shift gives us the appropriate degrees. In addition, this definition allows the extra structure to arise naturally instead of having to define the signs by hand. For instance, if we have an associative multiplication $m_2\in\End_A(2)=\Hom(A^{\otimes 2},A)$, the element $m_2$ would not satisfy the equation $m_2\circ m_2=0$ and thus cannot be used to induce a multiplication on $\End_A$ as we did above.
