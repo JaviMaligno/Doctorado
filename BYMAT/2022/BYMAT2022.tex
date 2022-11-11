@@ -1,0 +1,470 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usetheme{Copenhagen}
+%\usepackage[spanish]{babel}
+\usepackage{multirow}
+%\usepackage{estilo-apuntes}
+\usepackage{braids}
+\usepackage[]{graphicx}
+\usepackage{rotating}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+%\usepackage{empheq}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{xcolor}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{cd}
+\usetikzlibrary{babel}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{decorations.shapes}
+\pgfkeyssetvalue{/tikz/braid height}{1cm} %no parece hacer nada
+\pgfkeyssetvalue{/tikz/braid width}{1cm}
+\pgfkeyssetvalue{/tikz/braid start}{(0,0)}
+\pgfkeyssetvalue{/tikz/braid colour}{black}
+
+\theoremstyle{definition}
+
+\newtheorem{teorema}{Theorem}
+\newtheorem{defi}{Definition}
+\newtheorem{prop}[teorema]{Proposition}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\D}{\mathbb{D}}
+\providecommand{\gene}[1]{\langle{#1}\rangle}
+
+\DeclareMathOperator{\im}{im}
+
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    %\insertframenumber/\inserttotalframenumber
+}
+\setbeamercolor{footline}{fg=black}
+\setbeamerfont{footline}{series=\bfseries}
+
+\newcommand{\highlight}[1]{%
+	\colorbox{red!50}{$\displaystyle#1$}}
+
+\makeatletter
+\newcommand*{\encircled}[1]{\relax\ifmmode\mathpalette\@encircled@math{#1}\else\@encircled{#1}\fi}
+\newcommand*{\@encircled@math}[2]{\@encircled{$\m@th#1#2$}}
+\newcommand*{\@encircled}[1]{%
+	\tikz[baseline,anchor=base]{\node[draw,circle,outer sep=0pt,inner sep=.2ex] {#1};}}
+\makeatother
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+%-----------------------------------------------------------
+
+\title{Derived $A_\infty$-algebras}
+\author{Javier Aguilar Mart\'in}
+%\institute{University of Kent}
+ \titlegraphic{\includegraphics[scale=0.3]{UoK_Logo}}
+ \date{}
+ \institute{BYMAT 2022}
+\begin{document}
+\frame{\titlepage}
+
+%\begin{frame}
+%
+%c¡
+%\title[About Beamer] %optional
+%{About the Beamer class in presentation making}
+% 
+%\subtitle{A short story}
+% 
+%\author[Arthur, Doe] % (optional, for multiple authors)
+%{A.~B.~Arthur\inst{1} \and J.~Doe\inst{2}}
+% 
+%\institute[VFU] % (optional)
+%{
+%  \inst{1}%
+%  Faculty of Physics\\
+%  Very Famous University
+%  \and
+%  \inst{2}%
+%  Faculty of Chemistry\\
+%  Very Famous University
+%}
+
+% 
+%\date[VLC 2013] % (optional)
+%{Very Large Conference, April 2013}
+
+
+%\end{frame}
+\setbeamercovered{highly dynamic}
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+
+\makeatletter
+%\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\makeatother
+
+\resetcounteronoverlays{saveenumi}
+%\AtBeginSection[]{
+%\begin{frame}
+%\frametitle{Tabla de contenidos}
+%\tableofcontents
+%\end{frame}
+%}
+
+%\begin{frame}
+%INTRO: ASS TO AINFTY TO DAINFTY
+%
+%ASSOCIATIVITY, NON ASSOCIATIVITY, SOMETHING IN BETWEEN WHERE WE CAN CONTROL THE LACK OF ASSOCIATIVITY
+%
+%A PATH BETWEEN THE TWO WAYS OF MULTIPLYING 3 ELEMENTS (THIS IS AN  INTUITION FOR HOMOTOPY) TRANSLATE TO ALGEBRA IN TERMS OF BOUNDARY (I WILL HAVE TO CLEAR THAT THE BOUNDARY MAP IS THE BRACKET, NOT D1 ITSELF)
+%
+%WE CALL M3 THE WHOLE SEGMENT (MULTIPLICATION) AND TAKE BOUNDARRY
+%
+%PENTAGON (MUST BE FILLED TO HAVE A BOUNDARY) TO PATHS AND HOMOTOPY IN BETWEEN ORIENTATION FOR SIGNS
+%
+%DIMENSION VS DEGREE
+%
+%THEN ACTUAL DEFINITIONS (PROBABLY IN TERMS OF BOUNDARIES, AND THEN DEFINING BOUNDARIES IN TERMS OF D1), MAYBE SHOW BASIC CASES RECALLING THE PICTURES
+%
+%UNIQUENESS THEOREMS, FIELD ASSUMPTION, DERIVED
+%\end{frame}
+\section{Introduction}
+\begin{frame}
+\frametitle{Generalizations of associativity}
+
+Associative algebras $\Rightarrow$ $A_\infty$-algebras $\Rightarrow$ Derived $A_\infty$-algebras
+
+%start with the first, spend most of the time on the second, finish with the third
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Associativity}
+\begin{itemize}
+\item $(ab)c=a(bc)$ for all $a,b,c$.
+\item[]<2-> Example: \[3\cdot (e\cdot \pi) = (3\cdot e)\cdot \pi\]
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Associativity}
+\begin{itemize}
+\item $(ab)c=a(bc)$ for all $a,b,c$.
+\item[]<1-> Example: \[3\cdot (e\cdot \pi) = (3\cdot e)\cdot \pi=27\]
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Non-associativity}
+\begin{itemize}
+\item<1-> Cross product of vectors in $\mathbb{R}^3$:
+\item[]<2-> 
+\[
+ \begin{bmatrix}
+1\\
+0\\
+0
+\end{bmatrix}\times\left(\begin{bmatrix}
+1\\
+1\\
+0
+\end{bmatrix} \times \begin{bmatrix}
+1\\
+1\\
+1
+\end{bmatrix}\right) \neq \left(\begin{bmatrix}
+1\\
+0\\
+0
+\end{bmatrix}\times\begin{bmatrix}
+1\\
+1\\
+0
+\end{bmatrix}\right)\times\begin{bmatrix}
+1\\
+1\\
+1
+\end{bmatrix}
+\]
+\item[]<3-> Check as an exercise. %if you get lost at any time in the talk
+\end{itemize}
+
+
+\end{frame}
+
+
+\section{Intuition}
+\begin{frame}
+\frametitle{Measuring the lack of associativity}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.4754147032867557,3.0232148286639604) rectangle (19.120035850521916,5.479981492497846);
+\draw (2.597746585817424,4.85720404521118) node[anchor=north west] {$a(bc)$};
+\draw (4.531591708240773,4.808857917150597) node[anchor=north west] {$(ab)c$};
+\draw<2-> (3.,4.)-- (5.,4.);
+\draw<2-> (3,3.7406400196404) node[anchor=north west] {$m_3(a,b,c)$};
+\draw<3-> [->] (3.,4.) -- (4.132736151740957,4.);
+\begin{scriptsize}
+\draw [fill=black] (3.,4.) circle (2.5pt);
+\draw [fill=black] (5.,4.) circle (2.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\begin{itemize}
+\item<4-> Geometrically, $\partial(m_3(a,b,c))=\{a(bc),(ab)c\}$.
+\item<5-> Algebraically, $\partial(m_3(a,b,c))= (ab)c-a(bc)$, or
+\item[]<6>\[\partial(m_3(a,b,c))=m_2(m_2(a,b), c)-m_2(a, m_2(b,c)).\]
+\end{itemize}
+%IMAGINE PRODUCTS AS POINTS IN THE SPACE, START CALLING IT M2(X,Y)?
+
+%SEVERAL SLIDES: DISJOINT POINT, POINTS JOINED BY A PATH, CALL IT M3 (THE BOUNDARY OF M3 IS THE 2 POINTS), CHOOSE ORIETATION (THE BOUNDARY IS THE DIFFERENCE OF THE POINTS)
+
+%PROBABLY INCLUDE TREES, WHEN A NODE HAS N BRANCHES IT IS MN
+\end{frame}
+
+\begin{frame}
+%PENTAGON, DIRECTION OF PATHS, ORIENTATION OF PENTAGON, SIGNS
+\definecolor{zzttqq}{rgb}{0.6,0.2,0.}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.4,-0.38685809569094237) rectangle (9.456589431026222,5.804555737079);
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (2.,1.) -- (4.,1.) -- (4.618033988749895,2.9021130325903064) -- (3.,4.077683537175253) -- (1.3819660112501053,2.9021130325903073) -- cycle;
+\draw [color=zzttqq] (2.,1.)-- (4.,1.);
+\draw [color=zzttqq] (4.,1.)-- (4.618033988749895,2.9021130325903064);
+\draw [color=zzttqq] (4.618033988749895,2.9021130325903064)-- (3.,4.077683537175253);
+\draw [color=zzttqq] (3.,4.077683537175253)-- (1.3819660112501053,2.9021130325903073);
+\draw [color=zzttqq] (1.3819660112501053,2.9021130325903073)-- (2.,1.);
+\draw (2.4,4.6) node[anchor=north west] {\tiny{$(a(bc))d$}};
+\draw (4.631960418,3.3) node[anchor=north west] {\tiny{$((ab)c)d$}};
+\draw (0.3,3.3) node[anchor=north west] {\tiny{$(ab)(cd)$}};
+\draw (0.7,1.1) node[anchor=north west] {\tiny{$a(b(cd))$}};
+\draw (4.,1.1) node[anchor=north west] {\tiny{$a((bc)d)$}};
+\draw<2-> (3.,2.)-- (3.,2.5);
+\draw<2-> (3.,2.5)-- (2.5003101320434795,2.823227149181719);
+\draw<2-> (3.,2.5)-- (2.8259485989935587,2.836252687859722);
+\draw<2-> (3.,2.5)-- (3.1320487579266336,2.8297399185207204);
+\draw<2-> (3.,2.5)-- (3.4186106088427035,2.8167143798427174);
+\draw<2-> (2.7051847,1.8788257123772178) node[anchor=north west] {$m_4$};
+\draw<2-> (4.252245084234906,3.598246700522905)-- (4.258757853573909,3.9694745528459943);
+\draw<2-> (4.258757853573909,3.9694745528459943)-- (4.5778835511849865,4.177883171694044);
+\draw<2-> (4.258757853573909,3.9694745528459943)-- (4.0633747734038606,4.164857633016041);
+\draw<2-> (4.0633747734038606,4.164857633016041)-- (3.8289150771998033,4.314651327813078);
+\draw<2-> (4.0633747734038606,4.164857633016041)-- (4.050349234725857,4.360240713186088);
+\draw<2-> (4.0633747734038606,4.164857633016041)-- (4.245732314895905,4.314651327813078);
+\draw<2-> (5.00121355822009,1.357854047906367)-- (5.00121355822009,1.7355946695684576);
+\draw<2-> (5.00121355822009,1.7355946695684576)-- (4.708138937965018,1.9440032884165077);
+\draw<2-> (5.00121355822009,1.7355946695684576)-- (5.00121355822009,2.1003097525525454);
+\draw<2-> (5.00121355822009,2.1003097525525454)-- (4.851419863423053,2.315231140739597);
+\draw<2-> (5.00121355822009,2.1003097525525454)-- (5.1249561756611195,2.295692832722592);
+\draw<2-> (5.00121355822009,1.7355946695684576)-- (5.307313717153164,1.9505160577555094);
+\draw<2-> (3.0213316791636062,-0.2312616708100148)-- (3.014818909824605,0.19206833622508687);
+\draw<2-> (3.014818909824605,0.19206833622508687)-- (2.7152315202305317,0.459091879124151);
+\draw<2-> (3.014818909824605,0.19206833622508687)-- (3.3209190687576795,0.4460663404461479);
+\draw<2-> (3.3209190687576795,0.4460663404461479)-- (3.1125104499096286,0.7521664993792214);
+\draw<2-> (3.3209190687576795,0.4460663404461479)-- (3.327431838096681,0.7717048073962262);
+\draw<2-> (3.3209190687576795,0.4460663404461479)-- (3.5228149182667288,0.7391409607012183);
+\draw<2-> (1.712265042024287,3.4940423910988803)-- (1.7057522726852854,3.897834090116977);
+\draw<2-> (1.7057522726852854,3.897834090116977)-- (1.4061648830912123,4.132293786321034);
+\draw<2-> (1.4061648830912123,4.132293786321034)-- (1.1261158015141441,4.3407024051690835);
+\draw<2-> (1.4061648830912123,4.132293786321034)-- (1.4973436538372347,4.3732662518640915);
+\draw<2-> (1.7057522726852854,3.897834090116977)-- (1.7187778113632886,4.197421479711049);
+\draw<2-> (1.7057522726852854,3.897834090116977)-- (1.9923141236013553,4.145319324999036);
+\draw<2-> (1.0023731840731138,1.3057518931943544)-- (1.0088859534121155,1.6900052841954467);
+\draw<2-> (1.0088859534121155,1.6900052841954467)-- (0.6181197930720201,2.028669289823528);
+\draw<2-> (1.0088859534121155,1.6900052841954467)-- (1.,2.);
+\draw<2-> (1.0088859534121155,1.6900052841954467)-- (1.2824222656501822,2.002618212467522);
+\draw<2-> (1.2824222656501822,2.002618212467522)-- (1.1326285708531456,2.341282218095603);
+\draw<2-> (1.2824222656501822,2.002618212467522)-- (1.4387287297862204,2.315231140739597);
+\draw<2-> (3.,4.077683537175253)-- (4.618033988749895,2.9021130325903064);
+\draw<2-> (4.618033988749895,2.9021130325903064)-- (4.,1.);
+\draw<2-> (4.,1.)-- (2.,1.);
+\draw<2-> (2.,1.)-- (1.3819660112501053,2.9021130325903073);
+\draw<2-> (1.3819660112501053,2.9021130325903073)-- (3.,4.077683537175253);
+\draw<4-> [->] (3.,4.077683537175253) -- (3.895997820398156,3.4267030156558835);
+\draw<4-> [->] (4.618033988749895,2.9021130325903064) -- (4.263241770003597,1.8101748618369442);
+\draw<4-> [->] (4.,1.) -- (2.8910762923835747,1.);
+\draw<4-> [->] (3.,4.077683537175253) -- (2.1179720645146554,3.4368527311563817);
+\draw<4-> [->] (1.3819660112501053,2.9021130325903073) -- (1.7339911627499194,1.8186910191477048);
+\draw<5-> [shift={(3.0017933711466016,3.376812542996852)}] plot[domain=-4.688583954199619:0.02083032003621599,variable=\t]({1.*0.27361383422126806*cos(\t r)+0.*0.27361383422126806*sin(\t r)},{0.*0.27361383422126806*cos(\t r)+1.*0.27361383422126806*sin(\t r)});
+\draw<5-> [->] (3.,3.65) -- (3.15,3.65);
+
+\draw<3-4> (3.,4.5)-- (2.9949604700273404,4.840669349740066);
+\draw<3-4> (2.9949604700273404,4.840669349740066)-- (3.2670956760243546,4.986230041319864);
+\draw<3-4> (2.9949604700273404,4.840669349740066)-- (2.75446889263463,5.043188572807612);
+\draw<3-4> (2.75446889263463,5.043188572807612)-- (2.4190464294290073,5.188749264387409);
+\draw<3-4> (2.75446889263463,5.043188572807612)-- (3.064576452956809,5.252036521596017);
+\draw<3-4> (2.8942394348657974,5.1373197543102345)-- (2.75446889263463,5.308995053083764);
+
+\draw<3-4> (5.728969981439207,2.8407920219480567)-- (5.722641255718346,3.1825432108745395);
+\draw<3-4> (5.722641255718346,3.1825432108745395)-- (6.121350976132577,3.334432628175198);
+\draw<3-4> (5.722641255718346,3.1825432108745395)-- (5.4315198725587495,3.353418805337781);
+\draw<3-4> (5.4315198725587495,3.353418805337781)-- (5.140398489399153,3.5685954798470476);
+\draw<3-4> (5.277773616415782,3.4670573424869304)-- (5.425191146837888,3.58758165700963);
+\draw<3-4> (5.4315198725587495,3.353418805337781)-- (5.74795615860179,3.543280576963604);
+
+%\draw (5.108754860794849,0.31563045932460204)-- (5.115083586515709,0.676367825413667);
+%\draw (5.115083586515709,0.676367825413667)-- (4.842948380518695,0.8725583227603515);
+%\draw (5.115083586515709,0.676367825413667)-- (5.36190388962928,0.8662295970394907);
+%\draw (5.36190388962928,0.8662295970394907)-- (5.703655078555764,1.005461562898428);
+%\draw (5.36190388962928,0.8662295970394907)-- (5.115083586515709,1.10039244871134);
+%\draw (5.231917556986078,0.9895499639061185)-- (5.399876243954446,1.1320360773156437);
+\begin{scriptsize}
+\draw [fill=black] (2.,1.) circle (2.5pt);
+\draw [fill=black] (4.,1.) circle (2.5pt);
+\draw [fill=black] (4.618033988749895,2.9021130325903064) circle (2.5pt);
+\draw [fill=black] (3.,4.077683537175253) circle (2.5pt);
+\draw [fill=black] (1.3819660112501053,2.9021130325903073) circle (2.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+%MENTION THAT IT CAN BE GENERALIZED TO HIGHER DIMENSIONS
+\end{frame}
+\begin{frame}
+ \begin{align*}
+\partial(m_4)=&m_2(m_3(a,b,c), d)-m_3(m_2(a,b), c, d)\\
+&+m_3(a, m_2(b,c), d)-m_3(a, b, m_2(c,d))+m_2(a, m_3(b,c,d)).
+\end{align*}
+\end{frame}
+\section{Algebra interlude}
+\begin{frame}
+\frametitle{Dimension vs degree}
+
+\begin{itemize}
+\item<1-> \textbf{Geometrical dimension}: 0 (points), 1 (lines), 2 (planes), etc
+\item<2-> \textbf{Algebraic degree}: If $A=\bigoplus_{i\in\mathbb{N}} A_i$, we say $A_i$ is the $i$-th degree component.
+\begin{itemize}
+\item<3-> Example: $k[x]=\bigoplus_i k[x]_i$ (polynomials of degree $i$).
+\end{itemize}
+\item<4-> A map $f:A\to B$ is of \textbf{degree} $i$ if $f(A_j)\subset B_{j+i}$ for all $j$.
+\begin{itemize}
+\item<5-> Example: $x:k[x]\to k[x]$ is of degree 1 (multiplication by $x$).
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Boundary vs differentials}
+\begin{itemize}
+\item In geometry we have boundary maps $\partial$.
+
+\item<2-> A map $d:A\to A$ of degree $-1$ such that $d\circ d=0$ is called a \textbf{differential}. %Analogous to boundary
+% HAS DEGREE -1 (IT DECREASES DIMENSION)  AND SQUARES TO 0 (BOUNDARY OF BOUNDARY IS EMPTY)
+\begin{itemize}
+\item<3-> A vector space with a differential is called a \textbf{chain complex}.
+\end{itemize}
+\item<4-> If $(A,d_A)$ and $(B,d_B)$ are chain complexes, so is $\hom_k(B,A)$ with differential
+\[\partial(f)=d_A\circ f - (-1)^{\deg(f)}f\circ d_B.\] 
+\item<5-> For $B=A^n$ we have 
+\[d_{A^n}= \sum_{r+1+s=n} id^r\times d_A\times id^s.\]
+\end{itemize}
+\end{frame}
+\section{$A_\infty$-algebras}
+\begin{frame}
+\frametitle{$A_\infty$-algebras}
+\begin{defi}
+An $A_\infty$-\textbf{algebra} $A$ is a chain complex over a field $k$ equipped with a family of ``multiplications'' $m_n:A^{\times n}\to A$ of degree $n-2$ for $n\geq 2$ satisfying the relation
+
+\[\partial(m_n)=\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}(id^{ r}, m_s, id^{ s})\] %we are composing every map with itself
+\end{defi}
+
+%I CAN SAY $A$ IS A CHAIN COMPLEX SO THAT DELTA CAN BE DEFINED, OR DEFINE THIS AS SATISFFYING THAT DLTA IS A DIFFERNTIAL AND AVOID M1 (OR  SIMPLY SAY THAT IT COMES WITH DELTA)
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Some particular cases}
+%MAYBE AVOID TENSOR PRODUCTS AND WRITE EVERYTHING AS COMPONENTS
+
+%USE BLACKBOARD TO BETTER DESCRIBE WITH PICTURES (OR INCLUDE THEM BEFORE)
+\begin{itemize}
+\item<1-> $\partial(m_2)=0$ (the boundary of a point is empty).
+\item<2-> $\partial(m_3)=m_2(m_2, id)-m_2(id, m_2)$.
+\begin{itemize}
+\item<3-> An associative algebra is an $A_\infty$-algebra with $\partial=0$ and $m_n=0$ for $n>2$.
+\item<4-> If we only require $m_n=0$ for $n>2$ we say that $A$ is a \textbf{dg-algebra}. %this not just a subproduct, it  is very important
+\end{itemize}
+\item<5-> The pentagon relation \begin{align*}
+\partial(m_4)=&m_2(m_3, id)-m_3(m_2, id, id)\\
+&+m_3(id, m_2, id)-m_3(id, id, m_2)+m_2(id, m_3).
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Uniqueness result}
+\begin{itemize}
+\item An $A_\infty$-algebra is \textbf{minimal} if $\partial = 0$. 
+\end{itemize}\pause
+\begin{theorem}[Kadeishvili]
+Any ``nice enough'' dg-algebra can be ``replaced'' by a minimal $A_\infty$-algebra in an ``essentially unique'' way.
+\end{theorem}\pause
+%nice enough = HH(A,A) vanishes on degree 2-n %Replaced  means equivalent  %essentially = up to quasi-iso
+We would like to extend this result to a ground ring $k$ that is not necessarily a field.
+\end{frame}
+
+\section{Derived $A_\infty$-algebras}
+
+\begin{frame}
+\frametitle{Bigraded algebras}
+\begin{itemize}
+\item We add an extra degree $A=\bigoplus_{i,j} A_i^j$, where $A_i^j$ is the bidegree $(i,j)$ component, and generalize previous definitions.
+\begin{itemize}
+\item<2-> Example: $A=k[x,y]$, $x:A\to A$ is of bidegree $(1,0)$.
+\end{itemize}
+\item<3-> Differentials now have bidegree $(0,-1)$. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Derived $A_\infty$-algebras}
+\begin{defi}
+A \textbf{derived $A_\infty$-algebra} $A$ is a bigraded  chain complex over $k$ equipped with a family of ``multiplications'' $m_{un}:A^{\times n}\to A$ of bidegree $(u,n+u-2)$ for $n\geq 2$ and $u\geq 0$ satisfying the relation
+
+\[\partial(m_{un})=\underset{j=r+1+t}{\sum_{i+p=u,r+s+t=n}}(-1)^{rq+t+pj}m_{ij}(id^{ r}, m_{pq}, id^{ s})\] %we are composing every map with itself
+\end{defi}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Uniqueness result}
+\begin{itemize}
+\item If $m_{un}=0$ for all $u>0$ we recover classical $A_\infty$-algebras.
+\item<2-> If we require $m_{un}=0$ for $u+n\geq 3$ we get a \textbf{bidg-algebra}. %again this is important
+\item<3-> A derived $A_\infty$-algebra is \textbf{minimal} if $\partial=0$. 
+\item[]<4->
+\begin{theorem}[Sagave]
+Any ``nice enough'' dg-algebra can be ``replaced'' by a minimal derived $A_\infty$-algebra in an ``essentially unique'' way.
+\end{theorem}
+\end{itemize}
+\end{frame}
+
+%My phd is about looking at other properties that are satisfied by A_infty algebras and trying to generalized them to derived A_infty algebras
+%\begin{frame}
+%\frametitle{$A_\infty$-algebras are homotopy associative algebras.}
+%%how do they generalize associative algebras
+%\begin{itemize}
+%\item<1-> For $n=3$ we have the relation
+%\begin{align*}
+%&m_2(m_2\otimes 1)-m_2(1\otimes m_2)=\\ %the failure of m_2 to be associative
+%&m_1m_3+m_3(m_1\otimes 1\otimes 1)+m_3(1\otimes m_1\otimes 1)+m_3(1\otimes 1\otimes m_1)
+%\end{align*}
+%\item[]<2-> $m_2$ is homotopy associative with homotopy given by $m_3$. %recall that m1 is a differential so on homology this vanishes
+%\item<3-> The higher relations are a homotopy coherent extension of this fact. %m3 satisfies some relation up to homotopy given by m4 and so on
+%\end{itemize}
+%\end{frame}
+\begin{frame}
+\begin{center}
+\Huge{Thank you very much!}
+\end{center}
+\end{frame}
+
+
+\end{document}
