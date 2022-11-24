@@ -1,0 +1,115 @@
+	\documentclass[twoside]{article}
+\usepackage{estilo-ejercicios}
+\setcounter{section}{0}
+\usepackage{subfiles}
+\usepackage{empheq}
+\usepackage{adjustbox}
+
+
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+
+\renewcommand{\baselinestretch}{1,3}
+
+
+%Below to introduce ¡ in mathmode https://tex.stackexchange.com/questions/471464/inverted-exclamation-mark-in-mathmode
+\DeclareMathSymbol{\mathinvertedexclamationmark}{\mathclose}{operators}{'074}
+\DeclareMathSymbol{\mathexclamationmark}{\mathclose}{operators}{'041}
+
+\makeatletter
+\newcommand{\raisedmathinvertedexclamationmark}{%
+  \mathclose{\mathpalette\raised@mathinvertedexclamationmark\relax}%
+}
+\newcommand{\raised@mathinvertedexclamationmark}[2]{%
+  \raisebox{\depth}{$\m@th#1\mathinvertedexclamationmark$}%
+}
+\begingroup\lccode`~=`! \lowercase{\endgroup
+  \def~}{\@ifnextchar`{\raisedmathinvertedexclamationmark\@gobble}{\mathexclamationmark}}
+\mathcode`!="8000
+\makeatother
+
+%--------------------------------------------------------
+\begin{document}
+
+
+\title{Derived $A_\infty$-structures on operads}
+\author{Javier Aguilar Martín}
+%\date{ }
+\maketitle
+%TO ASK: INTRO (THEIR PAPERSS DON'T STATE THE THEOREMS AND I DO MENTION THEM, WHY I NEED TO DO THAT AND WHAT NUMBERING SHOULD I USE?) 
+%TO COMMENT: NOTATION CHANGES (WOULD IT BE BETTER TO USE DJ FOR TOTAL DEGREE EVEN IF THERE ARE DIFFERNTIALS AROUND? MAYBE KEEEP N IN THE BACKGROUND BECAUSE THERE ARE DIFFERENTIALS), ANOTHER POSSIBILITY: USE J,L FOR ARITIES (LIKE FOR MIJ) AND THUS V,W FOR INDICES
+
+\section*{Acknowledgements}
+
+INDEX?
+
+\begin{abstract}
+PROBABLY VERY SIMILAR
+
+%SINCE I'M NOT IMPOSING O(0)=0 (I NEED B0 IN THE BRACES AND THE END OPERAD IS USUALLY NON 0 THERE), I PROBABLY NEED TO SPECIFY THAT THE ARITY 0 COMPONENT OF M IS 0 (UNLESS I CONSIDER UNITAL CASE SPEFICALLY), THIS CAN BE DONE BY USING SOME  NOTATION OF THE POSITIVE ARITY PART
+
+
+
+%
+%We study the brace structure on an operad of graded $R$-modules using a construction called \emph{operadic suspension} and use it to define $A_\infty$-algebra structures on certain operads. This construction provides us an operadic context from which $A_\infty$-algebras arise in a natural way. We focus on the relation between the brace structure on an operad and its operadic composition, with the endomorphism operad as our main example. This relation allows us to generalize the Lie bracket defined in \cite{RW}. Then we prove some results about $A_\infty$-algebras on operads that were originally claimed by Gerstenhaber and Voronov \cite{GV}. Next, we generalize these constructions to operads of bigraded $R$-modules, introducing a totalizaion functor, which allows to generalize the Lie bracket defined in \cite{LRW}. This construction and the use of some enriched categories allows us to obtain for derived $A_\infty$-algebras some results that are analogous to the ones we obtained for $A_\infty$-algebras.
+
+We study the operad of derived $A_\infty$-algebras from a new point of view. We start by studying the brace structure on an operad of graded $R$-modules using a construction called operadic suspension, which we study in depth for the first time as a functor, and use it to define $A_\infty$-algebra structures on certain operads, with the endomorphism operad as our main example. This construction provides us with an operadic context from which $A_\infty$-algebras arise in a natural way and allows us to generalize the Lie algebra structure on the Hochschild complex. Then we prove a theorem about $A_\infty$-algebras on operads that was originally claimed by Gerstenhaber and Voronov. Next, we generalize these constructions to operads of bigraded $R$-modules, introducing a totalization functor, which allows to generalize a Lie algebra structure on the total complex of a derived $A_\infty$-algebra. This construction and the use of some enriched categories allow us to obtain some new results about derived $A_\infty$-algebras that generalize those obtained for $A_\infty$-algebras.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+PROBABLY VERY SIMILAR
+
+There are a number of mathematical fields in which $A_\infty$-structures arise, ranging from topology to mathematical physics. To study these structures, different interpretations of $A_\infty$-algebras have been given. From the original definition in 1968 \cite{STASHEFF}, to alternative definitions in terms of tensor coalgebras \cite{keller}, \cite{penkava},  approaches that use the machinery of operads \cite{LRW}, \cite{lodayvallette} or certain Lie brackets \cite{RW} to obtain these algebras. 
+
+$A_\infty$-structures have also been combined with brace structures \cite{GV},\cite{lada} which involved certain signs. Typically, these signs were different for each author and no satisfactory explanation was given. 
+
+Here we used an operadic approach to obtain these signs in a more conceptual and consistent way. As a consequence, we will generalize the Lie bracket used in \cite{RW} and will give a very simple interpretation of $A_\infty$-algebras. The difference between our operadic approach and others mentioned before is that ours uses much more elementary tools and can be use to talk about $A_\infty$-structrures on any operad. We hope that this provides a useful way of thinking about $A_\infty$-structures.
+
+Later in 2009, derived $A_\infty$-algebras were introduced by Savage \cite{sagave} as a bigraded generalization of $A_\infty$-algebras in order to bypass the projectivity requirements that often arise when working with classical $A_\infty$-algebras. We generalize the operadic description of classical $A_\infty$-algebras to the derived case by means of an operadic totalization inspired by the totalization functor described in \cite{whitehouse}. This way we obtain an operation similar to the star operation in \cite{LRW} and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra.
+
+The text is organized as follows. In Section \ref{Sec1} we recall some basic definitions and establish some conventions for both the classical and the derived cases. In Section \ref{Sec2} we define a device called \emph{operadic suspension} that will help us obtain the signs that we want and link this device to the classical operadic approach to $A_\infty$-algebras. We also take this construction to the level of the underlying collections of the operads to also obtain a nice description of $\infty$-morphisms of $A_\infty$-algebras. We then explore the functorial properties of operadic suspension, being monoidality (\Cref{monoidality}) the most remarkable of them. In \Cref{sectionbraces} we study the brace algebra induced by operadic supension and obtain a relevant result, \Cref{bracesign}, which establishes a relation between the canonical brace structure on an operad and the one induced by its operadic suspension. We show that as a particular case of this result we obtain the Lie bracket from \cite{RW}.
+
+Following Gerstenhaber and Voronov's terminology, if $\OO$ is an operad with an $A_\infty$-multiplication $m\in\OO$, it is natural to ask whether there are linear maps $M_j:\OO^{\otimes j}\to \OO$ satisfying the $A_\infty$-algebra axioms. In Section \ref{sect2} we use the aforementioned brace structure to define such linear maps on a shifted version of the operadic suspension. We then iterate this process in Section \ref{sect3} to define an $A_\infty$-structure on the Hochschild complex of an operad with $A_\infty$-multiplication. This iteration process was inspired by the work of Getzler in \cite{getzler}.
+
+Next, we prove our first main result, \Cref{theorem}, which relates the $A_\infty$-structure on an operad with the one induced on its Hochschild complex, more precisely, 
+
+\begin{manualtheorem}{A}
+There is a morphism of $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$.
+\end{manualtheorem} 
+This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we introduce a suitable context and prove it as \Cref{theorem}. We also draw a connection between our framework and the one from Gerstenhaber and Voronov.
+
+ After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras in \Cref{deriveddef}. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW} which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our second and third main results. The former is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, this structure is equivalent to a derived $A_\infty$-algebra on $S\s\OO$, i.e 
+ 
+ \begin{manualtheorem}{B}
+ There are linear maps $M_{ij}:(S\s\OO)^{\otimes j}\to S\s\OO$, satisfying the derived $A_\infty$-algebra axioms.
+ \end{manualtheorem}
+ The latter is \Cref{bigradedtheorem}, which generalizes \Cref{theorem} to the derived setting. More precisely,
+ \begin{manualtheorem}{C}
+There is a morphism of derived $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$.
+\end{manualtheorem}
+
+%DO I NEED TO MENTION THE APPENDICES?
+
+
+%STYLE, SHOULD I USE THEOREM STYLE FOR DEFINITIONS AND EVERYTHING ELSE AS WELL? IN THAT CASE HOW SHOULD I HIGHLIGH THE NAMES OF THE THINGS I DEFINE?
+%
+%I FEEL THAT THE BACKGROUND IS NOT WELL BALANCED, IN THE CLASSICAL CASE I INCLUDE THE DEF OF AINTY ALGEBRA AND I MENTION THE OPERAD ONLLY VERY BRIEFLY, WHILE FOR THE DERIVED CASE I HAVE A SEPARATE SECTION AFTERWARDS WITH MORE DETAIL, MAYBE ITS OKAY BECAUSE AINFTY SHOULD BE BETTER KNOWN
+
+
+
+%\subfile{background}
+%\subfile{SubSuspensionMultiplication}\\
+\subfile{Introduction}
+\subfile{SubSuspensionMultiplicationx}
+%\subfile{SubTotalization}
+%\subfile{SubTotalizationx}
+\subfile{SubTotalizationxd}
+\subfile{appendices}
+
+
+%\bibliographystyle{ieeetr}
+\bibliographystyle{alpha}
+\bibliography{newbibliography}
+
+\end{document}

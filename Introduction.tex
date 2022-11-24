@@ -136,7 +136,7 @@
 %
 %
 %\item SYMMETRIC (CLOSED) MONOIDAL CATEGORIES, EXAMPLES
-\section{Symmetric Monoidal Categories}
+\section{Symmetric Monoidal Categories and enrichments}
 
 We assume that the reader is familiar with the basic terminology of category theory. For an introduction to this topic we refer the reader to \cite{maclane}. Here we briefly recall the notion of symmetric monoidal categories and several versions of monoidal functors. The detailed definitions with all the precise diagrams can also be found in \cite{maclane} and in \cite{borceux}.
 
@@ -204,7 +204,7 @@ natural in all arguments. The object $[A,B]$ is called the \emph{internal hom}.
 
 \begin{defin}
 Let $\VV$ a monoidal category. A $\VV$-\emph{category} $\CC$ ($\VV$-\emph{
-enrihed catgory} or \emph{category enriched over} $\VV$) consists of
+enriched catgory} or \emph{category enriched over} $\VV$) consists of
 \begin{itemize}
 \item a set $\mathrm{Ob}(\CC)$ of objects in $\CC$,
 \item for each pair $(A,B)$ of objects in $\CC$ an object $\CC(A,B)\in\VV$ called the \emph{hom-object} or \emph{object of morphisms} from $A$ to $B$,
@@ -217,6 +217,126 @@ All this data is subject to associativity and unitality constrains that can be s
 \end{defin}
 
 %THE CONTENT OF SARAH'S PAPER COULD COME HERE (BUT IT IS SPECIFIC ENOUGH TO BE WRITTEN BEFORE THE STUFF IT IS MADE FOR)
+\subsection{Monoidal categories over a base}
+%NOT SURE IF I'M GOING TO NEED SO MUCH GENERAL BACKGROUND (CERTAINLY DO NOT INCLUDE PROOFS) I WOULD LIKE TO INCLUDE THE PROOF OF THE INVERSE INDUCING THE INVERSE TRANSFORMATION
+
+
+%I MAY NOT  NEED MUCH (BUT I DO MENTION ENRICHED CATEGORIES, I COULD TRY TO ONLY SHOW RESULTS FOR PARTICULAR CATEGORIES) 
+
+%WHAT I REALLY NEED IS THEE DEFINITION OF ENRICHED MU AND I CAN DEFINE IT EXPLICITELY IN THE LEMMA THAT IT IS USED (OR WITH AN EXTRA LEMMA IN WHICH I ALSO SHOW THE INVERSE) USING LEMMA 4.35
+
+Continuing further with the idea of enriched categories, we collect some notions and results about enriched categories from \cite{riehl} and \cite[\S 4.2]{whitehouse} that we will need as a categorical setting for our results on derived $A_\infty$-algebras. Here we will combine the notion of enriched category and symmetric monoidal category that we have seen before.
+
+\begin{defin}
+Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a \emph{monoidal category over $\VV$} if we have an external tensor product $∗ :\VV × \CC → \CC$ such that we have natural isomorphisms:
+\begin{enumerate}[$\bullet$]
+\item  $1 ∗ X \cong X$ for all $X ∈ \CC$,
+\item $(C ⊗ D) ∗ X \cong C ∗ (D ∗ X)$ for all $C,D ∈ \VV$ and $X ∈ \CC$,
+\item $C ∗ (X ⊗ Y ) \cong (C ∗ X) ⊗ Y \cong X ⊗ (C ∗ Y )$ for all $C ∈ \VV$ and $X, Y ∈ \CC$.
+\end{enumerate}
+\end{defin}
+\begin{remark}\label{underline}
+We will also assume that there is a bifunctor $\uC(−,−) : \CC^{op} × \CC → \VV$ such that we have natural
+bijections
+\[\Hom_\CC(C ∗ X, Y ) \cong \Hom_\VV (C,\uC(X, Y )).\]
+Under this assumption we get a $\VV$-enriched category $\uC$ with the same objects as $\CC$ and with hom-objects given by $\uC (−,−)$. The unit
+morphism $u_A : 1 → \uC (A,A)$ corresponds to the identity map in $\CC$ under the adjunction and the
+composition morphism is given by the adjoint of the composite
+\[(\uC (B,C) ⊗ \uC (A,B)) ∗ A
+\cong \uC (B,C) ∗ (\uC (A,B) ∗ A)
+\xrightarrow{id∗ev_{AB}}
+\uC (B,C) ∗ B
+\xrightarrow{ev_{BC}} C,\]
+where $ev_{AB}$ is the adjoint of the identity $\uC (A,B) → \uC (A,B)$. Furthermore, $\uC$ is a monoidal $\VV$-enriched category, namely we have an
+enriched functor
+\[\underline{⊗} : \uC × \uC → \uC\]
+where $\uC × \uC$ is the enriched category with objects $\mathrm{Ob}(\CC ) × \mathrm{Ob}(\CC )$ and hom-objects
+\[\uC × \uC ((X, Y ), (W,Z)) \coloneqq \uC (X,W) ⊗ \uC (Y,Z).\]
+In particular we get maps in $\VV$
+\[\uC (X,W) ⊗ \uC (Y,Z) → \uC (X ⊗ Y,W ⊗ Z),\]
+given by the adjoint of the composite
+\[(\uC (X,W) ⊗ \uC (Y,Z)) ∗ (X ⊗ Y )\cong (\uC (X,W) ∗ X) ⊗ (\uC (Y,Z) ∗ Y )
+\xrightarrow{ev_{XW}⊗ev_{Y Z}} W ⊗ Z\]
+\end{remark}
+
+\begin{defin}
+Let $\CC$ and $\DD$ be monoidal categories over $\VV$. A \emph{lax functor over $\VV$} consists of a functor $F : \CC → \DD$ together with a natural transformation \[ν_F : − ∗_\DD F(−) ⇒ F(− ∗_\CC −)\]
+which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. (See \cite[Proposition 10.1.5]{riehl} for explicit diagrams stating the coherence axioms.) If $ν_F$ is a natural isomorphism
+we say $F$ is a \emph{functor over $\VV$}.
+Let $F,G : \CC → \DD$ be lax functors over $\VV$. A \emph{natural transformation over $\VV$} is a natural transformation
+$μ : F ⇒ G$ such that for any $C ∈ \VV$ and for any $X ∈ \CC$ we have
+\[ν_G \circ (1 ∗_\DD μ_X) = μ_C∗_\CC X \circ ν_F .\]
+A \emph{(lax) monoidal functor over $\VV$} is a triple $(F, \epsilon, μ)$, where $F : \CC → \DD$ is a lax functor over $\VV$,
+$\epsilon : 1_\DD → F(1_\CC)$ is a morphism in $\DD$ and
+\[μ : F(−) ⊗ F(−) ⇒ F(− ⊗ −)\]
+is a natural transformation over $\VV$ satisfying the standard unit and associativity conditions. If $ν_F$
+and $μ$ are natural isomorphisms then we say that $F$ is \emph{monoidal over $\VV$}. 
+\end{defin}
+
+\begin{propo}\label{enrichedtrans}
+Let $F,G : \CC → \DD$ be lax functors over $\VV$. Then $F$ and $G$ extend to $\VV$-enriched
+functors
+\[\underline{F},\underline{G} : \uC → \uD\]
+where $\uC$ and $\uD$ denote the $\VV$-enriched categories corresponding to $\CC$ and $\DD$ as described in \Cref{underline}. Moreover, any natural transformation $μ : F ⇒ G$ over $\VV$ also extends to a $\VV$-enriched natural
+transformation
+\[\underline{μ} : \underline{F} ⇒ \underline{G}.\]
+In particular, if $F$ is (lax) monoidal over $\VV$, then $F$ is (lax) monoidal in the enriched sense.
+\end{propo}
+\begin{proof}
+See \cite[Proposition 4.11]{whitehouse}.
+\end{proof}
+\begin{lem}
+Let $F,G:\CC\to\DD$ lax functors over $\VV$ and let $\mu : F\Rightarrow G$ a natural transformation over $\VV$. For every $X\in\CC$ and $Y\in\DD$ there is a map \[\uD(GX,Y)\to\uD(FX,Y)\] that is an isomorphism if $\mu$ is an isomorphism.
+\end{lem}
+\begin{proof}
+By \Cref{enrichedtrans} there is a $\VV$-enriched natural transformation 
+\[\underline{\mu}:\underline{F}\to\underline{G}\]
+whose component \[\underline{\mu}_X:1\to\uD(FX,GX)\] is defined to be the adjoint of $\mu_X:FX\to GX$. The map $\uD(GX,Y)\to\uD(FX,Y)$ is defined as the composite
+
+\begin{equation}\label{enrichedmap}
+\uD(GX,Y)\cong\uD(GX,Y)\otimes 1\xrightarrow{1\otimes\umu_X}\uD(GX,Y)\otimes\uD(FX,GX)\xrightarrow{c}\uD(FX,Y)
+\end{equation}
+where $c$ is the composition map in the enriched setting. 
+
+When $\mu$ is an isomorphism we may analogously define the following map
+
+\[\uD(FX,Y)\cong\uD(FX,Y)\otimes 1\xrightarrow{1\otimes\umui_X}\uD(FX,Y)\otimes\uD(GX,FX)\xrightarrow{c}\uD(GX,Y).\]
+
+We show that this map is the inverse of the map in \Cref{enrichedmap}.
+
+\[
+\adjustbox{scale=0.76,center}{%
+\begin{tikzcd}[column sep = 0pt, row sep = 20pt]
+{\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
+                                                                                     & {\uD(GX,Y)\otimes\uD(GX,GX)} \arrow[lu, "c"] \arrow[lu]                                                  & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes 1} \arrow[ld, "1\otimes 1\otimes \umui_X"] \arrow[rdd, "c\otimes 1"] \arrow[ru, "(1)"', phantom] &                                                                                \\
+                                                                                     & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes \uD(GX,FX)} \arrow[u, "1\otimes c"] \arrow[ld, "c\otimes 1"]          &                                                                                                                                    &                                                                                \\
+{\uD(FX,Y)\otimes\uD(GX,FX)} \arrow[uuu, "c"] \arrow[ruu, "(3)"', phantom, bend left] & {}                                                                                                       &                                                                                                                                    & {\uD(FX,Y)\otimes 1} \arrow[lll, "1\otimes\umui_X"] \arrow[llu, "(2)"', phantom]
+\end{tikzcd}
+}
+\]
+
+%
+%\[
+%\adjustbox{scale=1,center}{%
+%\begin{tikzcd}[column sep = 1pt]
+%{\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
+%                                                                                     & {\uD(GX,Y)\otimes\uD(GX,GX)} \arrow[lu, "c"] \arrow[lu]                                                  & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes 1} \arrow[ld, "1\otimes 1\otimes \umui_X"] \arrow[rdd, "c\otimes 1"] \arrow[ru, "(1)"', phantom] &                                                                                \\
+%                                                                                     & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes \uD(GX,FX)} \arrow[u, "1\otimes c"] \arrow[ld, "c\otimes 1"]          &                                                                                                                                    &                                                                                \\
+%{\uD(FX,Y)\otimes\uD(GX,FX)} \arrow[uuu, "c"] \arrow[ruu, "(3)"', phantom, bend left] & {}                                                                                                       &                                                                                                                                    & {\uD(FX,Y)\otimes 1} \arrow[lll, "1\otimes\umui_X"] \arrow[llu, "(2)"', phantom]
+%\end{tikzcd}
+%}
+%\]
+
+In the diagram, $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. 
+\end{proof}
+
+\begin{lem}\label{4.15}
+The category $\fc$ is monoidal over $\vbc$. By restriction, $\fmod$ is monoidal over $\bgmod$.
+\end{lem}
+\begin{proof}
+See \cite[Lemma 4.15]{whitehouse} for the proof and more details.
+\end{proof}
+
 \section{$A_\infty$-algebras}
 
 
@@ -345,9 +465,6 @@ for $f\in\End_A(n)$ and $g\in\End_A(m)$. The identity element is given by the id
 An \emph{algebra over an operad} $\OO$, or $\OO$-\emph{algebra}, is a map of operads $\OO\to\End_A$ for some $R$-module $A$. By adjunction, this is equivalent to a collection of maps $\OO(n)\otimes A^{\otimes n}\to A$ for each $\geq 0$.  
 \end{defin}
 
-I DON'T HAVE THE BELOW DEFINITION IN THE ARTICLE, MAYBE ADD IT
-
-CHECK ALL DEFINITIONS TO MAKE SURE THE CONCEPT IS EMPH IN THE 3 DOCUMENTS(ALSO IN THE OTHER SECTIONS)
 
 \begin{defin}\label{algebramorphism}
 A \emph{morphism of $\OO$-algebras} $A$ and $B$ is a map of operads $\End_A\to\End_B$ so that the diagram
@@ -377,7 +494,7 @@ The \emph{$\mathcal{A}_\infty$-operad} is the non-symmetric operad whose algebra
 More details about this operad can be found in \cite[Chapter 9]{lodayvallette}.
 \end{defin}
 
-Notice that for the $\calA_\infty$-operad, a morphism of $\calA_\infty$-algebras (\Cref{algebramorphism}) is the same thing as a morphism of $A_\infty$-algebras (\Cref{inftyalgebramorphism}). We will also provide an operadic interpretation of $\infty$-morphisms (\Cref{inftymorphis}). CITE. OR MAYBE JUST PUT IT HERE SINCE WITH INFINITESIMAL COMPOSITION AND ALL, SINCE IT IS NOT SO RELEVANT FOR THE MAIN RESULTS
+Notice that for the $\calA_\infty$-operad, a morphism of $\calA_\infty$-algebras (\Cref{algebramorphism}) is the same thing as a morphism of $A_\infty$-algebras (\Cref{inftyalgebramorphism}). We will also provide an operadic interpretation of $\infty$-morphisms (\Cref{inftymorphis}). CITE. OR MAYBE JUST PUT IT HERE WITH INFINITESIMAL COMPOSITION AND ALL, SINCE IT IS NOT SO RELEVANT FOR THE MAIN RESULTS
 
  INFTYMORPHISM ALSO ARISE FROM OPERADS IN A DIFFERENT WAY, REFER TO LODAYVALLETTEE AND TO MY SECTION (SOMEWHAT SIMILAR BUT DIFFERENT IN APPROACH)
 
@@ -897,7 +1014,7 @@ Let  $c\in\Tot(A\otimes B)^n$. By definition, we have
 \[\Tot(A\otimes B)^n=\bigoplus_k (A\otimes B)^{n-k}_k=\bigoplus_k\bigoplus_{n_1+n_2=n}\bigoplus_{k_1+k_2=k}A_{k_1}^{n_1-k_1}\otimes B_{k_2}^{n_2-k_2}\]
 And thus $c=(c_k)_k$ may be written as a finite sum $c=\sum_k c_k$, where 
 \[c_k=\sum_{n_1+n_2=n}\sum_{k_1+k_2=k}x_{k_1}^{n_1-k_1}\otimes y_{k_2}^{n_2-k_2}.\]
-Here we introduced superscripts to indicate the vertical degree, which unlike in the definition of $\mu$ (\Cref{mu1}), it is not solely determined by the horizontal degree, since the total degree also varies. Distributivity allows us to rewrite $c$ as
+Here we introduced superscripts to indicate the vertical degree, which unlike in the definition of $\mu$ (\Cref{mu1}), it is not solely determined by the horizontal degree, since the total degree also varies. However we are going to omit them in what follows for simplicity of notation. Distributivity allows us to rewrite $c$ as
 \[c=\sum_k \sum_{n_1+n_2=n}\sum_{k_1+k_2=k}x_{k_1}\otimes y_{k_2}=\sum_{n_1+n_2=n}\sum_{k_1}\sum_{k_2}(x_{k_1}\otimes y_{k_2})=\sum_{n_1+n_2=n}\left(\sum_{k_1}x_{k_1}\right)\otimes\left(\sum_{k_2}y_{k_2}\right).\]
 Therefore, $\mu^{-1}$ can be defined as
 \[\mu^{-1}(c)=\sum_{n_1+n_2=n}\left(\sum_{k_1}(-1)^{k_1n_2}x_{k_1}\right)\otimes\left(\sum_{k_2}y_{k_2}\right).\]
@@ -906,126 +1023,7 @@ The general case follows inductively.
 \end{proof}
 
 \section{Enriched categories and enriched totalization}
-THE FIRST SUBSECTION SHOULD GO AT  THE END OF SYMMETRIC MONOIDAL CATEGORIES. THE SECOND ONE SHOULD GO IN THE MAIN BODY
-\subsection{Monoidal categories over  a base}
-%NOT SURE IF I'M GOING TO NEED SO MUCH GENERAL BACKGROUND (CERTAINLY DO NOT INCLUDE PROOFS) I WOULD LIKE TO INCLUDE THE PROOF OF THE INVERSE INDUCING THE INVERSE TRANSFORMATION
-
-
-%I MAY NOT  NEED MUCH (BUT I DO MENTION ENRICHED CATEGORIES, I COULD TRY TO ONLY SHOW RESULTS FOR PARTICULAR CATEGORIES) 
-
-%WHAT I REALLY NEED IS THEE DEFINITION OF ENRICHED MU AND I CAN DEFINE IT EXPLICITELY IN THE LEMMA THAT IT IS USED (OR WITH AN EXTRA LEMMA IN WHICH I ALSO SHOW THE INVERSE) USING LEMMA 4.35
-
-We collect some notions and results about enriched categories from \cite{riehl} and \cite[\S 4.2]{whitehouse} that we will need as a categorical setting for our results on derived $A_\infty$-algebras.
-
-\begin{defin}
-Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a \emph{monoidal category over $\VV$} if we have an external tensor product $∗ :\VV × \CC → \CC$ such that we have natural isomorphisms:
-\begin{enumerate}[$\bullet$]
-\item  $1 ∗ X \cong X$ for all $X ∈ \CC$,
-\item $(C ⊗ D) ∗ X \cong C ∗ (D ∗ X)$ for all $C,D ∈ \VV$ and $X ∈ \CC$,
-\item $C ∗ (X ⊗ Y ) \cong (C ∗ X) ⊗ Y \cong X ⊗ (C ∗ Y )$ for all $C ∈ \VV$ and $X, Y ∈ \CC$.
-\end{enumerate}
-\end{defin}
-\begin{remark}\label{underline}
-We will also assume that there is a bifunctor $\uC(−,−) : \CC^{op} × \CC → \VV$ such that we have natural
-bijections
-\[\Hom_\CC(C ∗ X, Y ) \cong \Hom_\VV (C,\uC(X, Y )).\]
-Under this assumption we get a $\VV$-enriched category $\uC$ with the same objects as $\CC$ and with hom-objects given by $\uC (−,−)$. The unit
-morphism $u_A : 1 → \uC (A,A)$ corresponds to the identity map in $\CC$ under the adjunction and the
-composition morphism is given by the adjoint of the composite
-\[(\uC (B,C) ⊗ \uC (A,B)) ∗ A
-\cong \uC (B,C) ∗ (\uC (A,B) ∗ A)
-\xrightarrow{id∗ev_{AB}}
-\uC (B,C) ∗ B
-\xrightarrow{ev_{BC}} C,\]
-where $ev_{AB}$ is the adjoint of the identity $\uC (A,B) → \uC (A,B)$. Furthermore, $\uC$ is a monoidal $\VV$-enriched category, namely we have an
-enriched functor
-\[\underline{⊗} : \uC × \uC → \uC\]
-where $\uC × \uC$ is the enriched category with objects $\mathrm{Ob}(\CC ) × \mathrm{Ob}(\CC )$ and hom-objects
-\[\uC × \uC ((X, Y ), (W,Z)) \coloneqq \uC (X,W) ⊗ \uC (Y,Z).\]
-In particular we get maps in $\VV$
-\[\uC (X,W) ⊗ \uC (Y,Z) → \uC (X ⊗ Y,W ⊗ Z),\]
-given by the adjoint of the composite
-\[(\uC (X,W) ⊗ \uC (Y,Z)) ∗ (X ⊗ Y )\cong (\uC (X,W) ∗ X) ⊗ (\uC (Y,Z) ∗ Y )
-\xrightarrow{ev_{XW}⊗ev_{Y Z}} W ⊗ Z\]
-\end{remark}
-
-\begin{defin}
-Let $\CC$ and $\DD$ be monoidal categories over $\VV$. A \emph{lax functor over $\VV$} consists of a functor $F : \CC → \DD$ together with a natural transformation \[ν_F : − ∗_\DD F(−) ⇒ F(− ∗_\CC −)\]
-which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. (See \cite[Proposition 10.1.5]{riehl} for explicit diagrams stating the coherence axioms.) If $ν_F$ is a natural isomorphism
-we say $F$ is a \emph{functor over $\VV$}.
-Let $F,G : \CC → \DD$ be lax functors over $\VV$. A \emph{natural transformation over $\VV$} is a natural transformation
-$μ : F ⇒ G$ such that for any $C ∈ \VV$ and for any $X ∈ \CC$ we have
-\[ν_G \circ (1 ∗_\DD μ_X) = μ_C∗_\CC X \circ ν_F .\]
-A \emph{(lax) monoidal functor over $\VV$} is a triple $(F, \epsilon, μ)$, where $F : \CC → \DD$ is a lax functor over $\VV$,
-$\epsilon : 1_\DD → F(1_\CC)$ is a morphism in $\DD$ and
-\[μ : F(−) ⊗ F(−) ⇒ F(− ⊗ −)\]
-is a natural transformation over $\VV$ satisfying the standard unit and associativity conditions. If $ν_F$
-and $μ$ are natural isomorphisms then we say that $F$ is \emph{monoidal over $\VV$}. 
-\end{defin}
-
-\begin{propo}\label{enrichedtrans}
-Let $F,G : \CC → \DD$ be lax functors over $\VV$. Then $F$ and $G$ extend to $\VV$-enriched
-functors
-\[\underline{F},\underline{G} : \uC → \uD\]
-where $\uC$ and $\uD$ denote the $\VV$-enriched categories corresponding to $\CC$ and $\DD$ as described in \Cref{underline}. Moreover, any natural transformation $μ : F ⇒ G$ over $\VV$ also extends to a $\VV$-enriched natural
-transformation
-\[\underline{μ} : \underline{F} ⇒ \underline{G}.\]
-In particular, if $F$ is (lax) monoidal over $\VV$, then $F$ is (lax) monoidal in the enriched sense.
-\end{propo}
-\begin{proof}
-See \cite[Proposition 4.11]{whitehouse}.
-\end{proof}
-\begin{lem}
-Let $F,G:\CC\to\DD$ lax functors over $\VV$ and let $\mu : F\Rightarrow G$ a natural transformation over $\VV$. For every $X\in\CC$ and $Y\in\DD$ there is a map \[\uD(GX,Y)\to\uD(FX,Y)\] that is an isomorphism if $\mu$ is an isomorphism.
-\end{lem}
-\begin{proof}
-By \Cref{enrichedtrans} there is a $\VV$-enriched natural transformation 
-\[\underline{\mu}:\underline{F}\to\underline{G}\]
-whose component \[\underline{\mu}_X:1\to\uD(FX,GX)\] is defined to be the adjoint of $\mu_X:FX\to GX$. The map $\uD(GX,Y)\to\uD(FX,Y)$ is defined as the composite
-
-\begin{equation}\label{enrichedmap}
-\uD(GX,Y)\cong\uD(GX,Y)\otimes 1\xrightarrow{1\otimes\umu_X}\uD(GX,Y)\otimes\uD(FX,GX)\xrightarrow{c}\uD(FX,Y)
-\end{equation}
-where $c$ is the composition map in the enriched setting. 
-
-When $\mu$ is an isomorphism we may analogously define the following map
-
-\[\uD(FX,Y)\cong\uD(FX,Y)\otimes 1\xrightarrow{1\otimes\umui_X}\uD(FX,Y)\otimes\uD(GX,FX)\xrightarrow{c}\uD(GX,Y).\]
-
-We show that this map is the inverse of the map in \Cref{enrichedmap}.
-
-\[
-\adjustbox{scale=0.76,center}{%
-\begin{tikzcd}[column sep = 0pt, row sep = 20pt]
-{\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
-                                                                                     & {\uD(GX,Y)\otimes\uD(GX,GX)} \arrow[lu, "c"] \arrow[lu]                                                  & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes 1} \arrow[ld, "1\otimes 1\otimes \umui_X"] \arrow[rdd, "c\otimes 1"] \arrow[ru, "(1)"', phantom] &                                                                                \\
-                                                                                     & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes \uD(GX,FX)} \arrow[u, "1\otimes c"] \arrow[ld, "c\otimes 1"]          &                                                                                                                                    &                                                                                \\
-{\uD(FX,Y)\otimes\uD(GX,FX)} \arrow[uuu, "c"] \arrow[ruu, "(3)"', phantom, bend left] & {}                                                                                                       &                                                                                                                                    & {\uD(FX,Y)\otimes 1} \arrow[lll, "1\otimes\umui_X"] \arrow[llu, "(2)"', phantom]
-\end{tikzcd}
-}
-\]
-
-%
-%\[
-%\adjustbox{scale=1,center}{%
-%\begin{tikzcd}[column sep = 1pt]
-%{\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
-%                                                                                     & {\uD(GX,Y)\otimes\uD(GX,GX)} \arrow[lu, "c"] \arrow[lu]                                                  & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes 1} \arrow[ld, "1\otimes 1\otimes \umui_X"] \arrow[rdd, "c\otimes 1"] \arrow[ru, "(1)"', phantom] &                                                                                \\
-%                                                                                     & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes \uD(GX,FX)} \arrow[u, "1\otimes c"] \arrow[ld, "c\otimes 1"]          &                                                                                                                                    &                                                                                \\
-%{\uD(FX,Y)\otimes\uD(GX,FX)} \arrow[uuu, "c"] \arrow[ruu, "(3)"', phantom, bend left] & {}                                                                                                       &                                                                                                                                    & {\uD(FX,Y)\otimes 1} \arrow[lll, "1\otimes\umui_X"] \arrow[llu, "(2)"', phantom]
-%\end{tikzcd}
-%}
-%\]
-
-In the diagram, $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. 
-\end{proof}
-
-\begin{lem}\label{4.15}
-The category $\fc$ is monoidal over $\vbc$. By restriction, $\fmod$ is monoidal over $\bgmod$.
-\end{lem}
-\begin{proof}
-See \cite[Lemma 4.15]{whitehouse} for the proof and more details.
-\end{proof}
+SHOULD GO IN THE MAIN BODY?
 
 \subsection{Enriched categories and totalization}
 
