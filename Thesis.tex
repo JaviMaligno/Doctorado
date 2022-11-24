@@ -1,4 +1,4 @@
-	\documentclass[twoside]{article}
+	\documentclass[twoside]{book}
 \usepackage{estilo-ejercicios}
 \setcounter{section}{0}
 \usepackage{subfiles}
@@ -42,7 +42,7 @@
 
 INDEX?
 
-\begin{abstract}
+\chapter*{abstract}
 PROBABLY VERY SIMILAR
 
 %SINCE I'M NOT IMPOSING O(0)=0 (I NEED B0 IN THE BRACES AND THE END OPERAD IS USUALLY NON 0 THERE), I PROBABLY NEED TO SPECIFY THAT THE ARITY 0 COMPONENT OF M IS 0 (UNLESS I CONSIDER UNITAL CASE SPEFICALLY), THIS CAN BE DONE BY USING SOME  NOTATION OF THE POSITIVE ARITY PART
@@ -53,11 +53,11 @@ PROBABLY VERY SIMILAR
 %We study the brace structure on an operad of graded $R$-modules using a construction called \emph{operadic suspension} and use it to define $A_\infty$-algebra structures on certain operads. This construction provides us an operadic context from which $A_\infty$-algebras arise in a natural way. We focus on the relation between the brace structure on an operad and its operadic composition, with the endomorphism operad as our main example. This relation allows us to generalize the Lie bracket defined in \cite{RW}. Then we prove some results about $A_\infty$-algebras on operads that were originally claimed by Gerstenhaber and Voronov \cite{GV}. Next, we generalize these constructions to operads of bigraded $R$-modules, introducing a totalizaion functor, which allows to generalize the Lie bracket defined in \cite{LRW}. This construction and the use of some enriched categories allows us to obtain for derived $A_\infty$-algebras some results that are analogous to the ones we obtained for $A_\infty$-algebras.
 
 We study the operad of derived $A_\infty$-algebras from a new point of view. We start by studying the brace structure on an operad of graded $R$-modules using a construction called operadic suspension, which we study in depth for the first time as a functor, and use it to define $A_\infty$-algebra structures on certain operads, with the endomorphism operad as our main example. This construction provides us with an operadic context from which $A_\infty$-algebras arise in a natural way and allows us to generalize the Lie algebra structure on the Hochschild complex. Then we prove a theorem about $A_\infty$-algebras on operads that was originally claimed by Gerstenhaber and Voronov. Next, we generalize these constructions to operads of bigraded $R$-modules, introducing a totalization functor, which allows to generalize a Lie algebra structure on the total complex of a derived $A_\infty$-algebra. This construction and the use of some enriched categories allow us to obtain some new results about derived $A_\infty$-algebras that generalize those obtained for $A_\infty$-algebras.
-\end{abstract}
+
 
 \tableofcontents
 
-\section{Introduction}
+\chapter{Introduction}
 PROBABLY VERY SIMILAR
 
 There are a number of mathematical fields in which $A_\infty$-structures arise, ranging from topology to mathematical physics. To study these structures, different interpretations of $A_\infty$-algebras have been given. From the original definition in 1968 \cite{STASHEFF}, to alternative definitions in terms of tensor coalgebras \cite{keller}, \cite{penkava},  approaches that use the machinery of operads \cite{LRW}, \cite{lodayvallette} or certain Lie brackets \cite{RW} to obtain these algebras. 
@@ -96,16 +96,16 @@ There is a morphism of derived $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\
 %
 %I FEEL THAT THE BACKGROUND IS NOT WELL BALANCED, IN THE CLASSICAL CASE I INCLUDE THE DEF OF AINTY ALGEBRA AND I MENTION THE OPERAD ONLLY VERY BRIEFLY, WHILE FOR THE DERIVED CASE I HAVE A SEPARATE SECTION AFTERWARDS WITH MORE DETAIL, MAYBE ITS OKAY BECAUSE AINFTY SHOULD BE BETTER KNOWN
 
-
+MAKE COPIES OF THE FILES TO BE STRUCTURED INTO BOOK
 
 %\subfile{background}
 %\subfile{SubSuspensionMultiplication}\\
 \subfile{Introduction}
-\subfile{SubSuspensionMultiplicationx}
+%\subfile{SubSuspensionMultiplicationx}
 %\subfile{SubTotalization}
 %\subfile{SubTotalizationx}
-\subfile{SubTotalizationxd}
-\subfile{appendices}
+%\subfile{SubTotalizationxd}
+%\subfile{appendices}
 
 
 %\bibliographystyle{ieeetr}
