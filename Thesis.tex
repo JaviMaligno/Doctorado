@@ -5,6 +5,12 @@
 \usepackage{empheq}
 \usepackage{adjustbox}
 
+\usepackage{geometry}
+ \geometry{
+a4paper,
+left = 40mm,
+right = 40mm 
+ }
 
 \newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
 
@@ -42,7 +48,7 @@
 
 INDEX?
 
-\chapter*{abstract}
+\chapter*{Abstract}
 PROBABLY VERY SIMILAR
 
 %SINCE I'M NOT IMPOSING O(0)=0 (I NEED B0 IN THE BRACES AND THE END OPERAD IS USUALLY NON 0 THERE), I PROBABLY NEED TO SPECIFY THAT THE ARITY 0 COMPONENT OF M IS 0 (UNLESS I CONSIDER UNITAL CASE SPEFICALLY), THIS CAN BE DONE BY USING SOME  NOTATION OF THE POSITIVE ARITY PART
@@ -101,14 +107,13 @@ MAKE COPIES OF THE FILES TO BE STRUCTURED INTO BOOK
 %\subfile{background}
 %\subfile{SubSuspensionMultiplication}\\
 \subfile{Introduction}
-%\subfile{SubSuspensionMultiplicationx}
+\subfile{ThesisSuspensionMultiplication}
 %\subfile{SubTotalization}
 %\subfile{SubTotalizationx}
-%\subfile{SubTotalizationxd}
+\subfile{ThesisTotalization}
 \subfile{Thesis-appendices}
 
 
-%\bibliographystyle{ieeetr}
 \bibliographystyle{alpha}
 \bibliography{newbibliography}
 
