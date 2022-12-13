@@ -1,16 +1,18 @@
-	\documentclass[twoside]{book}
+	\documentclass[twoside, 11pt]{book}
 \usepackage{estilo-ejercicios}
 \setcounter{section}{0}
 \usepackage{subfiles}
 \usepackage{empheq}
 \usepackage{adjustbox}
-
+\usepackage{setspace}
+\doublespacing
 \usepackage{geometry}
  \geometry{
 a4paper,
 left = 40mm,
 right = 40mm 
  }
+ 
 
 \newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
 
@@ -66,7 +68,7 @@ We study the operad of derived $A_\infty$-algebras from a new point of view. We 
 \chapter{Introduction}
 PROBABLY VERY SIMILAR
 
-There are a number of mathematical fields in which $A_\infty$-structures arise, ranging from topology to mathematical physics. To study these structures, different interpretations of $A_\infty$-algebras have been given. From the original definition in 1968 \cite{STASHEFF}, to alternative definitions in terms of tensor coalgebras \cite{keller}, \cite{penkava},  approaches that use the machinery of operads \cite{LRW}, \cite{lodayvallette} or certain Lie brackets \cite{RW} to obtain these algebras. 
+There are a number of mathematical fields in which $A_\infty$-structures arise, ranging from topology to mathematical physics. To study these structures, different interpretations of $A_\infty$-algebras have been given. From the original definition in 1963 \cite{STASHEFF}, to alternative definitions in terms of tensor coalgebras \cite{keller}, \cite{penkava},  approaches that use the machinery of operads \cite{LRW}, \cite{lodayvallette} or certain Lie brackets \cite{RW} to obtain these algebras. 
 
 $A_\infty$-structures have also been combined with brace structures \cite{GV},\cite{lada} which involved certain signs. Typically, these signs were different for each author and no satisfactory explanation was given. 
 
@@ -102,7 +104,6 @@ There is a morphism of derived $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\
 %
 %I FEEL THAT THE BACKGROUND IS NOT WELL BALANCED, IN THE CLASSICAL CASE I INCLUDE THE DEF OF AINTY ALGEBRA AND I MENTION THE OPERAD ONLLY VERY BRIEFLY, WHILE FOR THE DERIVED CASE I HAVE A SEPARATE SECTION AFTERWARDS WITH MORE DETAIL, MAYBE ITS OKAY BECAUSE AINFTY SHOULD BE BETTER KNOWN
 
-MAKE COPIES OF THE FILES TO BE STRUCTURED INTO BOOK
 
 %\subfile{background}
 %\subfile{SubSuspensionMultiplication}\\
@@ -111,7 +112,9 @@ MAKE COPIES OF THE FILES TO BE STRUCTURED INTO BOOK
 %\subfile{SubTotalization}
 %\subfile{SubTotalizationx}
 \subfile{ThesisTotalization}
+\subfile{ThesisFuture}
 \subfile{Thesis-appendices}
+
 
 
 \bibliographystyle{alpha}
