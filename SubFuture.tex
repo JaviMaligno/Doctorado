@@ -27,14 +27,22 @@ We finish by outlining some question that remain open after our research that wo
 \subsection{Hochschild Cohomology}
 Let us review the Hochschild cohomology of an associative operad in order to understand the question that we will be asking about the (derived) $A_\infty$-case.
 
-Let $\OO$ be an operad with an associative multiplication $m$, i.e. an $A_\infty$-multiplication $m$ REFERENCE) such that $m=m_2$. In this case, REFERENCE TO A-INFTY RESULT we have a dg-algebra structure on $S\s\OO$ given by the differential
+Let $\OO$ be an operad with an associative multiplication $m$, i.e. an $A_\infty$-multiplication $m$ (\cref{ainftymult}) such that $m=m_2$. In this case, as a consequence of \cref{ainftystructure} or by \cite{GV}[Proposition 2], we have a dg-algebra structure on $S\s\OO$ given by the differential
 \[d(Sx) =  Sb_1(m; x) -(-1)^{|x|}Sb_1(x; m)\]
 and the multiplication
 \[m(Sx,Sy) = Sb_2(m;x,y).\]
 
-In particular, if $OO = \End_{SA}$ is the endomorphism operad of an associative algebra $A$ (such as $\s\PP$ for an operad $\PP$ with associative multiplication), these maps provide a dg-algebra structure on the Hochschild complex of $A$. We can then take cohomology with respect to $d$ to compute the Hochschild cohomology of $A$, denoted by $HH*(A)$. It is known that $m$ and the bracket 
+In particular, if $\OO = \End_{SA}$ is the endomorphism operad of an associative algebra $A$ (such as $\s\PP$ for an operad $\PP$ with associative multiplication), these maps provide a dg-algebra structure on the Hochschild complex of $A$, denoted by $C^*(A)$. But this is not all the structure that we get. Since any operad is a brace algebra, we have an interaction between the dg-algebra and the brace structure. More precisely, $\OO$ has a structure of \emph{homotopy $G$-algebra} (see Definition 2 and Theorem 3 of \cite{GV}). 
+
+MAYBE WRITE DOWN THE DEFINITION IN MY TERMS, SINCE IT IS A CONSEQUENCE OF BRACE RELATION
+
+ We can then take cohomology with respect to $d$ to compute the Hochschild cohomology of $A$, denoted by $HH^*(A)$. It is known that $m$ and the bracket 
 \[[x,y]=Sb_1(x; y) -(-1)^{|x||y|}Sb_1(y; x)\]
-induce a structure of a Gerstenhaber algebra on $HH*(A)$ \cite{GV}[Corollary 5].
+induce a structure of a Gerstenhaber algebra on $HH^*(A)$ \cite{GV}[Corollary 5]. The proof relies on some identities that can be deduced from the definition of homotopy $G$-algebra, such has graded homotopy commutativity. 
+
+If we try to replicate this argument in the derived $A_\infty$ we encounter an explosion in the number of relations and maps involved when we try to find an $A_\infty$ version of homotopy $G$-algebras. MAYBE GIVE IT A TRY Therefore, the resulting structure has not been feasible to manipulate and it is not very clear what kind of algebraic structure it induces on cohomology. The derived case if of course even more difficult to handle.
+
+Therefore, the challenges for future research are finding a neat way of describing the $A_\infty$ version of homotopy $G$-algebras and the structure it induces on cohomology.
 
 
 DETAILS (ONLY IN THESIS, NOT IN PAPER)
