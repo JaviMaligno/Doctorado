@@ -38,7 +38,7 @@ MAYBE WRITE DOWN THE DEFINITION IN MY TERMS, SINCE IT IS A CONSEQUENCE OF BRACE 
 
  We can then take cohomology with respect to $d$ to compute the Hochschild cohomology of $A$, denoted by $HH^*(A)$. It is known that $m$ and the bracket 
 \[[x,y]=Sb_1(x; y) -(-1)^{|x||y|}Sb_1(y; x)\]
-induce a structure of a Gerstenhaber algebra on $HH^*(A)$ \cite{GV}[Corollary 5]. The proof relies on some identities that can be deduced from the definition of homotopy $G$-algebra, such has graded homotopy commutativity. 
+induces a structure of a Gerstenhaber algebra on $HH^*(A)$ \cite{GV}[Corollary 5]. The proof relies on some identities that can be deduced from the definition of homotopy $G$-algebra, such has graded homotopy commutativity. 
 
 If we try to replicate this argument in the derived $A_\infty$ we encounter an explosion in the number of relations and maps involved when we try to find an $A_\infty$ version of homotopy $G$-algebras. MAYBE GIVE IT A TRY Therefore, the resulting structure has not been feasible to manipulate and it is not very clear what kind of algebraic structure it induces on cohomology. The derived case if of course even more difficult to handle.
 
@@ -51,6 +51,23 @@ I MAY ALSO NEED TO WRITE THE DERIVATION OF (11) FROM (9)
 \url{https://arxiv.org/pdf/hep-th/9409063.pdf}
 
 PROBLEMS IN THE A-INFTY CASE
-\subsection{Morphism}
-About how could $\Phi$ connected morphisms, it's not even clear what notion of morphism to use because if you have $O\to P$ and it is not clear how to get $P^n\to P$ from $O^n\to O$.
+\subsection{Connecting morphisms}
+%About how could $\Phi$ connected morphisms, it's not even clear what notion of morphism to use because if you have $O\to P$ and it is not clear how to get $P^n\to P$ from $O^n\to O$.
+
+
+Another question that arises from our constructions is the following. For an operad $\OO$ with a (derived) $A_\infty$-multiplication, we have stablished a map of (derived) $A_\infty$-algebras
+\[S\s\OO\xrightarrow{\Phi}S\s\End_{S\s\OO}\]
+induced by the brace structure. If we have another operad $P$, we would have a notion of morphism $\OO\to\PP$ that allows us to build the following commutative diagram
+
+\[
+\begin{tikzcd}
+S\s\OO\arrow[r, "\Phi"]\arrow[d, "f"] & S\s\End_{S\s\OO}\arrow[d]\\
+S\s\PP\arrow[r, "\Phi"] & S\s\End_{S\s\PP}
+\end{tikzcd}
+\]
+
+If $f$ is, say, a morphism of operads, this problems boils down to the problem of finding a map $\End_\OO\to\End_\PP$, which is not possible in general unless $f$ is an isomorphism. We would like to find a notion of morphism $\OO\to\PP$ that allows for such commutative diagrams more generally. 
+
+ASKED ABOUT THIS \url{https://math.stackexchange.com/questions/4615572/map-between-endomorphism-operads}
+
 \end{document}
