@@ -10,7 +10,9 @@
 
 
 %\section*{Abstract}
+\chapter{$A_\infty$-algebras on operads}
 
+In this chapter we aim to encode $A_\infty$-algebras in a simple operadic way. To do that we use operadic suspension, following an approach similar to the one introduced by Ward \cite{Ward}. We explore some properties of this construction and the connection to other ways of encoding $A_\infty$-algebras that are found in the literature. We then describe a brace algebra structure on operadic suspension and construct $A_\infty$-algebras on a certain family of operads. We finally use these structures to prove \Cref{theorem}, which was originally claimed by Gerstenhaber and Voronov \cite{GV}.
 
 \section{Operadic suspension}\label{Sec2}
 
@@ -185,7 +187,7 @@ By \Cref{binom}, $f(x)=(-1)^{\binom{n}{2}}x$ is such an automorphism.
 \end{proof}
 
 
-\subsection{Functorial properties of operadic suspension}\label{functorial}
+\section{Functorial properties of operadic suspension}\label{functorial}
 
 
 Here we study operadic suspension at the level of the underlying collections as an endofunctor. Recall from definition \ref{collections} that a collection is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules.
@@ -257,7 +259,7 @@ In particular, for $A_\infty$-algebras it is more convenient to work with $\s\OO
 
 
 
-\subsection{Monoidal properties of operadic suspension}\label{monoidalsusp}
+\section{Monoidal properties of operadic suspension}\label{monoidalsusp}
 Now we are going to explore the monoidal properties of operadic suspension.
 
 Since operads are precisely monoids on the category $\mathrm{Col}$ of collections, we have the following.
@@ -349,7 +351,7 @@ Some authors might use the notation $b_{1+n}$ instead of $b_n$, but the first el
 \end{remark}
 
 We will also see a bigraded version of this kind of map in \Cref{sectionbraces}.
-\subsection{Brace algebra structure on an operad}
+\section{Brace algebra structure on an operad}
 
 
 Given an operad $\OO$ with composition map $\gamma:\OO\circ\OO\to\OO$ we can define a brace algebra on the underlying module of $\OO$ by setting
@@ -439,7 +441,7 @@ so the notation $f\tilde{\circ} g$ is suggestive for operadic suspension. The no
 
 In \cite{RW}, the sign is computed using a strategy that we generalize in \Cref{rw} (see \Cref{eta}). The approach we have followed here has the advantage that the brace relation follows immediatly from the associativity axiom of operadic composition. This approach also works for any operad since the difference between $\gamma$ and $\tilde{\gamma}$ is going to be the same sign. 
 
-\subsection{Reinterpretation of $\infty$-morphisms}\label{reinterpretation}
+\section{Reinterpretation of $\infty$-morphisms}\label{reinterpretation}
 Finally, as we mentioned before, we can show an alternative description of $\infty$-morphisms of $A_\infty$-algebras and their composition in terms of suspension of collections (recall \Cref{inftymorphism} for the definition of these morphisms).
 
 Defining $\mathfrak{s}$ at the level of collections as we did in \Cref{functorial} allows us to talk about $\infty$-morphisms of $A_\infty$-algebras in this setting, since they live in collections of the form\[\End^A_B=\{\Hom(A^{\otimes n},B)\}_{n\geq 1}.\] More precisely, there is a left module structure on $\End^A_B$ over the operad $\End_B$
@@ -477,7 +479,7 @@ In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition ca
 
 
 
-%\subsection{Advantages of this approach}
+%\section{Advantages of this approach}
 %First of all, we get an easier way to obtain the signs and the brace relation follows easily. In addition, this explanation fits better in the context of operads and feels more natural.
 %
 %Furthermore, since we have an isomorphism of operads $\End_{\Sigma A}\cong \mathfrak{s}^{-1}\End_A$, we can translate if needed, results from an operad to its desuspension, which has the same signs in composition as the suspension, but with opposite grading. We can also use this isomorphism if we define maps on $\s\End_{\Sigma A}$, since this is then isomorphic to $\End_A$, which is the naïve Hochschild complex.
@@ -505,7 +507,7 @@ In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition ca
 %%Another possibility is sending $\sigma^{-1}(M_j)\in\s^{-1}\End_{\s\OO}$ to $\s\End_{\s\OO}$. The signs are the same and this identification consists of adding some exterior products, so it doesn't really modify the map $\sigma^{-1}(M_j)$ or the operadic composition. The problem is that it gives the opposite degree: if $\sigma^{-1}(M_j)$ has degree $2-j$ in $\s^{-1}\End_{\s\OO}$ then it has degree $j$ when seen as an element of $\s\End_{\s\OO}$.
 %%\end{remark}
 %%
-%%\subsection{Redefining the maps}
+%%\section{Redefining the maps}
 %%I am going to use the notation $M_j$ for what I've called $M_j'$ before since we are going to be interested only in these new maps. $M_1$ remains unmodified and $M_2$ has already been defined as $M_2(x,y)=(-1)^{|x|}b_2(m;x,y)$. We want to define $M_j$ for $j\geq 3$ such that for each decomposition $n=r+s+t$ we have
 %%
 %%$$\sum_n (-1)^{rs+t}M_{r+1+t}(1^{\otimes r}\otimes M_s\otimes 1^{\otimes t})=0.$$
@@ -526,7 +528,7 @@ In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition ca
 %%
 %%The total degree in the sign is consistent with the oddity that we originally found. In particular, we already know that this relation holds, which is the $A_\infty$-equation for $n=2$. For $n=1$ it is just $M_1(M_1(x))=0$, that we also know (more about this in \ref{remark3}). We have to be careful because the reduced degree is also going to appear in the operadic relations such as the brace relation.
 %%\end{remark}
-%%\subsection{Definition of $M_3$}
+%%\section{Definition of $M_3$}
 %%We are going to define $M_3(x,y,z)=(-1)^{\varepsilon(x,y,z)}b_3(m;x,y,z)$ and find necessary conditions that $\varepsilon(x,y,z)$ must satisfy. To do that we look at the $A_\infty$-equation for $n=3$. Before proceding, let us impose some previous conditions on $\varepsilon(x,y,z)$. It should depend only on the total or reduced degree of $x$, $y$ and $z$. In particular, it should not distinguish between $b_1(m;x)$ and $b_1(x;m)$, so we may define $\varepsilon(M_1(x),y,z)$ and so on. We denote 
 %%\begin{gather*}
 %%\varepsilon_1\coloneqq\varepsilon(M_1(x),y,z),\\
@@ -708,7 +710,7 @@ So now we have that $M\in\s\End_{S\s\OO}$ is an element of natural degree 1 and 
 \end{proof}
 Notice that $M$ is defined as an structure map on $S\s\OO$. This kind of shifted operad is called \emph{odd operad} in \cite{ward}. This means that $S\s\OO$ is not an operad anymore, since the associativity relation for graded operads involves signs that depend on the degrees, which are now shifted. 
 
-\subsection{Iterating the process}\label{sect3}
+\section{Iterating the process}\label{sect3}
 
 Now we can apply the same construction to the operad $\s\End_{S\s\OO}$ and we get $A_\infty$-algebra structure given by maps
 \begin{equation}\label{barmaps}
@@ -795,7 +797,7 @@ is defined by
  where $B_j$ is the natural brace structure map on the operad $\End_{\s\OO}$, i.e. for $f\in\End_{\s\OO}(n)$, 
 \[B_j(f;f_1,\dots, f_j)=\sum_{k_0+\cdots+k_j=n-j} f(1^{\otimes k_0}\otimes f_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes f_j\otimes 1^{\otimes k_j}).\]
  The $1$'s in the brace structure are identity maps. In the above definition, $|f|$ denotes the degree of $f$ as an element of $\End_{\s\OO}$, which is the same as the degree $\overline{\sigma}(f)\in \s\End_{S\s\OO}$ because $\overline{\sigma}$ is an isomorphism, as mentioned in \Cref{barsigma}.  %the degree as a map sO^n\to sO, which is computed by evaluating and computing arity +degree-1
- \subsection*{Commutativity of the right blue square}
+ \section*{Commutativity of the right blue square}
  Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and $M=\overline{\sigma}(M')$. Then we have for $j>1$
  
  \[\overline{M}'_j(\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(M;\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j)).\]
@@ -814,7 +816,7 @@ is defined by
 %\vspace{0.5cm}
 
 The proof that the left blue square commutes consists of several lenghty calculations so we are going to devote the next section to that. However, it is worth noting that the commutativity of the left square does not depend on the particular operad $\s\OO$, so it is still valid if $m$ satisfies $m\circ m=0$ for any circle operation defined in terms of insertions. This is essentialy the original statement in \cite{GV}.
-\subsection*{Commutativity of the left blue square}
+\section*{Commutativity of the left blue square}
 We are going to show here that the left blue square in the diagram of the proof of Theorem \ref{theorem} commutes, i.e. that 
 
 \begin{equation}\label{commutative}
@@ -859,7 +861,7 @@ Now we are going to show that
 \Phi'(M'_1(x))=\mathcal{M}_1(\Phi'(x)).
 \end{equation} This going to be divided into two parts, since $M'_1$ has to clearly distinct summands.
 
-\subsubsection*{Insertions in $m$}
+\subsection*{Insertions in $m$}
 
 Let us first focus on the insertions in $m$ that appear in equation (\ref{case1}). Recall that 
 
@@ -899,7 +901,7 @@ Again, we are focusing now on the first summand, but with the exception of the p
 %
 
 
-\subsubsection*{Insertions in $x$}
+\subsection*{Insertions in $x$}
 
 And now, let us study the insertions in $x$ that appear in equation (\ref{case1}). Let us look first at the left hand side. From $\Phi'(M'_1(x))$ in equation (\ref{phim}) we had 
 
@@ -952,7 +954,7 @@ The minus sign comes from the fact that $b_1(z_i;m)$ comes from $M'_1(z_i)$, so 
  In the case $n=0$, we have to note that $B_1(b_0(x);m)$ vanishes because of arity reasons: $b_0(x)$ is a map of arity 0, so we cannot insert any inputs. And this finishes the proof.
  \end{proof}
  
- \subsection{Explicit $A_\infty$-algebra structure}\label{sect4}
+ \section{Explicit $A_\infty$-algebra structure}\label{sect4}
 % PROBABLY ALSO INCLUDE THE COMPUTATION OF THE AINFTY EQUATION
 
 We have given an implicit definition of the components of the $A_\infty$-algebra structure on $S\s\OO$, namely, \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
