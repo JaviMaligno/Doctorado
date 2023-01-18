@@ -6,7 +6,7 @@
 \documentclass[twoside]{article}
 %\usepackage{estilo-ejercicios}
 \setcounter{section}{0}
-
+\usepackage{ucs}
 \renewcommand{\baselinestretch}{1,4}
 \setlength{\oddsidemargin}{0.5in}
 \setlength{\evensidemargin}{0.5in}
@@ -167,7 +167,7 @@ TRY AMSART STYLE (ALSO CHECK AMSBOOK AND OTHER FOR THESIS)
 
 
 
-We study the operad of derived $A_\infty$-algebras from a new point of view. We start by studying the brace structure on an operad of graded $R$-modules using a construction called operadic suspension, which we study in depth for the first time as a functor, and use it to define $A_\infty$-algebra structures on certain operads, with the endomorphism operad as our main example. This construction provides us with an operadic context from which $A_\infty$-algebras arise in a natural way and allows us to generalize the Lie algebra structure on the Hochschild complex. Then we prove a theorem about $A_\infty$-algebras on operads that was originally claimed by Gerstenhaber and Voronov. Next, we generalize these constructions to operads of bigraded $R$-modules, introducing a totalization functor, which allows to generalize a Lie algebra structure on the total complex of a derived $A_\infty$-algebra. This construction and the use of some enriched categories allow us to obtain some new results about derived $A_\infty$-algebras that generalize those obtained for $A_\infty$-algebras.
+We study the operad of derived $A_\infty$-algebras from a new point of view. We start by defining the brace structure on an operad of graded $R$-modules using operadic suspension, which we describe in depth for the first time as a functor, and use it to define $A_\infty$-algebra structures on certain operads, with the endomorphism operad as our main example. This construction provides us with an operadic context from which $A_\infty$-algebras arise in a natural way and allows us to generalize the Lie algebra structure on the Hochschild complex of an $A_\infty$-algebra. Next, we generalize these constructions to operads of bigraded $R$-modules, introducing a totalization functor. This allows us to generalize a Lie algebra structure on the total complex of a derived $A_\infty$-algebra. This construction and the use of some enriched categories allow us to obtain some new results about derived $A_\infty$-algebras that generalize those obtained for $A_\infty$-algebras.
 \end{abstract}
 
 \tableofcontents
@@ -175,9 +175,9 @@ We study the operad of derived $A_\infty$-algebras from a new point of view. We 
 \section{Introduction}
 
 
-There are a number of mathematical fields in which $A_\infty$-structures arise, ranging from topology to mathematical physics. To study these structures, different interpretations of $A_\infty$-algebras have been given. From the original definition in 1963 \cite{STASHEFF}, to alternative definitions in terms of tensor coalgebras \cite{keller}, \cite{penkava},  approaches that use the machinery of operads \cite{LRW}, \cite{lodayvallette} or certain Lie brackets \cite{RW} to obtain these algebras. 
+There are a number of mathematical fields in which $A_\infty$-structures arise, ranging from topology to mathematical physics. To study these structures, different interpretations of $A_\infty$-algebras have been given. From the original definition in 1963 \cite{STASHEFF}, to alternative definitions in terms of tensor coalgebras \cite{keller}, \cite{penkava}, many approaches use the machinery of operads \cite{LRW}, \cite{lodayvallette} or certain Lie brackets \cite{RW} to obtain these objects. 
 
-$A_\infty$-structures have also been combined with brace structures \cite{GV},\cite{lada} which involved certain signs. Typically, these signs were different for each author and no satisfactory explanation was given. 
+Another technique to describe $A_\infty$-structures comes from brace algebras \cite{GV},\cite{lada}, which often involves unwieldy sign calculations that are difficult to describe in a conceptual way.
 
 Here we used an operadic approach to obtain these signs in a more conceptual and consistent way. As a consequence, we will generalize the Lie bracket used in \cite{RW} and will give a very simple interpretation of $A_\infty$-algebras. The difference between our operadic approach and others mentioned before is that ours uses much more elementary tools and can be use to talk about $A_\infty$-structrures on any operad. We hope that this provides a useful way of thinking about $A_\infty$-structures.
 
@@ -185,24 +185,25 @@ Later in 2009, derived $A_\infty$-algebras were introduced by Savage \cite{sagav
 
 The text is organized as follows. In Section \ref{Sec1} we recall some basic definitions and establish some conventions for both the classical and the derived cases. In Section \ref{Sec2} we define a device called \emph{operadic suspension} that will help us obtain the signs that we want and link this device to the classical operadic approach to $A_\infty$-algebras. We also take this construction to the level of the underlying collections of the operads to also obtain a nice description of $\infty$-morphisms of $A_\infty$-algebras. We then explore the functorial properties of operadic suspension, being monoidality (\Cref{monoidality}) the most remarkable of them. In \Cref{sectionbraces} we study the brace algebra induced by operadic supension and obtain a relevant result, \Cref{bracesign}, which establishes a relation between the canonical brace structure on an operad and the one induced by its operadic suspension. We show that as a particular case of this result we obtain the Lie bracket from \cite{RW}.
 
-Following Gerstenhaber and Voronov's terminology, if $\OO$ is an operad with an $A_\infty$-multiplication $m\in\OO$, it is natural to ask whether there are linear maps $M_j:\OO^{\otimes j}\to \OO$ satisfying the $A_\infty$-algebra axioms. In Section \ref{sect2} we use the aforementioned brace structure to define such linear maps on a shifted version of the operadic suspension. We then iterate this process in Section \ref{sect3} to define an $A_\infty$-structure on the Hochschild complex of an operad with $A_\infty$-multiplication. This iteration process was inspired by the work of Getzler in \cite{getzler}.
+Following the terminology of \cite{GV}, if $\OO$ is an operad with an $A_\infty$-multiplication $m\in\OO$, it is natural to ask whether there are linear maps $M_j:\OO^{\otimes j}\to \OO$ satisfying the $A_\infty$-algebra axioms. In Section \ref{sect2} we use the aforementioned brace structure to define such linear maps on a shifted version of the operadic suspension. We then iterate this process in Section \ref{sect3} to define an $A_\infty$-structure on the Hochschild complex of an operad with $A_\infty$-multiplication. This iteration process was inspired by the work of Getzler in \cite{getzler}.
 
-Next, we prove our first main result, \Cref{theorem}, which relates the $A_\infty$-structure on an operad with the one induced on its Hochschild complex, more precisely, 
+Next, we prove our first main result, \Cref{theorem}, which relates the $A_\infty$-structure on an operad with the one induced on its Hochschild complex. More precisely, we have the following.
 
 \begin{manualtheorem}{A}
 There is a morphism of $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$.
 \end{manualtheorem} 
-This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we introduce a suitable context and prove it as \Cref{theorem}. We also draw a connection between our framework and the one from Gerstenhaber and Voronov.
+This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we introduce a suitable context and prove it as \Cref{theorem}. We also draw a connection between our framework and the one from Gerstenhaber and Voronov. As a consequence of this theorem, if $A$ is an $A_\infty$-algebra and $\OO=\End_A$ its endomorphism operad, we obtain an $A_\infty$-version of the Deligne Conjecture. 
 
- After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras in \Cref{deriveddef}. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW} which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our second and third main results. The former is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, this structure is equivalent to a derived $A_\infty$-algebra on $S\s\OO$, i.e 
+ After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras in \Cref{deriveddef}. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW} which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our second and third main results. The former is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, this structure is equivalent to a derived $A_\infty$-algebra on $S\s\OO$.
  
  \begin{manualtheorem}{B}
- There are linear maps $M_{ij}:(S\s\OO)^{\otimes j}\to S\s\OO$, satisfying the derived $A_\infty$-algebra axioms.
+	For any operad $\OO$ with a derived $A_\infty$-multiplication there are linear maps $M_{ij}:(S\s\OO)^{\otimes j}\to S\s\OO$, satisfying the derived $A_\infty$-algebra axioms.
  \end{manualtheorem}
  The latter is \Cref{bigradedtheorem}, which generalizes \Cref{theorem} to the derived setting. More precisely,
  \begin{manualtheorem}{C}
 There is a morphism of derived $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$.
 \end{manualtheorem}
+As a consequence of this theorem we obtain a new version of the Deligne Conjecture, this time in the setting of derived $A_\infty$-algebras.
 
 \section{Background and conventions}\label{Sec1}
 
@@ -213,9 +214,9 @@ In this section we include all necessary background and the conventions we use t
 Let us start by recalling some background definitions and results that we will need to study $A_\infty$-algebras, as well as stating some conventions.
 
 
-We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions. For more details and intuition the reader is referred to \cite{keller} and \cite[\S 9.2]{lodayvallette}.
+We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions. For more details and intuition, the reader is referred to \cite{keller} and \cite[\S 9.2]{lodayvallette}.
 
-Our base category is the category of graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convention:
+Our base category is the category of graded $R$-modules and linear maps, where $R$ is a fixed commutative ring with unit of characteristic not equal to 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convention:
 
 \begin{align*}
 \tau_{A,B}:A\otimes B&\to B\otimes A\\
@@ -229,11 +230,10 @@ We also adopt the following Koszul sign convention: for $x\in A$, $y\in B$, $f\i
 \[(f\otimes g)(a\otimes b)=(-1)^{\deg(x)\deg(g)}f(x)\otimes g(y).\] %NOT SURE IF SUM OR PROD %I think it's prod because it's all homomorphisms that raise the degree by i
 
 \begin{defin}
-For a graded $R$-module $A$ we consider the \emph{shift} or \emph{suspension} $SA$ for which $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
+For a graded $R$-module $A$ the \emph{shift} or \emph{suspension} of $A$ is the graded $R$-module $SA$ with $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
 \end{defin}
 \begin{defin}
-An \emph{$A_\infty$-algebra} is a graded $R$-module $A$ together with a family of maps $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying for all $n\geq 1$ the equation
-
+An \emph{$A_\infty$-algebra} is a graded $R$-module $A$ together with a family of maps $m_n:A^{\otimes n}\to A$ of degree $2-n$ such that for all $n\geq 1$ 
 \begin{equation}\label{ainftyequation}
 \sum_{r+s+t=n}(-1)^{rs+t}m_{r+t+1}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t})=0.
 \end{equation}
@@ -242,7 +242,7 @@ An \emph{$A_\infty$-algebra} is a graded $R$-module $A$ together with a family o
 The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. 
 
 \begin{defin}\label{inftymorphism}
-An \emph{$\infty$-morphism} of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $1-n$ satisfying for all $n\geq 1$ the equation
+An \emph{$\infty$-morphism} of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $1-n$ such that for all $n\geq 1$
 \[\sum_{r+s+t=n} (-1)^{rs+t}f_{r+1+t}(1^{\otimes r} \otimes m^A_s\otimes 1^{\otimes t})=\sum_{i_1+\cdots+i_k=n} (-1)^s m^B_k(f_{i_1}\otimes\cdots\otimes f_{i_k}),\]
 where
 
@@ -254,7 +254,7 @@ The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by
 \end{defin}
 
 \begin{defin}
-A \emph{morphism} of $A_\infty$-algebras is a degree 0 map $f:A\to B$ such that
+A \emph{morphism} of $A_\infty$-algebras is a map $f:A\to B$ of degree 0 such that
 \[f(m^A_j)=m^B_j\circ f^{\otimes j}.\]
 \end{defin}
 
@@ -264,10 +264,10 @@ We will discuss these topics in the language of operads, for which we need some 
 
 \subsection{Operads}
 
-We start defining the underlying object of an operad.
+We define operads in terms of the underlying collections. Operads are a very common tool used to describe algebraic structures in terms of multilinear maps. Here we just recall them briefly. For a complete survey, we refer the reader to \cite{lodayvallete}. 
 
 \begin{defin}\label{collections}
-A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules. We call the integer $n$ the \emph{arity}. When there is an action of the symmetric group $\Sigma_n$ on each $\OO(n)$ we say that the collection is an $\mathbb{S}-$module. A \emph{map of collections} $f:\OO\to\mathcal{P}$ is a family of maps $f_n:\OO(n)\to\mathcal{P}(n)$. A map of collection is a \emph{map of $\mathbb{S}-$modules} when it preserves the symmetric group action.
+A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules. We call the integer $n$ the \emph{arity}. When there is an action of the symmetric group $\Sigma_n$ on each $\OO(n)$ we say that the collection is an $\mathbb{S}-$module. A \emph{map of collections} $f:\OO\to\mathcal{P}$ is a family of maps $f_n:\OO(n)\to\mathcal{P}(n)$. A map of collections is a \emph{map of $\mathbb{S}-$modules} if it preserves the symmetric group action.
 \end{defin}
 
 \begin{defin}
@@ -282,16 +282,19 @@ The \emph{plethysm} or \emph{composite} $f\circ g$ of maps $f:\OO\to\OO'$ and $g
 where $\varepsilon$ is the Koszul sign obtained from swapping each $g$ by the correspoding elements. 
 \end{defin}
 
-It is known that the category of collections with plethysm is a monoidal category, where the unit is the collection $I(1)=R$ and $I(n)=0$ for $n\neq 1$. 
+It is known that the category of collections with plethysm is a monoidal category, where the unit $I$ is the collection such that $I(1)=R$ and $I(n)=0$ for $n\neq 1$. 
 \begin{defin}
 A \emph{(non-symmetric) operad} is a collection $\OO=\{\OO(n)\}$ where there is a distinguished \emph{identity} element $1\in\OO(1)$ and with \emph{insertion maps} 
 \[\circ_i:\OO(n)\otimes \OO(m)\to \OO(m+n-1)\]
-for each $1\leq i\leq n$ satisfying natural unitality and associativity axioms. Insertion maps can be iterated to define \emph{composition maps} \[\gamma(x;x_1,\dots, x_n)=(\cdots(x\circ_1 x_1)\circ_2 x_2\cdots
+for each $1\leq i\leq n$ satisfying natural unitality and associativity axioms.
+\end{defin}
+
+ Insertion maps can be iterated to define \emph{composition maps} \[\gamma(x;x_1,\dots, x_n)=(\cdots(x\circ_1 x_1)\circ_2 x_2\cdots
 )\circ_n x_n).\]
-If $\OO$ is an $\mathbb{S}-$module and the insertion maps satisfy some additional axioms regarding the symmetric group action, we say that $\OO$ is a symmetric operad. See \cite{lodayvallette} for more details.
+If $\OO$ is an $\mathbb{S}-$module and the insertion maps satisfy some additional axioms regarding the symmetric group action, we say that $\OO$ is a \emph{symmetric} operad, see \cite{lodayvallette} for more details.
 
 A \emph{map of operads} (resp. symmetric operads) is a map of collections (resp. $\mathbb{S}-$modules) that is compatible with insertions.
-\end{defin}
+
 
 It is also known that an operad $\OO$ is equivalent to a monoid in the monoidal category of collections with plethysm, where the multiplication  map is given precisely by the composition $\gamma:\OO\circ\OO\to\OO$. See \cite[\S 5]{lodayvallette} for more details. 
 
@@ -306,28 +309,28 @@ An \emph{algebra over an operad} $\OO$ is a map of operads $\OO\to\End_A$. By ad
 \end{defin}
 The \emph{$\mathcal{A}_\infty$-operad} is the non-symmetric operad whose algebras are $A_\infty$-algebras. Therefore, it is generated by elements $\mu_i\in\mathcal{A}_\infty(i)$ satisfying the operadic version of the $A_\infty$-equation. More details about this operad can be found in \cite[Chapter 9]{lodayvallette}.
 
-All the above definitions generalize with no substantial changes to the bigraded case as well. In the next section we will cover the background specifically needed for bigraded modules.
+All the above definitions generalize to the bigraded case as well with no substantial changes. In the next section we will cover the background specifically needed for bigraded modules.
 
 \subsection{For the study of derived $A_\infty$-algebras}\label{background}
 
 Now we move to the categories and conventions that we need in order to study derived $A_\infty$-algebras. Most of the defiitions come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
 
 Let $\CC$ be a category and let $A$, $B$ be arbitrary
-objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is
-symmetric monoidal closed, then we denote its internal hom-object by $[A,B] ∈ \CC$.
+objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is a
+closed symmetric monoidal category, then we denote its internal hom-object by $[A,B] ∈ \CC$.
 
 
 
 \subsubsection{Filtered Modules and complexes}
 
-We collect some definitions about filtered modules and filtered complexes.
+First, we collect some definitions about filtered modules and filtered complexes.
 
 \begin{defin}
 A \emph{filtered $R$-module} $(A, F)$ is given by a family of $R$-modules $\{F_pA\}_{p∈\Z}$ indexed by
-the integers such that $F_{p}A ⊆ F_{p-1}A$ for all $p ∈ \Z$ and $A = ∪F_pA$. A \emph{morphism of filtered modules} is a morphism $f : A → B$ of $R$-modules which is compatible with filtrations: 
+the integers such that $F_{p}A ⊆ F_{p-1}A$ for all $p ∈ \Z$ and $A = \bigcup_p F_pA$. A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules which is compatible with filtrations: 
 \[f(F_pA) ⊂ F_pB \text{ for all }p ∈ \Z.\]
 \end{defin}
-
+We denote by $\mathrm{C}_R$ the category of chain complexes of $R$-modules.
 \begin{defin}\label{filteredcomplex}
 A \emph{filtered complex} $(K, d, F)$ is a complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. Its morphisms are given by
 morphisms of complexes $f : K → L$ compatible with filtrations: \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
@@ -338,7 +341,7 @@ We denote by $\fmod$ and $\fc$ the categories of filtered modules and filtered c
 %I reversed inclusion from the original sourcce. As a consequence I used F_1 instead of F_{-1}. I do it because the maps preserving filtratiion will be in level 0 and I want the whole A_\infty operad to be mapped to that level, so R must be in level 0 as well
 
 \begin{defin}\label{filteredtensor}
-The \emph{tensor product of two filtered $R$-modules} $(A, F)$ and $(B, F)$ is a filtered $R$-module,
+The \emph{tensor product of two filtered $R$-modules} $(A, F)$ and $(B, F)$ is the filtered $R$-module
 with
  \[F_p(A ⊗ B) :=\sum_{i+j=p}\Ima(F_iA ⊗ F_jB → A ⊗ B).\]
 This makes the category of filtered $R$-modules into a symmetric monoidal category, where the unit is given by $R$ with the trivial filtration $0 = F_{1}R ⊂ F_0R = R$.
@@ -347,14 +350,14 @@ This makes the category of filtered $R$-modules into a symmetric monoidal catego
 
 \begin{defin}\label{filterend}
 Let $K$ and $L$ be filtered complexes. We define $\underline{\Hom}(K,L)$ to be the filtered complex whose underlying chain complex is $\Hom_{\mathrm{C}_R}(K,L)$ and the filtration $F$ given by 
-\[F_p\underline{\Hom}(K,L)=\{f:K\to L\mid f(F_qK)\subset F_{q+p}L\text{ for all }q ∈ \Z.\}\]
+\[F_p\underline{\Hom}(K,L)=\{f:K\to L\mid f(F_qK)\subset F_{q+p}L\text{ for all }q ∈ \Z\}.\]
 In particular, $\Hom_{\fmod}(K,L)=F_0\underline{\Hom}(K,L)$.
 \end{defin}
 
 \subsubsection{Bigraded modules, vertical bicomplexes, twisted complexes and sign conventions}
 
 
-We collect some definitions of basic categories that we need to use and stablish some conventions.
+We collect some definitions of basic categories that we need to use and establish some conventions.
 
 
 \begin{defin}
@@ -427,9 +430,9 @@ The composition of morphisms is given by $(g \circ f)_m :=\sum_{i+j=m} g_if_j$.
 A morphism $f = \{f_m\}_{m≥0}$ is
 said to be \emph{strict} if $f_i = 0$ for all $i > 0$. The \emph{identity} morphism $1_A : A → A$ is the strict morphism
 given by $(1_A)_0(x) = x.$ A morphism $f = \{f_i\}$ is an \emph{isomorphism} if and only if $f_0$ is an isomorphism of
-bigraded $R$-modules. Indeed, an inverse of $f$ is obtained from an inverse of $f_0$ by solving a triangular system.
+bigraded $R$-modules. Indeed, an inverse of $f$ is obtained from an inverse of $f_0$ by solving a triangular system of linear equations.
 \end{defin}
-Denote by $\tc$ the category of twisted complexes. The following construction endows $\tc$ with a symmetric monoidal structure. See \cite[Lemma 3.3]{whitehouse} for a proof.
+Denote by $\tc$ the category of twisted complexes. The following construction endows $\tc$ with a symmetric monoidal structure, see \cite[Lemma 3.3]{whitehouse} for a proof.
 \begin{lem}\label{tensortwisted}
 The category $(\tc,⊗,R)$ is symmetric monoidal, where the monoidal structure is given
 by the bifunctor
@@ -438,9 +441,10 @@ which on objects is given by $((A, d^A_m), (B, d^B_m)) → (A ⊗ B, d^A_m ⊗ 1
 given by $(f, g) → f ⊗ g$, where $(f ⊗ g)_m :=\sum_{i+j=m} f_i ⊗ g_j$. In particular, by the Koszul sign rule we
 have that \[(f_i ⊗g_j)(x⊗z) = (−1)^{\langle g_j ,x\rangle}f_i(x)⊗g_j(z).\] The symmetry isomorphism is given by the strict
 morphism of twisted complexes
-\[τ_{A⊗B} : A ⊗ B → B ⊗ A\]
-defined by
-\[x ⊗ y\mapsto (−1)^{\langle x,y\rangle}y ⊗ x.\]
+\begin{align*}
+τ_{A⊗B} \colon &A ⊗ B → B ⊗ A\\
+&x ⊗ y\mapsto (−1)^{\langle x,y\rangle}y ⊗ x.
+\end{align*}
 \end{lem}
 
 The internal hom on bigraded modules can be extended to twisted complexes via the following lemma whose proof is in \cite[Lemma 3.4]{whitehouse}.
