@@ -313,7 +313,9 @@ All the above definitions generalize to the bigraded case as well with no substa
 
 \subsection{For the study of derived $A_\infty$-algebras}\label{background}
 
-Now we move to the categories and conventions that we need in order to study derived $A_\infty$-algebras. Most of the defiitions come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
+Now we move to the categories and conventions that we need in order to study derived $A_\infty$-algebras. The idea is that we would like to apply what we obtain in the setting of $A_\infty$-algebras to the derived setting. In order to do that, we need a way to connect a single graded category with a bigraded category. This is usually done through totalization. But in order to properly translate $A_\infty$-algebras into totalized derived $A_\infty$-algebras we need to go through several suitably enriched catgories that are defined in this section.
+
+Most of the definitions come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
 
 Let $\CC$ be a category and let $A$, $B$ be arbitrary
 objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is a
@@ -466,26 +468,23 @@ The \emph{column filtration} of $\Tot(A)$ is the filtration given by \[F_p\Tot(A
 \end{defin}
 
 Given a twisted complex $(A, d_m)$, define a map $d : \Tot(A) → \Tot(A)$ of degree $1$ by letting
-\[d(x)_j \coloneqq \sum_{m≥0}(−1)^{mn}d_m(x_{j-m}),\]
-for $x = (x_i)_{i∈\Z} ∈ \Tot(A)^n$,
-where $x_i ∈ A^{n-i}_i$ denotes the $i$-th component of $x$, and $d(x)_j$ denotes the $j$-th component of $d(x)$. Note
+\[d(x)_j \coloneqq \sum_{m≥0}(−1)^{mn}d_m(x_{j-m})\]
+for $x = (x_i)_{i∈\Z} ∈ \Tot(A)^n$. Here $x_i ∈ A^{n-i}_i$ denotes the $i$-th component of $x$, and $d(x)_j$ denotes the $j$-th component of $d(x)$. Note
 that, for a given $j ∈ \Z$ there is a sufficiently large $m ≥ 0$ such that $x_{j-m′} = 0$ for all $m′ ≥ m$. Hence
 $d(x)_j$ is given by a finite sum. Also, for negative $j$ sufficiently large, one has $x_{j-m} = 0$ for all $m ≥ 0$, which
 implies $d(x)_j = 0$.
 
-Given a morphism $f : (A, d_m) → (B, d_m)$ of twisted complexes, let $\Tot(f) : \Tot(A) → \Tot(B)$ be
-the map of degree 0 defined by
+Given a morphism $f : (A, d_m) → (B, d_m)$ of twisted complexes, let the \emph{totalization of $f$} be the map $\Tot(f) : \Tot(A) → \Tot(B)$ of degree 0 defined by
 \[(\Tot(f)(x))_j \coloneqq \sum_{m≥0}(−1)^{mn}f_m(x_{j-m}),\]
  for $x = (x_i)_{i∈\Z} ∈ \Tot(A)^n$.
  
+ The following is \cite[Theorem 3.8]{whitehouse}.
 \begin{thm}
 The assignments $(A, d_m) \mapsto (\Tot(A), d, F)$, where $F$ is the column filtration of $\Tot(A)$,
 and $f \mapsto \Tot(f)$ define a functor $\Tot : \tc \to \fc$ which is an isomorphism of categories when restricted to its image.
 \end{thm}
-\begin{proof}
-See \cite[Theorem 3.8]{whitehouse}.
-\end{proof}
-For a filtered complex of the form $(\Tot(A),d,F)$, where $A = \{A^j_i \}$ is a bigraded $R$-module, we can recover the twisted complex structure on  $A$ as follows. For all $m ≥ 0$, let
+
+For a filtered complex of the form $(\Tot(A),d,F)$ where $A = \{A^j_i \}$ is a bigraded $R$-module, we can recover the twisted complex structure on  $A$ as follows. For all $m ≥ 0$, let
 $d_m : A → A$ be the morphism of bidegree $(m,1-m)$ defined by 
 \[d_m(x) = (−1)^{nm}d(x)_{i+m},\] 
 where $x ∈ A^{n-i}_i$ and $d(x)_k$ denotes the $k$-th component of $d(x)$, which lies in $A^{n+1-k}_k$.
@@ -495,17 +494,18 @@ where $x ∈ A^{n-i}_i$ and $d(x)_k$ denotes the $k$-th component of $d(x)$, whi
 We will consider the following bounded categories since the totalization functor has better properties when restricted to them. 
 
 \begin{defin}
-We let $\tc^b$, $\vbc^b$, $\bgmod^b$ be the full subcategories of \emph{horizontally bounded on the right} graded twisted
+We let $\tc^b$, $\vbc^b$ and $\bgmod^b$ be the full subcategories of \emph{horizontally bounded on the right} graded twisted
 complexes, vertical bicomplexes and bigraded modules respectively. This means that if $A=\{A^j_i\}$ is an object of any of this categories, then there exists $i$ such that $A^j_{i'}=0$ for $i'>i$.
 
-We let $\fmod^b$, $\fc^b$ be the full subcategories of bounded filtered modules, respectively complexes, i.e.
-the full subcategories of objects $(K, F)$ such that there exists some $p$ with the property that $F_{p'}K^n = 0$ for all $p> p'$. We refer to all of these as the \emph{bounded subcategories} of $\tc$, $\vbc$, $\bgmod$, $\fmod$ and $\fc$ respectively.
+We let $\fmod^b$ and $\fc^b$ be the full subcategories of bounded filtered modules, respectively complexes, i.e.
+the full subcategories of objects $(K, F)$ such that there exists some $p$ with the property that $F_{p'}K^n = 0$ for all $p'>p$. We refer to all of these as the \emph{bounded subcategories} of $\tc$, $\vbc$, $\bgmod$, $\fmod$ and $\fc$ respectively.
 \end{defin}
 
+The following is \cite[Proposition 3.11]{whitehouse}.
 \begin{propo}\label{monoidal}
 The functors $\Tot : \bgmod → \fmod$ and $\Tot : \tc → \fc$ are lax symmetric
-monoidal, with structure maps
-\[\epsilon : R → \Tot(R)\text{ and }\mu=μ_{A,B} : \Tot(A) ⊗ \Tot(B) → \Tot(A ⊗ B),\]
+monoidal with structure maps
+\[\epsilon : R → \Tot(R)\text{ and }\mu=μ_{A,B} : \Tot(A) ⊗ \Tot(B) → \Tot(A ⊗ B)\]
 given by $\epsilon = 1_R$ and for $x = (x_i)_i ∈ \Tot(A)^{n_1}$ and  $y=(y_j)_j ∈ \Tot(B)^{n_2}$,
 \begin{equation}\label{mu1}
 μ(x ⊗ y)_k \coloneqq
@@ -516,16 +516,14 @@ When restricted to the bounded case, $\Tot : \bgmod^b
  → \fmod^b$ and $\Tot : \tc^b → \fc^b$ are
 strong symmetric monoidal functors.
 \end{propo}
-\begin{proof}
-See \cite[Proposition 3.11]{whitehouse}.
-\end{proof}
+
 
 \begin{remark}\label{heuristic}
-There is a certain heuristic to obtain the sign appearing in the definition of $\mu$ in \Cref{monoidal}. In the bounded case, we can write \[\Tot(A)=\bigoplus_i A_i^{n-i}\]
-and direct sum commutes with tensor products. Therefore, we have
+There is a certain heuristic to obtain the sign appearing in the definition of $\mu$ in \Cref{monoidal}. In the bounded case, we can write \[\Tot(A)=\bigoplus_i A_i^{n-i}.\]
+As direct sums commute with tensor products, we have
 \[\Tot(A)\otimes\Tot(B)=(\bigoplus A_i^{n-i})\otimes \Tot(B)\cong \bigoplus_i  (A_i^{n-i}\otimes \Tot(B)).\]
 
-In the isomorphism we can interpret that each $A_i^{n-i}$ passes by $\Tot(B)$. Since $\Tot(B)$ is total graded, we can think of this degree as being the horizontal degree, while having 0 vertical degree. Thus, using the Koszul sign rule we would get precisely the sign from \Cref{monoidal}. This explanation is just an intuition, and opens the door for other possible sign choices: what if we decide to distribute $\Tot(A)$ over $\bigoplus_i B_i^{n-i}$ instead, or if we consider the total degree as the vertical degree? These alternatives lead to valid definitions of $\mu$, and we will explore the consequences of some of them in \Cref{othermu}.
+In the isomorphism we can interpret that each $A_i^{n-i}$ passes by $\Tot(B)$. Since $\Tot(B)$ used total grading, we can think of this degree as being the horizontal degree, while having 0 vertical degree. Thus, using the Koszul sign rule we would get precisely the sign from \Cref{monoidal}. This explanation is just an intuition, and opens the door for other possible sign choices: what if we decide to distribute $\Tot(A)$ over $\bigoplus_i B_i^{n-i}$ instead, or if we consider the total degree as the vertical degree? These alternatives lead to other valid definitions of $\mu$, and we will explore the consequences of some of them in \Cref{othermu}.
 \end{remark}
 
 \begin{lem}\label{mui}
@@ -542,10 +540,10 @@ For the case $m=2$,
 \[\mu^{-1}:\Tot(A\otimes B)\to \Tot(A)\otimes \Tot(B)\]
 is computed explicitly as follows.
 Let  $c\in\Tot(A\otimes B)^n$. By definition, we have
-\[\Tot(A\otimes B)^n=\bigoplus_k (A\otimes B)^{n-k}_k=\bigoplus_k\bigoplus_{n_1+n_2=n}\bigoplus_{k_1+k_2=k}A_{k_1}^{n_1-k_1}\otimes B_{k_2}^{n_2-k_2}\]
-And thus $c=(c_k)_k$ may be written as a finite sum $c=\sum_k c_k$, where 
+\[\Tot(A\otimes B)^n=\bigoplus_k (A\otimes B)^{n-k}_k=\bigoplus_k\bigoplus_{n_1+n_2=n}\bigoplus_{k_1+k_2=k}A_{k_1}^{n_1-k_1}\otimes B_{k_2}^{n_2-k_2}.\]
+And thus, $c=(c_k)_k$ may be written as a finite sum $c=\sum_k c_k$, where 
 \[c_k=\sum_{n_1+n_2=n}\sum_{k_1+k_2=k}x_{k_1}^{n_1-k_1}\otimes y_{k_2}^{n_2-k_2}.\]
-Here we introduced superscripts to indicate the vertical degree, which unlike in the definition of $\mu$ (\Cref{mu1}), it is not solely determined by the horizontal degree, since the total degree also varies. However we are going to omit them in what follows for simplicity of notation. Distributivity allows us to rewrite $c$ as
+Here, we introduced superscripts to indicate the vertical degree, which, unlike in the definition of $\mu$ (\Cref{mu1}), is not solely determined by the horizontal degree since the total degree also varies. However we are going to omit them in what follows for simplicity of notation. Distributivity allows us to rewrite $c$ as
 \[c=\sum_k \sum_{n_1+n_2=n}\sum_{k_1+k_2=k}x_{k_1}\otimes y_{k_2}=\sum_{n_1+n_2=n}\sum_{k_1}\sum_{k_2}(x_{k_1}\otimes y_{k_2})=\sum_{n_1+n_2=n}\left(\sum_{k_1}x_{k_1}\right)\otimes\left(\sum_{k_2}y_{k_2}\right).\]
 Therefore, $\mu^{-1}$ can be defined as
 \[\mu^{-1}(c)=\sum_{n_1+n_2=n}\left(\sum_{k_1}(-1)^{k_1n_2}x_{k_1}\right)\otimes\left(\sum_{k_2}y_{k_2}\right).\]
@@ -560,7 +558,7 @@ The general case follows inductively.
 We collect some notions and results about enriched categories from \cite{riehl} and \cite[\S 4.2]{whitehouse} that we will need as a categorical setting for our results on derived $A_\infty$-algebras.
 
 \begin{defin}
-Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a \emph{monoidal category over $\VV$} if we have an external tensor product $∗ :\VV × \CC → \CC$ such that we have natural isomorphisms:
+Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a \emph{monoidal category over $\VV$} if we have an external tensor product $∗ :\VV × \CC → \CC$ such that we have the following natural isomorphisms.
 \begin{enumerate}[$\bullet$]
 \item  $1 ∗ X \cong X$ for all $X ∈ \CC$,
 \item $(C ⊗ D) ∗ X \cong C ∗ (D ∗ X)$ for all $C,D ∈ \VV$ and $X ∈ \CC$,
@@ -572,7 +570,7 @@ We will also assume that there is a bifunctor $\uC(−,−) : \CC^{op} × \CC �
 bijections
 \[\Hom_\CC(C ∗ X, Y ) \cong \Hom_\VV (C,\uC(X, Y )).\]
 Under this assumption we get a $\VV$-enriched category $\uC$ with the same objects as $\CC$ and with hom-objects given by $\uC (−,−)$. The unit
-morphism $u_A : 1 → \uC (A,A)$ corresponds to the identity map in $\CC$ under the adjunction and the
+morphism $u_A : 1 → \uC (A,A)$ corresponds to the identity map in $\CC$ under the adjunction, and the
 composition morphism is given by the adjoint of the composite
 \[(\uC (B,C) ⊗ \uC (A,B)) ∗ A
 \cong \uC (B,C) ∗ (\uC (A,B) ∗ A)
@@ -588,7 +586,7 @@ In particular we get maps in $\VV$
 \[\uC (X,W) ⊗ \uC (Y,Z) → \uC (X ⊗ Y,W ⊗ Z),\]
 given by the adjoint of the composite
 \[(\uC (X,W) ⊗ \uC (Y,Z)) ∗ (X ⊗ Y )\cong (\uC (X,W) ∗ X) ⊗ (\uC (Y,Z) ∗ Y )
-\xrightarrow{ev_{XW}⊗ev_{Y Z}} W ⊗ Z\]
+\xrightarrow{ev_{XW}⊗ev_{Y Z}} W ⊗ Z.\]
 \end{remark}
 
 \begin{defin}
@@ -605,6 +603,7 @@ is a natural transformation over $\VV$ satisfying the standard unit and associat
 and $μ$ are natural isomorphisms then we say that $F$ is \emph{monoidal over $\VV$}. 
 \end{defin}
 
+The followin is \cite[Proposition 4.11]{whitehouse}.
 \begin{propo}\label{enrichedtrans}
 Let $F,G : \CC → \DD$ be lax functors over $\VV$. Then $F$ and $G$ extend to $\VV$-enriched
 functors
@@ -614,19 +613,17 @@ transformation
 \[\underline{μ} : \underline{F} ⇒ \underline{G}.\]
 In particular, if $F$ is (lax) monoidal over $\VV$, then $F$ is (lax) monoidal in the enriched sense.
 \end{propo}
-\begin{proof}
-See \cite[Proposition 4.11]{whitehouse}.
-\end{proof}
+
 \begin{lem}
 Let $F,G:\CC\to\DD$ lax functors over $\VV$ and let $\mu : F\Rightarrow G$ a natural transformation over $\VV$. For every $X\in\CC$ and $Y\in\DD$ there is a map \[\uD(GX,Y)\to\uD(FX,Y)\] that is an isomorphism if $\mu$ is an isomorphism.
 \end{lem}
 \begin{proof}
 By \Cref{enrichedtrans} there is a $\VV$-enriched natural transformation 
 \[\underline{\mu}:\underline{F}\to\underline{G}\]
-whose component \[\underline{\mu}_X:1\to\uD(FX,GX)\] is defined to be the adjoint of $\mu_X:FX\to GX$. The map $\uD(GX,Y)\to\uD(FX,Y)$ is defined as the composite
+that at each object $X$ evaluates to \[\underline{\mu}_X:1\to\uD(FX,GX)\] defined to be the adjoint of $\mu_X:FX\to GX$. The map $\uD(GX,Y)\to\uD(FX,Y)$ is defined as the composite
 
 \begin{equation}\label{enrichedmap}
-\uD(GX,Y)\cong\uD(GX,Y)\otimes 1\xrightarrow{1\otimes\umu_X}\uD(GX,Y)\otimes\uD(FX,GX)\xrightarrow{c}\uD(FX,Y)
+\uD(GX,Y)\cong\uD(GX,Y)\otimes 1\xrightarrow{1\otimes\umu_X}\uD(GX,Y)\otimes\uD(FX,GX)\xrightarrow{c}\uD(FX,Y),
 \end{equation}
 where $c$ is the composition map in the enriched setting. 
 
@@ -636,7 +633,7 @@ When $\mu$ is an isomorphism we may analogously define the following map
 
 We show that this map is the inverse of the map in \Cref{enrichedmap}.
 
-\[
+\begin{equation}\label{complicateddiagram}
 \adjustbox{scale=0.76,center}{%
 \begin{tikzcd}[column sep = 0pt, row sep = 20pt]
 {\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
@@ -645,10 +642,10 @@ We show that this map is the inverse of the map in \Cref{enrichedmap}.
 {\uD(FX,Y)\otimes\uD(GX,FX)} \arrow[uuu, "c"] \arrow[ruu, "(3)"', phantom, bend left] & {}                                                                                                       &                                                                                                                                    & {\uD(FX,Y)\otimes 1} \arrow[lll, "1\otimes\umui_X"] \arrow[llu, "(2)"', phantom]
 \end{tikzcd}
 }
-\]
+\end{equation}
 
 
-In the diagram, $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. 
+In the diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. 
 \end{proof}
 
 \begin{lem}\label{4.15}
@@ -660,11 +657,11 @@ See \cite[Lemma 4.15]{whitehouse} for the proof and more details.
 
 \subsubsection*{Enriched categories and totalization}
 
-We define here some useful enriched categories and results from \cite[\S 4.3 and 4.4]{whitehouse}. Some of them had to be modified to adjust them to our conventions. 
+Here, we define some useful enriched categories and results from \cite[\S 4.3 and 4.4]{whitehouse}. Some of them had to be modified to adjust them to our conventions. 
 \begin{defin}\label{weirdenrichment}
 Let $A,B,C$ be bigraded modules. We denote by $\underline{\mathpzc{bgMod}_R}(A,B)$ the bigraded module given by
 \[\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u+j}\]
-where $[A,B]$ is the inner hom-object of bigraded modules. More precisely, $g ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ is given
+with inner hom-object $[A,B]$. More precisely, $g ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ is given
 by $g := (g_0, g_1, g_2, \dots )$, where $g_j : A → B$ is a map of bigraded modules of bidegree $(u + j, v − j)$.
 
 Moreover, we define a composition morphism
@@ -676,21 +673,23 @@ by
 \begin{defin}\label{delta2}
 Let $(A, d^A_i), (B, d^B_i)$ be twisted complexes, $f ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ and consider $d^A :=(d^A_i)_i ∈ \underline{\mathpzc{bgMod}_R}(A,A)^1_0$
 and $d^B := (d^B_i)_i ∈ \underline{\mathpzc{bgMod}_R}(B,B)^1_0$. We define
-\[δ(f) := c(d^B, f) − (−1)^{\langle f,d^A\rangle}c(f, d^A) ∈ \underline{\mathpzc{bgMod}_R}(A,B)^{v+1}_u\]
-where $\langle f, d^A\rangle$ is the scalar product for the bidegrees and $c$ is the composition morphism described in \Cref{weirdenrichment} More precisely,
+\[δ(f) := c(d^B, f) − (−1)^{\langle f,d^A\rangle}c(f, d^A) ∈ \underline{\mathpzc{bgMod}_R}(A,B)^{v+1}_u.\]
+%where $\langle f, d^A\rangle$ is the scalar product for the bidegrees and $c$ is the composition morphism described in \Cref{weirdenrichment} 
+
+More precisely,
 \[(δ(f))_m :=\sum_{i+j=m}(−1)^{i|f|}d^B_if_j − (−1)^{v+i}f_id^A_j.\]
 \end{defin}
 
 The following lemma justifies the above definition. For a proof see \cite[Lemma 4.18]{whitehouse}.
 
 \begin{lem}
-The following equations hold
+The following equations hold.
 \begin{align*}
-&c(d^A, d^A) = 0,\\
-&δ^2 = 0,\\
-&δ(c(f, g)) = c(δ(f), g) + (−1)^v c(f, δ(g)),
+&c(d^A, d^A) = 0\\
+&δ^2 = 0\\
+&δ(c(f, g)) = c(δ(f), g) + (−1)^v c(f, δ(g))
 \end{align*}
-where the bidegree of $f$ is $(u, v)$. Furthermore, $f ∈ \ubgMod(A,B)$ is a map of twisted complexes if and
+Here the bidegree of $f$ is $(u, v)$. Furthermore, $f ∈ \ubgMod(A,B)$ is a map of twisted complexes if and
 only if $δ(f) = 0$. In particular, $f$ is a morphism in $\tc$ if and only if the bidegree of $f$ is $(0, 0)$ and
 $δ(f) = 0$. Moreover, for $f$, $g$ morphisms in $\tc$, we have that $c(f, g) = f\circ g$, where the latter denotes
 composition in $\tc$.
@@ -728,7 +727,7 @@ $1 ∈ R$ to $1_A : A → A$, the strict morphism of twisted complexes given by 
 
 
 
-The next tensor corresponds to $\underline{\otimes}$ in the categorical setting of \Cref{underline}.
+The next tensor corresponds to $\underline{\otimes}$ in the categorical setting of \Cref{underline}, see \cite[Lemma 4.27]{whitehouse}.
 
 
 \begin{lem}\label{tensorenriched}
@@ -737,9 +736,7 @@ The monoidal structure of $\utC$ is given by the following map of vertical bicom
 \[(f, g) → (f\underline{⊗}g)_m :=\sum_{i+j=m}(−1)^{ij}f_i ⊗ g_j\]
 The monoidal structure of $\ubgMod$ is given by the restriction of this map.
 \end{lem}
-\begin{proof}
-See \cite[Lemma 4.27]{whitehouse}
-\end{proof}
+
 
 
 
@@ -777,27 +774,23 @@ We denote by $\usfC$ the full subcategory of $\ufC$ whose objects are split filt
 \end{enumerate}
 \end{defin}
 
-The enriched monoidal structure is given by the following lemma.
+The enriched monoidal structure is given as follows and can be found in \cite[Lemma 4.36]{whitehouse}.
 \begin{defin}\label{tensorenriched2}
 The monoidal structure of $\ufC$ is given by the following map of vertical bicomplexes.
 \[\underline{⊗}: \ufC(K,L) ⊗ \ufC(K′,L′) → \ufC(K ⊗ K′,L ⊗ L′),\]
 \[(f, g) → f\underline{⊗}g := (−1)^{u|g|}f ⊗ g\]
-where $f$ has bidegree $(u, v)$.
+Here $f$ has bidegree $(u, v)$.
 \end{defin}
-\begin{proof}
-See \cite[Lemma 4.36]{whitehouse}.
-\end{proof}
 
 
+The proof of the followin lemma is included in the proof of \cite[Lemma 4.35]{whitehouse}.
 \begin{lem}\label{adjunction}
 Let $A$ be a vertical bicomplex that is horizontally bounded on the right and let $K$ and $L$ be filtered complexes. There is a natural bijection
 \[\Hom_{\fc}(\Tot(A)\otimes K,L)\cong \Hom_{\vbc}(A,\ufC(K,L))\]
 given by
 \[f\mapsto \tilde{f}: a\mapsto (k\mapsto f(a\otimes k)).\]
 \end{lem}
-\begin{proof}
-The proof is included in the proof of \cite[Lemma 4.35]{whitehouse}.
-\end{proof}
+
 We now define an enriched version of the totalization functor. 
 \begin{defin}\label{enrichedtot}
 Let $A,B$ be bigraded modules and $f ∈ \ubgMod (A,B)^v_u$ we define
@@ -814,10 +807,9 @@ f_i : A^{m-j}_j \hookrightarrow\prod_{k\geq j}A^{m-k}_k = F_j(\Tot(A)^m)\xrighta
 &=\prod_{l\geq j+u}B^{m+u+v-l}_l\xrightarrow{×(−1)^{(i+u)m}} B^{m-j+v−i}_{j+u+i} ,
 \end{align*}
 where the last map is a projection and multiplication with the indicated sign.
-
-
 \end{defin} 
 
+The followin is \cite[Theorem 4.39]{whitehouse}.
 \begin{thm}\label{4.39}
 Let $A$, $B$ be twisted complexes. The assignments $\mathfrak{Tot}(A) := \Tot(A)$ and
 \begin{align*}
@@ -827,18 +819,6 @@ f &→ \Tot(f)
 define a $\vbc$-enriched functor $\mathfrak{Tot} : \utC → \ufC$ which restricts to an isomorphism onto its image. Furthermore, this functor restricts to a $\bgmod$-enriched functor \[\mathfrak{Tot} : \ubgMod → \ufMod\]
  which also restricts to an isomorphism onto its image.
 \end{thm}
-\begin{proof}
-See \cite[Theorem 4.39]{whitehouse}.
-\end{proof}
-
-\begin{propo}\label{4.40}
-The enriched functors
-\[\mathfrak{Tot} : \ubgMod  → \ufMod ,\hspace{1cm} \mathfrak{Tot} : \utC → \ufC\]
-are lax symmetric monoidal in the enriched sense and when restricted to the bounded case they are strong symmetric monoidal in the enriched sense.
-\end{propo}
-\begin{proof}
-See \cite[Proposition 4.40]{whitehouse}.
-\end{proof}
 
 We now define an enriched endomorphism operad.
 \begin{defin}
@@ -847,22 +827,27 @@ to be the collection in $\mathscr{V}$ given by
 \[\uEnd_A(n) \coloneqq \uC (A^{⊗n},A) \text{ for }n ≥ 1.\]
 \end{defin}
 
-\begin{lem}
-For $A\in\uC$, the collection $\uEnd_A$ defines an operad in $\VV$. 
-\end{lem}
-\begin{proof}
-See \cite[Proposition 4.43]{whitehouse}.
-\end{proof}
+The following contains several results results from \cite[\S 4]{whitehouse}.
 
-\begin{propo}\label{morphism}
-Let $\CC$ and $\DD$ be monoidal categories over $\VV$. Let
+\begin{propo}\label{S4}
+The following hold.
+\begin{itemize}
+\item The enriched functors %\label{4.40}
+\[\mathfrak{Tot} : \ubgMod  → \ufMod ,\hspace{1cm} \mathfrak{Tot} : \utC → \ufC\]
+are lax symmetric monoidal in the enriched sense and when restricted to the bounded case they are strong symmetric monoidal in the enriched sense.
+\item For $A\in\uC$, the collection $\uEnd_A$ defines an operad in $\VV$. %4.43
+
+\item Let $\CC$ and $\DD$ be monoidal categories over $\VV$. Let %\label{morphism} 4.46
 $F : \CC → \DD$ be a lax monoidal functor over $\VV$. Then for any $X ∈ \CC$ there is an operad morphism
 \[\uEnd_X→\uEnd_{F(X)}.\]
 
+\end{itemize}
 \end{propo}
-\begin{proof}
-The proof is in \cite[Proposition 4.46]{whitehouse}. 
-\end{proof}
+
+
+
+
+
 
 \begin{lem}\label{inverse}
 Let $A$ be a twisted complex. Consider $\uEnd_A(n)=\utC(A^{\otimes n},A)$ and $\uEnd_{\Tot(A)}(n)=\ufC(\Tot(A)^{\otimes n},\Tot(A))$. There is a morphism of operads
@@ -875,7 +860,7 @@ The proof of in the case of a $A$ beig a twisted complex can be found in \cite[L
  The fact that it is an isomorphism in the bounded is analogous to the twisted complex case. 
 \end{proof}
 
-We are going to construct the inverse in the bounded case explicitly following \Cref{enrichedmap} (the construction for the direct map is analogue but here we just need the inverse). We do it for a twisted complex $A$, but it is done similarly for a bigraded module.
+We are going to construct the inverse in the bounded case explicitly from \Cref{enrichedmap}. The construction for the direct map is analogue but here we just need the inverse. We do it for a twisted complex $A$, but it is done similarly for a bigraded module.
 
 \begin{lem}\label{composition}
 In the conditions of \Cref{inverse} for the bounded case, the inverse is given by the map
@@ -894,7 +879,7 @@ The second map is given by $\mathfrak{Tot}^{-1}$ defined in \Cref{enrichedtot}. 
 \xrightarrow{\underline{\mu}^{-1}\otimes 1}\ufC(\Tot(A^{\otimes n}),\Tot(A)^{\otimes n})\otimes\ufC(\Tot(A)^{\otimes n},\Tot(A))\\
 \xrightarrow{c}\ufC(\Tot(A^{\otimes n}),\Tot(A)), 
 \end{align*}
-where $c$ is the composition in $\ufC$, which is defined in \Cref{ufMod}. The map $\underline{\mu}^{-1}$ is the adjoint of $\mu^{-1}$ under the bijection from \Cref{adjunction}. Explicitly,
+where $c$ is the composition in $\ufC$, defined in \Cref{ufMod}. The map $\underline{\mu}^{-1}$ is the adjoint of $\mu^{-1}$ under the bijection from \Cref{adjunction}. Explicitly,
 \begin{align*}
 \underline{\mu}^{-1}:R &\to \ufC(\Tot(A^{\otimes n}),\Tot(A)^{\otimes n})\\
 1 &\mapsto (a\mapsto \mu^{-1}(a)).
