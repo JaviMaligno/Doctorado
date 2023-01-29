@@ -1421,11 +1421,11 @@ Notice that $M$ is defined as an structure map on $S\s\OO$. This kind of shifted
 
 \subsection{Iterating the process}\label{sect3}
 
-Now we can apply the same construction to the operad $\s\End_{S\s\OO}$ and we get $A_\infty$-algebra structure given by maps
+We have defined $A_\infty$-structure maps $M_j\in\s\End_{S\s\OO}$. Now we can use the brace structure of the operad $\s\End_{S\s\OO}$ to define get $A_\infty$-algebra structure given by maps
 \begin{equation}\label{barmaps}
 \overline{M}_j:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO}
 \end{equation}
-obtained using $\overline{\sigma}$ from maps
+by applying $\overline{\sigma}$ to maps
 \[\overline{M}'_j:(\s\End_{S\s\OO})^{\otimes j}\to \s\End_{S\s\OO}\]
 defined as
 \begin{align*}
@@ -1436,9 +1436,9 @@ where $\overline{B}_j$ denotes the brace map on $\s\End_{S\s\OO}$.
 
 We define the Hochschild complex as done by Ward in \cite{ward}.
 \begin{defin}
-We define the \emph{Hochschild cochains} of a graded module $A$ to be the graded module $S\s\End_A$. If  $(A,d)$ is a chain complex, then $S\s\End_A$ is endowedwith a differential $\partial(f)=[d,f]=d\circ f -(-1)^{|f|}f\circ d$ where $|f|$ is the natural degree of $|f|$ and $\circ$ is the plethysm operation given by insertions.
+The \emph{Hochschild cochains} of a graded module $A$ is defined to be the graded module $S\s\End_A$. If  $(A,d)$ is a chain complex, then $S\s\End_A$ is endowed with a differential \[\partial(f)=[d,f]=d\circ f -(-1)^{|f|}f\circ d\] where $|f|$ is the natural degree of $|f|$ and $\circ$ is the plethysm operation given by insertions.
 \end{defin}
-In particular, $S\s\End_{S\s\OO}$ is the module of Hochschild cochains of $S\s\OO$. If $\OO$ has an $A_\infty$-multipliication, then the differential of the Hochschild complex is $\overline{M}_1$ from \Cref{barmaps}.
+In particular, $S\s\End_{S\s\OO}$ is the module of Hochschild cochains of $S\s\OO$. If $\OO$ has an $A_\infty$-multiplication, then the differential of the Hochschild complex is $\overline{M}_1$ from \Cref{barmaps}.
 \begin{remark}
 The functor $S\s$ is called the ``oddification'' of an operad in the literature. %Ward but the whole thesis 
 The reader might find odd to define the Hochschild complex in this way instead of just $\End_A$. The reason is that the operadic suspension provides the necessary signs and the extra shift gives us the appropriate degrees. In addition, this definition allows the extra structure to arise naturally instead of having to define the signs by hand. For instance, if we have an associative multiplication $m_2\in\End_A(2)=\Hom(A^{\otimes 2},A)$, the element $m_2$ would not satisfy the equation $m_2\circ m_2=0$ and thus cannot be used to induce a multiplication on $\End_A$ as we did above.
@@ -1451,7 +1451,7 @@ The reader might find odd to define the Hochschild complex in this way instead o
 &\OO \to \End_\OO\\
 &x\mapsto \sum_{n\geq 0}b_n(x;-)
 \end{align*}
-is a morphism of $A_\infty$-algebras. We are going to adapt the statement of this claim to our context and prove it. Let $\Phi'$ the map defined as above but on $\s\OO$, i.e.
+is a morphism of $A_\infty$-algebras. In the associative case, this result leads to the definition of homotopy $G$-algebras, which connects with the classical Deligne conjecture. We are going to adapt the statement of this claim to our context and prove it. This way we will obtain an $A_\infty$ version of homotopy $G$-algebras and consequently an $A_\infty$ version of the Deligne conjecture. Let $\Phi'$ the map defined as above but on $\s\OO$, i.e.
 \begin{align*}
 \Phi'\colon&\s\OO \to \End_{\s\OO}\\
 &x\mapsto \sum_{n\geq 0}b_n(x;-).
@@ -1487,7 +1487,7 @@ S\s\OO\arrow[rrrr, bend right=10, "\Phi"']\arrow[ur,red]& & & & S\s\End_{S\s\OO}
 \end{tikzcd}
 \]
 
-where the diagonal red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commute. But these arrows are defined so that they commute whith the red and blue arrows, so it is enough to show that the inner blue diagram commutes. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}_j$ that we are going to define next, so it will be enough to show that the two squares commute. The commutativity of the  left square will be more involved as we will have to distinguish between different kinds of insertions.
+where the diagonal red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commutes. But these arrows are defined so that they commute whith the red and blue arrows, so it is enough to show that the inner blue diagram commutes, since the outer squares commute by definition. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}_j$ that we are going to define next, so it will be enough to show that the two squares commute. The commutativity of the  left square will be more involved as we will have to distinguish between different kinds of insertions.
 
  The map 
 \[\mathcal{M}_j:(\End_{\s\OO})^{\otimes j}\to\End_{\s\OO}\]
@@ -1523,8 +1523,8 @@ for all $j\geq 1$. First we prove the case $j>1$. Let $x_1,\dots, x_j\in \s\OO^{
 
 
 \begin{align*}
-\Phi'(M'_j(x_1,\dots, x_j))=&\Phi'(b_j(m;x_1,\dots, x_j))=\sum_{n\geq 0} b_n(b_j(m;x_1,\dots, x_j);-)=\\
-&\sum_n\sum_l\sum b_l(m; -, b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)
+\Phi'(M'_j(x_1,\dots, x_j))& = \Phi'(b_j(m;x_1,\dots, x_j))=\sum_{n\geq 0} b_n(b_j(m;x_1,\dots, x_j);-)\\
+&=\sum_n\sum_l\sum b_l(m; -, b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)
 \end{align*}
 where $l=n-(i_1+\cdots+i_j)+j$. The sum with no subindex runs over all the possible order-preserving insertions. Note that $l\geq j$. Evaluating the above map on elements would yield Koszul signs coming from the brace relation. Also recall that $|b_j(x;-)|=|x|$. Now, fix some value of $l\geq j$ and let us compute
 
@@ -1536,7 +1536,7 @@ but focus on the $M'_l$ component, i.e. on $B_j(M'_l;\Phi'(x_1),\dots, \Phi'(x_j
 
 \begin{align*}
 \sum M'_l(-,\Phi'(x_1),\cdots, \Phi'(x_j),-)=&\sum_{i_1,\dots, i_j}\sum M'_l(-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)=\\
-&\sum_{i_1,\dots, i_j}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)
+&\sum_{i_1,\dots, i_j}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-).
 \end{align*}
 
 We are using hyphens instead of $1$'s to make the equality of both sides of the equation (\ref{commutative}) more apparent, and to make clear that when evaluating on elements those are the places where the elements go. %In this case, evaluating yields the same signs as in the other side of the equation. 
@@ -1554,7 +1554,7 @@ Now we are going to show that
 
 \begin{equation}\label{case1}
 \Phi'(M'_1(x))=\mathcal{M}_1(\Phi'(x)).
-\end{equation} This going to be divided into two parts, since $M'_1$ has to clearly distinct summands.
+\end{equation} This going to be divided into two parts, since $M'_1$ has two clearly distinct summands.
 
 \subsubsection*{Insertions in $m$}
 
@@ -1564,7 +1564,7 @@ Let us first focus on the insertions in $m$ that appear in equation (\ref{case1}
 \Phi'(M'_1(x))=\Phi'([m,x])=\Phi'(b_1(m;x))-(-1)^{|x|}\Phi'(b_1(x;m))
 \end{equation}
 
-so we focus on the first summand. 
+so we focus on the first summand
 
 \begin{align*}
 \Phi'(b_1(m;x))=&\sum_n b_n(b_1(m;x);-)=\sum_n \underset{n\geq i}{\sum_i} \sum b_{n-i+1}(m;-, b_i(x;-),-)=\\
@@ -1604,7 +1604,7 @@ b_n(b_1(x;m);z_1,\dots, z_n)&=\\
 
 where $\varepsilon$ is the usual Koszul sign with respect to the grading in $\s\OO$. We have to check that the insertions in $x$ that appear in $\mathcal{M}_1(\Phi'(x))$ (the right hand side of the equation (\ref{case1})) are exactly those in the equation (\ref{insertionx1}) above (that corresponds to the left hand side of equation (\ref{case1})).
 
-Now, let us look at the right hand siide of equation (\ref{case1}). From $\mathcal{M}_1(\Phi'(x))=B_1(M';\Phi'(x))-(-1)^{|x|}B_1(\Phi'(x);M')$ (equation (\ref{mphi})) we have 
+Now, let us look at the right hand side of equation (\ref{case1}). From equation (\ref{mphi}), i.e. $\mathcal{M}_1(\Phi'(x))=B_1(M';\Phi'(x))-(-1)^{|x|}B_1(\Phi'(x);M')$  we have 
 \[-(-1)^{|x|}b_1(\Phi'(x);m)=-(-1)^{|x|}\sum_n b_1(b_n(x;-);m)\] 
 coming from the first summand since $B_1(M'_1;\Phi'(x))=M'_1(\Phi'(x))$. We are now only interested in insertions in $x$. Again, cancelling $-(-1)^{|x|}$ we get
 \[b_1(\Phi'(x);m)=\sum_n b_1(b_n(x;-);m).\] 
