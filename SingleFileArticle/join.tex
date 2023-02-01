@@ -632,8 +632,8 @@ When $\mu$ is an isomorphism we may analogously define the following map
 \[\uD(FX,Y)\cong\uD(FX,Y)\otimes 1\xrightarrow{1\otimes\umui_X}\uD(FX,Y)\otimes\uD(GX,FX)\xrightarrow{c}\uD(GX,Y).\]
 
 We show that this map is the inverse of the map in \Cref{enrichedmap}.
-
-\begin{equation}\label{complicateddiagram}
+\label{complicateddiagram}
+\begin{equation}
 \adjustbox{scale=0.76,center}{%
 \begin{tikzcd}[column sep = 0pt, row sep = 20pt]
 {\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
@@ -645,7 +645,7 @@ We show that this map is the inverse of the map in \Cref{enrichedmap}.
 \end{equation}
 
 
-In the diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. 
+In the above diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. 
 \end{proof}
 
 \begin{lem}\label{4.15}
@@ -855,7 +855,7 @@ Let $A$ be a twisted complex. Consider $\uEnd_A(n)=\utC(A^{\otimes n},A)$ and $\
 which is an isomorphism of operads if $A$ is bounded. The same holds true if $A$ is just a bigraded module. In that case, we use the enriched operads $\uEnd_A(n)=\ubgMod(A^{\otimes n},A)$ and $\uEnd_{\Tot(A)}(n)=\ufMod(\Tot(A)^{\otimes n},\Tot(A))$.
 \end{lem}
 \begin{proof}
-The proof of in the case of a $A$ beig a twisted complex can be found in \cite[Lemma 4.54]{whitehouse}. For the bigraded module case, we are going to do it analogously. First, by \Cref{4.39} we know that $\mathfrak{Tot}:\ubgMod\to\ufMod$ is $\bgmod$-enriched. In fact, by \Cref{4.40} it is lax monoidal in the enriched sense. In addition, both $\bgmod$ and $\fmod$ are monoidal over $\bgmod$. In the case of $\bgmod$ it is in the obvious way and for $\fmod$ is given by \Cref{4.15}. With all of this we may apply \Cref{morphism} to $\mathfrak{Tot}:\ubgMod\to\ufMod$ to obtain the desired map
+The proof of in the case of a $A$ beig a twisted complex can be found in \cite[Lemma 4.54]{whitehouse}. For the bigraded module case, we are going to do it analogously. First, by \Cref{4.39} we know that $\mathfrak{Tot}:\ubgMod\to\ufMod$ is $\bgmod$-enriched. In fact, by \Cref{S4} it is lax monoidal in the enriched sense. In addition, both $\bgmod$ and $\fmod$ are monoidal over $\bgmod$. In the case of $\bgmod$ it is in the obvious way and for $\fmod$ is given by \Cref{4.15}. With all of this we may apply \Cref{S4} to $\mathfrak{Tot}:\ubgMod\to\ufMod$ to obtain the desired map
 \[\uEnd_A →\uEnd_{\Tot(A)}.\]
  The fact that it is an isomorphism in the bounded is analogous to the twisted complex case. 
 \end{proof}
@@ -1478,14 +1478,14 @@ holds, where the $M_j$ is the $j$-th component of the $A_\infty$-algebra structu
 \begin{proof}
 Let us have a look at the following diagram
 
-\[
+\begin{equation}\label{proofdiagram}
 \begin{tikzcd}
 (S\s\OO)^{\otimes j}\arrow[dr,red] \arrow[ddd, bend right=10,"M_j"']\arrow[rrrr,bend left=10, "\Phi^{\otimes j}"]& & & & (S\s\End_{S\s\OO})^{\otimes j}\arrow[ddd, bend left=10, "\overline{M}_j"]\\
 &\s\OO^{\otimes j}\arrow[r,blue, "(\Phi')^{\otimes j}"]\arrow[d, blue, "M'_j"] & (\End_{\s\OO})^{\otimes j}\arrow[r, blue,"\overline{\sigma}^{\otimes j}"] \arrow[d, dashed, "\mathcal{M}_j",blue]& (\s\End_{S\s\OO})^{\otimes j}\arrow[ur,red]\arrow[d, "\overline{M}'_j",blue]& \\
 &\s\OO\arrow[r, blue, "\Phi'"]& \End_{\s\OO} \arrow[r, blue, "\overline{\sigma}"] & \s\End_{S\s\OO}\arrow[dr,red]& \\
 S\s\OO\arrow[rrrr, bend right=10, "\Phi"']\arrow[ur,red]& & & & S\s\End_{S\s\OO}
 \end{tikzcd}
-\]
+\end{equation}
 
 where the diagonal red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commutes. But these arrows are defined so that they commute whith the red and blue arrows, so it is enough to show that the inner blue diagram commutes, since the outer squares commute by definition. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}_j$ that we are going to define next, so it will be enough to show that the two squares commute. The commutativity of the  left square will be more involved as we will have to distinguish between different kinds of insertions.
 
@@ -1499,7 +1499,9 @@ is defined by
  where $B_j$ is the natural brace structure map on the operad $\End_{\s\OO}$, i.e. for $f\in\End_{\s\OO}(n)$, 
 \[B_j(f;f_1,\dots, f_j)=\sum_{k_0+\cdots+k_j=n-j} f(1^{\otimes k_0}\otimes f_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes f_j\otimes 1^{\otimes k_j}).\]
  The $1$'s in the brace structure are identity maps. In the above definition, $|f|$ denotes the degree of $f$ as an element of $\End_{\s\OO}$, which is the same as the degree $\overline{\sigma}(f)\in \s\End_{S\s\OO}$ because $\overline{\sigma}$ is an isomorphism, as mentioned in \Cref{barsigma}.  %the degree as a map sO^n\to sO, which is computed by evaluating and computing arity +degree-1
- \subsection*{Commutativity of the right blue square}
+ 
+ The inner square  of diagram (\ref{proofdiagram}) is divided into two halves, so we divide the proof into two as well, showing the commutativity of each half independently.
+ \subsection*{\centering{Commutativity of the right blue square} }
  Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and $M=\overline{\sigma}(M')$. Then we have for $j>1$
  
  \[\overline{M}'_j(\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(M;\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j)).\]
@@ -1511,8 +1513,8 @@ is defined by
 
 
 The proof that the left blue square commutes consists of several lenghty calculations so we are going to devote the next section to that. However, it is worth noting that the commutativity of the left square does not depend on the particular operad $\s\OO$, so it is still valid if $m$ satisfies $m\circ m=0$ for any circle operation defined in terms of insertions. This is essentialy the original statement in \cite{GV}.
-\subsection*{Commutativity of the left blue square}
-We are going to show here that the left blue square in the diagram of the proof of Theorem \ref{theorem} commutes, i.e. that 
+\subsection*{\centering{Commutativity of the left blue square}}
+We are going to show here that the left blue square in diagram (\ref{proofdiagram}) commutes, i.e. that 
 
 \begin{equation}\label{commutative}
 \Phi'(M'_j)=\mathcal{M}_j((\Phi')^{\otimes j})
@@ -1554,7 +1556,7 @@ Now we are going to show that
 
 \begin{equation}\label{case1}
 \Phi'(M'_1(x))=\mathcal{M}_1(\Phi'(x)).
-\end{equation} This going to be divided into two parts, since $M'_1$ has two clearly distinct summands.
+\end{equation} This going to be divided into two parts, since $M'_1$ has two clearly distinct summands, one of them consisting of braces of the form $b_l(m;\cdots)$ (insertions in $m$) and another one consisting of braces of the form $b_l(x;\cdots)$ (insertions in $x$). We will therefore show that both types of braces cancel on each side of \Cref{case1}.
 
 \subsubsection*{Insertions in $m$}
 
