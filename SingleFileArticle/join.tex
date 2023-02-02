@@ -1528,13 +1528,13 @@ for all $j\geq 1$. First we prove the case $j>1$. Let $x_1,\dots, x_j\in \s\OO^{
 \Phi'(M'_j(x_1,\dots, x_j))& = \Phi'(b_j(m;x_1,\dots, x_j))=\sum_{n\geq 0} b_n(b_j(m;x_1,\dots, x_j);-)\\
 &=\sum_n\sum_l\sum b_l(m; -, b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)
 \end{align*}
-where $l=n-(i_1+\cdots+i_j)+j$. The sum with no subindex runs over all the possible order-preserving insertions. Note that $l\geq j$. Evaluating the above map on elements would yield Koszul signs coming from the brace relation. Also recall that $|b_j(x;-)|=|x|$. Now, fix some value of $l\geq j$ and let us compute
+where $l=n-(i_1+\cdots+i_j)+j$. The sum with no subindex runs over all the possible order-preserving insertions. Note that $l\geq j$. Evaluating the above map on elements would yield Koszul signs coming from the brace relation. Also recall from \Cref{lemmadegree} that $|b_j(x;-)|=|x|$. Now, fix some value of $l\geq j$ and let us compute the $M'_l$ component of
 
 \begin{align*}
 \mathcal{M}_j(\Phi'(x_1),\dots, \Phi'(x_j))=B_j(M';\Phi'(x_1),\dots, \Phi'(x_j))
 \end{align*}
 
-but focus on the $M'_l$ component, i.e. on $B_j(M'_l;\Phi'(x_1),\dots, \Phi'(x_j))$. By definition, this equals
+that is, $B_j(M'_l;\Phi'(x_1),\dots, \Phi'(x_j))$. By definition, this equals
 
 \begin{align*}
 \sum M'_l(-,\Phi'(x_1),\cdots, \Phi'(x_j),-)=&\sum_{i_1,\dots, i_j}\sum M'_l(-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)=\\
@@ -1552,7 +1552,7 @@ So each $M'_l$ component for $l\geq j$ produces precisely the terms $b_l(m;\dots
 It is worth treating the case $n=0$ separately since in that case we have the summand \[b_0(b_j(m;x_1,\dots, x_j))\] 
 in $\Phi'(b_j(m;x_1,\dots, x_j))$, where we cannot apply the brace relation. This summand is equal to \[B_j(M'_j;b_0(x_1),\dots, b_0(x_j))=M'_j(b_0(x_1),\dots, b_0(x_j))=b_j(m;b_0(x_1),\dots, b_0(x_j)),\] since by definition $b_0(x)=x$.% We obtained this map from $\overline{M}_1(\Phi(x))$. To see that the two maps are actually equal, apply them to $1\in k$ to output $b_1(m;x)$ in both cases. %Notice that the terms that $b_1(M_i;x)$ produces for $i>1$ appear using the brace relation in $b_k(b_1(m;x);-)$ when $k>0$, more precisely, in the summand $b_k(b_1(m_i;x);-)$. 
 
-Now we are going to show that 
+Now we are going to show the case $j=1$, that is
 
 \begin{equation}\label{case1}
 \Phi'(M'_1(x))=\mathcal{M}_1(\Phi'(x)).
@@ -1589,7 +1589,7 @@ Again, we are focusing now on the first summand, but with the exception of the p
 
 \subsubsection*{Insertions in $x$}
 
-And now, let us study the insertions in $x$ that appear in equation (\ref{case1}). Let us look first at the left hand side. From $\Phi'(M'_1(x))$ in equation (\ref{phim}) we had 
+And now, let us study the insertions in $x$ that appear in equation (\ref{case1}). For that we will check that insertions in $x$ from the left hand side and right hand side cancel. Let us look first at the left hand side. From $\Phi'(M'_1(x))$ in equation (\ref{phim}) we had 
 
 \[-(-1)^{|x|}\Phi'(b_1(x;m))=-(-1)^{|x|}\sum_n b_n(b_1(x;m);-).\]
 
@@ -1604,9 +1604,9 @@ b_n(b_1(x;m);z_1,\dots, z_n)&=\\
  &\sum_{i=1}^{n+1}(-1)^{\varepsilon}b_{n+1}(x;z_1,\dots, z_{i-1},m,z_i,\dots, z_n),\nonumber
 \end{align}
 
-where $\varepsilon$ is the usual Koszul sign with respect to the grading in $\s\OO$. We have to check that the insertions in $x$ that appear in $\mathcal{M}_1(\Phi'(x))$ (the right hand side of the equation (\ref{case1})) are exactly those in the equation (\ref{insertionx1}) above (that corresponds to the left hand side of equation (\ref{case1})).
+where $\varepsilon$ is the usual Koszul sign with respect to the grading in $\s\OO$. We have to check that the insertions in $x$ that appear in $\mathcal{M}_1(\Phi'(x))$ (right hand side of the \cref{case1}) are exactly those in the equation (\ref{insertionx1}) above (left hand side of equation \cref{case1}).
 
-Now, let us look at the right hand side of equation (\ref{case1}). From equation (\ref{mphi}), i.e. $\mathcal{M}_1(\Phi'(x))=B_1(M';\Phi'(x))-(-1)^{|x|}B_1(\Phi'(x);M')$  we have 
+Therefore let us look at the right hand side of equation (\ref{case1}). Here we will study the cancellations from each of the two summands that naturally appear. From equation (\ref{mphi}), i.e. $\mathcal{M}_1(\Phi'(x))=B_1(M';\Phi'(x))-(-1)^{|x|}B_1(\Phi'(x);M')$  we have 
 \[-(-1)^{|x|}b_1(\Phi'(x);m)=-(-1)^{|x|}\sum_n b_1(b_n(x;-);m)\] 
 coming from the first summand since $B_1(M'_1;\Phi'(x))=M'_1(\Phi'(x))$. We are now only interested in insertions in $x$. Again, cancelling $-(-1)^{|x|}$ we get
 \[b_1(\Phi'(x);m)=\sum_n b_1(b_n(x;-);m).\] 
@@ -1617,7 +1617,7 @@ b_1(b_n(x;z_1, \dots, z_n);m)&=\\
 \sum_{i=1}^n (-1)^{\varepsilon+|z_i|}b_n(x;z_1,\dots, b_1(z_i;m),\dots, z_n)&+\sum_{i=1}^{n+1} (-1)^{\varepsilon}b_{n+1}(x;z_1,\dots, z_{i-1},m,z_{i},\dots, z_n)\nonumber
 \end{align}
 
-Note that we have to apply the Koszul sign rule twice: once at evaluation, and once more to apply the brace relation. The second sum in equation (\ref{insertionx2}) is the same as the second sum in equation (\ref{insertionx1}), so from now on we only need to use the first sum of the equation (\ref{insertionx2}). Now, from the second summand of $\mathcal{M}_1(\Phi'(x))$ in the right hand side of equation (\ref{mphi}), after cancelling $(-1)^{|x|}$ we obtain 
+Note that we have to apply the Koszul sign rule twice: once at evaluation, and once more to apply the brace relation. Now, from the second summand of $\mathcal{M}_1(\Phi'(x))$ in the right hand side of \cref{mphi}, after cancelling $(-1)^{|x|}$ we obtain 
 
 
 \begin{align*}
@@ -1626,12 +1626,13 @@ B_1(\Phi'(x);M')=&\sum_l B_1(b_l(x;-);M')=-(-1)^{|x|}\sum_l\sum b_l(x;-,M',-) \\
 \end{align*}
 We are going to evaluate on $(z_1,\dots, z_n)$ to make this map more explicit. This evaluation gives us the following
  
- \begin{align*}
- \sum_{l+j=n+1}\sum_{i=1}^{n-j+1}(-1)^{\varepsilon} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_n)\\-\sum_{i=1}^{n} (-1)^{\varepsilon+|z_i|}b_n(x;z_1,\dots,b_1(z_{i};m),\dots, z_n)
- \end{align*}
-The minus sign comes from the fact that $b_1(z_i;m)$ comes from $M'_1(z_i)$, so we apply the signs in the definition of $M'_1(z_i)$. We can see that the second sum above is the same as the first sum in equation (\ref{insertionx2}), so we have now cancelled both sums of that equation (recall that the second sum of equation (\ref{insertionx2})) was already cancelled before).
+ \begin{align}\label{lhs2}
+ \sum_{l+j=n+1}\sum_{i=1}^{n-j+1}(-1)^{\varepsilon} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_n)\\\nonumber -\sum_{i=1}^{n} (-1)^{\varepsilon+|z_i|}b_n(x;z_1,\dots,b_1(z_{i};m),\dots, z_n)
+ \end{align}
  
- So we are left with only the first sum of the last expression which is the same as the first sum in equation (\ref{insertionx1}), so we have already checked that the equation $\Phi'(M'_1)=\mathcal{M}_1(\Phi')$ holds. 
+ The minus sign comes from the fact that $b_1(z_i;m)$ comes from $M'_1(z_i)$, so we apply the signs in the definition of $M'_1(z_i)$. We therefore have that the right hand side of \cref{mphi} is the result of adding equations (\ref{insertionx2}) and (\ref{lhs2}). After this addition we can see that the first sum of \cref{insertionx2} cancels the second sum of \cref{lhs2}. 
+
+ We also have that the second sum in \cref{insertionx2} is the same as the second sum in \cref{insertionx1}, so we are left with only the first sum of \cref{lhs2}. This is the same as the first sum in \cref{insertionx1}, so we have already checked that the equation $\Phi'(M'_1)=\mathcal{M}_1(\Phi')$ holds. 
   
  In the case $n=0$, we have to note that $B_1(b_0(x);m)$ vanishes because of arity reasons: $b_0(x)$ is a map of arity 0, so we cannot insert any inputs. And this finishes the proof.
  \end{proof}
@@ -1639,13 +1640,13 @@ The minus sign comes from the fact that $b_1(z_i;m)$ comes from $M'_1(z_i)$, so 
  \subsection{Explicit $A_\infty$-algebra structure}\label{sect4}
 
 We have given an implicit definition of the components of the $A_\infty$-algebra structure on $S\s\OO$, namely, \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
-but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$.  This explicit formulas will make more clear the connection with the work of Gerstenhaber and Voronov.  We also hope that these explicit expression can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
+but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$.  This explicit formulas will clear up the connection with the work of Gerstenhaber and Voronov.  We also hope that these explicit expression can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
 
 \begin{lem}\label{explicit}
 For $x,x_1,\dots,x_n\in\s\OO$, we have the following expressions.
 
 \begin{align*}
-&M_n(Sx_1,\dots, Sx_n)=(-1)^{\sum_{i=1}^n(n-i)|x_i|}Sb_n(m;x_1,\dots, x_n) & & n>1\\
+&M_n(Sx_1,\dots, Sx_n)=(-1)^{\sum_{i=1}^n(n-i)|x_i|}Sb_n(m;x_1,\dots, x_n) & & n>1,\\
 &M_1(Sx)=Sb_1(m;x)-(-1)^{|x|}Sb_1(x;m).
 \end{align*}
 
@@ -1661,7 +1662,7 @@ M_n(Sx_1,\dots, Sx_n)=SM'_n((S^{\otimes n})^{-1})(Sx_1,\dots, Sx_n)\\
 (-1)^{\binom{n}{2}+\sum_{i=1}^n(n-i)(|x_i|+1)}SM'_n(x_1,\dots,x_n)
 \end{align*}
 
-Now, note that $\binom{n}{2}$ is even exatly when $n\equiv 0,1\mod 4$. In these cases an even number of $|x_i|$ have an odd coefficient in the sum (when $n\equiv 0\mod 4$ these are the $|x_i|$ with even index, and when $n\equiv 1\mod 4$, the $|x_i|$ with odd index). This means that 1 is added on the exponent an even number of times, so the sign is not changed by the binomial coefficient nor by adding 1 on each term. Similarly, when $\binom{n}{2}$ is odd, i.e. when $n\equiv 2,3\mod 4$, there is an odd number of $|x_i|$ with odd coefficient, so the addition of 1 an odd number of times cancels the binomial coefficient. This means that the above expression equals
+Now, note that $\binom{n}{2}$ is even exatly when $n\equiv 0,1\mod 4$. In these cases, an even amount of $|x_i|$'s have an odd coefficient in the sum (when $n\equiv 0\mod 4$ these are the $|x_i|$ with even index, and when $n\equiv 1\mod 4$, the $|x_i|$ with odd index). This means that 1 is added on the exponent an even number of times, so the sign is not changed by the binomial coefficient nor by adding 1 on each term. Similarly, when $\binom{n}{2}$ is odd, i.e. when $n\equiv 2,3\mod 4$, there is an odd number of $|x_i|$ with odd coefficient, so the addition of 1 an odd number of times cancels the binomial coefficient. This means that the above expression equals
 
 \[(-1)^{\sum_{i=1}^n(n-i)|x_i|}SM'_n(x_1,\dots,x_n),\]
 which by definition equals
