@@ -1990,25 +1990,13 @@ In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition ca
 
 
 \section{Bigraded braces and totalized braces}\label{sectionbibraces}
-We are going to define a brace structure using totalization. First we introduce the definition of braces for the bigraded case, which is analogue to the single-graded version we defined in \Cref{braces}.
-
-\begin{defin}\label{bibraces}
-A \emph{brace algebra} on a bigraded module $A$ consists of a family of maps \[b_n:A^{\otimes 1+n}\to A\] called \emph{braces}, that we evaluate on $(x,x_1,\dots, x_n)$ as $b_n(x;x_1,\dots, x_n)$, satisfying the \emph{brace relation}
-
-
-\begin{align*}
-b_m(b_n(x;x_1,\dots, x_n);y_1,\dots,y_m)=&\\
-\sum_{i_1,\dots, i_n, j_1\dots, j_n}(-1)^{\varepsilon}&b_l(x; y_1,\dots, y_{i_1},b_{j_1}(x_1;y_{i_1+1},\dots, y_{i_1+j_1}),\dots, b_{j_n}(x_n;y_{i_n+1},\dots, y_{i_n+j_n}),\dots,y_m)
-\end{align*}
-where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n\sum_{q=i}^{i_p}\langle x_p,y_q\rangle$.
+We are going to define a brace structure on $\Tot(\s\OO)$ using totalization. First note that one can define bigraded braces just like in the single-graded case, only changing the sign $\epsilon$ in \Cref{braces} to be $\varepsilon=\sum_{p=1}^n\sum_{q=i}^{i_p}\langle x_p,y_q\rangle$ according to the bigraded sign convention.
 
 
 
-\end{defin}
 
 
-
-As one might expect, we can define bigraded brace maps $b_n$ on a bigraded operad $\OO$ and also on its operadic suspension $\s\OO$, obtaining similar signs as in the single-graded case, but with vertical (internal) degrees (see \Cref{bracesign}). 
+As one might expect, we can define bigraded brace maps $b_n$ on a bigraded operad $\OO$ and also on its operadic suspension $\s\OO$, obtaining similar signs as in the single-graded case, but with vertical (internal) degrees, see \Cref{bracesign}. 
 
 We can also define braces on $\Tot(\s\OO)$ via operadic composition. In this case, these are usual single-graded braces. More precisely, we define the maps 
 \[b^T_n:\Tot(\mathfrak{s}\OO(N))\otimes \Tot(\mathfrak{s}\OO(a_1))\otimes\cdots\otimes \Tot(\mathfrak{s}\OO(a_n))\to \Tot(\mathfrak{s}\OO(N-\sum a_i))\]
@@ -2016,7 +2004,7 @@ using the operadic composition $\gamma^\star$ on $\Tot(\mathfrak{s}\OO)$ as
 
 \[b^T_n(x;x_1,\dots,x_n)=\sum\gamma^\star(x;1,\dots,1,x_1,1,\dots,1,x_n,1,\dots,1),\]
 
-where the sum runs over all possible ordering preserving insertions. The brace $b^T_n(x;x_1,\dots,x_n)$ vanishes whenever $n>N$ and $b^T_0(x)=x$. We use the notation $b^T_n$ to distinguish this brace map from the bigraded brace $b_n$ that can be naturally defined on the bigraded operad $\s\OO$.
+where the sum runs over all possible ordering preserving insertions. The brace map $b^T_n(x;x_1,\dots,x_n)$ vanishes whenever $n>N$ and $b^T_0(x)=x$. We use the notation $b^T_n$ to distinguish this brace map from the bigraded brace $b_n$ that can be naturally defined on the bigraded operad $\s\OO$.
 
 Operadic composition can be described in terms of insertions in the obvious way, namely 
 
@@ -2024,7 +2012,7 @@ Operadic composition can be described in terms of insertions in the obvious way,
 \gamma^\star(x;y_1,\dots,y_N)=(\cdots(x\star_1 y_1)\star_{1+a(y_1)}y_2\cdots)\star_{1+\sum a(y_p)}y_N,
 \end{equation}
 
-where $a(y_p)$ is the arity of $y_p$ (in this case $y_p$ is either $1$ or some $x_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the factor sign applying the same strategy as in the single-graded case. In fact, as we said, there is a sign factor that comes from vertical operadic suspension that is identical to the graded case, but replacing internal degree by internal vertical degree. This is the sign that determines the brace $b_n$ on $\s\OO$. Explicitly, it is given by the following lemma, whose proof is identical to the single-graded case.
+where $a(y_p)$ is the arity of $y_p$ (in this case $y_p$ is either $1$ or some $x_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the sign factor applying the same strategy as in the single-graded case. In fact, as we said, there is a sign factor that comes from vertical operadic suspension that is identical to the graded case, but replacing internal degree by internal vertical degree. This is the sign that determines the brace $b_n$ on $\s\OO$. Explicitly, it is given by the following lemma, whose proof is identical to the single-graded case.
 
 
  
@@ -2056,10 +2044,12 @@ for $f\in\Tot(\s\End_A)^N$ and $g\in\Tot(\s\End_A)^M$, is the same bracket that 
 
 Notice that in \cite{LRW} the sign in the bracket is $(-1)^{(N+1)(M+1)}$, but this is because their total degree differs by 1 with respect to ours.
 
-\section{Derived $A_\infty$-structure on an operad}\label{derivedstructure}
+\section{The derived $A_\infty$-structure on an operad}\label{derivedstructure}
 
 
-We are going to use the following theorem from \cite{whitehouse} to show that there is a derived $A_\infty$-structure on $A=S\s\OO$. Note that $\Tot(SB)=S\Tot(B)$ for any bigraded module $B$, where $SB$ is the vertical suspension of $B$ and $S\Tot(B)$ is the suspension of $\Tot(B)$ as graded modules.
+
+
+We are going to follow a strategy inspired by the proof of the following theorem to show that there is a derived $A_\infty$-structure on $A=S\s\OO$. The proof can be found in \cite[Poposition 4.55]{whitehouse}. We refer the reader to \Cref{background} to recall the definitions of the categories used. %Note that $\Tot(SB)=S\Tot(B)$ for any bigraded module $B$, where $SB$ is the vertical suspension of $B$ and $S\Tot(B)$ is the suspension of $\Tot(B)$ as graded modules.
 
 \begin{thm}\label{whitehouse}
 Let $(A, d^A) ∈ \tc^b$ be an twisted complex horizontally bounded on the right and $A$ its underlying
@@ -2074,18 +2064,18 @@ where $\vbOp$ and $\fCOp$ denote the categories of operads in $\vbc$ and $\fc$ r
 denotes the subset of morphisms which send $μ_{i1}$ to $d^A_i$. We view $\mathcal{A}_∞$ as an operad in $\vbc$ sitting in
 horizontal degree zero or as an operad in filtered complexes with trivial filtration.
 \end{thm}
-\begin{proof}
-See \cite[Poposition 4.55]{whitehouse}.
-\end{proof}
+
+
+
 
 \begin{remark}
 According to \Cref{filterversion}, the last isomorphism can be replaced by 
 \[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\cong \Hom_{\mathrm{COp}}(\calA_∞,\End_{\Tot(A)}),\]
 where $\mathrm{COp}$ is the category of operads in chain complexes. 
 \end{remark}
-There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^{d-k}=0$ for all $k>i$. In our case $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far (some of them are in \cite[Remark 6.5]{muro}, \cite{RW}, and \cite[\S 5]{women}). Under this assumption we may replace all direct products by direct sums.
+There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^{d-k}=0$ for all $k>i$. In our case, $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far (some of them are in \cite[Remark 6.5]{muro}, \cite{RW}, and \cite[\S 5]{women}). Under this assumption we may replace all direct products by direct sums.
 
-We also need to provide $A$ with a twisted complex structure. The reason for this is that the theorem uses the definition of derived $A_\infty$-algebras on an underlying twisted complex (See \Cref{equivalent}). We do this explicitly in \Cref{twistedoperad}, but it also follows from \Cref{mi1}. We also provide another version of this theorem that works for bigraded modules, \Cref{alternative}. 
+We also need to provide $A$ with a twisted complex structure. The reason for this is that \Cref{whitehouse} uses the definition of derived $A_\infty$-algebras on an underlying twisted complex, see \Cref{equivalent}. We show explicitly the existence of a twisted complex structrue on an operad with derived $A_\infty$-multiplication in \Cref{twistedoperad}, but it also follows from \Cref{mi1}. We also provide another version of this theorem that works for bigraded modules, \Cref{alternative}. 
 
 With these assumption, by \Cref{whitehouse} we can guarantee the existence of a derived $A_\infty$-algebra structure on $A$ provided that $\Tot(A)$ has an $A_\infty$-algebra structure.
 
@@ -2101,18 +2091,18 @@ Let $A=S\s\OO$ where $\OO$ is an operad horizontally bounded on the right with a
 Note that we abuse of notation and identify $x_1\otimes\cdots\otimes x_j$ with an element of $\Tot(A^{\otimes j})$ with only one non-zero component. For a general element, extend linearly.
 
 \begin{proof}
-Since $m$ is a derived $A_\infty$-multiplication $\OO$, we have that $m\star m=0$ when we view $m$ as an element of $\Tot(\s\OO)$. By \Cref{ainftystructure} this defines an $A_\infty$-algebra structure on $S\Tot(\s\OO)$ given by maps
+Since $m$ is a derived $A_\infty$-multiplication $\OO$, we have that $m\star m=0$ when we view $m$ as an element of $\Tot(\s\OO)$. By \Cref{ainftystructure}, this defines an $A_\infty$-algebra structure on $S\Tot(\s\OO)$ given by maps
  %This isomorphism introduces some signs that will cancel with the signs introduced by the firts isomorphism of the chain so we will omit them. 
 \[M_j:(S\Tot(\s\OO))^{\otimes j}\to S\Tot(\s\OO)\]
 induced by shifting brace maps
 \[b_j^T(m;-):(\Tot(\s\OO))^{\otimes j}\to \Tot(\s\OO).\]
  The graded module $S\Tot(\s\OO)$ is endowed with the structure of a filtered complex with differential $M_1$ and filtration induced by the column filtration on $\Tot(\s\OO)$. Note that $b^T_j(m;-)$ preserves the column filtration since every component $b^T_j(m_{ij};-)$ has positive horizontal degree. % since the shift is only vertical.
  
-Since $S\Tot(\s\OO)\cong \Tot(S\s\OO)$, we can view $M_j$ as the image of a morphism of operads of filtered complexes $f:\mathcal{A}_\infty\to \End_{\Tot(S\s\OO)}$, in such a way that $M_j=f(\mu_j)$ for $\mu_j\in\mathcal{A}_\infty(j)$. 
+Since $S\Tot(\s\OO)\cong \Tot(S\s\OO)$, we can view $M_j$ as the image of a morphism of operads of filtered complexes $f:\mathcal{A}_\infty\to \End_{\Tot(S\s\OO)}$ in such a way that $M_j=f(\mu_j)$ for $\mu_j\in\mathcal{A}_\infty(j)$. 
 
-We now work our way backwards through the proof of \Cref{whitehouse}. The isomorphism 
+We now work our way backwards using the strategy also employed by the proof of \Cref{whitehouse}. The isomorphism 
 \[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\cong \Hom_{\mathrm{COp}}(\calA_∞,\End_{\Tot(A)})\]
-does not modify the map $M_j$ at all, but allows us to see it as a element of $\uEnd_{\Tot(A)}$ of bidegree $(0,2-j)$. 
+does not modify the map $M_j$ at all but allows us to see it as a element of $\uEnd_{\Tot(A)}$ of bidegree $(0,2-j)$. 
 
 
 
@@ -2138,7 +2128,7 @@ According to the isomorphism
  the maps $M_{ij}=(-1)^{ij}\widetilde{M}_{ij}$ define an $A_\infty$-structure on $S\s\OO$. Therefore we now just have to work out the signs. Notice that $d_v$ is the total degree of $y_v$ as an element of $\s\OO$ and recall that $d$ is the total degree of $x_1\otimes\cdots\otimes x_j\in A^{\otimes j}$. Therefore, $\varepsilon$ can be written as
 \[\varepsilon= i(d-j)+\sum_{1\leq v<w\leq j}k_vd_w.\]
 The sign produced by $\mu^{-1}$, as we saw in \Cref{mui}, is precisely determined by the exponent 
-\[\sum_{w=2}^jd_w\sum_{v=1}^{w-1}k_v=\sum_{1\leq v<w\leq j}k_vd_w,\]so this sign cancels the right hand summand of $\varepsilon$. This cancellation was expected since this sign comes from $\mu^{-1}$ and operadic composition is defined using $\mu$ (\Cref{insertion}). %In fact, both signs come from $\mu$, so the cancellation was expected. 
+\[\sum_{w=2}^jd_w\sum_{v=1}^{w-1}k_v=\sum_{1\leq v<w\leq j}k_vd_w,\]so this sign cancels the right hand summand of $\varepsilon$. This cancellation was expected since this sign comes from $\mu^{-1}$, and operadic composition is defined using $\mu$, see \Cref{insertion}. %In fact, both signs come from $\mu$, so the cancellation was expected. 
 Finally, the sign $(-1)^{i(d-j)}$ left from $\varepsilon$ cancels with $(-1)^{id}$ in \Cref{totsign} and $(-1)^{ij}$ from the isomorphism (\ref{firstiso}). This means that we only need to consider signs produced by vertical shifts. This calculation has been done previously in \Cref{explicit} and as we claimed the result is 
 \[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=1}^j(j-v)(d_v-k_v)}\sum_lSb_j(m_{il};y_1,\dots, y_j). \]
 
@@ -2149,9 +2139,9 @@ Note that as in the case of $A_∞$-algebras in $\mathrm{C}_R$
 we have two equivalent descriptions of $A_∞$-algebras in $\tc$.
 
 \begin{enumerate}[(1)]
-\item A twisted complex $(A, d^A)$ together with a morphism $\calA_∞ → \uEnd_A$ of operads in $\vbc$, which is determined by a family of elements $M_i ∈ \utC(A^{⊗i},A)^{2−i}_0$ for $i ≥ 2$ for which the $A_\infty$-relations (\Cref{ainftyequation}) holds for $i\geq 2$, where the composition is the one prescribed by the composition morphisms of $\utC$.
+\item A twisted complex $(A, d^A)$ together with a morphism $\calA_∞ → \uEnd_A$ of operads in $\vbc$, which is determined by a family of elements $M_i ∈ \utC(A^{⊗i},A)^{2−i}_0$ for $i ≥ 2$ for which the $A_\infty$-relations (\Cref{ainftyequation}) holds for $i\geq 2$. The composition is the one prescribed by the composition morphisms of $\utC$.
 \item A bigraded module $A$ together with a family of elements $M_i ∈ \ubgMod(A^{⊗i},A)^{2−i}_0$ for $i ≥ 1$ for
-which all the $A_\infty$ relations hold (\Cref{ainftyequation}), where the composition is the one prescribed by the composition
+which all the $A_\infty$ relations hold (\Cref{ainftyequation}). The composition is the one prescribed by the composition
 morphisms of $\ubgMod$.
 \end{enumerate}
 Since the composition morphism
@@ -2186,15 +2176,17 @@ follows from the bigraded module case of \Cref{inverse}. Finally, the isomorphis
 is analogous to the last isomorphism of \Cref{whitehouse}, replacing the quasi-free relation by the full $A_\infty$-algebra relations. 
 \end{proof}
 
+According to \Cref{alternative}, if we have an $A_\infty$-algebra structure on $A = S\s\OO$, we can consider its arity 1 component $M_1\in\underline{\End}_{\Tot(A)}$ and split it into maps $M_{i1}\in \End_A$. Since these maps must satisfy the derived $A_\infty$-relations, they define a twisted complex structure on $A$. The next corollary describes the maps $M_{i1}$ explicitly.
+
 \begin{corollary}\label{mi1}
 Let $\OO$ be a bigraded operad with a derived $A_\infty$-multiplication and let \[M_{i1}:S\s\OO\to S\s\OO\] be the arity 1 derived $A_\infty$-algebra maps induced by \Cref{alternative} from \[M_1:\Tot(S\s\OO)\to \Tot(S\s\OO).\]
 Then \[M_{i1}(x)= \sum_l (Sb_1(m_{il};S^{-1}x)-(-1)^{\langle x,m_{il}\rangle}Sb_1(S^{-1}x;m_{il})),\]
 where $x\in (S\s\OO)^{d-k}_k$ and $\langle x,m_{il}\rangle=ik+(1-i)(d-1-k)$.
 \end{corollary}
 \begin{proof}
-Notice that the proof of \Cref{alternative} is essentially the same as the proof \Cref{whitehouse}. This means that the proof of this result is an arity 1 restriction of the proof of \Cref{derivedmaps}. Then we apply \Cref{totsign} to the case $j=1$. Recall that for $x\in (S\s\OO)^{d-k}_{k}$
+Notice that the proof of \Cref{alternative} is essentially the same as the proof \Cref{whitehouse}. This means that the proof of this result is an arity 1 restriction of the proof of \Cref{derivedmaps}. Then we apply \Cref{totsign} to the case $j=1$. Recall that for $x\in (S\s\OO)^{d-k}_{k}$,
 \[M_1(x)=b_1^T(m;S^{-1}x)-(-1)^{n-1}b_1^T(S^{-1}x;m).\]
- In this case, there is no $\mu$ involved. Therefore, introducing here also the final extra sign $(-1)^i$ from the proof of \Cref{derivedmaps}, we get from \Cref{totsign} that
+ In this case, there is no $\mu$ involved. Therefore, introducing the final extra sign $(-1)^i$ from the proof of \Cref{derivedmaps}, we get from \Cref{totsign} that
 \[\widetilde{M}_{i1}(x)=(-1)^i\sum_l((-1)^{id+i(d-1)} Sb_1(m_{il};S^{-1}x)-(-1)^{d-1+id+k}Sb_1(S^{-1}x;m_{il})),\] where $b_1$ is the brace on $\s\OO$. Simplifying signs we obtain
 \[\widetilde{M}_{i1}(x)=\sum_l Sb_1(m_{il};S^{-1}x)-(-1)^{\langle  m_{il},x\rangle}Sb_1(m_{il};S^{-1}x))=M_{i1}(x),\]
 
