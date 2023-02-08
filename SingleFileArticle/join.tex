@@ -1686,6 +1686,11 @@ Let $M^{GV}_2$ be the product defined in \cite{GV} as \[M^{GV}_2(x,y)=(-1)^{|x|+
 \end{remark}
 
 
+I THINK THIS GOES WELL HERE BECAUSE I NEED THE EXPLICIT EXPRESSION
+\begin{corollary}[The $A_\infty$-Deligne Conjecture]
+WRITE IT, TRY TO BE AS EXPLICIT AS POSSIBLE, MAYBE GIVE THIS STRUCTURE A NAME, AND INTRODUCE IT BEFORE STATING IT
+\end{corollary}
+
 
 \section{Derived $A_\infty$-algebras and filtered $A_\infty$-algebras}\label{deriveddef}
 A lot of the research on $A_\infty$-algebras relies on existence and uniqueness of minimal models for dga's. This is guaranteed by the results of Kadeishvili \cite{kade} when the dga's and their homologies are assumed to be degreewise projective. In practice, this is implied by assuming a ground field. However, there are important examples arising from homotopy theory where projectivity cannot be guaranteed. In 2008, Sagave introduced the notion of derived $A_\infty$-algebras, providing a framework for not necessarily projective modules over an arbitrary commutative ground ring \cite{sagave}.
@@ -2195,9 +2200,9 @@ where $\langle  m_{il},x\rangle=ik+(1-i)(d-1-k)$, as claimed.
 
 \subsection{Iterating the process}
 
-Note that the maps given by \Cref{derivedmaps} and \Cref{mi1} formally look the same as their single-graded analogues (see \Cref{explicit}) but with an extra index that is fixed for each $M_{ij}$. This means that we can follow the same procedure as in \Cref{sect3} to define higher derived $A_\infty$-maps. 
+Note that the maps given by \Cref{derivedmaps} and \Cref{mi1} formally look the same as their single-graded analogues in \Cref{explicit} but with an extra index that is fixed for each $M_{ij}$. This means that we can follow the same procedure as in \Cref{sect3} to define higher derived $A_\infty$-maps. More precisely, given an operad $\OO$ with a derived multiplication and $A=S\s\OO$, we will define a derived $A_\infty$-algebra structure on $S\s\End_A$. We will then connect the algebraic structure on $A$ with the structure on $S\s\End_A$ through braces. This connection will allow us to formulate and show a new version of the Deligne Conjecture.
 
-More precisely, let $\overline{B}_j$ be the bigraded brace map on $\s\End_{S\s\OO}$ and consider the maps
+Let $\overline{B}_j$ be the bigraded brace map on $\s\End_{S\s\OO}$ and consider the maps
 
 \begin{equation}\label{barbimaps}
 \overline{M}'_{ij}:(\s\End_{S\s\OO})^{\otimes j}\to \s\End_{S\s\OO}
@@ -2208,8 +2213,7 @@ defined as
 &\overline{M}'_{i1}(f)=\overline{B}_1(M_{i\bullet};f)-(-1)^{ip+(1-i)q}\overline{B}_1(f;M_{i\bullet}),
 \end{align*}
 for $f$ of natural bidegree $(p,q)$, where $M_{i\bullet}=\sum_j M_{ij}$. We define 
-\[\overline{M}_{ij}:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO}\]
-as \[\overline{M}_{ij} = \overline{\sigma}(M'_{ij})=S\circ M'_{ij}\circ (S^{\otimes n})^{-1}.\]
+\[\overline{M}_{ij}:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO},\ \overline{M}_{ij} = \overline{\sigma}(M'_{ij})=S\circ M'_{ij}\circ (S^{\otimes n})^{-1}.\]
 
 As in the single-graded case we can define a map
 \[\Phi:S\s\OO\to S\s\End_{S\s\OO}\]
@@ -2223,9 +2227,9 @@ S\s\OO\arrow[rr, "\Phi"]\arrow[d] & & S\s\End_{S\s\OO}\\
 where 
 \begin{align*}
 \Phi'\colon&\s\OO \to \End_{\s\OO}\\
-&x\mapsto \sum_{n\geq 0}b_n(x;-)
+&x\mapsto \sum_{n\geq 0}b_n(x;-).
 \end{align*}
-and the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\sigma}$.
+The isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\sigma}$.
 
 In this setting we have the bigraded version of \Cref{theorem}. But before stating the theorem, for the sake of completeness let us state the definition of the Hochschild complex of a bigraded module.
 \begin{defin}
@@ -2233,15 +2237,17 @@ We define the \emph{Hochschild cochain complex} of a bigraded module $A$ to be t
 \end{defin}
 In particular, $S\s\End_{S\s\OO}$ is the Hochschild cochain complex of $S\s\OO$. If $\OO$ has a derived $A_\infty$-multiplication, then the differential of the Hochschild complex $S\s\End_{S\s\OO}$ is given by $\overline{M}_{01}$ from \Cref{barbimaps}.
 
+The following is the same as that of \Cref{theorem} but carrying the extra index $i$ and using the bigraded sign conventions.
 \begin{thm}\label{bigradedtheorem}
 The map $\Phi$ defined above is a morphism of derived $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
 
 \[\Phi(M_{ij})=\overline{M}_{ij}(\Phi^{\otimes j})\]
 holds.%, where the $M_{ij}$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\OO$ and $\overline{M}_j$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\End_{S\s\OO}$. 
 \end{thm}
-\begin{proof}
-The proof is the same as that of \Cref{theorem} but carrying the extra index $i$ and using the bigraded sign conventions.
-\end{proof}
+
+\begin{corollary}[The $dA_\infty$-Deligne Conjecture]
+WRITE IT, TRY TO BE AS EXPLICIT AS POSSIBLE, MAYBE GIVE THIS STRUCTURE A NAME, AND INTRODUCE IT BEFORE STATING IT, CALL SSEND THE HOCHSCHILD COMPLEX SO THAT THIS STRUCTURE IS ON THE HOCHSCHILD COMPLEX
+\end{corollary}
 
 %\begin{appendices}
 \appendix
@@ -2267,7 +2273,7 @@ By definition, this equals
 \frac{(n^2+2nm-2n+m^2-2m-n-m+2)+(n^2-n)+(m^2-m)+2(nm-n-m+1)}{2}=\\
 n^2+2nm-3n+m^2-3m+2=n^2+m+m^2+m=0\mod 2
 \end{gather*}
-as wanted, because $n^2=n\mod 2$.
+as desired, because $n^2=n\mod 2$.
 
 
 \end{proof}
@@ -2297,7 +2303,7 @@ and on the other hand
 \[\sigma^{-1}(F)\tilde{\circ}_i\sigma^{-1}(G)=(-1)^{(n-1)(m-1)+(n-1)(\deg(G)+m-1)+(i-1)(m-1)}\sigma^{-1}(F)\circ_i\sigma^{-1}(G)=\]
 \[(-1)^{\varepsilon}S^{-1}\circ F(S^{\otimes i-1}\otimes G(S^{\otimes m})\otimes S^{\otimes n-i}),\]
 where
-\[\varepsilon=\binom{n}{2}+\binom{m}{2}+(n-1)(m-1)+(n-1)(\deg(G)+m-1)+(i-1)(m-1)+(\deg(G)+m-1)(n-i)\]
+\[\varepsilon=\binom{n}{2}+\binom{m}{2}+(n-1)(m-1)+(n-1)(\deg(G)+m-1)+(i-1)(m-1)+(\deg(G)+m-1)(n-i).\]
 
 By \Cref{binom}, 
 
@@ -2363,12 +2369,12 @@ If we take the tensor product of $f\otimes e^n\in\s\End_A(n)$ and $g\otimes e^m\
 
 \begin{align*}
 ((f\otimes e^n)\otimes ( g\otimes e^m))(a\otimes b)=&(-1)^{\deg(a)(\deg(g)+m-1)}(f\otimes e^n)(a)\otimes( g\otimes e^m)(b)\\
-=&(-1)^{\deg(a)(\deg(g)+m-1)+\deg(a)(n-1)+\deg(b)(m-1)}(f(a)\otimes e^n)\otimes(f(b)\otimes e^m).
+=&(-1)^{\varepsilon}(f(a)\otimes e^n)\otimes(f(b)\otimes e^m),
 \end{align*}
-
+where $\varepsilon = \deg(a)(\deg(g)+m-1)+\deg(a)(n-1)+\deg(b)(m-1)$. 
 The last remark that we want to make is the case of a map of the form 
 \[f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k})\otimes e^{m+n-1}\in\s\End_A(n+m-1),\] 
-such us those produced by operadic the insertion $\s f\tilde{\circ}_{k} \s g$. In this case, this map applied to $a_{k-1}\otimes b\otimes a_{n-k}\in A^{\otimes k-1}\otimes A^{\otimes m}\otimes A
+such as those produced by operadic the insertion $\s f\tilde{\circ}_{k} \s g$. In this case, this map applied to $a_{k-1}\otimes b\otimes a_{n-k}\in A^{\otimes k-1}\otimes A^{\otimes m}\otimes A
 ^{\otimes n-k}$ results in
 
 \begin{gather*}
@@ -2376,7 +2382,7 @@ such us those produced by operadic the insertion $\s f\tilde{\circ}_{k} \s g$. I
 (-1)^{(m+n)(\deg(a_{k-1})+\deg(b)+\deg(a_{n-k}))}(f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k}(a_{k-1}\otimes b\otimes a_{n-k}))\otimes e^{m+n-1}=\\
 (-1)^{(m+n)(\deg(a_{k-1})+\deg(b)+\deg(a_{n-k}))+\deg(a_{k-1})\deg(g)}f(a_{k-1}\otimes g(b)\otimes a_{n-k})\otimes e^{m+n-1}.
 \end{gather*}
-To go from the first line to the second we switch $e^{m+n-1}$ of degree $m+n-2$  with $a_{k-1}\otimes b\otimes a_{n-k}$. To go from the second line to the third we apply the usual sign rule for graded maps.
+To go from the first line to the second, we switch $e^{m+n-1}$ of degree $m+n-2$  with $a_{k-1}\otimes b\otimes a_{n-k}$. To go from the second line to the third we apply the usual sign rule for graded maps.
 
 The purpose of this last remark is not only review the Koszul sign rule but also remind that the insertion $\s f\tilde{\circ}_{k} \s g$ is of the above form, so that the $e^{m+n-1}$ component is always at the end and does not play a role in the application of the sign rule with the composed maps. In other words, it does not affect their individual degrees, just the degree of the overall composition. %I do this because I made some mistakes with  respect to this
 
@@ -2384,11 +2390,11 @@ The purpose of this last remark is not only review the Koszul sign rule but also
 
 
 
-Let us use an analogous strategy to \cite{RW} used to find the signs of the Lie bracket $[f,g]$ on $\End_A$, but here we are going to use it to find the sign of the braces.
+Let us use an analogous strategy to \cite{RW} used to find the signs of the Lie bracket $[f,g]$ on $\End_A$ to find the sign of the braces.
 
 Let $A$ be a graded module. Let $S(A)$ be the graded module with $S(A)^v=A^{v+1}$, and so the suspension or \emph{shift} map $S:A\to S(A)$ given by the identity map has internal degree $-1$.
 
- Let $f\in \End_A(N)^i=\Hom_R(A^{\otimes N},A)^i$. Recall that $\sigma$ is the inverse of the map from Theorem \ref{markl}, so that $\sigma(f)$ is defined as the map making the following diagram commutative
+ Let $f\in \End_A(N)^i=\Hom_R(A^{\otimes N},A)^i$. Recall that $\sigma$ is the inverse of the map from Theorem \ref{markl}, so that $\sigma(f)$ is defined as the map making the following diagram commute.
 \[
 \begin{tikzcd}
 S(A)^{\otimes N}\arrow[r, "\sigma(f)"]\arrow[d, "(S^{-1})^{\otimes N}"'] & S(A)\\
@@ -2399,11 +2405,11 @@ A^{\otimes N}\arrow[r,"f"] & A\arrow[u, "S"']
 Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in \End_A(N)^{i+N-1}$. 
 
 \begin{remark}
-In \cite{RW} there is a sign $(-1)^{N+i-1}$ in front of $f$ but it seems to be irrelevant for our purposes. Another fact to remark on is that the suspension of graded modules used here (and in \cite{RW}) is the opposite that we have used to define the operadic suspension in the sense that they define $S(A)^v=A^{v-1}$. This does not change the signs or the procedure, but in the statement of theorem \ref{markl} operadic desuspension should be changed to operadic suspension. %My suspension is better because it gives the total degree
+In \cite{RW} there is a sign $(-1)^{N+i-1}$ in front of $f$ but it seems to be irrelevant for our purposes. Another fact to remark on is that the suspension of graded modules used here (and in \cite{RW}) is the opposite that we have used to define the operadic suspension in the sense that they define $S(A)^v=A^{v-1}$. This does not change the signs or the procedure, but in the statement of \Cref{markl}, operadic desuspension should be changed to operadic suspension. %My suspension is better because it gives the total degree
 \end{remark}
 
 
-Notice that, by the Koszul sign rule \[(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^{N-1} j}1=(-1)^{\frac{N(N-1)}{2}}1=(-1)^{\binom{N}{2}}1,\] so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in \End_{S(A)}(m)^j$, we have
+Notice that by the Koszul sign rule \[(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^{N-1} j}1=(-1)^{\frac{N(N-1)}{2}}1=(-1)^{\binom{N}{2}}1,\] so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in \End_{S(A)}(m)^j$, we have
 \[
 \sigma^{-1}(F)=(-1)^{\binom{m}{2}}S^{-1}\circ F\circ S^{\otimes m}\in \End_A(m)^{j-m+1}.
 \]
@@ -2435,7 +2441,7 @@ Let us compute $\eta$ using the definition of $b_n$.
 
 
 
-Now we move each $1^{\otimes k_{j-1}}\otimes S\circ g_j\circ (S^{-1})^{a_j}$ to apply $(S^{-1})^{k_{j-1}}\otimes S^{-1}$ to it. Doing this to all of them produces a sign
+Now we move each $1^{\otimes k_{j-1}}\otimes S\circ g_j\circ (S^{-1})^{a_j}$ to apply $(S^{-1})^{k_{j-1}}\otimes S^{-1}$ to it. Doing this for all $j=1,\dots, n$ produces a sign
 
 \[
 (-1)^{(a_1+q_1-1)(n-1+\sum k_l)+(a_2+q_2-1)(n-2+\sum_2^n k_l)+\cdots+(a_n+q_n-1)k_n}=(-1)^{\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)},
@@ -2450,11 +2456,11 @@ Now we move each $1^{\otimes k_{j-1}}\otimes S\circ g_j\circ (S^{-1})^{a_j}$ to 
  
  Now we turn the tensor of inverses into inverses of tensors by introducing the appropriate signs. More precisely we introduce the sign
  \begin{equation}\label{delta}
- (-1)^{\delta}=(-1)^{\binom{k_0}{2}+\sum(\binom{a_j}{2}+\binom{k_j}{2})}
+ (-1)^{\delta}=(-1)^{\binom{k_0}{2}+\sum(\binom{a_j}{2}+\binom{k_j}{2})}.
   \end{equation}
  
   
-So we now have
+Therefor we have
 \[
  (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon+\delta}f\circ((S^{k_0})^{-1}\otimes  g_1\circ (S^{\otimes a_1})^{-1}\otimes\cdots \otimes  g_n\circ (S^{\otimes a_n})^{-1}\otimes  (S^{k_n})^{-1})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n})
  \]
@@ -2480,11 +2486,11 @@ If the number top of a binomial coefficient is less than 2, then the coefficient
 
 We are now going to simplify the sign to obtain the desired result.
 
-Notice that $N-n+\sum a_j=\sum k_i +\sum a_j$. In general, consider a finite sum $\sum b_i$. We can simplify $\mod 2$ the binomial coefficients
+Notice that $N-n+\sum a_j=\sum k_i +\sum a_j$. In general, consider a finite sum $\sum b_i$. We can simplify the binomial coefficients mod 2
 
-$$\binom{\sum b_i}{2}+\sum\binom{b_i}{2}$$
+\[\binom{\sum b_i}{2}+\sum\binom{b_i}{2}\]
 
-in the followin way. Note that all terms will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator. More precisely, we have the following equality $\mod 2$:
+in the followin way. Note that all terms will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator. More precisely, we have the following equality mod 2.
 
 \[\binom{\sum b_i}{2}+\sum\binom{b_i}{2}=\sum_{i<j}b_ib_j.\]
 So the result of applying this to $\binom{N-n+\sum a_j}{2}$ and adding $\delta$ (recall $\delta$ from \ref{delta}) in our sign $\eta$ is
@@ -2552,14 +2558,14 @@ Applying the brace relation we obtain
 b_2(x;m_{jl},m_{ik})+b_1(x;b_1(m_{jl};m_{ik}))+b_2(x;m_{ik},m_{jl})).
 \end{align*}
 
-In the sum, all terms of the form $b_1(x;b_1(m_{jl};m_{ik}))$ that can be seen in the last line should add up to vanish provided that $m$ is a $dA_\infty$-multiplication (meaning that up to sign $b_1(m;m)=0$) %A sign of the form $(-1)^i$ %(or maybe $(-1)^j$, depending on the convention) 
+In the sum, all terms of the form $b_1(x;b_1(m_{jl};m_{ik}))$ that can be seen in the last line should add up to vanish provided that $m$ is a $dA_\infty$-multiplication (meaning that up to sign $b_1(m;m)=0$). %A sign of the form $(-1)^i$ %(or maybe $(-1)^j$, depending on the convention) 
  Since $i$ and $j$ are interchangeable (i.e. for each pair $(i,j)$ there is the pair $(j,i)$), the terms $b_2(x;m_{jl},m_{ik})+b_2(x;m_{ik},m_{jl})$ in the last line should cancel as well (for this, we should have the pair $(j,i)$ with the opposite sign). Here it is also relevant that the sum runs through all possible values of $k$ and $l$, so that the pair $(j,i)$ appears with $l$ and $k$ interchanged as well. So far the entire last line vanishes up to sign.
 
 Then $b_1(m_{ik};b_1(x;m_{jl}))$ on the first line should cancel with $b_1(m_{jl};b_1(x;m_{ik}))$ on the second line (but from a different summand, the one where $i$ and $j$ are interchanged). Finnaly, the remaining terms $b_1(m_{ik}; b_1(m_{jl};x))+b_2(m_{jl};x,m_{ik})+b_2(m_{jl};m_{ik},x)$ add up to $b_1(b_1(m;m);x)$ up to sign. That would cancel everything.
 
 
 
-Let us now add signs. We now compute for all $u$
+Let us now introduce the signs. We now compute for all $u$
 \[\sum_{i+j=u} (-1)^iM_{i1}\circ M_{j1}.\]
 %recalling that for the usual sign convention of twisted complex from a $dA_\infty$-algebra we need to define $d_i=(-1)^im_{i1}$, so that the sign in the equation is $(-1)^j$ instead of $(-1)^i$. 
 For $x\in\s\OO$, by definition, we have
@@ -2580,13 +2586,16 @@ Applying the brace relation we obtain
 +(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik}))).\nonumber
 \end{align}
 
-Recall that $m$ being a $dA_\infty$-multiplication means that $\sum_{i+j=u}\sum_{k,l}(-1)^ib_1(m_{jl};m_{ik})=0$. %Notice that the summand corresponding to each value of $i+j$ must vanish because it corresponds to a given horizontal degree. 
+Recall that $m$ being a $dA_\infty$-multiplication means that \[\sum_{i+j=u}\sum_{k,l}(-1)^ib_1(m_{jl};m_{ik})=0.\] %Notice that the summand corresponding to each value of $i+j$ must vanish because it corresponds to a given horizontal degree. 
 Let us check now the cancellations with the signs. First, let us check that the terms 
 \[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))\]
 can be added up to vanish. For that, we compute the sign \[\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle=\langle m_{jl}|m_{ik}\rangle+\langle x|m_{ik}\rangle+\langle x|m_{jl}\rangle.\]
 Recall that the braces are defined on the operadic suspension, so that the bidegree of $m_{ik}$ is $(i,1-i)$. Therefore, writing the bidegree of $x$ as $(k,n-k)$, so that the total degree is $|x|=n$, the above equals 
-\[ji+(1-i)(1-j)+ki+(n-k)(1-i)+kj+(n-k)(1-j)\equiv 1+i+j + (i+j)k+(i+j)(n-k)\mod 2=\]
-\[1+(i+j)(1+n)=1+u(1+|x|).\]
+\begin{align*}
+&ji+(1-i)(1-j)+ki+(n-k)(1-i)+kj+(n-k)(1-j)\\
+&\equiv 1+i+j + (i+j)k+(i+j)(n-k)\mod 2\\
+&=1+(i+j)(1+n)=1+u(1+|x|).
+\end{align*}
 Since this sign is constant for all terms $b_1(m_{ik};m_{ij})$ that share the same horizontal degree $i+j=u$, we can rewrite
 \[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))=-(-1)^{u(1+|x|)}b_1(x;(-1)^ib_1(m_{ik};m_{jl})).\]
 Hence, 
@@ -2615,17 +2624,19 @@ As we see, we get opposite signs and thus cancellation. For $b_2(x;m_{ik},m_{jl}
  -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\label{twistedequation3}\\
  -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik})).\nonumber
 \end{align}
-In a similar fashion to the previous calculation, we are going to cancel $b_1(m_{ik};b_1(x;m_{jl}))$ in the first line with $b_1(m_{jl};b_1(x;m_{ik})$ in the last line by considering switched pairs. For the pair $((i,j),(k,l))$, the term in the first line is 
+In a similar fashion to the previous calculation, we are going to cancel $b_1(m_{ik};b_1(x;m_{jl}))$ in the first line with $b_1(m_{jl};b_1(x;m_{ik}))$ in the last line by considering switched pairs. For the pair $((i,j),(k,l))$, the term in the first line is 
 \[-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))\]
 and for the pair $((j,i),(l,k))$ the term in the last line is
-\[-(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))=(-1)^{1+j+\langle m_{ik}|m_{jl}\rangle+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))=\]
-\[(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl})),\]
+\begin{align*}
+-(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))&=(-1)^{1+j+\langle m_{ik}|m_{jl}\rangle+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))\\
+&=(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl})),
+\end{align*}
 which has precisely the opposite sign to the other pair, and thus cancels. This reduces expression (\ref{twistedequation3}) to 
 \begin{align}
 \sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))&\label{twistedequation4}\\
  -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})&+(-1)^{i+\langle m_{jl}|m_{ik}\rangle}b_2(m_{jl};m_{ik},x)).\nonumber
 \end{align}
-We want this terms to add up to something of the form $b_1(b_1(m;m);x)$. Notice that for this we need to switch some pairs. For simplicity, we switch the pair of the first term and rewrite the sum as
+We want these terms to add up to something of the form $b_1(b_1(m;m);x)$. Notice that for this we need to switch some pairs. For simplicity, we switch the pair of the first term and rewrite the sum as
 \begin{align}
 \sum_{i+j=u}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))&\\
  -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})&+(-1)^{i+\langle m_{jl}| m_{ik}\rangle}b_2(m_{jl};m_{ik},x)).\nonumber
@@ -2718,8 +2729,8 @@ Jean-Louis Loday and Bruno Vallette.
 \bibitem[MM21]{muro}
 Jeroen Maes and Fernando Muro.
 \newblock Derived homotopy algebras.
-\newblock Technical Report arXiv:2106.14987, arXiv, June 2021.
-\newblock arXiv:2106.14987 [math] type: article.
+\newblock arXiv:2106.14987, June 2021.
+
 
 \bibitem[MSS07]{operads}
 Martin Markl, Steve Shnider, and Jim Stasheff.
