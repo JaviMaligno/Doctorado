@@ -192,18 +192,26 @@ Next, we prove our first main result, \Cref{theorem}, which relates the $A_\inft
 \begin{manualtheorem}{A}
 There is a morphism of $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$.
 \end{manualtheorem} 
-This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we introduce a suitable context and prove it as \Cref{theorem}. We also draw a connection between our framework and the one from Gerstenhaber and Voronov. As a consequence of this theorem, if $A$ is an $A_\infty$-algebra and $\OO=\End_A$ its endomorphism operad, we obtain an $A_\infty$-version of the Deligne Conjecture. 
+This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we introduce a suitable context and prove it as \Cref{theorem}. We also draw a connection between our framework and the one from Gerstenhaber and Voronov. As a consequence of this theorem, if $A$ is an $A_\infty$-algebra and $\OO=\End_A$ its endomorphism operad, we obtain the following $A_\infty$-version of the Deligne Conjecture in \Cref{ainftydeligne}. 
 
- After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras in \Cref{deriveddef}. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW} which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our second and third main results. The former is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, this structure is equivalent to a derived $A_\infty$-algebra on $S\s\OO$.
+\begin{manualtheorem}{B}
+The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with an $A_\infty$-multiplication has a structure of $G_{A_\infty}$-algebra.
+\end{manualtheorem} 
+
+ After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras in \Cref{deriveddef}. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW} which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our main results about derived $A_\infty$-algebras. The first one is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, the $A_\infty$-structure on totalization is equivalent to a derived $A_\infty$-algebra on $S\s\OO$.
  
- \begin{manualtheorem}{B}
+ \begin{manualtheorem}{C}
 	For any operad $\OO$ with a derived $A_\infty$-multiplication there are linear maps $M_{ij}:(S\s\OO)^{\otimes j}\to S\s\OO$, satisfying the derived $A_\infty$-algebra axioms.
  \end{manualtheorem}
- The latter is \Cref{bigradedtheorem}, which generalizes \Cref{theorem} to the derived setting. More precisely,
- \begin{manualtheorem}{C}
+ The next result is \Cref{bigradedtheorem}, which generalizes \Cref{theorem} to the derived setting. More precisely,
+ \begin{manualtheorem}{D}
 There is a morphism of derived $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$.
 \end{manualtheorem}
-As a consequence of this theorem we obtain a new version of the Deligne Conjecture, this time in the setting of derived $A_\infty$-algebras.
+As a consequence of this theorem we obtain a new version of the Deligne Conjecture, \Cref{dainftydeligne}, this time in the setting of derived $A_\infty$-algebras.
+\begin{manualtheorem}{E}
+The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with a derived $A_\infty$-multiplication has a structure of $G_{dA_\infty}$-algebra.
+\end{manualtheorem} 
+
 
 \section{Background and conventions}\label{Sec1}
 
@@ -313,7 +321,7 @@ All the above definitions generalize to the bigraded case as well with no substa
 
 \subsection{For the study of derived $A_\infty$-algebras}\label{background}
 
-Now we move to the categories and conventions that we need in order to study derived $A_\infty$-algebras. The idea is that we would like to apply what we obtain in the setting of $A_\infty$-algebras to the derived setting. In order to do that, we need a way to connect a single graded category with a bigraded category. This is usually done through totalization. But in order to properly translate $A_\infty$-algebras into totalized derived $A_\infty$-algebras we need to go through several suitably enriched catgories that are defined in this section.
+Now we move to the categories and conventions that we need in order to study derived $A_\infty$-algebras. The idea is that we would like to apply what we obtain in the setting of $A_\infty$-algebras to the derived setting. In order to do that, we need a way to connect a single graded category with a bigraded category. This is usually done through totalization. But in order to properly translate $A_\infty$-algebras into totalized derived $A_\infty$-algebras we need to go through several suitably enriched categories that are defined in this section.
 
 Most of the definitions come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
 
@@ -325,7 +333,7 @@ closed symmetric monoidal category, then we denote its internal hom-object by $[
 
 \subsubsection{Filtered Modules and complexes}
 
-First, we collect some definitions about filtered modules and filtered complexes.
+First, we collect some definitions about filtered modules and filtered complexes. Filtrations will allow to add an extra degree to single-graded objects that will be necessary in order to connect them with bigraded objects.
 
 \begin{defin}
 A \emph{filtered $R$-module} $(A, F)$ is given by a family of $R$-modules $\{F_pA\}_{p∈\Z}$ indexed by
@@ -359,7 +367,7 @@ In particular, $\Hom_{\fmod}(K,L)=F_0\underline{\Hom}(K,L)$.
 \subsubsection{Bigraded modules, vertical bicomplexes, twisted complexes and sign conventions}
 
 
-We collect some definitions of basic categories that we need to use and establish some conventions.
+We collect some definitions of basic bigraded categories that we need to use and establish some conventions.
 
 
 \begin{defin}
@@ -457,7 +465,7 @@ for $i ≥ 0$, endows $[A,B]^∗_∗$ with the structure of a twisted complex.
 
 \subsubsection{Totalization}\label{total}
 
-Here we recall the definition of the totalization functor from \cite{whitehouse} and some of the structure that it comes with.
+Here we recall the definition of the totalization functor from \cite{whitehouse} and some of the structure that it comes with. This functor and its enriched versions are key to establish a correspondance between $A_\infty$-algebras and derived $A_\infty$-algebras.
 
 
 \begin{defin}
@@ -648,12 +656,11 @@ We show that this map is the inverse of the map in \Cref{enrichedmap}.
 In the above diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. 
 \end{proof}
 
+The following is \cite[Lemma 4.15]{whitehouse}.
 \begin{lem}\label{4.15}
 The category $\fc$ is monoidal over $\vbc$. By restriction, $\fmod$ is monoidal over $\bgmod$.
 \end{lem}
-\begin{proof}
-See \cite[Lemma 4.15]{whitehouse} for the proof and more details.
-\end{proof}
+
 
 \subsubsection*{Enriched categories and totalization}
 
@@ -1637,10 +1644,10 @@ We are going to evaluate on $(z_1,\dots, z_n)$ to make this map more explicit. T
  In the case $n=0$, we have to note that $B_1(b_0(x);m)$ vanishes because of arity reasons: $b_0(x)$ is a map of arity 0, so we cannot insert any inputs. And this finishes the proof.
  \end{proof}
  
- \subsection{Explicit $A_\infty$-algebra structure}\label{sect4}
+ \subsection{Explicit $A_\infty$-algebra structure and Deligne Conjecture}\label{sect4}
 
 We have given an implicit definition of the components of the $A_\infty$-algebra structure on $S\s\OO$, namely, \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
-but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$.  This explicit formulas will clear up the connection with the work of Gerstenhaber and Voronov.  We also hope that these explicit expression can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
+but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$. We will also need these explicit expressions to describe $G_{A_\infty}$-algebras, which are $A_\infty$-version of homotopy $G$-algebras. This way we can state the $A_\infty$-Deligne Conjecture in a more precise way. This explicit formulas will also clear up the connection with the work of Gerstenhaber and Voronov. We also hope that these explicit expression can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
 
 \begin{lem}\label{explicit}
 For $x,x_1,\dots,x_n\in\s\OO$, we have the following expressions.
@@ -1687,7 +1694,7 @@ Let $M^{GV}_2$ be the product defined in \cite{GV} as \[M^{GV}_2(x,y)=(-1)^{|x|+
 
 
 I THINK THIS GOES WELL HERE BECAUSE I NEED THE EXPLICIT EXPRESSION
-\begin{corollary}[The $A_\infty$-Deligne Conjecture]
+\begin{corollary}[The $A_\infty$-Deligne Conjecture]\label{ainftydeligne}
 WRITE IT, TRY TO BE AS EXPLICIT AS POSSIBLE, MAYBE GIVE THIS STRUCTURE A NAME, AND INTRODUCE IT BEFORE STATING IT
 \end{corollary}
 
@@ -2245,7 +2252,7 @@ The map $\Phi$ defined above is a morphism of derived $A_\infty$-algebras, i.e. 
 holds.%, where the $M_{ij}$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\OO$ and $\overline{M}_j$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\End_{S\s\OO}$. 
 \end{thm}
 
-\begin{corollary}[The $dA_\infty$-Deligne Conjecture]
+\begin{corollary}[The $dA_\infty$-Deligne Conjecture]\label{dainftydeligne}
 WRITE IT, TRY TO BE AS EXPLICIT AS POSSIBLE, MAYBE GIVE THIS STRUCTURE A NAME, AND INTRODUCE IT BEFORE STATING IT, CALL SSEND THE HOCHSCHILD COMPLEX SO THAT THIS STRUCTURE IS ON THE HOCHSCHILD COMPLEX
 \end{corollary}
 

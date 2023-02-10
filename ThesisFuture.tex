@@ -37,12 +37,40 @@
 
 \chapter{Future research}
 
-Probably more extended than the article version
+We finish by outlining some question that remain open after our research that would be interesting to investigate in the future. These questions arise naturally from the work done with (derived) $A_\infty$-algebras and from the classical results by Gerstenhaber and Voronov \cite{GV}.
 
 
 
 \section{Hochschild Cohomology}
-Structure induced on cohomology (include calculations for the associative case)
-\section{Morphism}
-About how could $\Phi$ connected morphisms, it's not even clear what notion of morphism to use because if you have $O\to P$ and it is not clear how to get $P^n\to P$ from $O^n\to O$.
+
+%\section{Morphism}
+%About how could $\Phi$ connected morphisms, it's not even clear what notion of morphism to use because if you have $O\to P$ and it is not clear how to get $P^n\to P$ from $O^n\to O$.
+REWRITE BECAUSE THIS IS FROM DELIGNE CONJECTURE IDEAS
+
+Let us review the structure on the Hochschild complex of an associative operad in order to understand the question that we will be asking about the (derived) $A_\infty$-case.
+
+Let $\OO$ be an operad with an associative multiplication $m$, i.e. an $A_\infty$-multiplication $m$ (\cref{ainftymult}) such that $m=m_2$. In this case, as a consequence of \cref{ainftystructure} or by \cite{GV}[Proposition 2], we have a dg-algebra structure on $S\s\OO$ given by the differential
+\[d(Sx) =  Sb_1(m; x) -(-1)^{|x|}Sb_1(x; m)\]
+and the multiplication
+\[m(Sx,Sy) = Sb_2(m;x,y).\]
+
+In particular, if $\OO = \End_{SA}$ is the endomorphism operad of an associative algebra $A$ (such as $\s\PP$ for an operad $\PP$ with associative multiplication), these maps provide a dg-algebra structure on the Hochschild complex of $A$, denoted by $C^*(A)$. But this is not all the structure that we get. Since any operad is a brace algebra, we have an interaction between the dg-algebra and the brace structure. More precisely, $\OO$ has a structure of \emph{homotopy $G$-algebra} (see Definition 2 and Theorem 3 of \cite{GV}). MAYBE WRITE DOWN THE DEFINITION IN MY TERMS, SINCE IT IS A CONSEQUENCE OF BRACE RELATION
+
+I CAN USE THIS TO INTRODUCE THE DELIGNE CONJECTURE PREVIOUSLY
+ This result is what we call the \emph{Deligne Conjecture}, which has its roots in the theory of topological operads SOME REFERENCE TO DELIGNE CONJECTURE
+ 
+ 
+ Given the algebraic structure described above on the Hochschild complex of an associative algebra, we can then take cohomology with respect to $d$ to compute the Hochschild cohomology of $A$, denoted by $HH^*(A)$. It is known that $m$ and the bracket 
+\[[x,y]=Sb_1(x; y) -(-1)^{|x||y|}Sb_1(y; x)\]
+induces a structure of a Gerstenhaber algebra on $HH^*(A)$ \cite{GV}[Corollary 5]. The proof relies on some identities that can be deduced from the definition of homotopy $G$-algebra, such has graded homotopy commutativity. 
+
+If we try to replicate this argument in the derived $A_\infty$, as we mentioned before, we encounter an explosion in the number of relations and maps involved in the description of $G_{A_\infty}$-algebras. MAYBE GIVE IT A TRY Therefore, the resulting structure has not been feasible to manipulate and it is not very clear what kind of algebraic structure it induces on cohomology. The derived case if of course even more difficult to handle.
+
+
+
+DETAILS (ONLY IN THESIS, NOT IN PAPER)
+\url{https://math.stackexchange.com/questions/3887857/show-that-this-map-is-well-defined-on-cohomology/3887939#3887939}%☺
+I MAY ALSO NEED TO WRITE THE DERIVATION OF (11) FROM (9)
+\url{https://arxiv.org/pdf/hep-th/9409063.pdf}
+
 \end{document}
