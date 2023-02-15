@@ -338,11 +338,59 @@ The category $\fc$ is monoidal over $\vbc$. By restriction, $\fmod$ is monoidal 
 
 
 %We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but 
-MORE INTRODUCTION TO AINFTY: MOTIVATION EXAMPLES AND PICTURES
 
-In this section we first establish notation and assumptions about graded modules. We are also going to briefly recall some of the basic definitions regarding $A_\infty$-algebras.
 
-Our base category is the category of $\Z$-graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convention:
+In the early sixties, J. Stasheff invented $A_\infty$-spaces and $A_\infty$-algebras \cite{STASHEFFI}, \cite{STASHEFF} as a tool in the study of ‘group-like’ spaces. We are going to motivate them by explaining their topological origin and later we will give precise definitions. We will also recall minimal models to further motivate the study of $A_\infty$-algebras and their limitations. A more detailed survey can be found in \cite{keller} and in \cite{lodayvallette}.
+
+\subsection{Topological origin}
+
+Let us consider the basic example. Let $(X, *)$ be a topological space with a base point $*$ and let $\Omega X$ denote the space of based loops in $X$: a point of 
+$X$ is thus a continuous map $f : S^ 1 \to X$ taking the base point of the circle to the base point $*$. We have the composition map
+
+\[
+m_2 : X ×X \to X
+\]
+sending a pair of loops $(f_1, f_2)$ to the loop $f_1 * f_2 = m_2(f_1, f_2)$ obtained by running through $f_1$ on the first half of the circle and through $f_2$ on the second half.
+
+PICTURE OF COMPOSITION
+
+This composition is non associative: for three loops $f_1$, $f_2$, $f_3$, the composition $(f_1*f_2)*f_3$ runs through $f_1$ on the first quarter of the circle whereas the composition $f_1 * (f_2 * f_3)$ runs through $f_1$ on the first half of the circle. We symbolize the two possibilities by the two binary trees with three leaves.
+
+PICTURE OF NON ASSOCIATIVITY
+
+Clearly, there is a homotopy
+\[
+m_3 : [0, 1]×X × X \to X
+\]
+joining the two possibilities of composing three loops by a reparamerization. When we want to compose 4
+factors, there are 5 possibilities corresponding to the 5 binary trees with 4 leaves. Using
+$m_3$, we obtain two paths of homotopies joining the composition $(f_1, f_2, f_3, f_4) \mapsto
+((f_1 * f_2) * f_3) * f_4$ to the composition $(f_1, f_2, f_3, f_4) \mapsto f_1 * (f_2 * (f_3 * f_4))$.
+
+PICTURE OF PENTAGON
+
+These two paths are clearly homotopic. Let us denote an homotopy by
+\[
+m_4 : K_4 × (\Omega X)^4 \to X
+\]
+where $K_4$ denotes the pentagon bounded by the two paths. When we want to compose 5 factors, there are 14 possibilities corresponding to the 14 binary trees
+with 5 leaves. Using $m_4$ and $m_3$, we obtain paths linking the compositions and faces linking the paths. The resulting sphere is the boundary of the polytope $K_5$ depicted.
+
+PICTURE OF POLYTOPE (DON'T INCLUDE IMAGES FILES, DRAW IT IF NECESSARY)
+
+The pentagonal faces are copies of $K_4$. More generally, Stasheff \cite{STASHEFFI} defined polytopes $K_n$ of dimension $n−2$ for all $n > 2$, including $K_2 = *$ and $K_3 = [0, 1]$. He defined an \emph{$A_\infty$-space} to be a topological space
+$Y$ endowed with maps $m_n : K_n × Y^n \to Y$, for $n > 2$, satisfying suitable compatibility
+conditions and admitting a ``strict unit". The loop space $\Omega X$ is the prime example of
+such a space $Y$. Conversely \cite{Adams}, a topological space that admits the structure of
+an $A_\infty$-space and whose connected components form a group is homotopy equivalent
+to a loop space. If $Y$ is an $A_\infty$-space, the singular chain complex of $Y$ is the paradigmatic example
+of an $A_\infty$-algebra \cite{STASHEFF}.
+
+\subsection{Definitions}
+
+In this section we first establish notation and assumptions about graded modules. We then briefly recall some of the basic definitions regarding $A_\infty$-algebras.
+
+Our base category is the category of $\Z$-graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convention.
 
 \begin{align*}
 \tau_{A,B}:A\otimes B&\to B\otimes A\\
@@ -397,6 +445,9 @@ Since we are working with $\Z$-graded modules, requiring that the map $f$ has de
 
 We will discuss these topics in the language of operads, which will be introduced in the next section.
 
+\subsection{Minimal Models}
+A BIT OF MINIMAL MODELS FROM KELLER
+
 \section{Operads}
 %A BIT MORE OF WHAT IS IN JOIN, LIKE COOPERADS (THIS SHOULD ACTUALLY BE ADDED THERE) AND SOME OF THE STUFF IN THE ITEM BELOW (CHECK WHAT IS NECESSARY) 
 
@@ -447,6 +498,7 @@ An operad $\OO$ is equivalent to a monoid in the monoidal category of collection
 
 \begin{defin} Let $\OO$ and $\PP$ be operads. The \emph{Hadamard product} $\OO\otimes\PP$ is given on each arity component by $(\OO\otimes\PP)(n)=\OO(n)\otimes\PP(n)$. The structure maps are given by diagonal composition and diagonal symmetric group action in the case of symmetric operads. \end{defin}
 
+The next definition is the most important and common example of an operad.
 \begin{defin}
 The \emph{endomorphism operad} $\End_A$ of a graded $R$-module $A$ is given by the modules \[\End_A(n)=\Hom_R(A^{\otimes n},A).\] Insertion maps are given by
 \[f\circ_i g=f(1^{\otimes i-1}\otimes g\otimes 1^{\otimes n-i})\]
@@ -477,7 +529,7 @@ commutes for all $n$.
 \end{defin}
 
 \begin{defin}
-The \emph{$\mathcal{A}_\infty$-operad} is the non-symmetric operad whose algebras are $A_\infty$-algebras ( see \Cref{ainftyalgebra}). Therefore, it is generated by elements $\mu_i\in\mathcal{A}_\infty(i)$ satisfying the operadic version of the $A_\infty$-equation (\Cref{ainftyequation})
+The \emph{$\mathcal{A}_\infty$-operad} is the non-symmetric operad whose algebras are $A_\infty$-algebras, see \Cref{ainftyalgebra}. Therefore, it is generated by elements $\mu_i\in\mathcal{A}_\infty(i)$ satisfying the operadic version of the $A_\infty$-equation, \Cref{ainftyequation}.
 
 \begin{equation}\label{operadicainftyequation}
 \sum_{r+s+t=n}(-1)^{rs+t}m_{r+t+1}\circ_{r+1}m_s=0.

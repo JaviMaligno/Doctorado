@@ -163,7 +163,7 @@
 
 
 \begin{abstract}
-
+INCLUDE DELIGNE
 
 
 
@@ -224,7 +224,7 @@ Let us start by recalling some background definitions and results that we will n
 
 We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but we are going to briefly recall some of them in this section to establish notation and assumptions. For more details and intuition, the reader is referred to \cite{keller} and \cite[\S 9.2]{lodayvallette}.
 
-Our base category is the category of graded $R$-modules and linear maps, where $R$ is a fixed commutative ring with unit of characteristic not equal to 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convention:
+Our base category is the category of graded $R$-modules and linear maps, where $R$ is a fixed commutative ring with unit of characteristic not equal to 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convention.
 
 \begin{align*}
 \tau_{A,B}:A\otimes B&\to B\otimes A\\
@@ -307,6 +307,8 @@ A \emph{map of operads} (resp. symmetric operads) is a map of collections (resp.
 It is also known that an operad $\OO$ is equivalent to a monoid in the monoidal category of collections with plethysm, where the multiplication  map is given precisely by the composition $\gamma:\OO\circ\OO\to\OO$. See \cite[\S 5]{lodayvallette} for more details. 
 
 \begin{defin} An operad $\OO$ is called \emph{reduced} if $\OO(0)=0$.\end{defin}
+
+We define next two of the main examples of operads that we will be using.
 
 \begin{defin}
 The \emph{endomorphism operad} $\End_A$ of a graded $R$-module $A$ is given by the modules \[\End_A(n)=\Hom_R(A^{\otimes n},A).\] Insertion maps are given by
