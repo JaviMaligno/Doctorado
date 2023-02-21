@@ -546,12 +546,12 @@ for $f$ of natural bidegree $(p,q)$, where $M_{i\bullet}=\sum_j M_{ij}$. We defi
 As in the single-graded case we can define a map
 \[\Phi:S\s\OO\to S\s\End_{S\s\OO}\]
 as the map making the following diagram commute
-\[
+\begin{equation}\label{derivedPhi}
 \begin{tikzcd}
 S\s\OO\arrow[rr, "\Phi"]\arrow[d] & & S\s\End_{S\s\OO}\\
 \s\OO\arrow[r, "\Phi'"]& \End_{\s\OO}\arrow[r, "\cong"]& \s\End_{S\s\OO}\arrow[u]
 \end{tikzcd}
-\]
+\end{equation}
 where 
 \begin{align*}
 \Phi'\colon&\s\OO \to \End_{\s\OO}\\
@@ -567,7 +567,7 @@ In particular, $S\s\End_{S\s\OO}$ is the Hochschild cochain complex of $S\s\OO$.
 
 The following is the same as that of \Cref{theorem} but carrying the extra index $i$ and using the bigraded sign conventions.
 \begin{thm}\label{bigradedtheorem}
-The map $\Phi$ defined above is a morphism of derived $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
+The map $\Phi$ defined in diagram (\ref{derivedPhi}) above is a morphism of derived $A_\infty$-algebras, i.e. for all $i\geq 0$ and $j\geq 1$ the equation
 
 \[\Phi(M_{ij})=\overline{M}_{ij}(\Phi^{\otimes j})\]
 holds.%, where the $M_{ij}$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\OO$ and $\overline{M}_j$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\End_{S\s\OO}$. 

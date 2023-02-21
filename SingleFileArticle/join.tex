@@ -195,7 +195,7 @@ There is a morphism of $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$.
 This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we introduce a suitable context and prove it as \Cref{theorem}. We also draw a connection between our framework and the one from Gerstenhaber and Voronov. As a consequence of this theorem, if $A$ is an $A_\infty$-algebra and $\OO=\End_A$ its endomorphism operad, we obtain the following $A_\infty$-version of the Deligne Conjecture in \Cref{ainftydeligne}. 
 
 \begin{manualtheorem}{B}
-The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with an $A_\infty$-multiplication has a structure of $G_{A_\infty}$-algebra.
+The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with an $A_\infty$-multiplication has a structure of a homotopy $G_{A_\infty}$-algebra.
 \end{manualtheorem} 
 
  After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras in \Cref{deriveddef}. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW} which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our main results about derived $A_\infty$-algebras. The first one is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, the $A_\infty$-structure on totalization is equivalent to a derived $A_\infty$-algebra on $S\s\OO$.
@@ -1185,7 +1185,7 @@ A \emph{brace algebra} on a graded module $A$ consists of a family of maps \[b_n
 b_m(b_n(x;x_1,\dots, x_n);y_1,\dots,y_m)=&\\
 \underset{j_1\dots, j_n}{\sum_{i_1,\dots, i_n}}(-1)^{\varepsilon}b_l(x; y_1,\dots, y_{i_1},b_{j_1}(x_1;y_{i_1+1},&\dots, y_{i_1+j_1}),\dots, b_{j_n}(x_n;y_{i_n+1},\dots, y_{i_n+j_n}),\dots,y_m)
 \end{align*}
-where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n\deg(x_p)\sum_{q=i}^{i_p}\deg(y_q),$ i.e. the sign is picked up by the $x_i$'s passing by the $y_i$'s in the shuffle.
+where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n\deg(x_p)\sum_{q=1}^{i_p}\deg(y_q),$ i.e. the sign is picked up by the $x_i$'s passing by the $y_i$'s in the shuffle.
 \end{defin}
 
 \begin{remark}
@@ -1466,12 +1466,12 @@ is a morphism of $A_\infty$-algebras. In the associative case, this result leads
 &x\mapsto \sum_{n\geq 0}b_n(x;-).
 \end{align*}
 Let $\Phi:S\s\OO\to S\s\End_{S\s\OO}$ the map making the following diagram commute
-\[
+\begin{equation}\label{Phi}
 \begin{tikzcd}
 S\s\OO\arrow[rr, "\Phi"]\arrow[d] & & S\s\End_{S\s\OO}\\
 \s\OO\arrow[r, "\Phi'"]& \End_{\s\OO}\arrow[r, "\cong"]& \s\End_{S\s\OO}\arrow[u]
 \end{tikzcd}
-\]
+\end{equation}
 where the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given in \Cref{barsigma}. Note that the degree of the map $\Phi$ is zero.
 
 \begin{remark}
@@ -1479,7 +1479,7 @@ Notice that we have only used the operadic structure on $\s\OO$ to define an $A_
 \end{remark}
 
 \begin{thm}\label{theorem}
-The map $\Phi$ defined above is a morphism of $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
+The map $\Phi$ defined in diagram (\ref{Phi}) above is a morphism of $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
 
 \[\Phi(M_j)=\overline{M}_j(\Phi^{\otimes j})\]
 holds, where the $M_j$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\OO$ and $\overline{M}_j$ is the $j$-th componnent of the $A_\infty$-algebra structure on $S\s\End_{S\s\OO}$. 
@@ -1649,7 +1649,7 @@ We are going to evaluate on $(z_1,\dots, z_n)$ to make this map more explicit. T
  \subsection{Explicit $A_\infty$-algebra structure and Deligne Conjecture}\label{sect4}
 
 We have given an implicit definition of the components of the $A_\infty$-algebra structure on $S\s\OO$, namely, \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
-but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$. We will also need these explicit expressions to describe $G_{A_\infty}$-algebras, which are $A_\infty$-version of homotopy $G$-algebras. This way we can state the $A_\infty$-Deligne Conjecture in a more precise way. This explicit formulas will also clear up the connection with the work of Gerstenhaber and Voronov. We also hope that these explicit expression can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
+but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$. We will also need these explicit expressions to describe homotopy $G_{A_\infty}$-algebras, which are $A_\infty$-version of homotopy $G$-algebras. This way we can state the $A_\infty$-Deligne Conjecture in a more precise way. This explicit formulas will also clear up the connection with the work of Gerstenhaber and Voronov. We also hope that these explicit expression can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
 
 \begin{lem}\label{explicit}
 For $x,x_1,\dots,x_n\in\s\OO$, we have the following expressions.
@@ -1696,9 +1696,50 @@ Let $M^{GV}_2$ be the product defined in \cite{GV} as \[M^{GV}_2(x,y)=(-1)^{|x|+
 
 
 I THINK THIS GOES WELL HERE BECAUSE I NEED THE EXPLICIT EXPRESSION
+
+SHOULD I MAKE A TITLE HERE?
+
+Now that we have the explicit formulas for the $A_\infty$-structure on $S\s\OO$ we can state and prove an $A_\infty$-version of the Deligne conjecture. In order to do that, we need to first introduce the $A_\infty$-version of homotopy $G$-algebras. DEFINE MULTIPLICATION ON A BRACE ALGEBRA OR JUST MENTION IT?
+
+\begin{defin}
+A \emph{homotopy $G_{A_\infty}$-algebra} is a brace algebra $V$ such that the shift $SV$ is an $A_\infty$-algebra with structure maps $(M_1, M_2,\dots)$ such that the following compatibility identities hold for all $j>1$, for all $n$ and for all $x_1,\dots,x_j,y_1,\dots, y_n\in\s\OO$.
+
+\begin{align*}
+&SSb_n(S^{-1}M_j(Sx_1,\dots, Sx_j); y_1,\dots, y_n) =\\
+& \sum_{l\geq j} (-1)^{\varepsilon}\underset{i_1,\dots, i_j}{\sum_{k_1,\dots, k_j}} M_l(y_1,\dots, y_{i_1},Sb_{k_1}(x_1; y_{i_1}+1,\dots, y_{i_1+k_1}),\dots, Sb_{k_j}(x_j; y_{i_j+1}, \dots, y_{i_j+k_j}),\dots, y_n)
+\end{align*}
+
+where $\varepsilon=\sum_{p=1}^j(|x_p|+1)\sum_{q=1}^{i_p}|y_q|$ and $i_1+\cdots+i_j=l-j$ REMARK ABOUT THE +1 (THE INNER BRACES ARE SHIFTED, ALSO, THE ORIGINAL X ARE SHIFTED) AND ABOUT THE DOUBLE SHIFT (ONE IS FOR V THE OTHER ONE FOR END), and
+
+\begin{align*}
+&SSb_n(S^{-1}M_1(x_1); y_1,\dots, y_n)= \\
+&\sum_{l\geq 1} (-1)^{(|x_1|+1)\sum_{q=1}^{i_p}|y_q|}\sum_{i_1,\dots, i_j,k_1} M_l(y_1,\dots, y_{i_1},Sb_{k_1}(x_1; y_{i_1+1},\dots, y_{i_1+k_1}), \dots, y_{n}))-\\
+&(-1)^{|x_1|}\sum_{l\geq 1}\sum_{i_1,k_1}(-1)^{|y_1|+\cdots+|y_{i_1}|}SSb_{k_1}(x_1;y_1,\dots, y_{i_1}, S^{-1}M_l(Sy_{i_1}, \dots, Sy_{i_1+l}),\dots, y_n)
+\end{align*}
+THE LAST SIGN IS SUBJECT TO CHANGE, I NEED TO DO THE CALCULATIONS
+
+
+\end{defin}
+MAYBE I SHOULD MAKE A REMARK ON THE PHI THEOREM SAYING THAT WE CAN REPLACE SO BY ANY BRACE ALGEBRA (OR EVEN HERE, I COULD EITHER KEEP IT AS BRACE ALGEBRAS OR STATE IT IN TERMS OF SO)
+
+\begin{propo}\label{equivalence}
+A brace algebra $V$ with an $A_\infty$-multiplication DEFINE THIS is a homotopy $G_{A_\infty}$-algebra if and only if the map $\Phi:SV\to S\s\End_{SV}$ REFERENCE is a morphism of $A_\infty$-algebras.
+\end{propo}
+I COULD ALSO DEFINE AINFTY BRACE ALGEBRA AS BEING BRACE AND ITS SHIFT AINFTY
+\begin{proof}
+
+\end{proof}
+
 \begin{corollary}[The $A_\infty$-Deligne Conjecture]\label{ainftydeligne}
-WRITE IT, TRY TO BE AS EXPLICIT AS POSSIBLE, MAYBE GIVE THIS STRUCTURE A NAME, AND INTRODUCE IT BEFORE STATING IT
+The Hochschild complex $S\s\End_A$ of an $A_\infty$-algebra is a homotopy $G_{A_\infty}$-algebra.
 \end{corollary}
+\begin{proof}
+If $A$ is an $A_\infty$-algebra, then there is a morphism of operads
+\[
+\calA_\infty\to\End_A,
+\]
+so $\OO=\End_A$ is an operad with an $A_\infty$-multiplication BY DEFINITION and the result follows from \Cref{equivalence} and \Cref{theorem}.
+\end{proof}
 
 
 \section{Derived $A_\infty$-algebras and filtered $A_\infty$-algebras}\label{deriveddef}
@@ -2207,7 +2248,7 @@ Notice that the proof of \Cref{alternative} is essentially the same as the proof
 where $\langle  m_{il},x\rangle=ik+(1-i)(d-1-k)$, as claimed.
 \end{proof}
 
-\subsection{Iterating the process}
+\subsection{Derived $A_\infty$-Deligne conjecture}
 
 Note that the maps given by \Cref{derivedmaps} and \Cref{mi1} formally look the same as their single-graded analogues in \Cref{explicit} but with an extra index that is fixed for each $M_{ij}$. This means that we can follow the same procedure as in \Cref{sect3} to define higher derived $A_\infty$-maps. More precisely, given an operad $\OO$ with a derived multiplication and $A=S\s\OO$, we will define a derived $A_\infty$-algebra structure on $S\s\End_A$. We will then connect the algebraic structure on $A$ with the structure on $S\s\End_A$ through braces. This connection will allow us to formulate and show a new version of the Deligne Conjecture.
 
@@ -2227,12 +2268,12 @@ for $f$ of natural bidegree $(p,q)$, where $M_{i\bullet}=\sum_j M_{ij}$. We defi
 As in the single-graded case we can define a map
 \[\Phi:S\s\OO\to S\s\End_{S\s\OO}\]
 as the map making the following diagram commute
-\[
+\begin{equation}\label{derivedPhi}
 \begin{tikzcd}
 S\s\OO\arrow[rr, "\Phi"]\arrow[d] & & S\s\End_{S\s\OO}\\
 \s\OO\arrow[r, "\Phi'"]& \End_{\s\OO}\arrow[r, "\cong"]& \s\End_{S\s\OO}\arrow[u]
 \end{tikzcd}
-\]
+\end{equation}
 where 
 \begin{align*}
 \Phi'\colon&\s\OO \to \End_{\s\OO}\\
@@ -2248,15 +2289,59 @@ In particular, $S\s\End_{S\s\OO}$ is the Hochschild cochain complex of $S\s\OO$.
 
 The following is the same as that of \Cref{theorem} but carrying the extra index $i$ and using the bigraded sign conventions.
 \begin{thm}\label{bigradedtheorem}
-The map $\Phi$ defined above is a morphism of derived $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
+The map $\Phi$ defined in diagram (\ref{derivedPhi}) above is a morphism of derived $A_\infty$-algebras, i.e. for all $i\geq 0$ and $j\geq 1$ the equation
 
 \[\Phi(M_{ij})=\overline{M}_{ij}(\Phi^{\otimes j})\]
 holds.%, where the $M_{ij}$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\OO$ and $\overline{M}_j$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\End_{S\s\OO}$. 
 \end{thm}
 
+Now that we have \Cref{bigradedtheorem} and the explicit formulas for the derived $A_\infty$-structure on $S\s\OO$, we can deduce the derived $A_\infty$-version of the Deligne conjecture in an analogous way to how we obtained the $A_\infty$-version in \Cref{ainftydeligne}. In order to do that, we need to first introduce the derived $A_\infty$-version of homotopy $G$-algebras. DEFINE MULTIPLICATION ON A BRACE ALGEBRA OR JUST MENTION IT?
+
+\begin{defin}
+WORK OUT THE SIGNS (NOT SURE IF IT'S JUST SCALAR PRODUCTS OR IF IT'S GOING TO INVOLVE VERTICAL DEGREES) 
+
+ALSO REWRITE THEOREM 9.3 BECAUSE INTRODUCING X IS CONFUSING AND ALSO I SAY "AND" TOO MANY TIMES
+A \emph{homotopy $G_{dA_\infty}$-algebra} is a bigraded brace algebra $V$ such that the shift $SV$ is a derived $A_\infty$-algebra with structure maps $\{M_{ij}\}_{i\geq 0, j\geq 1}$ such that the following compatibility identities hold for all $i\geq 0$, $j>1$, for all $n$ and for all $x_1,\dots,x_j,y_1,\dots, y_n\in\s\OO$.
+
+\begin{align*}
+&SSb_n(S^{-1}M_{ij}(Sx_1,\dots, Sx_j); y_1,\dots, y_n) =\\
+& \sum_{l\geq j} (-1)^{\varepsilon}\underset{i_1,\dots, i_j}{\sum_{k_1,\dots, k_j}} M_{il}(y_1,\dots, y_{i_1},Sb_{k_1}(x_1; y_{i_1}+1,\dots, y_{i_1+k_1}),\dots, Sb_{k_j}(x_j; y_{i_j+1}, \dots, y_{i_j+k_j}),\dots, y_n)
+\end{align*}
+
+where $\varepsilon=\sum_{p=1}^j(|x_p|+1)\sum_{q=1}^{i_p}|y_q|$ and $i_1+\cdots+i_j=l-j$, and
+
+\begin{align*}
+&SSb_n(S^{-1}M_{i1}(x_1); y_1,\dots, y_n)= \\
+&\sum_{l\geq 1} (-1)^{(|x_1|+1)\sum_{q=1}^{i_p}|y_q|}\sum_{i_1,\dots, i_j,k_1} M_{il}(y_1,\dots, y_{i_1},Sb_{k_1}(x_1; y_{i_1+1},\dots, y_{i_1+k_1}), \dots, y_{n}))-\\
+&(-1)^{|x_1|}\sum_{l\geq 1}\sum_{i_1,k_1}(-1)^{|y_1|+\cdots+|y_{i_1}|}SSb_{k_1}(x_1;y_1,\dots, y_{i_1}, S^{-1}M_{il}(Sy_{i_1}, \dots, Sy_{i_1+l}),\dots, y_n)
+\end{align*}
+THE LAST SIGN IS SUBJECT TO CHANGE, I NEED TO DO THE CALCULATIONS
+
+
+\end{defin}
+MAYBE I SHOULD MAKE A REMARK ON THE PHI THEOREM SAYING THAT WE CAN REPLACE SO BY ANY BRACE ALGEBRA (OR EVEN HERE, I COULD EITHER KEEP IT AS BRACE ALGEBRAS OR STATE IT IN TERMS OF SO)
+
+\begin{propo}\label{derivedequivalence}
+A brace algebra $V$ with a derived $A_\infty$-multiplication DEFINE THIS is a homotopy $G_{dA_\infty}$-algebra if and only if the map $\Phi:SV\to S\s\End_{SV}$ REFERENCE is a morphism of derived $A_\infty$-algebras.
+\end{propo}
+I COULD ALSO DEFINE DAINFTY BRACE ALGEBRA AS BEING BRACE AND ITS SHIFT DAINFTY
+\begin{proof}
+
+\end{proof}
+
 \begin{corollary}[The $dA_\infty$-Deligne Conjecture]\label{dainftydeligne}
-WRITE IT, TRY TO BE AS EXPLICIT AS POSSIBLE, MAYBE GIVE THIS STRUCTURE A NAME, AND INTRODUCE IT BEFORE STATING IT, CALL SSEND THE HOCHSCHILD COMPLEX SO THAT THIS STRUCTURE IS ON THE HOCHSCHILD COMPLEX
+The Hochschild complex $S\s\End_A$ of a derived $A_\infty$-algebra is a homotopy $G_{dA_\infty}$-algebra.
 \end{corollary}
+\begin{proof}
+If $A$ is an $A_\infty$-algebra, then there is a morphism of operads
+\[
+d\calA_\infty\to\End_A,
+\]
+so $\OO=\End_A$ is an operad with a derived $A_\infty$-multiplication BY DEFINITION and the result follows from \Cref{derivedequivalence} and \Cref{bigradedtheorem}.
+\end{proof}
+
+
+
 
 %\begin{appendices}
 \appendix

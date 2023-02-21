@@ -295,7 +295,7 @@ A \emph{brace algebra} on a graded module $A$ consists of a family of maps \[b_n
 b_m(b_n(x;x_1,\dots, x_n);y_1,\dots,y_m)=&\\
 \underset{j_1\dots, j_n}{\sum_{i_1,\dots, i_n}}(-1)^{\varepsilon}b_l(x; y_1,\dots, y_{i_1},b_{j_1}(x_1;y_{i_1+1},&\dots, y_{i_1+j_1}),\dots, b_{j_n}(x_n;y_{i_n+1},\dots, y_{i_n+j_n}),\dots,y_m)
 \end{align*}
-where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n\deg(x_p)\sum_{q=i}^{i_p}\deg(y_q),$ i.e. the sign is picked up by the $x_i$'s passing by the $y_i$'s in the shuffle.
+where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n\deg(x_p)\sum_{q=1}^{i_p}\deg(y_q),$ i.e. the sign is picked up by the $x_i$'s passing by the $y_i$'s in the shuffle.
 \end{defin}
 
 \begin{remark}
@@ -575,12 +575,12 @@ is a morphism of $A_\infty$-algebras. In the associative case, this result leads
 &x\mapsto \sum_{n\geq 0}b_n(x;-).
 \end{align*}
 Let $\Phi:S\s\OO\to S\s\End_{S\s\OO}$ the map making the following diagram commute
-\[
+\begin{equation}\label{Phi}
 \begin{tikzcd}
 S\s\OO\arrow[rr, "\Phi"]\arrow[d] & & S\s\End_{S\s\OO}\\
 \s\OO\arrow[r, "\Phi'"]& \End_{\s\OO}\arrow[r, "\cong"]& \s\End_{S\s\OO}\arrow[u]
 \end{tikzcd}
-\]
+\end{equation}
 where the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given in \Cref{barsigma}. Note that the degree of the map $\Phi$ is zero.
 
 \begin{remark}
@@ -588,7 +588,7 @@ Notice that we have only used the operadic structure on $\s\OO$ to define an $A_
 \end{remark}
 
 \begin{thm}\label{theorem}
-The map $\Phi$ defined above is a morphism of $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
+The map $\Phi$ defined in diagram (\ref{Phi}) above is a morphism of $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
 
 \[\Phi(M_j)=\overline{M}_j(\Phi^{\otimes j})\]
 holds, where the $M_j$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\OO$ and $\overline{M}_j$ is the $j$-th componnent of the $A_\infty$-algebra structure on $S\s\End_{S\s\OO}$. 
