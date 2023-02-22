@@ -2303,9 +2303,10 @@ WORK OUT THE SIGNS (NOT SURE IF IT'S JUST SCALAR PRODUCTS OR IF IT'S GOING TO IN
 ALSO REWRITE THEOREM 9.3 BECAUSE INTRODUCING X IS CONFUSING AND ALSO I SAY "AND" TOO MANY TIMES
 A \emph{homotopy $G_{dA_\infty}$-algebra} is a bigraded brace algebra $V$ such that the shift $SV$ is a derived $A_\infty$-algebra with structure maps $\{M_{ij}\}_{i\geq 0, j\geq 1}$ such that the following compatibility identities hold for all $i\geq 0$, $j>1$, for all $n$ and for all $x_1,\dots,x_j,y_1,\dots, y_n\in\s\OO$.
 
+%I CAN CANCEL SHIFTS ON BOTH SIDES
 \begin{align*}
-&SSb_n(S^{-1}M_{ij}(Sx_1,\dots, Sx_j); y_1,\dots, y_n) =\\
-& \sum_{l\geq j} (-1)^{\varepsilon}\underset{i_1,\dots, i_j}{\sum_{k_1,\dots, k_j}} M_{il}(y_1,\dots, y_{i_1},Sb_{k_1}(x_1; y_{i_1}+1,\dots, y_{i_1+k_1}),\dots, Sb_{k_j}(x_j; y_{i_j+1}, \dots, y_{i_j+k_j}),\dots, y_n)
+&Sb_n(S^{-1}M_{ij}(Sx_1,\dots, Sx_j); y_1,\dots, y_n) =\\
+& \sum_{l\geq j} (-1)^{\varepsilon}\underset{i_1,\dots, i_j}{\sum_{k_1,\dots, k_j}} M_{il}(y_1,\dots, y_{i_1},Sb_{k_1}(x_1; y_{i_1+1},\dots, y_{i_1+k_1}),\dots, Sb_{k_j}(x_j; y_{i_j+1}, \dots, y_{i_j+k_j}),\dots, y_n)
 \end{align*}
 
 where $\varepsilon=\sum_{p=1}^j(|x_p|+1)\sum_{q=1}^{i_p}|y_q|$ and $i_1+\cdots+i_j=l-j$, and
