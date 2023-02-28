@@ -403,6 +403,9 @@ We also adopt the following Koszul sign convention: for $x\in A$, $y\in B$, $f\i
 
 \[(f\otimes g)(a\otimes b)=(-1)^{\deg(x)\deg(g)}f(x)\otimes g(y).\]
 
+Recall that if $(A,\partial^A)$ and $(B,\partial^B)$ are (co)chain complexes, the module $\Hom_R(A,B)$ also becomes a (co)chain complexes with differential
+\[\partial(f) = \partial^B\circ f +(-1)^{\deg(f)}f\circ\partial^A.\]
+
 
 \begin{defin}
 For a graded $R$-module $A$ we consider the \emph{shift} or \emph{suspension} $SA$ for which $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
@@ -418,7 +421,27 @@ An \emph{$A_\infty$-algebra} is a graded $R$-module $A$ together with a family o
 \end{equation}
 \end{defin}
 %This is equivalent to define it on SA without signs,  but there's not need to point that out here and it also depends on the convention of S^n^{-1}
-The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. This seemingly obscure definition captures the idea of an algebra that is associative up to homotopy. For more details about this the reader is referred to \cite{keller} and to \cite[\S 9.2]{lodayvallette}, where they use a different sign convention but the concepts are the same.
+The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. This seemingly obscure definition captures the idea of an algebra that is associative up to homotopy. To see this, let us have a look at the first few cases.
+
+\begin{itemize}
+\item We have $m_1m_1=0$, so $(A, m_1)$ is a cochain complex.
+\item We have the Leibniz rule
+\[
+m_1 m_2 = m_2 (m_1 \otimes 1 + 1 \otimes m_1)
+\]
+as maps $A^{\otimes 2}\to A$. Here 1 denotes the identity map on $A$. So $m_1$ is
+a (graded) derivation with respect to the multiplication $m_2$.
+\item We have
+\[
+m_2(1\otimes m_2 − m_2\otimes 1)= m_1m_3 + m_3 (m_1\otimes 1\otimes 1 + 1\otimes m_1\otimes 1 + 1\otimes 1\otimes m_1)
+\]
+as maps $A^{\otimes 3}\to A$. Note that the left hand side is the associator for $m_2$ and
+that the right hand side may be viewed as the boundary of $m_3$ in the morphism
+complex $\Hom_R (A^{\otimes 3},A)$. This implies that $m_2$ is associative up to homotopy.
+\end{itemize}
+
+
+ For more details about this the reader is referred to \cite{keller} and to \cite[\S 9.2]{lodayvallette}, where they use a different sign convention but the concepts are the same.
 
 \begin{defin}\label{inftymorphism}
 An \emph{$\infty$-morphism} of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $1-n$ satisfying for all $n\geq 1$ the equation
@@ -432,7 +455,18 @@ The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by
 \otimes f_{i_r}).\]
 \end{defin}
 
-Similarly to the $A_\infty$-equation (\cref{ainftyequation}), the above definition captures the idea of a map that is a morphism of algebras up to homotopy. Again, the reader can find more details in \cite{keller} and \cite[\S 9.2]{lodayvallette}.
+Similarly to the $A_\infty$-equation (\cref{ainftyequation}), the above definition captures the idea of a map that is a morphism of algebras up to homotopy. This can be observed in the first few cases.
+
+\begin{itemize}
+\item We have $f_1m_1 = m_1f_1$, i.e. $f_1$ is a morphism of complexes.
+\item We have
+\[
+f_1m_2 = m_2 (f_1\otimes f_1) + m_1f_2 + f_2 (m_1\otimes 1 + 1\otimes m_1),\]
+which means that $f_1$ commutes with the multiplication $m_2$ up to a homotopy
+given by $f_2$.
+\end{itemize}
+
+Again, the reader can find more details in \cite{keller} and \cite[\S 9.2]{lodayvallette}.
 
 We also need another, perhaps more intuitive, notion of morphism of $A_\infty$-algebras.
 
@@ -443,10 +477,14 @@ A \emph{morphism} of $A_\infty$-algebras is a degree 0 map $f:A\to B$ such that
 
 Since we are working with $\Z$-graded modules, requiring that the map $f$ has degree 0 is redundant, but it is good to have that in mind for the calculations.
 
-We will discuss these topics in the language of operads, which will be introduced in the next section.
+We will discuss these topics in the language of operads, which will be introduced in a later section. Before that, let us motivate the importance of $A_\infty$-algebras through the theory of minimal models.
 
 \subsection{Minimal Models}
-A BIT OF MINIMAL MODELS FROM KELLER
+We now recall a definition and theorem about minimal models of $A_\infty$-algebras. It relates differential graded algebras to $A_\infty$-structures on their homology.
+
+\begin{defin}
+An $A_\infty$-algebra is called \emph{minimal} if $m_1 = 0$.
+\end{defin}
 
 \section{Operads}
 %A BIT MORE OF WHAT IS IN JOIN, LIKE COOPERADS (THIS SHOULD ACTUALLY BE ADDED THERE) AND SOME OF THE STUFF IN THE ITEM BELOW (CHECK WHAT IS NECESSARY) 
