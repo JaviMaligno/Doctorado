@@ -1,0 +1,90 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usetheme{Copenhagen}
+%\usepackage[spanish]{babel}
+\usepackage{multirow}
+%\usepackage{estilo-apuntes}
+\usepackage{braids}
+\usepackage[]{graphicx}
+\usepackage{rotating}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-cd}
+\usepackage{oplotsymbl} %filled pentagon go brrrr
+%\usepackage{empheq}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{xcolor}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{cd}
+\usetikzlibrary{babel}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{decorations.shapes}
+%\pgfkeyssetvalue{/tikz/braid height}{1cm} %no parece hacer nada
+%\pgfkeyssetvalue{/tikz/braid width}{1cm}
+%\pgfkeyssetvalue{/tikz/braid start}{(0,0)}
+%\pgfkeyssetvalue{/tikz/braid colour}{black}
+
+\theoremstyle{definition}
+
+\newtheorem{teorema}{Theorem}
+\newtheorem{defi}{Definition}
+\newtheorem{prop}[teorema]{Proposition}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\D}{\mathbb{D}}
+\providecommand{\gene}[1]{\langle{#1}\rangle}
+
+\DeclareMathOperator{\im}{im}
+
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    %\insertframenumber/\inserttotalframenumber
+}
+\setbeamercolor{footline}{fg=black}
+\setbeamerfont{footline}{series=\bfseries}
+
+\newcommand{\highlight}[1]{%
+	\colorbox{red!50}{$\displaystyle#1$}}
+
+\makeatletter
+\newcommand*{\encircled}[1]{\relax\ifmmode\mathpalette\@encircled@math{#1}\else\@encircled{#1}\fi}
+\newcommand*{\@encircled@math}[2]{\@encircled{$\m@th#1#2$}}
+\newcommand*{\@encircled}[1]{%
+	\tikz[baseline,anchor=base]{\node[draw,circle,outer sep=0pt,inner sep=.2ex] {#1};}}
+\makeatother
+
+
+%-----------------------------------------------------------
+
+\title{}
+\author{Javier Aguilar Mart\'in}
+\institute{University of Kent}
+\date{}
+ 
+\begin{document}
+\frame{\titlepage}
+
+
+\begin{frame}
+OPTION 1 (ONLY IF TIME PERMITS):
+DELIGNE CONJECTURE: OVERVIEW OF TOPOLOGICAL VERSION, EMPHASIS ON THE PART WHERE ALGEBRAIC VERSIONS ARISE, AINFTY AND DERIVED AINFTY VERSIONS
+
+OPTION 2:
+INTRODUCTION TO AINFTY AND DAINFTY ALGEBRAS THROUGH OPERADS (KINDA EXTENDED ECRM)
+
+START WITH COMMON THINGS: OPERADS, ASSOCIAHEDRA, AINFTY ALGEBRAS, BRACE ALGEBRAS, DERIVED AINFTY, MINIMALITY RESULTS
+
+
+\end{frame}
+
+\begin{frame}
+PLAN OF THE TALK
+\end{frame}
+\end{document}
