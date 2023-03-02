@@ -584,7 +584,7 @@ of an $A_\infty$-algebra \cite{STASHEFF}.
 
 \subsection{Definitions}
 
-In this section we first establish notation and assumptions about graded modules. We then briefly recall some of the basic definitions regarding $A_\infty$-algebras.
+In this section we first establish notation and assumptions about graded modules and sign conventions. We then briefly recall some of the basic definitions regarding $A_\infty$-algebras.
 
 Our base category is the category of $\Z$-graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convention.
 
@@ -675,16 +675,16 @@ Since we are working with $\Z$-graded modules, requiring that the map $f$ has de
 
 We will discuss these topics in the language of operads, which will be introduced in a later section. Before that, let us motivate the importance of $A_\infty$-algebras through the theory of minimal models.
 
-\subsection{Minimal Models}
+\subsection{Minimal Models}\label{minimalmodels}
 We now recall a definition and theorem about minimal models of $A_\infty$-algebras. It relates differential graded algebras to $A_\infty$-structures on their homology.
 
-\begin{defin}
+\begin{defin}\label{minimal}
 An $A_\infty$-algebra is called \emph{minimal} if $m_1 = 0$.
 \end{defin}
 
-Over a field, one can replace any $A_\infty$-algebra by a quasi-isomorphic minimal one, where by quasi-isomorphic we mean that there is an map that induces an isomorphism on cohomology. This gives a very convenient way to describe a quasi-isomorphism class of an $A_\infty$-algebra. More precisely we have the following.
+Over a field, one can replace any $A_\infty$-algebra by a quasi-isomorphic minimal one, where by quasi-isomorphic we mean that there is an map that induces an isomorphism on cohomology with respect to $m_1$. This gives a very convenient way to describe a quasi-isomorphism class of an $A_\infty$-algebra. More precisely we have the following.
 
-\begin{thm}[Kadeishvili] Let $A$ be a differential graded algebra over a field $k$, and let $H^*(A)$ be its cohomology module. Then $H^*(A)$ has an $A_\infty$-structure such that
+\begin{thm}[Kadeishvili]\label{minimaltheorem} Let $A$ be a differential graded algebra over a field $k$, and let $H^*(A)$ be its cohomology module. Then $H^*(A)$ has an $A_\infty$-structure such that
 \begin{itemize}
 \item $m_1 = 0$ and the multiplication $m_2$ is induced by the multiplication on $A$,
 \item there is a morphism of $A_\infty$-algebras $f : H^*(A) \to A$ such that $f_1$ is a quasi-isomorphism.
@@ -692,7 +692,7 @@ Over a field, one can replace any $A_\infty$-algebra by a quasi-isomorphic minim
 This $A_\infty$-algebra $H^*(A)$ is called the \emph{minimal model} of $A$.
 \end{thm}
 
-tUsing this result it is also possible to show that under some conditions any other dga $A'$ with $H^*(A')\cong H^*(A)$ is quasi-isomorphic to $A$. For more details see \cite{kade}.
+Using this result it is also possible to show that under some conditions any other dga $A'$ with $H^*(A')\cong H^*(A)$ is quasi-isomorphic to $A$. For more details see \cite{kade}.
 \section{Operads}
 %A BIT MORE OF WHAT IS IN JOIN, LIKE COOPERADS (THIS SHOULD ACTUALLY BE ADDED THERE) AND SOME OF THE STUFF IN THE ITEM BELOW (CHECK WHAT IS NECESSARY) 
 
@@ -1101,7 +1101,7 @@ Let $K$ and $L$ be filtered complexes. We define $\underline{\Hom}(K,L)$ to be t
 In particular, $\Hom_{\fmod}(K,L)=F_0\underline{\Hom}(K,L)$.
 \end{defin}
 
-\subsection{Bigraded modules, vertical bicomplexes, twisted complexes and sign conventions}
+\subsection{Bigraded modules, vertical bicomplexes, twisted complexes and sign conventions}\label{bigradedbackground}
 
 
 
@@ -1299,9 +1299,8 @@ The general case follows inductively.
 \end{proof}
 
 \section{Enriched categories and enriched totalization}
-SHOULD GO IN THE MAIN BODY?
 
-We define here some useful enriched categories and results from \cite[\S 4.3 and 4.4]{whitehouse}. Some of them had to be modified to adjust them to our conventions. 
+We define here some useful enriched categories and results from \cite[\S 4.3 and 4.4]{whitehouse}. Each of these categories will be a piece in \Cref{whitehouse}, which establishes a connection between $A_\infty$-algebras and derived $A_\infty$-algebras. Some of them had to be modified to adjust them to our conventions. 
 \begin{defin}\label{weirdenrichment}
 Let $A,B,C$ be bigraded modules. We denote by $\underline{\mathpzc{bgMod}_R}(A,B)$ the bigraded module given by
 \[\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u+j}\]
