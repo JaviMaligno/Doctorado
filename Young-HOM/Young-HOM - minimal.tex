@@ -395,7 +395,7 @@ An $A_\infty$-\textbf{algebra} $A$ is a graded vector space equipped with a fami
 \begin{frame}
 \frametitle{Morphisms of $A_\infty$-algebras}
 \begin{defi}
-An \emph{$\infty$-morphism} of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $1-n$ satisfying for all $n\geq 1$ the equation
+A \emph{morphism} of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $1-n$ satisfying for all $n\geq 1$ the equation
 \[\sum_{r+s+t=n} (-1)^{rs+t}f_{r+1+t}(1^{\otimes r} \otimes m^A_s\otimes 1^{\otimes t})=\sum_{i_1+\cdots+i_k=n} (-1)^s m^B_k(f_{i_1}\otimes\cdots\otimes f_{i_k}),\]
 where
 
@@ -472,5 +472,51 @@ for all $u\geq 0$ and $v\geq 1$.
 \[m_{10}m_{01}=0,\ m_{11}m_{11}=0,\ m_{01}m_{11}=m_{11}m_{01}\]
 \item<3-> A \emph{bidga} is a monoid in the category of bicomplexes, equivalently, a $dA_\infty$-algebra with $m_{ij}=0$ for $i+j\geq 3$.
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{defi}
+Let $A$ and $B$ be derived $A_\infty$-algebras with respective structure maps $m^A$ and $m^B$. A \emph{morphism of derived $A_\infty$-algebras} $f:A\to B$ is a family of maps $f_{st}:A^{\otimes t}\to B$ of bidegree $(s,1-s-t)$ satisfying
+\begin{align*}
+\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}f_{ij}(1^{\otimes r}\otimes m_{pq}^A\otimes 1^{\otimes s})=\\
+\underset{v=q_1+\cdots +q_j}{\sum_{u=i+p_1+\cdots +p_j}}(-1)^{\epsilon} m^B_{ij}(f_{p_1 q_1}\otimes\cdots\otimes f_{p_j q_j})
+\end{align*}
+for all $u\geq 0$ and $v\geq 1$, where
+$\epsilon = u + \sum_{1\leq w < l \leq j} q_w(1-p_l-q_l)  + \sum_{w=1}^j p_w(j-w)$.
+%I am confindent that this is the same as in RW, it is a matter of grouping differently (taking in to account how many times things are added up) and sometimes change w by j-w. But maybe I should write it down.
+\end{defi}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item<1-> Since $m_{01}m_{01}=0$, denote $H^*_{ver}(A)=H^*(A,m_{01})$. 
+\item<2-> Since $m_{21}m_{01} - m_{11}m_{11} + m_{01}m_{21} = 0$, we have that $m_{11}$ is a differential on $H^*_{ver}(A)$. Denote $H^*_{hor}(H^*_{ver}(A)) = H^*(H^*_{ver}(A);m_{11})$.
+\end{itemize}\pause
+
+\begin{defi}
+A morphism $f : A \to B$ of derived $A_\infty$-algebras
+is called an \emph{$E_2$-equivalence} if $H^*_{hor}(H^*_{ver}(f_{01}))$
+is an isomorphism of $R$-modules.
+\end{defi}\pause
+\begin{defi}
+Let $A$ be a graded algebra. A \emph{termwise $R$-projective
+resolution} of $A$ is a termwise $R$-projective
+bidga $P$ with $m_{01} = 0$ together with an $E_2$-equivalence $P \to A$.
+\end{defi}
+\end{frame}
+
+\begin{frame}
+\frametitle{Minimal models}
+\begin{theorem}[Sagave]
+Let $A$ be a dga over $R$. Then there is a degreewise
+$R$-projective derived $A_\infty$-algebra $E$ together with an $E_2$-equivalence $E \to A$ such that
+\begin{itemize}
+\item $E$ is minimal,
+\item $E$ is well-defined up to $E_2$-equivalence,
+\item together with the differential $m_{11}$ and the multiplication $m_{02}$, $E$ is a termwise $R$-projective
+resolution of the graded algebra $H^*(A)$. 
+\end{itemize}
+\end{theorem}
+Such $E$ is called a \emph{minimal model} of $A$.
 \end{frame}
 \end{document}
