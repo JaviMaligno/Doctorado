@@ -605,7 +605,7 @@ We need to define insertion maps $\circ_i:K_r\times K_s\to K_{r+s-1}$. For this,
 \begin{itemize} %originally it was homology, but it is more common nowadays to use cohomological degree
 \item<1-> There is a map $C^*(X)\otimes C^*(Y)\to C^*(X\times Y)$ satisfying naturality and associativity axioms (Eilenberg-Zilber map).
 \item<2-> The maps $M_n:K_n\times X^n\to X$ induce maps $C^*(K_n)\otimes C^*(X)^{\otimes n}\to C^*(K_n\times  X^n)\to C^*(X)$. %esentially the induced map on chains but with extra step
-\item<3-> The collection $C^*(K)=\{C^*(K_n)\}$ is an operad of chain complexes with insertion maps induced from those of $\{K_n\}$.
+\item<3-> The collection $C^*(K)=\{C^*(K_n)\}$ is an operad of cochain complexes with insertion maps induced from those of $\{K_n\}$.
 \item<4-> $C^*(X)$ becomes a $C^*(K)$-algebra.
 \item<5-> The relations that satisfy the map $M_n$ induce the relations on $C^*(X)$ of what we call an $A_\infty$-algebra.
 \end{itemize}
@@ -701,7 +701,7 @@ There is an isomorphism of operads
 \item<1-> We may identify each $x\in\mathcal{O}(n)$ with $x\otimes e^n\in \mathfrak{s}\mathcal{O}(n)$.
 %\item<2-> If $x$ has degree $p$ in $\mathcal{O}$, it has degree $p-n+1$ in $\mathfrak{s}\mathcal{O}$.
 \item<2-> Let $\circ_i$ be the $i$-th insertion on $\mathcal{O}$ and $\tilde{\circ}_i$ the $i$-th insertion on $\mathfrak{s}\mathcal{O}$ then
-\[a\tilde{\circ}_ib=(-1)^{(1-n)\deg(b)+(n-i)(1-m)}a\circ_i b.\]
+\[a\tilde{\circ}_ib=(-1)^{(n-1)\deg(b)+(n-i)(m-1)}a\circ_i b.\]
 \item<3-> Applied to  $A_\infty$-maps 
 \[m_{r+1+t}\tilde{\circ}_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s\]
 \item[]<4-> The sign of the $A_\infty$ equation!
@@ -716,7 +716,7 @@ There is an isomorphism of operads
 \[\sum_{r+s+t=n}m_{r+1+t}\tilde{\circ}_{r+1}m_s=0\] %but we can simplify it even more
 \item<2-> Let $a\tilde{\circ}b=\sum_{i}a\tilde{\circ}_ib$ and let $m=m_1+m_2+\cdots$. The equation becomes just
 \item[]<3-> \[m\tilde{\circ}m=0.\]
-\item<4-> In addition, $m_i$ becomes of degree $-1$ in the operadic suspension for all $i$ $\Rightarrow$
+\item<4-> In addition, $m_i$ becomes of degree $1$ in the operadic suspension for all $i$ $\Rightarrow$
 \item[]<5-> We can define an $A_\infty$-multiplication as an element $m\in\mathfrak{s}\mathcal{O}$ of degree $1$ such that $m\tilde{\circ}m=0$ (Maurer-Cartan element). 
 \end{itemize}
 \end{frame}
@@ -724,7 +724,7 @@ There is an isomorphism of operads
 \begin{frame}
 \begin{itemize}
 \item<1-> Since $m\tilde{\circ}m=0$, the Jacobi identity implies that $[m,[m,]]=0$ for the bracket induced by $\tilde{\circ}$.
-\item<2-> Since $m$ is of degree $1$, this implies that the map $[m,]:\mathfrak{s}\mathcal{O}\to\mathfrak{s}\mathcal{O}$ turns $\mathfrak{s}\mathcal{O}$ into a chain complex.
+\item<2-> Since $m$ is of degree $1$, this implies that the map $[m,]:\mathfrak{s}\mathcal{O}\to\mathfrak{s}\mathcal{O}$ turns $\mathfrak{s}\mathcal{O}$ into a cochain complex.
 \item<3-> Indeed, it is possible to define an $A_\infty$-algebra structure on $\Sigma\mathfrak{s}\mathcal{O}$. %i don't have time for details
 \end{itemize}
 \end{frame}
@@ -829,15 +829,15 @@ $\epsilon = u + \sum_{1\leq w < l \leq j} q_w(1-p_l-q_l)  + \sum_{w=1}^j p_w(j-w
 \item<1-> Since $m_{01}m_{01}=0$, denote $H^*_{ver}(A)=H^*(A,m_{01})$. 
 \item<2-> Since $m_{21}m_{01} - m_{11}m_{11} + m_{01}m_{21} = 0$, we have that $m_{11}$ is a differential on $H^*_{ver}(A)$. Denote $H^*_{hor}(H^*_{ver}(A)) = H^*(H^*_{ver}(A);m_{11})$.
 \end{itemize}\pause
-
+\pause
 \begin{defi}
 A morphism $f : A \to B$ of derived $A_\infty$-algebras
 is called an \emph{$E_2$-equivalence} if $H^*_{hor}(H^*_{ver}(f_{01}))$
 is an isomorphism of $R$-modules.
 \end{defi}\pause
 \begin{defi}
-Let $A$ be a dga. A \emph{termwise $R$-projective
-resolution} of $A$ is a termwise $R$-projective
+Let $A$ be a dga. A \emph{degreewise $R$-projective
+resolution} of $A$ is a degreewise $R$-projective
 bidga $P$ with $m_{01} = 0$ together with an $E_2$-equivalence $P \to A$.
 \end{defi}
 \end{frame}
@@ -845,7 +845,7 @@ bidga $P$ with $m_{01} = 0$ together with an $E_2$-equivalence $P \to A$.
 \begin{frame}
 \frametitle{Minimal models}
 \begin{itemize}
-\item An $A_\infty$-algebra is \emph{minimal} if $m_{01} = 0$. 
+\item A $dA_\infty$-algebra is \emph{minimal} if $m_{01} = 0$. 
 \end{itemize}\pause
 \begin{theorem}[Sagave]
 Let $A$ be a dga over $R$. Then there is a degreewise
@@ -853,10 +853,10 @@ $R$-projective derived $A_\infty$-algebra $E$ together with an $E_2$-equivalence
 \begin{itemize}
 \item $E$ is minimal,
 \item $E$ is well-defined up to $E_2$-equivalence,
-\item together with the differential $m_{11}$ and the multiplication $m_{02}$, $E$ is a termwise $R$-projective
+\item together with the differential $m_{11}$ and the multiplication $m_{02}$, $E$ is a degreewise $R$-projective
 resolution of the graded algebra $H^*(A)$. 
 \end{itemize}
-\end{theorem}
+\end{theorem}\pause
 Such $E$ is called a \emph{minimal model} of $A$.
 \end{frame}
 
@@ -885,10 +885,10 @@ for $x$ of bidegree $(i,j)$ and $y$ of bidegree $(k,l)$.
 \begin{frame}
 \frametitle{Connection to $A_\infty$-algebras}
 \begin{theorem}[Cirici, Santander, Livernet, Whitehouse]
-For a bigraded module $A$, there is a one to one correspondance between $A_\infty$-algebras on $\Tot(A)$ and $dA_\infty$-algebras on $A$.
+For a bigraded module $A$, there is a one to one correspondence between $A_\infty$-algebras on $\Tot(A)$ and $dA_\infty$-algebras on $A$.
 \end{theorem}\pause
 \begin{corollary}
-Up to shifts, the following maps define an $dA_\infty$-algebra structure on $\Sigma\Tot(\mathfrak{s}\mathcal{O})$
+Up to shifts, the following maps define an $dA_\infty$-algebra structure on $\Sigma\mathfrak{s}\mathcal{O}$
 \begin{align*}
 &M_{i1}(x)=[m_{i\bullet},x]\\
 &M_{ij}(x_1,\dots, x_j)=m_{i\bullet}\{x_1,\dots, x_j\}_j
