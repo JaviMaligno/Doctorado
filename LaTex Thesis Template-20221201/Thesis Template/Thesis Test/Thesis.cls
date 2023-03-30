@@ -44,7 +44,9 @@
   July\or August\or September\or October\or November\or December\fi
   \space \number\year}
 \usepackage{setspace}
-\onehalfspacing
+%\onehalfspacing
+
+%\linespread{2}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2.0ex plus0.5ex minus0.2ex}
 \usepackage{vmargin}
@@ -88,6 +90,13 @@
 \newtheorem{definition}[theorem]{Definition}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+
+\newtheorem{manualtheoreminner}{Theorem}
+\newenvironment{manualtheorem}[1]{%
+  \renewcommand\themanualtheoreminner{#1}%
+  \manualtheoreminner
+}{\endmanualtheoreminner}
+
 \usepackage[centerlast,small,sc]{caption}
 \setlength{\captionmargin}{20pt}
 \newcommand{\fref}[1]{Figure~\ref{#1}}
@@ -96,6 +105,14 @@
 \newcommand{\cref}[1]{Chapter~\ref{#1}}
 \newcommand{\sref}[1]{Section~\ref{#1}}
 \newcommand{\aref}[1]{Appendix~\ref{#1}}
+
+
+\newcommand{\OO}{{\mathcal O}}
+\newcommand{\s}{\mathfrak{s}}
+
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Tot}{Tot}
+
 \renewcommand{\topfraction}{0.85}
 \renewcommand{\bottomfraction}{.85}
 \renewcommand{\textfraction}{0.1}

@@ -6,6 +6,8 @@
 \documentclass[a4paper, 12pt, oneside]{Thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
 \graphicspath{Figures/}  % Location of the graphics files (set up for graphics to be in PDF format)
 % Include any extra LaTeX packages required
+
+\usepackage{cleveref}
 \usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
 \usepackage{datetime}
 \newdateformat{monthyeardate}{%
@@ -20,7 +22,7 @@
 % Set up the Title Page
 \title  {Title}
 \authors  {
-{Author}
+{Javier Aguilar Martín}
             }
 \addresses  {\groupname\\\deptname\\\univname}  % Do not change this here, instead these must be set in the "Thesis.cls" file, please look through it instead
 \date       {\today}
@@ -80,7 +82,9 @@ name
 \addtotoc{Abstract}  % Add the "Abstract" page entry to the Contents
 \abstract{
 \addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
-abstract
+INCLUDE DELIGNE
+
+We study the operad of derived $A_\infty$-algebras from a new point of view. We start by defining the brace structure on an operad of graded $R$-modules using operadic suspension, which we describe in depth for the first time as a functor, and use it to define $A_\infty$-algebra structures on certain operads, with the endomorphism operad as our main example. This construction provides us with an operadic context from which $A_\infty$-algebras arise in a natural way and allows us to generalize the Lie algebra structure on the Hochschild complex of an $A_\infty$-algebra. Next, we generalize these constructions to operads of bigraded $R$-modules, introducing a totalization functor. This allows us to generalize a Lie algebra structure on the total complex of a derived $A_\infty$-algebra. This construction and the use of some enriched categories allow us to obtain some new results about derived $A_\infty$-algebras that generalize those obtained for $A_\infty$-algebras.
 
 }
 
@@ -93,7 +97,7 @@ abstract
 acknowledgements
 
 \begin{flushright}
-Name, \monthyeardate\today
+Javier Aguilar Martin, \monthyeardate\today
 \end{flushright}
 
 }
@@ -110,6 +114,7 @@ Name, \monthyeardate\today
 
 \tableofcontents
 
+\doublespacing
 \input{Chapters/Chapter1} 
 
 %\input{Chapters/Chapter2} 
