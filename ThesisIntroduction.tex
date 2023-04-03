@@ -28,16 +28,18 @@
 %  \def~}{\@ifnextchar`{\raisedmathinvertedexclamationmark\@gobble}{\mathexclamationmark}}
 %\mathcode`!="8000
 %\makeatother
+
 %--------------------------------------------------------
 \begin{document}
 
 %\title{Introductory chapter}
 %\author{Javier Aguilar Martín}
 %\maketitle
-
+\doublespacing
+\sloppy
 \chapter{Background and conventions}\label{Sec1}
 
-In this first chapter we establish the necessary background and conventions for the rest of the Thesis. We start \Cref{back1} with some category theory background and results, including notions of enriched categories that will play an essential role connecting derived $A_\infty$-algebras with classical $A_\infty$-algebras. We later recall in \Cref{back2} the motivation  for the study of $A_\infty$-algebras as well as some definitions and well-known results. In \Cref{back3} we recall the main definitions regarding operads, since that is the framework in which we will work with (derived) $A_\infty$-algebras. At last, in \Cref{categories} we list several categories that we will use in our study and introduce the totalization functor, essential to encode derived $A_\infty$-algebras.
+In this first chapter we establish the necessary background and conventions for the rest of the thesis. We start \Cref{back1} with some category theory background and results, including notions of enriched categories that will play an essential role connecting derived $A_\infty$-algebras with classical $A_\infty$-algebras. We recall the motivation  for the study of $A_\infty$-algebras as well as some definitions and well-known results in \Cref{back2}. In \Cref{back3} we recall the main definitions regarding operads, since that is the framework in which we will work with (derived) $A_\infty$-algebras. At last, in \Cref{categories} we list several categories that we will use in our study and introduce the totalization functor, which is essential to encode derived $A_\infty$-algebras.
 
 %MAYBE THIS IS THE PLACE FOR FIXING R COMMUTATIVE WITH UNIT AND CHAR NOT 2 (POSSIBLY 0 OR NOT A FACTORIAL (representation theory things that I doubt I would need to clarify))
 %\begin{itemize}
@@ -145,17 +147,16 @@ We assume that the reader is familiar with the basic terminology of category the
 \begin{defin}
 A \emph{symmetric monoidal category} is a category $\CC$ equipped with a functor 
 \[\otimes:\CC\times\CC\to\CC\]
-called \emph{tensor product}, an object
-\[1\in\CC\]
-called \emph{unit object}, a natural isomorphism
+called \emph{tensor product}, an object $1\in\CC$
+called \emph{unit object}, a natural isomorphism called \emph{associators}
 \[a_{A,B,C} : (A \otimes B) \otimes C \to A \otimes (B \otimes C)\]
-for all objects $A,B,C\in\CC$ called \emph{associators}, a natural isomorphism
+for all objects $A,B,C\in\CC$, a natural isomorphism called \emph{left unitor}
 \[\lambda_A:1\otimes A\to A\]
-for every $A\in\CC$ called \emph{left unitor}, a natural isomorphism
+for every $A\in\CC$, a natural isomorphism  called \emph{right unitor}
 \[\rho_A:A\otimes 1\to A\]
-for every $A\in\CC$ called \emph{right unitor}, and a natural isomorphism
+for every $A\in\CC$, and a natural isomorphism called \emph{braiding} or \emph{symmetry isomorphism}
 \[\tau_{A,B}:A\otimes B \to B\otimes A\]
-for all $A,B\in\CC$ called \emph{braiding} or \emph{symmetry isomorphism}. These morphisms satisfy natural unitality and associativity axioms.
+for all $A,B\in\CC$. These morphisms satisfy natural unitality and associativity axioms.
 \end{defin}
 
 \begin{remark}
@@ -163,10 +164,7 @@ If we drop the symmetry isomorphism we get what is simply called a \emph{monoida
 \end{remark}
 
 \begin{defin}
-Let $(\CC,\otimes_\CC, 1_\CC)$ and $(\DD, \otimes_\DD, 1_\DD)$ be symmetric monoidal categories. A \emph{(lax) monoidal functor} between them is a functor
-\[F:\CC\to\DD\]
-with a morphism
-\[\varepsilon:1_\DD\to F(1_\CC)\]
+Let $(\CC,\otimes_\CC, 1_\CC)$ and $(\DD, \otimes_\DD, 1_\DD)$ be symmetric monoidal categories. A \emph{(lax) monoidal functor} is a functor $F:\CC\to\DD$ with a morphism $\varepsilon:1_\DD\to F(1_\CC)$
 and a natural transformation
 \[\mu_{A,B}:F(A)\otimes_\DD  F(B)\to F(A\otimes_\CC B)\]
 for all $A,B\in\CC$ satisfying natural unitality, associativity and symmetry axioms. A lax monoidal functor is called \emph{strong monoidal} if $\varepsilon$ and $\mu_{A,B}$ are isomorphisms for all $A,B\in\CC$.
@@ -176,7 +174,7 @@ for all $A,B\in\CC$ satisfying natural unitality, associativity and symmetry axi
 \begin{defin}
 Suppose $(F,\mu,\varepsilon)$ and $(F, \nu, \epsilon)$ are monoidal functors between the symmetric monoidal categories $\CC$ and $\DD$. Then a \emph{natural transformation} $\alpha:F\to G$ is \emph{monoidal} if the diagrams
 \[
-\begin{tikzcd}
+\begin{tikzcd}[column sep = 50pt]
 F(A)\otimes_\DD F(B)\arrow[r, "\alpha_A\otimes_\DD\alpha_B"]\arrow[d,"\mu_{A,B}"] & G(A)\otimes_\DD G(B)\arrow[d, "\nu_{A,B}"]\\
 F(A\otimes_\CC B)\arrow[r, "\alpha_{A\otimes_\CC B}"] & G(A\otimes_\DD B)
 \end{tikzcd}
@@ -198,15 +196,15 @@ equivalence} if there is a lax monoidal functor $G: \DD → \CC$ such that there
 \end{defin}
 
 \begin{defin}
-A symmetric monoidal category $\CC$ is \emph{closed} if for every object $A\in\CC$ the tensor product functor $A\otimes -:\CC\to\CC$ has a right adjoint functor $[A,-]:\CC\to\CC$. In other words, for all $A,B,C\in \CC$ we have a natural bijection between the hom-sets
+A symmetric monoidal category $\CC$ is \emph{closed} if for every object $A\in\CC$ the tensor product functor $A\otimes -:\CC\to\CC$ has a right adjoint functor $[A,-]:\CC\to\CC$. In other words, for all $A,B,C\in \CC$ we have a natural bijection between the morphism sets
 \[\Hom_\CC(A\otimes B, C)\cong \Hom_\CC(A, [B,C])\]
 natural in all arguments. The object $[A,B]$ is called the \emph{internal hom}.
 \end{defin}
 
 
 \begin{defin}
-Let $\VV$ a monoidal category. A $\VV$-\emph{category} $\CC$ ($\VV$-\emph{
-enriched catgory} or \emph{category enriched over} $\VV$) consists of
+Let $\VV$ a monoidal category. A $\VV$-\emph{category} $\CC$, also called $\VV$-\emph{
+enriched catgory} or \emph{category enriched over} $\VV$, consists of
 \begin{itemize}
 \item a set $\mathrm{Ob}(\CC)$ of objects in $\CC$,
 \item for each pair $(A,B)$ of objects in $\CC$ an object $\CC(A,B)\in\VV$ called the \emph{hom-object} or \emph{object of morphisms} from $A$ to $B$,
@@ -227,50 +225,61 @@ All this data is subject to associativity and unitality constrains that can be s
 
 %WHAT I REALLY NEED IS THEE DEFINITION OF ENRICHED MU AND I CAN DEFINE IT EXPLICITELY IN THE LEMMA THAT IT IS USED (OR WITH AN EXTRA LEMMA IN WHICH I ALSO SHOW THE INVERSE) USING LEMMA 4.35
 
-Continuing further with the idea of enriched categories, we collect some notions and results about enriched categories from \cite{riehl} and \cite[\S 4.2]{whitehouse} that we will need as a categorical setting for our results on derived $A_\infty$-algebras. Here we will combine the notion of enriched category and symmetric monoidal category that we have seen before.
+Continuing further with the idea of enriched categories, we collect some results about enriched categories from \cite{riehl} and \cite[\S 4.2]{whitehouse} that we will need as a categorical setting for our results on derived $A_\infty$-algebras. Here we will combine the notion of enriched category and symmetric monoidal category that we have seen before.
 
 We collect some notions and results about enriched categories from \cite{riehl} and \cite[\S 4.2]{whitehouse} that we will need as a categorical setting for our results on derived $A_\infty$-algebras.
 
 \begin{defin}
 Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a \emph{monoidal category over $\VV$} if we have an external tensor product $∗ :\VV × \CC → \CC$ such that we have the following natural isomorphisms.
-\begin{enumerate}[$\bullet$]
+\begin{itemize}
+%\begin{enumerate}%[$\bullet$]
 \item  $1 ∗ X \cong X$ for all $X ∈ \CC$,
 \item $(C ⊗ D) ∗ X \cong C ∗ (D ∗ X)$ for all $C,D ∈ \VV$ and $X ∈ \CC$,
 \item $C ∗ (X ⊗ Y ) \cong (C ∗ X) ⊗ Y \cong X ⊗ (C ∗ Y )$ for all $C ∈ \VV$ and $X, Y ∈ \CC$.
-\end{enumerate}
+%\end{enumerate}
+\end{itemize}
 \end{defin}
 \begin{remark}\label{underline}
-We will also assume that there is a bifunctor $\uC(−,−) : \CC^{op} × \CC → \VV$ such that we have natural
+Throughout the thesis we will also assume that there is a bifunctor $\uC(−,−) : \CC^{op} × \CC → \VV$ such that we have natural
 bijections
 \[\Hom_\CC(C ∗ X, Y ) \cong \Hom_\VV (C,\uC(X, Y )).\]
 Under this assumption we get a $\VV$-enriched category $\uC$ with the same objects as $\CC$ and with hom-objects given by $\uC (−,−)$. The unit
 morphism $u_A : 1 → \uC (A,A)$ corresponds to the identity map in $\CC$ under the adjunction, and the
 composition morphism is given by the adjoint of the composite
-\[(\uC (B,C) ⊗ \uC (A,B)) ∗ A
-\cong \uC (B,C) ∗ (\uC (A,B) ∗ A)
-\xrightarrow{id∗ev_{AB}}
-\uC (B,C) ∗ B
-\xrightarrow{ev_{BC}} C,\]
+
+%\[(\uC (B,C) ⊗ \uC (A,B)) ∗ A\cong \uC (B,C) ∗ (\uC (A,B) ∗ A)\xrightarrow{id∗ev_{AB}}\uC (B,C) ∗ B\xrightarrow{ev_{BC}} C,\]
+\[
+\begin{tikzcd}
+(\uC (B,C) ⊗ \uC (A,B)) ∗ A \arrow[r, phantom, "\isom"]& \uC (B,C) ∗ (\uC (A,B) ∗ A) \arrow[d, "id∗ev_{AB}"]&\\
+ & \uC (B,C) ∗ B \arrow[r, "ev_{BC}"] & C
+\end{tikzcd}
+\]%[ar symbol/.style = {draw=none,"#1" description,sloped}, isomorphic/.style = {ar symbol={\cong}}]%isomorphic, shorten <= -.5em
+
 where $ev_{AB}$ is the adjoint of the identity $\uC (A,B) → \uC (A,B)$. Furthermore, $\uC$ is a monoidal $\VV$-enriched category, namely we have an
 enriched functor
 \[\underline{⊗} : \uC × \uC → \uC\]
 where $\uC × \uC$ is the enriched category with objects $\mathrm{Ob}(\CC ) × \mathrm{Ob}(\CC )$ and hom-objects
-\[\uC × \uC ((X, Y ), (W,Z)) \coloneqq \uC (X,W) ⊗ \uC (Y,Z).\]
+\[(\uC × \uC) ((X, Y ), (W,Z)) \coloneqq \uC (X,W) ⊗ \uC (Y,Z).\]
 In particular we get maps in $\VV$
 \[\uC (X,W) ⊗ \uC (Y,Z) → \uC (X ⊗ Y,W ⊗ Z),\]
 given by the adjoint of the composite
-\[(\uC (X,W) ⊗ \uC (Y,Z)) ∗ (X ⊗ Y )\cong (\uC (X,W) ∗ X) ⊗ (\uC (Y,Z) ∗ Y )
-\xrightarrow{ev_{XW}⊗ev_{Y Z}} W ⊗ Z.\]
+%\[(\uC (X,W) ⊗ \uC (Y,Z)) ∗ (X ⊗ Y )\cong (\uC (X,W) ∗ X) ⊗ (\uC (Y,Z) ∗ Y )\xrightarrow{ev_{XW}⊗ev_{Y Z}} W ⊗ Z.\]
+\[
+\begin{tikzcd}
+(\uC (X,W) ⊗ \uC (Y,Z)) ∗ (X ⊗ Y )\arrow[r, phantom, "\isom"]& (\uC (X,W) ∗ X) ⊗ (\uC (Y,Z) ∗ Y ) \arrow[d, "ev_{XW}⊗ev_{Y Z}"]\\
+ & W ⊗ Z
+\end{tikzcd}
+\]
 \end{remark}
 
 \begin{defin}
 Let $\CC$ and $\DD$ be monoidal categories over $\VV$. A \emph{lax functor over $\VV$} consists of a functor $F : \CC → \DD$ together with a natural transformation \[ν_F : − ∗_\DD F(−) ⇒ F(− ∗_\CC −)\]
-which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. (See \cite[Proposition 10.1.5]{riehl} for explicit diagrams stating the coherence axioms.) If $ν_F$ is a natural isomorphism
+which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. See \cite[Proposition 10.1.5]{riehl} for explicit diagrams stating the coherence axioms. If $ν_F$ is a natural isomorphism
 we say $F$ is a \emph{functor over $\VV$}.
 Let $F,G : \CC → \DD$ be lax functors over $\VV$. A \emph{natural transformation over $\VV$} is a natural transformation
 $μ : F ⇒ G$ such that for any $C ∈ \VV$ and for any $X ∈ \CC$ we have
-\[ν_G \circ (1 ∗_\DD μ_X) = μ_C∗_\CC X \circ ν_F .\]
-A \emph{(lax) monoidal functor over $\VV$} is a triple $(F, \epsilon, μ)$, where $F : \CC → \DD$ is a lax functor over $\VV$,
+\[ν_G \circ (1 ∗_\DD μ_X) = (μ_C∗_\CC \mu_X) \circ ν_F .\]
+A \emph{lax monoidal functor over $\VV$} is a triple $(F, \epsilon, μ)$, where $F : \CC → \DD$ is a lax functor over $\VV$,
 $\epsilon : 1_\DD → F(1_\CC)$ is a morphism in $\DD$ and
 \[μ : F(−) ⊗ F(−) ⇒ F(− ⊗ −)\]
 is a natural transformation over $\VV$ satisfying the standard unit and associativity conditions. If $ν_F$
@@ -288,13 +297,16 @@ transformation
 In particular, if $F$ is (lax) monoidal over $\VV$, then $F$ is (lax) monoidal in the enriched sense.
 \end{propo}
 
+
 \begin{lem}
 Let $F,G:\CC\to\DD$ lax functors over $\VV$ and let $\mu : F\Rightarrow G$ a natural transformation over $\VV$. For every $X\in\CC$ and $Y\in\DD$ there is a map \[\uD(GX,Y)\to\uD(FX,Y)\] that is an isomorphism if $\mu$ is an isomorphism.
 \end{lem}
+We would like to thank Sarah Whitehouse for her contribution to the proof of this result.
+
 \begin{proof}
 By \Cref{enrichedtrans} there is a $\VV$-enriched natural transformation 
 \[\underline{\mu}:\underline{F}\to\underline{G}\]
-that at each object $X$ evaluates to \[\underline{\mu}_X:1\to\uD(FX,GX)\] defined to be the adjoint of $\mu_X:FX\to GX$. The map $\uD(GX,Y)\to\uD(FX,Y)$ is defined as the composite
+that at each object $X$ evaluates to \[\underline{\mu}_X:1\to\uD(FX,GX)\] defined to be the adjoint of $\mu_X:FX\to GX$. We define the map $\uD(GX,Y)\to\uD(FX,Y)$ as the composite
 
 \begin{equation}\label{enrichedmap}
 \uD(GX,Y)\cong\uD(GX,Y)\otimes 1\xrightarrow{1\otimes\umu_X}\uD(GX,Y)\otimes\uD(FX,GX)\xrightarrow{c}\uD(FX,Y),
@@ -303,13 +315,15 @@ where $c$ is the composition map in the enriched setting.
 
 When $\mu$ is an isomorphism we may analogously define the following map
 
-\[\uD(FX,Y)\cong\uD(FX,Y)\otimes 1\xrightarrow{1\otimes\umui_X}\uD(FX,Y)\otimes\uD(GX,FX)\xrightarrow{c}\uD(GX,Y).\]
+\begin{equation}\label{enrichedmapinverse}
+\uD(FX,Y)\cong\uD(FX,Y)\otimes 1\xrightarrow{1\otimes\umui_X}\uD(FX,Y)\otimes\uD(GX,FX)\xrightarrow{c}\uD(GX,Y).
+\end{equation}
 
-We show that this map is the inverse of the map in \Cref{enrichedmap}.
-\label{complicateddiagram}
+We show that the above map is the inverse of the map (\ref{enrichedmap}). Consider the following diagram where the external arrows are the composition of (\ref{enrichedmap}) and (\ref{enrichedmapinverse}).
+
 \begin{equation}
 \adjustbox{scale=0.76,center}{%
-\begin{tikzcd}[column sep = 0pt, row sep = 20pt]
+\begin{tikzcd}[column sep = 0pt, row sep = 20pt]\label{complicateddiagram}
 {\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
                                                                                      & {\uD(GX,Y)\otimes\uD(GX,GX)} \arrow[lu, "c"] \arrow[lu]                                                  & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes 1} \arrow[ld, "1\otimes 1\otimes \umui_X"] \arrow[rdd, "c\otimes 1"] \arrow[ru, "(1)"', phantom] &                                                                                \\
                                                                                      & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes \uD(GX,FX)} \arrow[u, "1\otimes c"] \arrow[ld, "c\otimes 1"]          &                                                                                                                                    &                                                                                \\
@@ -319,7 +333,7 @@ We show that this map is the inverse of the map in \Cref{enrichedmap}.
 \end{equation}
 
 
-In the above diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. 
+In the above diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. In particular, diagram (5) is a decomposition of the identity map on $\uD(GX,Y)$. By commutativity, this means that the overall diagram composes to the identity, showing that the maps (\ref{enrichedmap}) and (\ref{enrichedmapinverse}) are mutually inverse.
 \end{proof}
 
 The following is \cite[Lemma 4.15]{whitehouse}.
@@ -341,24 +355,26 @@ The category $\fc$ is monoidal over $\vbc$. By restriction, $\fmod$ is monoidal 
 %We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but 
 
 
-In the early sixties, J. Stasheff invented $A_\infty$-spaces and $A_\infty$-algebras \cite{STASHEFFI}, \cite{STASHEFF} as a tool in the study of ‘group-like’ spaces. We are going to motivate them by explaining their topological origin and later we will give precise definitions. We will also recall minimal models to further motivate the study of $A_\infty$-algebras and their limitations. A more detailed survey can be found in \cite{keller} and in \cite{lodayvallette}.
+In the early sixties, J. Stasheff introduced $A_\infty$-spaces and $A_\infty$-algebras \cite{STASHEFFI}, \cite{STASHEFF} as a tool in the study of ‘group-like’ spaces. We are going to motivate them by explaining their topological origin and later we will give precise definitions. We will also recall minimal models to further motivate the study of $A_\infty$-algebras and their limitations. A more detailed survey can be found in \cite{keller} and in \cite{lodayvallette}.
 
 \subsection{Topological origin}
 
 Let us consider the basic example. Let $(X, *)$ be a topological space with a base point $*$ and let $\Omega X$ denote the space of based loops in $X$: a point of 
-$X$ is thus a continuous map $f : S^ 1 \to X$ taking the base point of the circle to the base point $*$. We have the composition map
+$\Omega X$ is thus a continuous map $f : S^ 1 \to X$ taking the base point of the circle to the base point $*$. We have the composition map
 
 \[
 m_2 : X ×X \to X
 \]
-sending a pair of loops $(f_1, f_2)$ to the loop $f_1 * f_2 = m_2(f_1, f_2)$ obtained by running through $f_1$ on the first half of the circle and through $f_2$ on the second half.
+sending a pair of loops $(f_1, f_2)$ to the loop $f_1 * f_2 = m_2(f_1, f_2)$ obtained by running through $f_1$ on the first half of the circle at twice the speed and through $f_2$ on the second half.
 
 
 \[
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 \clip(-5,-3.) rectangle (5.,2.3);
 \draw(0.,0.) circle (1.5cm);
-\draw [->] (1.5,0.) -- (1.475763388700826,0.26855617768030476);
+\draw [-] (-1.6,0.) -- (-1.4,0);
+\draw [-] (1.6,0.) -- (1.4,0);
+\draw [->] (1.5,0.1) -- (1.45763388700826,0.36855617768030476);
 \draw [->] (-1.5,0.) -- (-1.4622984077406362,-0.33419061434935543);
 \draw (-0.3,2.118952883889729) node[anchor=north west] {$f_1$};
 \draw (-0.3,-1.5566913118092813) node[anchor=north west] {$f_2$};
@@ -367,12 +383,18 @@ sending a pair of loops $(f_1, f_2)$ to the loop $f_1 * f_2 = m_2(f_1, f_2)$ obt
 \]
 
 
-This composition is non associative: for three loops $f_1$, $f_2$, $f_3$, the composition $(f_1*f_2)*f_3$ runs through $f_1$ on the first quarter of the circle whereas the composition $f_1 * (f_2 * f_3)$ runs through $f_1$ on the first half of the circle. We symbolize the two possibilities by the two binary trees with three leaves.
+This composition is not associative: for three loops $f_1$, $f_2$, $f_3$, the composition $(f_1*f_2)*f_3$ runs through $f_1$ on the first quarter of the circle whereas the composition $f_1 * (f_2 * f_3)$ runs through $f_1$ on the first half of the circle. We symbolize the two possibilities by the two binary trees with three leaves.
 \[
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 \clip(-4.175394430564892,-2.5911383046897085) rectangle (7.490400123879831,3.3976612960713135);
 \draw(0.,2.) circle (1.cm);
+\draw [-] (-1.1,2.) -- (-0.9,2);
+\draw [-] (1.1,2) -- (0.9,2);
+\draw [-] (0,2.9) -- (0,3.1);
 \draw(0.,-1.) circle (1.cm);
+\draw [-] (-1.1,-1) -- (-0.9,-1);
+\draw [-] (1.1,-1) -- (0.9,-1);
+\draw [-] (0,-1.9) -- (0,-2.1);
 \draw (-3.8016933844,2.311720973491667) node[anchor=north west] {$(f_1*f_2)*f_3$};
 \draw (-3.796110195476,-0.6773028846978557) node[anchor=north west] {$f_1*(f_2*f_3)$};
 \draw (-0.6057688157486263,1.1) node[anchor=north west] {$f_3$};
@@ -393,22 +415,22 @@ This composition is non associative: for three loops $f_1$, $f_2$, $f_3$, the co
 \draw (1.7811495170502019,-0.4085057751484382) node[anchor=north west] {$f_1$};
 \draw (2.8133304177199654,-0.4085057751484382) node[anchor=north west] {$f_2$};
 \draw (3.813255665243799,-0.4300095439123916) node[anchor=north west] {$f_3$};
-\draw [->] (1.,2.) -- (0.9776684310102762,2.2101533701987783);
-\draw [->] (0.,3.) -- (-0.2228209821222102,2.9748593795651215);
-\draw [->] (-1.,2.) -- (-0.9818938166599703,1.8105678675490438);
-\draw [->] (1.,-1.) -- (0.9832067635335799,-0.8175049037869153);
-\draw [->] (-1.,-1.) -- (-0.9827773938908082,-1.1847933820708718);
-\draw [->] (0.,-2.) -- (0.1987984337916885,-1.9800403985152712);
+\draw [->] (0.97,2.2) -- (0.94,2.33701987783);
+\draw [->] (-0.15,2.98) -- (-0.3,2.95651215);
+\draw [->] (-0.97,1.8) -- (-0.95,1.675490438);
+\draw [->] (0.958,-0.75) -- (0.945,-0.67);
+\draw [->] (-0.98,-1.19) -- (-0.93938908082,-1.33820708718);
+\draw [->] (0.18,-1.98) -- (0.3,-1.96152712);
 \end{tikzpicture}
 \]
 
-Clearly, there is a homotopy
+There is a homotopy
 \[
 m_3 : [0, 1]×X × X \to X
 \]
-joining the two possibilities of composing three loops by a reparamerization. When we want to compose 4
-factors, there are 5 possibilities corresponding to the 5 binary trees with 4 leaves. Using
-$m_3$, we obtain two paths of homotopies joining the composition $(f_1, f_2, f_3, f_4) \mapsto
+joining the two possibilities of composing three loops by a reparamerization. When we want to compose four
+factors, there are five possibilities corresponding to the five binary trees with four leaves. Using
+$m_3$, we obtain two concatenations of homotopies joining the composition $(f_1, f_2, f_3, f_4) \mapsto
 ((f_1 * f_2) * f_3) * f_4$ to the composition $(f_1, f_2, f_3, f_4) \mapsto f_1 * (f_2 * (f_3 * f_4))$.
 
 \definecolor{dcrutc}{rgb}{0.39215686274509803,0.39215686274509803,0.39215686274509803}
@@ -540,12 +562,12 @@ $m_3$, we obtain two paths of homotopies joining the composition $(f_1, f_2, f_3
 %\end{scriptsize}
 %\end{tikzpicture}
 
-These two paths are clearly homotopic. Let us denote an homotopy by
+These two concatenations are homotopic. Let us denote an homotopy by
 \[
 m_4 : K_4 × (\Omega X)^4 \to X
 \]
-where $K_4$ denotes the pentagon bounded by the two paths. When we want to compose 5 factors, there are 14 possibilities corresponding to the 14 binary trees
-with 5 leaves. Using $m_4$ and $m_3$, we obtain paths linking the compositions and faces linking the paths. The resulting sphere is the boundary of the polytope $K_5$ depicted.
+where $K_4$ denotes the pentagon bounded by the two paths. When we want to compose five factors, there are fourteen possibilities corresponding to the fourteen binary trees
+with five leaves. Using $m_4$ and $m_3$, we obtain homotopies linking the compositions and faces linking the homotopies. The resulting object is the boundary of the polytope $K_5$ depicted.
 
 \[
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
@@ -581,44 +603,45 @@ conditions and admitting a ``strict unit". The loop space $\Omega X$ is the prim
 such a space $Y$. Conversely \cite{Adams}, a topological space that admits the structure of
 an $A_\infty$-space and whose connected components form a group is homotopy equivalent
 to a loop space. If $Y$ is an $A_\infty$-space, the singular chain complex of $Y$ is the paradigmatic example
-of an $A_\infty$-algebra \cite{STASHEFF}.
+of an $A_\infty$-algebra \cite{STASHEFF}, which will formally introduce in the next section.
 
 \subsection{Definitions}
 
 In this section we first establish notation and assumptions about graded modules and sign conventions. We then briefly recall some of the basic definitions regarding $A_\infty$-algebras.
 
-Our base category is the category of $\Z$-graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$. The symmetry isomorphism is given by the following Koszul sign convention.
+Our base category is the category of $\Z$-graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$ and we use cohomological grading. The symmetry isomorphism is given by the following Koszul sign convention.
 
 \begin{align*}
 \tau_{A,B}:A\otimes B&\to B\otimes A\\
-x\otimes y &\mapsto (-1)^{\deg(x)\deg(y)}y\otimes x.
+x\otimes y &\mapsto (-1)^{\deg(x)\deg(y)}y\otimes x
 \end{align*}
 
  Our convention is that a map $f:A\to B$ of degree $i$ satisfies $f(A^n)\subseteq B^{n+i}$ for all $n$. The $R$-modules $\Hom_R(A,B)$ are naturally graded by \[\Hom_R(A,B)^i=\prod_k\Hom_R(A^k,B^{k+i}).\]
 
-We also adopt the following Koszul sign convention: for $x\in A$, $y\in B$, $f\in\Hom_R(A,C)$ and $g\in\Hom_R(B,D)$
+We also adopt the following Koszul sign convention: for $x\in A$, $y\in B$, $f\in\Hom_R(A,C)$ and $g\in\Hom_R(B,D)$,
 
 \[(f\otimes g)(a\otimes b)=(-1)^{\deg(x)\deg(g)}f(x)\otimes g(y).\]
 
-Recall that if $(A,\partial^A)$ and $(B,\partial^B)$ are (co)chain complexes, the module $\Hom_R(A,B)$ also becomes a (co)chain complexes with differential
+Recall that if $(A,\partial^A)$ and $(B,\partial^B)$ are (co)chain complexes, the module $\Hom_R(A,B)$ also becomes a (co)chain complexe with differential
 \[\partial(f) = \partial^B\circ f +(-1)^{\deg(f)}f\circ\partial^A.\]
 
 
 \begin{defin}
-For a graded $R$-module $A$ we consider the \emph{shift} or \emph{suspension} $SA$ for which $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
+For a graded $R$-module $A$ the \emph{shift} or \emph{suspension} $SA$ is given by $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
 \end{defin}
 
 With all the notations and conventions established we can introduce $A_\infty$-algebras. 
 
 \begin{defin}\label{ainftyalgebra}
-An \emph{$A_\infty$-algebra} is a graded $R$-module $A$ together with a family of maps $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying for all $n\geq 1$ the equation
+An \emph{$A_\infty$-algebra} is a graded $R$-module $A$ together with a family of maps $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying the equation
 
 \begin{equation}\label{ainftyequation}
-\sum_{r+s+t=n}(-1)^{rs+t}m_{r+t+1}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t})=0.
+\sum_{r+s+t=n}(-1)^{rs+t}m_{r+t+1}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t})=0,
 \end{equation}
+for all $n\geq 1$.
 \end{defin}
 %This is equivalent to define it on SA without signs,  but there's not need to point that out here and it also depends on the convention of S^n^{-1}
-The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. This seemingly obscure definition captures the idea of an algebra that is associative up to homotopy. To see this, let us have a look at the first few cases.
+The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. This seemingly obscure definition captures the idea of an algebra that is associative up to homotopy. The signs are related to the orientation given to the Stasheff polytopes. To see this, let us have a look at the first few cases.
 
 \begin{itemize}
 \item We have $m_1m_1=0$, so $(A, m_1)$ is a cochain complex.
@@ -634,7 +657,7 @@ m_2(1\otimes m_2 − m_2\otimes 1)= m_1m_3 + m_3 (m_1\otimes 1\otimes 1 + 1\otim
 \]
 as maps $A^{\otimes 3}\to A$. Note that the left hand side is the associator for $m_2$ and
 that the right hand side may be viewed as the boundary of $m_3$ in the morphism
-complex $\Hom_R (A^{\otimes 3},A)$. This implies that $m_2$ is associative up to homotopy.
+complex $\Hom_R (A^{\otimes 3},A)$. This implies that $m_2$ is associative up to homotopy. 
 \end{itemize}
 
 
@@ -652,7 +675,7 @@ The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by
 \otimes f_{i_r}).\]
 \end{defin}
 
-Similarly to the $A_\infty$-equation (\cref{ainftyequation}), the above definition captures the idea of a map that is a morphism of algebras up to homotopy. This can be observed in the first few cases.
+Similarly to the $A_\infty$-equation (\ref{ainftyequation}), the above definition captures the idea of a map that is a morphism of algebras up to homotopy. This can be observed in the first few cases.
 
 \begin{itemize}
 \item We have $f_1m_1 = m_1f_1$, i.e. $f_1$ is a morphism of complexes.
@@ -725,16 +748,16 @@ It is known that the category of collections with plethysm is a monoidal categor
 \begin{defin}
 A \emph{(non-symmetric) operad} is a collection $\OO=\{\OO(n)\}$ where there is a distinguished \emph{identity} element $1\in\OO(1)$ and with \emph{insertion maps} 
 \[\circ_i:\OO(n)\otimes \OO(m)\to \OO(m+n-1)\]
-for each $1\leq i\leq n$ satisfying natural unitality and associativity axioms (see \cite[\S 1.1.2]{ward}). 
+for each $1\leq i\leq n$ satisfying natural unitality and associativity axioms, see \cite[\S 1.1.2]{ward}. 
 
 Insertion maps can be iterated to define \emph{composition maps} \[\gamma(x;x_1,\dots, x_n)=(\cdots(x\circ_1 x_1)\circ_2 x_2\cdots
 )\circ_n x_n).\]
-If $\OO$ is an $\mathbb{S}-$module and the insertion maps satisfy some additional invariance axioms regarding the symmetric group action, we say that $\OO$ is a \emph{symmetric operad}. See \cite{lodayvallette} for more details.
+If $\OO$ is an $\mathbb{S}-$module and the insertion maps satisfy some additional invariance axioms regarding the symmetric group action, we say that $\OO$ is a \emph{symmetric operad}, see \cite{lodayvallette} for more details.
 
 A \emph{map of operads} (resp. \emph{symmetric operads}) is a map of collections (resp. $\mathbb{S}-$modules) that is compatible with insertions.
 \end{defin}
 
-The following lemma is a well-known fact. See \cite[\S 5]{lodayvallette} for more details. 
+The following lemma is a well-known fact, see \cite[\S 5]{lodayvallette} for more details. 
 \begin{lem}\label{monoid}
 An operad $\OO$ is equivalent to a monoid in the monoidal category of collections with plethysm, where the multiplication  map is given precisely by the composition $\gamma:\OO\circ\OO\to\OO$. 
 \end{lem}
@@ -742,7 +765,7 @@ An operad $\OO$ is equivalent to a monoid in the monoidal category of collection
 
 \begin{defin} An operad $\OO$ is called \emph{reduced} if $\OO(0)=0$.\end{defin}
 
-\begin{defin} Let $\OO$ and $\PP$ be operads. The \emph{Hadamard product} $\OO\otimes\PP$ is given on each arity component by $(\OO\otimes\PP)(n)=\OO(n)\otimes\PP(n)$. The structure maps are given by diagonal composition and diagonal symmetric group action in the case of symmetric operads. \end{defin}
+\begin{defin}The \emph{Hadamard product} $\OO\otimes\PP$ of  two operads $\OO$ and $\PP$ is given on each arity component by $(\OO\otimes\PP)(n)=\OO(n)\otimes\PP(n)$. The structure maps are given by diagonal composition and diagonal symmetric group action in the case of symmetric operads. \end{defin}
 
 The next definition is the most important and common example of an operad.
 \begin{defin}
@@ -751,7 +774,7 @@ The \emph{endomorphism operad} $\End_A$ of a graded $R$-module $A$ is given by t
 for $f\in\End_A(n)$ and $g\in\End_A(m)$. The identity element is given by the identity map and there is a symmetric group action given by permuting the inputs.
 \end{defin}
 \begin{defin}
-An \emph{algebra over an operad} $\OO$, or $\OO$-\emph{algebra}, is a map of operads $\OO\to\End_A$ for some $R$-module $A$. By adjunction, this is equivalent to a collection of maps $\OO(n)\otimes A^{\otimes n}\to A$ for each $\geq 0$.  
+An \emph{algebra over an operad} $\OO$, or $\OO$-\emph{algebra}, is a map of operads $\OO\to\End_A$ for some $R$-module $A$. By adjunction, this is equivalent to a collection of maps $\OO(n)\otimes A^{\otimes n}\to A$ for each $n\geq 0$.  
 \end{defin}
 
 
@@ -763,7 +786,7 @@ A \emph{morphism of $\OO$-algebras} $A$ and $B$ is a map of operads $\End_A\to\E
 & \End_B
 \end{tikzcd}
 \]
-commutes. By adjunction, this is equivalent to a map of $R$-modules $f:A\to B$ such that the diagram
+commutes. By adjunction, this is equivalent to a map $f:A\to B$ of $R$-modules such that the diagram
 \[
 \begin{tikzcd}
 \OO(n)\otimes A^{\otimes n} \arrow[r]\arrow[d, "id\otimes f^{\otimes n}"] & A\arrow[d, "f"]\\
@@ -775,7 +798,7 @@ commutes for all $n$.
 \end{defin}
 
 \begin{defin}
-The \emph{$\mathcal{A}_\infty$-operad} is the non-symmetric operad whose algebras are $A_\infty$-algebras, see \Cref{ainftyalgebra}. Therefore, it is generated by elements $\mu_i\in\mathcal{A}_\infty(i)$ satisfying the operadic version of the $A_\infty$-equation, \Cref{ainftyequation}.
+The \emph{$\mathcal{A}_\infty$-operad} is the non-symmetric operad whose algebras are $A_\infty$-algebras, see \Cref{ainftyalgebra}. Therefore, it is generated by elements $\mu_i\in\mathcal{A}_\infty(i)$ satisfying the operadic version of the $A_\infty$-equation (\ref{ainftyequation}).
 
 \begin{equation}\label{operadicainftyequation}
 \sum_{r+s+t=n}(-1)^{rs+t}\mu_{r+t+1}\circ_{r+1}\mu_s=0.
@@ -783,13 +806,13 @@ The \emph{$\mathcal{A}_\infty$-operad} is the non-symmetric operad whose algebra
 More details about this operad can be found in \cite[Chapter 9]{lodayvallette}.
 \end{defin}
 
-Notice that for the $\calA_\infty$-operad, a morphism of $\calA_\infty$-algebras (\Cref{algebramorphism}) is the same thing as a morphism of $A_\infty$-algebras (\Cref{inftyalgebramorphism}). We will also provide a new operadic interpretation of $\infty$-morphisms (\Cref{inftymorphism}) and relate it to an existing interpretation in \Cref{reinterpretation}. 
+Notice that for the $\calA_\infty$-operad, a morphism of $\calA_\infty$-algebras, \Cref{algebramorphism}, is the same thing as a morphism of $A_\infty$-algebras, \Cref{inftyalgebramorphism}. We will also provide a new operadic interpretation of $\infty$-morphisms, \Cref{inftymorphism}, and relate it to an existing interpretation in \Cref{reinterpretation}. 
 
 \begin{remark}
-If one considers $m_1$ as an internal differential of the algebra $A$, \Cref{ainftyequation} reads for each $j$
+If one considers $m_1$ as an internal differential of the algebra $A$, \Cref{ainftyequation} reads for each $j$ as
 \begin{align*}
-m_1(m_j) -(-1)^s \sum _{r+t+1 = j}m_j(1^{\otimes r}\otimes m_1\otimes 1^{\otimes t}) = \\
--\underset{s>1, r+t >0}{\sum_{r+s+t=j}}(-1)^{rs+t}m_{r+t+1}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t}).
+&m_1(m_j) -(-1)^s \sum _{r+t+1 = j}m_j(1^{\otimes r}\otimes m_1\otimes 1^{\otimes t})\\
+&=-\underset{s>1, r+t >0}{\sum_{r+s+t=j}}(-1)^{rs+t}m_{r+t+1}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t}).
 \end{align*}
 
 This leads to a definition of the operad $\mathcal{A}_\infty$ in the category of cochain complexes as the operad generated by $\mu_i\in\mathcal{A}_\infty(i)$ for $i>1$ and with differential given by
@@ -801,9 +824,9 @@ Notice that this operad can now be described with no other relations than the di
 
 
 
-\subsection{Cooperads}
+\subsection{Operads and monoidality}
 
-The monoidal definition of operad (\Cref{monoid}) allows to define the dual notion of a cooperad.
+The monoidal definition of operad from \Cref{monoid} allows to define the dual notion of a cooperad.
 
 
 
@@ -819,7 +842,7 @@ Note that this is not the exact dual notion of an operad. To define the exact du
 the monoidal product
 \[(\PP\hat{\circ}\QQ)(n) =\prod_{r\geq 0}(\PP(r)\otimes \prod_{n=i_1+\cdots+i_r}(\QQ(i_1)\otimes\cdots\otimes \QQ(i_r)))\]
 in the category of collections, where the sums are replaced by products. In that case, a cooperad is defined as a comonoid $\Delta:\OO\to\OO\hat{\circ}\OO$.
-When $\OO(0) = 0$ (the operad is reduced), the right-hand side product is equal to a sum. In this case, we are back to the previous denition.
+When $\OO(0) = 0$ (the operad is reduced), the right-hand side product is equal to a sum. In this case, we are back to the previous definition.
 
 
 
@@ -830,7 +853,7 @@ Any symmetric lax monoidal functor $F:\CC\to\DD$ induces a functor $\underline{F
 
 %REFERENCE THE AXIOMS WHEN I WRITE THEM DOWN
 \begin{proof}
-We prove the result for operads, since for cooperads is dual. Let $\OO$ be an operad in $\CC$ and let $F:\CC\to\DD$ be a symmetric lax monoidal functor. On objects, we define $\underline{F}(\OO)= F(\OO)$ and on morphisms we define $\underline{F}(f)=F(f)$ for $f:\OO\to\PP$. 
+We prove the result for operads, since for cooperads is dual. Let $\OO$ be an operad in $\CC$ and let $F:\CC\to\DD$ be a symmetric lax monoidal functor. On objects, we define $\underline{F}(\OO)(n)= F(\OO(n))$ and on morphisms we define $\underline{F}(f)_n=F(f_n)$ for $f:\OO\to\PP$. 
 
 Let $\varepsilon: 1_\DD\to F(1_\CC)$ and $\mu\coloneqq\mu_{A,B}: F(A)\otimes F(B)\to F(A\otimes B)$ be the structure maps of the lax monoidal functor $F$. 
 
@@ -918,7 +941,7 @@ F(\OO(n+m+l-2)) &
    
    According to the definition of $\circ_i^F$, we need to show that the following diagram commutes. 
    
-   \[   
+   \begin{equation}\label{red}  
 \begin{tikzcd}
 (F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l)) \arrow[r, "a_\DD"] \arrow[d, "\mu\otimes id"] & F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes \mu"]\\
 F(\OO(n)\otimes \OO(m))\otimes F(\OO(l))\arrow[d, red, "F(\circ_i)\otimes id"] & F(\OO(n))\otimes F(\OO(m)\otimes\OO(l))\arrow[d, red, "id\otimes F(\circ_{j+i-1})"]\\
@@ -926,19 +949,19 @@ F(\OO(n+m-1))\otimes F(\OO(l))\arrow[d, red, "\mu"] & F(\OO(n))\otimes F(\OO(m+l
 F(\OO(n+m-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & F(\OO(n)\otimes\OO(m+l-1))\arrow[dl, bend left = 10, "F(\circ_i)"]\\
 F(\OO(n+m+l-2)) & 
 \end{tikzcd}   
-   \]
+   \end{equation}
    
    By naturality of $\mu$ we have 
    \begin{equation}\label{naturality}
    \mu\circ (F(\circ_i)\otimes id)= F( \circ_i \otimes id)\circ \mu 
    \end{equation} and \[\mu\circ (id \otimes F(\circ_{j-i+1}))= F(id\otimes \circ_{j-i+1})\circ \mu.\]
-    Therefore we can replace the red arrows accordingly. We can also subdivide the above diagram into two by using $F(a_\CC)$ as follows.
+    Therefore we can replace the above compositions in diagram (\ref{red}) accordingly. We can also subdivide the above diagram into two by using $F(a_\CC)$ as follows.
    
       \[   
 \begin{tikzcd}
 (F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l)) \arrow[r, "a_\DD"] \arrow[d, "\mu\otimes id"] & F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes \mu"]\\
 F(\OO(n)\otimes \OO(m))\otimes F(\OO(l))\arrow[d, red, "\mu"] & F(\OO(n))\otimes F(\OO(m)\otimes\OO(l))\arrow[d, red, "\mu"]\\
-F((\OO(n)\otimes\OO(m))\otimes\OO(l))\arrow[d, red, "F(\circ_i\otimes id)"]\arrow[r, dashed, "F(a_\DD)"] & F(\OO(n))\otimes F(\OO(n)\otimes(\OO(m)\otimes\OO(l)))\arrow[d, red, "F(id\otimes \circ_{j-1+1})"]\\
+F((\OO(n)\otimes\OO(m))\otimes\OO(l))\arrow[d, red, "F(\circ_i\otimes id)"]\arrow[r, dashed, "F(a_\CC)"] & F(\OO(n))\otimes F(\OO(n)\otimes(\OO(m)\otimes\OO(l)))\arrow[d, red, "F(id\otimes \circ_{j-1+1})"]\\
 F(\OO(n+m-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & F(\OO(n)\otimes\OO(m+l-1))\arrow[dl, bend left = 10, "F(\circ_i)"]\\
 F(\OO(n+m+l-2)) & 
 \end{tikzcd}   
@@ -952,67 +975,82 @@ F(\OO(n+m+l-2)) &
    We have the following associativity commutative diagram for $j<i$.
    \[
    \begin{tikzcd}
-   (\OO(n)\otimes \OO(m))\otimes\OO(l)\arrow[r, "a_\CC"]\arrow[d, "\circ_i\otimes id"] & \OO(n)\otimes (\OO(m)\otimes \OO(l)) \arrow[r, "id\otimes B_\CC"] & \OO(n)\otimes (\OO(l)\otimes \OO(m))\arrow[d, "a^{-1}_\CC"]\\
-   \OO(n+m-1)\otimes\OO(l)\arrow[d, "\circ_j"] & & (\OO(n)\otimes\OO(l))\otimes \OO(m)\arrow[d, "\circ_j\otimes id"]\\
-   \OO(n+m+l-2) & & \OO(n+l-1)\otimes \OO(m)\arrow[ll, "\circ_i"]
+   (\OO(n)\otimes \OO(m))\otimes\OO(l)\arrow[r, "a_\CC"]\arrow[d, "\circ_i\otimes id"] & \OO(n)\otimes (\OO(m)\otimes \OO(l)) \arrow[d, "id\otimes B_\CC"] \\
+   \OO(n+m-1)\otimes\OO(l)\arrow[d, "\circ_j"] & \OO(n)\otimes (\OO(l)\otimes \OO(m))\arrow[d, "a^{-1}_\CC"]\\
+   \OO(n+m+l-2) & (\OO(n)\otimes\OO(l))\otimes \OO(m)\arrow[d, "\circ_j\otimes id"]\\
+    & \OO(n+l-1)\otimes \OO(m)\arrow[ul, "\circ_i", bend left = 10]
    \end{tikzcd}
    \]
    
    Applying $F$ we get the following commutative diagram.
    \begin{equation}\label{assiaux}
       \begin{tikzcd}
-   F((\OO(n)\otimes \OO(m))\otimes\OO(l))\arrow[r, "F(a_\CC)"]\arrow[d, "F(\circ_i\otimes id)"] & F(\OO(n)\otimes (\OO(m)\otimes \OO(l))) \arrow[r, "F(id\otimes B^\CC)"] & \OO(n)\otimes (\OO(l)\otimes \OO(m))\arrow[d, "F(a_\CC)^{-1}"]\\
-  F(\OO(n+m-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & & F((\OO(n)\otimes\OO(l))\otimes \OO(m))\arrow[d, "F(\circ_j\otimes id)"]\\
-   F(\OO(n+m+l-2)) & &F(\OO(n+l-1)\otimes \OO(m))\arrow[ll, "F(\circ_i)"]
+   F((\OO(n)\otimes \OO(m))\otimes\OO(l))\arrow[r, "F(a_\CC)"]\arrow[d, "F(\circ_i\otimes id)"] & F(\OO(n)\otimes (\OO(m)\otimes \OO(l))) \arrow[d, "F(id\otimes B^\CC)"]\\
+   F(\OO(n+m-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & \OO(n)\otimes (\OO(l)\otimes \OO(m))\arrow[d, "F(a_\CC)^{-1}"]\\
+   F(\OO(n+m+l-2)) &  F((\OO(n)\otimes\OO(l))\otimes \OO(m))\arrow[d, "F(\circ_j\otimes id)"]\\
+     &F(\OO(n+l-1)\otimes \OO(m))\arrow[ul, "F(\circ_i)", bend left = 10]
    \end{tikzcd}
    \end{equation}
    
    We need to show that the following diagram commutes.
    \[
-\begin{tikzcd}[column sep = -3em]
-& F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[dr, "id\otimes B_\DD"]& \\
-(F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"]\arrow[ur, "a_\DD"] &  & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\\
-F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "F(\circ_i)\otimes id"] & & (F(\OO(n))\otimes F(\OO(l)))\otimes F(\OO(m))\arrow[d, "\mu\otimes id"]\\
-F(\OO(n+m-1)\otimes F(\OO(l))\arrow[d, "\mu\otimes id"] & & F(\OO(n)\otimes \OO(l))\otimes F(\OO(m))\arrow[d, "F(\circ_j)\otimes id"]\\
-F(\OO(m+n-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & & F(\OO(n+l-1))\otimes F(\OO(m))\arrow[d, "\mu"]\\
-F((\OO(n+m+l-2)) & & F(\OO(n+l-1)\otimes\OO(m))\arrow[ll, "F(\circ_i)"]
+\begin{tikzcd}%[column sep = -3em]
+(F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"]\arrow[r, "a_\DD"]& F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes B_\DD"] \\
+ F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "F(\circ_i)\otimes id"]  & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\\
+ F(\OO(n+m-1)\otimes F(\OO(l))\arrow[d, "\mu\otimes id"] & (F(\OO(n))\otimes F(\OO(l)))\otimes F(\OO(m))\arrow[d, "\mu\otimes id"]\\
+ F(\OO(m+n-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & F(\OO(n)\otimes \OO(l))\otimes F(\OO(m))\arrow[d, "F(\circ_j)\otimes id"]\\
+ F((\OO(n+m+l-2)) & F(\OO(n+l-1))\otimes F(\OO(m))\arrow[d, "\mu"]\\
+  & F(\OO(n+l-1)\otimes\OO(m))\arrow[ul, "F(\circ_i)", bend left = 10]
 \end{tikzcd}   
    \]
    
-   We use naturality of $\mu$ (\Cref{naturality}) as we have done before to rewrite some of the arrows. We also subdivide the diagram into two by factoring by $F(a_\CC)^{-1}\circ F(id\otimes B_\CC)\circ F(a_\CC)$.
+   We use naturality of $\mu$, i.e \Cref{naturality}, as we have done before to rewrite some of the arrows. We also subdivide the diagram into two by factoring by $F(a_\CC)^{-1}\circ F(id\otimes B_\CC)\circ F(a_\CC)$.
    
    \[
-\begin{tikzcd}[column sep = -3em]
-& F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[dr, "id\otimes B_\DD"]& \\
-(F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"]\arrow[ur, "a_\DD"] &  & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\\
-F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "\mu"] & & (F(\OO(n))\otimes F(\OO(l)))\otimes F(\OO(m))\arrow[d, "\mu\otimes id"]\\
-F((\OO(n)\otimes\OO(m))\otimes \OO(l))\arrow[d, "F(\circ_i\otimes id)"]\arrow[rrd, dashed, "F(a_\CC)^{-1}\circ F(id\otimes B_\CC)\circ F(a_\CC)", sloped] & & F(\OO(n)\otimes \OO(l))\otimes F(\OO(m))\arrow[d, "\mu"]\\
-F(\OO(m+n-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & & F((\OO(n)\otimes\OO(m))\otimes \OO(m))\arrow[d, "F(\circ_j\otimes id)"]\\
-F((\OO(n+m+l-2)) & & F(\OO(n+l-1)\otimes\OO(m))\arrow[ll, "F(\circ_i)"]
+\begin{tikzcd}%[column sep = -3em]
+(F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"]\arrow[r, "a_\DD"]& F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes B_\DD"] \\
+ F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "\mu"] & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\\
+ F((\OO(n)\otimes\OO(m))\otimes \OO(l))\arrow[d, "F(\circ_i\otimes id)"]\arrow[rdd, dashed, "F(a_\CC)^{-1}\circ F(id\otimes B_\CC)\circ F(a_\CC)", sloped, bend right = 3] & (F(\OO(n))\otimes F(\OO(l)))\otimes F(\OO(m))\arrow[d, "\mu\otimes id"]\\
+ F(\OO(m+n-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & F(\OO(n)\otimes \OO(l))\otimes F(\OO(m))\arrow[d, "\mu"]\\
+ F((\OO(n+m+l-2)) & F((\OO(n)\otimes\OO(m))\otimes \OO(m))\arrow[d, "F(\circ_j\otimes id)"]\\
+  & F(\OO(n+l-1)\otimes\OO(m))\arrow[ul, "F(\circ_i)", bend left = 10]
 \end{tikzcd}   
    \]
    
    The bottom diagram commutes as it is precisely diagram (\ref{assiaux}). We decompose the top diagram as follows.
+%   
+%   \[
+%\begin{tikzcd}[column sep = -3em]
+% & F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[dr, "id\otimes B_\DD"]\arrow[ddddl, dashed, bend left = 30, sloped, "\mu\circ (id\otimes\mu)"]& \\
+%(F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"]\arrow[ur, "a_\DD"] &  & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\arrow[ddddl, dashed, bend right = 35, sloped, "\mu\circ (id\otimes\mu)"]\\
+%F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "\mu"] & & (F(\OO(n))\otimes F(\OO(l)))\otimes F(\OO(m))\arrow[d, "\mu\otimes id"]\\
+%F((\OO(n)\otimes\OO(m))\otimes \OO(l))\arrow[d, "F(a)"] & & F(\OO(n)\otimes \OO(l))\otimes F(\OO(m))\arrow[d, "\mu"]\\
+%F(\OO(n)\otimes (\OO(m)\otimes\OO(l)))\arrow[dr,"F(id\otimes B_\CC)"] & & F((\OO(n)\otimes\OO(l))\otimes\OO(m))\\
+%& F(\OO(n)\otimes (\OO(l)\otimes\OO(m)))\arrow[ur, "F(a_\CC)^{-1}"]&
+%\end{tikzcd}  
+%   \]
    
-   \[
-\begin{tikzcd}[column sep = -3em]
- & F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[dr, "id\otimes B_\DD"]\arrow[ddddl, dashed, bend left = 30, sloped, "\mu\circ (id\otimes\mu)"]& \\
-(F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"]\arrow[ur, "a_\DD"] &  & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\arrow[ddddl, dashed, bend right = 35, sloped, "\mu\circ (id\otimes\mu)"]\\
-F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "\mu"] & & (F(\OO(n))\otimes F(\OO(l)))\otimes F(\OO(m))\arrow[d, "\mu\otimes id"]\\
-F((\OO(n)\otimes\OO(m))\otimes \OO(l))\arrow[d, "F(a)"] & & F(\OO(n)\otimes \OO(l))\otimes F(\OO(m))\arrow[d, "\mu"]\\
-F(\OO(n)\otimes (\OO(m)\otimes\OO(l)))\arrow[dr,"F(id\otimes B_\CC)"] & & F((\OO(n)\otimes\OO(l))\otimes\OO(m))\\
-& F(\OO(n)\otimes (\OO(l)\otimes\OO(m)))\arrow[ur, "F(a_\CC)^{-1}"]&
+   
+      \[
+\begin{tikzcd}[column sep = 2.5em]
+ F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[r, "id\otimes B_\DD"] \arrow[dddd, dashed, bend left = 80, sloped, "\mu\circ (id\otimes\mu)"']& F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\arrow[dddd, dashed, bend right = 80, sloped, "\mu\circ (id\otimes\mu)"]\\
+   (F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"]\arrow[u, "a_\DD"]& (F(\OO(n))\otimes F(\OO(l)))\otimes F(\OO(m))\arrow[d, "\mu\otimes id"]\\
+ F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "\mu"] & F(\OO(n)\otimes \OO(l))\otimes F(\OO(m))\arrow[d, "\mu"]\\
+ F((\OO(n)\otimes\OO(m))\otimes \OO(l))\arrow[d, "F(a)"] & F((\OO(n)\otimes\OO(l))\otimes\OO(m))\\
+ F(\OO(n)\otimes (\OO(m)\otimes\OO(l)))\arrow[r,"F(id\otimes B_\CC)"] & F(\OO(n)\otimes (\OO(l)\otimes\OO(m)))\arrow[u, "F(a_\CC)^{-1}"]\\
 \end{tikzcd}  
    \]
    
+   
    The left and right subdiagrams commute because of the associativity axiom of lax monoidal functors. We decompose the central subdiagram further as
    \[
-\begin{tikzcd}[column sep = 5em]
+\begin{tikzcd}[column sep = 3em]
 F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l))\arrow[r, "id\otimes B_\DD"]\arrow[d, "id\otimes \mu"] & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "id\otimes \mu"]\\
 F(\OO(n))\otimes F(\OO(m)\otimes\OO(l))\arrow[r, dashed,  "id\otimes F(B_\CC)"]\arrow[d, "\mu"] & F(\OO(n))\otimes F(\OO(l)\otimes\OO(m))\arrow[d, "\mu"]\\
 F(\OO(n)\otimes (\OO(m)\otimes\OO(l)))\arrow[r, "F(id\otimes B_\CC)"] & F(\OO(n)\otimes (\OO(l)\otimes \OO(m)))
 \end{tikzcd}   
    \]
+   
    
    The top part commutes because $F$ is symmetric lax monoidal and the bottom part commutes by naturality of $\mu$. This proves that $F(\OO)$ is an operad in $\DD$. 
    
@@ -1073,11 +1111,11 @@ F(\OO(n+m-1))\arrow[r, "F(f_{n+m-1})"] & F(\PP(n+m-1))
 
 %REDEFINE THINGS ACCORDING TO CONVENTIONS
 
-Now introduce some categories and conventions that we need in order to study derived $A_\infty$-algebras. The idea is that we would like to apply what we obtain in the setting of $A_\infty$-algebras to the derived setting. In order to do that, we need a way to connect a single graded category with a bigraded category. This is usually done through totalization. But in order to properly translate $A_\infty$-algebras into totalized derived $A_\infty$-algebras we need to go through several suitably enriched categories that are defined in this section. Most of the definitions come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
+Now introduce some categories and conventions that we need in order to study derived $A_\infty$-algebras. Many results of $A_\infty$-algebras need $R$ to be a field because of projectivity, see \Cref{minimalmodels}. Thus, it is necessary to build in projective resolutions. In particular we need an extra degreed comaptible with derived $A_\infty$-setting. In order to do that, we need a way to connect a single graded category with a bigraded category. This is usually done through totalization. But in order to properly translate $A_\infty$-algebras into totalized derived $A_\infty$-algebras we need to go through several suitably enriched categories that are defined in this section. Most of the definitions come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
 
-Let $\CC$ be a category and let $A$, $B$ be arbitrary
-objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is
-symmetric monoidal closed, then we denote its internal hom-object by $[A,B] ∈ \CC$.
+%Let $\CC$ be a category and let $A$, $B$ be arbitrary
+%objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is
+%symmetric monoidal closed, then we denote its internal hom-object by $[A,B] ∈ \CC$.
 
 \subsection{Filtered Modules and complexes}
 %INCLUSION IS REVERSED
@@ -1085,13 +1123,13 @@ First, we collect some definitions about filtered modules and filtered complexes
 
 \begin{defin}
 A \emph{filtered $R$-module} $(A, F)$ is given by a family of $R$-modules $\{F_pA\}_{p∈\Z}$ indexed by
-the integers such that $F_{p}A ⊆ F_{p-1}A$ for all $p ∈ \Z$ and $A = \bigcup_p F_pA$. A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules which is compatible with filtrations: 
+the integers such that $F_{p}A ⊆ F_{p-1}A$ for all $p ∈ \Z$ and $A = \bigcup_p F_pA$. A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules which is compatible with filtrations, namely 
 \[f(F_pA) ⊂ F_pB \text{ for all }p ∈ \Z.\]
 \end{defin}
-We denote by $\mathrm{C}_R$ the category of chain complexes of $R$-modules.
+We denote by $\mathrm{C}_R$ the category of cochain complexes of $R$-modules.
 \begin{defin}\label{filteredcomplex}
-A \emph{filtered complex} $(K, d, F)$ is a complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. Its morphisms are given by
-morphisms of complexes $f : K → L$ compatible with filtrations: \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
+A \emph{filtered complex} $(K, d, F)$ is a cochain complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. Its morphisms are given by
+morphisms of complexes $f : K → L$ compatible with filtrations, namely \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
 \end{defin}
 
 We denote by $\fmod$ and $\fc$ the categories of filtered modules and filtered complexes of $R$-modules, respectively.
@@ -1102,7 +1140,7 @@ We denote by $\fmod$ and $\fc$ the categories of filtered modules and filtered c
 The \emph{tensor product of two filtered $R$-modules} $(A, F)$ and $(B, F)$ is the filtered $R$-module
 with
  \[F_p(A ⊗ B) :=\sum_{i+j=p}\Ima(F_iA ⊗ F_jB → A ⊗ B).\]
-This makes the category of filtered $R$-modules into a symmetric monoidal category, where the unit is given by $R$ with the trivial filtration $0 = F_{1}R ⊂ F_0R = R$.
+This makes the category of filtered $R$-modules into a symmetric monoidal category, where the unit is given by $R$ with the trivial filtration \[0 = F_{1}R ⊂ F_0R = R.\]
 \end{defin}
 
 
@@ -1116,7 +1154,7 @@ In particular, $\Hom_{\fmod}(K,L)=F_0\underline{\Hom}(K,L)$.
 
 
 
-We collect some definitions of basic bigraded categories that we need to use and establish some conventions.
+We collect some basic definitions of bigraded categories that we need to use, and we establish some conventions.
 
 
 \begin{defin}
@@ -1151,9 +1189,7 @@ of bidegree $(0, 0)$ commuting with the vertical differential.
 
 We denote by $\vbc$ the category of vertical bicomplexes. The tensor product of two vertical bicomplexes $A$ and $B$ is given by endowing the tensor product of underlying bigraded modules with
 vertical differential \[d^{A⊗B} := d^A ⊗ 1 + 1 ⊗ d^B : (A ⊗ B)^v_u → (A ⊗ B)^{v+1}_u .\] This makes $\vbc$ into a
-symmetric monoidal category.
-
-The symmetric monoidal categories $(\mathrm{C}_R,⊗,R)$, $(\bgmod,⊗,R)$ and $(\vbc,⊗,R)$ are related by embeddings $\mathrm{C}_R\to\vbc$ and $\bgmod \to\vbc$ which are monoidal and full.
+symmetric monoidal category. The symmetric monoidal categories $(\mathrm{C}_R,⊗,R)$, $(\bgmod,⊗,R)$ and $(\vbc,⊗,R)$ are related by embeddings $\mathrm{C}_R\to\vbc$ and $\bgmod \to\vbc$ which are monoidal and full.
 
 
 
@@ -1182,22 +1218,24 @@ of morphisms $\{d_m : A → A\}_{m≥0}$ of bidegree $(m,1−m )$ such that for 
 \end{defin}
 
 \begin{defin}\label{twistedmorphisms}
-A \emph{morphism of twisted complexes} $f : (A, d^A_m) → (B, d^B_m)$ is given by a family of morphisms of $R$-modules $\{f_m : A → B\}_{m≥0}$ of bidegree $(m,−m)$ such that for all $m ≥ 0$,
+Let $(A, d^A_m)$ and $(B, d^B_m)$ be twisted complexes. A \emph{morphism of twisted complexes} $f : (A, d^A_m) → (B, d^B_m)$ is given by a family of morphisms of $R$-modules $\{f_m : A → B\}_{m≥0}$ of bidegree $(m,−m)$ such that for all $m ≥ 0$,
 \[\sum_{i+j=m}d^B_if_j =\sum_{i+j=m}(−1)^if_id^A_j.\]
 The composition of morphisms is given by $(g \circ f)_m :=\sum_{i+j=m} g_if_j$.
 
 A morphism $f = \{f_m\}_{m≥0}$ is
 said to be \emph{strict} if $f_i = 0$ for all $i > 0$. The \emph{identity} morphism $1_A : A → A$ is the strict morphism
 given by $(1_A)_0(x) = x.$ A morphism $f = \{f_i\}$ is an \emph{isomorphism} if and only if $f_0$ is an isomorphism of
-bigraded $R$-modules. Indeed, an inverse of $f$ is obtained from an inverse of $f_0$ by solving a triangular system of linear equations.
+bigraded $R$-modules. 
 \end{defin}
+Note that if $f$ is an isomorphism, then an inverse of $f$ is obtained from an inverse of $f_0$ by solving a triangular system of linear equations.
+
 Denote by $\tc$ the category of twisted complexes. The following construction endows $\tc$ with a symmetric monoidal structure, see \cite[Lemma 3.3]{whitehouse} for a proof.
 \begin{lem}\label{tensortwisted}
 The category $(\tc,⊗,R)$ is symmetric monoidal, where the monoidal structure is given
 by the bifunctor
-\[⊗ : \tc × \tc → \tc\]
-which on objects is given by $((A, d^A_m), (B, d^B_m)) → (A ⊗ B, d^A_m ⊗ 1 + 1 ⊗ d^B_m)$ and on morphisms is
-given by $(f, g) → f ⊗ g$, where $(f ⊗ g)_m :=\sum_{i+j=m} f_i ⊗ g_j$. In particular, by the Koszul sign rule we
+\[⊗ : \tc × \tc → \tc.\]
+On objects it is given by \[((A, d^A_m), (B, d^B_m)) → (A ⊗ B, d^A_m ⊗ 1 + 1 ⊗ d^B_m)\] and on morphisms is
+given by $(f, g) → f ⊗ g$, where \[(f ⊗ g)_m :=\sum_{i+j=m} f_i ⊗ g_j.\] In particular, by the Koszul sign rule we
 have that \[(f_i ⊗g_j)(x⊗z) = (−1)^{\langle g_j ,x\rangle}f_i(x)⊗g_j(z).\] The symmetry isomorphism is given by the strict
 morphism of twisted complexes
 \begin{align*}
@@ -1208,7 +1246,7 @@ morphism of twisted complexes
 
 The internal hom on bigraded modules can be extended to twisted complexes via the following lemma whose proof is in \cite[Lemma 3.4]{whitehouse}.
 \begin{lem}\label{di} Let $A,B$ be twisted complexes. For $f ∈ [A,B]^v_u$, setting
-\[(d_if) := (−1)^{i(u+v)}d^B_if − (−1)^vfd^A_i,\]
+\[(d_if) := (−1)^{i(u+v)}d^B_if − (−1)^vfd^A_i\]
 for $i ≥ 0$, endows $[A,B]^∗_∗$ with the structure of a twisted complex.
 \end{lem}
 %I STILL DON'T  KNOW WHERE TO PUT WHAT COMES NEXT, EITHER HERE OR BEFORE OPERADIC TOTALIZATION

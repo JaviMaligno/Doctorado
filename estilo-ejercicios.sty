@@ -17,6 +17,7 @@
 \usepackage{pgf,tikz}
 \usepackage{tikz-cd}
 \usepackage[titletoc]{appendix}
+\usepackage{wasysym, stackengine, makebox} % for the isomorphism arrows
 \usepackage{cleveref} %
 \usetikzlibrary{arrows}
 \usetikzlibrary{cd}
@@ -33,6 +34,7 @@
 \setlength{\headsep}{0.6in}
 \setlength{\textheight}{8in}
 \setlength{\footskip}{0.75in}
+
 
 
 
@@ -205,3 +207,6 @@
 \setupcountitems\begin{itemize}}%
 {\end{itemize}%
 \unskip\computecountitems\ifnumcomp{\previtemizecount}{>}{3}{\end{multicols}}{}}
+
+% isomorphism arrow
+\newcommand\isom{\mathrel{\stackon[-0.1ex]{\makebox*{\scalebox{1.08}{\AC}}{=\hfill\llap{=}}}{{\AC}}}} %https://www.latex4technics.com/?note=2U52 
