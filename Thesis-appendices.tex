@@ -27,9 +27,9 @@ Let us compute
 By definition, this equals
 
 \begin{gather*}
-\frac{(n+m-1)(n+m-2)}{2}+\frac{n(n-1)}{2}+\frac{m(m-1)}{2}+(n-1)(m-1)=\\
-\frac{(n^2+2nm-2n+m^2-2m-n-m+2)+(n^2-n)+(m^2-m)+2(nm-n-m+1)}{2}=\\
-n^2+2nm-3n+m^2-3m+2=n^2+m+m^2+m=0\mod 2
+\frac{(n+m-1)(n+m-2)}{2}+\frac{n(n-1)}{2}+\frac{m(m-1)}{2}+(n-1)(m-1)\\
+=\frac{(n^2+2nm-2n+m^2-2m-n-m+2)+(n^2-n)+(m^2-m)+2(nm-n-m+1)}{2}\\
+=n^2+2nm-3n+m^2-3m+2=n^2+m+m^2+m=0\mod 2
 \end{gather*}
 as desired, because $n^2=n\mod 2$.
 
@@ -58,8 +58,8 @@ Let us first check that $\sigma^{-1}$ commutes with insertions. For that, let $F
 
 and on the other hand
 
-\[\sigma^{-1}(F)\tilde{\circ}_i\sigma^{-1}(G)=(-1)^{(n-1)(m-1)+(n-1)(\deg(G)+m-1)+(i-1)(m-1)}\sigma^{-1}(F)\circ_i\sigma^{-1}(G)=\]
-\[(-1)^{\varepsilon}S^{-1}\circ F(S^{\otimes i-1}\otimes G(S^{\otimes m})\otimes S^{\otimes n-i}),\]
+\[\sigma^{-1}(F)\tilde{\circ}_i\sigma^{-1}(G)=(-1)^{(n-1)(m-1)+(n-1)(\deg(G)+m-1)+(i-1)(m-1)}\sigma^{-1}(F)\circ_i\sigma^{-1}(G)\]
+\[=(-1)^{\varepsilon}S^{-1}\circ F(S^{\otimes i-1}\otimes G(S^{\otimes m})\otimes S^{\otimes n-i}),\]
 where
 \[\varepsilon=\binom{n}{2}+\binom{m}{2}+(n-1)(m-1)+(n-1)(\deg(G)+m-1)+(i-1)(m-1)+(\deg(G)+m-1)(n-i).\]
 
@@ -85,16 +85,19 @@ Let us write $(-1)^v$ for $(-1)^{\deg(v)}$. On the one hand,
 
 The sign $(-1)^{\sum_{j=1}^n (n-j)v_j}$ comes from swapping the shift maps $S$ past the $v_j$'s, and the sign $(-1)^{(v_i-1)(v_{i+1}-1)}$ comes from permuting $v_i$ and $v_{i+1}$. On the other hand, performing similar sign computations we have
 
-\[(\sigma^{-1}(F)\tau) (v_1\otimes\cdots\otimes v_n)=(-1)^{v_iv_{i+1}-1}S^{-1}\circ F\circ S^{\otimes n}(v_1\otimes\cdots\otimes v_{i+1}\otimes v_i\otimes\cdots\otimes v_n)=\]
-
-\begin{equation}\label{secondmap}
-(-1)^{v_iv_{i+1}-1+\sum_{j\neq i,i+1}(n-j)v_j +(n-i-1)v_i+(n-i)v_{i+1}}S^{-1}\circ f(S v_1\otimes\cdots\otimes S v_{i+1}\otimes S v_i\otimes\cdots\otimes S v_n).
-\end{equation}
+\begin{align*}\label{secondmap}
+&(\sigma^{-1}(F)\tau) (v_1\otimes\cdots\otimes v_n)\\
+&=(-1)^{v_iv_{i+1}-1}S^{-1}\circ F\circ S^{\otimes n}(v_1\otimes\cdots\otimes v_{i+1}\otimes v_i\otimes\cdots\otimes v_n)\\\nonumber
+&=(-1)^{\delta}S^{-1}\circ f(S v_1\otimes\cdots\otimes S v_{i+1}\otimes S v_i\otimes\cdots\otimes S v_n)
+\end{align*}
+where $\delta = v_iv_{i+1}-1+\sum_{j\neq i,i+1}(n-j)v_j +(n-i-1)v_i+(n-i)v_{i+1}$.
 
 Now we just have to check that the signs are the same. Modulo $2$, the sign on equation (\ref{firstmap}) is 
 
-\[v_iv_{i+1}+v_i+v_{i+1}-1+\sum_{j=1}^n(n-j)v_j=\]
-\[v_iv_{i+1}-1+\sum_{j\neq i,i+1}^n(n-j)v_j+(n-i-1)v_i+(n-i)v_{i+1},\]
+\begin{align*}
+&v_iv_{i+1}+v_i+v_{i+1}-1+\sum_{j=1}^n(n-j)v_j\\
+&=v_iv_{i+1}-1+\sum_{j\neq i,i+1}^n(n-j)v_j+(n-i-1)v_i+(n-i)v_{i+1},
+\end{align*}
 
 which indeed coincides with the sign on equation (\ref{secondmap}).
 \end{proof}
@@ -136,9 +139,9 @@ such as those produced by operadic the insertion $\s f\tilde{\circ}_{k} \s g$. I
 ^{\otimes n-k}$ results in
 
 \begin{gather*}
-(f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k})\otimes e^{m+n-1})(a_{k-1}\otimes b\otimes a_{n-k})=\\
-(-1)^{(m+n)(\deg(a_{k-1})+\deg(b)+\deg(a_{n-k}))}(f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k}(a_{k-1}\otimes b\otimes a_{n-k}))\otimes e^{m+n-1}=\\
-(-1)^{(m+n)(\deg(a_{k-1})+\deg(b)+\deg(a_{n-k}))+\deg(a_{k-1})\deg(g)}f(a_{k-1}\otimes g(b)\otimes a_{n-k})\otimes e^{m+n-1}.
+(f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k})\otimes e^{m+n-1})(a_{k-1}\otimes b\otimes a_{n-k})\\
+=(-1)^{(m+n)(\deg(a_{k-1})+\deg(b)+\deg(a_{n-k}))}(f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k}(a_{k-1}\otimes b\otimes a_{n-k}))\otimes e^{m+n-1}\\
+=(-1)^{(m+n)(\deg(a_{k-1})+\deg(b)+\deg(a_{n-k}))+\deg(a_{k-1})\deg(g)}f(a_{k-1}\otimes g(b)\otimes a_{n-k})\otimes e^{m+n-1}.
 \end{gather*}
 To go from the first line to the second, we switch $e^{m+n-1}$ of degree $m+n-2$  with $a_{k-1}\otimes b\otimes a_{n-k}$. To go from the second line to the third we apply the usual sign rule for graded maps.
 
@@ -200,13 +203,13 @@ Let us compute $\eta$ using the definition of $b_n$.
 
 
 Now we move each $1^{\otimes k_{j-1}}\otimes S\circ g_j\circ (S^{-1})^{a_j}$ to apply $(S^{-1})^{k_{j-1}}\otimes S^{-1}$ to it. Doing this for all $j=1,\dots, n$ produces a sign
-
-\[
-(-1)^{(a_1+q_1-1)(n-1+\sum k_l)+(a_2+q_2-1)(n-2+\sum_2^n k_l)+\cdots+(a_n+q_n-1)k_n}=(-1)^{\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)},
-\]
+\begin{align*}
+(-1)^{(a_1+q_1-1)(n-1+\sum k_l)+(a_2+q_2-1)(n-2+\sum_2^n k_l)+\cdots+(a_n+q_n-1)k_n}\\
+=(-1)^{\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)},
+\end{align*}
  and we call the exponent
  
- $$\varepsilon=\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l).$$ So now we have, decomposing $S^{\otimes N-n+\sum a_j}$,
+ $$\varepsilon=\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l).$$ So now we have, decomposing $S^{\otimes N-n+\sum a_j}$, the last map up to multiplication by $(-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon}$ is
  
  \[
  (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon}f\circ((S^{-1})^{k_0}\otimes  g_1\circ (S^{-1})^{\otimes a_1}\otimes\cdots \otimes  g_n\circ (S^{-1})^{\otimes a_n}\otimes  (S^{-1})^{k_n})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n}).
@@ -218,13 +221,13 @@ Now we move each $1^{\otimes k_{j-1}}\otimes S\circ g_j\circ (S^{-1})^{a_j}$ to 
   \end{equation}
  
   
-Therefor we have
+Therefore we have up to multiplication by $(-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon+\delta}$ the map
 \[
- (-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon+\delta}f\circ((S^{k_0})^{-1}\otimes  g_1\circ (S^{\otimes a_1})^{-1}\otimes\cdots \otimes  g_n\circ (S^{\otimes a_n})^{-1}\otimes  (S^{k_n})^{-1})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n})
+ f\circ((S^{k_0})^{-1}\otimes  g_1\circ (S^{\otimes a_1})^{-1}\otimes\cdots \otimes  g_n\circ (S^{\otimes a_n})^{-1}\otimes  (S^{k_n})^{-1})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n}).
  \]
- And the next step is moving each component of the last tensor product in front of its inverse. This will produce the sign $(-1)^\gamma$, where
+ The next step is moving each component of the last tensor product in front of its inverse. This will produce the sign $(-1)^\gamma$, where
  
- \begin{gather*}\gamma=-k_0\sum_1^n(k_j+a_j+q_j)-a_1(\sum_1^n k_j+\sum_2^n (a_j+q_j))-\cdots -a_nk_n\equiv\\ \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l)).
+ \begin{gather*}\gamma=-k_0\sum_1^n(k_j+a_j+q_j)-a_1(\sum_1^n k_j+\sum_2^n (a_j+q_j))-\cdots -a_nk_n\\\equiv \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l)).
  \end{gather*}
  
 

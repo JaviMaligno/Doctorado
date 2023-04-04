@@ -630,7 +630,7 @@ Recall that if $(A,\partial^A)$ and $(B,\partial^B)$ are (co)chain complexes, th
 For a graded $R$-module $A$ the \emph{shift} or \emph{suspension} $SA$ is given by $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
 \end{defin}
 
-With all the notations and conventions established we can introduce $A_\infty$-algebras. 
+With all the notations and conventions established we can now introduce $A_\infty$-algebras. 
 
 \begin{defin}\label{ainftyalgebra}
 An \emph{$A_\infty$-algebra} is a graded $R$-module $A$ together with a family of maps $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying the equation
@@ -1234,7 +1234,7 @@ Denote by $\tc$ the category of twisted complexes. The following construction en
 The category $(\tc,⊗,R)$ is symmetric monoidal, where the monoidal structure is given
 by the bifunctor
 \[⊗ : \tc × \tc → \tc.\]
-On objects it is given by \[((A, d^A_m), (B, d^B_m)) → (A ⊗ B, d^A_m ⊗ 1 + 1 ⊗ d^B_m)\] and on morphisms is
+On objects it is given by \[((A, d^A_m), (B, d^B_m)) → (A ⊗ B, d^A_m ⊗ 1 + 1 ⊗ d^B_m)\] and on morphisms it is
 given by $(f, g) → f ⊗ g$, where \[(f ⊗ g)_m :=\sum_{i+j=m} f_i ⊗ g_j.\] In particular, by the Koszul sign rule we
 have that \[(f_i ⊗g_j)(x⊗z) = (−1)^{\langle g_j ,x\rangle}f_i(x)⊗g_j(z).\] The symmetry isomorphism is given by the strict
 morphism of twisted complexes
@@ -1247,7 +1247,7 @@ morphism of twisted complexes
 The internal hom on bigraded modules can be extended to twisted complexes via the following lemma whose proof is in \cite[Lemma 3.4]{whitehouse}.
 \begin{lem}\label{di} Let $A,B$ be twisted complexes. For $f ∈ [A,B]^v_u$, setting
 \[(d_if) := (−1)^{i(u+v)}d^B_if − (−1)^vfd^A_i\]
-for $i ≥ 0$, endows $[A,B]^∗_∗$ with the structure of a twisted complex.
+for $i ≥ 0$ endows $[A,B]^∗_∗$ with the structure of a twisted complex.
 \end{lem}
 %I STILL DON'T  KNOW WHERE TO PUT WHAT COMES NEXT, EITHER HERE OR BEFORE OPERADIC TOTALIZATION
 
@@ -1302,7 +1302,7 @@ The following is \cite[Proposition 3.11]{whitehouse}.
 The totalization functors $\Tot : \bgmod → \fmod$ and $\Tot : \tc → \fc$ are lax symmetric
 monoidal with structure maps
 \[\epsilon : R → \Tot(R)\text{ and }\mu=μ_{A,B} : \Tot(A) ⊗ \Tot(B) → \Tot(A ⊗ B)\]
-given by $\epsilon = 1_R$ and for $x = (x_i)_i ∈ \Tot(A)^{n_1}$ and  $y=(y_j)_j ∈ \Tot(B)^{n_2}$,
+given by $\epsilon = 1_R$. For $x = (x_i)_i ∈ \Tot(A)^{n_1}$ and  $y=(y_j)_j ∈ \Tot(B)^{n_2}$,
 \begin{equation}\label{mu1}
 μ(x ⊗ y)_k \coloneqq
 \sum_{k_1+k_2=k}(−1)^{k_1n_2}x_{k_1} ⊗ y_{k_2} .
@@ -1494,7 +1494,7 @@ Let $A$, $B$ be bigraded modules. We define
 for $f ∈ \ubgMod (A,B)^v_u$ to be given on any $x ∈ \Tot(A)^n$ by
 \[(\Tot(f)(x)))_{j+u} :=
 \sum_{m≥0}(−1)^{(m+u)n}f_m(x_{j-m}) ∈ B^{n-j+v}_{j+u} ⊂ \Tot(B)^{n+u+v}.\]
-Let $K = \Tot(A)$, $L = \Tot(B)$ and $g ∈ \ufMod(K,L)^v_u$ we define
+Let $K = \Tot(A)$, $L = \Tot(B)$ and $g ∈ \ufMod(K,L)^v_u$. We define
 \[f := \Tot^{−1}(g) ∈ \ubgMod(A,B)^v_u\]
 to be $f := (f_0, f_1,\dots)$ where $f_i$ is given on each $A^{m+j}_j$ by the composite
 \begin{align*}
@@ -1504,7 +1504,7 @@ f_i : A^{m-j}_j \hookrightarrow\prod_{k\geq j}A^{m-k}_k &= F_j(\Tot(A)^m)\xright
 where the last map is a projection and multiplication with the indicated sign.
 \end{defin} 
 
-The followin is \cite[Theorem 4.39]{whitehouse}.
+The following is \cite[Theorem 4.39]{whitehouse}.
 \begin{thm}\label{4.39}
 Let $A$, $B$ be twisted complexes. The assignments $\mathfrak{Tot}(A) := \Tot(A)$ and
 \begin{align*}
