@@ -35,7 +35,7 @@ We are inserting the second factor onto the first one, so the sign can be explai
 In a similar way we can define $\Lambda^-(n)=S^{1-n}R$, with the same insertion maps.
 
 \begin{defin}
-Let $\mathcal{O}$ be an operad. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of the operads $\OO$ and $\Lambda$, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition. Similarly, we define the \emph{operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
+Let $\mathcal{O}$ be an operad. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of the operads $\OO$ and $\Lambda$, in other words, $\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition. Similarly, we define the \emph{operadic desuspension} arity-wise as $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
 \end{defin}
 
 
@@ -57,7 +57,8 @@ or written more compactly,
 Let $x\in\OO(n)$ and $y\in\OO(m)$, and let us compute $(x\otimes e^n)\tilde{\circ}_i (y\otimes e^m)$, which we will usually write as $x\tilde{\circ}y$ as an abuse of notation.
 
 \begin{align*}
-\mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
+\mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\\
+&\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
 &\xrightarrow{\circ_i\otimes\circ_i} \OO(m+n-1)\otimes \Lambda(n+m-1)=\mathfrak{s}\OO(n+m-1).
 \end{align*}
 

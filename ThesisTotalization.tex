@@ -250,8 +250,10 @@ x\tilde{\circ}_{r+1}y=(-1)^{(n-1)q+(n-1)(m-1)+r(m-1)}x\circ_{r+1} y.
 Let $x\in\OO(n)$ and $y\in\OO(m)^{q}_l$, and let us compute $x\tilde{\circ}_{r+1} y$, which is
 
 \begin{align*}
-\mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
-&\xrightarrow{\circ_{r+1}\otimes\circ_{r+1}} \OO(m+n-1)\otimes \Lambda(n+m-1)=\mathfrak{s}\OO(n+m-1).
+\mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\\
+&\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
+&\xrightarrow{\circ_{r+1}\otimes\circ_{r+1}} \OO(m+n-1)\otimes \Lambda(n+m-1)\\
+&=\mathfrak{s}\OO(n+m-1).
 \end{align*}
 
 The symmetric monoidal structure produces the sign $(-1)^{(n-1)q}$ in the isomorphism $\Lambda(n)\otimes \OO(m)\cong\OO(m)\otimes\Lambda(n)$, and the operadic structure of $\Lambda$ produces the sign \[(-1)^{(n-1)(m-1)+r(m-1)},\] so 
@@ -310,9 +312,9 @@ for $x=(x_i)_i\in \Tot(\s\OO(n))^{d_1}$ and $y=(y_j)_j\in \Tot(\s\OO(m))^{d_2}$.
 \begin{equation*}
 (x\star_{r+1}' y)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(d_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(d_2-m+1)}x_{k_1}\circ_{r+1}y_{k_2}
 \end{equation*}
-for $x=(x_i)_i\in \s\Tot(\OO(n))^{d_1}$ and $y=(y_j)_j\in \s\Tot(\OO(m))^{d_2}$. Now let us show that $f(x\star y)=f(x)\star f(y)$. We have
+for $x=(x_i)_i\in \s\Tot(\OO(n))^{d_1}$ and $y=(y_j)_j\in \s\Tot(\OO(m))^{d_2}$. Now let us show that $f(x\star y)=f(x)\star f(y)$. We have that $f((x\star_{r+1} y))_k$ equals the following
 \begin{align*}
-f((x\star_{r+1} y))_k&=\sum_{k_1+k_2=k}(-1)^{k(n+m-1)+(n-1)(d_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1d_2}x_{k_1}\circ_{r+1}y_{k_2}\\
+&\sum_{k_1+k_2=k}(-1)^{k(n+m-1)+(n-1)(d_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1d_2}x_{k_1}\circ_{r+1}y_{k_2}\\
 &=\sum_{k_1+k_2=k}(-1)^{(n-1)(d_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(d_2-m+1)}f(x_{k_1})\circ_{r+1}f(y_{k_2})\\
 &=(f(x)\star f(y))_k
 \end{align*}

@@ -430,8 +430,8 @@ m_3 : [0, 1]×X × X \to X
 \]
 joining the two possibilities of composing three loops by a reparamerization. When we want to compose four
 factors, there are five possibilities corresponding to the five binary trees with four leaves. Using
-$m_3$, we obtain two concatenations of homotopies joining the composition $(f_1, f_2, f_3, f_4) \mapsto
-((f_1 * f_2) * f_3) * f_4$ to the composition $(f_1, f_2, f_3, f_4) \mapsto f_1 * (f_2 * (f_3 * f_4))$.
+$m_3$, we obtain two concatenations of homotopies linking the compositions $(f_1, f_2, f_3, f_4) \mapsto
+((f_1 * f_2) * f_3) * f_4$ and $(f_1, f_2, f_3, f_4) \mapsto f_1 * (f_2 * (f_3 * f_4))$.
 
 \definecolor{dcrutc}{rgb}{0.39215686274509803,0.39215686274509803,0.39215686274509803}
 \[
@@ -616,7 +616,7 @@ Our base category is the category of $\Z$-graded $R$-modules and linear maps, wh
 x\otimes y &\mapsto (-1)^{\deg(x)\deg(y)}y\otimes x
 \end{align*}
 
- Our convention is that a map $f:A\to B$ of degree $i$ satisfies $f(A^n)\subseteq B^{n+i}$ for all $n$. The $R$-modules $\Hom_R(A,B)$ are naturally graded by \[\Hom_R(A,B)^i=\prod_k\Hom_R(A^k,B^{k+i}).\]
+ A map $f:A\to B$ of degree $i$ satisfies $f(A^n)\subseteq B^{n+i}$ for all $n$. The $R$-modules $\Hom_R(A,B)$ are naturally graded by \[\Hom_R(A,B)^i=\prod_k\Hom_R(A^k,B^{k+i}).\]
 
 We also adopt the following Koszul sign convention: for $x\in A$, $y\in B$, $f\in\Hom_R(A,C)$ and $g\in\Hom_R(B,D)$,
 
@@ -641,7 +641,7 @@ An \emph{$A_\infty$-algebra} is a graded $R$-module $A$ together with a family o
 for all $n\geq 1$.
 \end{defin}
 %This is equivalent to define it on SA without signs,  but there's not need to point that out here and it also depends on the convention of S^n^{-1}
-The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. This seemingly obscure definition captures the idea of an algebra that is associative up to homotopy. The signs are related to the orientation given to the Stasheff polytopes. To see this, let us have a look at the first few cases.
+The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. The signs are related to the orientation given to the Stasheff polytopes. This seemingly obscure definition captures the idea of an algebra that is associative up to homotopy. To see this, let us have a look at the first few cases.
 
 \begin{itemize}
 \item We have $m_1m_1=0$, so $(A, m_1)$ is a cochain complex.
@@ -958,7 +958,7 @@ F(\OO(n+m+l-2)) &
     Therefore we can replace the above compositions in diagram (\ref{red}) accordingly. We can also subdivide the above diagram into two by using $F(a_\CC)$ as follows.
    
       \[   
-\begin{tikzcd}
+\begin{tikzcd}[column sep = 1em]
 (F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l)) \arrow[r, "a_\DD"] \arrow[d, "\mu\otimes id"] & F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes \mu"]\\
 F(\OO(n)\otimes \OO(m))\otimes F(\OO(l))\arrow[d, red, "\mu"] & F(\OO(n))\otimes F(\OO(m)\otimes\OO(l))\arrow[d, red, "\mu"]\\
 F((\OO(n)\otimes\OO(m))\otimes\OO(l))\arrow[d, red, "F(\circ_i\otimes id)"]\arrow[r, dashed, "F(a_\CC)"] & F(\OO(n))\otimes F(\OO(n)\otimes(\OO(m)\otimes\OO(l)))\arrow[d, red, "F(id\otimes \circ_{j-1+1})"]\\
@@ -994,7 +994,7 @@ F(\OO(n+m+l-2)) &
    
    We need to show that the following diagram commutes.
    \[
-\begin{tikzcd}%[column sep = -3em]
+\begin{tikzcd}[column sep = 1.5em]
 (F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"]\arrow[r, "a_\DD"]& F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes B_\DD"] \\
  F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "F(\circ_i)\otimes id"]  & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\\
  F(\OO(n+m-1)\otimes F(\OO(l))\arrow[d, "\mu\otimes id"] & (F(\OO(n))\otimes F(\OO(l)))\otimes F(\OO(m))\arrow[d, "\mu\otimes id"]\\
@@ -1007,11 +1007,11 @@ F(\OO(n+m+l-2)) &
    We use naturality of $\mu$, i.e \Cref{naturality}, as we have done before to rewrite some of the arrows. We also subdivide the diagram into two by factoring by $F(a_\CC)^{-1}\circ F(id\otimes B_\CC)\circ F(a_\CC)$.
    
    \[
-\begin{tikzcd}%[column sep = -3em]
-(F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"]\arrow[r, "a_\DD"]& F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes B_\DD"] \\
- F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "\mu"] & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\\
- F((\OO(n)\otimes\OO(m))\otimes \OO(l))\arrow[d, "F(\circ_i\otimes id)"]\arrow[rdd, dashed, "F(a_\CC)^{-1}\circ F(id\otimes B_\CC)\circ F(a_\CC)", sloped, bend right = 3] & (F(\OO(n))\otimes F(\OO(l)))\otimes F(\OO(m))\arrow[d, "\mu\otimes id"]\\
- F(\OO(m+n-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & F(\OO(n)\otimes \OO(l))\otimes F(\OO(m))\arrow[d, "\mu"]\\
+\begin{tikzcd}[column sep = 1.5em]
+(F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"']\arrow[r, "a_\DD"]& F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes B_\DD"] \\
+ F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "\mu"'] & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\\
+ F((\OO(n)\otimes\OO(m))\otimes \OO(l))\arrow[d, "F(\circ_i\otimes id)"']\arrow[rdd, dashed, "F(a_\CC)^{-1}\circ F(id\otimes B_\CC)\circ F(a_\CC)", sloped, bend right = 5] & (F(\OO(n))\otimes F(\OO(l)))\otimes F(\OO(m))\arrow[d, "\mu\otimes id"]\\
+ F(\OO(m+n-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"'] & F(\OO(n)\otimes \OO(l))\otimes F(\OO(m))\arrow[d, "\mu"]\\
  F((\OO(n+m+l-2)) & F((\OO(n)\otimes\OO(m))\otimes \OO(m))\arrow[d, "F(\circ_j\otimes id)"]\\
   & F(\OO(n+l-1)\otimes\OO(m))\arrow[ul, "F(\circ_i)", bend left = 10]
 \end{tikzcd}   
@@ -1160,7 +1160,7 @@ We collect some basic definitions of bigraded categories that we need to use, an
 \begin{defin}
 We consider $(\Z,\Z)$-bigraded
 $R$-modules $A = \{A^j_i\}$, where elements of $A^j_i$ are said to have bidegree $(i, j)$. We sometimes refer to $i$
-as the \emph{horizontal} degree and $j$ the \emph{vertical degree}. The \emph{total degree} of an element $x ∈ A^j_i$ is $i+j$.
+as the \emph{horizontal} degree and $j$ the \emph{vertical degree}. The \emph{total degree} of an element $x ∈ A^j_i$ is $i+j$ and is sometimes denoted $|x|$.
 \end{defin}
 \begin{defin}
 A \emph{morphism of bidegree $(p, q)$} maps $A^j_i$ to $A^{j+q}_{i+p}$. The tensor product of two bigraded $R$-modules $A$
@@ -1257,7 +1257,7 @@ Here we recall the definition of the totalization functor from \cite{whitehouse}
 
 
 \begin{defin}
-The \emph{totalization} $\Tot(A)$ of a bigraded $R$-module $A = \{A^j_i \}$ the graded $R$-module is given by
+The \emph{totalization} of a bigraded $R$-module $A = \{A^j_i \}$ is the graded $R$-module $\Tot(A)$ given by
 \[\Tot(A)^n \coloneqq
 \bigoplus_{i<0}A^{n-i}_i ⊕\prod_{i\geq 0}A^{n-i}_i .\]
 The \emph{column filtration} of $\Tot(A)$ is the filtration given by \[F_p\Tot(A)^n \coloneqq\prod_{i\geq p} A^{n-i}_i .\]
@@ -1271,7 +1271,7 @@ $d(x)_j$ is given by a finite sum. Also, for negative $j$ sufficiently large, on
 implies $d(x)_j = 0$.
 
 Given a morphism $f : (A, d_m) → (B, d_m)$ of twisted complexes, let the \emph{totalization of $f$} be the map $\Tot(f) : \Tot(A) → \Tot(B)$ of degree 0 defined by
-\[(\Tot(f)(x))_j \coloneqq \sum_{m≥0}(−1)^{mn}f_m(x_{j-m}),\]
+\[(\Tot(f)(x))_j \coloneqq \sum_{m≥0}(−1)^{mn}f_m(x_{j-m})\]
  for $x = (x_i)_{i∈\Z} ∈ \Tot(A)^n$.
  
  The following is \cite[Theorem 3.8]{whitehouse}.
@@ -1283,7 +1283,7 @@ and $f \mapsto \Tot(f)$ define a functor $\Tot : \tc \to \fc$ which is an isomor
 For a filtered complex of the form $(\Tot(A),d,F)$ where $A = \{A^j_i \}$ is a bigraded $R$-module, we can recover the twisted complex structure on  $A$ as follows. For all $m ≥ 0$, let
 $d_m : A → A$ be the morphism of bidegree $(m,1-m)$ defined by 
 \[d_m(x) = (−1)^{nm}d(x)_{i+m},\] 
-where $x ∈ A^{n-i}_i$ and $d(x)_k$ denotes the $k$-th component of $d(x)$, which lies in $A^{n+1-k}_k$.
+where $x ∈ A^{n-i}_i$ and $d(x)_k$ denotes the $k$-th component of $d(x)$. Note that $d(x)_k$ lies in $A^{n+1-k}_k$.
 
 
 
@@ -1299,7 +1299,7 @@ the full subcategories of objects $(K, F)$ such that there exists some $p$ with 
 
 The following is \cite[Proposition 3.11]{whitehouse}.
 \begin{propo}\label{monoidal}
-The functors $\Tot : \bgmod → \fmod$ and $\Tot : \tc → \fc$ are lax symmetric
+The totalization functors $\Tot : \bgmod → \fmod$ and $\Tot : \tc → \fc$ are lax symmetric
 monoidal with structure maps
 \[\epsilon : R → \Tot(R)\text{ and }\mu=μ_{A,B} : \Tot(A) ⊗ \Tot(B) → \Tot(A ⊗ B)\]
 given by $\epsilon = 1_R$ and for $x = (x_i)_i ∈ \Tot(A)^{n_1}$ and  $y=(y_j)_j ∈ \Tot(B)^{n_2}$,
@@ -1319,7 +1319,7 @@ There is a certain heuristic to obtain the sign appearing in the definition of $
 As direct sums commute with tensor products, we have
 \[\Tot(A)\otimes\Tot(B)=(\bigoplus A_i^{n-i})\otimes \Tot(B)\cong \bigoplus_i  (A_i^{n-i}\otimes \Tot(B)).\]
 
-In the isomorphism we can interpret that each $A_i^{n-i}$ passes by $\Tot(B)$. Since $\Tot(B)$ used total grading, we can think of this degree as being the horizontal degree, while having 0 vertical degree. Thus, using the Koszul sign rule we would get precisely the sign from \Cref{monoidal}. This explanation is just an intuition, and opens the door for other possible sign choices: what if we decide to distribute $\Tot(A)$ over $\bigoplus_i B_i^{n-i}$ instead, or if we consider the total degree as the vertical degree? These alternatives lead to other valid definitions of $\mu$, and we will explore the consequences of some of them in \Cref{othermu}.
+In the isomorphism above we can interpret that each $A_i^{n-i}$ passes by $\Tot(B)$. Since $\Tot(B)$ used total grading, we can think of this degree as being the horizontal degree, while having 0 vertical degree. Thus, using the Koszul sign rule we would get precisely the sign from \Cref{monoidal}. This explanation is just an intuition, and opens the door for other possible sign choices: what if we decide to distribute $\Tot(A)$ over $\bigoplus_i B_i^{n-i}$ instead, or if we consider the total degree as the vertical degree? These alternatives lead to other valid definitions of $\mu$, and we will explore the consequences of some of them in \Cref{othermu}.
 \end{remark}
 
 \begin{lem}\label{mui}
@@ -1336,11 +1336,14 @@ For the case $m=2$,
 \[\mu^{-1}:\Tot(A\otimes B)\to \Tot(A)\otimes \Tot(B)\]
 is computed explicitly as follows.
 Let  $c\in\Tot(A\otimes B)^n$. By definition, we have
-\[\Tot(A\otimes B)^n=\bigoplus_k (A\otimes B)^{n-k}_k=\bigoplus_k\bigoplus_{n_1+n_2=n}\bigoplus_{k_1+k_2=k}A_{k_1}^{n_1-k_1}\otimes B_{k_2}^{n_2-k_2}.\]
+\[\Tot(A\otimes B)^n=\bigoplus_k (A\otimes B)^{n-k}_k=\bigoplus_k\underset{n_1+n_2=n}{\bigoplus_{k_1+k_2=k}}A_{k_1}^{n_1-k_1}\otimes B_{k_2}^{n_2-k_2}.\]
 And thus, $c=(c_k)_k$ may be written as a finite sum $c=\sum_k c_k$, where 
-\[c_k=\sum_{n_1+n_2=n}\sum_{k_1+k_2=k}x_{k_1}^{n_1-k_1}\otimes y_{k_2}^{n_2-k_2}.\]
+\[c_k=\underset{n_1+n_2=n}{\sum_{k_1+k_2=k}}x_{k_1}^{n_1-k_1}\otimes y_{k_2}^{n_2-k_2}.\]
 Here, we introduced superscripts to indicate the vertical degree, which, unlike in the definition of $\mu$ (\Cref{mu1}), is not solely determined by the horizontal degree since the total degree also varies. However we are going to omit them in what follows for simplicity of notation. Distributivity allows us to rewrite $c$ as
-\[c=\sum_k \sum_{n_1+n_2=n}\sum_{k_1+k_2=k}x_{k_1}\otimes y_{k_2}=\sum_{n_1+n_2=n}\sum_{k_1}\sum_{k_2}(x_{k_1}\otimes y_{k_2})=\sum_{n_1+n_2=n}\left(\sum_{k_1}x_{k_1}\right)\otimes\left(\sum_{k_2}y_{k_2}\right).\]
+\begin{align*}
+c&=\sum_k \underset{n_1+n_2=n}{\sum_{k_1+k_2=k}}x_{k_1}\otimes y_{k_2}\\&=\sum_{n_1+n_2=n}\sum_{k_1}\sum_{k_2}(x_{k_1}\otimes y_{k_2})\\
+&=\sum_{n_1+n_2=n}\left(\sum_{k_1}x_{k_1}\right)\otimes\left(\sum_{k_2}y_{k_2}\right).
+\end{align*}
 Therefore, $\mu^{-1}$ can be defined as
 \[\mu^{-1}(c)=\sum_{n_1+n_2=n}\left(\sum_{k_1}(-1)^{k_1n_2}x_{k_1}\right)\otimes\left(\sum_{k_2}y_{k_2}\right).\]
 
@@ -1363,7 +1366,7 @@ by
 \end{defin}
 
 \begin{defin}\label{delta2}
-Let $(A, d^A_i), (B, d^B_i)$ be twisted complexes, $f ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ and consider $d^A :=(d^A_i)_i ∈ \underline{\mathpzc{bgMod}_R}(A,A)^1_0$
+Let $(A, d^A_i)$ and $(B, d^B_i)$ be twisted complexes and let $f ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$. Consider also $d^A :=(d^A_i)_i ∈ \underline{\mathpzc{bgMod}_R}(A,A)^1_0$
 and $d^B := (d^B_i)_i ∈ \underline{\mathpzc{bgMod}_R}(B,B)^1_0$. We define
 \[δ(f) := c(d^B, f) − (−1)^{\langle f,d^A\rangle}c(f, d^A) ∈ \underline{\mathpzc{bgMod}_R}(A,B)^{v+1}_u.\]
 %where $\langle f, d^A\rangle$ is the scalar product for the bidegrees and $c$ is the composition morphism described in \Cref{weirdenrichment} 
@@ -1381,7 +1384,7 @@ The following equations hold.
 &δ^2 = 0\\
 &δ(c(f, g)) = c(δ(f), g) + (−1)^v c(f, δ(g))
 \end{align*}
-Here the bidegree of $f$ is $(u, v)$. Furthermore, $f ∈ \ubgMod(A,B)$ is a map of twisted complexes if and
+where $v$ is the vertical degree of $f$. Furthermore, $f ∈ \ubgMod(A,B)$ is a map of twisted complexes if and
 only if $δ(f) = 0$. In particular, $f$ is a morphism in $\tc$ if and only if the bidegree of $f$ is $(0, 0)$ and
 $δ(f) = 0$. Moreover, for $f$, $g$ morphisms in $\tc$, we have that $c(f, g) = f\circ g$, where the latter denotes
 composition in $\tc$.
@@ -1399,7 +1402,7 @@ by the following data.
 \begin{enumerate}[(1)]
 \item The objects of $\ubgMod$ are bigraded modules.
 \item For $A,B$ bigraded modules the hom-object is the bigraded module $\ubgMod(A,B)$.
-\item The composition morphism $c : \ubgMod(B,C) ⊗ \ubgMod(A,B) → \ubgMod(A,C)$ is given by \Cref{weirdenrichment}.
+\item The composition morphism \[c:\ubgMod(B,C) ⊗ \ubgMod(A,B) → \ubgMod(A,C)\] is given by \Cref{weirdenrichment}.
 \item The unit morphism $R → \ubgMod(A,A)$ is given by the morphism of bigraded modules that
 sends $1 ∈ R$ to $1_A : A → A$, the strict morphism given by the identity of $A$.
 \end{enumerate}
@@ -1439,7 +1442,7 @@ The \emph{$\bgmod$-enriched category of filtered modules} $\ufMod$ is the enrich
 \item The objects of $\ufMod$ are filtered modules.
 \item For filtered modules $(K, F)$ and $(L, F)$, the bigraded module $\ufMod(K,L)$ is given by
 \[\ufMod(K,L)^v_u :=\{f : K → L\mid f(F_qK^m) ⊂ F_{q+u}L^{m+u+v}, ∀m, q ∈ \Z\}.\]
-\item The composition morphism is given by $c(f, g) = (−1)^{u|g|}fg$, where $f$ has bidegree $(u, v)$.
+\item The composition morphism is given by $c(f, g) = (−1)^{u|g|}fg$, where $u$ is the horizontal degree of $f$.
 \item The unit morphism is given by the map $R → \ufMod(K,K)$ given by $1 → 1_K$.
 \end{enumerate}
 \end{defin}
@@ -1448,7 +1451,7 @@ The \emph{$\bgmod$-enriched category of filtered modules} $\ufMod$ is the enrich
 \begin{defin}\label{fmoddifferential}
 Let $(K, d^K, F)$ and $(L, d^L, F)$ be filtered complexes. We define $\ufC(K,L)$ to be the
 vertical bicomplex whose underlying bigraded module is $\ufMod(K,L)$ with vertical differential
-\[δ(f) := c(d^L, f) − (−1)^{\langle f,d^K\rangle}c(f, d^K) = d^Lf − (−1)^{v+u}fd^K = d^Lf − (−1)^{|f|}fd^K\]
+\[δ(f) := c(d^L, f) − (−1)^{\langle f,d^K\rangle}c(f, d^K) = d^Lf − (−1)^{|f|}fd^K\] %= d^Lf − (−1)^{v+u}fd^K 
 for $f ∈ \ufMod(K,L)^v_u$, where $c$ is the composition map from \Cref{ufMod}.
 \end{defin}
 
@@ -1470,8 +1473,8 @@ The enriched monoidal structure is given as follows and can be found in \cite[Le
 \begin{defin}\label{tensorenriched2}
 The monoidal structure of $\ufC$ is given by the following map of vertical bicomplexes.
 \[\underline{⊗}: \ufC(K,L) ⊗ \ufC(K′,L′) → \ufC(K ⊗ K′,L ⊗ L′),\]
-\[(f, g) → f\underline{⊗}g := (−1)^{u|g|}f ⊗ g\]
-Here $f$ has bidegree $(u, v)$.
+\[(f, g) \mapsto f\underline{⊗}g := (−1)^{u|g|}f ⊗ g\]
+Here $u$ is the horizontal degree of $f$.
 \end{defin}
 
 
@@ -1480,22 +1483,22 @@ The proof of the followin lemma is included in the proof of \cite[Lemma 4.35]{wh
 Let $A$ be a vertical bicomplex that is horizontally bounded on the right and let $K$ and $L$ be filtered complexes. There is a natural bijection
 \[\Hom_{\fc}(\Tot(A)\otimes K,L)\cong \Hom_{\vbc}(A,\ufC(K,L))\]
 given by
-\[f\mapsto \tilde{f}: a\mapsto (k\mapsto f(a\otimes k)).\]
+$f\mapsto \tilde{f}: a\mapsto (k\mapsto f(a\otimes k))$.
 \end{lem}
 
 We now define an enriched version of the totalization functor. 
 \begin{defin}\label{enrichedtot}
-Let $A,B$ be bigraded modules and $f ∈ \ubgMod (A,B)^v_u$ we define
+Let $A$, $B$ be bigraded modules. We define
 
 \[\Tot(f) ∈ \ufMod(\Tot(A),\Tot(B))^v_u\]
-to be given on any $x ∈ \Tot(A)^n$ by
+for $f ∈ \ubgMod (A,B)^v_u$ to be given on any $x ∈ \Tot(A)^n$ by
 \[(\Tot(f)(x)))_{j+u} :=
 \sum_{m≥0}(−1)^{(m+u)n}f_m(x_{j-m}) ∈ B^{n-j+v}_{j+u} ⊂ \Tot(B)^{n+u+v}.\]
 Let $K = \Tot(A)$, $L = \Tot(B)$ and $g ∈ \ufMod(K,L)^v_u$ we define
 \[f := \Tot^{−1}(g) ∈ \ubgMod(A,B)^v_u\]
 to be $f := (f_0, f_1,\dots)$ where $f_i$ is given on each $A^{m+j}_j$ by the composite
 \begin{align*}
-f_i : A^{m-j}_j \hookrightarrow\prod_{k\geq j}A^{m-k}_k = F_j(\Tot(A)^m)\xrightarrow{g}&F_{j+u}(\Tot(B)^{m+u+v})\\
+f_i : A^{m-j}_j \hookrightarrow\prod_{k\geq j}A^{m-k}_k &= F_j(\Tot(A)^m)\xrightarrow{g}F_{j+u}(\Tot(B)^{m+u+v})\\
 &=\prod_{l\geq j+u}B^{m+u+v-l}_l\xrightarrow{×(−1)^{(i+u)m}} B^{m-j+v−i}_{j+u+i} ,
 \end{align*}
 where the last map is a projection and multiplication with the indicated sign.
@@ -1521,8 +1524,8 @@ to be the collection in $\mathscr{V}$ given by
 
 The following contains several results results from \cite[\S 4]{whitehouse}.
 
-\begin{propo}\label{S4}
-The following hold.
+\begin{propo}\label{S4}\
+%The following hold.
 \begin{itemize}
 \item The enriched functors %\label{4.40}
 \[\mathfrak{Tot} : \ubgMod  → \ufMod ,\hspace{1cm} \mathfrak{Tot} : \utC → \ufC\]
@@ -1542,14 +1545,14 @@ $F : \CC → \DD$ be a lax monoidal functor over $\VV$. Then for any $X ∈ \CC$
 
 
 \begin{lem}\label{inverse}
-Let $A$ be a twisted complex. Consider $\uEnd_A(n)=\utC(A^{\otimes n},A)$ and $\uEnd_{\Tot(A)}(n)=\ufC(\Tot(A)^{\otimes n},\Tot(A))$. There is a morphism of operads
+Let $A$ be a twisted complex. Consider the operads $\uEnd_A(n)=\utC(A^{\otimes n},A)$ and $\uEnd_{\Tot(A)}(n)=\ufC(\Tot(A)^{\otimes n},\Tot(A))$. There is a morphism of operads
 \[\uEnd_A →\uEnd_{\Tot(A)},\]
-which is an isomorphism of operads if $A$ is bounded. The same holds true if $A$ is just a bigraded module. In that case, we use the enriched operads $\uEnd_A(n)=\ubgMod(A^{\otimes n},A)$ and $\uEnd_{\Tot(A)}(n)=\ufMod(\Tot(A)^{\otimes n},\Tot(A))$.
+which is an isomorphism of operads if $A$ is bounded. If $A$ is just a bigraded module, the same holds for the operads $\uEnd_A(n)=\ubgMod(A^{\otimes n},A)$ and $\uEnd_{\Tot(A)}(n)=\ufMod(\Tot(A)^{\otimes n},\Tot(A))$.
 \end{lem}
 \begin{proof}
 The proof of in the case of a $A$ beig a twisted complex can be found in \cite[Lemma 4.54]{whitehouse}. For the bigraded module case, we are going to do it analogously. First, by \Cref{4.39} we know that $\mathfrak{Tot}:\ubgMod\to\ufMod$ is $\bgmod$-enriched. In fact, by \Cref{S4} it is lax monoidal in the enriched sense. In addition, both $\bgmod$ and $\fmod$ are monoidal over $\bgmod$. In the case of $\bgmod$ it is in the obvious way and for $\fmod$ is given by \Cref{4.15}. With all of this we may apply \Cref{S4} to $\mathfrak{Tot}:\ubgMod\to\ufMod$ to obtain the desired map
 \[\uEnd_A →\uEnd_{\Tot(A)}.\]
- The fact that it is an isomorphism in the bounded is analogous to the twisted complex case. 
+ The fact that it is an isomorphism in the bounded case is analogous to the twisted complex case. 
 \end{proof}
 
 We are going to construct the inverse in the bounded case explicitly from \Cref{enrichedmap}. The construction for the direct map is analogue but here we just need the inverse. We do it for a twisted complex $A$, but it is done similarly for a bigraded module.
@@ -1563,7 +1566,13 @@ f & \mapsto \Tot^{-1}(f\circ \mu^{-1}).
 \end{lem}
 \begin{proof}
 The inverse is given by the composite
-\[\uEnd_{\Tot(A)}(n)=\ufC(\Tot(A)^{\otimes n},\Tot(A))\to \ufC(\Tot(A^{\otimes n}),\Tot(A))\to\utC(A^{\otimes n},A)=\uEnd_A(n) \]
+
+\[
+\begin{tikzcd}[column sep = 1em]
+&\uEnd_{\Tot(A)}(n)=\ufC(\Tot(A)^{\otimes n},\Tot(A))\arrow[d]&\\
+& \ufC(\Tot(A^{\otimes n}),\Tot(A))\arrow[r]&\utC(A^{\otimes n},A)=\uEnd_A(n)
+\end{tikzcd}
+ \]
 
 The second map is given by $\mathfrak{Tot}^{-1}$ defined in \Cref{enrichedtot}. To describe the first map, let $R$ be concentrated in bidegree $(0,0)$ with trivial vertical differential. Then the first map is given by the following composite
 \begin{align*}
@@ -1576,12 +1585,12 @@ where $c$ is the composition in $\ufC$, defined in \Cref{ufMod}. The map $\under
 \underline{\mu}^{-1}:R &\to \ufC(\Tot(A^{\otimes n}),\Tot(A)^{\otimes n})\\
 1 &\mapsto (a\mapsto \mu^{-1}(a)).
 \end{align*}
-Putting all together we get the map 
+Putting all this together, we get the map 
 \begin{align*}
 \uEnd_{\Tot(A)}&\to\uEnd_A\\
 f & \mapsto \Tot^{-1}(c(f, \mu^{-1})).
 \end{align*}
-Since the total degree of $\mu^{-1}$ is 0, composition reduces to $c(f,\mu^{-1})=f\circ \mu^{-1}$ and we get the desired map.
+Since the total degree of $\mu^{-1}$ is 0, the composition map reduces to $c(f,\mu^{-1})=f\circ \mu^{-1}$ and we get the desired map.
 \end{proof}
 
 %\begin{itemize}
