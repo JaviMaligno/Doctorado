@@ -1,6 +1,7 @@
 \documentclass[Thesis.tex]{subfiles}
 %\usepackage{estilo-ejercicios}
-
+\doublespacing
+\sloppy
 
 
 
@@ -188,7 +189,7 @@ The assigment $\OO\mapsto \s\OO$ and $f\mapsto \s f$ is a functor on both the ca
 \end{lem}
 
 \begin{proof}
-The assigment preserves composition of maps. Indeed, given $g:\mathcal{P}\to\CC$, by definition $\s(g\circ f)(x\otimes e^n)=g(f(x))\otimes e^n$, and also $(\s g\circ \s f)(x\otimes e^n)=\s g (f(x)\otimes e^n)=g(f(x))\otimes e^n$. This means that $\s$ defines an endofunctor on the category $\mathrm{Col}$ of collections.
+The assigment preserves composition of maps. Indeed, given any $g:\mathcal{P}\to\CC$, by definition $\s(g\circ f)(x\otimes e^n)=g(f(x))\otimes e^n$, and also \[(\s g\circ \s f)(x\otimes e^n)=\s g (f(x)\otimes e^n)=g(f(x))\otimes e^n.\] This means that $\s$ defines an endofunctor on the category $\mathrm{Col}$ of collections.
 
 
 We know that when $\mathcal{O}$ is an operad, $\mathfrak{s}\OO$ is again  an operad. What is more, if $f$ is a map of operads, then the map $\s f$ is again a map of operads, since for $a\in\OO(n)$ and $b\in\OO(m)$ we have
@@ -247,10 +248,15 @@ We now show that $\mu$ is natural, or in other words, for $f:\OO\to\OO'$ and $g:
 \end{tikzcd}\]
  Let $c=x\otimes e^N\otimes x_1\otimes e^{a_1}\otimes\cdots\otimes x_N\otimes e^{a_N}\in \mathfrak{s}\mathcal{O}\circ\mathfrak{s}\mathcal{P}$ and let us compute $\s(f\circ g)(\mu(c))$. One has
  
-\[\s(f\circ g)(\mu(c))=\s(f\circ g)((-1)^{\sum_{j<l}a_j\deg(x_l)+\sum_{j=1}^N (a_j+\deg(x_j)-1)(N-j)} x\otimes x_1\otimes\cdots\otimes x_N \otimes e^n)=\]
-\[(-1)^{\nu}f(x)\otimes g(x_1)\otimes\cdots\otimes g(x_N) \otimes e^n\]
+\begin{align*}
+\s(f\circ g)(\mu(c))&=\s(f\circ g)((-1)^{\varepsilon} x\otimes x_1\otimes\cdots\otimes x_N \otimes e^n)\\
+&=(-1)^{\varepsilon+\delta}f(x)\otimes g(x_1)\otimes\cdots\otimes g(x_N) \otimes e^n\
+\end{align*}
 where
-\[\nu=\sum_{j<l}a_j\deg(x_l)+\sum_{j=1}^N (\deg(x_j)+a_j-1)(N-j)+N\deg(g)\deg(x)+\deg(g)\sum_{j=1}^N\deg(x_j)(N-j).\]
+\[\varepsilon=\sum_{j<l}a_j\deg(x_l)+\sum_{j=1}^N (\deg(x_j)+a_j-1)(N-j).\]
+and
+\[\delta = N\deg(g)\deg(x)+\deg(g)\sum_{j=1^N}\deg(x_j)(N-j)\]
+
 
 Now let us compute $\mu((\s f\circ \s  g)(c))$. We have
 
@@ -259,12 +265,14 @@ Now let us compute $\mu((\s f\circ \s  g)(c))$. We have
 where 
 \[\sigma=N\deg(g)(\deg(x)+N-1)+\deg(g)\sum_{j=1}^N(\deg(x_j)+a_j-1)(N-j)+\]\[\sum_{j<l}a_j(\deg(x_j)+\deg(g))+\sum_{j=1}^N(a_j+\deg(x_j)+\deg(g)-1)(N-j).\]
  
- Now we compare the two signs by computing $\nu+\sigma\mod 2$. After some cancellations of common terms and using that $N(N-1)=0\mod 2$ we get
- 
- \[\deg(g)\sum_{j=1}^N(a_j-1)(N-j)+\sum_{j<l}a_j\deg(g)+\sum_{j=1}^N\deg(g)(N-j)=\]
- \[\deg(g)\sum_{j=1}^Na_j(N-j)+\deg(g)\sum_{j<l}a_j=\]
- \[\deg(g)\left(\sum_{j=1}^N a_j(N-j)+\sum_{j=1}^N a_j(N-j)\right)=0\mod 2.\]
- 
+ Now we compare the two signs by computing $\varepsilon+\delta+\sigma\mod 2$. After some cancellations of common terms and using that $N(N-1)=0\mod 2$ we get
+ \begin{align*}
+ &\deg(g)\sum_{j=1}^N(a_j-1)(N-j)+\sum_{j<l}a_j\deg(g)+\sum_{j=1}^N\deg(g)(N-j)\\
+ &=\deg(g)\sum_{j=1}^Na_j(N-j)+\deg(g)\sum_{j<l}a_j\\
+ &=\deg(g)\left(\sum_{j=1}^N a_j(N-j)+\sum_{j=1}^N a_j(N-j)\right)\\
+ &=0\mod 2.
+ \end{align*}
+
  This shows naturality of $\mu$. %Next, we have to show that $\mu$ and $\varepsilon$ satisfy the axioms of a lax monoidal functor. 
  Unitality follows directly from the definitions by direct computation. In the case of associativity, oberve that by the definition of $\mu$, the associativity axiom for $\mu$ is equivalent to the associativity of the operadic composition $\tilde{\gamma}$, which we know to be true. This shows that $\s$ is a lax monoidal functor.
  
@@ -294,7 +302,7 @@ A \emph{brace algebra} on a graded module $A$ consists of a family of maps \[b_n
 
 \begin{align*}
 b_m(b_n(x;x_1,\dots, x_n);y_1,\dots,y_m)=&\\
-\underset{j_1\dots, j_n}{\sum_{i_1,\dots, i_n}}(-1)^{\varepsilon}b_l(x; y_1,\dots, y_{i_1},b_{j_1}(x_1;y_{i_1+1},&\dots, y_{i_1+j_1}),\dots, b_{j_n}(x_n;y_{i_n+1},\dots, y_{i_n+j_n}),\dots,y_m)
+\underset{j_1\dots, j_n}{\sum_{i_1,\dots, i_n}}(-1)^{\varepsilon}b_l(x; y_1,\dots,b_{j_1}(x_1;y_{i_1+1},&\dots, y_{i_1+j_1}),\dots, b_{j_n}(x_n;y_{i_n+1},\dots, y_{i_n+j_n}),\dots,y_m)
 \end{align*}
 where $l=n+\sum_{p=1}^n i_p$ and $\varepsilon=\sum_{p=1}^n\deg(x_p)\sum_{q=1}^{i_p}\deg(y_q),$ i.e. the sign is picked up by the $x_i$'s passing by the $y_i$'s in the shuffle.
 \end{defin}
@@ -308,14 +316,14 @@ We will also see a bigraded version of this kind of map in \Cref{sectionbraces}.
 
 
 Given an operad $\OO$ with composition map $\gamma:\OO\circ\OO\to\OO$ we can define a brace algebra on the underlying module of $\OO$ by setting
-\[b_n:\OO(N)\otimes\OO(a_1)\otimes\cdots\otimes\OO(a_n)\to\OO(N-n+\sum a_i)\]
+\[b_n:\OO(N)\otimes\OO(a_1)\otimes\cdots\otimes\OO(a_n)\to\OO\left(N-n+\sum a_i\right)\]
 
 \[b_n(x;x_1,\dots, x_n)=\sum\gamma(x;1,\dots,1,x_1,1,\dots,1,x_n,1,\dots,1),\]
 where the sum runs over all possible order-preserving insertions. The brace $b_n(x;x_1,\dots,x_n)$ vanishes whenever $n>N$ and $b_0(x)=x$. The brace relation follows from the associativity axiom of operads.
 
 
 This construction can  be used to define braces on $\s\OO$. More precisely, we define maps 
-\[b_n:\mathfrak{s}\OO(N)\otimes\mathfrak{s}\OO(a_1)\otimes\cdots\otimes\mathfrak{s}\OO(a_n)\to\mathfrak{s}\OO(N-n+\sum a_i)\]
+\[b_n:\mathfrak{s}\OO(N)\otimes\mathfrak{s}\OO(a_1)\otimes\cdots\otimes\mathfrak{s}\OO(a_n)\to\mathfrak{s}\OO\left(N-n+\sum a_i\right)\]
 using the operadic composition $\tilde{\gamma}$ on $\mathfrak{s}\OO$ as
 
 \[b_n(x;x_1,\dots,x_n)=\sum\tilde{\gamma}(x;1,\dots,1,x_1,1,\dots,1,x_n,1,\dots,1).\]
@@ -337,9 +345,7 @@ To obtain the signs that make $\tilde{\gamma}$ differ from $\gamma$, we must fir
 We are interested in compositions of the form \[\tilde{\gamma}(x\otimes 1^{\otimes k_0}\otimes x_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes x_n\otimes 1^{\otimes k_n})\] where $N-n=k_0+\cdots+k_n$, $x$ has arity $N$ and each $x_i$ has arity $a_i$ and internal degree $q_i$. Therefore, let us consider the corresponding operadic composition 
 
 \[
-\begin{tikzcd}
-\Lambda(N)\otimes\Lambda(1)^{k_0}\otimes\Lambda(a_1)\otimes\Lambda(1)^{\otimes k_1}\otimes\cdots\otimes\Lambda(a_n)\otimes\Lambda(1)^{k_n}\arrow[r] & \Lambda(N-n+\sum_{i=1}^na_i).
-\end{tikzcd}
+\Lambda(N)\otimes\Lambda(1)^{k_0}\otimes\Lambda(a_1)\otimes\cdots\otimes\Lambda(a_n)\otimes\Lambda(1)^{k_n}\longrightarrow \Lambda\left(N-n+\sum_{i=1}^na_i\right).
 \]
 
 The operadic composition can be described in terms of insertions in the obvious way, namely, if $f\in\s\OO(N)$ and $h_1,\dots, h_N\in\s\OO$, then we have
@@ -349,21 +355,25 @@ The operadic composition can be described in terms of insertions in the obvious 
 where $a(y_p)$ is the arity of $y_p$ (in this case $y_p$ is either $1$ or some $x_i$). So we just have to find out the sign iterating the same argument as in the $i$-th insertion. In this case, each $\Lambda(a_i)$ produces a sign given by the exponent $$(a_i-1)(N-k_0+\cdots-k_{i-1}-i).$$ 
 
 For this, recall that the degree of $\Lambda(a_i)$ is $a_i-1$ and that the generator of this space is inserted in the position $1+\sum_{j=0}^{i-1}k_j+\sum_{j=1}^{i-1}a_j$ of a wedge of $N+\sum_{j=1}^{i-1}a_j-i+1$ generators. Therefore, performing this insertion as described in the previous section yields the aforementioned sign. Now, since $N-n=k_0+\cdots+k_n$, we have that
-\[(a_i-1)(N-k_0+\cdots+k_{i-1}-i)=(a_i-1)(n-i+\sum_{l=i}^nk_l).\]
+\[(a_i-1)(N-k_0+\cdots+k_{i-1}-i)=(a_i-1)\left(n-i+\sum_{l=i}^nk_l\right).\]
 
-Now we can compute the sign factor of a brace. For this, notice that the isomorphism $(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}$ does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
+Let us introduce for the rest of the proof the notation $a_0 = N$ for the sake of compactness of the formulas. Now we can compute the sign factor of a brace. For this, notice that the isomorphism $(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}$ does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
 
-\[\OO(N)\otimes\Lambda(N)\otimes (\OO(1)\otimes \Lambda(1))^{\otimes k_0}\otimes \bigotimes_{i=1}^n(\OO(a_i)\otimes\Lambda(a_i)\otimes(\OO(1)\otimes\Lambda(1))^{\otimes k_i}\]
-\[\cong \OO(N)\otimes\OO(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \OO(a_i)\otimes \OO(1)^{\otimes k_i})\otimes \Lambda(N)\otimes\Lambda(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \Lambda(a_i)\otimes \Lambda(1)^{\otimes k_i})\]
+%\[\OO(N)\otimes\Lambda(N)\otimes (\OO(1)\otimes \Lambda(1))^{\otimes k_0}\otimes \bigotimes_{i=1}^n(\OO(a_i)\otimes\Lambda(a_i)\otimes(\OO(1)\otimes\Lambda(1))^{\otimes k_i}\]
+%\[\cong \OO(N)\otimes\OO(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \OO(a_i)\otimes \OO(1)^{\otimes k_i})\otimes \Lambda(N)\otimes\Lambda(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \Lambda(a_i)\otimes \Lambda(1)^{\otimes k_i})\]
+\begin{align*}
+&\bigotimes_{i=0}^n\left(\OO(a_i)\otimes\Lambda(a_i)\otimes(\OO(1)\otimes\Lambda(1)\right)^{\otimes k_i}\\
+&\cong \left(\bigotimes_{i=0}^n \OO(a_i)\otimes \OO(1)^{\otimes k_i}\right)\otimes \left(\bigotimes_{i=0}^n \Lambda(a_i)\otimes \Lambda(1)^{\otimes k_i}\right)
+\end{align*}
 is determined by the exponent
 
 \[(N-1)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.\]
 
 This equals
-\[(\sum_{j=0}^nk_j +n-1)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.\]
+\[\left(\sum_{j=0}^nk_j +n-1\right)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.\]
 
 After doing the operadic composition 
-\[\OO(N)\otimes(\bigotimes_{i=1}^n \OO(a_i))\otimes \Lambda(N)\otimes(\bigotimes_{i=1}^n \Lambda(a_i))\longrightarrow \OO(N-n+\sum_{i=1}^na_i)\otimes \Lambda(N-n+\sum_{i=1}^na_i)\]
+\[\bigotimes_{i=0}^n \OO(a_i)\otimes \bigotimes_{i=0}^n \Lambda(a_i)\to \OO\left(-n+\sum_{i=0}^na_i\right)\otimes \Lambda\left(-n+\sum_{i=0}^na_i\right)\]
 
 we can add the sign coming from the suspension, so all in all the sign $(-1)^\eta$ we were looking for is given by
 
@@ -598,7 +608,7 @@ holds, where the $M_j$ is the $j$-th component of the $A_\infty$-algebra structu
 Let us have a look at the following diagram
 
 \begin{equation}\label{proofdiagram}
-\begin{tikzcd}
+\begin{tikzcd}[column sep = 1.5em]
 (S\s\OO)^{\otimes j}\arrow[dr,red] \arrow[ddd, bend right=10,"M_j"']\arrow[rrrr,bend left=10, "\Phi^{\otimes j}"]& & & & (S\s\End_{S\s\OO})^{\otimes j}\arrow[ddd, bend left=10, "\overline{M}_j"]\\
 &\s\OO^{\otimes j}\arrow[r,blue, "(\Phi')^{\otimes j}"]\arrow[d, blue, "M'_j"] & (\End_{\s\OO})^{\otimes j}\arrow[r, blue,"\overline{\sigma}^{\otimes j}"] \arrow[d, dashed, "\mathcal{M}_j",blue]& (\s\End_{S\s\OO})^{\otimes j}\arrow[ur,red]\arrow[d, "\overline{M}'_j",blue]& \\
 &\s\OO\arrow[r, blue, "\Phi'"]& \End_{\s\OO} \arrow[r, blue, "\overline{\sigma}"] & \s\End_{S\s\OO}\arrow[dr,red]& \\
@@ -623,7 +633,10 @@ is defined by
  \subsection*{\centering{Commutativity of the right blue square} }
  Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and $M=\overline{\sigma}(M')$. Then we have for $j>1$
  
- \[\overline{M}'_j(\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(M;\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j)).\]
+ \begin{align*}
+ \overline{M}'_j(\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))&=\overline{B}_j(M;\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))\\
+ &=\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j)).
+ \end{align*}
  Now, since the brace structure is defined as an operadic composition, it commutes with $\overline{\sigma}$, so
  
  \[\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{\sigma}(B_j(M';f_1,\dots, f_j))=\overline{\sigma}(\mathcal{M}_j(f_1,\dots, f_j)),\]
@@ -656,20 +669,26 @@ where $l=n-(i_1+\cdots+i_j)+j$. The sum with no subindex runs over all the possi
 that is, $B_j(M'_l;\Phi'(x_1),\dots, \Phi'(x_j))$. By definition, this equals
 
 \begin{align*}
-\sum M'_l(-,\Phi'(x_1),\cdots, \Phi'(x_j),-)=&\sum_{i_1,\dots, i_j}\sum M'_l(-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)=\\
-&\sum_{i_1,\dots, i_j}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-).
+\sum M'_l(-,\Phi'(x_1),\cdots, \Phi'(x_j),-)=&\\
+\sum_{i_1,\dots, i_j}\sum M'_l(-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-)=\\
+\sum_{i_1,\dots, i_j}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-).
 \end{align*}
 
 We are using hyphens instead of $1$'s to make the equality of both sides of the equation (\ref{commutative}) more apparent, and to make clear that when evaluating on elements those are the places where the elements go. %In this case, evaluating yields the same signs as in the other side of the equation. 
 
-For each tuple $(i_1,\dots, i_j)$ we can choose $n$ such that $n-(i_1+\cdots+i_j)+j=l$, so the above sum equals
+For each tuple $(i_1,\dots, i_j)$ we can choose $n$ such that \[n-(i_1+\cdots+i_j)+j=l,\] so the above sum equals
 
 \[\underset{n-(i_1+\cdots+i_j)+j=l}{\sum_{n,i_1,\dots, i_j}}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-).\]
 
 So each $M'_l$ component for $l\geq j$ produces precisely the terms $b_l(m;\dots)$ appearing in $\Phi'(M'_j)$. Conversely, for every $n\geq 0$ there exists some tuple $(i_1,\dots, i_j)$ and some $l\geq j$ such that $n$ is the that $n-(i_1+\cdots+i_j)+j=l$, so we do get all the summands from the left hand side of the equation (\ref{commutative}), and thus we have the equality $\Phi'(M'_j)=\mathcal{M}_j((\Phi')^{\otimes j})$ for all $j>1$.
 
 It is worth treating the case $n=0$ separately since in that case we have the summand \[b_0(b_j(m;x_1,\dots, x_j))\] 
-in $\Phi'(b_j(m;x_1,\dots, x_j))$, where we cannot apply the brace relation. This summand is equal to \[B_j(M'_j;b_0(x_1),\dots, b_0(x_j))=M'_j(b_0(x_1),\dots, b_0(x_j))=b_j(m;b_0(x_1),\dots, b_0(x_j)),\] since by definition $b_0(x)=x$.% We obtained this map from $\overline{M}_1(\Phi(x))$. To see that the two maps are actually equal, apply them to $1\in k$ to output $b_1(m;x)$ in both cases. %Notice that the terms that $b_1(M_i;x)$ produces for $i>1$ appear using the brace relation in $b_k(b_1(m;x);-)$ when $k>0$, more precisely, in the summand $b_k(b_1(m_i;x);-)$. 
+in $\Phi'(b_j(m;x_1,\dots, x_j))$, where we cannot apply the brace relation. This summand is equal to 
+\begin{align*}
+B_j(M'_j;b_0(x_1),\dots, b_0(x_j))&=M'_j(b_0(x_1),\dots, b_0(x_j))\\
+&=b_j(m;b_0(x_1),\dots, b_0(x_j)), 
+\end{align*}
+since by definition $b_0(x)=x$.% We obtained this map from $\overline{M}_1(\Phi(x))$. To see that the two maps are actually equal, apply them to $1\in k$ to output $b_1(m;x)$ in both cases. %Notice that the terms that $b_1(M_i;x)$ produces for $i>1$ appear using the brace relation in $b_k(b_1(m;x);-)$ when $k>0$, more precisely, in the summand $b_k(b_1(m_i;x);-)$. 
 
 Now we are going to show the case $j=1$, that is
 
@@ -688,8 +707,9 @@ Let us first focus on the insertions in $m$ that appear in equation (\ref{case1}
 so we focus on the first summand
 
 \begin{align*}
-\Phi'(b_1(m;x))=&\sum_n b_n(b_1(m;x);-)=\sum_n \underset{n\geq i}{\sum_i} \sum b_{n-i+1}(m;-, b_i(x;-),-)=\\
-&\underset{n-i+1> 0}{\sum_{n,i}}\sum b_{n-i+1}(m;-, b_i(x;-),-)
+\Phi'(b_1(m;x))&=\sum_n b_n(b_1(m;x);-)\\
+&=\sum_n \underset{n\geq i}{\sum_i} \sum b_{n-i+1}(m;-, b_i(x;-),-)\\
+&=\underset{n-i+1> 0}{\sum_{n,i}}\sum b_{n-i+1}(m;-, b_i(x;-),-)
 \end{align*}
 
 where the sum with no indices runs over all the positions in which $b_i(x;-)$ can be inserted (from $1$ to $n-i+1$ in this case). 
@@ -719,13 +739,13 @@ We are going to evaluate each term of the sum, so let $z_1,\dots, z_n\in \s\OO$.
 
 \begin{align}\label{insertionx1}
 b_n(b_1(x;m);z_1,\dots, z_n)&=\\
- &\sum_{l+j=n+1}\sum_{i=1}^{n-j+1}(-1)^{\varepsilon} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_n)+\nonumber\\
- &\sum_{i=1}^{n+1}(-1)^{\varepsilon}b_{n+1}(x;z_1,\dots, z_{i-1},m,z_i,\dots, z_n),\nonumber
+ \sum_{l+j=n+1}\sum_{i=1}^{n-j+1}&(-1)^{\varepsilon} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_n)\nonumber\\
+ &+\sum_{i=1}^{n+1}(-1)^{\varepsilon}b_{n+1}(x;z_1,\dots, z_{i-1},m,z_i,\dots, z_n),\nonumber
 \end{align}
 
 where $\varepsilon$ is the usual Koszul sign with respect to the grading in $\s\OO$. We have to check that the insertions in $x$ that appear in $\mathcal{M}_1(\Phi'(x))$ (right hand side of the \cref{case1}) are exactly those in the equation (\ref{insertionx1}) above (left hand side of equation \cref{case1}).
 
-Therefore let us look at the right hand side of equation (\ref{case1}). Here we will study the cancellations from each of the two summands that naturally appear. From equation (\ref{mphi}), i.e. $\mathcal{M}_1(\Phi'(x))=B_1(M';\Phi'(x))-(-1)^{|x|}B_1(\Phi'(x);M')$  we have 
+Therefore let us look at the right hand side of equation (\ref{case1}). Here we will study the cancellations from each of the two summands that naturally appear. From equation (\ref{mphi}), i.e. \[\mathcal{M}_1(\Phi'(x))=B_1(M';\Phi'(x))-(-1)^{|x|}B_1(\Phi'(x);M')\]  we have 
 \[-(-1)^{|x|}b_1(\Phi'(x);m)=-(-1)^{|x|}\sum_n b_1(b_n(x;-);m)\] 
 coming from the first summand since $B_1(M'_1;\Phi'(x))=M'_1(\Phi'(x))$. We are now only interested in insertions in $x$. Again, cancelling $-(-1)^{|x|}$ we get
 \[b_1(\Phi'(x);m)=\sum_n b_1(b_n(x;-);m).\] 
@@ -733,15 +753,18 @@ Each term of the sum can be evaluated on $(z_1,\dots, z_n)$ to produce
 
 \begin{align}\label{insertionx2}
 b_1(b_n(x;z_1, \dots, z_n);m)&=\\
-\sum_{i=1}^n (-1)^{\varepsilon+|z_i|}b_n(x;z_1,\dots, b_1(z_i;m),\dots, z_n)&+\sum_{i=1}^{n+1} (-1)^{\varepsilon}b_{n+1}(x;z_1,\dots, z_{i-1},m,z_{i},\dots, z_n)\nonumber
+\sum_{i=1}^n (-1)^{\varepsilon+|z_i|}&b_n(x;z_1,\dots, b_1(z_i;m),\dots, z_n)\\
++\sum_{i=1}^{n+1} (-1)^{\varepsilon}&b_{n+1}(x;z_1,\dots, z_{i-1},m,z_{i},\dots, z_n)\nonumber
 \end{align}
 
 Note that we have to apply the Koszul sign rule twice: once at evaluation, and once more to apply the brace relation. Now, from the second summand of $\mathcal{M}_1(\Phi'(x))$ in the right hand side of \cref{mphi}, after cancelling $(-1)^{|x|}$ we obtain 
 
 
 \begin{align*}
-B_1(\Phi'(x);M')=&\sum_l B_1(b_l(x;-);M')=-(-1)^{|x|}\sum_l\sum b_l(x;-,M',-) \\
-=&\left(\sum_{j> 1} \sum_l\sum b_l(x;-,b_j(m;-),-)+\sum_l\sum b_l(x;-,b_1(-;m),-)\right).
+B_1(\Phi'(x);M')=&\sum_l B_1(b_l(x;-);M')\\
+=&-(-1)^{|x|}\sum_l\sum b_l(x;-,M',-) \\
+=& \sum_l\sum_{j> 1}\sum b_l(x;-,b_j(m;-),-)\\
+&+\sum_l\sum b_l(x;-,b_1(-;m),-).
 \end{align*}
 We are going to evaluate on $(z_1,\dots, z_n)$ to make this map more explicit. This evaluation gives us the following
  
@@ -775,10 +798,9 @@ Here $|x|$ is the degree of $x$ as an element of $\s\OO$, i.e. the natural degre
 The deduction of these explicit formulas is done as follows. Let $n>1$ and $x_1,\dots, x_n\in \s\OO$. Then
 
 \begin{align*}
-M_n(Sx_1,\dots, Sx_n)=SM'_n((S^{\otimes n})^{-1})(Sx_1,\dots, Sx_n)\\
-(-1)^{\binom{n}{2}}SM'_n((S^{-1})^{\otimes n})(Sx_1,\dots, Sx_n)=\\
-(-1)^{\binom{n}{2}+\sum_{i=1}^n(n-i)(|x_i|+1)}SM'_n(S^{-1}Sx_1,\dots, S^{-1}Sx_n)=\\
-(-1)^{\binom{n}{2}+\sum_{i=1}^n(n-i)(|x_i|+1)}SM'_n(x_1,\dots,x_n)
+M_n(Sx_1,\dots, Sx_n)&=SM'_n((S^{\otimes n})^{-1})(Sx_1,\dots, Sx_n)\\
+&=(-1)^{\binom{n}{2}}SM'_n((S^{-1})^{\otimes n})(Sx_1,\dots, Sx_n)\\
+&=(-1)^{\binom{n}{2}+\sum_{i=1}^n(n-i)(|x_i|+1)}SM'_n(x_1,\dots,x_n)
 \end{align*}
 
 Now, note that $\binom{n}{2}$ is even exatly when $n\equiv 0,1\mod 4$. In these cases, an even amount of $|x_i|$'s have an odd coefficient in the sum (when $n\equiv 0\mod 4$ these are the $|x_i|$ with even index, and when $n\equiv 1\mod 4$, the $|x_i|$ with odd index). This means that 1 is added on the exponent an even number of times, so the sign is not changed by the binomial coefficient nor by adding 1 on each term. Similarly, when $\binom{n}{2}$ is odd, i.e. when $n\equiv 2,3\mod 4$, there is an odd number of $|x_i|$ with odd coefficient, so the addition of 1 an odd number of times cancels the binomial coefficient. This means that the above expression equals
