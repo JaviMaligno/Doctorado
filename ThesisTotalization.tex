@@ -221,7 +221,7 @@ We define $\Lambda(n)=S^{n-1}R$, where  $S$ is a vertical shift of degree so tha
 The operad structure on the bigraded $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ is the same as in the graded case, namely
 
 \[
-\begin{tikzcd}[column sep = 1.5em]
+\begin{tikzcd}[column sep = 1.2em]
 \Lambda(n)\otimes\Lambda(m) \arrow[r, "\circ_{r+1}"] & \Lambda(n+m-1)\\
 (e_1\land\cdots\land e_n)\otimes(e_1\land\cdots\land e_m)\arrow[r, mapsto] & (-1)^{(n-r-1)(m-1)}e_1\land\cdots\land e_{n+m-1}.
 \end{tikzcd}
@@ -313,12 +313,12 @@ Clearly, this map is bijective so we just need to check that it commutes with in
 \end{equation*}
 for $x=(x_i)_i\in \Tot(\s\OO(n))^{d_1}$ and $y=(y_j)_j\in \Tot(\s\OO(m))^{d_2}$. Similarly, we may compute the insertion on $\s\Tot(\OO)$ by combining the sign produced first by $\Tot$ and then by $\s$. This results in  the following insertion map 
 \begin{equation*}
-(x\star_{r+1}' y)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(d_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(d_2-m+1)}x_{k_1}\circ_{r+1}y_{k_2}
+(x\star_{r+1}' y)_k=\sum_{\mathclap{k_1+k_2=k}}(-1)^{(n-1)(d_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(d_2-m+1)}x_{k_1}\circ_{r+1}y_{k_2}
 \end{equation*}
 for $x=(x_i)_i\in \s\Tot(\OO(n))^{d_1}$ and $y=(y_j)_j\in \s\Tot(\OO(m))^{d_2}$. Now let us show that $f(x\star y)=f(x)\star f(y)$. We have that $f((x\star_{r+1} y))_k$ equals 
 \begin{align*}
 &\sum_{k_1+k_2=k}(-1)^{k(n+m-1)+(n-1)(d_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1d_2}x_{k_1}\circ_{r+1}y_{k_2}\\
-&=\sum_{k_1+k_2=k}(-1)^{(n-1)(d_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(d_2-m+1)}f(x_{k_1})\circ_{r+1}f(y_{k_2})\\
+&=\sum_{\mathclap{k_1+k_2=k}}(-1)^{(n-1)(d_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(d_2-m+1)}f(x_{k_1})\circ_{r+1}f(y_{k_2})\\
 &=(f(x)\star f(y))_k
 \end{align*}
 %I skipped one calculation but it is just that
@@ -404,7 +404,7 @@ We are going to define a brace structure on $\Tot(\s\OO)$ using totalization. Fi
 As one might expect, we can define bigraded brace maps $b_n$ on a bigraded operad $\OO$ and also on its operadic suspension $\s\OO$, obtaining similar signs as in the single-graded case, but with vertical (internal) degrees, see \Cref{bracesign}. 
 
 We can also define braces on $\Tot(\s\OO)$ via operadic composition. In this case, these are usual single-graded braces. More precisely, we define the maps 
-\[b^T_n:\Tot(\mathfrak{s}\OO(N))\otimes \Tot(\mathfrak{s}\OO(a_1))\otimes\cdots\otimes \Tot(\mathfrak{s}\OO(a_n))\to \Tot\left(\mathfrak{s}\OO\left(N-\sum a_i\right)\right)\]
+\[b^T_n:\Tot(\mathfrak{s}\OO(N))\otimes \bigotimes_{j=1}^n\Tot(\mathfrak{s}\OO(a_j))\longrightarrow \Tot\left(\mathfrak{s}\OO\left(N-n+\sum a_i\right)\right)\]
 using the operadic composition $\gamma^\star$ on $\Tot(\mathfrak{s}\OO)$ as
 
 \[b^T_n(x;x_1,\dots,x_n)=\sum\gamma^\star(x;1,\dots,1,x_1,1,\dots,1,x_n,1,\dots,1),\]

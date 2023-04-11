@@ -265,7 +265,7 @@ In particular we get maps in $\VV$
 given by the adjoint of the composite
 %\[(\uC (X,W) ⊗ \uC (Y,Z)) ∗ (X ⊗ Y )\cong (\uC (X,W) ∗ X) ⊗ (\uC (Y,Z) ∗ Y )\xrightarrow{ev_{XW}⊗ev_{Y Z}} W ⊗ Z.\]
 \[
-\begin{tikzcd}
+\begin{tikzcd}[column sep = 1.2em]
 (\uC (X,W) ⊗ \uC (Y,Z)) ∗ (X ⊗ Y )\arrow[r, phantom, "\isom"]& (\uC (X,W) ∗ X) ⊗ (\uC (Y,Z) ∗ Y ) \arrow[d, "ev_{XW}⊗ev_{Y Z}"]\\
  & W ⊗ Z
 \end{tikzcd}
@@ -309,14 +309,20 @@ By \Cref{enrichedtrans} there is a $\VV$-enriched natural transformation
 that at each object $X$ evaluates to \[\underline{\mu}_X:1\to\uD(FX,GX)\] defined to be the adjoint of $\mu_X:FX\to GX$. We define the map $\uD(GX,Y)\to\uD(FX,Y)$ as the composite
 
 \begin{equation}\label{enrichedmap}
-\uD(GX,Y)\cong\uD(GX,Y)\otimes 1\xrightarrow{1\otimes\umu_X}\uD(GX,Y)\otimes\uD(FX,GX)\xrightarrow{c}\uD(FX,Y),
+\begin{tikzcd}
+\uD(GX,Y)\cong\uD(GX,Y)\otimes 1\arrow[r,"1\otimes\umu_X"]&\uD(GX,Y)\otimes\uD(FX,GX)\arrow[d, "c"]\\ 
+& \uD(FX,Y)
+\end{tikzcd}
 \end{equation}
 where $c$ is the composition map in the enriched setting. 
 
 When $\mu$ is an isomorphism we may analogously define the following map
 
 \begin{equation}\label{enrichedmapinverse}
-\uD(FX,Y)\cong\uD(FX,Y)\otimes 1\xrightarrow{1\otimes\umui_X}\uD(FX,Y)\otimes\uD(GX,FX)\xrightarrow{c}\uD(GX,Y).
+\begin{tikzcd}
+\uD(FX,Y)\cong\uD(FX,Y)\otimes 1\arrow[r,"1\otimes\umui_X"]&\uD(FX,Y)\otimes\uD(GX,FX)\arrow[d, "c"]\\ 
+& \uD(GX,Y)
+\end{tikzcd}
 \end{equation}
 
 We show that the above map is the inverse of the map (\ref{enrichedmap}). Consider the following diagram where the external arrows are the composition of (\ref{enrichedmap}) and (\ref{enrichedmapinverse}).
@@ -942,7 +948,7 @@ F(\OO(n+m+l-2)) &
    According to the definition of $\circ_i^F$, we need to show that the following diagram commutes. 
    
    \begin{equation}\label{red}  
-\begin{tikzcd}
+\begin{tikzcd}[column sep = 1.5em]
 (F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l)) \arrow[r, "a_\DD"] \arrow[d, "\mu\otimes id"] & F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes \mu"]\\
 F(\OO(n)\otimes \OO(m))\otimes F(\OO(l))\arrow[d, red, "F(\circ_i)\otimes id"] & F(\OO(n))\otimes F(\OO(m)\otimes\OO(l))\arrow[d, red, "id\otimes F(\circ_{j+i-1})"]\\
 F(\OO(n+m-1))\otimes F(\OO(l))\arrow[d, red, "\mu"] & F(\OO(n))\otimes F(\OO(m+l-1))\arrow[d, red, "\mu"]\\
