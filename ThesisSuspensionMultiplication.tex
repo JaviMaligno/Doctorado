@@ -833,7 +833,7 @@ Let $M^{GV}_2$ be the product defined in \cite{GV} as \[M^{GV}_2(x,y)=(-1)^{|x|+
 We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algeras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting.
 
 \begin{defin}
-A $J$-algebra $V$ is a brace algebra such that the shift $SV$ that is an $A_\infty$-algebra with structure maps $\{M_j\}_{j\geq 1}$. Furthermore, the braces and the $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in A$ for any $j>1$ and $n\geq 0$.  
+A $J$-algebra $V$ is a brace algebra such that the shift $S^{-1}V$ that is an $A_\infty$-algebra with structure maps $\{M_j\}_{j\geq 1}$. Furthermore, the braces and the $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$ for any $j>1$ and $n\geq 0$.  
 
 J=1 CASE
 
@@ -854,10 +854,48 @@ The unindexed sum runs over all possible choices of non-negative integers that s
 If $A$ is an $A_\infty$-algebra, then its Hochschild complex $S\s\End_A$ is a homotopy $J$-algebra.
 \end{corollary}
 \begin{proof}
+ Clearly $\s\End_A$ is a brace algebra as it is an operad. Since $A$ is an $A_\infty$-algebra, the structure map $m=m_1+m_2+\cdots$ determines an $A_\infty$-multiplication $m\in\s\End_A$. It follows by \Cref{ainftystructure} that $S\s\End_A$ is an $A_\infty$-algebra. Therefore, we need to show the compatibility relations. The result follows by direct computation from \Cref{theorem}, exapanding the definitions and taking into account the sign rules described in \Cref{koszulsigns}. Let us do this in detail. 
+ 
+Recall that \Cref{theorem} states that $\Phi\circ M_j = \overline{M}_j\circ \Phi^{\otimes j}$. We start with the case $j>1$. Let $Sx_1,\dots, Sx_j\in S\s\End_A$. Recall \Cref{Phi} for the definition of $\Phi$. On the left hand side we have
+\begin{align*}
+\Phi(M_j(Sx_1,\dots, Sx_j)) = S\overline{\sigma}\Phi'(S^{-1}M_j(Sx_1,\dots, Sx_j)).
+\end{align*}
+Notice that this map belongs to $S\s\End_{S\s\OO}$, where $\OO=\End_A$, so let us consider just its arity $n$ component. We are going to omit the external shift and consider the equation on $\s\End_{S\s\OO}$ since this extra shift will cancel.
+\begin{align*}
+\overline{\sigma}b_n(S^{-1}M_j(Sx_1,\dots, Sx_j);-)=(-1)^{\binom{n}{2}}Sb_n(S^{-1}M_j(Sx_1,\dots, Sx_j);S^{-n}).
+\end{align*}
+Now evaluate this on $Sy_1,\dots, Sy_n\in S\s\End_A$. Using the same calculation as in the proof of \Cref{explicit} we get
+\begin{align*}
+(-1)^{\sum_{i=1}^n(n-i)|y_i|}Sb_n(S^{-1}M_j(Sx_1,\dots, Sx_j);y_1,\dots, y_n).
+\end{align*}
+This is the left hand side that we were looking for. Let us now have a look at the right hand side. We evaluate again on $Sx_1,\dots, Sx_j$ to obtain
+\begin{align*}
+\overline{M}_j(\Phi^{\otimes j})(Sx_1,\dots, Sx_j) & = \overline{M}_j(\Phi(Sx_1),\dots, \Phi(Sx_j))\\
+&=\sum_{k_1,\dots, k_j}\overline{M}_j(S\overline{\sigma}\Phi'(x_1),\dots, S\overline{\sigma}\Phi'(x_j)).
+\end{align*}
+Expanding, this equals
+\begin{equation}\label{intermediate}
+\sum_{k_1,\dots, k_j}\overline{M}_j(S(-1)^{\binom{k_1}{2}}Sb_{k_1}(x_1;S^{-k_1}),\dots,S(-1)^{\binom{k_j}{2}}Sb_{k_j}(x_j;S^{-k_j}) ).
+\end{equation}
+We now apply the definition of $\overline{M}_j$. Notice that by the isomorphism $\overline{\sigma}$ and \Cref{lemmadegree} we have
+\[
+|Sb_k(x;S^{-k})|=|\overline{\sigma}(b_k(x;-))|=|b_k(x;-)|=|x|.
+\]
+Therefore, from \Cref{intermediate} we proceed again similarly as in \Cref{explicit} to get
+\[
+\sum_{k_1,\dots, k_j}(-1)^{\sum_{v=1}^j\left[\binom{k_v}{2}+(j-v)|x_v|\right]}\overline{B}_j(M;Sb_{k_1}(x_1;S^{-k_1}),\dots,Sb_{k_j}(x_j;S^{-k_j})).
+\]
+Now wee need to use \Cref{bracesign} to turn the above brace into composition of maps. Taking only the arity $n$ component yields
+\[
+\sum(-1)^{\sum_{v=1}^j\binom{k_v}{2}+\underset{1\leq v<l\leq j}{\sum}k_v|x_v|}M_l(-,Sb_{k_1}(x_1;S^{-k_1}),\dots,Sb_{k_j}(x_j;S^{-k_j}),-).
+\]
+The unindexed sum runs over all possible choices of integers satisfying $l+k_1+\cdots+ k_j-j=n$. We have also used the fact that $k_v^2\equiv k_v\mod 2$ to simplify the sign. Finally, we evaluate on $Sy_1,\dots, Sy_n$. Here we need to take into account the sign rules explained in \Cref{koszulsigns}. In particular, this means that we use the internal degree of $Sb_k(x;S^{-k})$ which is $|x|-k+1$. This evaluation produces the desired result.
 
+Let us now treat the $j=1$ case.
 \end{proof}
 
-%
+
+
 %I MIGHT NEED TO DEDUCE THE EXPRESSIONS OF PHI(M1)=M1(PHI) AND SAME WITH M2 TO OBTAIN SOME STRUCTURE ON COHOMOLOGY AS IN GV
 
 %THE LEFT BLUE SQUARES IMPLIES G-V EQUATIONS EXCEPT WITH BRACE INSTEAD OF THE PRODUCT (SO UP TO THAT PRECISE SIGN), WITH THE PRODUCTS OTHER SIGNS APPEAR RELATED TO THE BRACES WHICH ARE NOT EXACTLY PHI
