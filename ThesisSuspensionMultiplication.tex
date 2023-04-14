@@ -199,12 +199,14 @@ We know that when $\mathcal{O}$ is an operad, $\mathfrak{s}\OO$ is again  an ope
 \s f(x\tilde{\circ}_i y)&=\s f ((x\otimes e^n)\tilde{\circ}_i (y\otimes e^m))\\
 &=(-1)^{(n-1)\deg(y)+(n-i)(m-1)}\s f((x\circ_i y) \otimes e^{n+m-1})\\
 &=(-1)^{(n-1)\deg(y)+(n-i)(m-1)}f(x\circ_i y)\otimes e^{n+m-1}\\
-&=(-1)^{(n-1)\deg(y)+(n-i)(m-1)+\deg(f)\deg(x)}(f(x)\circ_i f(y))\otimes e^{n+m-1}\\
-&=(-1)^{(n-1)\deg(y)+(n-1)(\deg(y)+\deg(f))+\deg(f)\deg(x)}(f(x)\otimes e^n)\tilde{\circ}_i (f(y)\otimes e^m)\\
+&=(-1)^{(n-1)\deg(y)+(n-i)(m-1)+\deg(f)\deg(x)}(f(x)\circ_i f(y))\otimes e^{n+m-1}
+\end{align*}
+By the definition of $\tilde{\circ}$ this equals
+\begin{align*}
+&(-1)^{(n-1)\deg(y)+(n-1)(\deg(y)+\deg(f))+\deg(f)\deg(x)}(f(x)\otimes e^n)\tilde{\circ}_i (f(y)\otimes e^m)\\
 &=(-1)^{\deg(f)(\deg(x)+n-1)}\s f(x)\tilde{\circ}_i\s f(y).
 \end{align*}
-
-Note that $\deg(x)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s f)=\deg(f)$, so the above relation is consistent with the Koszul sign rule. In any case, recall that a morphism of operads is necessarily of degree 0, but the above calcultion hints at some monoidality properties of $\s$ that we will study afterwards. Clearly $\s f$ preserves the unit, so $\s f$ is a morphism of operads. 
+Note that $\deg(x)+n-1$ is the degree of $a\otimes e^n$ and as we said before $\deg(\s f)=\deg(f)$, so the above relation is consistent with the Koszul sign rule. In any case, recall that a morphism of operads is necessarily of degree 0, but the above calcultion hints at some monoidality properties of $\s$ that we will study afterwards. Clearly $\s f$ preserves the unit, so $\s f$ is a morphism of operads. 
 \end{proof}
 
 

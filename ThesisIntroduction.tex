@@ -328,12 +328,12 @@ When $\mu$ is an isomorphism we may analogously define the following map
 We show that the above map is the inverse of the map (\ref{enrichedmap}). Consider the following diagram where the external arrows are the composition of (\ref{enrichedmap}) and (\ref{enrichedmapinverse}).
 
 \begin{equation}
-\adjustbox{scale=0.76,center}{%
-\begin{tikzcd}[column sep = 0pt, row sep = 20pt]\label{complicateddiagram}
-{\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
-                                                                                     & {\uD(GX,Y)\otimes\uD(GX,GX)} \arrow[lu, "c"] \arrow[lu]                                                  & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes 1} \arrow[ld, "1\otimes 1\otimes \umui_X"] \arrow[rdd, "c\otimes 1"] \arrow[ru, "(1)"', phantom] &                                                                                \\
-                                                                                     & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes \uD(GX,FX)} \arrow[u, "1\otimes c"] \arrow[ld, "c\otimes 1"]          &                                                                                                                                    &                                                                                \\
-{\uD(FX,Y)\otimes\uD(GX,FX)} \arrow[uuu, "c"] \arrow[ruu, "(3)"', phantom, bend left] & {}                                                                                                       &                                                                                                                                    & {\uD(FX,Y)\otimes 1} \arrow[lll, "1\otimes\umui_X"] \arrow[llu, "(2)"', phantom]
+\adjustbox{scale=0.73,center}{%
+\begin{tikzcd}[sep = tiny, column sep = 0pt, row sep = 20pt]\label{complicateddiagram}
+{\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[lddd, "\cong", bend left]                                               \\
+                                                                                     & {\uD(GX,Y)\otimes\uD(GX,GX)} \arrow[lu, "c", bend left = 5]                                                  & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes 1} \arrow[ld, "1\otimes 1\otimes \umui_X"] \arrow[dd, "c\otimes 1"] \arrow[ru, "(1)"', phantom] &                                                                                \\
+                                                                                     & {\uD(GX,Y)\otimes\uD(FX,GX)\otimes \uD(GX,FX)} \arrow[u, "1\otimes c"] \arrow[d, "c\otimes 1"]          &                                                                                                                                    &                                                                                \\
+{}& {\uD(FX,Y)\otimes\uD(GX,FX)} \arrow[luuu, "c", bend left = 40] \arrow[uuul, near end,  "(3)"', phantom, bend left]                                                                                                         &                                                                                                                                    {\uD(FX,Y)\otimes 1} \arrow[l, "1\otimes\umui_X"] \arrow[lu, "(2)"', phantom] & {}
 \end{tikzcd}
 }
 \end{equation}
@@ -948,13 +948,14 @@ F(\OO(n+m+l-2)) &
    According to the definition of $\circ_i^F$, we need to show that the following diagram commutes. 
    
    \begin{equation}\label{red}  
+   \adjustbox{scale=0.95,center}{%
 \begin{tikzcd}[column sep = 1.5em]
 (F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l)) \arrow[r, "a_\DD"] \arrow[d, "\mu\otimes id"] & F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes \mu"]\\
 F(\OO(n)\otimes \OO(m))\otimes F(\OO(l))\arrow[d, red, "F(\circ_i)\otimes id"] & F(\OO(n))\otimes F(\OO(m)\otimes\OO(l))\arrow[d, red, "id\otimes F(\circ_{j+i-1})"]\\
 F(\OO(n+m-1))\otimes F(\OO(l))\arrow[d, red, "\mu"] & F(\OO(n))\otimes F(\OO(m+l-1))\arrow[d, red, "\mu"]\\
 F(\OO(n+m-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & F(\OO(n)\otimes\OO(m+l-1))\arrow[dl, bend left = 10, "F(\circ_i)"]\\
 F(\OO(n+m+l-2)) & 
-\end{tikzcd}   
+\end{tikzcd}   }
    \end{equation}
    
    By naturality of $\mu$ we have 
@@ -963,14 +964,15 @@ F(\OO(n+m+l-2)) &
    \end{equation} and \[\mu\circ (id \otimes F(\circ_{j-i+1}))= F(id\otimes \circ_{j-i+1})\circ \mu.\]
     Therefore we can replace the above compositions in diagram (\ref{red}) accordingly. We can also subdivide the above diagram into two by using $F(a_\CC)$ as follows.
    
-      \[   
+      \[ 
+      \adjustbox{scale=0.95,center}{%  
 \begin{tikzcd}[column sep = 1em]
 (F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l)) \arrow[r, "a_\DD"] \arrow[d, "\mu\otimes id"] & F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes \mu"]\\
 F(\OO(n)\otimes \OO(m))\otimes F(\OO(l))\arrow[d, red, "\mu"] & F(\OO(n))\otimes F(\OO(m)\otimes\OO(l))\arrow[d, red, "\mu"]\\
 F((\OO(n)\otimes\OO(m))\otimes\OO(l))\arrow[d, red, "F(\circ_i\otimes id)"]\arrow[r, dashed, "F(a_\CC)"] & F(\OO(n))\otimes F(\OO(n)\otimes(\OO(m)\otimes\OO(l)))\arrow[d, red, "F(id\otimes \circ_{j-1+1})"]\\
 F(\OO(n+m-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & F(\OO(n)\otimes\OO(m+l-1))\arrow[dl, bend left = 10, "F(\circ_i)"]\\
 F(\OO(n+m+l-2)) & 
-\end{tikzcd}   
+\end{tikzcd}   }
    \]
    Now, the top diagram commutes because it is the associativity axiom of lax monoidal functors. The bottom diagram is precisely diagram (\ref{assaux}), so it commutes and we get the desired associativity axiom.
    
@@ -1000,6 +1002,7 @@ F(\OO(n+m+l-2)) &
    
    We need to show that the following diagram commutes.
    \[
+   \adjustbox{scale=0.95,center}{%
 \begin{tikzcd}[column sep = 1.5em]
 (F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"]\arrow[r, "a_\DD"]& F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes B_\DD"] \\
  F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "F(\circ_i)\otimes id"]  & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\\
@@ -1007,12 +1010,13 @@ F(\OO(n+m+l-2)) &
  F(\OO(m+n-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"] & F(\OO(n)\otimes \OO(l))\otimes F(\OO(m))\arrow[d, "F(\circ_j)\otimes id"]\\
  F((\OO(n+m+l-2)) & F(\OO(n+l-1))\otimes F(\OO(m))\arrow[d, "\mu"]\\
   & F(\OO(n+l-1)\otimes\OO(m))\arrow[ul, "F(\circ_i)", bend left = 10]
-\end{tikzcd}   
+\end{tikzcd}   }
    \]
    
    We use naturality of $\mu$, i.e \Cref{naturality}, as we have done before to rewrite some of the arrows. We also subdivide the diagram into two by factoring by $F(a_\CC)^{-1}\circ F(id\otimes B_\CC)\circ F(a_\CC)$.
    
    \[
+   \adjustbox{scale=0.95,center}{%
 \begin{tikzcd}[column sep = 1.5em]
 (F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"']\arrow[r, "a_\DD"]& F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[d, "id\otimes B_\DD"] \\
  F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "\mu"'] & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\\
@@ -1020,7 +1024,7 @@ F(\OO(n+m+l-2)) &
  F(\OO(m+n-1)\otimes\OO(l))\arrow[d, "F(\circ_j)"'] & F(\OO(n)\otimes \OO(l))\otimes F(\OO(m))\arrow[d, "\mu"]\\
  F((\OO(n+m+l-2)) & F((\OO(n)\otimes\OO(m))\otimes \OO(m))\arrow[d, "F(\circ_j\otimes id)"]\\
   & F(\OO(n+l-1)\otimes\OO(m))\arrow[ul, "F(\circ_i)", bend left = 10]
-\end{tikzcd}   
+\end{tikzcd}   }
    \]
    
    The bottom diagram commutes as it is precisely diagram (\ref{assiaux}). We decompose the top diagram as follows.
@@ -1038,23 +1042,25 @@ F(\OO(n+m+l-2)) &
    
    
       \[
+      \adjustbox{scale=0.95,center}{%
 \begin{tikzcd}[column sep = 2.5em]
  F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l)))\arrow[r, "id\otimes B_\DD"] \arrow[dddd, dashed, bend left = 80, sloped, "\mu\circ (id\otimes\mu)"']& F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "a_\DD^{-1}"]\arrow[dddd, dashed, bend right = 80, sloped, "\mu\circ (id\otimes\mu)"]\\
    (F(\OO(n))\otimes F(\OO(m)))\otimes F(\OO(l))\arrow[d, "\mu\otimes id"]\arrow[u, "a_\DD"]& (F(\OO(n))\otimes F(\OO(l)))\otimes F(\OO(m))\arrow[d, "\mu\otimes id"]\\
  F(\OO(n)\otimes\OO(n))\otimes F(\OO(l))\arrow[d, "\mu"] & F(\OO(n)\otimes \OO(l))\otimes F(\OO(m))\arrow[d, "\mu"]\\
  F((\OO(n)\otimes\OO(m))\otimes \OO(l))\arrow[d, "F(a)"] & F((\OO(n)\otimes\OO(l))\otimes\OO(m))\\
  F(\OO(n)\otimes (\OO(m)\otimes\OO(l)))\arrow[r,"F(id\otimes B_\CC)"] & F(\OO(n)\otimes (\OO(l)\otimes\OO(m)))\arrow[u, "F(a_\CC)^{-1}"]\\
-\end{tikzcd}  
+\end{tikzcd}  }
    \]
    
    
    The left and right subdiagrams commute because of the associativity axiom of lax monoidal functors. We decompose the central subdiagram further as
    \[
+   \adjustbox{scale=0.95,center}{%
 \begin{tikzcd}[column sep = 3em]
 F(\OO(n))\otimes (F(\OO(m))\otimes F(\OO(l))\arrow[r, "id\otimes B_\DD"]\arrow[d, "id\otimes \mu"] & F(\OO(n))\otimes (F(\OO(l))\otimes F(\OO(m)))\arrow[d, "id\otimes \mu"]\\
 F(\OO(n))\otimes F(\OO(m)\otimes\OO(l))\arrow[r, dashed,  "id\otimes F(B_\CC)"]\arrow[d, "\mu"] & F(\OO(n))\otimes F(\OO(l)\otimes\OO(m))\arrow[d, "\mu"]\\
 F(\OO(n)\otimes (\OO(m)\otimes\OO(l)))\arrow[r, "F(id\otimes B_\CC)"] & F(\OO(n)\otimes (\OO(l)\otimes \OO(m)))
-\end{tikzcd}   
+\end{tikzcd}}   
    \]
    
    
@@ -1447,7 +1453,11 @@ The \emph{$\bgmod$-enriched category of filtered modules} $\ufMod$ is the enrich
 \begin{enumerate}
 \item The objects of $\ufMod$ are filtered modules.
 \item For filtered modules $(K, F)$ and $(L, F)$, the bigraded module $\ufMod(K,L)$ is given by
-\[\ufMod(K,L)^v_u :=\{f : K → L\mid f(F_qK^m) ⊂ F_{q+u}L^{m+u+v}, ∀m, q ∈ \Z\}.\]
+\[\ufMod(K,L)^v_u :=\{f: K → L | f(F_qK^m) ⊂ F_{q+u}L^{m+u+v}, ∀m, q ∈ \Z\}\]
+%\end{enumerate}
+
+%\begin{enumerate}
+%\setcounter{enumi}{2}
 \item The composition morphism is given by $c(f, g) = (−1)^{u|g|}fg$, where $u$ is the horizontal degree of $f$.
 \item The unit morphism is given by the map $R → \ufMod(K,K)$ given by $1 → 1_K$.
 \end{enumerate}
