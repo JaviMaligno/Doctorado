@@ -831,20 +831,45 @@ In the case $n=2$, omitting the shift symbols by abuse of notation, we obtain
 Let $M^{GV}_2$ be the product defined in \cite{GV} as \[M^{GV}_2(x,y)=(-1)^{|x|+1}b_2(m;x,y).\] We see that $M_2=-M^{GV}_2$. Since the authors of \cite{GV} work in the associative case $m=m_2$, this minus sign does not affect the $A_\infty$-relation (which in this case reduces to the associativity and differential relations). This difference in sign can be explained by the difference between $(S^{\otimes n})^{-1}$ and $(S^{-1})^{\otimes n}$, since any of these shift maps can be used to define a map $(S\s\OO)^{\otimes n}\to \s\OO^{\otimes n}$. 
 \end{remark}
 
-We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algeras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting.
+We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algeras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting. We introduce now the notation $||x||=|x|+1$ in order to make the equations more compact.
 
 \begin{defin}
-A $J$-algebra $V$ is an $A_\infty$-algebra with structure maps $\{M_j\}_{j\geq 1}$ such that the shift $S^{-1}V$ a brace algebra. Furthermore, the braces and the $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$ for any $j>1$ and $n\geq 0$.  
+A $J$-algebra $V$ is an $A_\infty$-algebra with structure maps $\{M_j\}_{j\geq 1}$ such that the shift $S^{-1}V$ a brace algebra. Furthermore, the braces and the $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$. For $n\geq 0$ we demand 
+\begin{align*}
+(-1)^{\sum_{i=1}^n(n-i)|y_i|}Sb_n(S^{-1}&M_1(Sx);y_1,\dots, y_n)=\\.
+&\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{\mathclap{l+k-1=n}}}(-1)^{\varepsilon}M_l(Sy_1,\dots, Sb_{k}(x;y_{i_1},\dots),\dots, Sy_n)\\
++\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{\mathclap{l+k-1=n}}}&(-1)^{\eta} Sb_k(x;y_1,\dots, S^{-1}M_l(Sy_{i_1},\dots,), \dots, y_n)
+\end{align*}
+where
+%\[
+%\varepsilon = \sum_{v=1}^{i_1-1}(|y_v|+1)(|x|-k+1)+\sum_{v=0}^{k-1}(|y_{v+i_1}|+1)(k-v+1)+(l-1)|x|+(i_1-1)k.
+%\]
+\[
+\varepsilon = \sum_{v=1}^{i_1-1}||y_v||(|x|-k+1)+\sum_{v=0}^{k-1}(||y_{v+i_1}||)(k-v+1)+(l-1)|x|+(i_1-1)k.
+\]
+and
+\[
+\eta=l(k-1)+\sum_{v=1}^{i_1-1}(n+1-v)||y_v||+\sum_{v=i_1}^{i_1+l-1}(k-i_1)||y_v||+\sum_{v=i_1+l}^n(n-v)||y_v||.
+\]
+%\[
+%\eta=l(k-1)+\sum_{v=1}^{i_1-1}(n+1-v)(|y_v|+1)+\sum_{v=i_1}^{i_1+l-1}(k-i_1)(|y_v|+1)+\sum_{v=i_1+l}^n(n-v)|(|y_v|+1).
+%\]
 
-J=1 CASE
-
-and 
+For $j>1$ we demand
 \begin{align*}
 &(-1)^{\sum_{i=1}^n(n-i)|y_i|}Sb_n(S^{-1}M_j(Sx_1,\dots, Sx_j);y_1,\dots, y_n)=\\
 &\sum(-1)^{\varepsilon}M_l(Sy_1,\dots, Sb_{k_1}(x_1;y_{i_1},\dots),\dots, Sb_{k_j}(x_j;y_{i_j},\dots),\dots, Sy_n).
 \end{align*}
 The unindexed sum runs over all possible choices of non-negative integers that satisfy $l+k_1+\cdots+k_j-j=n$ and over all possible ordering-preserving insertions. The right hand side sign is given by 
-
+\begin{align*}
+\varepsilon = \sum_{\mathclap{1\leq i< l\leq j}}k_v|x_l|+\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{\mathclap{1\leq t\leq l\leq j}}}||y_v||(||x_l||-k_l)+\underset{\mathclap{0\leq v< k_t}}{\sum_{\mathclap{1\leq t\leq j}}} ||y_{v+i_t}||(k_v-v+1)\\
+\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{\mathclap{1\leq t< l\leq j}}}||y_v||(||x_l||-k_l)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(||x_l||-k_l)\\+\sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|(i_{l+1}-i_l-k_l)
+\end{align*}
+%\begin{align*}
+%\varepsilon = \sum_{\mathclap{1\leq i< l\leq j}}k_v|x_l|+\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{\mathclap{1\leq t\leq l\leq j}}}(|y_v|+1)(|x_l|-k_l+1)+\underset{\mathclap{0\leq v< k_t}}{\sum_{\mathclap{1\leq t\leq j}}} (|y_{v+i_t}|+1)(k_v-v+1)\\
+%\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{\mathclap{1\leq t< l\leq j}}}(|y_v|+1)(|x_l|-k_l+1)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(|x_l|-k_l+1)\\+\sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|(i_{l+1}-i_l-k_l)
+%\end{align*}
+In the sums we are setting $i_0=1$, $k_0=0$. 
 %\[
 %\varepsilon = \sum_{1\leq i< l\leq j}k_v|x_l|+\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{1\leq t\leq l\leq j}}(|y_v|+1)(|x_l|-k_l+1)+\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{1\leq t\leq j}} (|y_v|+1)(k_v-v)
 %\]
@@ -855,11 +880,7 @@ The unindexed sum runs over all possible choices of non-negative integers that s
 %\varepsilon = \sum_{\mathclap{1\leq i< l\leq j}}k_v|x_l|+\underset{\mathclap{1\leq v< i_t}}{\sum_{1\leq t\leq l\leq j}}(|y_v|+1)(|x_l|-k_l+1)+\underset{\mathclap{0\leq v< k_t}}{\sum_{\mathclap{1\leq t\leq j}}} (|y_{v+i_t}|+1)(k_v-v+1)
 %\]
 
-\begin{align*}
-\varepsilon = \sum_{\mathclap{1\leq i< l\leq j}}k_v|x_l|+\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{\mathclap{1\leq t\leq l\leq j}}}(|y_v|+1)(|x_l|-k_l+1)+\underset{\mathclap{0\leq v< k_t}}{\sum_{\mathclap{1\leq t\leq j}}} (|y_{v+i_t}|+1)(k_v-v+1)\\
-\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{\mathclap{1\leq t< l\leq j}}}(|y_v|+1)(|x_l|-k_l+1)+\sum_{\mathclap{0\leq v<l\leq j}}space_v(|x_l|-k_l+1)+\sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|space_l
-\end{align*}
-In the sums we are setting $i_0=1$, $k_0=0$.
+
 \end{defin}
 
 \begin{corollary}[The $A_\infty$-Deligne Conjecture]\label{ainftydeligne}
@@ -899,11 +920,11 @@ Therefore, from \Cref{intermediate} we proceed again similarly as in \Cref{expli
 \]
 Here we have omitted the extra shift just like on the left hand side. Now we need to use \Cref{bracesign} to turn the above brace into composition of maps. Taking only the arity $n$ component yields
 \[
-\sum(-1)^{\sum_{v=1}^j\binom{k_v}{2}+\eta}+M_l(-,Sb_{k_1}(x_1;S^{-k_1}),\dots,Sb_{k_j}(x_j;S^{-k_j}),-).
+\sum(-1)^{\sum_{v=1}^j\binom{k_v}{2}+\eta}M_l(-,Sb_{k_1}(x_1;S^{-k_1}),\dots,Sb_{k_j}(x_j;S^{-k_j}),-).
 \]
 where
 \[\eta = \underset{1\leq v<l\leq j}{\sum}k_v|x_v|+\sum_{\mathclap{0\leq v<l\leq j}}space_v(|x_l|-k_l+1)+\sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|space_l.\]
-Above, $space_v$ represents the space immediately after $Sb_{k_v}(x_v;S^{-k_v})$. The unindexed sum runs all possible ordering-preserving insertions and over all possible choices of integers that satisfy $l+k_1+\cdots+ k_j-j=n$. We have also used the fact that $k_v^2\equiv k_v\mod 2$ to simplify the sign. Finally, we evaluate on $Sy_1,\dots, Sy_n$. Here we need to take into account the sign rules explained in \Cref{koszulsigns}. In particular, this means that we use the internal degree of $Sb_k(x;S^{-k})$ which is $|x|-k+1$. This evaluation produces the desired result.
+The variable $space_v$ represents the space between the $v$-th and the $(v+1)$-th brace. More precisely, $space_v=i_{v+1}-i_v-k_v$. The unindexed sum runs all possible ordering-preserving insertions and over all possible choices of integers that satisfy $l+k_1+\cdots+ k_j-j=n$. We have also used the fact that $k_v^2\equiv k_v\mod 2$ to simplify the sign. Finally, we evaluate on $Sy_1,\dots, Sy_n$. Here we need to take into account the sign rules explained in \Cref{koszulsigns}. In particular, this means that we use the internal degree of $Sb_k(x;S^{-k})$ which is $|x|-k+1$. This evaluation produces the desired result.
 
 Let us now treat the $j=1$ case, where we have $\Phi\circ M_1=\overline{M}_1\circ\Phi$. The left hand side is analogous to the general case, so we have
 
@@ -925,14 +946,16 @@ The first term is analogous to the general case, yielding
 \underset{1\leq i_1\leq n-k+1}{\sum_{l+k-1=n}}(-1)^{\varepsilon}M_l(Sy_1,\dots, Sb_{k}(x;y_{i_1},\dots),\dots, Sy_n)
 \end{equation}
 upon evaluation, where
+
+
 \[
-\varepsilon = \sum_{v=1}^{i_1-1}(|y_v|+1)(|x|-k+1)+\sum_{v=0}^{k-1}(|y_{v+i_1}|+1)(k-v+1).
+\varepsilon = \sum_{v=1}^{i_1-1}(|y_v|+1)(|x|-k+1)+\sum_{v=0}^{k-1}(|y_{v+i_1}|+1)(k-v+1)+(l-1)|x|+(i_1-1)k.
 \]
 Let us now focus on the second term of \Cref{twoterms} and let us omit the sign $(-1)^{\binom{k}{2}+|x|}$ for now. On arity $n$ we have
 \begin{equation*}
 \overline{B}_1(Sb_{k}(x;S^{-k});M)= \underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{l+k-1=n}}(-1)^{l(k-1)} Sb_k(x;S^{-(i_1-1)}, S^{-1}M_l, S^{-(k - i_1)}).
 \end{equation*}
-The sum runs over all integers satisfying $l+k-1=n$ and over all ordering-preserving insertions. The sign is computed using \Cref{bracesign} and the Koszul sign rule for the shifts. Notice that here we need to use the internal degree of $M_l\in\s\End_A$, that is, $2-l$.
+The sign is computed using \Cref{bracesign} and the Koszul sign rule for the shifts. Notice that here we need to use the internal degree of $M_l\in\s\End_A$, that is, $2-l$. Finally, evaluating at $Sy_1,\dots, Sy_n$ produces the result.
 
 
 \end{proof}
