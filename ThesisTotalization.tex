@@ -213,7 +213,7 @@ Notice that the sign is precisely the same appearing in \Cref{mu}.
 
 %It can be checked that this is indeed an operad of graded vector spaces 
 
-\subsection{Vertical operadic suspension}
+\subsection{Vertical operadic suspension}\label{vertical}
 On a bigraded operad we can use operadic suspension on the vertical degree with analogue results to those of the graded case that we explorer in \Cref{Sec2}.
 
 We define $\Lambda(n)=S^{n-1}R$, where  $S$ is a vertical shift of degree so that $\Lambda(n)$ is the underlying ring $R$ concentrated in bidegree  $(0,n-1)$. As in the single graded case, we express the basis element of $\Lambda(n)$ as $e^n=e_1\land\cdots\land e_n$.
@@ -266,17 +266,7 @@ x\tilde{\circ}_{r+1}y=(-1)^{(n-1)q+(n-1)(m-1)+r(m-1)}x\circ_{r+1} y.
 \]
 
 \end{proof}
-
-
-\begin{remark}
-As can be seen, this is the same sign as the single-graded operadic suspension but with vertical degree. In particular, this operation leads to the Lie bracket from \cite{RW}, which implies that $m=\sum_{i,j}m_{ij}$ is a derived $A_\infty$-multiplication if and only if
-\begin{equation}\label{sharp}
-\sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0
-\end{equation}
-for the brace induced by $\tilde{\circ}$ (see \Cref{bibraces} to recall the definition of a brace).
-\end{remark}
-
-We of course have the following theorem with similar proof to the graded case, where all the suspensions are vertical.
+As can be seen, this is the same sign as the single-graded operadic suspension but with vertical degree. We will see that this is also the case more generally for bigraded braces in \Cref{sectionbibraces}. As a consequence we have the following theorem with similar proof to the single-graded case, where all the suspensions are vertical.
 \begin{thm}
 Given a bigraded $R$-module $A$, there is an isomorphism of operads $\End_{ A}\cong \mathfrak{s}\End_{SA}$.\qed
 \end{thm}
@@ -302,7 +292,7 @@ Before continuing, let us show a lemma that allows us to work only with the sing
 For a bigraded operad $\OO$ we have an isomorphism $\Tot(\s\OO)\cong \s \Tot(\OO)$, where the suspension on the left hand side is the bigraded version and on the right hand side is the single-graded version. 
 \end{propo}
 \begin{proof}
- Note that we may identify each element $x=(x_k\otimes e^n )_k\in\Tot(\s\OO(n))$ with the element $x=(x_k)_k\otimes e^n\in\s\Tot(\OO(n))$. Thus, for an element $(x_k)_k\in \Tot(\s\OO(n))$ the isomorphism is given by
+ We may identify each element $x=(x_k\otimes e^n )_k\in\Tot(\s\OO(n))$ with the element $x=(x_k)_k\otimes e^n\in\s\Tot(\OO(n))$. Thus, for an element $(x_k)_k\in \Tot(\s\OO(n))$ the isomorphism is given by
 \begin{align*}
 f:\Tot(\s\OO(n))&\cong \s \Tot(\OO(n))\\
 (x_k)_k&\mapsto ((-1)^{kn}x_k)_k
@@ -358,7 +348,7 @@ Conversely, let $m\in\Tot(\s\OO)$ of degree 1, is concentrated in positive arity
 \end{proof}
 
 
-From \Cref{mstar}, we can proceed as in the proof of \Cref{ainftystructure} to show that $m$ determines an $A_\infty$-algebra structure on $S\Tot(\s\OO)\cong S\s \Tot(\OO)$. 
+From \Cref{mstar}, since now $m$ is an $A_\infty$-multiplication on a single-graded operad, we can proceed as in the proof of \Cref{ainftystructure} to show that $m$ determines an $A_\infty$-algebra structure on $S\Tot(\s\OO)\cong S\s \Tot(\OO)$. 
 
 The goal now is showing that this $A_\infty$-structure on $S\Tot(\s\OO)$ is equivalent to a derived $A_\infty$-structure on $S\s \OO$ and compute the structure maps explicitly. We will do this in \Cref{derivedstructure}. 
 
@@ -401,7 +391,7 @@ We are going to define a brace structure on $\Tot(\s\OO)$ using totalization. Fi
 
 
 
-As one might expect, we can define bigraded brace maps $b_n$ on a bigraded operad $\OO$ and also on its operadic suspension $\s\OO$, obtaining similar signs as in the single-graded case, but with vertical (internal) degrees, see \Cref{bracesign}. 
+As one might expect, we can define bigraded brace maps $b_n$ on a bigraded operad $\OO$ and also on its operadic suspension $\s\OO$, obtaining similar signs as in the single-graded case, but with vertical internal degrees, see \Cref{bracesign}. 
 
 We can also define braces on $\Tot(\s\OO)$ via operadic composition. In this case, these are usual single-graded braces. More precisely, we define the maps 
 \[b^T_n:\Tot(\mathfrak{s}\OO(N))\otimes \bigotimes_{j=1}^n\Tot(\mathfrak{s}\OO(a_j))\longrightarrow \Tot\left(\mathfrak{s}\OO\left(N-n+\sum a_i\right)\right)\]
@@ -418,8 +408,6 @@ Operadic composition can be described in terms of insertions in the obvious way,
 \end{equation}
 
 where $a(y_p)$ is the arity of $y_p$ (in this case $y_p$ is either $1$ or some $x_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the sign factor applying the same strategy as in the single-graded case. In fact, as we said, there is a sign factor that comes from vertical operadic suspension that is identical to the graded case, but replacing internal degree by internal vertical degree. This is the sign that determines the brace $b_n$ on $\s\OO$. Explicitly, it is given by the following lemma, whose proof is identical to the single-graded case.
-
-
  
  \begin{lem}\label{bigradedsign}
 For $x\in \s\OO(N)$ and $x_i\in\s\OO(a_i)$ of internal vertical degree $q_i$ ($1\leq i\leq n$), we have
@@ -429,6 +417,13 @@ where
 \[\eta=\sum_{0\leq j<l\leq n}h_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)h_l.\]
 \end{lem}
 
+\begin{remark}
+ As we anticipated in \Cref{vertical}, this is analogous to the single-graded brace. In particular, this operation leads to the Lie bracket from \cite{RW}, which implies that $m=\sum_{i,j}m_{ij}$ is a derived $A_\infty$-multiplication if and only if
+\begin{equation}\label{sharp}
+\sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0
+\end{equation}
+for the brace induced by $\tilde{\circ}$. 
+\end{remark}
 The other sign factor is produced by totalization. This was computed in \Cref{totcomp}. Combining both factors we obtain the following.
 
 \begin{lem}
@@ -453,9 +448,11 @@ Notice that in \cite{LRW} the sign in the bracket is $(-1)^{(N+1)(M+1)}$, but th
 \section{The derived $A_\infty$-structure on an operad}\label{derivedstructure}
 
 
+In this final section we show that, under some reasonable assumptions, and operad with a derived $A_\infty$-multiplication is a derived $A_\infty$-algebra and compute the structure maps explicitly. From this structure we obtain a derived version of the Deligne conjecture for the Hochschild complex of a derived $A_\infty$-algebra.
 
+\subsection{Derived $A_\infty$-structures}
 
-We are going to follow a strategy inspired by the proof of the following theorem to show that there is a derived $A_\infty$-structure on $A=S\s\OO$. The proof can be found in \cite[Poposition 4.55]{whitehouse}. We refer the reader to \Cref{background} to recall the definitions of the categories used. %Note that $\Tot(SB)=S\Tot(B)$ for any bigraded module $B$, where $SB$ is the vertical suspension of $B$ and $S\Tot(B)$ is the suspension of $\Tot(B)$ as graded modules.
+We are going to follow a strategy inspired by the proof of the following theorem to show that there is a derived $A_\infty$-structure on $A=S\s\OO$. The proof can be found in \cite[Poposition 4.55]{whitehouse}. We refer the reader to \Cref{categories} to recall the definitions of the categories used. %Note that $\Tot(SB)=S\Tot(B)$ for any bigraded module $B$, where $SB$ is the vertical suspension of $B$ and $S\Tot(B)$ is the suspension of $\Tot(B)$ as graded modules.
 
 \begin{thm}\label{whitehouse}
 Let $(A, d^A) ∈ \tc^b$ be an twisted complex horizontally bounded on the right and $A$ its underlying
@@ -547,7 +544,7 @@ we have two equivalent descriptions of $A_∞$-algebras in $\tc$.
 
 \begin{enumerate}[(1)]
 \item A twisted complex $(A, d^A)$ together with a morphism $\calA_∞ → \uEnd_A$ of operads in $\vbc$, which is determined by a family of elements $M_i ∈ \utC(A^{⊗i},A)^{2−i}_0$ for $i ≥ 2$ for which the $A_\infty$-relations (\Cref{ainftyequation}) holds for $i\geq 2$. The composition is the one prescribed by the composition morphisms of $\utC$.
-\item A bigraded module $A$ together with a family of elements or multiplications$M_i ∈ \ubgMod(A^{⊗i},A)^{2−i}_0$ for $i ≥ 1$ for
+\item A bigraded module $A$ with elements $M_i ∈ \ubgMod(A^{⊗i},A)^{2−i}_0$ for $i ≥ 1$ for
 which all the $A_\infty$ relations hold (\Cref{ainftyequation}). The composition is the one prescribed by the composition
 morphisms of $\ubgMod$.
 \end{enumerate}
@@ -603,7 +600,7 @@ Notice that the proof of \Cref{alternative} is essentially the same as the proof
 where $\langle  m_{il},x\rangle=ik+(1-i)(d-1-k)$, as claimed.
 \end{proof}
 
-\subsection{Derived $A_\infty$-Deligne Conjecture}
+\subsection{The derived Deligne conjecture}
 
 Note that the maps given by \Cref{derivedmaps} and \Cref{mi1} formally look the same as their single-graded analogues in \Cref{explicit} but with an extra index that is fixed for each $M_{ij}$. This means that we can follow the same procedure as in \Cref{sect3} to define higher derived $A_\infty$-maps. More precisely, given an operad $\OO$ with a derived multiplication and $A=S\s\OO$, we will define a derived $A_\infty$-algebra structure on $S\s\End_A$. We will then connect the algebraic structure on $A$ with the structure on $S\s\End_A$ through braces. This connection will allow us to formulate and show a new version of the Deligne Conjecture.
 
@@ -618,7 +615,9 @@ defined as
 &\overline{M}'_{i1}(f)=\overline{B}_1(M_{i\bullet};f)-(-1)^{ip+(1-i)q}\overline{B}_1(f;M_{i\bullet}),
 \end{align*}
 for $f$ of natural bidegree $(p,q)$, where $M_{i\bullet}=\sum_j M_{ij}$. We define 
-\[\overline{M}_{ij}:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO},\ \overline{M}_{ij} = \overline{\sigma}(M'_{ij})=S\circ M'_{ij}\circ (S^{\otimes n})^{-1}.\]
+\[
+\overline{M}_{ij}:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO},\ \overline{M}_{ij} \coloneqq \overline{\sigma}(M'_{ij})=S\circ M'_{ij}\circ (S^{\otimes n})^{-1}.
+\]
 
 As in the single-graded case we can define a map
 \[\Phi:S\s\OO\to S\s\End_{S\s\OO}\]
@@ -650,9 +649,53 @@ The map $\Phi$ defined in diagram (\ref{derivedPhi}) above is a morphism of $d\m
 holds.%, where the $M_{ij}$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\OO$ and $\overline{M}_j$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\End_{S\s\OO}$. 
 \end{thm}
 
-\begin{corollary}[The $dA_\infty$-Deligne Conjecture]\label{dainftydeligne}
-WRITE IT, TRY TO BE AS EXPLICIT AS POSSIBLE, MAYBE GIVE THIS STRUCTURE A NAME, AND INTRODUCE IT BEFORE STATING IT, CALL SSEND THE HOCHSCHILD COMPLEX SO THAT THIS STRUCTURE IS ON THE HOCHSCHILD COMPLEX
+As a consequence of this theorem, we can obtain a derived version of the Deligne conjecture. In order to formulate this new Deligne conjecture, we need to introduce the notion of derived $J$-algebra, as a derived version of $J$-algebras introduced in \Cref{Jalgebras}.
+
+\begin{defin}
+A \emph{derived $J$-algebra} $V$ is a derived $A_\infty$-algebra with structure maps $\{M_{ij}\}_{i\geq 0, j\geq 1}$ such that the shift $S^{-1}V$ a brace algebra. Furthermore, the braces and the derived $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$. BIDEGREES? USE Q FOR VERTICAL DEGREE FOR SHORT IF NEEDED For all $n,i\geq 0$ we demand 
+
+OBTAIN SIGNS
+
+LHS IS IDENTICAL BY BARS MEAN VERTICAL DEGREE, ALTERNATIVE NOTATION? ON RHS ONLY EVALUATION SIGN DIFFERS WHEN Y PASSES BY X (IN THE SCALAR PRODUCT THE VERTICAL DEGREES ARE MODIFIED, THINK OF A NOTATION OF SOME SORT. %FOR J=1 THE SIGN CHANGES SLIGHTLY TOO BECAUSE THE BRACKET SIGN IS BIGRADED, CHECK IF IT IS THE SAME AS DOING THE SCALAR PRODUCT WITH X
+\begin{align*}
+(-1)^{\sum_{i=1}^n(n-v)|y_v|}Sb_n(S^{-1}&M_{i1}(Sx);y_1,\dots, y_n)=\\.
+&\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{\mathclap{l+k-1=n}}}(-1)^{\varepsilon}M_{il}(Sy_1,\dots, Sb_{k}(x;y_{i_1},\dots),\dots, Sy_n)\\
+-(-1)^{\langle x,M_{il}\rangle}\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{\mathclap{l+k-1=n}}}&(-1)^{\eta} Sb_k(x;y_1,\dots, S^{-1}M_{il}(Sy_{i_1},\dots,), \dots, y_n)
+\end{align*}
+where
+%\[
+%\varepsilon = \sum_{v=1}^{i_1-1}(|y_v|+1)(|x|-k+1)+\sum_{v=0}^{k-1}(|y_{v+i_1}|+1)(k-v+1)+(l-1)|x|+(i_1-1)k.
+%\]
+\[
+\varepsilon = \sum_{v=1}^{i_1-1}||y_v||(|x|-k+1)+\sum_{v=0}^{k-1}(||y_{v+i_1}||)(k-v+1)+(l-1)|x|+(i_1-1)k.
+\]
+and
+\[
+\eta=l(k-1)+\sum_{v=1}^{i_1-1}(n+1-v)||y_v||+\sum_{v=i_1}^{i_1+l-1}(k-i_1)||y_v||+\sum_{v=i_1+l}^n(n-v)||y_v||.
+\]
+%\[
+%\eta=l(k-1)+\sum_{v=1}^{i_1-1}(n+1-v)(|y_v|+1)+\sum_{v=i_1}^{i_1+l-1}(k-i_1)(|y_v|+1)+\sum_{v=i_1+l}^n(n-v)|(|y_v|+1).
+%\]
+
+For $j>1$ we demand
+\begin{align*}
+&(-1)^{\sum_{i=1}^n(n-v)|y_v|}Sb_n(S^{-1}M_{ij}(Sx_1,\dots, Sx_j);y_1,\dots, y_n)=\\
+&\sum(-1)^{\varepsilon}M_{il}(Sy_1,\dots, Sb_{k_1}(x_1;y_{i_1},\dots),\dots, Sb_{k_j}(x_j;y_{i_j},\dots),\dots, Sy_n).
+\end{align*}
+The unindexed sum runs over all possible choices of non-negative integers that satisfy $l+k_1+\cdots+k_j-j=n$ and over all possible ordering-preserving insertions. The right hand side sign is given by 
+\begin{align*}
+\varepsilon = \sum_{\mathclap{1\leq i< l\leq j}}k_v|x_l|+\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{\mathclap{1\leq t\leq l\leq j}}}||y_v||(||x_l||-k_l)+\underset{\mathclap{0\leq v< k_t}}{\sum_{\mathclap{1\leq t\leq j}}} ||y_{v+i_t}||(k_v-v+1)\\
+\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{\mathclap{1\leq t< l\leq j}}}||y_v||(||x_l||-k_l)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(||x_l||-k_l)\\+\sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|(i_{l+1}-i_l-k_l)
+\end{align*}
+\end{defin}
+
+\begin{corollary}[The derived Deligne conjecture]\label{dainftydeligne}
+If $A$ is a derived $A_\infty$-algebra horizontally bounded on the right, then its Hochschild complex $S\s\End_A$ is a derived $J$-algebra.
 \end{corollary}
+The result follows from \Cref{bigradedtheorem} analogously to \Cref{ainftydeligne} using the explicit expressions and signs given by \Cref{derivedmaps}, \Cref{mi1} and \Cref{bigradedsign}.
+%\begin{proof}
+%Clearly $\s\End_A$ is a brace algebra as it is an operad. Since $A$ is a derived $A_\infty$-algebra, the structure map $m=\sum_{ij}m_{ij}$ determines a derived $A_\infty$-multiplication $m\in\s\End_A$. It follows by \Cref{derivedainftystructure} that $S\s\End_A$ is a derived $A_\infty$-algebra. Therefore, we need to show the compatibility relations. 
+%\end{proof}
 
 
 \end{document}

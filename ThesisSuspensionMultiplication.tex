@@ -835,12 +835,12 @@ Let $M^{GV}_2$ be the product defined in \cite{GV} as \[M^{GV}_2(x,y)=(-1)^{|x|+
 
 We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algeras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting. We introduce now the notation $||x||=|x|+1$ in order to make the equations more compact.
 
-\begin{defin}
-A $J$-algebra $V$ is an $A_\infty$-algebra with structure maps $\{M_j\}_{j\geq 1}$ such that the shift $S^{-1}V$ a brace algebra. Furthermore, the braces and the $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$. For $n\geq 0$ we demand 
+\begin{defin}\label{Jalgebras}
+A \emph{$J$-algebra} $V$ is an $A_\infty$-algebra with structure maps $\{M_j\}_{j\geq 1}$ such that the shift $S^{-1}V$ a brace algebra. Furthermore, the braces and the $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$. For $n\geq 0$ we demand 
 \begin{align*}
 (-1)^{\sum_{i=1}^n(n-i)|y_i|}Sb_n(S^{-1}&M_1(Sx);y_1,\dots, y_n)=\\.
 &\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{\mathclap{l+k-1=n}}}(-1)^{\varepsilon}M_l(Sy_1,\dots, Sb_{k}(x;y_{i_1},\dots),\dots, Sy_n)\\
-+\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{\mathclap{l+k-1=n}}}&(-1)^{\eta} Sb_k(x;y_1,\dots, S^{-1}M_l(Sy_{i_1},\dots,), \dots, y_n)
+-(-1)^{|x|}\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{\mathclap{l+k-1=n}}}&(-1)^{\eta} Sb_k(x;y_1,\dots, S^{-1}M_l(Sy_{i_1},\dots,), \dots, y_n)
 \end{align*}
 where
 %\[
@@ -886,7 +886,7 @@ In the sums we are setting $i_0=1$, $k_0=0$.
 \end{defin}
 
 \begin{corollary}[The $A_\infty$-Deligne Conjecture]\label{ainftydeligne}
-If $A$ is an $A_\infty$-algebra, then its Hochschild complex $S\s\End_A$ is a homotopy $J$-algebra.
+If $A$ is an $A_\infty$-algebra, then its Hochschild complex $S\s\End_A$ is a $J$-algebra.
 \end{corollary}
 \begin{proof}
  Clearly $\s\End_A$ is a brace algebra as it is an operad. Since $A$ is an $A_\infty$-algebra, the structure map $m=m_1+m_2+\cdots$ determines an $A_\infty$-multiplication $m\in\s\End_A$. It follows by \Cref{ainftystructure} that $S\s\End_A$ is an $A_\infty$-algebra. Therefore, we need to show the compatibility relations. The result follows by direct computation from \Cref{theorem}, exapanding the definitions and taking into account the sign rules described in \Cref{koszulsigns}. Let us do this in detail. 
@@ -949,7 +949,6 @@ The first term is analogous to the general case, yielding
 \end{equation}
 upon evaluation, where
 
-
 \[
 \varepsilon = \sum_{v=1}^{i_1-1}(|y_v|+1)(|x|-k+1)+\sum_{v=0}^{k-1}(|y_{v+i_1}|+1)(k-v+1)+(l-1)|x|+(i_1-1)k.
 \]
@@ -957,7 +956,7 @@ Let us now focus on the second term of \Cref{twoterms} and let us omit the sign 
 \begin{equation*}
 \overline{B}_1(Sb_{k}(x;S^{-k});M)= \underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{l+k-1=n}}(-1)^{l(k-1)} Sb_k(x;S^{-(i_1-1)}, S^{-1}M_l, S^{-(k - i_1)}).
 \end{equation*}
-The sign is computed using \Cref{bracesign} and the Koszul sign rule for the shifts. Notice that here we need to use the internal degree of $M_l\in\s\End_A$, that is, $2-l$. Finally, evaluating at $Sy_1,\dots, Sy_n$ produces the result.
+The sign is computed using \Cref{bracesign} and the Koszul sign rule for the shifts. Notice that here we need to use the internal degree of $M_l\in\s\End_A$, that is, $2-l$. Finally, evaluating at $Sy_1,\dots, Sy_n$ and combining the resulting signs with the factor $(-1)^{\binom{k}{2}+|x|}$ produces the result.
 
 
 \end{proof}
