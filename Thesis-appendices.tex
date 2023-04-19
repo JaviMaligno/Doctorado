@@ -66,12 +66,15 @@ Let us first check that $\sigma^{-1}$ commutes with insertions. For that, let $F
 
 and on the other hand
 
-\[\sigma^{-1}(F)\tilde{\circ}_i\sigma^{-1}(G)=(-1)^{(n-1)(m-1)+(n-1)(\deg(G)+m-1)+(i-1)(m-1)}\sigma^{-1}(F)\circ_i\sigma^{-1}(G)\]
-\[=(-1)^{\varepsilon}S^{-1}\circ F(S^{\otimes i-1}\otimes G(S^{\otimes m})\otimes S^{\otimes n-i}),\]
+\begin{align*}
+\sigma^{-1}(F)\tilde{\circ}_i\sigma^{-1}(G)=&\\
+(-1)^{(n-1)(m-1)+(n-1)(\deg(G)+m-1)+(i-1)(m-1)}\sigma^{-1}(F)\circ_i\sigma^{-1}(G)=&\\
+(-1)^{\varepsilon}S^{-1}\circ F(S^{\otimes i-1}\otimes G(S^{\otimes m})\otimes S^{\otimes n-i}),&
+\end{align*}
 where
 \begin{align*}
-\varepsilon=&\binom{n}{2}+\binom{m}{2}+(n-1)(m-1)\\
-&+(n-1)(\deg(G)+m-1)+(i-1)(m-1)+(\deg(G)+m-1)(n-i).
+\varepsilon=&\binom{n}{2}+\binom{m}{2}+(n-1)(m-1)+(n-1)(\deg(G)+m-1)\\
+&+(i-1)(m-1)+(\deg(G)+m-1)(n-i).
 \end{align*}
 
 By \Cref{binom}, 
@@ -184,14 +187,21 @@ In \cite{RW} there is a sign $(-1)^{N+i-1}$ in front of $f$ but it seems to be i
 \end{remark}
 
 
-Notice that by the Koszul sign rule \[(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^{N-1} j}1=(-1)^{\frac{N(N-1)}{2}}1=(-1)^{\binom{N}{2}}1,\] so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in \End_{S(A)}(m)^j$, we have
+Notice that by the Koszul sign rule 
+\begin{align*}
+(S^{-1})^{\otimes N}\circ S^{\otimes N}&=(-1)^{\sum_{j=1}^{N-1} j}1\\
+&=(-1)^{\frac{N(N-1)}{2}}1=(-1)^{\binom{N}{2}}1,
+\end{align*}
+so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in \End_{S(A)}(m)^j$, we have
 \[
 \sigma^{-1}(F)=(-1)^{\binom{m}{2}}S^{-1}\circ F\circ S^{\otimes m}\in \End_A(m)^{j-m+1}.
 \]
 
-For $g_j\in \End_A(a_j)^{q_j}$, let us write $f[g_1,\dots, g_n]$ for the map \[\sum_{k_0+\cdots+k_n=N-n}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})\in \End_A(N-n+\sum a_j)^{i+\sum q_j}\]
+For $g_j\in \End_A(a_j)^{q_j}$, let us write $f[g_1,\dots, g_n]$ for the map 
+\[\sum_{\mathclap{k_0+\cdots+k_n=N-n}}f(1^{\otimes k_0}\otimes g_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes g_n\otimes 1^{\otimes k_n})\in \End_A(N-n+\sum a_j)^{i+\sum q_j}\]
 
-We define \[b_n(f;g_1,\dots, g_n)=\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])\in \End_A(N-n+\sum a_j)^{i+\sum q_j}\]
+We define $b_n(f;g_1,\dots, g_n)\in \End_A(N-n+\sum a_j)^{i+\sum q_j}$ as
+\[b_n(f;g_1,\dots, g_n)=\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)]).\]
 With this the definition we can prove the following.
 \begin{lem}
  We have
@@ -210,12 +220,12 @@ Let us compute $\eta$ using the definition of $b_n$.
 \begin{align*}
 &\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])=\\ &=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ\\ 
 &(\sigma(f)(1^{\otimes k_0}\otimes \sigma(g_1)\otimes 1^{\otimes k_1}\otimes\cdots\otimes \sigma(g_n)\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}\\
-&=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ S\circ f\circ (S^{-1})^{\otimes N}\circ \\ &(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ  S^{\otimes N-n+\sum a_j}\\
+&=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ S\circ f\circ (S^{-1})^{\otimes N}\circ \\ &\left(1^{\otimes k_0}\bigotimes ((S\circ g_i\circ (S^{-1})^{\otimes a_i})\otimes 1^{\otimes k_i})\right)\circ  S^{\otimes N-n+\sum a_j}\\
 &=(-1)^{\binom{N-n+\sum a_j}{2}}f\circ ((S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\circ\\ 
-&(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}
+&\left(1^{\otimes k_0}\bigotimes ((S\circ g_i\circ (S^{-1})^{\otimes a_i})\otimes 1^{\otimes k_i})\right)\circ  S^{\otimes N-n+\sum a_j}
 \end{align*}
-
-
+%
+%&=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ S\circ f\circ (S^{-1})^{\otimes N}\circ \\ &(1^{\otimes k_0}\otimes (S\circ g_1\circ (S^{-1})^{\otimes a_1})\otimes\cdots\otimes (S\circ g_n\circ (S^{-1})^{\otimes a_n})\otimes 1^{\otimes k_n}))\circ  S^{\otimes N-n+\sum a_j}\\
 
 
 Now we move each $1^{\otimes k_{j-1}}\otimes S\circ g_j\circ (S^{-1})^{a_j}$ to apply $(S^{-1})^{k_{j-1}}\otimes S^{-1}$ to it. Doing this for all $j=1,\dots, n$ produces a sign
@@ -347,9 +357,7 @@ In the sum, all terms of the form $b_1(x;b_1(m_{jl};m_{ik}))$ that can be seen i
 
 Then $b_1(m_{ik};b_1(x;m_{jl}))$ on the first line should cancel with $b_1(m_{jl};b_1(x;m_{ik}))$ on the second line (but from a different summand, the one where $i$ and $j$ are interchanged). Finnaly, the remaining terms $b_1(m_{ik}; b_1(m_{jl};x))+b_2(m_{jl};x,m_{ik})+b_2(m_{jl};m_{ik},x)$ add up to $b_1(b_1(m;m);x)$ up to sign. That would cancel everything.
 
-
-
-Let us now introduce the signs. We now compute for all $u$
+Let us now introduce the signs. We now compute for all $u$ the sum%the sum $\displaystyle{\sum_{i+j=u} (-1)^iM_{i1}\circ M_{j1}}$.
 \[\sum_{i+j=u} (-1)^iM_{i1}\circ M_{j1}.\]
 %recalling that for the usual sign convention of twisted complex from a $dA_\infty$-algebra we need to define $d_i=(-1)^im_{i1}$, so that the sign in the equation is $(-1)^j$ instead of $(-1)^i$. 
 For $x\in\s\OO$, by definition, we have
