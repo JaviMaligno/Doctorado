@@ -692,10 +692,8 @@ which means that $f_1$ commutes with the multiplication $m_2$ up to a homotopy
 given by $f_2$.
 \end{itemize}
 
-Again, the reader can find more details in \cite{keller} and \cite[\S 9.2]{lodayvallette}.
-
-We also need another, perhaps more intuitive, notion of morphism of $A_\infty$-algebras.
-
+Again, the reader can find more details in \cite{keller} and \cite[\S 9.2]{lodayvallette}. We also need another, perhaps more intuitive, notion of morphism of $A_\infty$-algebras.
+ 
 \begin{defin}\label{inftyalgebramorphism}
 A \emph{morphism} of $A_\infty$-algebras is a degree 0 map $f:A\to B$ such that
 \[f(m^A_j)=m^B_j\circ f^{\otimes j}.\]
@@ -730,7 +728,8 @@ In this section we recall the notion of operad, an object that is particularly u
 
 We will be working in the category of graded $R$-modules, but all the definitions and results in this section generalize with no substantial changes to any symmetric monoidal category like the ones we see in \Cref{categories}. 
 
-We start defining the underlying object of an operad.
+\subsection{Definitions}
+We first give the main definitions that we will be using throughout the thesis. We start defining the underlying object of an operad.
 
 \begin{defin}\label{collections}
 A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules. We call the integer $n$ the \emph{arity}. When there is an action of the symmetric group $\Sigma_n$ on each $\OO(n)$ we say that the collection is an \emph{$\mathbb{S}-$module}. A \emph{map of collections} $f:\OO\to\mathcal{P}$ is a family of maps $f_n:\OO(n)\to\mathcal{P}(n)$. A map of collection is a \emph{map of $\mathbb{S}-$modules} when it preserves the symmetric group action.
@@ -1531,7 +1530,7 @@ define a $\vbc$-enriched functor $\mathfrak{Tot} : \utC → \ufC$ which restrict
  which also restricts to an isomorphism onto its image.
 \end{thm}
 
-We now define an enriched endomorphism operad.
+We now present an enriched endomorphism operad. The precise operad structure is shown in \cite[Lemma 4.41]{whitehouse}. 
 \begin{defin}
 Let $\underline{\mathscr{C}}$ be a monoidal $\mathscr{V}$-enriched category and $A$ an object of $\uC$. We define $\uEnd_A$
 to be the collection in $\mathscr{V}$ given by

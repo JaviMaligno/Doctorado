@@ -28,8 +28,10 @@ In this chapter recall some definitions about derived $A_\infty$-algebras and pr
 
 
 \section{Derived $A_\infty$-algebras}
+In this section we introduce derived $A_\infty$-algebras. We first give some definitions and then motivate them by explaning how they generalize the theory of minimal models that we saw in \Cref{minimalmodels}. 
 
-In this section we recall some definitions about derived $A_\infty$-algebras from \cite{sagave} and provide some operadic interpretations. We also refer to \Cref{bigradedbackground} to recall some definitions and sign conventions.
+\subsection{Definitions}
+Here we recall some definitions about derived $A_\infty$-algebras from \cite{sagave} and provide some operadic interpretations. We also refer to \Cref{bigradedbackground} to recall some definitions and sign conventions.
 
   \begin{defin}
   Using the notation in \cite{RW}, a \emph{derived $A_\infty$-algebra} on a $(\Z,\Z)$-bigraded $R$-module $A$ consist of a family of $R$-linear maps 
@@ -382,7 +384,7 @@ Since $f_j=(f_{ij})_i\in\Tot(\s\End^A_B(j))$ is of degree $0$, we have that that
 coincides up to signes with with the \Cref{dinftymaps}, the equation defining derived $\infty$-morphisms of derived $A_\infty$-algebras. The signs that appear in the above equation are obtained in a similar way to that on the brace $b_j^T$, see \Cref{bracetot}. Thus, it is enough to plug in the sign provided by \Cref{bracetot} from the corresponding degrees and arities to obtain the desired result. The composition of derived $\infty$-morphisms follows similarly.
 \end{proof}
 
-In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition can be written in terms of operadic composition as $f\star m=\gamma^\star(m\circ f)$, where $\gamma^*$ is the composition map derived from the operation $\star$, see \Cref{gammastar}. Here, $\circ$ is the plethysm of maps of collections, not to be confused with composition of maps. 
+In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition can be written in terms of operadic composition as $f\star m=\gamma^\star(m\circ f)$, where $\gamma^\star$ is the composition map derived from the operation $\star$, see \Cref{gammastar}. Here, $\circ$ is the plethysm of maps of collections, not to be confused with composition of maps. 
 
 
 \section{Bigraded braces and totalized braces}\label{sectionbibraces}
@@ -449,13 +451,12 @@ Notice that in \cite{LRW} the sign in the bracket is $(-1)^{(N+1)(M+1)}$, but th
 \section{The derived $A_\infty$-structure on an operad}\label{derivedstructure}
 
 
-In this final section we show that, under some reasonable assumptions, and operad with a derived $A_\infty$-multiplication is a derived $A_\infty$-algebra and compute the structure maps explicitly. From this structure we obtain a derived version of the Deligne conjecture for the Hochschild complex of a derived $A_\infty$-algebra.
+In this section we show that, under some reasonable assumptions, an operad with a derived $A_\infty$-multiplication is a derived $A_\infty$-algebra and compute the structure maps explicitly. From this structure we obtain a derived version of the Deligne conjecture for the Hochschild complex of a derived $A_\infty$-algebra.
 
 \subsection{Derived $A_\infty$-structures}
+As in the single graded case, we identify $\s\OO = \prod_n \s\OO(n)$. We follow a strategy inspired by the proof of the following theorem to show that there is a derived $A_\infty$-structure on $S\s\OO$. We refer the reader to \Cref{categories} to recall the definitions of the categories used. %Note that $\Tot(SB)=S\Tot(B)$ for any bigraded module $B$, where $SB$ is the vertical suspension of $B$ and $S\Tot(B)$ is the suspension of $\Tot(B)$ as graded modules. %We identify with the underlying bigraded module, We are going to follow, The proof can be found in
 
-We are going to follow a strategy inspired by the proof of the following theorem to show that there is a derived $A_\infty$-structure on $A=S\s\OO$. The proof can be found in \cite[Poposition 4.55]{whitehouse}. We refer the reader to \Cref{categories} to recall the definitions of the categories used. %Note that $\Tot(SB)=S\Tot(B)$ for any bigraded module $B$, where $SB$ is the vertical suspension of $B$ and $S\Tot(B)$ is the suspension of $\Tot(B)$ as graded modules.
-
-\begin{thm}\label{whitehouse}
+\begin{thm}(\cite[Proposition 4.55]{whitehouse})\label{whitehouse}
 Let $(A, d^A) ∈ \tc^b$ be an twisted complex horizontally bounded on the right and $A$ its underlying
 chain complex. We have natural bijections %this means that A has d0 as a differential and End_A has [d0,-]
 \begin{align*}
