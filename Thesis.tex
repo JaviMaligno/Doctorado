@@ -62,22 +62,24 @@ And last but certainly not least, I would like to thank myself for having the co
 %\begin{tabular}{ll}
 \begin{longtable}{ll}
 $R$ & A ring of non-zero characteristic\\
-$A$ & A (bi)graded $R$-module\\
+%$A$ & A (bi)graded $R$-module\\
+$\Hom_R(A,B)$ & The (bi)graded module of linear maps\\
 $\deg(x)$ & Degree of an element $x$ in a graded module\\
 $\Z$ & The group of integers\\
 $S$ & Shift map for single-graded modules,\\
  & vertical shift for bigraded modules\\
-SYMMETRIC GROUP & I DON'T USE IT MUCH \\
+%SYMMETRIC GROUP & I DON'T USE IT MUCH \\
 %$\Sigma_n$ & Symmetric group on $n$ elements\\
 %$sig_n$ & Sign representation of $\Sigma_n$ \\
 $\OO$ & A linear (bi)graded operad\\
 $\otimes$ & Tensor product of (bi)graded $R$-modules,\\
 & also Hadamard product of operads\\
 $\End_A$ & Endomorphism operad\\
+$\End_B^A$ & Collection $\{\Hom_R(A^{\otimes n},B)\}_{n\geq 1}$\\
 $\calA_\infty$ & Operad of $A_\infty$-algebras\\
 $d\calA_\infty$ & Operad of derived $A_\infty$-algebras\\
 $m=m_1+m_2+\cdots$ & $A_\infty$-structure maps on $A$,\\
-& or $A_\infty$-multiplication in $\OO$\\
+& or $A_\infty$-multiplication in an operad\\
 $M=M_1+M_2+\cdots$ & $A_\infty$-structure maps on $S\s\OO$\\
 $\overline{M} = \overline{M}_1+\overline{M}_2+\cdots$ & $A_\infty$-structure maps on $S\s\End_{S\s\OO}$\\
 $m=\sum_{ij}m_{ij}$ & Derived $A_\infty$-structure maps on $A$,\\
@@ -85,37 +87,45 @@ $m=\sum_{ij}m_{ij}$ & Derived $A_\infty$-structure maps on $A$,\\
 $M=\sum_{ij}M_{ij}$ & derived $A_\infty$-structure maps on $S\s\OO$\\
 $\overline{M} = \sum_{ij}\overline{M}_{ij}$ & derived $A_\infty$-structure maps on $S\s\End_{S\s\OO}$\\
 $\gamma$ & Operadic composition\\
-GAMMA IN SIGNS & REPLACE WITH OMEGA\\
+& sometimes used as an exponent in signs\\
 $\circ_i$ & Operadic insertion\\
 $\circ$ & Plethysm of operads, \\
-& also circle operation and composition of maps\\
+& also circle operation \\
+& and composition of maps\\
 %$\bar{\circ}$ & Plethysm of cooperads\\
 $\Lambda$ & Operad structure on the shifts of $R$ \\
 $\s\OO=\OO\otimes\Lambda$ & Operadic suspension of $\OO$\\
 & also its underlying (bi)graded module\\
-$|x|$ & natural degree of $x$ in $\s\OO$ if $\OO$ is single graded\\
-& Total degree of $x$ in a bigraded module otherwise\\
+$|x|$ & Natural degree of $x$ in $\s\OO$ if single-graded\\
+& also total degree of $x$ in a bigraded module\\
 $||x||=|x|+1$ & Degree of $x$ in $S\s\OO$ if $\OO$ is single-graded\\
 I MAY STILL & CHANGE SOME DEGREE NOTATION\\
 $\tilde{\gamma}$ & Operadic composition on $\s\OO$\\
 $\tilde{\circ}_i$ & Operadic insertion on $\s\OO$\\
 $\tilde{\circ}$ & Circle operation on $\s\OO$\\
-LIE BRACKET? & ALSO INTERNAL HOM\\
+$[,]$ & Lie bracket\\
+ & also internal hom\\
 $b_n$ & Brace map on $\OO$ or $\s\OO$\\
 $B_n$ & Brace map on $\End_{\s\OO}$\\
-
+ 
 $\overline{B}_n$ & Brace map on $\s\End_{S\s\OO}$\\
+
+$\overline{\sigma}$ & Isomorphism $\End_A\cong \s\End_{SA}$ \\
+
+$\Phi: S\s\OO\to S\s\End_{S\s\OO}$ & Morphism of (derived) $A_\infty$-algebras \\
 
 $\CC = (\CC,\otimes_\CC, 1_\CC)$ & A (closed) (symmetric) monoidal category\\
 
-$\CC^b$ & A category horizontally bounded on the right\\
+$\Hom_\CC(A,B)$ & Set of morphism from $A$ to $B$\\
+
+$\CC^b$ & Category horizontally bounded on the right \\
 
 $\mathrm{C}_R$ & Category of cochain complexes \\
 
 
 $\mathrm{fC}_R$ & Category of filtered complexes  \\
 
-$\underline{\Hom}$ & Filtered Hom complex\\
+$\underline{\Hom}(A,B)$ & Filtered Hom complex\\
 
 $\mathrm{bgMod}_R$ & Category of bigraded modules \\
 
@@ -129,14 +139,20 @@ $\uC$ & Enriched category\\
 
 $\underline{\otimes}$ & Enriched tensor product\\
 
-$\underline{\mathpzc{bgMod}_R}$ & $\mathrm{bgMod}_R$-enriched category of bigraded modules \\
+$\uEnd_A$ & Enriched endomorphism operad\\
 
-$\underline{t\mathcal{C}_R}$& $\mathrm{vbC}_R$-enriched category of twisted complexes\\
+$\underline{\mathpzc{bgMod}_R}$ & $\mathrm{bgMod}_R$-enriched category \\
+& of bigraded modules \\
+
+$\underline{t\mathcal{C}_R}$& $\mathrm{vbC}_R$-enriched category \\
+& of twisted complexes\\
 
 
-$\ufMod$ & $\mathrm{bgMod}_R$-enriched category of filtered modules \\
+$\ufMod$ & $\mathrm{bgMod}_R$-enriched category \\
+& of filtered modules \\
 
-$\ufC$ & $\mathrm{vbC}_R$-enriched category of filtered complexes \\
+$\ufC$ & $\mathrm{vbC}_R$-enriched category \\
+& of filtered complexes \\
 
 %BOUNDED VERSIONS? & I ONLY USE THE NOTATION LIKE ONCE, MAYBE GENERIC $C^b$ \\
 
@@ -155,15 +171,8 @@ $\gamma^\star$ & Operadic composition on $\Tot(\s\OO)$\\
 $b^T_n$ & Brace map on $\Tot(\OO)$\\
 
 
-
-BAR SIGMA & THE ISO\\
-
-
-END & THERE ARE SEVERAL VERSIONS (UNDERLINED AND COLLECTION TOO)\\
-
-PHI & ISOM\\
-MU? & MONOIDAL\\
-I AM OMITTING & AD HOC DEFINED SYMBOLS
+$\mu=\mu_{A,B}$ & The map $\Tot(A)\otimes \Tot(B)\to\Tot(A\otimes B)$\\
+%I AM OMITTING & AD HOC DEFINED SYMBOLS
 %\end{tabular}
 \end{longtable}
 
