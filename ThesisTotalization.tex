@@ -81,7 +81,7 @@ Analogously to \Cref{ainftymultiplication}, we have the following.
 A \emph{derived $A_\infty$-multiplication} on a bigraded operad $\OO$ is a map of operads $d\calA_\infty\to\OO$.
 \end{defin}
 
-\subsection{Minimal models}
+\subsection{Minimal models}\label{derivedminimalmodels}
 
 
 We would like to motivate the introduction of derived $A_\infty$-algebras by stating the derived version of minimal models that we saw for $A_\infty$-algebras in \Cref{minimalmodels}. In order to do that, we need some previous definitions that we take from \cite{sagave}. We also refer to this paper for all the technical details.
@@ -473,12 +473,12 @@ horizontal degree zero or as an operad in filtered complexes with trivial filtra
 
 
 
-\begin{remark}
+\begin{remark}\label{boundednessremark}
 According to \Cref{filterversion}, the last isomorphism can be replaced by 
 \[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\cong \Hom_{\mathrm{COp}}(\calA_∞,\End_{\Tot(A)}),\]
 where $\mathrm{COp}$ is the category of operads in chain complexes. 
 \end{remark}
-There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^{d-k}=0$ for all $k>i$. In our case, $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far (some of them are in \cite[Remark 6.5]{muro}, \cite{RW}, and \cite[\S 5]{women}). Under this assumption we may replace all direct products by direct sums.
+There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^{d-k}=0$ for all $k>i$. In our case, $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have at most a finite number of non-zero $dA_\infty$ components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far (some of them are in \cite[Remark 6.5]{muro}, \cite{RW}, and \cite[\S 5]{women}). Under this assumption we may replace all direct products by direct sums.
 
 We also need to provide $A$ with a twisted complex structure. The reason for this is that \Cref{whitehouse} uses the definition of derived $A_\infty$-algebras on an underlying twisted complex, see \Cref{equivalent}. We show explicitly the existence of a twisted complex structrue on an operad with derived $A_\infty$-multiplication in \Cref{twistedoperad}, but it also follows from \Cref{mi1}. We also provide another version of this theorem that works for bigraded modules, \Cref{alternative}. 
 
@@ -654,7 +654,7 @@ holds.%, where the $M_{ij}$ is the $j$-th component of the $A_\infty$-algebra st
 
 As a consequence of this theorem, we can obtain a derived version of the Deligne conjecture. In order to formulate this new Deligne conjecture, we need to introduce the notion of derived $J$-algebra, as a derived version of $J$-algebras introduced in \Cref{Jalgebras}.
 
-\begin{defin}
+\begin{defin}\label{derivedJalgebras}
 A \emph{derived $J$-algebra} $V$ is a derived $A_\infty$-algebra with structure maps $\{M_{ij}\}_{i\geq 0, j\geq 1}$ such that the shift $S^{-1}V$ a brace algebra. Furthermore, the braces and the derived $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$. BIDEGREES? USE Q FOR VERTICAL DEGREE FOR SHORT IF NEEDED For all $n,i\geq 0$ we demand 
 
 OBTAIN SIGNS

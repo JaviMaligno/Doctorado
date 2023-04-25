@@ -37,41 +37,63 @@
 
 \chapter{Future research}\label{future}
 
-We finish by outlining some question that remain open after our research that would be interesting to investigate in the future. These questions arise naturally from the work done with (derived) $A_\infty$-algebras and from the classical results by Gerstenhaber and Voronov \cite{GV}.
+We finish by outlining some questions that remain open after our research and that would be interesting to investigate in the future. These questions arise naturally from the work done with (derived) $A_\infty$-algebras and from the classical results by Gerstenhaber and Voronov \cite{GV}. First we recall the boundedness assumptions we needed to make on derived $A_\infty$-algebras, see \Cref{boundednessremark}, and wonder how we can either guarantee or bypass them. Then we recall the implications of the classical Deligne conjecture on the Hochschild complex of an associative algebra to try to formulate a generalization for derived $A_\infty$-algebras.
 
 \section{Boundedness conditions}
 
+In \Cref{derivedmaps} we obtained a derived $A_\infty$-algebra structure on the bigraded module $A=S\s\OO$ for an operad $\OO$ with a derived $A_\infty$-multiplication. Since this structure was obtained from \Cref{whitehouse}, a crucial assumption for it to exist is that $A$ is horizontally bounded on the right. This was necessary to apply strict monoidality on $\Tot(A^{\otimes n})$. As a consequence, the components $m_{ij}$ of derived $A_\infty$-multiplication (\Cref{derivedmultiplication}) vanish for sufficiently large $i$. 
+
+As we mentioned in \Cref{boundednessremark}, this condition is satisfied in all known examples of derived $A_\infty$-algebras \cite[Remark 6.5]{muro}, \cite{RW}, and \cite[\S 5]{women}. These examples usually come as minimal models of dga's. So a first question that arises is the following.
+
+%\textbf{Question 1.} ENVIRONMENT?
+\begin{question}{2}
+Are there any conditions on a dga that guarantee that its minimal model is horizontally bounded on the right?
+\end{question}
+
+An answer to this question would give us a better understanding of how general our results are. In fact, it is open whether a derived $A_\infty$-structure can be obtained for a more general operad. Even though we needed to use some monoidality results that require boundedness, the explicit maps that we obtain in \Cref{derivedmaps} can be defined for any operad with a derived $A_\infty$-multiplication. A first idea would be attempting a direct computation to see if they satisfy the derived $A_\infty$-equation (\ref{dainftyequation}). Of course, we would like to use a more conceptual approach. So more generally the question would be the following.
+
+%\textbf{Question 2.} ENVIRONMENT?
+\begin{question}{2}
+Can we define a derived $A_\infty$-structure on any operad with a derived $A_\infty$-multiplication?
+\end{question}
 
 \section{Hochschild Cohomology}
 
 %\section{Morphism}
 %About how could $\Phi$ connected morphisms, it's not even clear what notion of morphism to use because if you have $O\to P$ and it is not clear how to get $P^n\to P$ from $O^n\to O$.
-REWRITE BECAUSE THIS IS FROM DELIGNE CONJECTURE IDEAS
+
+ 
+
+The classical Deligne conjecture states that the Hoschschild complex of an associative algebra has a structure of homotopy $G$-algebra \cite{GV}. This has implications on the Hochschild cohomology of the associative algebra. Namely, the homotopy $G$-algebra structure on the Hoschschild complex induces a Gerstenhaber algebra structure on cohomology. We would like to extend this result to derived $A_\infty$-algebras.
 
 Let us review the structure on the Hochschild complex of an associative operad in order to understand the question that we will be asking about the (derived) $A_\infty$-case.
 
-Let $\OO$ be an operad with an associative multiplication $m$, i.e. an $A_\infty$-multiplication $m$ (\cref{ainftymult}) such that $m=m_2$. In this case, as a consequence of \cref{ainftystructure} or by \cite{GV}[Proposition 2], we have a dg-algebra structure on $S\s\OO$ given by the differential
+Let $\OO$ be an operad with an associative multiplication $m$, i.e. an $A_\infty$-multiplication $m$ such that $m=m_2$, see \Cref{ainftymult}. In this case, as a consequence of \Cref{ainftystructure} or by \cite[Proposition 2]{GV}, we have a dg-algebra structure on $S\s\OO$ given by the differential
 \[d(Sx) =  Sb_1(m; x) -(-1)^{|x|}Sb_1(x; m)\]
 and the multiplication
 \[m(Sx,Sy) = Sb_2(m;x,y).\]
 
-In particular, if $\OO = \End_{SA}$ is the endomorphism operad of an associative algebra $A$ (such as $\s\PP$ for an operad $\PP$ with associative multiplication), these maps provide a dg-algebra structure on the Hochschild complex of $A$, denoted by $C^*(A)$. But this is not all the structure that we get. Since any operad is a brace algebra, we have an interaction between the dg-algebra and the brace structure. More precisely, $\OO$ has a structure of \emph{homotopy $G$-algebra} (see Definition 2 and Theorem 3 of \cite{GV}). MAYBE WRITE DOWN THE DEFINITION IN MY TERMS, SINCE IT IS A CONSEQUENCE OF BRACE RELATION
+In particular, if $\OO = \End_{A}$ is the endomorphism operad of an associative algebra $A$, these maps provide a dg-algebra structure on the Hochschild complex of $A$. %, denoted by $C^*(A)$.
+But this is not all the structure that we get. Since any operad is a brace algebra, we have an interaction between the dg-algebra and the brace structure. More precisely, $\OO$ has a structure of \emph{homotopy $G$-algebra}, see Definition 2 and Theorem 3 of \cite{GV}.% MAYBE WRITE DOWN THE DEFINITION IN MY TERMS, SINCE IT IS A CONSEQUENCE OF BRACE RELATION
 
-I CAN USE THIS TO INTRODUCE THE DELIGNE CONJECTURE PREVIOUSLY
- This result is what we call the \emph{Deligne Conjecture}, which has its roots in the theory of topological operads SOME REFERENCE TO DELIGNE CONJECTURE
- 
+%I CAN USE THIS TO INTRODUCE THE DELIGNE CONJECTURE PREVIOUSLY
  
  Given the algebraic structure described above on the Hochschild complex of an associative algebra, we can then take cohomology with respect to $d$ to compute the Hochschild cohomology of $A$, denoted by $HH^*(A)$. It is known that $m$ and the bracket 
 \[[x,y]=Sb_1(x; y) -(-1)^{|x||y|}Sb_1(y; x)\]
-induces a structure of a Gerstenhaber algebra on $HH^*(A)$ \cite{GV}[Corollary 5]. The proof relies on some identities that can be deduced from the definition of homotopy $G$-algebra, such has graded homotopy commutativity. 
+induce a structure of a Gerstenhaber algebra on $HH^*(A)$ \cite[Corollary 5]{GV}. The proof relies on some identities that can be deduced from the definition of homotopy $G$-algebra, such as graded homotopy commutativity. 
 
-If we try to replicate this argument in the derived $A_\infty$, as we mentioned before, we encounter an explosion in the number of relations and maps involved in the description of $G_{A_\infty}$-algebras. MAYBE GIVE IT A TRY Therefore, the resulting structure has not been feasible to manipulate and it is not very clear what kind of algebraic structure it induces on cohomology. The derived case if of course even more difficult to handle.
+If we try to replicate this argument for $A_\infty$-algebras, the structure we get on the Hochschild complex is that of a $J$-algebra, see \Cref{Jalgebras}. In this case, we have to compute cohomology with respect to $M_1$, see \Cref{explicit}. In the definition of $J$-algebras, we encounter an explosion in the number and complexity of relations and maps involved with respect to homotopy $G$-algebras. Therefore, the resulting structure has not been feasible to manipulate and it is not very clear what kind of algebraic structure is induced on cohomology. The derived case is of course even more difficult to handle as we would need to work with the even more complex derived $J$-algebras, see \Cref{derivedJalgebras}. In addition, as we explained in \Cref{derivedminimalmodels}, it is possible to consider vertical and horizontal cohomologies. These should be taken with respect to $M_{01}$ and $M_{11}$ respectively, see \Cref{mi1}. So the natural question to ask is the following. % MAYBE GIVE IT A TRY
 
 
+%\textbf{Question 3.} ENVIRONMENT?
+\begin{question}{3}
+What algebraic structure do derived $J$-algebras induce on the vertical and horizontal cohomologies of a derived $A_\infty$-algebra?
+\end{question}
+Notice that the above question includes the Hochschild cohomology of $A_\infty$-algebras, since this is the same as the vertical cohomology of an $A_\infty$-algebra sitting on horizontal degree 0. 
 
-DETAILS (ONLY IN THESIS, NOT IN PAPER)
-\url{https://math.stackexchange.com/questions/3887857/show-that-this-map-is-well-defined-on-cohomology/3887939#3887939}%☺
-I MAY ALSO NEED TO WRITE THE DERIVATION OF (11) FROM (9)
-\url{https://arxiv.org/pdf/hep-th/9409063.pdf}
+%DETAILS (ONLY IN THESIS, NOT IN PAPER)
+%\url{https://math.stackexchange.com/questions/3887857/show-that-this-map-is-well-defined-on-cohomology/3887939#3887939}%☺
+%I MAY ALSO NEED TO WRITE THE DERIVATION OF (11) FROM (9)
+%\url{https://arxiv.org/pdf/hep-th/9409063.pdf}
 
 \end{document}
