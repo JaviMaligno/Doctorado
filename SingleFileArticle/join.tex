@@ -115,7 +115,11 @@
   \renewcommand\themanualtheoreminner{#1}%
   \manualtheoreminner
 }{\endmanualtheoreminner}
-
+\newtheorem{questioninner}{Question}
+\newenvironment{question}[1]{%
+  \renewcommand\thequestioninner{#1}%
+  \questioninner
+}{\endquestioninner}
 %\theoremstyle{definition}
 \newtheorem{defin}{Definition}[section]
 \newtheorem{ex}[defin]{Example}
@@ -163,11 +167,7 @@
 
 
 \begin{abstract}
-INCLUDE DELIGNE
-
-
-
-We study the operad of derived $A_\infty$-algebras from a new point of view. We start by defining the brace structure on an operad of graded $R$-modules using operadic suspension, which we describe in depth for the first time as a functor, and use it to define $A_\infty$-algebra structures on certain operads, with the endomorphism operad as our main example. This construction provides us with an operadic context from which $A_\infty$-algebras arise in a natural way and allows us to generalize the Lie algebra structure on the Hochschild complex of an $A_\infty$-algebra. Next, we generalize these constructions to operads of bigraded $R$-modules, introducing a totalization functor. This allows us to generalize a Lie algebra structure on the total complex of a derived $A_\infty$-algebra. This construction and the use of some enriched categories allow us to obtain some new results about derived $A_\infty$-algebras that generalize those obtained for $A_\infty$-algebras.
+We study the operad of derived $A_\infty$-algebras from a new point of view in order to find a derived version of the Deligne conjecture. We start by defining the brace structure on an operad of graded $R$-modules using operadic suspension, which we describe in depth for the first time as a functor, and use it to define $A_\infty$-algebra structures on certain operads, with the endomorphism operad as our main example. This construction provides us with an operadic context from which $A_\infty$-algebras arise in a natural way and allows us to generalize the Lie algebra structure on the Hochschild complex of an $A_\infty$-algebra. Next, we generalize these constructions to operads of bigraded $R$-modules, introducing a totalization functor. This allows us to generalize a Lie algebra structure on the total complex of a derived $A_\infty$-algebra. This construction and the use of some enriched categories allow us to obtain new versions of the Deligne conjecture.
 \end{abstract}
 
 \tableofcontents
@@ -179,7 +179,7 @@ There are a number of mathematical fields in which $A_\infty$-structures arise, 
 
 Another technique to describe $A_\infty$-structures comes from brace algebras \cite{GV},\cite{lada}, which often involves unwieldy sign calculations that are difficult to describe in a conceptual way.
 
-Here we used an operadic approach to obtain these signs in a more conceptual and consistent way. As a consequence, we will generalize the Lie bracket used in \cite{RW} and will give a very simple interpretation of $A_\infty$-algebras. The difference between our operadic approach and others mentioned before is that ours uses much more elementary tools and can be use to talk about $A_\infty$-structrures on any operad. We hope that this provides a useful way of thinking about $A_\infty$-structures.
+Here we used an operadic approach to obtain these signs in a more conceptual and consistent way. As a consequence, we will generalize the Lie bracket used in \cite{RW} and will give a very simple interpretation of $A_\infty$-algebras. The difference between our operadic approach and others mentioned before is that ours uses much more elementary tools and can be use to talk about $A_\infty$-structrures on any operad. We hope that this provides a useful way of thinking about $A_\infty$-structures.  A first application of this simple formulation is the generalization of the Deligne conjecture. The classical Deligne conjecture states that the Hochschild complex of an associative algebra has the structure of a homotopy $G$-algebra \cite{GV}. This result has its roots in the theory of topological operads \cite{delignehistory}. Since $A_\infty$-generalize associative algebras, it is natural to ask what sort of algebraic structure arises on their Hochschild complex. Thanks to the tools we develop, we are able to answer this question.
 
 Later in 2009, derived $A_\infty$-algebras were introduced by Savage \cite{sagave} as a bigraded generalization of $A_\infty$-algebras in order to bypass the projectivity requirements that often arise when working with classical $A_\infty$-algebras. We generalize the operadic description of classical $A_\infty$-algebras to the derived case by means of an operadic totalization inspired by the totalization functor described in \cite{whitehouse}. This way we obtain an operation similar to the star operation in \cite{LRW} and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra.
 
@@ -195,10 +195,10 @@ There is a morphism of $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$.
 This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we introduce a suitable context and prove it as \Cref{theorem}. We also draw a connection between our framework and the one from Gerstenhaber and Voronov. As a consequence of this theorem, if $A$ is an $A_\infty$-algebra and $\OO=\End_A$ its endomorphism operad, we obtain the following $A_\infty$-version of the Deligne Conjecture in \Cref{ainftydeligne}. 
 
 \begin{manualtheorem}{B}
-The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with an $A_\infty$-multiplication has a structure of a homotopy $G_{A_\infty}$-algebra.
+The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with an $A_\infty$-multiplication has a structure of a $J$-algebra.
 \end{manualtheorem} 
 
- After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras in \Cref{deriveddef}. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW} which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our main results about derived $A_\infty$-algebras. The first one is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, the $A_\infty$-structure on totalization is equivalent to a derived $A_\infty$-algebra on $S\s\OO$.
+ In the above theorem, $J$-algebras play the role of homotopy $G$-algebras in the classical case \cite{GV}. After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras in \Cref{deriveddef}. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW} which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our main results about derived $A_\infty$-algebras. The first one is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, the $A_\infty$-structure on totalization is equivalent to a derived $A_\infty$-algebra on $S\s\OO$.
  
  \begin{manualtheorem}{C}
 	For any operad $\OO$ with a derived $A_\infty$-multiplication there are linear maps $M_{ij}:(S\s\OO)^{\otimes j}\to S\s\OO$, satisfying the derived $A_\infty$-algebra axioms.
@@ -207,10 +207,12 @@ The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with an $A_\infty$-multip
  \begin{manualtheorem}{D}
 There is a morphism of derived $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$.
 \end{manualtheorem}
-As a consequence of this theorem we obtain a new version of the Deligne Conjecture, \Cref{dainftydeligne}, this time in the setting of derived $A_\infty$-algebras.
+As a consequence of this theorem we obtain a new version of the Deligne Conjecture, \Cref{dainftydeligne}, this time in the setting of derived $A_\infty$-algebras. For this we also introduce a derived version of $J$-algebras.
 \begin{manualtheorem}{E}
-The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with a derived $A_\infty$-multiplication has a structure of $G_{dA_\infty}$-algebra.
+The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with a derived $A_\infty$-multiplication has a structure of derived $J$-algebra.
 \end{manualtheorem} 
+We finish the article in \Cref{future} by outlining some open question about derived $A_\infty$-algebras and their Hochschild cohomology that arise from our research. 
+
 
 
 \section{Background and conventions}\label{Sec1}
@@ -1759,7 +1761,9 @@ In this section we recall some definitions about derived $A_\infty$-algebras and
   Using the notation in \cite{RW}, a \emph{derived $A_\infty$-algebra} on a $(\Z,\Z)$-bigraded $R$-module $A$ consist of a family of $R$-linear maps 
 \[m_{ij}:A^{\otimes j}\to A\]
 of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
-\[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}(1^{\otimes r}\otimes m_{pq}\otimes 1^{\otimes t})=0\]
+\begin{equation}\label{dainftyequation}
+\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}(1^{\otimes r}\otimes m_{pq}\otimes 1^{\otimes t})=0
+\end{equation}
 for all $u\geq 0$ and $v\geq 1$. 
 \end{defin}
 
@@ -2128,7 +2132,7 @@ horizontal degree zero or as an operad in filtered complexes with trivial filtra
 
 
 
-\begin{remark}
+\begin{remark}\label{boundednessremark}
 According to \Cref{filterversion}, the last isomorphism can be replaced by 
 \[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\cong \Hom_{\mathrm{COp}}(\calA_∞,\End_{\Tot(A)}),\]
 where $\mathrm{COp}$ is the category of operads in chain complexes. 
@@ -2346,7 +2350,61 @@ d\calA_\infty\to\End_A,
 so $\OO=\End_A$ is an operad with a derived $A_\infty$-multiplication BY DEFINITION and the result follows from \Cref{derivedequivalence} and \Cref{bigradedtheorem}.
 \end{proof}
 
+\section{Future research}\label{future}
 
+We finish by outlining some questions that remain open after our research and that would be interesting to investigate in the future. These questions arise naturally from the work done with (derived) $A_\infty$-algebras and from the classical results by Gerstenhaber and Voronov \cite{GV}. %First we recall the boundedness assumptions we needed to make on derived $A_\infty$-algebras, see \Cref{boundednessremark}, and wonder how we can either guarantee or bypass them. Then we recall the implications of the classical Deligne conjecture on the Hochschild complex of an associative algebra to try to formulate a generalization for derived $A_\infty$-algebras.
+
+\subsection{Boundedness conditions}
+
+In \Cref{derivedmaps} we obtained a derived $A_\infty$-algebra structure on the bigraded module $A=S\s\OO$ for an operad $\OO$ with a derived $A_\infty$-multiplication. Since this structure was obtained from \Cref{whitehouse}, a crucial assumption for it to exist is that $A$ is horizontally bounded on the right. This was necessary to apply strict monoidality on $\Tot(A^{\otimes n})$. As a consequence, the components $m_{ij}$ of derived $A_\infty$-multiplication (\Cref{derivedmultiplication}) vanish for sufficiently large $i$. 
+
+As we mentioned in \Cref{boundednessremark}, this condition is satisfied in all known examples of derived $A_\infty$-algebras. These examples usually come as minimal models of dga's. So a first question that arises is the following.
+
+%\textbf{Question 1.} ENVIRONMENT?
+\begin{question}{2}
+Are there any conditions on a dga that guarantee that its minimal model is horizontally bounded on the right?
+\end{question}
+
+An answer to this question would give us a better understanding of how general our results are. In fact, it is open whether a derived $A_\infty$-structure can be obtained for a more general operad. Even though we needed to use some monoidality results that require boundedness, the explicit maps that we obtain in \Cref{derivedmaps} can be defined for any operad with a derived $A_\infty$-multiplication. A first idea would be attempting a direct computation to see if they satisfy the derived $A_\infty$-equation, see \Cref{dainftyequation}. Of course, we would like to use a more conceptual approach. So more generally the question would be the following.
+
+%\textbf{Question 2.} ENVIRONMENT?
+\begin{question}{2}
+Can we define a derived $A_\infty$-structure on any operad with a derived $A_\infty$-multiplication?
+\end{question}
+
+\subsection{Hochschild Cohomology}
+
+%\section{Morphism}
+%About how could $\Phi$ connected morphisms, it's not even clear what notion of morphism to use because if you have $O\to P$ and it is not clear how to get $P^n\to P$ from $O^n\to O$.
+
+ 
+
+The classical Deligne conjecture states that the Hoschschild complex of an associative algebra has a structure of homotopy $G$-algebra \cite{GV}. This has implications on the Hochschild cohomology of the associative algebra. Namely, the homotopy $G$-algebra structure on the Hoschschild complex induces a Gerstenhaber algebra structure on cohomology. We would like to extend this result to derived $A_\infty$-algebras.
+
+Let us review the structure on the Hochschild complex of an associative operad in order to understand the question that we will be asking about the (derived) $A_\infty$-case.
+
+Let $\OO$ be an operad with an associative multiplication $m$, i.e. an $A_\infty$-multiplication $m$ such that $m=m_2$, see \Cref{ainftymult}. In this case, as a consequence of \Cref{ainftystructure} or by \cite[Proposition 2]{GV}, we have a dg-algebra structure on $S\s\OO$ given by the differential
+\[d(Sx) =  Sb_1(m; x) -(-1)^{|x|}Sb_1(x; m)\]
+and the multiplication
+\[m(Sx,Sy) = Sb_2(m;x,y).\]
+
+In particular, if $\OO = \End_{A}$ is the endomorphism operad of an associative algebra $A$, these maps provide a dg-algebra structure on the Hochschild complex of $A$. %, denoted by $C^*(A)$.
+But this is not all the structure that we get. Since any operad is a brace algebra, we have an interaction between the dg-algebra and the brace structure. More precisely, $\OO$ has a structure of \emph{homotopy $G$-algebra}, see Definition 2 and Theorem 3 of \cite{GV}.% MAYBE WRITE DOWN THE DEFINITION IN MY TERMS, SINCE IT IS A CONSEQUENCE OF BRACE RELATION
+
+%I CAN USE THIS TO INTRODUCE THE DELIGNE CONJECTURE PREVIOUSLY
+ 
+ Given the algebraic structure described above on the Hochschild complex of an associative algebra, we can then take cohomology with respect to $d$ to compute the Hochschild cohomology of $A$, denoted by $HH^*(A)$. It is known that $m$ and the bracket 
+\[[x,y]=Sb_1(x; y) -(-1)^{|x||y|}Sb_1(y; x)\]
+induce a structure of a Gerstenhaber algebra on $HH^*(A)$ \cite[Corollary 5]{GV}. The proof relies on some identities that can be deduced from the definition of homotopy $G$-algebra, such as graded homotopy commutativity. 
+
+If we try to replicate this argument for $A_\infty$-algebras, the structure we get on the Hochschild complex is that of a $J$-algebra, see \Cref{Jalgebras}. In this case, we have to compute cohomology with respect to $M_1$, see \Cref{explicit}. In the definition of $J$-algebras, we encounter an explosion in the number and complexity of relations and maps involved with respect to homotopy $G$-algebras. Therefore, the resulting structure has not been feasible to manipulate and it is not very clear what kind of algebraic structure is induced on cohomology. The derived case is of course even more difficult to handle as we would need to work with the even more complex derived $J$-algebras, see \Cref{derivedJalgebras}. In addition, it is possible to consider vertical and horizontal cohomologies \cite[\S 1.2]{RW}. These should be taken with respect to $M_{01}$ and $M_{11}$ respectively, see \Cref{mi1}. So the natural question to ask is the following. % MAYBE GIVE IT A TRY
+
+
+%\textbf{Question 3.} ENVIRONMENT?
+\begin{question}{3}
+What algebraic structure do derived $J$-algebras induce on the vertical and horizontal cohomologies of a derived $A_\infty$-algebra?
+\end{question}
+Notice that the above question includes the Hochschild cohomology of $A_\infty$-algebras, since this is the same as the vertical cohomology of an $A_\infty$-algebra sitting on horizontal degree 0. 
 
 
 %\begin{appendices}
@@ -2868,6 +2926,13 @@ Steffen Sagave.
 James~Dillon Stasheff.
 \newblock Homotopy associativity of {H}-{spaces}. {II}.
 \newblock {\em Trans. Amer. Math. Soc. 108}, pages 275--292, 1963.
+
+\bibitem[Kon99]{delignehistory}
+Maxim Kontsevich.
+\newblock Operads and motives in deformation quantization.
+\newblock volume~48, pages 35--72. 1999.
+\newblock Mosh\'{e} Flato (1937--1998).
+
 
 \end{thebibliography}
 
