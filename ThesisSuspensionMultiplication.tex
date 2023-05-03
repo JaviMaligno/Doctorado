@@ -404,7 +404,7 @@ b_1(f;g)=\sum_i f\tilde{\circ}_i g=f\tilde{\circ}g,
 \]
 so the notation $f\tilde{\circ} g$ is suggestive for operadic suspension. The notation $f\circ g$ will still be used whenever the insertion maps are denoted by $\circ_i$.
 
-In \cite{RW}, the sign is computed using a strategy that we generalize in \Cref{rw} (see \Cref{eta}). The approach we have followed here has the advantage that the brace relation follows immediatly from the associativity axiom of operadic composition. This approach also works for any operad since the difference between $\gamma$ and $\tilde{\gamma}$ is going to be the same sign. 
+In \cite{RW}, the sign is computed using a strategy that we generalize in \Cref{rw}, see \Cref{eta}. The approach we have followed here has the advantage that the brace relation follows immediatly from the associativity axiom of operadic composition. This approach also works for any operad since the difference between $\gamma$ and $\tilde{\gamma}$ is going to be the same sign. 
 
 \subsection{Reinterpretation of $\infty$-morphisms}\label{reinterpretation}
 As we mentioned before, we can show an alternative description of $\infty$-morphisms of $A_\infty$-algebras and their composition in terms of suspension of collections (recall \Cref{inftymorphism} for the definition of these morphisms).
@@ -834,12 +834,12 @@ In the case $n=2$, omitting the shift symbols by abuse of notation, we obtain
 Let $M^{GV}_2$ be the product defined in \cite{GV} as \[M^{GV}_2(x,y)=(-1)^{|x|+1}b_2(m;x,y).\] We see that $M_2=-M^{GV}_2$. Since the authors of \cite{GV} work in the associative case $m=m_2$, this minus sign does not affect the $A_\infty$-relation (which in this case reduces to the associativity and differential relations). This difference in sign can be explained by the difference between $(S^{\otimes n})^{-1}$ and $(S^{-1})^{\otimes n}$, since any of these shift maps can be used to define a map $(S\s\OO)^{\otimes n}\to \s\OO^{\otimes n}$. 
 \end{remark}
 
-We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algeras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting. We introduce now the notation $||x||=|x|+1$ in order to make the equations more compact.
+Now that we have the explicit formulas for the $A_\infty$-structure on $S\s\OO$ we can state and prove an $A_\infty$-version of the Deligne conjecture. We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algeras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting. We introduce now the notation $||x||=|x|+1$ in order to make the equations more compact.
 
 \begin{defin}\label{Jalgebras}
 A \emph{$J$-algebra} $V$ is an $A_\infty$-algebra with structure maps $\{M_j\}_{j\geq 1}$ such that the shift $S^{-1}V$ a brace algebra. Furthermore, the braces and the $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$. For $n\geq 0$ we demand 
 \begin{align*}
-(-1)^{\sum_{i=1}^n(n-i)|y_i|}Sb_n(S^{-1}&M_1(Sx);y_1,\dots, y_n)=\\.
+(-1)^{\sum_{i=1}^n(n-i)|y_i|}Sb_n(S^{-1}&M_1(Sx);y_1,\dots, y_n)=\\
 &\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{\mathclap{l+k-1=n}}}(-1)^{\varepsilon}M_l(Sy_1,\dots, Sb_{k}(x;y_{i_1},\dots),\dots, Sy_n)\\
 -(-1)^{|x|}\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{\mathclap{l+k-1=n}}}&(-1)^{\eta} Sb_k(x;y_1,\dots, S^{-1}M_l(Sy_{i_1},\dots,), \dots, y_n)
 \end{align*}
@@ -866,7 +866,7 @@ For $j>1$ we demand
 The unindexed sum runs over all possible choices of non-negative integers that satisfy $l+k_1+\cdots+k_j-j=n$ and over all possible ordering-preserving insertions. The right hand side sign is given by 
 \begin{align*}
 \varepsilon = \sum_{\mathclap{1\leq i< l\leq j}}k_v|x_l|+\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{\mathclap{1\leq t\leq l\leq j}}}||y_v||(||x_l||-k_l)+\underset{\mathclap{0\leq v< k_t}}{\sum_{\mathclap{1\leq t\leq j}}} ||y_{v+i_t}||(k_v-v+1)\\
-\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{\mathclap{1\leq t< l\leq j}}}||y_v||(||x_l||-k_l)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(||x_l||-k_l)\\+\sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|(i_{l+1}-i_l-k_l)
++\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{\mathclap{1\leq t< l\leq j}}}||y_v||(||x_l||-k_l)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(||x_l||-k_l)\\+\sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|(i_{l+1}-i_l-k_l)
 \end{align*}
 %\begin{align*}
 %\varepsilon = \sum_{\mathclap{1\leq i< l\leq j}}k_v|x_l|+\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{\mathclap{1\leq t\leq l\leq j}}}(|y_v|+1)(|x_l|-k_l+1)+\underset{\mathclap{0\leq v< k_t}}{\sum_{\mathclap{1\leq t\leq j}}} (|y_{v+i_t}|+1)(k_v-v+1)\\
@@ -890,7 +890,7 @@ In the sums we are setting $i_0=1$, $k_0=0$.
 If $A$ is an $A_\infty$-algebra, then its Hochschild complex $S\s\End_A$ is a $J$-algebra.
 \end{corollary}
 \begin{proof}
- Clearly $\s\End_A$ is a brace algebra as it is an operad. Since $A$ is an $A_\infty$-algebra, the structure map $m=m_1+m_2+\cdots$ determines an $A_\infty$-multiplication $m\in\s\End_A$. It follows by \Cref{ainftystructure} that $S\s\End_A$ is an $A_\infty$-algebra. Therefore, we need to show the compatibility relations. The result follows by direct computation from \Cref{theorem}, exapanding the definitions and taking into account the sign rules described in \Cref{koszulsigns}. Let us do this in detail. 
+ Clearly $\s\End_A$ is a brace algebra as it is an operad. Since $A$ is an $A_\infty$-algebra, the structure map $m=m_1+m_2+\cdots$ determines an $A_\infty$-multiplication $m\in\s\End_A$. It follows by \Cref{ainftystructure} that $S\s\End_A$ is an $A_\infty$-algebra. Therefore, we need to show the compatibility relations. The result follows by direct computation from \Cref{theorem}, expanding the definitions and taking into account the sign rules described in \Cref{koszulsigns}. Let us do this in detail. 
  
 Recall that \Cref{theorem} states that $\Phi\circ M_j = \overline{M}_j\circ \Phi^{\otimes j}$. We start with the case $j>1$. Let $Sx_1,\dots, Sx_j\in S\s\End_A$. Recall \Cref{Phi} for the definition of $\Phi$. On the left hand side we have
 \begin{align*}
