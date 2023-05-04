@@ -83,9 +83,9 @@ so we conclude
 \end{proof}
 
 \begin{remark}
-The sign from \Cref{tilde} is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras (\cref{ainftyequation}) is derived. This means that if $m_s\in\OO(s)$ has degree $2-s$ and $m_{r+1+t}\in \OO(r+1+t)$ has degree $1-r-t$, we get (abusing notation) that
+The sign from \Cref{tilde} is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras, i.e. \Cref{ainftyequation} is derived. This means that if $m_s\in\OO(s)$ has degree $2-s$ and $m_{r+1+t}\in \OO(r+1+t)$ has degree $1-r-t$, we get (abusing notation) that
 
-\[m_{r+1+t}\tilde{\circ_{r+1}}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s.\]
+\[m_{r+1+t}\tilde{\circ}_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s.\]
 \end{remark}
 
 Next, we are going to use the above fact to obtain an way to describe $A_\infty$-algebras in simplified operadic terms. We are also going to compare this description with a classical approach that is more general but requires heavier operadic machinery. 
@@ -139,7 +139,7 @@ When we obtain the signs for the full operadic composition on operadic suspensio
 \begin{thm}\label{markl}(\cite[Chapter 3, Lemma 3.16]{operads})
 Given a graded $R$-module $A$, there is an isomorphism of operads $\sigma^{-1}:\End_{S A}\cong \mathfrak{s}^{-1}\End_A$, where $\End_A$ is the endomorphism operad of $A$.
 \end{thm}
-The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit (see  \Cref{proofthm} for a detailed proof), but in the case of the operadic suspension defined above, the isomorphism is given by \[\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,\] where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. The symbol $\circ$ here is just composition of maps.
+The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit, see  \Cref{proofthm} for a detailed proof. But in the case of the operadic suspension defined above, the isomorphism is given by \[\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,\] where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. The symbol $\circ$ here is just composition of maps.
 Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from \cite{RW}, where a twisted version of this map is the inverse of a map $\sigma$. Here, we define $\sigma:\End_A(n)\to\End_{SA}(n)$ as the map of graded modules given by
 \begin{equation}\label{sigma}
 \sigma(f)= S\circ f \circ (S^{-1})^{\otimes n}.
@@ -238,7 +238,7 @@ Firstly, we need to define the structure maps of a lax monoidal functor. Namely,
 \[\s\OO\circ\s\OO\xrightarrow{\mu}\s(\OO\circ\OO)\xrightarrow{\s\gamma}\s\OO\]
  to coincide with the operadic composition $\tilde{\gamma}$ on $\s\OO$, where $\gamma$ is the composition on $\OO$. 
  
- As we will show in \Cref{bracesign} $\tilde{\gamma}=(-1)^\eta\gamma$, and $\s\gamma$ does not add any signs, so the sign must come entirely from the map $\s\OO\circ\s\OO\to\s(\OO\circ\OO)$. Therefore, we define the map \[\mu:\s\OO\circ\s\PP\to\s(\OO\circ\PP)\] as the map given by
+We know that $\s\gamma$ does not add any signs. Therefore, if $\tilde{\gamma}=(-1)^\eta\gamma$, with $\eta$ explicitly computed in \Cref{bracesign}, the sign must come entirely from the map $\s\OO\circ\s\OO\to\s(\OO\circ\OO)$. Thus, we define the map \[\mu:\s\OO\circ\s\PP\to\s(\OO\circ\PP)\] as the map given by
  \[x\otimes e^N\otimes x_1\otimes e^{a_1}\otimes\cdots\otimes x_N\otimes e^{a_N}\mapsto (-1)^\eta x\otimes x_1\otimes\cdots\otimes x_N \otimes e^n,\]
  where $a_1+\cdots+a_N=n$ and 
  \[\eta=\sum_{j<l}a_j\deg(b_l)+\sum_{j=1}^N (a_j+\deg(b_j)-1)(N-j),\]
@@ -284,7 +284,7 @@ In the case where the operads have trivial arity 0 component, we may define an i
 \[\Lambda(n)\to \bigoplus_{N\geq 0} \Lambda(N)\otimes\left(\bigoplus_{a_1+\cdots+a_N=n}\Lambda(a_1)\otimes\cdots\otimes\Lambda(a_N)\right)\]
 as the map
 \[e^n\mapsto\sum_{a_1+\cdots+a_N=n}(-1)^{\delta}e^N\otimes  e^{a_1}\otimes\cdots\otimes e^{a_N},\]
-where $\delta$ is just the same sign that shows up in the operadic composition on $\Lambda$ (see \Cref{bracesign}) and $a_1,\dots,a_k>0$. Since there are only finitely many ways of decomponsing $n$ into $N$ positive integers, the sum is finite and thus the map is well defined. In fact, this map defines a cooperad structure on the reduced sub-operad of $\Lambda$ with trivial arity 0 component. This map induces the morphism $\mu^{-1}:\s(\OO\circ\PP)\to \s\OO\circ\s\PP$ that we are looking for.
+where $\delta$ is the same sign that appears in the operadic composition on $\Lambda$ (see \Cref{bracesign}) and where $a_1,\dots,a_k>0$. Since there are only finitely many ways of decomponsing $n$ into $N$ positive integers, the sum is finite and thus the map is well defined. In fact, this map defines a cooperad structure on the reduced sub-operad of $\Lambda$ with trivial arity 0 component. This map induces the morphism $\mu^{-1}:\s(\OO\circ\PP)\to \s\OO\circ\s\PP$ that we are looking for.
 
 The unit morphism $\varepsilon$ is always an isomorphism, so this shows $\s$ is strong monoidal in the reduced case.
 

@@ -642,7 +642,7 @@ With all the notations and conventions established we can now introduce $A_\inft
 An \emph{$A_\infty$-algebra} is a graded $R$-module $A$ together with a family of maps $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying the equation
 
 \begin{equation}\label{ainftyequation}
-\sum_{r+s+t=n}(-1)^{rs+t}m_{r+t+1}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t})=0,
+\sum_{r+s+t=n}(-1)^{rs+t}m_{r+t+1}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes t})=0
 \end{equation}
 for all $n\geq 1$.
 \end{defin}
@@ -1449,12 +1449,11 @@ The monoidal structure of $\ubgMod$ is given by the restriction of this map.
 \begin{defin}\label{ufMod}
 The \emph{$\bgmod$-enriched category of filtered modules} $\ufMod$ is the enriched category given by the following data.
 %I keep j+u from the original source so that degrees match in enriched totalization. Alternatively one can keep v-u
-\begin{enumerate}
+\begin{enumerate}[(1)]
 \item The objects of $\ufMod$ are filtered modules.
 \item For filtered modules $(K, F)$ and $(L, F)$, the bigraded module $\ufMod(K,L)$ is given by
 \[\ufMod(K,L)^v_u :=\{f: K → L | f(F_qK^m) ⊂ F_{q+u}L^{m+u+v}, ∀m, q ∈ \Z\}\]
 %\end{enumerate}
-
 %\begin{enumerate}
 %\setcounter{enumi}{2}
 \item The composition morphism is given by $c(f, g) = (−1)^{u|g|}fg$, where $u$ is the horizontal degree of $f$.
