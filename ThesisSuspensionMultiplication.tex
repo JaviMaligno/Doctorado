@@ -117,7 +117,11 @@ Conversely, if $m\in\s\OO$ of degree 1 such that $m\tilde{\circ}m=0$, let $m_i$ 
 This shows that the elements $m_i$ determine a map $f:\mathcal{A}_\infty\to\OO$ defined on generators by $f(\mu_i)=m_i$, as desired. 
 \end{proof}
 
-This fact is not coincidental. Recall that the Koszul dual cooperad $\mathcal{A}s^{¡}$ of the associative operad $\mathcal{A}s$ is $k\mu_n$ in arity $n$, where $\mu_n$ has degree $n-1$ for $n\geq 1$. Thus, for a graded module $A$, we have the following operad isomorphisms, where the notation $(\geq 1)$ means that we are taking the reduced sub-operad with trivial arity 0 component.
+\begin{remark}\label{dg}
+If one works with dg-operads, then the definition of $\calA_\infty$ as a quasi-free operad should be used, see \Cref{internal}. In that case, similarly to \Cref{twisting}, the equation that an $A_\infty$-multiplication on $\OO$ satisfies is $\partial(m)+m\tilde{\circ} m = 0$, where $\partial$ is the differential on $\OO$ and $m$ is concentrated on arity at least 2. A similar analysis can be carried out from here, but we will stick to operads of graded modules for the most part.
+\end{remark}
+
+We can connect \Cref{ainftymult} with the existing literature. Recall that the Koszul dual cooperad $\mathcal{A}s^{¡}$ of the associative operad $\mathcal{A}s$ is $k\mu_n$ in arity $n$, where $\mu_n$ has degree $n-1$ for $n\geq 1$. Thus, for a graded module $A$, we have the following operad isomorphisms, where the notation $(\geq 1)$ means that we are taking the reduced sub-operad with trivial arity 0 component.
 
 
 \[\Hom(\mathcal{A}s^{¡},\End_A)\cong \End_{S^{-1}A}(\geq 1)\cong\s\End_A(\geq 1).\]
@@ -126,7 +130,7 @@ The first operad is the convolution operad (see \cite[\S 6.4.1]{lodayvallette}),
 
 \[f\star g=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}f\circ_i g=\sum_{i=1}^nf\tilde{\circ}_i g=f\tilde{\circ}g.\]
 
-It is known that $A_\infty$-structures on $A$ are determined by elements $\varphi\in\Hom(\mathcal{A}s^{¡},\End_A)$ of degree 1 such that $\varphi\star \varphi=0$ \cite[Proposition 10.1.3]{lodayvallette}. Since the convolution product coincides with the operation $\tilde{\circ}$, such an element $\varphi$ is sent via the above isomorphism to an element $m\in\s\End_A(\geq 1)$ of degree 1 satisfying $m\tilde{\circ}m=0$. Therefore, we see that this classical interpretation of $A_\infty$-algebras is equivalent to the one that  \Cref{twisting} provides in the case of the operad $\End_A$. See \cite[Proposition 10.1.11]{lodayvallette} for more details about convolution operads and the more classical operadic interpretion of $A_\infty$-agebras,  taking into account that in the dg-setting the definition has to be modified slightly (also the difference in sign conventions arise from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$, see Theorem \ref{markl}).
+It is known that $A_\infty$-structures on $A$ are determined by elements $\varphi\in\Hom(\mathcal{A}s^{¡},\End_A)$ of degree 1 such that $\varphi\star \varphi=0$ \cite[Proposition 10.1.3]{lodayvallette}. Since the convolution product coincides with the operation $\tilde{\circ}$, such an element $\varphi$ is sent via the above isomorphism to an element $m\in\s\End_A(\geq 1)$ of degree 1 satisfying $m\tilde{\circ}m=0$. Therefore, we see that this classical interpretation of $A_\infty$-algebras is equivalent to the one that \Cref{twisting} provides in the case of the operad $\End_A$. See \cite[Proposition 10.1.11]{lodayvallette} for more details about convolution operads and the more classical operadic interpretion of $A_\infty$-agebras,  taking into account that in the dg-setting the definition has to be modified slightly, see \Cref{dg}. There is also a difference in sign conventions that arises from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$, see \Cref{markl}.
 
 What is more, replacing $\End_A$ by any operad $\OO$ and doing similar calculations to \cite[Proposition 10.1.11]{lodayvallette}, we retrieve the notion of $A_\infty$-multiplication on $\OO$ given by \Cref{ainftymult}.
 
