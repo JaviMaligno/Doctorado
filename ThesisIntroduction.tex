@@ -441,8 +441,8 @@ $m_3$, we obtain two concatenations of homotopies linking the compositions $(f_1
 
 \definecolor{dcrutc}{rgb}{0.39215686274509803,0.39215686274509803,0.39215686274509803}
 \[
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-\clip(-3.0601652892561972,-1.781126972201351) rectangle (5.063801652892563,3.6734184823441027);
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale = 0.96]
+\clip(-3.0601652892561972,-1.4) rectangle (5.063801652892563,3.1);
 \fill[color=dcrutc,fill=dcrutc,fill opacity=0.10000000149011612] (2.5,2.5) -- (0.5,2.5) -- (-0.1180339887498949,0.5978869674096935) -- (1.5,-0.5776835371752531) -- (3.118033988749895,0.5978869674096927) -- cycle;
 \draw (2.5,2.5)-- (0.5,2.5);
 \draw (0.5,2.5)-- (-0.1180339887498949,0.5978869674096935);
@@ -568,16 +568,15 @@ $m_3$, we obtain two concatenations of homotopies linking the compositions $(f_1
 %\end{scriptsize}
 %\end{tikzpicture}
 
-These two concatenations are homotopic. Let us denote an homotopy by
+These two concatenations are homotopic. Denote an homotopy by
 \[
 m_4 : K_4 × (\Omega X)^4 \to X
 \]
 where $K_4$ denotes the pentagon bounded by the two paths. When we want to compose five factors, there are fourteen possibilities corresponding to the fourteen binary trees
 with five leaves. Using $m_4$ and $m_3$, we obtain homotopies linking the compositions and faces linking the homotopies. The resulting object is the boundary of the polytope $K_5$ depicted.
-
 \[
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-\clip(-3.63,-1.8) rectangle (4.,3);
+\clip(-3.63,-1.3) rectangle (4.,2.9);
 \draw(-0.5,0.) -- (0.,0.5) -- (-0.5,1.) -- (-1.,0.5) -- cycle;
 \draw (-0.5,0.)-- (0.,0.5);
 \draw (0.,0.5)-- (-0.5,1.);
@@ -729,11 +728,13 @@ In this section we recall the notion of operad, an object that is particularly u
 We will be working in the category of graded $R$-modules, but all the definitions and results in this section generalize with no substantial changes to any symmetric monoidal category like the ones we see in \Cref{categories}. 
 
 \subsection{Definitions}
-We first give the main definitions that we will be using throughout the thesis. We start defining the underlying object of an operad.
+We first give the main definitions that we will be using throughout the thesis. Before defining what an operad is, we start defining the underlying object of an operad.
 
 \begin{defin}\label{collections}
 A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules. We call the integer $n$ the \emph{arity}. When there is an action of the symmetric group $\Sigma_n$ on each $\OO(n)$ we say that the collection is an \emph{$\mathbb{S}-$module}. A \emph{map of collections} $f:\OO\to\mathcal{P}$ is a family of maps $f_n:\OO(n)\to\mathcal{P}(n)$. A map of collection is a \emph{map of $\mathbb{S}-$modules} when it preserves the symmetric group action.
 \end{defin}
+
+We will mostly focus on the non-symmetric case, but our general results about operads generalize to the symmetric case as well. 
 
 \begin{defin}
 The \emph{plethysm} or \emph{composite} $\OO\circ\PP$ of two collections $\OO$ and $\PP$ given by
@@ -772,7 +773,8 @@ An operad $\OO$ is equivalent to a monoid in the monoidal category of collection
 
 \begin{defin}The \emph{Hadamard product} $\OO\otimes\PP$ of  two operads $\OO$ and $\PP$ is given on each arity component by $(\OO\otimes\PP)(n)=\OO(n)\otimes\PP(n)$. The structure maps are given by diagonal composition and diagonal symmetric group action in the case of symmetric operads. \end{defin}
 
-The next definition is the most important and common example of an operad.
+The next definition is the most important and common example of an operad. It is very useful to keep it in mind when intuitively thinking about operads.
+
 \begin{defin}
 The \emph{endomorphism operad} $\End_A$ of a graded $R$-module $A$ is given by the modules \[\End_A(n)=\Hom_R(A^{\otimes n},A).\] Insertion maps are given by
 \[f\circ_i g=f(1^{\otimes i-1}\otimes g\otimes 1^{\otimes n-i})\]
@@ -1137,7 +1139,7 @@ A \emph{filtered $R$-module} $(A, F)$ is given by a family of $R$-modules $\{F_p
 the integers such that $F_{p}A ⊆ F_{p-1}A$ for all $p ∈ \Z$ and $A = \bigcup_p F_pA$. A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules which is compatible with filtrations, namely 
 \[f(F_pA) ⊂ F_pB \text{ for all }p ∈ \Z.\]
 \end{defin}
-We denote by $\mathrm{C}_R$ the category of cochain complexes of $R$-modules.
+Note that some other sources may reverse inclusions in the above definition and consider $F_{p}A ⊆ F_{p+1}A$ instead. We denote by $\mathrm{C}_R$ the category of cochain complexes of $R$-modules.
 \begin{defin}\label{filteredcomplex}
 A \emph{filtered complex} $(K, d, F)$ is a cochain complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. Its morphisms are given by
 morphisms of complexes $f : K → L$ compatible with filtrations, namely \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
@@ -1452,7 +1454,7 @@ The \emph{$\bgmod$-enriched category of filtered modules} $\ufMod$ is the enrich
 \begin{enumerate}[(1)]
 \item The objects of $\ufMod$ are filtered modules.
 \item For filtered modules $(K, F)$ and $(L, F)$, the bigraded module $\ufMod(K,L)$ is given by
-\[\ufMod(K,L)^v_u :=\{f: K → L | f(F_qK^m) ⊂ F_{q+u}L^{m+u+v}, ∀m, q ∈ \Z\}\]
+\[\ufMod(K,L)^v_u :=\{f: K → L | f(F_qK^m) ⊂ F_{q+u}L^{m+u+v}, ∀m, q ∈ \Z\}.\]
 %\end{enumerate}
 %\begin{enumerate}
 %\setcounter{enumi}{2}
