@@ -610,7 +610,7 @@ where $\langle  m_{il},x\rangle=ik+(1-i)(d-1-k)$, as claimed.
 \subsection{The derived Deligne conjecture}
 
 
-Note that the maps given by \Cref{derivedmaps} and \Cref{mi1} formally look the same as their single-graded analogues in \Cref{explicit} but with an extra index that is fixed for each $M_{ij}$. This means that we can follow the same procedure as in \Cref{sect3} to define higher derived $A_\infty$-maps. More precisely, given an operad $\OO$ with a derived multiplication and $A=S\s\OO$, we will define a derived $A_\infty$-algebra structure on $S\s\End_A$. We will then connect the algebraic structure on $A$ with the structure on $S\s\End_A$ through braces. This connection will allow us to formulate and show a new version of the Deligne conjecture that generalizes the one that we obtained in \Cref{ainftydeligne}. 
+Note that the maps given by \Cref{derivedmaps} and \Cref{mi1} formally look the same as their single-graded analogues in \Cref{explicit} but with an extra index that is fixed for each $M_{ij}$. This means that we can follow the same procedure as in \Cref{sect3} to define higher derived $A_\infty$-maps on the Hochschild complex of a derived $A_\infty$-algebra. More precisely, given an operad $\OO$ with a derived multiplication and $A=S\s\OO$, we will define a derived $A_\infty$-algebra structure on $S\s\End_A$. We will then connect the algebraic structure on $A$ with the structure on $S\s\End_A$ through braces. This connection will allow us to formulate and show a new, more general version of the Deligne conjecture that generalizes the one that we obtained in \Cref{ainftydeligne}. 
 
 Let $\overline{B}_j$ be the bigraded brace map on $\s\End_{S\s\OO}$ and consider the maps
 
@@ -645,7 +645,7 @@ The isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\sigma
 
 In this setting we have the bigraded version of \Cref{theorem}. But before stating the theorem, for the sake of completeness let us state the definition of the Hochschild complex of a bigraded module.
 \begin{defin}
-We define the \emph{Hochschild cochain complex} of a bigraded module $A$ to be the bigraded module $S\s\End_A$. If $(A,d)$ is a vertical bicomplex, then the Hochschild complex has a differential given by $\partial(f)=[d,f]=d\circ f-(-1)^{q}f\circ d$, where $f$ has natural bidigree $(p,q)$ and $\circ$ is the plethysm corresponding to operadic insertions.
+We define the \emph{Hochschild cochain complex} of a bigraded module $A$ to be the bigraded module $S\s\End_A$. If $(A,d)$ is a vertical bicomplex, then the Hochschild complex has a differential given by $\partial(f)=[d,f]=d\circ f-(-1)^{q}f\circ d$, where $f$ has natural vertical degree $q$ and $\circ$ is the plethysm corresponding to operadic insertions.
 \end{defin}
 In particular, $S\s\End_{S\s\OO}$ is the Hochschild cochain complex of $S\s\OO$. If $\OO$ has a derived $A_\infty$-multiplication, then the differential of the Hochschild complex $S\s\End_{S\s\OO}$ is given by $\overline{M}_{01}$ from \Cref{barbimaps}.
 
@@ -660,7 +660,7 @@ holds.%, where the $M_{ij}$ is the $j$-th component of the $A_\infty$-algebra st
 As a consequence of this theorem, we can obtain a derived version of the Deligne conjecture. In order to formulate this new Deligne conjecture, we need to introduce the notion of derived $J$-algebra, as a derived version of $J$-algebras introduced in \Cref{Jalgebras}. To have a more succinct formulation we use the notation $\vdeg(x)$ for the vertical degree of $x$.
 
 \begin{defin}\label{derivedJalgebras}
-A \emph{derived $J$-algebra} $V$ is a derived $A_\infty$-algebra with structure maps $\{M_{ij}\}_{i\geq 0, j\geq 1}$ such that the shift $S^{-1}V$ a brace algebra. Furthermore, the braces and the derived $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$. %BIDEGREES? USE Q FOR VERTICAL DEGREE FOR SHORT IF NEEDED 
+A \emph{derived $J$-algebra} $V$ is a derived $A_\infty$-algebra with structure maps $\{M_{ij}\}_{i\geq 0, j\geq 1}$ such that the shift is $S^{-1}V$ a brace algebra. Furthermore, the braces and the derived $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$. %BIDEGREES? USE Q FOR VERTICAL DEGREE FOR SHORT IF NEEDED 
 For all $n,i\geq 0$ we demand 
 
 %OBTAIN SIGNS
@@ -676,7 +676,7 @@ where
 %\varepsilon = \sum_{v=1}^{i_1-1}(|y_v|+1)(|x|-k+1)+\sum_{v=0}^{k-1}(|y_{v+i_1}|+1)(k-v+1)+(l-1)|x|+(i_1-1)k.
 %\]
 \begin{align*}
-\varepsilon = \sum_{v=1}^{i_1-1}\langle Sy_v,S^{1-k}x\rangle&+\sum_{v=0}^{k-1}\vdeg(Sy_{v+i_1})(k-v+1)\\
+\varepsilon = \sum_{v=1}^{i_1-1}\langle Sy_v,S^{1-k}x\rangle&+\sum_{v=0}^{k-1}\vdeg(y_{v+i_1})(k-v+1)\\
 &+(l-1)\vdeg(x)+(i_1-1)k.
 \end{align*}
 and
@@ -696,7 +696,7 @@ For $j>1$ we demand
 The unindexed sum runs over all possible choices of non-negative integers that satisfy $l+k_1+\cdots+k_j-j=n$ and over all possible ordering preserving insertions. The right hand side sign is given by 
 \begin{align*}
 \varepsilon =& \sum_{1\leq i< l\leq j}k_v\vdeg(x_l)+\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{1\leq t\leq l\leq j}}\langle Sy_v,S^{1-k_l}x_l\rangle\\
-&+\underset{0\leq v< k_t}{\sum_{\mathclap{1\leq t\leq j}}} (\vdeg(y_{v+i_t})+1)(k_v-v+1)+\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{1\leq t< l\leq j}}\langle Sy_v,S^{1-k_l}x_l\rangle\\
+&+\underset{0\leq v< k_t}{\sum_{\mathclap{1\leq t\leq j}}} \vdeg(y_{v+i_t})(k_v-v+1)+\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{1\leq t< l\leq j}}\langle Sy_v,S^{1-k_l}x_l\rangle\\
 &+\sum_{0\leq v<l\leq j}(i_{v+1}-i_v-k_v)(\vdeg(x_l)+1-k_l)\\
 &+\sum_{1\leq v\leq l\leq j} \vdeg(x_v)(i_{l+1}-i_l-k_l)
 \end{align*}
