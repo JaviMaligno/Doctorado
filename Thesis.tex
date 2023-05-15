@@ -4,6 +4,7 @@
 \usepackage{subfiles}
 \usepackage{empheq}
 \usepackage{adjustbox}
+%\usepackage{fancyhdr}
 \usepackage{setspace}
 \usepackage[
     type={CC},
@@ -118,9 +119,11 @@ And last but certainly not least, I would like to thank myself for having the co
 
 
 \tableofcontents
-
-
+%\pagestyle{headings}
+%\pagenumbering{gobble}
+%\pagestyle{fancy}
 %\sloppy
+\pagestyle{plain}
 \chapter{Introduction}
 
 There are a number of mathematical fields in which $A_\infty$-structures arise, ranging from topology to mathematical physics. To study these structures, different interpretations of $A_\infty$-algebras have been given. From the original definition in 1963 \cite{STASHEFF}, to alternative definitions in terms of tensor coalgebras \cite{keller}, \cite{penkava}, many approaches use the machinery of operads \cite{LRW}, \cite{lodayvallette} or certain Lie brackets \cite{RW} to obtain these objects. 
@@ -146,10 +149,10 @@ This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we 
 The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with an $A_\infty$-multiplication has a structure of $J$-algebra.
 \end{manualtheorem} 
 
- In the above theorem, $J$-algebras play the role of homotopy $G$-algebras in the classical case \cite{GV}. After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start \Cref{deriveddef} recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW} which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our main results about derived $A_\infty$-algebras. The first one is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, the $A_\infty$-structure on totalization is equivalent to a derived $A_\infty$-algebra on $S\s\OO$.
+ In the above theorem, $J$-algebras play the role of homotopy $G$-algebras in the classical case \cite{GV}. After this, we move to the bigraded case. The goal here is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start \Cref{deriveddef} recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW} which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our main results about derived $A_\infty$-algebras. The first one is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, the $A_\infty$-structure on totalization is equivalent to a derived $A_\infty$-algebra on $S\s\OO$. The statement can be summarised as follows.\pagebreak
  
  \begin{manualtheorem}{C}
-	For any operad $\OO$ with a derived $A_\infty$-multiplication there are linear maps $M_{ij}:(S\s\OO)^{\otimes j}\to S\s\OO$, satisfying the derived $A_\infty$-algebra axioms.
+	For any sufficiently bounded operad $\OO$ with a derived $A_\infty$-multiplication there are linear maps $M_{ij}:(S\s\OO)^{\otimes j}\to S\s\OO$ satisfying the derived $A_\infty$-algebra axioms.
  \end{manualtheorem}
  The next result is \Cref{bigradedtheorem}, which generalizes \Cref{theorem} to the derived setting. More precisely,
  \begin{manualtheorem}{D}

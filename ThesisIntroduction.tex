@@ -230,7 +230,7 @@ Continuing further with the idea of enriched categories, we collect some results
 We collect some notions and results about enriched categories from \cite{riehl} and \cite[\S 4.2]{whitehouse} that we will need as a categorical setting for our results on derived $A_\infty$-algebras.
 
 \begin{defin}
-Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a \emph{monoidal category over $\VV$} if we have an external tensor product $∗ :\VV × \CC → \CC$ such that we have the following natural isomorphisms.
+Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a \emph{monoidal category over $\VV$} if we have an external tensor product $∗ :\VV × \CC → \CC$ such that we have the following natural isomorphisms.\pagebreak
 \begin{itemize}
 %\begin{enumerate}%[$\bullet$]
 \item  $1 ∗ X \cong X$ for all $X ∈ \CC$,
@@ -296,7 +296,7 @@ transformation
 \[\underline{μ} : \underline{F} ⇒ \underline{G}.\]
 In particular, if $F$ is (lax) monoidal over $\VV$, then $F$ is (lax) monoidal in the enriched sense.
 \end{propo}
-
+\pagebreak
 
 \begin{lem}
 Let $F,G:\CC\to\DD$ lax functors over $\VV$ and let $\mu : F\Rightarrow G$ a natural transformation over $\VV$. For every $X\in\CC$ and $Y\in\DD$ there is a map \[\uD(GX,Y)\to\uD(FX,Y)\] that is an isomorphism if $\mu$ is an isomorphism.
@@ -363,7 +363,7 @@ The category $\fc$ is monoidal over $\vbc$. By restriction, $\fmod$ is monoidal 
 
 In the early sixties, J. Stasheff introduced $A_\infty$-spaces and $A_\infty$-algebras \cite{STASHEFFI}, \cite{STASHEFF} as a tool in the study of ‘group-like’ spaces. We are going to motivate them by explaining their topological origin and later we will give precise definitions. We will also recall minimal models to further motivate the study of $A_\infty$-algebras and their limitations. A more detailed survey can be found in \cite{keller} and in \cite{lodayvallette}.
 
-\subsection{Topological origin}
+\subsection{Topological origin}\label{origin}
 
 Let us consider the basic example. Let $(X, *)$ be a topological space with a base point $*$ and let $\Omega X$ denote the space of based loops in $X$: a point of 
 $\Omega X$ is thus a continuous map $f : S^ 1 \to X$ taking the base point of the circle to the base point $*$. We have the composition map
@@ -373,9 +373,8 @@ m_2 : X ×X \to X
 \]
 sending a pair of loops $(f_1, f_2)$ to the loop $f_1 * f_2 = m_2(f_1, f_2)$ obtained by running through $f_1$ on the first half of the circle at twice the speed and through $f_2$ on the second half.
 
-
 \[
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale = 0.9]
 \clip(-5,-3.) rectangle (5.,2.3);
 \draw(0.,0.) circle (1.5cm);
 \draw [-] (-1.6,0.) -- (-1.4,0);
@@ -437,7 +436,7 @@ m_3 : [0, 1]×X × X \to X
 joining the two possibilities of composing three loops by a reparamerization. When we want to compose four
 factors, there are five possibilities corresponding to the five binary trees with four leaves. Using
 $m_3$, we obtain two concatenations of homotopies linking the compositions $(f_1, f_2, f_3, f_4) \mapsto
-((f_1 * f_2) * f_3) * f_4$ and $(f_1, f_2, f_3, f_4) \mapsto f_1 * (f_2 * (f_3 * f_4))$.
+((f_1 * f_2) * f_3) * f_4$ and $(f_1, f_2, f_3, f_4) \mapsto f_1 * (f_2 * (f_3 * f_4))$. This results in the picture below.
 
 \definecolor{dcrutc}{rgb}{0.39215686274509803,0.39215686274509803,0.39215686274509803}
 \[
@@ -646,7 +645,7 @@ An \emph{$A_\infty$-algebra} is a graded $R$-module $A$ together with a family o
 for all $n\geq 1$.
 \end{defin}
 %This is equivalent to define it on SA without signs,  but there's not need to point that out here and it also depends on the convention of S^n^{-1}
-The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. The signs are related to the orientation given to the Stasheff polytopes. This seemingly obscure definition captures the idea of an algebra that is associative up to homotopy. To see this, let us have a look at the first few cases.
+The above equation will sometimes be referred to as the $A_\infty$-\emph{equation}. The signs are related to the orientation given to the Stasheff polytopes, see \Cref{origin}. This seemingly obscure definition captures the idea of an algebra that is associative up to homotopy. To see this, let us have a look at the first few cases.
 
 \begin{itemize}
 \item We have $m_1m_1=0$, so $(A, m_1)$ is a cochain complex.
@@ -728,7 +727,7 @@ In this section we recall the notion of operad, an object that is particularly u
 We will be working in the category of graded $R$-modules, but all the definitions and results in this section generalize with no substantial changes to any symmetric monoidal category like the ones we see in \Cref{categories}. 
 
 \subsection{Definitions}
-We first give the main definitions that we will be using throughout the thesis. Before defining what an operad is, we start defining the underlying object of an operad.
+We first give the main definitions that we will be using throughout the thesis. We start defining the underlying object of an operad.
 
 \begin{defin}\label{collections}
 A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules. We call the integer $n$ the \emph{arity}. When there is an action of the symmetric group $\Sigma_n$ on each $\OO(n)$ we say that the collection is an \emph{$\mathbb{S}-$module}. A \emph{map of collections} $f:\OO\to\mathcal{P}$ is a family of maps $f_n:\OO(n)\to\mathcal{P}(n)$. A map of collection is a \emph{map of $\mathbb{S}-$modules} when it preserves the symmetric group action.
@@ -780,6 +779,7 @@ The \emph{endomorphism operad} $\End_A$ of a graded $R$-module $A$ is given by t
 \[f\circ_i g=f(1^{\otimes i-1}\otimes g\otimes 1^{\otimes n-i})\]
 for $f\in\End_A(n)$ and $g\in\End_A(m)$. The identity element is given by the identity map and there is a symmetric group action given by permuting the inputs.
 \end{defin}
+The endomorphism operad also allows us to define algebras over any operad.
 \begin{defin}
 An \emph{algebra over an operad} $\OO$, or $\OO$-\emph{algebra}, is a map of operads $\OO\to\End_A$ for some $R$-module $A$. By adjunction, this is equivalent to a collection of maps $\OO(n)\otimes A^{\otimes n}\to A$ for each $n\geq 0$.  
 \end{defin}
@@ -927,7 +927,7 @@ F( \OO(n))\otimes 1_\DD\arrow[r, "\lambda_\DD"]\arrow[d, "id\otimes e_F"] &  F(\
  
  Next we need to show that the associativity axioms of operads hold for $F(\OO)$. Let us first prove the one that does not involve the symmetry isomorphism. 
  
- Let $a_\CC$ and $a_\DD$ the associators for $\CC$ and $\DD$, respectively. For $i\leq j\leq i+m-1$ we have the following commutative diagram from the associativity axioms of the operad $\OO$.
+ Let $a_\CC$ and $a_\DD$ the associators for $\CC$ and $\DD$, respectively. We have the following commutative diagram from the associativity axioms of the operad $\OO$ for $i\leq j\leq i+m-1$.
  
  \[
 \begin{tikzcd}
@@ -938,6 +938,7 @@ F( \OO(n))\otimes 1_\DD\arrow[r, "\lambda_\DD"]\arrow[d, "id\otimes e_F"] &  F(\
  \]
  
  Applying $F$ we obtain the following commutative diagram.
+ 
   \begin{equation}\label{assaux}
 \begin{tikzcd}
 F((\OO(n)\otimes \OO(m))\otimes \OO(l)) \arrow[r, "F(a_\CC)"]\arrow[d, "F(\circ_i\otimes id)"] & F(\OO(n)\otimes (\OO(m)\otimes\OO(l)))\arrow[d, "F(id\otimes\circ_{j-i+1})"]\\
@@ -1141,8 +1142,8 @@ the integers such that $F_{p}A ⊆ F_{p-1}A$ for all $p ∈ \Z$ and $A = \bigcup
 \end{defin}
 Note that some other sources may reverse inclusions in the above definition and consider $F_{p}A ⊆ F_{p+1}A$ instead. We denote by $\mathrm{C}_R$ the category of cochain complexes of $R$-modules.
 \begin{defin}\label{filteredcomplex}
-A \emph{filtered complex} $(K, d, F)$ is a cochain complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. Its morphisms are given by
-morphisms of complexes $f : K → L$ compatible with filtrations, namely \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
+A \emph{filtered complex} $(K, d, F)$ is a cochain complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. A \emph{morphism} of filtered complex is given by
+a morphism of complexes $f : K → L$ compatible with filtrations, namely \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
 \end{defin}
 
 We denote by $\fmod$ and $\fc$ the categories of filtered modules and filtered complexes of $R$-modules, respectively. 
@@ -1290,7 +1291,7 @@ Given a morphism $f : (A, d_m) → (B, d_m)$ of twisted complexes, let the \emph
  The following is \cite[Theorem 3.8]{whitehouse}.
 \begin{thm}
 The assignments $(A, d_m) \mapsto (\Tot(A), d, F)$, where $F$ is the column filtration of $\Tot(A)$,
-and $f \mapsto \Tot(f)$ define a functor $\Tot : \tc \to \fc$ which is an isomorphism of categories when restricted to its image.
+and $f \mapsto \Tot(f)$ define a functor $\Tot : \tc \to \fc$ which is an isomorphism when restricted to its image.
 \end{thm}
 
 For a filtered complex of the form $(\Tot(A),d,F)$ where $A = \{A^j_i \}$ is a bigraded $R$-module, we can recover the twisted complex structure on  $A$ as follows. For all $m ≥ 0$, let
@@ -1310,7 +1311,8 @@ We let $\fmod^b$ and $\fc^b$ be the full subcategories of bounded filtered modul
 the full subcategories of objects $(K, F)$ such that there exists some $p$ with the property that $F_{p'}K^n = 0$ for all $p'>p$. We refer to all of these as the \emph{bounded subcategories} of $\tc$, $\vbc$, $\bgmod$, $\fmod$ and $\fc$ respectively.
 \end{defin}
 
-The following is \cite[Proposition 3.11]{whitehouse}.
+The following is \cite[Proposition 3.11]{whitehouse}.\pagebreak
+
 \begin{propo}\label{monoidal}
 The totalization functors $\Tot : \bgmod → \fmod$ and $\Tot : \tc → \fc$ are lax symmetric
 monoidal with structure maps
@@ -1363,9 +1365,9 @@ Therefore, $\mu^{-1}$ can be defined as
 The general case follows inductively.
 \end{proof}
 
-\section{Enriched categories and enriched totalization}
+\section{Enriched categories and totalization}
 
-We define here some useful enriched categories and results from \cite[\S 4.3 and 4.4]{whitehouse}. Each of these categories will be a piece in \Cref{whitehouse}, which establishes a connection between $A_\infty$-algebras and derived $A_\infty$-algebras. Some of them had to be modified to adjust them to our conventions. 
+We define here some useful enriched categories and results from \cite[\S 4.3 and 4.4]{whitehouse}. Each of these categories will be a piece in \Cref{whitehouse}, which establishes a connection between $A_\infty$-algebras and derived $A_\infty$-algebras. Some of them have been modified according to our conventions. \pagebreak
 \begin{defin}\label{weirdenrichment}
 Let $A,B,C$ be bigraded modules. We denote by $\underline{\mathpzc{bgMod}_R}(A,B)$ the bigraded module given by
 \[\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u+j}\]
@@ -1386,7 +1388,7 @@ and $d^B := (d^B_i)_i ∈ \underline{\mathpzc{bgMod}_R}(B,B)^1_0$. We define
 
 More precisely,
 \[(δ(f))_m :=\sum_{i+j=m}(−1)^{i|f|}d^B_if_j − (−1)^{v+i}f_id^A_j.\]
-\end{defin}
+\end{defin}\pagebreak
 
 The following lemma justifies the above definition. For a proof see \cite[Lemma 4.18]{whitehouse}.
 
@@ -1520,7 +1522,7 @@ f_i : A^{m-j}_j \hookrightarrow\prod_{k\geq j}A^{m-k}_k &= F_j(\Tot(A)^m)\xright
 where the last map is a projection and multiplication with the indicated sign.
 \end{defin} 
 
-The following is \cite[Theorem 4.39]{whitehouse}.
+The following is \cite[Theorem 4.39]{whitehouse}.\pagebreak
 \begin{thm}\label{4.39}
 Let $A$, $B$ be twisted complexes. The assignments $\mathfrak{Tot}(A) := \Tot(A)$ and
 \begin{align*}
@@ -1538,7 +1540,7 @@ to be the collection in $\mathscr{V}$ given by
 \[\uEnd_A(n) \coloneqq \uC (A^{⊗n},A) \text{ for }n ≥ 1.\]
 \end{defin}
 
-The following contains several results results from \cite[\S 4]{whitehouse}.
+The following contains Proposition 4.40, Lemma 4.43 and Proposition 4.46 from \cite[\S 4.3]{whitehouse}.\pagebreak
 
 \begin{propo}\label{S4}\
 %The following hold.

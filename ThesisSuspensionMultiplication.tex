@@ -838,19 +838,25 @@ In the case $n=2$, omitting the shift symbols by abuse of notation, we obtain
 Let $M^{GV}_2$ be the product defined in \cite{GV} as \[M^{GV}_2(x,y)=(-1)^{|x|+1}b_2(m;x,y).\] We see that $M_2=-M^{GV}_2$. Since the authors of \cite{GV} work in the associative case $m=m_2$, this minus sign does not affect the $A_\infty$-relation (which in this case reduces to the associativity and differential relations). This difference in sign can be explained by the difference between $(S^{\otimes n})^{-1}$ and $(S^{-1})^{\otimes n}$, since any of these shift maps can be used to define a map $(S\s\OO)^{\otimes n}\to \s\OO^{\otimes n}$. 
 \end{remark}
 
-Now that we have the explicit formulas for the $A_\infty$-structure on $S\s\OO$ we can state and prove an $A_\infty$-version of the Deligne conjecture. Let us first re-adapt the definition of homotopy $G$-algebra from \cite{GV} to our conventions.
+Now that we have the explicit formulas for the $A_\infty$-structure on $S\s\OO$ we can state and prove an $A_\infty$-version of the Deligne conjecture. Let us first re-adapt the definition of homotopy $G$-algebra from \cite[Definition 2]{GV} to our conventions.
 
-\begin{defin}
-A \emph{homotopy $G$-algebra} is differential graded algebra $V$ with a differential $M_1$ and a product $M_2$ such that the shift $S^{-1}V$ is a brace algebra with brace  maps$b_n$. The product $M_2$ must satisfy the following compatibility identities. Let $x,x_1,x_2,y_1,\dots, y_n\in S^{-1}V$. We demand 
+\begin{defin}\label{homotopygalgebras}
+A \emph{homotopy $G$-algebra} is differential graded algebra $V$ with a differential $M_1$ and a product $M_2$ such that the shift $S^{-1}V$ is a brace algebra with brace maps $b_n$. The product $M_2$ must satisfy the following compatibility identities. Let $x,x_1,x_2,y_1,\dots, y_n\in S^{-1}V$. We demand 
 \begin{align*}
-Sb_n(S^{-1}&M_2(x_1,x_2);y_1,\dots, y_n) = \\
+Sb_n(S^{-1}&M_2(Sx_1,Sx_2);y_1,\dots, y_n) = \\
 &\sum_{k=0}^n (-1)^{(|x|+1)\sum_{i=1}^k|y_i|}M_2(b_k(x_1;y_1,\dots, y_k),b_{n-k}(x_2;y_{k+1},\dots, y_n))
 \end{align*}
 and
 \begin{align*}
-Sb_n(S^{-1}M_1(x);y_1,\dots, y_n)=
+S&b_n(S^{-1}M_1(Sx);y_1,\dots, y_n)-M_1(Sb_n(x;y_1,\dots,y_n))\\
+-&(-1)^{|x|+1}\sum_{p=1}^n(-1)^{\sum_{i=1}^p|y_i|}Sb_n(x;y_1,\dots,M_1(Sy_p),\dots, y_n)\\
+=&(-1)^{(|x|+1)|y_1|}M_2(Sy_1,Sb_{n-1}(x;y_2,\dots, y_n))\\
+ &+(-1)^{|x|+1}\sum_{p=1}^{n-1}(-1)^{n-1+\sum_{i=1}^p|y_i|}Sb_{n-1}(x;y_1,\dots,M_2(Sy_p,Sy_{p+1}),\dots y_n)\\
+ &-(-1)^{|x|+\sum_{i=1}^{n-1}|y_i|}M_2(Sb_{n-1}(x;y_1,\dots, y_{n-1}),Sy_n)
 \end{align*}
 \end{defin}
+
+Notice that our signs are slightly different to those in \cite{CV} as a consequence of our conventions. Our signs will be a particular case of those in \Cref{Jalgebras}, which are set so that \Cref{ainftydeligne} holds in consistent way with operadic suspension and all the shifts that tha authors of \cite{GV} do not consider.
 
 We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algebras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting. We introduce now the notation $||x||=|x|+1$ in order to make the equations more compact.
 
