@@ -69,16 +69,20 @@ The classical Deligne conjecture states that the Hoschschild complex of an assoc
 Let us review the structure on the Hochschild complex of an associative operad in order to understand the question that we will be asking about the (derived) $A_\infty$-case.
 
 Let $\OO$ be an operad with an associative multiplication $m$, i.e. an $A_\infty$-multiplication $m$ such that $m=m_2$, see \Cref{ainftymult}. In this case, as a consequence of \Cref{ainftystructure} or by \cite[Proposition 2]{GV}, we have a dg-algebra structure on $S\s\OO$ given by the differential
-\[d(Sx) =  Sb_1(m; x) -(-1)^{|x|}Sb_1(x; m)\]
+\begin{equation}\label{differential}
+d(Sx) =  Sb_1(m; x) -(-1)^{|x|}Sb_1(x; m)\\
+\end{equation}
 and the multiplication
-\[m(Sx,Sy) = Sb_2(m;x,y).\]
+\begin{equation}\label{multiplication}
+m(Sx,Sy) = Sb_2(m;x,y).
+\end{equation}
 
 In particular, if $\OO = \End_{A}$ is the endomorphism operad of an associative algebra $A$, these maps provide a dg-algebra structure on the Hochschild complex of $A$. %, denoted by $C^*(A)$.
-But this is not all the structure that we get. Since any operad is a brace algebra, we have an interaction between the dg-algebra and the brace structure. More precisely, $\OO$ has a structure of \emph{homotopy $G$-algebra}, see Definition 2 and Theorem 3 of \cite{GV}.% MAYBE WRITE DOWN THE DEFINITION IN MY TERMS, SINCE IT IS A CONSEQUENCE OF BRACE RELATION
+But this is not all the structure that we get. Since any operad is a brace algebra, we have an interaction between the dg-algebra and the brace structure. More precisely, $\OO$ has a structure of \emph{homotopy $G$-algebra}, see Definition 2 and Theorem 3 of \cite{GV} for the original statements and \Cref{homotopygalgebras} for our adapted definition.% MAYBE WRITE DOWN THE DEFINITION IN MY TERMS, SINCE IT IS A CONSEQUENCE OF BRACE RELATION
 
 %I CAN USE THIS TO INTRODUCE THE DELIGNE CONJECTURE PREVIOUSLY
  
- Given the algebraic structure described above on the Hochschild complex of an associative algebra, we can then take cohomology with respect to $d$ to compute the Hochschild cohomology of $A$, denoted by $HH^*(A)$. It is known that $m$ and the bracket 
+ Given the algebraic structure described above on the Hochschild complex of an associative algebra, we can then take cohomology with respect to $d$, \cref{differential}, to compute the Hochschild cohomology of $A$, denoted by $HH^*(A)$. It is known that $m$, \cref{multiplication}, and the bracket 
 \[[x,y]=Sb_1(x; y) -(-1)^{|x||y|}Sb_1(y; x)\]
 induce a structure of a Gerstenhaber algebra on $HH^*(A)$ \cite[Corollary 5]{GV}. The proof relies on some identities that can be deduced from the definition of homotopy $G$-algebra, such as graded homotopy commutativity. 
 
