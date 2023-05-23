@@ -81,7 +81,7 @@ so we conclude
 
 \[x\tilde{\circ}_iy=(-1)^{(n-1)(m-1)+(n-1)\deg(y)+(i-1)(m-1)}x\circ_i y.\]
 \end{proof}
-
+\pagebreak
 \begin{remark}
 The sign from \Cref{tilde} is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras, i.e. \Cref{ainftyequation} is derived. This means that if $m_s\in\OO(s)$ has degree $2-s$ and $m_{r+1+t}\in \OO(r+1+t)$ has degree $1-r-t$, we get (abusing notation) that
 
@@ -98,10 +98,12 @@ An operad $\OO$ has an \emph{$A_\infty$-multiplication} if there is a map $\math
  Therefore, we have the following. 
 
 \begin{lem}\label{twisting}
-An $A_\infty$-multiplication on an operad $\OO$ is equivalent to an element $m\in\s\OO$ of degree 1 concentrated in positive arity such that $m\tilde{\circ}m=0$, where $x\tilde{\circ} y=\sum_i x\tilde{\circ}_i y$. \qed
+An $A_\infty$-multiplication on an operad $\OO$ is equivalent to an element $m\in\s\OO$ of degree 1 concentrated in positive arity such that $m\tilde{\circ}m=0$, where $x\tilde{\circ} y=\sum_i x\tilde{\circ}_i y$. 
 \end{lem}
 \begin{proof}
-By definition, an $A_\infty$-multiplication on $\OO$ corresponds to a map of operads \[f:\mathcal{A}_\infty\to\OO.\] Such a map is determined by the images of the generators $\mu_i\in\mathcal{A}_\infty(i)$ of degree $2-i$. Whence, $f$ it is determined by $m_i=f(\mu_i)\in\OO(i)$. Let $m=m_1+m_2+\cdots$. Since \[\deg(m_i)=\deg(\mu_i)=2-i,\]
+By definition, an $A_\infty$-multiplication on $\OO$ corresponds to a map of operads \[f:\mathcal{A}_\infty\to\OO.\] Such a map is determined by the images of the generators $\mu_i\in\mathcal{A}_\infty(i)$ of degree $2-i$. Whence, $f$ it is determined by $m_i=f(\mu_i)\in\OO(i)$. 
+
+Let $m=m_1+m_2+\cdots$. Since $\deg(m_i)=\deg(\mu_i)=2-i,$
 we have that the image of $m_i$ in $\s\OO$ is of degree $2-i+i-1=1$. Therefore, $m\in\s\OO$ is homogeneous of degree 1. Now, let us check that $m\tilde{\circ}m=0$. Note that by equation (\ref{tildecircle}) we have the operation $\tilde{\circ}$ defined as
 \[x\tilde{\circ}y=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(y)+(i-1)(m-1)}x\circ_i y\]
 for $x\in\OO(n)$ and $y\in\OO(m)$. Therefore, applying this definition to $m_{r+1+t}$ and $m_s$ we obtain that
@@ -221,11 +223,9 @@ The fact that $\s$ is a functor allows to describe algebras over operad using op
 The functor $\s$ is an equivalence of categories both at the level of collections and at the level of operads. \qed %it is not an isomorphism because at the level of collections, not every collection is EQUAL to some suspension
 \end{propo}
 In particular, for $A_\infty$-algebras it is more convenient to work with $\s\OO$ since the formulation of an $A_\infty$-multiplication on this operad is much simpler but we do not lose any information.
-
+\pagebreak
 \subsection{Monoidal properties of operadic suspension}\label{monoidalsusp}
-Now we are going to explore the monoidal properties of operadic suspension.
-
-Since operads are precisely monoids on the category $\mathrm{Col}$ of collections, we have the following.
+Now we are going to explore the monoidal properties of operadic suspension. Since operads are precisely monoids on the category $\mathrm{Col}$ of collections, we have the following.
 \begin{propo}\label{monoidality} %\mbox{}
 The endofunctor $\s:\mathrm{Col}\to\mathrm{Col}$ sends monoids to monoids and morphisms of monoids to morphisms of monoids, in other words, it induces a well-defined endofunctor on the category of monoids $\mathrm{Mon}(\mathrm{Col})$. \qed%is  lax monoidal with respect to the composition of $\mathbb{S}$-modules. 
 \end{propo}
@@ -265,14 +265,19 @@ and
 \[\delta = N\deg(g)\deg(x)+\deg(g)\sum_{j=1^N}\deg(x_j)(N-j)\]
 
 
-Now let us compute $\mu((\s f\circ \s  g)(c))$. We have
+Now, let us compute $\mu((\s f\circ \s  g)(c))$. We have
 
 %\[\mu((\s f\circ \s  g)(c))=\mu((-1)^{k\deg(g)(\deg(a)+k-1)+\deg(g)\sum_{j=1}^k(\deg(b_j)+i_j-1)(k-j)}\s f(a\otimes e^k)\otimes \s g(b_1\otimes e^{i_1})\otimes\cdots\otimes \s g(b_k\otimes e^{i_k}))=\]
 \[\mu((\s f\circ \s  g)(c))=(-1)^\sigma f(x)\otimes g(x_1)\otimes\cdots\otimes g(x_N) \otimes e^n,\]
 where 
-\[\sigma=N\deg(g)(\deg(x)+N-1)+\deg(g)\sum_{j=1}^N(\deg(x_j)+a_j-1)(N-j)+\]\[\sum_{j<l}a_j(\deg(x_j)+\deg(g))+\sum_{j=1}^N(a_j+\deg(x_j)+\deg(g)-1)(N-j).\]
+\begin{align*}
+\sigma=& \deg(g)\sum_{j=1}^N(\deg(x_j)+a_j-1)(N-j)+N\deg(g)(\deg(x)+N-1)\\
+&+\sum_{j<l}a_j(\deg(x_j)+\deg(g))\\
+&+\sum_{j=1}^N(a_j+\deg(x_j)+\deg(g)-1)(N-j).
+\end{align*}
  
  Now we compare the two signs by computing $\varepsilon+\delta+\sigma\mod 2$. After some cancellations of common terms and using that $N(N-1)=0\mod 2$ we get
+ 
  \begin{align*}
  &\deg(g)\sum_{j=1}^N(a_j-1)(N-j)+\sum_{j<l}a_j\deg(g)+\sum_{j=1}^N\deg(g)(N-j)\\
  &=\deg(g)\sum_{j=1}^Na_j(N-j)+\deg(g)\sum_{j<l}a_j\\
@@ -302,7 +307,7 @@ If we decide to work with symmetric operads, we just need to introduce the sign 
 Brace algebras appear naturally in the context of operads when we fix the first argument of operadic composition \cite{GV}. This simple idea gives rises to a very rich structure that is the building block of the derived $A_\infty$-structures that we are going to construct.
 
 In this section we define a brace algebra structure for an arbitrary operad using operadic suspension. Using operadic suspension will have as a result  a generalization of the Lie bracket defined in \cite{RW}. First recall the definition of a brace algebra.
-
+\pagebreak
 \begin{defin}\label{braces}
 A \emph{brace algebra} on a graded module $A$ consists of a family of maps \[b_n:A^{\otimes 1+n}\to A\] called \emph{braces}, that we evaluate on $(x,x_1,\dots, x_n)$ as $b_n(x;x_1,\dots, x_n)$. They must satisfy the \emph{brace relation}
 
@@ -364,7 +369,7 @@ where $a(y_p)$ is the arity of $y_p$ (in this case $y_p$ is either $1$ or some $
 For this, recall that the degree of $\Lambda(a_i)$ is $a_i-1$ and that the generator of this space is inserted in the position $1+\sum_{j=0}^{i-1}k_j+\sum_{j=1}^{i-1}a_j$ of a wedge of $N+\sum_{j=1}^{i-1}a_j-i+1$ generators. Therefore, performing this insertion as described in the previous section yields the aforementioned sign. Now, since $N-n=k_0+\cdots+k_n$, we have that
 \[(a_i-1)(N-k_0+\cdots+k_{i-1}-i)=(a_i-1)\left(n-i+\sum_{l=i}^nk_l\right).\]
 
-Let us introduce for the rest of the proof the notation $a_0 = N$ for the sake of compactness of the formulas. Now we can compute the sign factor of a brace. For this, notice that the isomorphism $(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}$ does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
+Let us introduce for the rest of the proof the notation $a_0 = N$ for the sake of compactness of the formulas. Now we can compute the sign factor of a brace. For this, notice that the isomorphism \[(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}\] does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
 
 %\[\OO(N)\otimes\Lambda(N)\otimes (\OO(1)\otimes \Lambda(1))^{\otimes k_0}\otimes \bigotimes_{i=1}^n(\OO(a_i)\otimes\Lambda(a_i)\otimes(\OO(1)\otimes\Lambda(1))^{\otimes k_i}\]
 %\[\cong \OO(N)\otimes\OO(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \OO(a_i)\otimes \OO(1)^{\otimes k_i})\otimes \Lambda(N)\otimes\Lambda(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \Lambda(a_i)\otimes \Lambda(1)^{\otimes k_i})\]
@@ -450,7 +455,7 @@ In the case that $f:A\to A$ is an $\infty$-endomorphism, \Cref{operadicmorphism}
 \section{$A_\infty$-algebra structures on operads}\label{sect2}
 
 
-Let $\OO$ be an operad of graded $R$-modules and $\s\OO$ its operadic suspension. Let us consider the underlying graded module of the operad $\s\OO$, which we  call $\s\OO$ again by abuse of notation, i.e. \[\s\OO=\prod_n \s\OO(n)\] with grading given by its \emph{natural degree}, i.e. $|x|=n+\deg(x)-1$ for $x\in \s\OO(n)$, where $\deg(x)$ is its internal degree (the degree as an element of $\OO(n))$. 
+Let $\OO$ be an operad of graded $R$-modules and $\s\OO$ its operadic suspension. Let us consider the underlying graded module of the operad $\s\OO$, which we  call $\s\OO$ again by abuse of notation, i.e. \[\s\OO=\prod_n \s\OO(n)\] with grading given by its \emph{natural degree}, i.e. $|x|=\deg(x)+n-1$ for $x\in \s\OO(n)$, where $\deg(x)$ is its internal degree (the degree as an element of $\OO(n))$. 
 
 For any operad $\OO$, recall the operation $\circ$ defined as
 
@@ -466,7 +471,7 @@ x\tilde{\circ} y=\sum_{i=1}^n x\tilde{\circ}_i y=b_1(x;y)\in\s\OO(n+m-1)
 where
 \[x\tilde{\circ}_iy=(-1)^{(n-1)\deg(y)+(n-i)(m-1)}x\circ_i y.\]
 
-
+\pagebreak
 \begin{defin}\label{ainftymultiplication}
 Let $m\in\s\OO$ be of natural degree 1 and concentrated in positive arity such that $m\tilde{\circ}m=0$, or equivalently $m=m_1+m_2+\cdots$ is a formal sum of maps $m_j\in\OO(j)^{2-j}$ satisfying the usual $A_\infty$-equation for all $n\geq 1$
 \begin{equation}\label{Ainftyeq}
@@ -500,9 +505,10 @@ We have
 
 and 
 
-\[\deg(b_j(x;x_1,\dots,x_j)=\deg(x)+\sum_i\deg(x_i),\]
+\[\deg(b_j(x;x_1,\dots,x_j)=\deg(x)+\sum_i\deg(x_i).\]
 
-so 
+Combining these two we obtain
+
 \begin{align*}
 a(b_j(x;x_1,\dots,x_j))+\deg(b_j(x;x_1,\dots,x_j))-1=\\
 a(x)-j+\sum_i a(x_i)+\deg(x)+\sum_i\deg(x_i)-1=\\
@@ -571,12 +577,13 @@ defined as
 where $\overline{B}_j$ denotes the brace map on $\s\End_{S\s\OO}$.
 
 We define the Hochschild complex as done by Ward in \cite{ward}.
+
 \begin{defin}
-The \emph{Hochschild cochains} of a graded module $A$ is defined to be the graded module $S\s\End_A$. If  $(A,d)$ is a chain complex, then $S\s\End_A$ is endowed with a differential \[\partial(f)=[d,f]=d\circ f -(-1)^{|f|}f\circ d\] where $|f|$ is the natural degree of $|f|$ and $\circ$ is the plethysm operation given by insertions.
+The \emph{Hochschild cochains} of a graded module $A$ is defined to be the graded module $S\s\End_A$. If  $(A,d)$ is a chain complex, then $S\s\End_A$ is endowed with a differential \[\partial(f)=[d,f]=d\circ f -(-1)^{|f|}f\circ d\] where $|f|$ is the natural degree of $f$ and $\circ$ is the plethysm operation given by insertions.
 \end{defin}
 In particular, $S\s\End_{S\s\OO}$ is the module of Hochschild cochains of $S\s\OO$. If $\OO$ has an $A_\infty$-multiplication, then the differential of the Hochschild complex is $\overline{M}_1$ from \Cref{barmaps}.
 \begin{remark}
-The functor $S\s$ is called the ``oddification'' of an operad in the literature. %Ward but the whole thesis 
+The functor $S\s$ is called the ``oddification'' of an operad in the literature \cite{ward}. %Ward but the whole thesis 
 The reader might find odd to define the Hochschild complex in this way instead of just $\End_A$. The reason is that the operadic suspension provides the necessary signs and the extra shift gives us the appropriate degrees. In addition, this definition allows the extra structure to arise naturally instead of having to define the signs by hand. For instance, if we have an associative multiplication $m_2\in\End_A(2)=\Hom(A^{\otimes 2},A)$, the element $m_2$ would not satisfy the equation $m_2\circ m_2=0$ and thus cannot be used to induce a multiplication on $\End_A$ as we did above.
 \end{remark}
 
@@ -604,7 +611,7 @@ where the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given in \Cref{barsi
 \begin{remark}
 Notice that we have only used the operadic structure on $\s\OO$ to define an $A_\infty$-algebra structure on $S\s\OO$, so the constructions and results in these sections are valid if we replace $\s\OO$ by any graded module $A$ such that $SA$ is an $A_\infty$-algebra. 
 \end{remark}
-
+\pagebreak
 \begin{thm}\label{theorem}
 The map $\Phi$ defined in diagram (\ref{Phi}) above is a morphism of $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
 
@@ -809,15 +816,15 @@ Here $|x|$ is the degree of $x$ as an element of $\s\OO$, i.e. its natural degre
 \begin{proof}
 The deduction of these explicit formulas is done as follows. Let $n>1$ and $x_1,\dots, x_n\in \s\OO$. Then
 
-\begin{align*}
-M_n(Sx_1,\dots, Sx_n)&=SM'_n((S^{\otimes n})^{-1})(Sx_1,\dots, Sx_n)\\
-&=(-1)^{\binom{n}{2}}SM'_n((S^{-1})^{\otimes n})(Sx_1,\dots, Sx_n)\\
+\begin{align}\label{aboveexpression}
+M_n(Sx_1,\dots, Sx_n)&=SM'_n((S^{\otimes n})^{-1})(Sx_1,\dots, Sx_n)\nonumber\\
+&=(-1)^{\binom{n}{2}}SM'_n((S^{-1})^{\otimes n})(Sx_1,\dots, Sx_n)\nonumber\\
 &=(-1)^{\binom{n}{2}+\sum_{i=1}^n(n-i)(|x_i|+1)}SM'_n(x_1,\dots,x_n)
-\end{align*}
+\end{align}
 
-Now, note that $\binom{n}{2}$ is even exactly when $n\equiv 0,1\mod 4$. In these cases, an even amount of $|x_i|$'s have an odd coefficient in the sum (when $n\equiv 0\mod 4$ these are the $|x_i|$ with even index, and when $n\equiv 1\mod 4$, the $|x_i|$ with odd index). This means that 1 is added on the exponent an even number of times, so the sign is not changed by the binomial coefficient nor by adding 1 on each term. Similarly, when $\binom{n}{2}$ is odd, i.e. when $n\equiv 2,3\mod 4$, there is an odd number of $|x_i|$ with odd coefficient, so the addition of 1 an odd number of times cancels the binomial coefficient. This means that the above expression equals
+Now, note that $\binom{n}{2}$ is even exactly when $n\equiv 0,1\mod 4$. In these cases, an even amount of $|x_i|$'s have an odd coefficient in the sum (when $n\equiv 0\mod 4$ these are the $|x_i|$ with even index, and when $n\equiv 1\mod 4$, the $|x_i|$ with odd index). This means that 1 is added on the exponent an even number of times, so the sign is not changed by the binomial coefficient nor by adding 1 on each term. Similarly, when $\binom{n}{2}$ is odd, i.e. when $n\equiv 2,3\mod 4$, there is an odd number of $|x_i|$ with odd coefficient, so the addition of 1 an odd number of times cancels the binomial coefficient. This means that \Cref{aboveexpression} can be simplified to
 
-\[(-1)^{\sum_{i=1}^n(n-i)|x_i|}SM'_n(x_1,\dots,x_n),\]
+\[M_n(Sx_1,\dots, Sx_n)=(-1)^{\sum_{i=1}^n(n-i)|x_i|}SM'_n(x_1,\dots,x_n),\]
 which by definition equals
 \[(-1)^{\sum_{i=1}^n(n-i)|x_i|}Sb_n(m;x_1,\dots,x_n).\]
 
@@ -859,12 +866,12 @@ S&b_n(S^{-1}M_1(Sx);y_1,\dots, y_n)-M_1(Sb_n(x;y_1,\dots,y_n))\\
 
 Notice that our signs are slightly different to those in \cite{CV} as a consequence of our conventions. Our signs will be a particular case of those in \Cref{Jalgebras}, which are set so that \Cref{ainftydeligne} holds in consistent way with operadic suspension and all the shifts that tha authors of \cite{GV} do not consider.
 
-We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algebras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting. We introduce now the notation $||x||=|x|+1$ in order to make the equations more compact.
+We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algebras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting. %We introduce now the notation $||x||=|x|+1$ in order to make the equations more compact.
 
 \begin{defin}\label{Jalgebras}
 A \emph{$J$-algebra} $V$ is an $A_\infty$-algebra with structure maps $\{M_j\}_{j\geq 1}$ such that the shift $S^{-1}V$ is a brace algebra. Furthermore, the braces and the $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$. For $n\geq 0$ we demand 
 \begin{align*}
-(-1)^{\sum_{i=1}^n(n-i)(||y_i||-1)}Sb_n(S^{-1}&M_1(Sx);y_1,\dots, y_n)=\\
+(-1)^{\sum_{i=1}^n(n-i)|y_i|}Sb_n(S^{-1}&M_1(Sx);y_1,\dots, y_n)=\\
 &\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{\mathclap{l+k-1=n}}}(-1)^{\varepsilon}M_l(Sy_1,\dots, Sb_{k}(x;y_{i_1},\dots),\dots, Sy_n)\\
 -(-1)^{|x|}\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{\mathclap{l+k-1=n}}}&(-1)^{\eta} Sb_k(x;y_1,\dots, S^{-1}M_l(Sy_{i_1},\dots,), \dots, y_n)
 \end{align*}
@@ -873,34 +880,54 @@ where
 %\varepsilon = \sum_{v=1}^{i_1-1}(|y_v|+1)(|x|-k+1)+\sum_{v=1}^{k}(|y_{v+i_1-1}|+1)(k-v)+(l-1)|x|+(i_1-1)k.
 %\]
 
+%\begin{align*}
+%\varepsilon = &\sum_{v=1}^{i_1-1}||y_v||(||x||-k)+\sum_{v=1}^{k}(||y_{i_1+v-1}||-1)(k-v)\\
+%&+(l-1)(||x||-1)+(i_1-1)(k-1).
+%\end{align*}
+%
+%\begin{align*}
+%\varepsilon = &\sum_{v=1}^{i_1-1}(|y_v|+1)(|x|-k+1)+\sum_{v=1}^{k}|y_{i_1+v-1}|(k-v)\\
+%&+(l-1)|x|+(i_1-1)(k-1).
+%\end{align*}
+%CALCULATIONS
+%\begin{align*}
+%\varepsilon = &\sum_{v=1}^{i_1-1}(|y_v|+1)|x|+\sum_{v=1}^{i_1-1}|y_v|(k-1)+\sum_{v=1}^{k}|y_{i_1+v-1}|(k-v)+(l-1)|x|.
+%\end{align*}
+%\begin{align*}
+%\varepsilon = &\sum_{v=1}^{i_1-1}|y_v||x|+\sum_{v=1}^{i_1-1}|x|+\sum_{v=1}^{i_1-1}|y_v|(k-1)+\sum_{v=1}^{k}|y_{i_1+v-1}|(k-v)+(l-1)|x|.
+%\end{align*}
 \begin{align*}
-\varepsilon = &\sum_{v=1}^{i_1-1}||y_v||(||x||-k)+\sum_{v=1}^{k}(||y_{i_1+v-1}||-1)(k-v)\\
-&+(l-1)(||x||-1)+(i_1-1)(k-1).
+\varepsilon = &\sum_{v=1}^{i_1-1}|y_v|(|x|-k+1)+\sum_{v=1}^{k}|y_{i_1+v-1}|(k-v)+(l-i_1)|x|.
 \end{align*}
-and I THINK I CAN GET RID OF BIMOMIAL TAKING BITS FROM EACH OF THE THREE SUMS 
+and
 \begin{align*}
-\eta=& \sum_{v=1}^{i_1-1}(n-1-v)||y_v||+\sum_{v=i_1}^{i_1+l-1}(k-i_1)||y_v||+\sum_{v=i_1+l}^n(n-v)||y_v||\\
-&+l(k-1)+(k-i_1)+\binom{k}{2}.
+\eta=& \sum_{v=1}^{i_1-1}(k-v)|y_v|+\sum_{v=1}^{i_1-1}l|y_v|+\sum_{v=i_1}^{i_1+l-1}(k-i_1)|y_v|+\sum_{v=i_1}^{n-l}(k-v)|y_{v+l}|
 \end{align*}
+
+%\[1+2+\cdots \]
 %\[
 %\eta=l(k-1)+\sum_{v=1}^{i_1-1}(n+1-v)(|y_v|+1)+\sum_{v=i_1}^{i_1+l-1}(k-i_1)(|y_v|+1)+\sum_{v=i_1+l}^n(n-v)|(|y_v|+1).
 %\]
 
 For $j>1$ we demand
 \begin{align*}
-&(-1)^{\sum_{i=1}^n(n-i)(||y_i||-1)}Sb_n(S^{-1}M_j(Sx_1,\dots, Sx_j);y_1,\dots, y_n)=\\
+&(-1)^{\sum_{i=1}^n(n-i)|y_i|}Sb_n(S^{-1}M_j(Sx_1,\dots, Sx_j);y_1,\dots, y_n)=\\
 &\sum(-1)^{\varepsilon}M_l(Sy_1,\dots, Sb_{k_1}(x_1;y_{i_1},\dots),\dots, Sb_{k_j}(x_j;y_{i_j},\dots),\dots, Sy_n).
 \end{align*}
 The unindexed sum runs over all possible choices of non-negative integers that satisfy $l+k_1+\cdots+k_j-j=n$ and over all possible ordering-preserving insertions. The right hand side sign is given by
- 
 
+%\begin{align*}
+%\varepsilon =& \underset{1\leq v\leq k_t}{\sum_{\mathclap{1\leq t\leq j}}} (||y_{i_t+v-1}||-1)(k_t-v)+\sum_{\mathclap{1\leq i< l\leq j}}k_v(||x_l||-1)\\
+%&+\underset{\mathclap{i_t\leq v< i_{t+1}}}{\sum_{\mathclap{0\leq t\leq l\leq j}}}||y_v||(||x_l||-k_l)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(||x_l||-k_l)\\&+\sum_{\mathclap{1\leq v\leq l\leq j}} (||x_v||-1)(i_{l+1}-i_l-k_l)
+%\end{align*}
 \begin{align*}
-\varepsilon =& \underset{1\leq v\leq k_t}{\sum_{\mathclap{1\leq t\leq j}}} (||y_{i_t+v-1}||-1)(k_t-v)+\sum_{\mathclap{1\leq i< l\leq j}}k_v(||x_l||-1)\\
-&+\underset{\mathclap{i_t\leq v< i_{t+1}}}{\sum_{\mathclap{0\leq t\leq l\leq j}}}||y_v||(||x_l||-k_l)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(||x_l||-k_l)\\&+\sum_{\mathclap{1\leq v\leq l\leq j}} (||x_v||-1)(i_{l+1}-i_l-k_l)
+\varepsilon =& \underset{1\leq v\leq k_t}{\sum_{\mathclap{1\leq t\leq j}}} |y_{i_t+v-1}|(k_t-v)+\sum_{\mathclap{1\leq i< l\leq j}}k_v|x_l|+\sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|(i_{l+1}-i_l-k_l)\\
+&+\underset{\mathclap{i_t\leq v< i_{t+1}}}{\sum_{\mathclap{0\leq t\leq l\leq j}}}(|y_v|+1)(|x_l|-k_l+1)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(|x_l|-k_l+1)\
 \end{align*}
 In the sums we are setting $i_{j+1}=n+1$. %not sure if it is worth using double bars
 %\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{\mathclap{1\leq t\leq l\leq j}}}||y_v||(||x_l||-k_l)
 %\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{\mathclap{1\leq t< l\leq j}}}||y_v||(||x_l||-k_l)
+
 
 %\begin{align*}
 %\varepsilon = \sum_{\mathclap{1\leq i< l\leq j}}k_v|x_l|+\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{\mathclap{1\leq t\leq l\leq j}}}(|y_v|+1)(|x_l|-k_l+1)+\underset{\mathclap{0\leq v< k_t}}{\sum_{\mathclap{1\leq t\leq j}}} (|y_{v+i_t}|+1)(k_v-v+1)\\
@@ -964,7 +991,7 @@ where
 \begin{align*}
 \xi = \underset{1\leq v<l\leq j}{\sum}k_v|x_l|+\sum_{\mathclap{0\leq v<l\leq j}}space_v(|x_l|-k_l+1)+ \sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|space_l.
 \end{align*}
-The variable $space_v$ represents the space between the $v$-th and the $(v+1)$-th brace. More precisely, if the $v$-th brace is inserted in the position $i_v$, $space_v=i_{v+1}-i_v-k_v$. The unindexed sum runs all possible ordering-preserving insertions and over all possible choices of integers that satisfy $l+k_1+\cdots+ k_j-j=n$. We have also used the fact that $k_v^2\equiv k_v\mod 2$ to simplify the sign. Finally, we evaluate on $Sy_1,\dots, Sy_n$. Here we need to take into account the sign rules explained in \Cref{koszulsigns}. In particular, this means that we use the internal degree of $Sb_k(x;S^{-k})$ which is $|x|-k+1$. This evaluation produces the desired sign $(-1)^{\varepsilon}$.
+The variable $space_v$ represents the space between the $v$-th and the $(v+1)$-th brace. More precisely, if the $v$-th brace is inserted in the position $i_v$, $space_v=i_{v+1}-i_v-k_v$. The unindexed sum runs all possible ordering-preserving insertions and over all possible choices of integers that satisfy $l+k_1+\cdots+ k_j-j=n$. We have also used the fact that $k_v^2\equiv k_v\mod 2$ to simplify the sign. Finally, we evaluate on $Sy_1,\dots, Sy_n$. Here we need to take into account the sign rules explained in \Cref{koszulsigns}. In particular, this means that we use the internal degree of $Sb_k(x;S^{-k})$ which is $|x|-k+1$. This evaluation and some simplification produces the desired sign $(-1)^{\varepsilon}$.
 
 Let us now treat the $j=1$ case, where we have $\Phi\circ M_1=\overline{M}_1\circ\Phi$. The left hand side is analogous to the general case, so we have
 
@@ -995,6 +1022,25 @@ Let us now focus on the second term of \Cref{twoterms} and let us omit the sign 
 \overline{B}_1(Sb_{k}(x;&S^{-k});M)=\\ &\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{l+k-1=n}}(-1)^{l(k-1)+k-i_1} Sb_k(x;S^{-(i_1-1)}, S^{-1}M_l, S^{-(k - i_1)}).
 \end{align*}
 The sign is computed using \Cref{bracesign} and the Koszul sign rule for the shifts. Notice that here we need to use the internal degree of $M_l\in\s\End_A$, that is, $2-l$. Finally, evaluating at $Sy_1,\dots, Sy_n$ and combining the resulting signs with the factor $(-1)^{\binom{k}{2}+|x|}$ produces the result.
+
+
+%\[
+%\sum_{v=1}^{i_1-1}(k-v+l)||y_v||+\sum_{v=i_1}^{i_1+l-1}(k-i_1)||y_v||+\sum_{v=i_1}^{n-l}(k-v)||y_{v+l}||
+%\]
+%\[
+%\sum_{v=1}^{i_1-1}(k-v)(|y_v|+1)+\sum_{v=1}^{i_1-1}l||y_v||+\sum_{v=i_1}^{i_1+l-1}(k-i_1)||y_v||+\sum_{v=i_1}^{n-l}(k-v)(|y_{v+l}|+1)
+%\]
+%%n-ele = k-one, cancellation of binom{k}{2}
+%\[
+%\sum_{v=1}^{i_1-1}(k-v)|y_v|+\sum_{v=1}^{i_1-1}l||y_v||+\sum_{v=i_1}^{i_1+l-1}(k-i_1)||y_v||+\sum_{v=i_1}^{n-l}(k-v)|y_{v+l}|
+%\]
+%\[
+%\sum_{v=1}^{i_1-1}(k-v)|y_v|+\sum_{v=1}^{i_1-1}l|y_v|+l(i_1-1)+\sum_{v=i_1}^{i_1+l-1}(k-i_1)|y_v|+l(k-i_1)+\sum_{v=i_1}^{n-l}(k-v)|y_{v+l}|
+%\]
+%%cancellation of l(k-1) and I'm going to pretend k-i_1 does not exist, originally I wasn't getting it maybe it's cancelling with something as well
+%\[
+%\sum_{v=1}^{i_1-1}(k-v)|y_v|+\sum_{v=1}^{i_1-1}l|y_v|+\sum_{v=i_1}^{i_1+l-1}(k-i_1)|y_v|+\sum_{v=i_1}^{n-l}(k-v)|y_{v+l}|
+%\]
 
 
 \end{proof}
