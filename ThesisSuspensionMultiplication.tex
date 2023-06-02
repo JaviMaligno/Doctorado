@@ -850,8 +850,8 @@ Now that we have the explicit formulas for the $A_\infty$-structure on $S\s\OO$ 
 \begin{defin}\label{homotopygalgebras}
 A \emph{homotopy $G$-algebra} is differential graded algebra $V$ with a differential $M_1$ and a product $M_2$ such that the shift $S^{-1}V$ is a brace algebra with brace maps $b_n$. The product $M_2$ must satisfy the following compatibility identities. Let $x,x_1,x_2,y_1,\dots, y_n\in S^{-1}V$. We demand 
 \begin{align*}
-Sb_n(S^{-1}&M_2(Sx_1,Sx_2);y_1,\dots, y_n) = \\
-&\sum_{k=0}^n (-1)^{(|x|+1)\sum_{i=1}^k|y_i|}M_2(b_k(x_1;y_1,\dots, y_k),b_{n-k}(x_2;y_{k+1},\dots, y_n))
+Sb_n(&S^{-1}M_2(Sx_1,Sx_2);y_1,\dots, y_n) = \\
+&\sum_{k=0}^n (-1)^{(|x_2|+1)\sum_{i=1}^k|y_i|}M_2(b_k(x_1;y_1,\dots, y_k),b_{n-k}(x_2;y_{k+1},\dots, y_n))
 \end{align*}
 %I'm getting a +nk on the sign, but let's pretend it's not there for now and later see how the general formulas behave with respect to this
 and
@@ -864,7 +864,7 @@ S&b_n(S^{-1}M_1(Sx);y_1,\dots, y_n)-M_1(Sb_n(x;y_1,\dots,y_n))\\
 \end{align*}
 \end{defin}
 
-Notice that our signs are slightly different to those in \cite{CV} as a consequence of our conventions. Our signs will be a particular case of those in \Cref{Jalgebras}, which are set so that \Cref{ainftydeligne} holds in consistent way with operadic suspension and all the shifts that tha authors of \cite{GV} do not consider.
+Notice that our signs are slightly different to those in \cite{GV} as a consequence of our conventions. Our signs will be a particular case of those in \Cref{Jalgebras}, which are set so that \Cref{ainftydeligne} holds in consistent way with operadic suspension and all the shifts that tha authors of \cite{GV} do not consider.
 
 We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algebras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting. %We introduce now the notation $||x||=|x|+1$ in order to make the equations more compact.
 
@@ -901,7 +901,7 @@ where
 \end{align*}
 and
 \begin{align*}
-\eta=& \sum_{v=1}^{i_1-1}(k-v)|y_v|+\sum_{v=1}^{i_1-1}l|y_v|+\sum_{v=i_1}^{i_1+l-1}(k-i_1)|y_v|+\sum_{v=i_1}^{n-l}(k-v)|y_{v+l}|
+\eta=& \sum_{v=1}^{i_1-1}(k-v)|y_v|+l\sum_{v=1}^{i_1-1}|y_v|+\sum_{v=i_1}^{i_1+l-1}(k-i_1)|y_v|+\sum_{v=i_1}^{n-l}(k-v)|y_{v+l}|
 \end{align*}
 
 %\[1+2+\cdots \]
@@ -917,14 +917,14 @@ For $j>1$ we demand
 The unindexed sum runs over all possible choices of non-negative integers that satisfy $l+k_1+\cdots+k_j-j=n$ and over all possible ordering-preserving insertions. The right hand side sign is given by
 
 %\begin{align*}
-%\varepsilon =& \underset{1\leq v\leq k_t}{\sum_{\mathclap{1\leq t\leq j}}} (||y_{i_t+v-1}||-1)(k_t-v)+\sum_{\mathclap{1\leq i< l\leq j}}k_v(||x_l||-1)\\
+%\varepsilon =& \underset{1\leq v\leq k_t}{\sum_{\mathclap{1\leq t\leq j}}} (||y_{i_t+v-1}||-1)(k_t-v)+\sum_{\mathclap{1\leq v< l\leq j}}k_v(||x_l||-1)\\
 %&+\underset{\mathclap{i_t\leq v< i_{t+1}}}{\sum_{\mathclap{0\leq t\leq l\leq j}}}||y_v||(||x_l||-k_l)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(||x_l||-k_l)\\&+\sum_{\mathclap{1\leq v\leq l\leq j}} (||x_v||-1)(i_{l+1}-i_l-k_l)
 %\end{align*}
 \begin{align*}
-\varepsilon =& \underset{1\leq v\leq k_t}{\sum_{\mathclap{1\leq t\leq j}}} |y_{i_t+v-1}|(k_t-v)+\sum_{\mathclap{1\leq i< l\leq j}}k_v|x_l|+\sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|(i_{l+1}-i_l-k_l)\\
-&+\underset{\mathclap{i_t\leq v< i_{t+1}}}{\sum_{\mathclap{0\leq t\leq l\leq j}}}(|y_v|+1)(|x_l|-k_l+1)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(|x_l|-k_l+1)\
+\varepsilon =& \underset{1\leq v\leq k_t}{\sum_{\mathclap{1\leq t\leq j}}} |y_{i_t+v-1}|(k_t-v)+\sum_{\mathclap{1\leq v< l\leq j}}k_v|x_l|+\sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|(i_{l+1}-i_l-k_l)\\
+&+\underset{\mathclap{i_t\leq v< i_{t+1}}}{\sum_{\mathclap{0\leq t< l\leq j}}}(|y_v|+1)(|x_l|-k_l+1)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(|x_l|-k_l+1)\
 \end{align*}
-In the sums we are setting $i_{j+1}=n+1$. %not sure if it is worth using double bars
+In the sums we are setting $i_0=0$ and $i_{j+1}=n+1$. %not sure if it is worth using double bars
 %\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{\mathclap{1\leq t\leq l\leq j}}}||y_v||(||x_l||-k_l)
 %\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{\mathclap{1\leq t< l\leq j}}}||y_v||(||x_l||-k_l)
 
@@ -1035,7 +1035,7 @@ The sign is computed using \Cref{bracesign} and the Koszul sign rule for the shi
 %\sum_{v=1}^{i_1-1}(k-v)|y_v|+\sum_{v=1}^{i_1-1}l||y_v||+\sum_{v=i_1}^{i_1+l-1}(k-i_1)||y_v||+\sum_{v=i_1}^{n-l}(k-v)|y_{v+l}|
 %\]
 %\[
-%\sum_{v=1}^{i_1-1}(k-v)|y_v|+\sum_{v=1}^{i_1-1}l|y_v|+l(i_1-1)+\sum_{v=i_1}^{i_1+l-1}(k-i_1)|y_v|+l(k-i_1)+\sum_{v=i_1}^{n-l}(k-v)|y_{v+l}|
+%\sum_{v=1}^{i_1-1}(k-v)|y_v|+\sum_{v=1}^{i_1-1}|y_v|+l(i_1-1)+\sum_{v=i_1}^{i_1+l-1}(k-i_1)|y_v|+l(k-i_1)+\sum_{v=i_1}^{n-l}(k-v)|y_{v+l}|
 %\]
 %%cancellation of l(k-1) and I'm going to pretend k-i_1 does not exist, originally I wasn't getting it maybe it's cancelling with something as well
 %\[
@@ -1047,7 +1047,7 @@ The sign is computed using \Cref{bracesign} and the Koszul sign rule for the shi
 
 
 \begin{remark}
-In \Cref{ainftydeligne}, when $A$ is just an associative algebra, we recover the homotopy $G$-algebra structure on its Hochschild complex, as described in \cite{GV}.
+In \Cref{ainftydeligne}, when $A$ is just an associative algebra, we recover the homotopy $G$-algebra structure on its Hochschild complex according to \Cref{homotopygalgebras}, as described in \cite{GV}.
 \end{remark}
 
 

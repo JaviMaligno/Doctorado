@@ -676,13 +676,12 @@ where
 %\varepsilon = \sum_{v=1}^{i_1-1}(|y_v|+1)(|x|-k+1)+\sum_{v=0}^{k-1}(|y_{v+i_1}|+1)(k-v+1)+(l-1)|x|+(i_1-1)k.
 %\]
 \begin{align*}
-\varepsilon = \sum_{v=1}^{i_1-1}\langle Sy_v,S^{1-k}x\rangle&+\sum_{v=0}^{k-1}\vdeg(y_{v+i_1})(k-v+1)\\
-&+(l-1)\vdeg(x)+(i_1-1)k.
+\varepsilon = \sum_{v=1}^{i_1-1}\langle Sy_v,S^{1-k}x\rangle&+\sum_{v=1}^{k}\vdeg(y_{i_1+v-1})(k-v)+(l-i_1)\vdeg(x).
 \end{align*}
 and
 \begin{align*}
-\eta=l&(k-1)+\sum_{v=1}^{i_1-1}(n+1-v)(\vdeg(y_v)+1)\\
-&+\sum_{v=i_1}^{i_1+l-1}(k-i_1)(\vdeg(y_v)+1)+\sum_{v=i_1+l}^n(n-v)(\vdeg(y_v)+1).
+\eta=& \sum_{v=1}^{i_1-1}(k-v)\vdeg(y_v)+l\sum_{v=1}^{i_1-1}\vdeg(y_v)\\
+&+\sum_{v=i_1}^{i_1+l-1}(k-i_1)\vdeg(y_v)+\sum_{v=i_1}^{n-l}(k-v)\vdeg(y_{v+l})
 \end{align*}
 %\[
 %\eta=l(k-1)+\sum_{v=1}^{i_1-1}(n+1-v)(|y_v|+1)+\sum_{v=i_1}^{i_1+l-1}(k-i_1)(|y_v|+1)+\sum_{v=i_1+l}^n(n-v)|(|y_v|+1).
@@ -695,18 +694,18 @@ For $j>1$ we demand
 \end{align*}
 The unindexed sum runs over all possible choices of non-negative integers that satisfy $l+k_1+\cdots+k_j-j=n$ and over all possible ordering preserving insertions. The right hand side sign is given by 
 \begin{align*}
-\varepsilon =& \sum_{1\leq i< l\leq j}k_v\vdeg(x_l)+\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{1\leq t\leq l\leq j}}\langle Sy_v,S^{1-k_l}x_l\rangle\\
-&+\underset{0\leq v< k_t}{\sum_{\mathclap{1\leq t\leq j}}} \vdeg(y_{v+i_t})(k_v-v+1)+\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{1\leq t< l\leq j}}\langle Sy_v,S^{1-k_l}x_l\rangle\\
-&+\sum_{0\leq v<l\leq j}(i_{v+1}-i_v-k_v)(\vdeg(x_l)+1-k_l)\\
-&+\sum_{1\leq v\leq l\leq j} \vdeg(x_v)(i_{l+1}-i_l-k_l)
+\varepsilon =&\underset{1\leq v\leq k_t}{\sum_{\mathclap{1\leq t\leq j}}} \vdeg(y_{i_t+v-1})(k_v-v)+ \sum_{\mathclap{1\leq i< l\leq j}}k_v\vdeg(x_l)+\underset{\mathclap{i_{t}\leq v< i_{t+1}}}{\sum_{\mathclap{0\leq t< l\leq j}}}\langle Sy_v,S^{1-k_l}x_l\rangle\\
+&+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)\vdeg(S^{1-k_l}x_l)+\sum_{\mathclap{1\leq v\leq l\leq j}} \vdeg(x_v)(i_{l+1}-i_l-k_l)
 \end{align*}
-All the above shifts are vertical and we are setting $i_0=1$, $k_0=0$. 
+All the above shifts are vertical and we are setting $i_0=0$, $i_{j+1}=n+1$. 
 \end{defin}
 
 \begin{corollary}[The derived Deligne conjecture]\label{dainftydeligne}
 If $A$ is a derived $A_\infty$-algebra horizontally bounded on the right, then its Hochschild complex $S\s\End_A$ is a derived $J$-algebra.
 \end{corollary}
+%\begin{proof}
 The result follows from \Cref{bigradedtheorem} analogously to \Cref{ainftydeligne} using the explicit expressions and signs given by \Cref{derivedmaps}, \Cref{mi1} and \Cref{bigradedsign}.
+%\end{proof}
 %\begin{proof}
 %Clearly $\s\End_A$ is a brace algebra as it is an operad. Since $A$ is a derived $A_\infty$-algebra, the structure map $m=\sum_{ij}m_{ij}$ determines a derived $A_\infty$-multiplication $m\in\s\End_A$. It follows by \Cref{derivedainftystructure} that $S\s\End_A$ is a derived $A_\infty$-algebra. Therefore, we need to show the compatibility relations. 
 %\end{proof}

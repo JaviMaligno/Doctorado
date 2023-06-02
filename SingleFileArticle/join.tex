@@ -1700,7 +1700,28 @@ In the case $n=2$, omitting the shift symbols by abuse of notation, we obtain
 Let $M^{GV}_2$ be the product defined in \cite{GV} as \[M^{GV}_2(x,y)=(-1)^{|x|+1}b_2(m;x,y).\] We see that $M_2=-M^{GV}_2$. Since the authors of \cite{GV} work in the associative case $m=m_2$, this minus sign does not affect the $A_\infty$-relation (which in this case reduces to the associativity and differential relations). This difference in sign can be explained by the difference between $(S^{\otimes n})^{-1}$ and $(S^{-1})^{\otimes n}$, since any of these maps can be used to define a map $(S\s\OO)^{\otimes n}\to \s\OO^{\otimes n}$. 
 \end{remark}
 
-Now that we have the explicit formulas for the $A_\infty$-structure on $S\s\OO$ we can state and prove an $A_\infty$-version of the Deligne conjecture. We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algebras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting. We introduce now the notation $||x||=|x|+1$ in order to make the equations more compact.
+Now that we have the explicit formulas for the $A_\infty$-structure on $S\s\OO$ we can state and prove an $A_\infty$-version of the Deligne conjecture. Let us first re-adapt the definition of homotopy $G$-algebra from \cite[Definition 2]{GV} to our conventions.
+
+\begin{defin}\label{homotopygalgebras}
+A \emph{homotopy $G$-algebra} is differential graded algebra $V$ with a differential $M_1$ and a product $M_2$ such that the shift $S^{-1}V$ is a brace algebra with brace maps $b_n$. The product $M_2$ must satisfy the following compatibility identities. Let $x,x_1,x_2,y_1,\dots, y_n\in S^{-1}V$. We demand 
+\begin{align*}
+Sb_n(&S^{-1}M_2(Sx_1,Sx_2);y_1,\dots, y_n) = \\
+&\sum_{k=0}^n (-1)^{(|x_2|+1)\sum_{i=1}^k|y_i|}M_2(b_k(x_1;y_1,\dots, y_k),b_{n-k}(x_2;y_{k+1},\dots, y_n))
+\end{align*}
+%I'm getting a +nk on the sign, but let's pretend it's not there for now and later see how the general formulas behave with respect to this
+and
+\begin{align*}
+S&b_n(S^{-1}M_1(Sx);y_1,\dots, y_n)-M_1(Sb_n(x;y_1,\dots,y_n))\\
+-&(-1)^{|x|+1}\sum_{p=1}^n(-1)^{\sum_{i=1}^p|y_i|}Sb_n(x;y_1,\dots,M_1(Sy_p),\dots, y_n)\\
+=&-(-1)^{(|x|+1)|y_1|}M_2(Sy_1,Sb_{n-1}(x;y_2,\dots, y_n))\\
+ &+(-1)^{|x|+1}\sum_{p=1}^{n-1}(-1)^{n-1+\sum_{i=1}^p|y_i|}Sb_{n-1}(x;y_1,\dots,M_2(Sy_p,Sy_{p+1}),\dots y_n)\\
+ &-(-1)^{|x|+\sum_{i=1}^{n-1}|y_i|}M_2(Sb_{n-1}(x;y_1,\dots, y_{n-1}),Sy_n)
+\end{align*}
+\end{defin}
+
+Notice that our signs are slightly different to those in \cite{GV} as a consequence of our conventions. Our signs will be a particular case of those in \Cref{Jalgebras}, which are set so that \Cref{ainftydeligne} holds in consistent way with operadic suspension and all the shifts that tha authors of \cite{GV} do not consider.
+
+We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algebras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting. %We introduce now the notation $||x||=|x|+1$ in order to make the equations more compact.
 
 \begin{defin}\label{Jalgebras}
 A \emph{$J$-algebra} $V$ is an $A_\infty$-algebra with structure maps $\{M_j\}_{j\geq 1}$ such that the shift $S^{-1}V$ is a brace algebra. Furthermore, the braces and the $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$. For $n\geq 0$ we demand 
@@ -1710,32 +1731,26 @@ A \emph{$J$-algebra} $V$ is an $A_\infty$-algebra with structure maps $\{M_j\}_{
 -(-1)^{|x|}\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{\mathclap{l+k-1=n}}}&(-1)^{\eta} Sb_k(x;y_1,\dots, S^{-1}M_l(Sy_{i_1},\dots,), \dots, y_n)
 \end{align*}
 where
-%\[
-%\varepsilon = \sum_{v=1}^{i_1-1}(|y_v|+1)(|x|-k+1)+\sum_{v=0}^{k-1}(|y_{v+i_1}|+1)(k-v+1)+(l-1)|x|+(i_1-1)k.
-%\]
-\[
-\varepsilon = \sum_{v=1}^{i_1-1}||y_v||(|x|-k+1)+\sum_{v=0}^{k-1}||y_{v+i_1}||(k-v+1)+(l-1)|x|+(i_1-1)k.
-\]
+\begin{align*}
+\varepsilon = &\sum_{v=1}^{i_1-1}|y_v|(|x|-k+1)+\sum_{v=1}^{k}|y_{i_1+v-1}|(k-v)+(l-i_1)|x|.
+\end{align*}
 and
-\[
-\eta=l(k-1)+\sum_{v=1}^{i_1-1}(n+1-v)||y_v||+\sum_{v=i_1}^{i_1+l-1}(k-i_1)||y_v||+\sum_{v=i_1+l}^n(n-v)||y_v||.
-\]
-%\[
-%\eta=l(k-1)+\sum_{v=1}^{i_1-1}(n+1-v)(|y_v|+1)+\sum_{v=i_1}^{i_1+l-1}(k-i_1)(|y_v|+1)+\sum_{v=i_1+l}^n(n-v)|(|y_v|+1).
-%\]
-
+\begin{align*}
+\eta=& \sum_{v=1}^{i_1-1}(k-v)|y_v|+\sum_{v=1}^{i_1-1}l|y_v|+\sum_{v=i_1}^{i_1+l-1}(k-i_1)|y_v|+\sum_{v=i_1}^{n-l}(k-v)|y_{v+l}|
+\end{align*}
 For $j>1$ we demand
 \begin{align*}
 &(-1)^{\sum_{i=1}^n(n-i)|y_i|}Sb_n(S^{-1}M_j(Sx_1,\dots, Sx_j);y_1,\dots, y_n)=\\
 &\sum(-1)^{\varepsilon}M_l(Sy_1,\dots, Sb_{k_1}(x_1;y_{i_1},\dots),\dots, Sb_{k_j}(x_j;y_{i_j},\dots),\dots, Sy_n).
 \end{align*}
-The unindexed sum runs over all possible choices of non-negative integers that satisfy $l+k_1+\cdots+k_j-j=n$ and over all possible ordering-preserving insertions. The right hand side sign is given by 
+The unindexed sum runs over all possible choices of non-negative integers that satisfy $l+k_1+\cdots+k_j-j=n$ and over all possible ordering-preserving insertions. The right hand side sign is given by
 \begin{align*}
-\varepsilon = \underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{1\leq t\leq l\leq j}}||y_v||(||x_l||-k_l)+\underset{0\leq v< k_t}{\sum_{1\leq t\leq j}} ||y_{v+i_t}||(k_v-v+1)+\underset{i_t\leq v< i_t+k_t}{\sum_{1\leq t< l\leq j}}||y_v||(||x_l||-k_l)\\
-+\sum_{1\leq i< l\leq j}k_v|x_l|+\sum_{0\leq v<l\leq j}(i_{v+1}-i_v-k_v)(||x_l||-k_l)+\sum_{1\leq v\leq l\leq j} |x_v|(i_{l+1}-i_l-k_l)
+\varepsilon =& \underset{1\leq v\leq k_t}{\sum_{\mathclap{1\leq t\leq j}}} |y_{i_t+v-1}|(k_t-v)+\sum_{\mathclap{1\leq v< l\leq j}}k_v|x_l|+\sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|(i_{l+1}-i_l-k_l)\\
+&+\underset{\mathclap{i_t\leq v< i_{t+1}}}{\sum_{\mathclap{0\leq t< l\leq j}}}(|y_v|+1)(|x_l|-k_l+1)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(|x_l|-k_l+1)\
 \end{align*}
-In the sums we are setting $i_0=1$, $k_0=0$. 
+In the sums we are setting $i_0=0$ and $i_{j+1}=n+1$.
 \end{defin}
+
 
 \begin{corollary}[The $A_\infty$-Deligne Conjecture]\label{ainftydeligne}
 If $A$ is an $A_\infty$-algebra, then its Hochschild complex $S\s\End_A$ is a $J$-algebra.
@@ -1813,8 +1828,7 @@ If $A$ is an $A_\infty$-algebra, then its Hochschild complex $S\s\End_A$ is a $J
 
 
 \begin{remark}
-In \Cref{ainftydeligne}, when $A$ is just an associative algebra, we recover the homotopy $G$-algebra structure on its Hochschild complex, as described in \cite{GV}.
-\end{remark}
+In \Cref{ainftydeligne}, when $A$ is just an associative algebra, we recover the homotopy $G$-algebra structure on its Hochschild complex.\end{remark}
 
 
 \section{Derived $A_\infty$-algebras and filtered $A_\infty$-algebras}\label{deriveddef}
@@ -2329,7 +2343,7 @@ where $\langle  m_{il},x\rangle=ik+(1-i)(d-1-k)$, as claimed.
 
 \subsection{Derived Deligne conjecture}
 
-Note that the maps given by \Cref{derivedmaps} and \Cref{mi1} formally look the same as their single-graded analogues in \Cref{explicit} but with an extra index that is fixed for each $M_{ij}$. This means that we can follow the same procedure as in \Cref{sect3} to define higher derived $A_\infty$-maps on the Hochschild complex of a derived $A_\\infty$-algebra. More precisely, given an operad $\OO$ with a derived multiplication and $A=S\s\OO$, we will define a derived $A_\infty$-algebra structure on $S\s\End_A$. We will then connect the algebraic structure on $A$ with the structure on $S\s\End_A$ through braces. This connection will allow us to formulate and show a new version of the Deligne Conjecture.
+Note that the maps given by \Cref{derivedmaps} and \Cref{mi1} formally look the same as their single-graded analogues in \Cref{explicit} but with an extra index that is fixed for each $M_{ij}$. This means that we can follow the same procedure as in \Cref{sect3} to define higher derived $A_\infty$-maps on the Hochschild complex of a derived $A_\infty$-algebra. More precisely, given an operad $\OO$ with a derived multiplication and $A=S\s\OO$, we will define a derived $A_\infty$-algebra structure on $S\s\End_A$. We will then connect the algebraic structure on $A$ with the structure on $S\s\End_A$ through braces. This connection will allow us to formulate and show a new version of the Deligne Conjecture.
 
 Let $\overline{B}_j$ be the bigraded brace map on $\s\End_{S\s\OO}$ and consider the maps
 
