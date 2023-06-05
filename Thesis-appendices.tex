@@ -9,6 +9,7 @@
 %CONSIDER THIS \url{https://tex.stackexchange.com/questions/37277/book-class-appendix}
 %\begin{appendices}
 \appendix
+\setcounter{equation}{0}
 %\appendixpage
 \gdef\thesection{\Alph{section}}
 \section{Some proofs and details}\label{AppA}
@@ -100,21 +101,21 @@ Applying $\tau$ we obtain
 
 The sign $(-1)^{\sum_{j=1}^n (n-j)v_j}$ comes from swapping the shift maps $S$ past the $v_j$'s, and the sign $(-1)^{(v_i-1)(v_{i+1}-1)}$ comes from permuting $v_i$ and $v_{i+1}$. On the other hand, performing similar sign computations we have
 
-\begin{align*}\label{secondmap}
+\begin{align}\label{secondmap}
 &(\sigma^{-1}(F)\tau) (v_1\otimes\cdots\otimes v_n)\\
-&=(-1)^{v_iv_{i+1}-1}S^{-1}\circ F\circ S^{\otimes n}(v_1\otimes\cdots\otimes v_{i+1}\otimes v_i\otimes\cdots\otimes v_n)\\\nonumber
-&=(-1)^{\delta}S^{-1}\circ f(S v_1\otimes\cdots\otimes S v_{i+1}\otimes S v_i\otimes\cdots\otimes S v_n)
-\end{align*}
+&=(-1)^{v_iv_{i+1}-1}S^{-1}\circ F\circ S^{\otimes n}(v_1\otimes\cdots\otimes v_{i+1}\otimes v_i\otimes\cdots\otimes v_n)\nonumber\\
+&=(-1)^{\delta}S^{-1}\circ f(S v_1\otimes\cdots\otimes S v_{i+1}\otimes S v_i\otimes\cdots\otimes S v_n)\nonumber
+\end{align}
 where $\delta = v_iv_{i+1}-1+\sum_{j\neq i,i+1}(n-j)v_j +(n-i-1)v_i+(n-i)v_{i+1}$.
 
-Now we just have to check that the signs are the same. Modulo $2$, the sign on equation (\ref{firstmap}) is 
+Now we just have to check that the signs are the same. Modulo $2$, the sign on \Cref{firstmap} is 
 
 \begin{align*}
-&v_iv_{i+1}+v_i+v_{i+1}-1+\sum_{j=1}^n(n-j)v_j\\
-&=v_iv_{i+1}-1+\sum_{j\neq i,i+1}^n(n-j)v_j+(n-i-1)v_i+(n-i)v_{i+1},
+&v_iv_{i+1}+v_i+v_{i+1}-1+\sum_{j=1}^n(n-j)v_j=\\
+&v_iv_{i+1}-1+\sum_{j\neq i,i+1}^n(n-j)v_j+(n-i-1)v_i+(n-i)v_{i+1},
 \end{align*}
 
-which indeed coincides with the sign on equation (\ref{secondmap}).
+which indeed coincides with the sign on \Cref{secondmap}.
 \end{proof}
 
 \begin{remark}
@@ -154,11 +155,11 @@ The last remark that we want to make is the case of a map of the form
 such as those produced by operadic the insertion $\s f\tilde{\circ}_{k} \s g$. In this case, this map applied to $a_{k-1}\otimes b\otimes a_{n-k}\in A^{\otimes k-1}\otimes A^{\otimes m}\otimes A
 ^{\otimes n-k}$ results in
 
-\begin{gather*}
-(f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k})\otimes e^{m+n-1})(a_{k-1}\otimes b\otimes a_{n-k})\\
-=(-1)^{\nu}f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k}(a_{k-1}\otimes b\otimes a_{n-k}))\otimes e^{m+n-1}\\
-=(-1)^{\nu+\deg(a_{k-1})\deg(g)}f(a_{k-1}\otimes g(b)\otimes a_{n-k})\otimes e^{m+n-1}.
-\end{gather*}
+\begin{align*}
+(f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k})\otimes e^{m+n-1})(a_{k-1}\otimes b\otimes a_{n-k})=&\\
+(-1)^{\nu}f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k}(a_{k-1}\otimes b\otimes a_{n-k}))\otimes e^{m+n-1}=&\\
+(-1)^{\nu+\deg(a_{k-1})\deg(g)}f(a_{k-1}\otimes g(b)\otimes a_{n-k})\otimes e^{m+n-1}&.
+\end{align*}
 where $\nu=(m+n)(\deg(a_{k-1})+\deg(b)+\deg(a_{n-k}))$.
 To go from the first line to the second, we switch $e^{m+n-1}$ of degree $m+n-2$  with $a_{k-1}\otimes b\otimes a_{n-k}$. To go from the second line to the third we apply the usual sign rule for graded maps.
 

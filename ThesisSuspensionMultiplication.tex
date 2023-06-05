@@ -695,7 +695,7 @@ We are using hyphens instead of $1$'s to make the equality of both sides of the 
 
 For each tuple $(i_1,\dots, i_j)$ we can choose $n$ such that \[n-(i_1+\cdots+i_j)+j=l,\] so the above sum equals
 
-\[\underset{n-(i_1+\cdots+i_j)+j=l}{\sum_{n,i_1,\dots, i_j}}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-).\]
+\[\underset{\mathclap{n-(i_1+\cdots+i_j)+j=l}}{\sum_{n,i_1,\dots, i_j}}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-).\]
 
 So each $M'_l$ component for $l\geq j$ produces precisely the terms $b_l(m;\dots)$ appearing in $\Phi'(M'_j)$. Conversely, for every $n\geq 0$ there exists some tuple $(i_1,\dots, i_j)$ and some $l\geq j$ such that $n$ is the that $n-(i_1+\cdots+i_j)+j=l$, so we do get all the summands from the left hand side of the equation (\ref{commutative}), and thus we have the equality $\Phi'(M'_j)=\mathcal{M}_j((\Phi')^{\otimes j})$ for all $j>1$.
 
@@ -848,7 +848,7 @@ Let $M^{GV}_2$ be the product defined in \cite{GV} as \[M^{GV}_2(x,y)=(-1)^{|x|+
 Now that we have the explicit formulas for the $A_\infty$-structure on $S\s\OO$ we can state and prove an $A_\infty$-version of the Deligne conjecture. Let us first re-adapt the definition of homotopy $G$-algebra from \cite[Definition 2]{GV} to our conventions.
 
 \begin{defin}\label{homotopygalgebras}
-A \emph{homotopy $G$-algebra} is differential graded algebra $V$ with a differential $M_1$ and a product $M_2$ such that the shift $S^{-1}V$ is a brace algebra with brace maps $b_n$. The product $M_2$ must satisfy the following compatibility identities. Let $x,x_1,x_2,y_1,\dots, y_n\in S^{-1}V$. We demand 
+A \emph{homotopy $G$-algebra} is differential graded algebra $V$ with a differential $M_1$ and a product $M_2$ such that the shift $S^{-1}V$ is a brace algebra with brace maps $b_n$. The differential $M_1$ and the product $M_2$ must satisfy the following compatibility identities. Let $x,x_1,x_2,y_1,\dots, y_n\in S^{-1}V$. We demand 
 \begin{align*}
 Sb_n(&S^{-1}M_2(Sx_1,Sx_2);y_1,\dots, y_n) = \\
 &\sum_{k=0}^n (-1)^{(|x_2|+1)\sum_{i=1}^k|y_i|}M_2(b_k(x_1;y_1,\dots, y_k),b_{n-k}(x_2;y_{k+1},\dots, y_n))
