@@ -378,8 +378,12 @@ Before that, let us use this new operadic structure to reinterpret derived $\inf
 
 
 
-
+%\pagebreak
 \section{Bigraded braces and totalized braces}\label{sectionbibraces}
+
+In this section we generalize the brace algebras we saw in \Cref{sectionbraces} to bigraded and totalized operads. This will allow to continue our generalization towards a derived version of the Deligne conjecture by following similar steps to the $A_\infty$-case. We also use this generalization to reinterpret derived $\infty$-morphisms in a similar way to \Cref{reinterpretation}.
+
+\subsection{Braces}
 We are going to define a brace structure on $\Tot(\s\OO)$ using totalization. First note that one can define bigraded braces just like in the single-graded case, only changing the sign $\varepsilon$ in \Cref{braces} to be $\varepsilon=\sum_{p=1}^n\sum_{q=i}^{i_p}\langle x_p,y_q\rangle$ according to the bigraded sign convention.
 
 As one might expect, we can define bigraded brace maps $b_n$ on a bigraded operad $\OO$ and also on its operadic suspension $\s\OO$, obtaining similar signs as in the single-graded case, but with vertical internal degrees, see \Cref{bracesign}. 
@@ -398,7 +402,7 @@ Operadic composition can be described in terms of insertions in the obvious way,
 \gamma^\star(x;y_1,\dots,y_N)=(\cdots(x\star_1 y_1)\star_{1+a(y_1)}y_2\cdots)\star_{1+\sum a(y_p)}y_N,
 \end{equation}
 
-where $a(y_p)$ is the arity of $y_p$ (in this case $y_p$ is either $1$ or some $x_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the sign factor applying the same strategy as in the single-graded case. In fact, as we said, there is a sign factor that comes from vertical operadic suspension that is identical to the graded case, but replacing internal degree by internal vertical degree. This is the sign that determines the brace $b_n$ on $\s\OO$. Explicitly, it is given by the following lemma, whose proof is identical to the single-graded case.
+where $a(y_p)$ is the arity of $y_p$ (in the case of a brace $y_p$ is either $1$ or some $x_i$). If we want to express this composition in terms of the composition $\gamma$ in $\OO$ we just have to find out the sign factor applying the same strategy as in the single-graded case. In fact, as we said, there is a sign factor that comes from vertical operadic suspension that is identical to the graded case, but replacing internal degree by internal vertical degree. This is the sign that determines the brace $b_n$ on $\s\OO$. Explicitly, it is given by the following lemma, whose proof is identical to the single-graded case.
  
  \begin{lem}\label{bigradedsign}
 For $x\in \s\OO(N)$ and $x_i\in\s\OO(a_i)$ of internal vertical degree $q_i$ ($1\leq i\leq n$), we have
@@ -496,9 +500,10 @@ horizontal degree zero or as an operad in filtered complexes with trivial filtra
 \begin{remark}\label{boundednessremark}
 According to \Cref{filterversion}, the last isomorphism can be replaced by 
 \[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\cong \Hom_{\mathrm{COp}}(\calA_∞,\End_{\Tot(A)}),\]
-where $\mathrm{COp}$ is the category of operads in chain complexes. 
+where $\mathrm{COp}$ is the category of operads in cochain complexes. 
 \end{remark}
-There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^{d-k}=0$ for all $k>i$. In our case, $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have at most a finite number of non-zero $dA_\infty$ components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far (some of them are in \cite[Remark 6.5]{muro}, \cite{RW}, and \cite[\S 5]{women}). Under this assumption we may replace all direct products by direct sums.
+
+There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^{d-k}=0$ for all $k>i$. In our case, $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have at most a finite number of non-zero $dA_\infty$ components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far (some of them are in \cite[Remark 6.5]{muro}, \cite{RW}, and \cite[\S 5]{women}). Under this assumption we may replace all direct products by direct sums, implying thus extra monoidality properties.
 
 We also need to provide $A$ with a twisted complex structure. The reason for this is that \Cref{whitehouse} uses the definition of derived $A_\infty$-algebras on an underlying twisted complex, see \Cref{equivalent}. We show explicitly the existence of a twisted complex structrue on an operad with derived $A_\infty$-multiplication in \Cref{twistedoperad}, but it also follows from \Cref{mi1}. We also provide another version of this theorem that works for bigraded modules, \Cref{alternative}. 
 
@@ -527,9 +532,8 @@ Since $S\Tot(\s\OO)\cong \Tot(S\s\OO)$, we can view $M_j$ as the image of a morp
 
 We now work our way backwards using the strategy also employed by the proof of \Cref{whitehouse}. The isomorphism 
 \[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\cong \Hom_{\mathrm{COp}}(\calA_∞,\End_{\Tot(A)})\]
+
 does not modify the map $M_j$ at all but allows us to see it as a element of $\uEnd_{\Tot(A)}$ of bidegree $(0,2-j)$. 
-
-
 
 The isomorphism 
 \[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_A)\cong \Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\] 
@@ -657,7 +661,7 @@ where
 \Phi'\colon&\s\OO \to \End_{\s\OO}\\
 &x\mapsto \sum_{n\geq 0}b_n(x;-).
 \end{align*}
-The isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\sigma}$.
+The isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\sigma}$. 
 
 In this setting we have the bigraded version of \Cref{theorem}. But before stating the theorem, for the sake of completeness let us state the definition of the Hochschild complex of a bigraded module.
 \begin{defin}
@@ -715,7 +719,7 @@ The unindexed sum runs over all possible choices of non-negative integers that s
 \end{align*}
 All the above shifts are vertical and we are setting $i_0=0$, $i_{j+1}=n+1$. 
 \end{defin}
-
+\pagebreak
 \begin{corollary}[The derived Deligne conjecture]\label{dainftydeligne}
 If $A$ is a derived $A_\infty$-algebra horizontally bounded on the right, then its Hochschild complex $S\s\End_A$ is a derived $J$-algebra.
 \end{corollary}
