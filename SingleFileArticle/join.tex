@@ -182,7 +182,7 @@ Another technique to describe $A_\infty$-structures comes from brace algebras \c
 
 Here we used an operadic approach to obtain these signs in a more conceptual and consistent way. As a consequence, we will generalize the Lie bracket used in \cite{RW} and will give a very simple interpretation of $A_\infty$-algebras. The difference between our operadic approach and others mentioned before is that ours uses much more elementary tools and can be use to talk about $A_\infty$-structrures on any operad. We hope that this provides a useful way of thinking about $A_\infty$-structures.  A first application of this simple formulation is the generalization of the Deligne conjecture. The classical Deligne conjecture states that the Hochschild complex of an associative algebra has the structure of a homotopy $G$-algebra \cite{GV}. This result has its roots in the theory of topological operads \cite{delignehistory}. Since $A_\infty$-generalize associative algebras, it is natural to ask what sort of algebraic structure arises on their Hochschild complex. Thanks to the tools we develop, we are able to answer this question.
 
-Later in 2009, derived $A_\infty$-algebras were introduced by Savage \cite{sagave} as a bigraded generalization of $A_\infty$-algebras in order to bypass the projectivity requirements that often arise when working with classical $A_\infty$-algebras. We generalize the operadic description of classical $A_\infty$-algebras to the derived case by means of an operadic totalization inspired by the totalization functor described in \cite{whitehouse}. This way we obtain an operation similar to the star operation in \cite{LRW} and generalize the construction based on operadic suspension that has been done for $A_\infty$-algebras to the more general derived $A_\infty$-algebra.
+Later in 2009, derived $A_\infty$-algebras were introduced by Savage \cite{sagave} as a bigraded generalization of $A_\infty$-algebras in order to bypass the projectivity requirements that are often required when working with classical $A_\infty$-algebras. We generalize the operadic description of classical $A_\infty$-algebras to the derived case by means of an operadic totalization inspired by the totalization functor described in \cite{whitehouse}. This way we obtain an operation similar to the star operation in \cite{LRW} and generalize the construction that has been done for $A_\infty$-algebras to more general derived $A_\infty$-algebras.
 
 The text is organized as follows. In Section \ref{Sec1} we recall some basic definitions and establish some conventions for both the classical and the derived cases. In Section \ref{Sec2} we define a device called \emph{operadic suspension} that will help us obtain the signs that we want and link this device to the classical operadic approach to $A_\infty$-algebras. We also take this construction to the level of the underlying collections of the operads to also obtain a nice description of $\infty$-morphisms of $A_\infty$-algebras. We then explore the functorial properties of operadic suspension, being monoidality (\Cref{monoidality}) the most remarkable of them. In \Cref{sectionbraces} we study the brace algebra induced by operadic supension and obtain a relevant result, \Cref{bracesign}, which establishes a relation between the canonical brace structure on an operad and the one induced by its operadic suspension. We show that as a particular case of this result we obtain the Lie bracket from \cite{RW}.
 
@@ -199,7 +199,7 @@ This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we 
 The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with an $A_\infty$-multiplication has a structure of a $J$-algebra.
 \end{manualtheorem} 
 
- In the above theorem, $J$-algebras play the role of homotopy $G$-algebras in the classical case \cite{GV}. After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras in \Cref{deriveddef}. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW} which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our main results about derived $A_\infty$-algebras. The first one is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, the $A_\infty$-structure on totalization is equivalent to a derived $A_\infty$-algebra on $S\s\OO$.
+ In the above theorem, $J$-algebras play the role of homotopy $G$-algebras in the classical case \cite{GV}. After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras in \Cref{deriveddef}. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW}, which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our main results about derived $A_\infty$-algebras. The first one is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, the $A_\infty$-structure on totalization is equivalent to a derived $A_\infty$-algebra on $S\s\OO$.
  
  \begin{manualtheorem}{C}
 	For any operad $\OO$ with a derived $A_\infty$-multiplication there are linear maps $M_{ij}:(S\s\OO)^{\otimes j}\to S\s\OO$, satisfying the derived $A_\infty$-algebra axioms.
@@ -610,7 +610,7 @@ which is associative and unital with respect to the monoidal structures over $\V
 we say $F$ is a \emph{functor over $\VV$}.
 Let $F,G : \CC → \DD$ be lax functors over $\VV$. A \emph{natural transformation over $\VV$} is a natural transformation
 $μ : F ⇒ G$ such that for any $C ∈ \VV$ and for any $X ∈ \CC$ we have
-\[ν_G \circ (1 ∗_\DD μ_X) = μ_C∗_\CC X \circ ν_F .\]
+\[ν_G \circ (1 ∗_\DD μ_X) = μ_{C∗_\CC X} \circ ν_F .\]
 A \emph{lax monoidal functor over $\VV$} is a triple $(F, \epsilon, μ)$, where $F : \CC → \DD$ is a lax functor over $\VV$,
 $\epsilon : 1_\DD → F(1_\CC)$ is a morphism in $\DD$ and
 \[μ : F(−) ⊗ F(−) ⇒ F(− ⊗ −)\]
@@ -626,7 +626,7 @@ functors
 where $\uC$ and $\uD$ denote the $\VV$-enriched categories corresponding to $\CC$ and $\DD$ as described in \Cref{underline}. Moreover, any natural transformation $μ : F ⇒ G$ over $\VV$ also extends to a $\VV$-enriched natural
 transformation
 \[\underline{μ} : \underline{F} ⇒ \underline{G}.\]
-In particular, if $F$ is (lax) monoidal over $\VV$, then $F$ is (lax) monoidal in the enriched sense.
+In particular, if $F$ is lax monoidal over $\VV$, then $\underline{F}$ is lax monoidal in the enriched sense, where the monoidal structure on $\uC × \uC$ is described in \Cref{underline}.
 \end{propo}
 
 \begin{lem}
@@ -799,7 +799,7 @@ Here $u$ is the horizontal degree of $f$.
 \end{defin}
 
 
-The proof of the followin lemma is included in the proof of \cite[Lemma 4.35]{whitehouse}.
+The proof of the following lemma is included in the proof of \cite[Lemma 4.35]{whitehouse}.
 \begin{lem}\label{adjunction}
 Let $A$ be a vertical bicomplex that is horizontally bounded on the right and let $K$ and $L$ be filtered complexes. There is a natural bijection
 \[\Hom_{\fc}(\Tot(A)\otimes K,L)\cong \Hom_{\vbc}(A,\ufC(K,L))\]
@@ -2742,7 +2742,7 @@ Notice that $N-n+\sum a_j=\sum k_i +\sum a_j$. In general, consider a finite sum
 
 \[\binom{\sum b_i}{2}+\sum\binom{b_i}{2}\]
 
-in the followin way. Note that all terms will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator. More precisely, we have the following equality mod 2.
+in the following way. Note that all terms will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator. More precisely, we have the following equality mod 2.
 
 \[\binom{\sum b_i}{2}+\sum\binom{b_i}{2}=\sum_{i<j}b_ib_j.\]
 So the result of applying this to $\binom{N-n+\sum a_j}{2}$ and adding $\delta$ (recall $\delta$ from \ref{delta}) in our sign $\eta$ is
