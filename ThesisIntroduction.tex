@@ -387,7 +387,7 @@ sending a pair of loops $(f_1, f_2)$ to the loop $f_1 * f_2 = m_2(f_1, f_2)$ obt
 \]
 
 
-This composition is not associative: for three loops $f_1$, $f_2$, $f_3$, the composition $(f_1*f_2)*f_3$ runs through $f_1$ on the first quarter of the circle whereas the composition $f_1 * (f_2 * f_3)$ runs through $f_1$ on the first half of the circle. We symbolize the two possibilities by the two binary trees with three leaves.
+This composition is not associative: for three loops $f_1$, $f_2$, $f_3$, the composition $(f_1*f_2)*f_3$ runs through $f_1$ on the first quarter of the circle whereas the composition $f_1 * (f_2 * f_3)$ runs through $f_1$ on the first half of the circle. We symbolize the two possibilities by two binary trees with three leaves.
 \[
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 \clip(-4.175394430564892,-2.5911383046897085) rectangle (7.490400123879831,3.3976612960713135);
@@ -432,8 +432,8 @@ There is a homotopy
 \[
 m_3 : [0, 1]×X × X \to X
 \]
-joining the two possibilities of composing three loops by a reparamerization. When we want to compose four
-factors, there are five possibilities corresponding to the five binary trees with four leaves. Using
+joining the two possibilities of composing three loops by a reparametrization. When we want to compose four
+loops, there are five possibilities corresponding to the five binary trees with four leaves. Using
 $m_3$, we obtain two concatenations of homotopies linking the compositions $(f_1, f_2, f_3, f_4) \mapsto
 ((f_1 * f_2) * f_3) * f_4$ and $(f_1, f_2, f_3, f_4) \mapsto f_1 * (f_2 * (f_3 * f_4))$. This results in the picture below.
 
@@ -570,8 +570,8 @@ These two concatenations are homotopic. Denote an homotopy by
 \[
 m_4 : K_4 × (\Omega X)^4 \to X
 \]
-where $K_4$ denotes the pentagon bounded by the two paths. When we want to compose five factors, there are fourteen possibilities corresponding to the fourteen binary trees
-with five leaves. Using $m_4$ and $m_3$, we obtain homotopies linking the compositions and faces linking the homotopies. The resulting object is the boundary of the polytope $K_5$ depicted.
+where $K_4$ denotes the pentagon bounded by the two paths. When we want to compose five loops, there are fourteen possibilities corresponding to the fourteen binary trees
+with five leaves. Using $m_4$ and $m_3$, we obtain homotopies linking the compositions and faces linking the homotopies. The resulting object is the boundary of the polytope $K_5$ depicted below.
 \[
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 \clip(-3.63,-1.3) rectangle (4.,2.9);
@@ -600,13 +600,13 @@ with five leaves. Using $m_4$ and $m_3$, we obtain homotopies linking the compos
 \end{tikzpicture}
 \]
 
-The pentagonal faces are copies of $K_4$. More generally, Stasheff \cite{STASHEFFI} defined polytopes $K_n$ of dimension $n−2$ for all $n > 2$, including $K_2 = *$ and $K_3 = [0, 1]$. He defined an \emph{$A_\infty$-space} to be a topological space
-$Y$ endowed with maps $m_n : K_n × Y^n \to Y$, for $n > 2$, satisfying suitable compatibility
+The pentagonal faces are copies of $K_4$. More generally, Stasheff \cite{STASHEFFI} defined polytopes $K_n$ of dimension $n−2$ for all $n \geq 2$, including $K_2 = *$ and $K_3 = [0, 1]$. He defined an \emph{$A_\infty$-space} to be a topological space
+$Y$ endowed with maps $m_n : K_n × Y^n \to Y$, for $n \geq 2$, satisfying suitable compatibility
 conditions and admitting a ``strict unit". The loop space $\Omega X$ is the prime example of
 such a space $Y$. Conversely \cite{Adams}, a topological space that admits the structure of
 an $A_\infty$-space and whose connected components form a group is homotopy equivalent
 to a loop space. If $Y$ is an $A_\infty$-space, the singular chain complex of $Y$ is the paradigmatic example
-of an $A_\infty$-algebra \cite{STASHEFF}, which will formally introduce in the next section.
+of an $A_\infty$-algebra \cite{STASHEFF}, which will formally introduce in the next section using cohomological grading.
 
 \subsection{Definitions}
 
@@ -625,14 +625,14 @@ We also adopt the following Koszul sign convention: for $x\in A$, $y\in B$, $f\i
 
 \[(f\otimes g)(a\otimes b)=(-1)^{\deg(x)\deg(g)}f(x)\otimes g(y).\]
 
-Recall that if $(A,\partial^A)$ and $(B,\partial^B)$ are (co)chain complexes, the module $\Hom_R(A,B)$ also becomes a (co)chain complexe with differential
+Recall that if $(A,\partial^A)$ and $(B,\partial^B)$ are (co)chain complexes, the module $\Hom_R(A,B)$ also becomes a (co)chain complex with differential
 \[\partial(f) = \partial^B\circ f +(-1)^{\deg(f)}f\circ\partial^A.\]
 
 
 \begin{defin}
-For a graded $R$-module $A$ the \emph{shift} or \emph{suspension} $SA$ is given by $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
+For a graded $R$-module $A$, the \emph{shift} or \emph{suspension} $SA$ is given by $SA^i=A^{i-1}$. %I think it is not wortth defining it on maps because I don't use it
 \end{defin}
-
+\pagebreak
 With all the notations and conventions established we can now introduce $A_\infty$-algebras. 
 
 \begin{defin}\label{ainftyalgebra}
@@ -701,7 +701,7 @@ Since we are working with $\Z$-graded modules, requiring that the map $f$ has de
 We will discuss these topics in the language of operads, which will be introduced in a later section. Before that, let us motivate the importance of $A_\infty$-algebras through the theory of minimal models.
 
 \subsection{Minimal models}\label{minimalmodels}
-We now recall a definition and theorem about minimal models of $A_\infty$-algebras. It relates differential graded algebras to $A_\infty$-structures on their homology.
+We now recall a definition and a theorem about minimal models of $A_\infty$-algebras. It relates differential graded algebras to $A_\infty$-structures on their homology.
 
 \begin{defin}\label{minimal}
 An $A_\infty$-algebra is called \emph{minimal} if $m_1 = 0$.
