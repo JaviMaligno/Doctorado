@@ -692,16 +692,16 @@ given by $f_2$.
 Again, the reader can find more details in \cite{keller} and \cite[\S 9.2]{lodayvallette}. We also need another, perhaps more intuitive, notion of morphism of $A_\infty$-algebras.
  
 \begin{defin}\label{inftyalgebramorphism}
-A \emph{morphism} of $A_\infty$-algebras is a degree 0 map $f:A\to B$ such that
+A \emph{morphism} of $A_\infty$-algebras is a map $f:A\to B$ such that
 \[f(m^A_j)=m^B_j\circ f^{\otimes j}.\]
 \end{defin}
 
-Since we are working with $\Z$-graded modules, requiring that the map $f$ has degree 0 is redundant, but it is good to have that in mind for the calculations.
+Notice that working with $\Z$-graded modules forces every morphism of $A_\infty$-algebras to be of degree 0.
 
-We will discuss these topics in the language of operads, which will be introduced in a later section. Before that, let us motivate the importance of $A_\infty$-algebras through the theory of minimal models.
-
+We will discuss the topics of this section in the language of operads, which will be introduced in a later section. Before that, let us motivate the importance of $A_\infty$-algebras through the theory of minimal models.
+\pagebreak
 \subsection{Minimal models}\label{minimalmodels}
-We now recall a definition and a theorem about minimal models of $A_\infty$-algebras. It relates differential graded algebras to $A_\infty$-structures on their homology.
+We now recall a definition and a theorem about minimal models of $A_\infty$-algebras. The theorem relates differential graded algebras to $A_\infty$-structures on their homology. This theorem is the main reason why $A_\infty$-algebras became a relevant subject of study.
 
 \begin{defin}\label{minimal}
 An $A_\infty$-algebra is called \emph{minimal} if $m_1 = 0$.
@@ -721,7 +721,7 @@ Using this result it is also possible to show that under some conditions any oth
 \section{Operads}\label{back3}
 %A BIT MORE OF WHAT IS IN JOIN, LIKE COOPERADS (THIS SHOULD ACTUALLY BE ADDED THERE) AND SOME OF THE STUFF IN THE ITEM BELOW (CHECK WHAT IS NECESSARY) 
 
-In this section we recall the notion of operad, an object that is particularly useful to study algebraic structures given by multilinear maps. Operads will allow us to formulate definitions and results concerning (derived) $A_\infty$-algebras in a very convenient way. The main references for this section are \cite{lodayvallette} and \cite{ward}.
+In this section we recall the notion of operad, an object that is particularly useful to study algebraic structures given by multilinear maps. Operads will allow us to formulate definitions and results concerning derived $A_\infty$-algebras in a very convenient way. The main references for this section are \cite{lodayvallette} and \cite{ward}.
 
 We will be working in the category of graded $R$-modules, but all the definitions and results in this section generalize with no substantial changes to any symmetric monoidal category like the ones we see in \Cref{categories}. 
 
@@ -732,23 +732,8 @@ We first give the main definitions that we will be using throughout the thesis. 
 A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules. We call the integer $n$ the \emph{arity}. When there is an action of the symmetric group $\Sigma_n$ on each $\OO(n)$ we say that the collection is an \emph{$\mathbb{S}-$module}. A \emph{map of collections} $f:\OO\to\mathcal{P}$ is a family of maps $f_n:\OO(n)\to\mathcal{P}(n)$. A map of collection is a \emph{map of $\mathbb{S}-$modules} when it preserves the symmetric group action.
 \end{defin}
 
-We will mostly focus on the non-symmetric case, but our general results about operads generalize to the symmetric case as well. 
+We will mostly focus on the non-symmetric case, but our general results about operads generalize to the symmetric case as well. On a collection we can define an operad by adding some extra structure as in the following definition.
 
-\begin{defin}
-The \emph{plethysm} or \emph{composite} $\OO\circ\PP$ of two collections $\OO$ and $\PP$ given by
-\[(\OO\circ\PP)(n)=\bigoplus_{N\geq 0}\OO(N)\otimes \left(\bigoplus_{a_1+\cdots+a_k=n} \PP(a_1)\otimes\cdots\otimes \PP(a_k)\right).\]
-\end{defin}
-There is a definition for $\mathbb{S}$-modules that requires some tools from the representation theory of symmetric groups that we are not going to introduce here. The reader is referred to \cite{lodayvallette} for the details. 
-
-\begin{defin}
-The \emph{plethysm} or \emph{composite} $f\circ g$ of maps $f:\OO\to\OO'$ and $g:\PP\to\PP'$ is given by
-\[(f\circ g)(x\otimes x_1\otimes\cdots\otimes x_k)=(-1)^{\varepsilon} f(x)\otimes g(x_1)\otimes\cdots\otimes g(x_k),\]
-where $\varepsilon$ is the Koszul sign obtained from swapping each $g$ by the corresponding elements. 
-\end{defin}
-
- %, TENSOR PRODUCT OF S-MODULES
-
-It is known that the category of collections with plethysm is a monoidal category, where the unit is the collection $I(1)=R$ and $I(n)=0$ for $n\neq 1$. 
 \begin{defin}
 A \emph{(non-symmetric) operad} is a collection $\OO=\{\OO(n)\}$ where there is a distinguished \emph{identity} element $1\in\OO(1)$ and with \emph{insertion maps} 
 \[\circ_i:\OO(n)\otimes \OO(m)\to \OO(m+n-1)\]
@@ -761,7 +746,24 @@ If $\OO$ is an $\mathbb{S}-$module and the insertion maps satisfy some additiona
 A \emph{map of operads} (resp. \emph{symmetric operads}) is a map of collections (resp. $\mathbb{S}-$modules) that is compatible with insertions.
 \end{defin}
 
-The following lemma is a well-known fact, see \cite[\S 5]{lodayvallette} for more details. 
+Collections also come with the following algebraic operation that will provide an alternative way of describing operads.
+\begin{defin}
+The \emph{plethysm} or \emph{composite} $\OO\circ\PP$ of two collections $\OO$ and $\PP$ given by
+\[(\OO\circ\PP)(n)=\bigoplus_{N\geq 0}\OO(N)\otimes \left(\bigoplus_{a_1+\cdots+a_k=n} \PP(a_1)\otimes\cdots\otimes \PP(a_k)\right).\]
+\end{defin}
+There is a definition of plethysm for $\mathbb{S}$-modules that requires some tools from the representation theory of symmetric groups that we are not going to introduce here. The reader is referred to \cite{lodayvallette} for the details. 
+
+\begin{defin}
+The \emph{plethysm} or \emph{composite} $f\circ g$ of maps $f:\OO\to\OO'$ and $g:\PP\to\PP'$ is given by
+\[(f\circ g)(x_0\otimes x_1\otimes\cdots\otimes x_k)=(-1)^{\varepsilon} f(x_0)\otimes g(x_1)\otimes\cdots\otimes g(x_k),\]
+where $\varepsilon = \deg(g)\sum_{i=0}^k\deg(x_i)(k-i)$ is the Koszul sign obtained from swapping each $g$ by the corresponding elements. 
+\end{defin}
+
+ %, TENSOR PRODUCT OF S-MODULES
+
+
+
+It is known that the category of collections with plethysm is a monoidal category, where the unit is the collection $I(1)=R$ and $I(n)=0$ for $n\neq 1$. The following lemma is a well-known fact that describes operads in terms of this monoidal structure, see \cite[\S 5]{lodayvallette} for more details. 
 \begin{lem}\label{monoid}
 An operad $\OO$ is equivalent to a monoid in the monoidal category of collections with plethysm, where the multiplication  map is given precisely by the composition $\gamma:\OO\circ\OO\to\OO$. 
 \end{lem}
