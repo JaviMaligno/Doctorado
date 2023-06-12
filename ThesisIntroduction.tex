@@ -870,7 +870,7 @@ Let us first define the structure maps for the operad $F(\OO)$ in terms of inser
 Let $\circ_i :\OO(n)\otimes\OO(m)\to\OO(n+m-1)$ be the insertion map on $\OO$. We define the insertion map $\circ_i^F:F(\OO(n))\otimes F(\OO(m))\to F(\OO(n+m-1))$ as the composite
 \[F(\OO(n))\otimes F(\OO(m))\xrightarrow{\mu} F(\OO(n)\otimes\OO(m))\xrightarrow{F(\circ_i)} F(\OO(n+m-1)).\]
 
-We show now that $F(\OO)$ satisfies the unit axioms with the above structure maps. We only show the unit axiom with respect to the right unitor, the axiom with respect to the left unitor is analogous.
+We show now that $F(\OO)$ satisfies the unit axioms with the above structure maps. We only show the unit axiom with respect to the right unitor, the axiom with respect to the left unitor being analogous.
 
 
  Let $\lambda_\CC$ and $\lambda_\DD$ be the right unitors of $\CC$ and $\DD$ respectively. Since $\OO$ is an operad, by the unit axiom we have that the following diagram commutes.
@@ -922,11 +922,11 @@ F( \OO(n))\otimes 1_\DD\arrow[r, "\lambda_\DD"]\arrow[d, "id\otimes e_F"] &  F(\
  F(\OO(n)) & F(\OO(n)\otimes 1_\CC)\arrow[l, "F(\lambda)"]
  \end{tikzcd}
  \]
- Or, in other words, $\lambda_\DD = F(\lambda)\circ \mu(id\otimes \varepsilon)$.  On the other hand by diagram (\ref{unitaux}) we have that $F(\lambda)\circ \mu = (F(\circ_i)\circ \mu)(id\otimes F(e))$, meaning that
+ Or, in other words, $\lambda_\DD = F(\lambda)\circ \mu(id\otimes \varepsilon)$.  On the other hand, by diagram (\ref{unitaux}) we have that $F(\lambda)\circ \mu = (F(\circ_i)\circ \mu)(id\otimes F(e))$, meaning that
  \[\lambda_\DD =  F(\circ_i)\circ \mu\circ (id\otimes F(e))\circ (id\otimes \varepsilon) = \circ_i^F(id\otimes  e_F)\]
  as we wanted to show.
  
- Next we need to show that the associativity axioms of operads hold for $F(\OO)$. Let us first prove the one that does not involve the symmetry isomorphism. 
+ Next we need to show that the associativity axioms of operads hold for $F(\OO)$, we refer the reader to \cite[\S 1.1.2]{ward} to recall them. Let us first prove the one that does not involve the symmetry isomorphism. 
  
  Let $a_\CC$ and $a_\DD$ the associators for $\CC$ and $\DD$, respectively. We have the following commutative diagram from the associativity axioms of the operad $\OO$ for $i\leq j\leq i+m-1$.
  
@@ -1057,6 +1057,7 @@ F(\OO(n+m+l-2)) &
    
    
    The left and right subdiagrams commute because of the associativity axiom of lax monoidal functors. We decompose the central subdiagram further as
+   
    \[
    \adjustbox{scale=0.95,center}{%
 \begin{tikzcd}[column sep = 3em]
@@ -1138,7 +1139,9 @@ First, we collect some definitions about filtered modules and filtered complexes
 
 \begin{defin}
 A \emph{filtered $R$-module} $(A, F)$ is given by a family of $R$-modules $\{F_pA\}_{p∈\Z}$ indexed by
-the integers such that $F_{p}A ⊆ F_{p-1}A$ for all $p ∈ \Z$ and $A = \bigcup_p F_pA$. A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules which is compatible with filtrations, namely 
+the integers such that $F_{p}A ⊆ F_{p-1}A$ for all $p ∈ \Z$ and $A = \bigcup_p F_pA$. 
+
+A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules which is compatible with filtrations, namely 
 \[f(F_pA) ⊂ F_pB \text{ for all }p ∈ \Z.\]
 \end{defin}
 Note that some other sources may reverse inclusions in the above definition and consider $F_{p}A ⊆ F_{p+1}A$ instead. We denote by $\mathrm{C}_R$ the category of cochain complexes of $R$-modules.
@@ -1154,13 +1157,13 @@ We denote by $\fmod$ and $\fc$ the categories of filtered modules and filtered c
 \begin{defin}\label{filteredtensor}
 The \emph{tensor product of two filtered $R$-modules} $(A, F)$ and $(B, F)$ is the filtered $R$-module
 with
- \[F_p(A ⊗ B) :=\sum_{i+j=p}\Ima(F_iA ⊗ F_jB → A ⊗ B).\]
+ \[F_p(A ⊗ B) :=\bigoplus_{i+j=p}\Ima(F_iA ⊗ F_jB → A ⊗ B).\] %image so that we have have inclusions
 This makes the category of filtered $R$-modules into a symmetric monoidal category, where the unit is given by $R$ with the trivial filtration \[0 = F_{1}R ⊂ F_0R = R.\]
 \end{defin}
 
 
 \begin{defin}\label{filterend}
-Let $K$ and $L$ be filtered complexes. We define $\underline{\Hom}(K,L)$ to be the filtered complex whose underlying chain complex is $\Hom_{\mathrm{C}_R}(K,L)$ and the filtration $F$ given by 
+Let $K$ and $L$ be filtered complexes. We define $\underline{\Hom}(K,L)$ to be the filtered complex whose underlying cochain complex is $\Hom_{\mathrm{C}_R}(K,L)$ and the filtration $F$ given by 
 \[F_p\underline{\Hom}(K,L)=\{f:K\to L\mid f(F_qK)\subset F_{q+p}L\text{ for all }q ∈ \Z\}.\]
 In particular, $\Hom_{\fmod}(K,L)=F_0\underline{\Hom}(K,L)$.
 \end{defin}
@@ -1174,8 +1177,8 @@ We collect some basic definitions of bigraded categories that we need to use, an
 
 \begin{defin}
 We consider $(\Z,\Z)$-bigraded
-$R$-modules $A = \{A^j_i\}$, where elements of $A^j_i$ are said to have bidegree $(i, j)$. We sometimes refer to $i$
-as the \emph{horizontal} degree and $j$ the \emph{vertical degree}. The \emph{total degree} of an element $x ∈ A^j_i$ is $i+j$ and is sometimes denoted $|x|$.
+$R$-modules $A = \{A^j_i\}$, where elements of $A^j_i$ are said to have \emph{bidegree} $(i, j)$. We sometimes refer to $i$
+as the \emph{horizontal degree} and $j$ the \emph{vertical degree}. The \emph{total degree} of an element $x ∈ A^j_i$ is $i+j$ and is sometimes denoted by $|x|$.
 \end{defin}
 \begin{defin}
 A \emph{morphism of bidegree $(p, q)$} maps $A^j_i$ to $A^{j+q}_{i+p}$. The tensor product of two bigraded $R$-modules $A$
@@ -1253,11 +1256,14 @@ Denote by $\tc$ the category of twisted complexes. The following construction en
 \begin{lem}\label{tensortwisted}
 The category $(\tc,⊗,R)$ is symmetric monoidal, where the monoidal structure is given
 by the bifunctor
+
 \[⊗ : \tc × \tc → \tc.\]
+
 On objects it is given by \[((A, d^A_m), (B, d^B_m)) → (A ⊗ B, d^A_m ⊗ 1 + 1 ⊗ d^B_m)\] and on morphisms it is
 given by $(f, g) → f ⊗ g$, where \[(f ⊗ g)_m :=\sum_{i+j=m} f_i ⊗ g_j.\] In particular, by the Koszul sign rule we
 have that \[(f_i ⊗g_j)(x⊗z) = (−1)^{\langle g_j ,x\rangle}f_i(x)⊗g_j(z).\] The symmetry isomorphism is given by the strict
 morphism of twisted complexes
+
 \begin{align*}
 τ_{A⊗B} \colon &A ⊗ B → B ⊗ A\\
 &x ⊗ y\mapsto (−1)^{\langle x,y\rangle}y ⊗ x.
@@ -1275,7 +1281,7 @@ for $i ≥ 0$ endows $[A,B]^∗_∗$ with the structure of a twisted complex.
 %DEFINITION WITH FILTRATION, DIFFERENTIAL, MONOIDALITY
 Here we recall the definition of the totalization functor from \cite{whitehouse} and some of the structure that it comes with. This functor and its enriched versions are key to establish a correspondence between $A_\infty$-algebras and derived $A_\infty$-algebras.
 
-
+\pagebreak
 \begin{defin}
 The \emph{totalization} of a bigraded $R$-module $A = \{A^j_i \}$ is the graded $R$-module $\Tot(A)$ given by
 \[\Tot(A)^n \coloneqq
@@ -1307,17 +1313,16 @@ where $x ∈ A^{n-i}_i$ and $d(x)_k$ denotes the $k$-th component of $d(x)$. Not
 
 
 
-We will consider the following bounded categories since the totalization functor has better properties when restricted to them. 
+We will consider the following bounded categories since the totalization functor has better monoidal properties when restricted to them. 
 
 \begin{defin}
 We let $\tc^b$, $\vbc^b$ and $\bgmod^b$ be the full subcategories of \emph{horizontally bounded on the right} graded twisted
 complexes, vertical bicomplexes and bigraded modules respectively. This means that if $A=\{A^j_i\}$ is an object of any of this categories, then there exists $i$ such that $A^j_{i'}=0$ for $i'>i$.
-
 We let $\fmod^b$ and $\fc^b$ be the full subcategories of bounded filtered modules, respectively complexes, i.e.
 the full subcategories of objects $(K, F)$ such that there exists some $p$ with the property that $F_{p'}K^n = 0$ for all $p'>p$. We refer to all of these as the \emph{bounded subcategories} of $\tc$, $\vbc$, $\bgmod$, $\fmod$ and $\fc$ respectively.
 \end{defin}
 
-The following is \cite[Proposition 3.11]{whitehouse}.\pagebreak
+The following is \cite[Proposition 3.11]{whitehouse}.
 
 \begin{propo}\label{monoidal}
 The totalization functors $\Tot : \bgmod → \fmod$ and $\Tot : \tc → \fc$ are lax symmetric
@@ -1340,7 +1345,7 @@ There is a certain heuristic to obtain the sign appearing in the definition of $
 As direct sums commute with tensor products, we have
 \[\Tot(A)\otimes\Tot(B)=(\bigoplus A_i^{n-i})\otimes \Tot(B)\cong \bigoplus_i  (A_i^{n-i}\otimes \Tot(B)).\]
 
-In the isomorphism above we can interpret that each $A_i^{n-i}$ passes by $\Tot(B)$. Since $\Tot(B)$ used total grading, we can think of this degree as being the horizontal degree, while having 0 vertical degree. Thus, using the Koszul sign rule we would get precisely the sign from \Cref{monoidal}. This explanation is just an intuition, and opens the door for other possible sign choices: what if we decide to distribute $\Tot(A)$ over $\bigoplus_i B_i^{n-i}$ instead, or if we consider the total degree as the vertical degree? These alternatives lead to other valid definitions of $\mu$, and we will explore the consequences of some of them in \Cref{othermu}.
+In the isomorphism above we can interpret that each $A_i^{n-i}$ passes by $\Tot(B)$. Since $\Tot(B)$ uses total grading, we can think of this degree as being the horizontal degree, while having 0 vertical degree. Thus, using the Koszul sign rule we would get precisely the sign from \Cref{monoidal}. This explanation is just an intuition, and opens the door for other possible sign choices: what if we decide to distribute $\Tot(A)$ over $\bigoplus_i B_i^{n-i}$ instead, or if we consider the total degree as the vertical degree? These alternatives lead to other valid definitions of $\mu$, and we will explore the consequences of some of them in \Cref{othermu}.
 \end{remark}
 
 \begin{lem}\label{mui}
@@ -1370,14 +1375,14 @@ Therefore, $\mu^{-1}$ can be defined as
 
 The general case follows inductively.
 \end{proof}
-
+\pagebreak
 \section{Enriched categories and totalization}
 
-We define here some useful enriched categories and results from \cite[\S 4.3 and 4.4]{whitehouse}. Each of these categories will be a piece in \Cref{whitehouse}, which establishes a connection between $A_\infty$-algebras and derived $A_\infty$-algebras. Some of them have been modified according to our conventions. \pagebreak
+We define here some useful enriched categories and results from \cite[\S 4.3 and 4.4]{whitehouse}. Each of these categories will be a piece in \Cref{whitehouse}, which establishes a connection between $A_\infty$-algebras and derived $A_\infty$-algebras. Some of them have been modified according to our conventions. 
 \begin{defin}\label{weirdenrichment}
 Let $A,B,C$ be bigraded modules. We denote by $\underline{\mathpzc{bgMod}_R}(A,B)$ the bigraded module given by
 \[\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u+j}\]
-with inner hom-object $[A,B]$. More precisely, $g ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ is given
+where $[A,B]$ is the inner hom-object of bigraded modules. More precisely, $g ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ is given
 by $g := (g_0, g_1, g_2, \dots )$, where $g_j : A → B$ is a map of bigraded modules of bidegree $(u + j, v − j)$.
 
 Moreover, we define a composition morphism
@@ -1389,12 +1394,13 @@ by
 \begin{defin}\label{delta2}
 Let $(A, d^A_i)$ and $(B, d^B_i)$ be twisted complexes and let $f ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$. Consider also $d^A :=(d^A_i)_i ∈ \underline{\mathpzc{bgMod}_R}(A,A)^1_0$
 and $d^B := (d^B_i)_i ∈ \underline{\mathpzc{bgMod}_R}(B,B)^1_0$. We define
+
 \[δ(f) := c(d^B, f) − (−1)^{\langle f,d^A\rangle}c(f, d^A) ∈ \underline{\mathpzc{bgMod}_R}(A,B)^{v+1}_u.\]
 %where $\langle f, d^A\rangle$ is the scalar product for the bidegrees and $c$ is the composition morphism described in \Cref{weirdenrichment} 
 
 More precisely,
 \[(δ(f))_m :=\sum_{i+j=m}(−1)^{i|f|}d^B_if_j − (−1)^{v+i}f_id^A_j.\]
-\end{defin}\pagebreak
+\end{defin}
 
 The following lemma justifies the above definition. For a proof see \cite[Lemma 4.18]{whitehouse}.
 
@@ -1502,7 +1508,7 @@ Here $u$ is the horizontal degree of $f$.
 \end{defin}
 
 
-The proof of the followin lemma is included in the proof of \cite[Lemma 4.35]{whitehouse}.
+The proof of the following lemma is included in the proof of \cite[Lemma 4.35]{whitehouse}.
 \begin{lem}\label{adjunction}
 Let $A$ be a vertical bicomplex that is horizontally bounded on the right and let $K$ and $L$ be filtered complexes. There is a natural bijection
 \[\Hom_{\fc}(\Tot(A)\otimes K,L)\cong \Hom_{\vbc}(A,\ufC(K,L))\]
@@ -1528,7 +1534,7 @@ f_i : A^{m-j}_j \hookrightarrow\prod_{k\geq j}A^{m-k}_k &= F_j(\Tot(A)^m)\xright
 where the last map is a projection and multiplication with the indicated sign.
 \end{defin} 
 
-The following is \cite[Theorem 4.39]{whitehouse}.\pagebreak
+The following is \cite[Theorem 4.39]{whitehouse}.
 \begin{thm}\label{4.39}
 Let $A$, $B$ be twisted complexes. The assignments $\mathfrak{Tot}(A) := \Tot(A)$ and
 \begin{align*}
@@ -1574,7 +1580,7 @@ Let $A$ be a twisted complex. Consider the operads $\uEnd_A(n)=\utC(A^{\otimes n
 which is an isomorphism of operads if $A$ is bounded. If $A$ is just a bigraded module, the same holds for the operads $\uEnd_A(n)=\ubgMod(A^{\otimes n},A)$ and $\uEnd_{\Tot(A)}(n)=\ufMod(\Tot(A)^{\otimes n},\Tot(A))$.
 \end{lem}
 \begin{proof}
-The proof of in the case of a $A$ beig a twisted complex can be found in \cite[Lemma 4.54]{whitehouse}. For the bigraded module case, we are going to do it analogously. First, by \Cref{4.39} we know that $\mathfrak{Tot}:\ubgMod\to\ufMod$ is $\bgmod$-enriched. In fact, by \Cref{S4} it is lax monoidal in the enriched sense. In addition, both $\bgmod$ and $\fmod$ are monoidal over $\bgmod$. In the case of $\bgmod$ it is in the obvious way and for $\fmod$ is given by \Cref{4.15}. With all of this we may apply \Cref{S4} to $\mathfrak{Tot}:\ubgMod\to\ufMod$ to obtain the desired map
+The proof of in the case of a $A$ beig a twisted complex can be found in \cite[Lemma 4.54]{whitehouse}. For the bigraded module case, we are going to do it analogously. First, by \Cref{4.39} we know that the functor $\mathfrak{Tot}:\ubgMod\to\ufMod$ is $\bgmod$-enriched. In fact, by \Cref{S4} it is lax monoidal in the enriched sense. In addition, both $\bgmod$ and $\fmod$ are monoidal over $\bgmod$. In the case of $\bgmod$ it is in the obvious way and for $\fmod$ is given by \Cref{4.15}. With all of this we may apply \Cref{S4} to the totalization functor $\mathfrak{Tot}:\ubgMod\to\ufMod$ to obtain the desired map
 \[\uEnd_A →\uEnd_{\Tot(A)}.\]
  The fact that it is an isomorphism in the bounded case is analogous to the twisted complex case. 
 \end{proof}
@@ -1588,6 +1594,7 @@ In the conditions of \Cref{inverse} for the bounded case, the inverse is given b
 f & \mapsto \Tot^{-1}(f\circ \mu^{-1}).
 \end{align*}
 \end{lem}
+
 \begin{proof}
 The inverse is given by the composite
 
@@ -1598,13 +1605,13 @@ The inverse is given by the composite
 \end{tikzcd}
  \]
 
-The second map is given by $\mathfrak{Tot}^{-1}$ defined in \Cref{enrichedtot}. To describe the first map, let $R$ be concentrated in bidegree $(0,0)$ with trivial vertical differential. Then the first map is given by the following composite
+The second map is given by $\mathfrak{Tot}^{-1}$, see \Cref{enrichedtot}. To describe the first map, let $R$ be concentrated in bidegree $(0,0)$ with trivial vertical differential. Then the first map is given by the following composite
 \begin{align*}
 \ufC(\Tot(A)^{\otimes n},\Tot(A))\cong R\otimes\ufC(\Tot(A)^{\otimes n},\Tot(A))\\
 \xrightarrow{\underline{\mu}^{-1}\otimes 1}\ufC(\Tot(A^{\otimes n}),\Tot(A)^{\otimes n})\otimes\ufC(\Tot(A)^{\otimes n},\Tot(A))\\
 \xrightarrow{c}\ufC(\Tot(A^{\otimes n}),\Tot(A)), 
 \end{align*}
-where $c$ is the composition in $\ufC$, defined in \Cref{ufMod}. The map $\underline{\mu}^{-1}$ is the adjoint of $\mu^{-1}$ under the bijection from \Cref{adjunction}. Explicitly,
+where $c$ is the composition in $\ufC$, see \Cref{ufMod}. The map $\underline{\mu}^{-1}$ is the adjoint of $\mu^{-1}$ under the bijection from \Cref{adjunction}. Explicitly,
 \begin{align*}
 \underline{\mu}^{-1}:R &\to \ufC(\Tot(A^{\otimes n}),\Tot(A)^{\otimes n})\\
 1 &\mapsto (a\mapsto \mu^{-1}(a)).
