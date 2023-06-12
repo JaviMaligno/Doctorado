@@ -1042,14 +1042,14 @@ Note that we are using the identification of elements of $\End_A$ with those in 
 \sigma(f)= S\circ f \circ (S^{-1})^{\otimes n}.
 \end{equation}
 
-In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(a)\circ_i\sigma(b))$. This can be interpreted as sending $x$ and $x$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (which is a map of graded modules, not of operads), and then applying the isomorphism induced by $\sigma^{-1}$. In the end this is the same as simply sending $x$ and $y$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
+In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(x)\circ_i\sigma(y))$. This can be interpreted as sending $x$ and $x$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (which is a map of graded modules, not of operads), and then applying the isomorphism induced by $\sigma^{-1}$. In the end this is the same as simply sending $x$ and $y$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what has been done here.
 
 Even though $\sigma$ is only a map of graded modules, it can be shown in a completely analogous way to \Cref{markl} that $\overline{\sigma}=(-1)^{\binom{n}{2}}\sigma$ induces an isomorphism of operads
 \begin{equation}\label{barsigma}
 \overline{\sigma}:\End_{A}\cong\mathfrak{s}\End_{SA}.
 \end{equation}
 This isomorphism can also  be proved in a more direct way using the isomorphism \[\s\s^{-1}\OO\cong\OO\] from \Cref{suspiso}, namely, since $\End_{SA}\cong \s^{-1}\End_A$, we have \[\s\End_{SA}\cong \s\s^{-1}\End_A\cong \End_A.\]
-In this case the isomorphism map that we obtain goes in the opposite direction to $\overline{\sigma}$, and it is precisely its inverse.
+In this case, the isomorphism map that we obtain goes in the opposite direction to $\overline{\sigma}$, and it is precisely its inverse.
 
 
 \begin{lem}\label{suspiso}
@@ -1059,9 +1059,10 @@ There are isomorphisms of operads $\mathfrak{s}^{-1}\mathfrak{s}\OO\cong\OO\cong
 We are only showing the first isomorphism since the other one is analogous. Note that as graded $R$-modules, \[\s^{-1}\s\OO(n)= \OO(n)\otimes S^{1-n}R\otimes S^{n-1}R\cong\OO(n),\] 
 and any automorphism of $\OO(n)$ determines such an isomorphism. Therefore, we are going to find an automorphism $f$ of $\OO(n)$ such that the above isomorphism induces a map of operads, i.e $f$ induces a map that preserves insertions. Observe that the insertion in $\s^{-1}\s\OO$ differs from that of $\OO$ in just a sign. The insertion on $\s^{-1}\s\OO$ is defined as the composition of the isomorphism
 \begin{align*}
-(\mathcal{O}(n)\otimes S^{n-1}sig_n\otimes S^{1-n}sig_n)\otimes (\mathcal{O}(m)\otimes S^{m-1}sig_m\otimes S^{1-m}sig_m)\cong\\ (\mathcal{O}(m)\otimes \mathcal{O}(m))\otimes (S^{n-1}sig_n\otimes S^{m-1}sig_m)\otimes (S^{1-n}sig_n\otimes S^{1-m}sig_m)
+(\mathcal{O}(n)\otimes \Lambda(n)\otimes \Lambda^-(n))\otimes (\mathcal{O}(m)\otimes \Lambda(m)\otimes \Lambda^-(m))\cong\\ 
+(\mathcal{O}(m)\otimes \mathcal{O}(m))\otimes (\Lambda(n)\otimes \Lambda(m))\otimes (\Lambda^-(n)\otimes \Lambda^-(m))
 \end{align*}
-and the tensor product of the insertions correspoding to each operad. After all these maps, the only sign left is $(-1)^{(n-1)(m-1)}$. So we need to find an automorphism $f$ of $\OO$ such that, for $x\in\OO(n)$ and $y\in\OO(m)$,
+with the tensor product of the insertions corresponding to each operad. After cancellations, the only sign left is $(-1)^{(n-1)(m-1)}$. So we need to find an automorphism $f$ of $\OO$ such that, for $x\in\OO(n)$ and $y\in\OO(m)$,
 
 \[f(x\circ_i y)=(-1)^{(n-1)(m-1)}f(x)\circ_i f(y).\]
 
@@ -1074,7 +1075,7 @@ By \Cref{binom}, $f(x)=(-1)^{\binom{n}{2}}x$ is such an automorphism.
 
 Here we study operadic suspension at the level of the underlying collections as an endofunctor. Recall from \Cref{collections} that a collection is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules.
 
-We define the suspension of a collection $\OO$ as $\mathfrak{s}\OO(n)=\OO(n)\otimes R[n-1]$, where $R[n-1]$ is the ground ring concentrated in degree $n-1$. We first show that $\s$ is a functor both on collections and on operads. %The ring $k[n-1]$ can of course be equipped with the sign action of the symmetric group, so we may have a diagonal action on the tensor product. 
+We define the suspension of a collection $\OO$ as $\mathfrak{s}\OO(n)=\OO(n)\otimes S^{n-1}R$, where $S^{n-1}R$ is the ground ring concentrated in degree $n-1$. We first show that $\s$ is a functor both on collections and on operads. %The ring $k[n-1]$ can of course be equipped with the sign action of the symmetric group, so we may have a diagonal action on the tensor product. 
 Given a morphism of collections $f:\OO\to\mathcal{P}$, there is an obvious induced morphism
 
 \begin{equation}\label{sf}
@@ -1101,12 +1102,10 @@ We know that when $\mathcal{O}$ is an operad, $\mathfrak{s}\OO$ is again  an ope
 &=(-1)^{\deg(f)(\deg(x)+n-1)}\s f(x)\tilde{\circ}_i\s f(y).
 \end{align*}
 
-Note that $\deg(x)+n-1$ is the degree of $a\otimes e^n$ and as we said $\deg(\s f)=\deg(f)$, so the above relation is consistent with the Koszul sign rule. In any case, recall that a morphism of operads is necessarily of degree 0, but the above calcultion hints at some monoidality properties of $\s$ that we will study afterwards. Clearly $\s f$ preserves the unit, so $\s f$ is a morphism of operads. 
+Note that $\deg(x)+n-1$ is the degree of $x\otimes e^n$ and as we said $\deg(\s f)=\deg(f)$, so the above relation is consistent with the Koszul sign rule. In any case, recall that a morphism of operads is necessarily of degree 0, but the above calculation hints at some monoidality properties of $\s$ that we will study afterwards. Clearly $\s f$ preserves the unit, so $\s f$ is a morphism of operads. 
 \end{proof}
 
-
-
-The fact that $\s$ is a functor allows to describe algebras over operad using operadic suspension. For instance, an $A_\infty$-algebra is a map of operads $\OO\to\mathcal{P}$ where $\OO$ is an operad with $A_\infty$-multiplication. Since $\s$ is a functor, this map corresponds to a map $\s\OO\to\s\mathcal{P}$. Since in addition the map $\s\OO\to\s\mathcal{P}$ is fully determined by the original map $\OO\to\mathcal{P}$, this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In fact, using \Cref{suspiso}, it is not hard to show the following.
+The fact that $\s$ is a functor allows to describe algebras over operads using operadic suspension. For instance, an $A_\infty$-algebra is a map of operads $\OO\to\mathcal{P}$ where $\OO$ is an operad with $A_\infty$-multiplication. Since $\s$ is a functor, this map corresponds to a map $\s\OO\to\s\mathcal{P}$. Since in addition the map $\s\OO\to\s\mathcal{P}$ is fully determined by the original map $\OO\to\mathcal{P}$, this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In fact, using \Cref{suspiso}, it is not hard to show the following.
 
 \begin{propo}
 The functor $\s$ is an equivalence of categories both at the level of collections and at the level of operads. \qed %it is not an isomorphism because at the level of collections, not every collection is EQUAL to some suspension
@@ -1184,7 +1183,7 @@ If we decide to work with symmetric operads, we just need to introduce the sign 
 
 \section{Brace algebras}\label{sectionbraces}
 
-Brace algebras appear naturally in the context of operads when we fix the first argument of operadic composition \cite{GV}. This simple idea gives rises to a very rich structure that is the building block of the derived $A_\infty$-structures that we are going to construct.
+Brace algebras appear naturally in the context of operads when we fix the first argument of operadic composition \cite{GV}. This simple idea gives rise to a very rich structure that is the building block of the derived $A_\infty$-structures that we are going to construct.
 
 In this section we define a brace algebra structure for an arbitrary operad using operadic suspension. Using operadic suspension will have as a result  a generalization of the Lie bracket defined in \cite{RW}. First recall the definition of a brace algebra.
 
