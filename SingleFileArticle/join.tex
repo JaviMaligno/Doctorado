@@ -2478,7 +2478,7 @@ What algebraic structure do derived $J$-algebras induce on the vertical and hori
 %\gdef\thesection{\Alph{section}}
 \section{Some proofs and details}\label{AppA}
 
-
+In this appendix we prove some results that rely on sign calculations and combinatorics.
 
 \begin{lem}\label{binom}
 For any integers $n$ and $m$, the following equality holds mod 2.
@@ -2589,7 +2589,7 @@ If in the proof above we replace $S$ with $S^{-1}$, we have that the map
 \section{Koszul sign on operadic suspension}\label{koszulsigns}
 The purpose of this section is to clear up the procedure to apply the Koszul sign rule in situations in which operadic suspension is involved.
 
-Let $\End_A$ be the endomorphism operad of some $R$-module $A$ and consider the operadic suspensión $\s\End_A$. We are going to make a few comments on the application of the Koszul rule when applying maps from $\s\End_A(n)$ to elements of $A^{\otimes n}$. Let $f\otimes e^n\in\s\End_A(n)$  of degree $\deg(f)+n-1$. %(do not be confuse with the notation that we used in Section \ref{functorial}, here $\s f$ is an element of an operad). 
+Let $\End_A$ be the endomorphism operad of some $R$-module $A$ and consider the operadic suspension $\s\End_A$. We are going to make a few comments on the application of the Koszul rule when applying maps from $\s\End_A(n)$ to elements of $A^{\otimes n}$. Let $f\otimes e^n\in\s\End_A(n)$ be of degree $\deg(f)+n-1$. %(do not be confuse with the notation that we used in Section \ref{functorial}, here $\s f$ is an element of an operad). 
 For $a\in A^{\otimes n}$ we have \[(f\otimes e^n)(a)=(-1)^{\deg(a)(n-1)}f(a)\otimes e^n\]
 
 because $\deg(e^n)=n-1$. Note that $f\otimes e^n=g\otimes e^n$ if and only if $f=g$. In addition, it is not possible that $f\otimes e^n=g\otimes e^m$ for $n\neq m$. %the 0  map is a different map oon arity n or m
@@ -2606,7 +2606,7 @@ where $\varepsilon = \deg(a)(\deg(g)+m-1)+\deg(a)(n-1)+\deg(b)(m-1)$.
 The last remark that we want to make is the case of a map of the form 
 \[f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k})\otimes e^{m+n-1}\in\s\End_A(n+m-1),\] 
 such as those produced by operadic the insertion $\s f\tilde{\circ}_{k} \s g$. In this case, this map applied to $a_{k-1}\otimes b\otimes a_{n-k}\in A^{\otimes k-1}\otimes A^{\otimes m}\otimes A
-^{\otimes n-k}$ results in
+^{\otimes n-k}$ resulting in 
 
 \begin{align*}
 (f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k})\otimes e^{m+n-1})(a_{k-1}\otimes b\otimes a_{n-k})=\\
@@ -2621,9 +2621,10 @@ The purpose of this last remark is not only review the Koszul sign rule but also
 
 
 
-Let us use an analogous strategy to \cite{RW} used to find the signs of the Lie bracket $[f,g]$ on $\End_A$ to find the sign of the braces.
+In order to find the sign of the braces on $\s\End_A$, let us use an analogous strategy to the one used in \cite[Appendix]{RW} to find the signs of the Lie bracket $[f,g]$ on $\End_A$.
 
-Let $A$ be a graded module. Let $SA$ be the graded module with $SA^v=A^{v+1}$, and so the suspension or \emph{shift} map $S:A\to SA$ given by the identity map has internal degree $-1$.
+
+Let $A$ be a graded module. Let $SA$ be the graded module with $SA^v=A^{v+1}$, and so the \emph{suspension} or \emph{shift} map $S:A\to SA$ given by the identity map has internal degree $-1$.
 
  Let $f\in \End_A(N)^i=\Hom_R(A^{\otimes N},A)^i$. Recall that $\sigma$ is the inverse of the map from \Cref{markl}, so that $\sigma(f)$ is defined as the map making the following diagram commute.
 \[
@@ -2636,11 +2637,13 @@ A^{\otimes N}\arrow[r,"f"] & A\arrow[u, "S"']
 Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in \End_A(N)^{i+N-1}$. 
 
 \begin{remark}
-In \cite{RW} there is a sign $(-1)^{N+i-1}$ in front of $f$ but it seems to be irrelevant for our purposes. Another fact to remark on is that the suspension of graded modules used here (and in \cite{RW}) is the opposite that we have used to define the operadic suspension in the sense that they define $S(A)^v=A^{v-1}$. This does not change the signs or the procedure, but in the statement of \Cref{markl}, operadic desuspension should be changed to operadic suspension. %My suspension is better because it gives the total degree
+In \cite{RW} there is a sign $(-1)^{N+i-1}$ in front of $f$, but it seems to be irrelevant for our purposes. Another fact to remark on is that the suspension of graded modules used here (and in \cite{RW}) is the opposite that we have used to define the operadic suspension in the sense that in \Cref{lambda} we used $SA^v=A^{v-1}$. This does not change the signs or the procedure, but in the statement of \Cref{markl}, operadic desuspension should be changed to operadic suspension. %My suspension is better because it gives the total degree
 \end{remark}
 
 
-Notice that by the Koszul sign rule \[(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^{N-1} j}1=(-1)^{\frac{N(N-1)}{2}}1=(-1)^{\binom{N}{2}}1,\] so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in \End_{S(A)}(m)^j$, we have
+Notice that by the Koszul sign rule 
+
+\[(S^{-1})^{\otimes N}\circ S^{\otimes N}=(-1)^{\sum_{j=1}^{N-1} j}1=(-1)^{\frac{N(N-1)}{2}}1=(-1)^{\binom{N}{2}}1,\] so $(S^{-1})^{\otimes N}= (-1)^{\binom{N}{2}}(S^{\otimes N})^{-1}$. For this reason, given $F\in \End_{S(A)}(m)^j$, we have
 \[
 \sigma^{-1}(F)=(-1)^{\binom{m}{2}}S^{-1}\circ F\circ S^{\otimes m}\in \End_A(m)^{j-m+1}.
 \]
@@ -2678,17 +2681,17 @@ Now we move each $1^{\otimes k_{j-1}}\otimes S\circ g_j\circ (S^{-1})^{a_j}$ to 
 (-1)^{(a_1+q_1-1)(n-1+\sum k_l)+(a_2+q_2-1)(n-2+\sum_2^n k_l)+\cdots+(a_n+q_n-1)k_n}\\
 =(-1)^{\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)},
 \end{align*}
- and we call the exponent
+ and we denote the exponent by
  
- $$\varepsilon=\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l).$$ So now we have, decomposing $S^{\otimes N-n+\sum a_j}$, the last map up to multiplication by $(-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon}$ is
+ \[\varepsilon=\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l).\] So now we have that, decomposing $S^{\otimes N-n+\sum a_j}$, the last map up to multiplication by $(-1)^{\binom{N-n+\sum a_j}{2}+\varepsilon}$ is
  
  \[
  f\circ((S^{-1})^{k_0}\otimes  g_1\circ (S^{-1})^{\otimes a_1}\otimes\cdots \otimes  g_n\circ (S^{-1})^{\otimes a_n}\otimes  (S^{-1})^{k_n})\circ (S^{\otimes k_0}\otimes S^{\otimes a_1}\otimes\cdots\otimes S^{\otimes a_n}\otimes S^{\otimes k_n}).
  \]
  
- Now we turn the tensor of inverses into inverses of tensors by introducing the appropriate signs. More precisely we introduce the sign
+ Now we turn the tensor of inverses into inverses of tensors by introducing the appropriate signs. More precisely, we introduce the sign
  \begin{equation}\label{delta}
- (-1)^{\delta}=(-1)^{\binom{k_0}{2}+\sum(\binom{a_j}{2}+\binom{k_j}{2})}.
+ (-1)^{\delta}=(-1)^{\binom{k_0}{2}+\sum\left(\binom{a_j}{2}+\binom{k_j}{2}\right)}.
   \end{equation}
  
   
@@ -2698,9 +2701,12 @@ Therefore we have up to multiplication by $(-1)^{\binom{N-n+\sum a_j}{2}+\vareps
  \]
  The next step is moving each component of the last tensor product in front of its inverse. This will produce the sign $(-1)^\gamma$, where
  
- \begin{gather*}\gamma=-k_0\sum_1^n(k_j+a_j+q_j)-a_1(\sum_1^n k_j+\sum_2^n (a_j+q_j))-\cdots -a_nk_n\\\equiv \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l)).
- \end{gather*}
+ \begin{align}\label{gammasign}
+ \gamma&=-k_0\sum_1^n(k_j+a_j+q_j)-a_1\left(\sum_1^n k_j+\sum_2^n (a_j+q_j)\right)-\cdots -a_nk_n\\
+ &= \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j\left(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l)\right)\mod 2\nonumber.
+ \end{align}
  
+
 
  
  So in the end we have
@@ -2710,31 +2716,29 @@ Therefore we have up to multiplication by $(-1)^{\binom{N-n+\sum a_j}{2}+\vareps
 This means that 
  \[\eta=\binom{N-n+\sum a_j}{2}+\varepsilon+\delta+\gamma.\]
   Next, we are going to simplify this sign to get rid of the binomial coefficients.
- 
- \begin{remark}
-If the number top of a binomial coefficient is less than 2, then the coefficient is 0. In the case of arities or $k_j$ this is because $(S^{-1})^{\otimes 1}=(S^{\otimes 1})^{-1}$ (and if the tensor is taken 0 times then it is the identity and the equality also holds, so there are no signs).
+  
+\begin{remark}
+If the top number of a binomial coefficient is less than 2, then the coefficient is 0. In the case of arities or $k_j$ this is because $(S^{-1})^{\otimes 1}=(S^{\otimes 1})^{-1}$, and if the tensor is taken 0 times then it is the identity and the equality also holds, so there are no signs.
 \end{remark}
 
+We are now going to simplify the sign to obtain the desired result. Notice that $N-n+\sum_j a_j=\sum_i k_i +\sum_j a_j$. In general, consider a finite sum $\sum_i b_i$. We can simplify the binomial coefficients mod 2
 
-We are now going to simplify the sign to obtain the desired result.
-
-Notice that $N-n+\sum a_j=\sum k_i +\sum a_j$. In general, consider a finite sum $\sum b_i$. We can simplify the binomial coefficients mod 2
+\[\binom{\sum_i b_i}{2}+\sum_i\binom{b_i}{2}\]
 
 \[\binom{\sum b_i}{2}+\sum\binom{b_i}{2}\]
 
-in the following way. Note that all terms will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator. More precisely, we have the following equality mod 2.
+in the following way. Note that all the $b_i$'s will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator. More precisely, we have the following equality mod 2.
 
 \[\binom{\sum b_i}{2}+\sum\binom{b_i}{2}=\sum_{i<j}b_ib_j.\]
-So the result of applying this to $\binom{N-n+\sum a_j}{2}$ and adding $\delta$ (recall $\delta$ from \Cref{delta}) in our sign $\eta$ is
-
+The result of applying this to $\binom{N-n+\sum a_j}{2}$ and adding $\delta$ from \cref{delta} in our sign $\eta$ is
 \begin{equation}\label{simply}
 \sum_{0\leq i<l\leq n}k_ik_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{i,j}k_ia_j.
 \end{equation}
 
-Recall $\gamma$ in the sign:
+Recall $\gamma$ from \Cref{gammasign}.
 
 \begin{equation*}\label{gamma}
-\gamma= \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l)).
+\gamma= \sum_{j=0}^nk_j\sum_{l=j+1}^n(k_l+a_l+q_l)+\sum_{j=1}^na_j\left(\sum_{l=j}^nk_l+\sum_{l=j+1}^n(a_l+q_l)\right).
 \end{equation*}
 
 As we see, all the sums in the previous simplification appear in $\gamma$ so we can cancel them. Let us rewrite $\gamma$ in a way that this becomes more clear:
@@ -2791,10 +2795,10 @@ Applying the brace relation we obtain
 b_2(x;m_{jl},m_{ik})+b_1(x;b_1(m_{jl};m_{ik}))+b_2(x;m_{ik},m_{jl})).
 \end{align*}
 
-In the sum, all terms of the form $b_1(x;b_1(m_{jl};m_{ik}))$ that can be seen in the last line should add up to vanish provided that $m$ is a $dA_\infty$-multiplication (meaning that up to sign $b_1(m;m)=0$). %A sign of the form $(-1)^i$ %(or maybe $(-1)^j$, depending on the convention) 
- Since $i$ and $j$ are interchangeable (i.e. for each pair $(i,j)$ there is the pair $(j,i)$), the terms $b_2(x;m_{jl},m_{ik})+b_2(x;m_{ik},m_{jl})$ in the last line should cancel as well (for this, we should have the pair $(j,i)$ with the opposite sign). Here it is also relevant that the sum runs through all possible values of $k$ and $l$, so that the pair $(j,i)$ appears with $l$ and $k$ interchanged as well. So far the entire last line vanishes up to sign.
+In the sum, all terms of the form $b_1(x;b_1(m_{jl};m_{ik}))$ that can be seen in the last line should add up to vanish provided that $m$ is a $dA_\infty$-multiplication, meaning that up to sign $b_1(m;m)=0$. %A sign of the form $(-1)^i$ %(or maybe $(-1)^j$, depending on the convention) 
+ Since $i$ and $j$ are interchangeable, i.e. for each pair $(i,j)$ there is the pair $(j,i)$, the terms $b_2(x;m_{jl},m_{ik})+b_2(x;m_{ik},m_{jl})$ in the last line should cancel as well. For this, we should have the pair $(j,i)$ with the opposite sign. Here it is also relevant that the sum runs through all possible values of $k$ and $l$, so that the pair $(j,i)$ appears with $l$ and $k$ interchanged as well. So far the entire last line vanishes up to sign.
 
-Then $b_1(m_{ik};b_1(x;m_{jl}))$ on the first line should cancel with $b_1(m_{jl};b_1(x;m_{ik}))$ on the second line (but from a different summand, the one where $i$ and $j$ are interchanged). Finnaly, the remaining terms $b_1(m_{ik}; b_1(m_{jl};x))+b_2(m_{jl};x,m_{ik})+b_2(m_{jl};m_{ik},x)$ add up to $b_1(b_1(m;m);x)$ up to sign. That would cancel everything.
+Then $b_1(m_{ik};b_1(x;m_{jl}))$ on the first line should cancel with $b_1(m_{jl};b_1(x;m_{ik}))$ on the second line, but from a different summand: the one where $i$ and $j$ are interchanged. Finally, the remaining terms $b_1(m_{ik}; b_1(m_{jl};x))+b_2(m_{jl};x,m_{ik})+b_2(m_{jl};m_{ik},x)$ add up to $b_1(b_1(m;m);x)$ up to sign. That would cancel everything.
 
 
 
@@ -2811,37 +2815,51 @@ Observe that $\langle b_1(m_{jl};x)|m_{ik}\rangle=\langle m_{ij}|m_{ik}\rangle+\
 
 Applying the brace relation we obtain
 
-\begin{align}
-\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\nonumber\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\nonumber\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\label{twistedequation}\\
-+(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))\nonumber\\
-+(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik}))).\nonumber
+\begin{align}\label{twistedequation}
+\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x,m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\nonumber\\
+ -(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x,m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\nonumber\\
+ -(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\nonumber\\
++(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle+\langle x,m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik},m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))\nonumber\\
++(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle+\langle x,m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik}))).
 \end{align}
 
-Recall that $m$ being a $dA_\infty$-multiplication means that \[\sum_{i+j=u}\sum_{k,l}(-1)^ib_1(m_{jl};m_{ik})=0.\] %Notice that the summand corresponding to each value of $i+j$ must vanish because it corresponds to a given horizontal degree. 
+
+Recall from \Cref{sharp} that $m$ being a $dA_\infty$-multiplication means that \[\sum_{i+j=u}\sum_{k,l}(-1)^ib_1(m_{jl};m_{ik})=0.\] %Notice that the summand corresponding to each value of $i+j$ must vanish because it corresponds to a given horizontal degree. 
 Let us check now the cancellations with the signs. First, let us check that the terms 
-\[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))\]
-can be added up to vanish. For that, we compute the sign \[\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle=\langle m_{jl}|m_{ik}\rangle+\langle x|m_{ik}\rangle+\langle x|m_{jl}\rangle.\]
+
+\[(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle+\langle x,m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))\]
+
+can be added up to vanish. For that, we compute the sign 
+
+\[
+\langle b_1(m_{jl};x),m_{ik}\rangle+\langle x,m_{jl}\rangle=\langle m_{jl}|m_{ik}\rangle+\langle x,m_{ik}\rangle+\langle x,m_{jl}\rangle.\]
+
 Recall that the braces are defined on the operadic suspension, so that the bidegree of $m_{ik}$ is $(i,1-i)$. Therefore, writing the bidegree of $x$ as $(k,n-k)$, so that the total degree is $|x|=n$, the above equals 
+
 \begin{align*}
 &ji+(1-i)(1-j)+ki+(n-k)(1-i)+kj+(n-k)(1-j)\\
 &\equiv 1+i+j + (i+j)k+(i+j)(n-k)\mod 2\\
 &=1+(i+j)(1+n)=1+u(1+|x|).
 \end{align*}
+
 Since this sign is constant for all terms $b_1(m_{ik};m_{ij})$ that share the same horizontal degree $i+j=u$, we can rewrite
+
 \[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))=-(-1)^{u(1+|x|)}b_1(x;(-1)^ib_1(m_{ik};m_{jl})).\]
 Hence, 
 %Multiplying 0 by something is 0, some sum vanishes and you multiply it by a constant sign, it still vanishes
+
 \[\sum_{i+j=u}\sum_{k,l}-(-1)^{u(1+|x|)}b_1(x;(-1)^ib_1(m_{ik};m_{jl}))=0.\]
 Therefore, the expression (\ref{twistedequation}) after the brace relation reduces to
-\begin{align}
-\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\nonumber\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\label{twistedequation2}\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\nonumber\\
-+(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl})).\nonumber
+
+\begin{align}\label{twistedequation2}
+\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x,m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\nonumber\\
+ -(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x,m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\nonumber\\
+ -(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik}))\nonumber\\
++(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle+\langle x,m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik},m_{jl}\rangle}b_2(x;m_{ik},m_{jl})).
 \end{align}
+
 Let us focus on the last line. For each pair $(i,j)$ we should have cancellation with the pair $(j,i)$, which adds the same elements, but with different signs. We also need to consider the pairs $(k,l)$ and $(l,k)$ to get a cancellation. Let us compare the signs. For the pair $((i,j),(k,l))$ we have precisely the last line of the above equation
+
 \[(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle+\langle x|m_{jl}\rangle}(b_2(x;m_{jl},m_{ik})+(-1)^{\langle m_{ik}|m_{jl}\rangle}b_2(x;m_{ik},m_{jl}))\]
 
 For the pair $((j,i),(l,k))$ we have
@@ -2849,37 +2867,53 @@ For the pair $((j,i),(l,k))$ we have
  Comparing the sign of $b_2(x;m_{jl},m_{ik})$ we find that for $((i,j),(k,l))$ we have
 
 \[-(-1)^{i+(i+j)(1+|x|)}b_2(x;m_{jl},m_{ik})=-(-1)^{j+u|x|}b_2(x;m_{jl},m_{ik})\]
+
 and for the pair $((j,i),(l,k))$ we have
+
 \[(-1)^{j+u|x|}b_2(x;m_{jl},m_{ik}).\]
+
 As we see, we get opposite signs and thus cancellation. For $b_2(x;m_{ik},m_{jl})$ it is completely analogous. Thus, we have reduced expression (\ref{twistedequation2}) to
-\begin{align}
-\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\nonumber\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x|m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\label{twistedequation3}\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik})).\nonumber
+
+\begin{align}\label{twistedequation3}
+\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))-(-1)^{i+\langle x,m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))+\nonumber\\
+ -(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})+(-1)^{\langle x,m_{ik}\rangle}b_2(m_{jl};m_{ik},x))\nonumber\\
+ -(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle}b_1(m_{jl};b_1(x;m_{ik})).
 \end{align}
+
 In a similar fashion to the previous calculation, we are going to cancel $b_1(m_{ik};b_1(x;m_{jl}))$ in the first line with $b_1(m_{jl};b_1(x;m_{ik}))$ in the last line by considering switched pairs. For the pair $((i,j),(k,l))$, the term in the first line is 
+
 \[-(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))\]
+
 and for the pair $((j,i),(l,k))$ the term in the last line is
+
 \begin{align*}
 -(-1)^{j+\langle b_1(m_{ik};x)|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))&=(-1)^{1+j+\langle m_{ik}|m_{jl}\rangle+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl}))\\
 &=(-1)^{i+\langle x|m_{jl}\rangle}b_1(m_{ik};b_1(x;m_{jl})),
 \end{align*}
+
 which has precisely the opposite sign to the other pair, and thus cancels. This reduces expression (\ref{twistedequation3}) to 
-\begin{align}
-\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))&\label{twistedequation4}\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})&+(-1)^{i+\langle m_{jl}|m_{ik}\rangle}b_2(m_{jl};m_{ik},x)).\nonumber
+
+\begin{align}\label{twistedequation4}
+\sum_{i+j=u}\sum_{l,k}((-1)^ib_1(m_{ik}; b_1(m_{jl};x))&\nonumber\\
+ -(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle}(b_2(m_{jl};x,m_{ik})&+(-1)^{i+\langle m_{jl},m_{ik}\rangle}b_2(m_{jl};m_{ik},x)).
 \end{align}
+
 We want these terms to add up to something of the form $b_1(b_1(m;m);x)$. Notice that for this we need to switch some pairs. For simplicity, we switch the pair of the first term and rewrite the sum as
-\begin{align}
+
+\begin{align*}
 \sum_{i+j=u}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))&\\
- -(-1)^{i+\langle b_1(m_{jl};x)|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})&+(-1)^{i+\langle m_{jl}| m_{ik}\rangle}b_2(m_{jl};m_{ik},x)).\nonumber
-\end{align}
+ -(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle}b_2(m_{jl};x,m_{ik})&+(-1)^{i+\langle m_{jl}, m_{ik}\rangle}b_2(m_{jl};m_{ik},x)).
+\end{align*}
+
 Simplifying the signs we get
+
 \begin{align*}
 \sum_{i+j=u}\sum_{l,k}((-1)^jb_1(m_{jl}; b_1(m_{ik};x))
- +(-1)^{j+\langle x|m_{ik}\rangle}b_2(m_{jl};x,m_{ik})+(-1)^{j}b_2(m_{jl};m_{ik},x)).
+ +(-1)^{j+\langle x,m_{ik}\rangle}b_2(m_{jl};x,m_{ik})+(-1)^{j}b_2(m_{jl};m_{ik},x)).
 \end{align*}
+
 By the brace relation and \Cref{sharp} this equals
+
 \[\sum_{i+j=u}\sum_{l,k}(-1)^jb_1(b_1(m_{jl};m_{ik});x)=0.\]
 %For each position of insertion of x we have a 0 map applied to x, so the above sum is indeed equal to 0
 \end{proof}
