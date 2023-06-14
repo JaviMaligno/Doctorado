@@ -1836,9 +1836,9 @@ In \Cref{ainftydeligne}, when $A$ is just an associative algebra, we recover the
 
 
 \section{Derived $A_\infty$-algebras and filtered $A_\infty$-algebras}\label{deriveddef}
-A lot of the research on $A_\infty$-algebras relies on existence and uniqueness of minimal models for dga's. This is guaranteed by the results of Kadeishvili \cite{kade} when the dga's and their homologies are assumed to be degreewise projective. In practice, this is implied by assuming a ground field. However, there are important examples arising from homotopy theory where projectivity cannot be guaranteed. In 2008, Sagave introduced the notion of derived $A_\infty$-algebras, providing a framework for not necessarily projective modules over an arbitrary commutative ground ring \cite{sagave}.
+A lot of the research on $A_\infty$-algebras relies on the existence and uniqueness of minimal models for dgas. This is guaranteed by the results of Kadeishvili \cite{kade} when the dgas and their homologies are assumed to be degreewise projective. In practice, this is implied by assuming a ground field. However, there are important examples arising from homotopy theory where projectivity cannot be guaranteed. In 2008, Sagave introduced the notion of derived $A_\infty$-algebras, providing a framework for not necessarily projective modules over an arbitrary commutative ground ring \cite{sagave}.
 
-In this section we recall some definitions about derived $A_\infty$-algebras and present some new ways of interpreting them in terms of operads and collections. We also recall the notion of filtered $A_\infty$-algebra, since it will play a role in obtaining derived $A_\infty$-algebras from $A_\infty$-algebras on totalization.
+In this section we recall some definitions and results about derived $A_\infty$-algebras and present some new ways of interpreting them in terms of operads and collections. We also recall the notion of filtered $A_\infty$-algebra, since it will play a role in obtaining derived $A_\infty$-algebras from $A_\infty$-algebras on totalization.
 
 
 \subsection{Derived $A_\infty$-algebras}
@@ -1878,7 +1878,7 @@ for all $u\geq 0$ and $v\geq 1$, where
 \begin{ex}\
 \begin{enumerate}
 \item An $A_\infty$-algebra is the same as a derived $A_\infty$-algebra such that $m_{ij}=0$ for all $i>0$.
-\item One can check that, on any derived $A_\infty$-algebra $A$, the maps $d_i=(-1)^{i}m_{i1}$ define a twisted complex structure. This leads to the possibility of defining a derived $A_\infty$-algebra as a twisted complex with some extra structure (see \Cref{equivalent}).
+\item One can check that, on any derived $A_\infty$-algebra $A$, the maps $d_i=(-1)^{i}m_{i1}$ define a twisted complex structure. This leads to the possibility of defining a derived $A_\infty$-algebra as a twisted complex with some extra structure, see \Cref{equivalent}.
 
 \end{enumerate}
 \end{ex}
@@ -1984,7 +1984,7 @@ We may identify the elements of $\mathcal{O}$ with the elements of $\mathfrak{s}
 For $x\in\OO(n)$ of bidegree $(k,d-k)$, its \emph{natural bidegree} in $\s\OO$ is the pair $(k,d+n-k-1)$. To distinguish both degrees we call $(k,d-k)$ the \emph{internal bidegree} of $x$, since this is the degree that $x$ inherits from the grading of $\OO$. 
 \end{defin}
 
-If we write $\circ_{r+1}$ for the operadic insertion on $\OO$ and $\tilde{\circ}_{r+1}$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in the following way. 
+If we write $\circ_{r+1}$ for the operadic insertion on $\OO$ and $\tilde{\circ}_{r+1}$ for the operadic insertion on $\mathfrak{s}\OO$, we may find a relation between the two insertion maps in a completely analogous way to \Cref{tilde}.
 
 \begin{lem}
 For $x\in\OO(n)$ and $y\in\OO(m)^{q}_l$ we have
@@ -1992,24 +1992,9 @@ For $x\in\OO(n)$ and $y\in\OO(m)^{q}_l$ we have
 \begin{equation}\label{sign}
 x\tilde{\circ}_{r+1}y=(-1)^{(n-1)q+(n-1)(m-1)+r(m-1)}x\circ_{r+1} y.
 \end{equation}
-
+\qed
 \end{lem}
 
-\begin{proof}
-Let $x\in\OO(n)$ and $y\in\OO(m)^{q}_l$, and let us compute $x\tilde{\circ}_{r+1} y$, which is
-
-\begin{align*}
-\mathfrak{s}\OO(n)\otimes\mathfrak{s}\OO(m)&=(\OO(n)\otimes\Lambda(n))\otimes (\OO(m)\otimes\Lambda(m))\cong (\OO(n)\otimes \OO(m))\otimes (\Lambda(n)\otimes \Lambda(m))\\
-&\xrightarrow{\circ_{r+1}\otimes\circ_{r+1}} \OO(m+n-1)\otimes \Lambda(n+m-1)=\mathfrak{s}\OO(n+m-1).
-\end{align*}
-
-The symmetric monoidal structure produces the sign $(-1)^{(n-1)q}$ in the isomorphism $\Lambda(n)\otimes \OO(m)\cong\OO(m)\otimes\Lambda(n)$, and the operadic structure of $\Lambda$ produces the sign \[(-1)^{(n-1)(m-1)+r(m-1)},\] so 
-
-\[
-x\tilde{\circ}_{r+1}y=(-1)^{(n-1)q+(n-1)(m-1)+r(m-1)}x\circ_{r+1} y.
-\]
-
-\end{proof}
 
 
 \begin{remark}
@@ -2055,11 +2040,11 @@ Clearly, this map is bijective so we just need to check that it commutes with in
 \begin{equation*}
 (x\star_{r+1} y)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(d_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1d_2}x_{k_1}\circ_{r+1}y_{k_2}
 \end{equation*}
-for $x=(x_i)_i\in \Tot(\s\OO(n))^{d_1}$ and $y=(y_j)_j\in \Tot(\s\OO(m))^{d_2}$. Similarly, we may compute the insertion on $\s\Tot(\OO)$ by combining the sign produced first by $\Tot$ and then by $\s$. This results in  the following insertion map 
+for $x=(x_i)_i\in \Tot(\s\OO(n))^{d_1}$ and $y=(y_j)_j\in \Tot(\s\OO(m))^{d_2}$. Similarly, we may compute the insertion on $\s\Tot(\OO)$ by combining the sign produced first by $\Tot$ and then by $\s$. This results in the following insertion map 
 \begin{equation*}
-(x\star_{r+1}' y)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(d_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(d_2-m+1)}x_{k_1}\circ_{r+1}y_{k_2}
+(x\star_{r+1}' y)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(d_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(d_2-m+1)}x_{k_1}\circ_{r+1}y_{k_2}.
 \end{equation*}
-for $x=(x_i)_i\in \s\Tot(\OO(n))^{d_1}$ and $y=(y_j)_j\in \s\Tot(\OO(m))^{d_2}$. Now let us show that $f(x\star y)=f(x)\star f(y)$. We have that $f((x\star_{r+1} y))_k$ equals 
+Now let us show that $f(x\star y)=f(x)\star f(y)$. We have that $f((x\star_{r+1} y))_k$ equals 
 \begin{align*}
 &\sum_{k_1+k_2=k}(-1)^{k(n+m-1)+(n-1)(d_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1d_2}x_{k_1}\circ_{r+1}y_{k_2}\\
 &=\sum_{k_1+k_2=k}(-1)^{(n-1)(d_2-n+1)+(n-1)(m-1)+r(m-1)+k_1(d_2-m+1)}f(x_{k_1})\circ_{r+1}f(y_{k_2})\\
@@ -2076,9 +2061,7 @@ as desired.
 
 As we mentioned in \Cref{heuristic}, there exist other possible ways of totalizing by varying the natural transformation $\mu$. For instance, we can choose the totalization functor $\Tot'$ which is the same as $\Tot$ but with a natural transformation $\mu'$ defined in such a way that the insertion on $\Tot'(\OO)$ is defined by \[(x\hat{\circ}y)_k=\sum_{k_1+k_2=k}(-1)^{k_2n_1}x_{k_1}\circ y_{k_2}.\] 
 
-This is also a valid approach for our purposes and there is simply a sign difference, but we have chosen our convention to be consistent with other conventions, like the derived $A_\infty$-equation. However, let us mention some differences and relations between $\Tot$ and $\Tot'$. 
-
-It can also be verified that $\Tot'(\s\OO)=\s \Tot'(\OO)$. With the original totalization we have a non identity isomorphism given by \Cref{extrasign}. Similar relations can be found among the other alternatives mentioned in \Cref{heuristic}. %We will use this isomorphism later.
+This is also a valid approach for our purposes and there is simply a sign difference, but we have chosen our convention to be consistent with other conventions, like the derived $A_\infty$-equation. However, it can be verified that $\Tot'(\s\OO)=\s \Tot'(\OO)$. With the original totalization we have a non identity isomorphism given by \Cref{extrasign}. Similar relations can be found among the other alternatives mentioned in \Cref{heuristic}. %We will use this isomorphism later.
 
 
 
@@ -2107,14 +2090,10 @@ From \Cref{mstar}, we can proceed as in the proof of \Cref{ainftystructure} to s
 
 The goal now is showing that this $A_\infty$-structure on $S\Tot(\s\OO)$ is equivalent to a derived $A_\infty$-structure on $S\s \OO$ and compute the structure maps explicitly. We will do this in \Cref{derivedstructure}. 
 
-Before that, let us use this new operadic structure to reinterpret derived $\infty$-morphisms and their composition.
+Before that, let us explore the brace structures that appear from this new operadic constructions and use them to reinterpret derived $\infty$-morphisms and their composition.
 
 \subsection{Bigraded braces and totalized braces}\label{sectionbibraces}
 We are going to define a brace structure on $\Tot(\s\OO)$ using totalization. First note that one can define bigraded braces just like in the single-graded case, only changing the sign $\varepsilon$ in \Cref{braces} to be $\varepsilon=\sum_{p=1}^n\sum_{q=i}^{i_p}\langle x_p,y_q\rangle$ according to the bigraded sign convention.
-
-
-
-
 
 As one might expect, we can define bigraded brace maps $b_n$ on a bigraded operad $\OO$ and also on its operadic suspension $\s\OO$, obtaining similar signs as in the single-graded case, but with vertical (internal) degrees, see \Cref{bracesign}. 
 
@@ -2132,7 +2111,7 @@ Operadic composition can be described in terms of insertions in the obvious way,
 \gamma^\star(x;y_1,\dots,y_N)=(\cdots(x\star_1 y_1)\star_{1+a(y_1)}y_2\cdots)\star_{1+\sum a(y_p)}y_N,
 \end{equation}
 
-where $a(y_p)$ is the arity of $y_p$ (in this case $y_p$ is either $1$ or some $x_i$). If we want to express this composition in terms of the composition in $\OO$ we just have to find out the sign factor applying the same strategy as in the single-graded case. In fact, as we said, there is a sign factor that comes from vertical operadic suspension that is identical to the graded case, but replacing internal degree by internal vertical degree. This is the sign that determines the brace $b_n$ on $\s\OO$. Explicitly, it is given by the following lemma, whose proof is identical to the single-graded case.
+where $a(y_p)$ is the arity of $y_p$. If we want to express this composition in terms of the composition in $\OO$ we just have to find out the sign factor applying the same strategy as in the single-graded case. In fact, as we said, there is a sign factor that comes from vertical operadic suspension that is identical to the graded case, but replacing internal degree by internal vertical degree. This is the sign that determines the brace $b_n$ on $\s\OO$. Explicitly, it is given by the following lemma, whose proof is identical to the single-graded case, see \Cref{bracesign}.
 
 
  
@@ -2179,7 +2158,7 @@ Similarly to the single-graded case, we may describe derived $\infty$-morphisms 
 \begin{lem}\label{dinfinitymorphism}
 A derived $\infty$-morphism of $A_\infty$-algebras $A\to B$ with respective structure maps $m^A$ and $m^B$ is equivalent to an element $f\in\Tot(\s\End^A_B)$ of degree 0 concentrated in positive arity such that \[\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),\] 
 
-where \[\lambda:\Tot(\mathfrak{s}\End_B)\circ \Tot(\mathfrak{s}\End^A_B)\to \Tot(\mathfrak{s}\End^A_B)\] is induced by the left module struncture on $\End^A_B$, and \[\rho:\Tot(\mathfrak{s}\End_B)\circ_{(1)}\Tot(\mathfrak{s}\End^A_B)\to \Tot(\mathfrak{s}\End^A_B)\] is induced by the right infinitesimal module structure on $\End^A_B$. 
+where \[\lambda:\Tot(\mathfrak{s}\End_B)\circ \Tot(\mathfrak{s}\End^A_B)\to \Tot(\mathfrak{s}\End^A_B)\] is induced by the left module structure on $\End^A_B$, and \[\rho:\Tot(\mathfrak{s}\End_B)\circ_{(1)}\Tot(\mathfrak{s}\End^A_B)\to \Tot(\mathfrak{s}\End^A_B)\] is induced by the right infinitesimal module structure on $\End^A_B$. 
 
 In addition, the composition of $\infty$-morphisms is given by the natural composition \[\Tot(\s\End^B_C)\circ \Tot(\s\End^A_B)\to \Tot(\s\End^A_C).\]
 \end{lem}
@@ -2188,7 +2167,7 @@ Since $f_j=(f_{ij})_i\in\Tot(\s\End^A_B(j))$ is of degree $0$, we have that that
 
 \[\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f)\] 
 
-coincides up to signes with with the \Cref{dinftymaps}, the equation defining derived $\infty$-morphisms of derived $A_\infty$-algebras. The signs that appear in the above equation are obtained in a similar way to that on the brace $b_j^\star$, see \Cref{bracetot}. Thus, it is enough to plug in the sign provided by \Cref{bracetot} from the corresponding degrees and arities to obtain the desired result. The composition of derived $\infty$-morphisms follows similarly.
+coincides up to signs with with the \Cref{dinftymaps}, the equation defining derived $\infty$-morphisms of derived $A_\infty$-algebras. The signs that appear in the above equation are obtained in a similar way to that on the brace $b_j^\star$, see \Cref{bracetot}. Thus, it is enough to plug in the sign provided by \Cref{bracetot} from the corresponding degrees and arities to obtain the desired result. The composition of derived $\infty$-morphisms follows similarly.
 \end{proof}
 
 In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition can be written in terms of operadic composition as $f\star m=\gamma^\star(m\circ f)$, where $\gamma^*$ is the composition map derived from the operation $\star$, see \Cref{gammastar}. Here, $\circ$ is the plethysm of maps of collections, not to be confused with composition of maps. 
@@ -2225,9 +2204,9 @@ According to \Cref{filterversion}, the last isomorphism can be replaced by
 \[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\cong \Hom_{\mathrm{COp}}(\calA_∞,\End_{\Tot(A)}),\]
 where $\mathrm{COp}$ is the category of operads in chain complexes. 
 \end{remark}
-There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^{d-k}=0$ for all $k>i$. In our case, $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have finitely many non-zero $dA_\infty$ components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far (some of them are in \cite[Remark 6.5]{muro}, \cite{RW}, and \cite[\S 5]{women}). Under this assumption we may replace all direct products by direct sums.
+There are several important assumptions to make in order to use the theorem. First of all, we need $A$ to be horizontally bounded on the right, meaning that there exists some integer $i$ such that $A_k^{d-k}=0$ for all $k>i$. In our case, $A=S\s\OO$ for $\OO$ an operad with a derived $A_\infty$-multiplication, so being horizontally bounded on the right implies that for each $j>0$ we can only have finitely many non-zero components $m_{ij}$. This situation happens in practice in all known examples of derived $A_\infty$-algebras so far, some of them are in \cite[Remark 6.5]{muro}, \cite{RW}, and \cite[\S 5]{women}. Under this assumption we may replace all direct products by direct sums.
 
-We also need to provide $A$ with a twisted complex structure. The reason for this is that \Cref{whitehouse} uses the definition of derived $A_\infty$-algebras on an underlying twisted complex, see \Cref{equivalent}. We show explicitly the existence of a twisted complex structrue on an operad with derived $A_\infty$-multiplication in \Cref{twistedoperad}, but it also follows from \Cref{mi1}. We also provide another version of this theorem that works for bigraded modules, \Cref{alternative}. 
+We also need to provide $A$ with a twisted complex structure. The reason for this is that \Cref{whitehouse} uses the definition of derived $A_\infty$-algebras on an underlying twisted complex, see \Cref{equivalent}. We show explicitly the existence of a twisted complex structure on an operad with derived $A_\infty$-multiplication in \Cref{twistedoperad}, but it also follows from \Cref{mi1}. We also provide another version of this theorem that works for bigraded modules, \Cref{alternative}. 
 
 With these assumption, by \Cref{whitehouse} we can guarantee the existence of a derived $A_\infty$-algebra structure on $A$ provided that $\Tot(A)$ has an $A_\infty$-algebra structure.
 
@@ -2260,7 +2239,7 @@ does not modify the map $M_j$ at all but allows us to see it as a element of $\u
 
 The isomorphism 
 \[\Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_A)\cong \Hom_{\mathrm{vbOp}}(\calA_∞, \uEnd_{\Tot(A)})\] 
-in the direction we are following is the result of applying $\Hom_{\vbOp}(\calA_\infty,-)$ to the map described after \Cref{inverse}. Under this isomorphism, $f$ is sent to the map \[\mu_j\mapsto \mathfrak{Tot}^{-1}\circ c(M_j,\mu^{-1})=\mathfrak{Tot}^{-1}\circ M_j\circ \mu^{-1},\] where $c$ is the composition in $\ufC$. The functor $\mathfrak{Tot}^{-1}$ decomposes $M_j$ into a sum of maps $M_j=\sum_i \widetilde{M}_{ij}$, where each $\widetilde{M}_{ij}$ is of bidegree $(i,2-j-i)$. More explicitly, let $A=S\s\OO$ and let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{d-k}_k$. We abuse of notation and identify $x_1\otimes\cdots\otimes x_j$ with an element of $\Tot(A^{\otimes j})$ with only one non-zero component. For a general element, extend linearly. Then we have
+in the direction we are following is the result of applying $\Hom_{\vbOp}(\calA_\infty,-)$ to the map described in \Cref{composition}. Under this isomorphism, $f$ is sent to the map \[\mu_j\mapsto \mathfrak{Tot}^{-1}\circ c(M_j,\mu^{-1})=\mathfrak{Tot}^{-1}\circ M_j\circ \mu^{-1},\] where $c$ is the composition in $\ufC$. The functor $\mathfrak{Tot}^{-1}$ decomposes $M_j$ into a sum of maps $M_j=\sum_i \widetilde{M}_{ij}$, where each $\widetilde{M}_{ij}$ is of bidegree $(i,2-j-i)$. More explicitly, let $A=S\s\OO$ and let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{d-k}_k$. We abuse of notation and identify $x_1\otimes\cdots\otimes x_j$ with an element of $\Tot(A^{\otimes j})$ with only one non-zero component. For a general element, extend linearly. Then we have
 
 \begin{align}\label{totsign}
 \mathfrak{Tot}^{-1}(M_j( \mu^{-1}(x_1\otimes\cdots\otimes x_j)))=& \nonumber\\ 
@@ -2293,7 +2272,7 @@ we have two equivalent descriptions of $A_∞$-algebras in $\tc$.
 \begin{enumerate}[(1)]
 \item A twisted complex $(A, d^A)$ together with a morphism $\calA_∞ → \uEnd_A$ of operads in $\vbc$, which is determined by a family of elements $M_i ∈ \utC(A^{⊗i},A)^{2−i}_0$ for $i ≥ 2$ for which the $A_\infty$-relations holds for $i\geq 2$, \Cref{ainftyequation}. The composition is the one prescribed by the composition morphisms of $\utC$.
 \item A bigraded module $A$ together with a family of elements $M_i ∈ \ubgMod(A^{⊗i},A)^{2−i}_0$ for $i ≥ 1$ for
-which all the $A_\infty$-relations hold, see \Cref{ainftyequation}. The composition is the one prescribed by the composition
+which all the $A_\infty$-relations hold, see \Cref{ainftyequation}. The composition is prescribed by the composition
 morphisms of $\ubgMod$.
 \end{enumerate}
 Since the composition morphism
@@ -2336,7 +2315,7 @@ Then \[M_{i1}(x)= \sum_l (Sb_1(m_{il};S^{-1}x)-(-1)^{\langle x,m_{il}\rangle}Sb_
 where $x\in (S\s\OO)^{d-k}_k$ and $\langle x,m_{il}\rangle=ik+(1-i)(d-1-k)$.
 \end{corollary}
 \begin{proof}
-Notice that the proof of \Cref{alternative} is essentially the same as the proof \Cref{whitehouse}. This means that the proof of this result is an arity 1 restriction of the proof of \Cref{derivedmaps}. Then we apply \Cref{totsign} to the case $j=1$. Recall that for $x\in (S\s\OO)^{d-k}_{k}$,
+Notice that the proof of \Cref{alternative} is essentially the same as the proof \Cref{whitehouse}. This means that the proof of this result is an arity 1 restriction of the proof of \Cref{derivedmaps}. Thus, we apply \Cref{totsign} to the case $j=1$. Recall that for $x\in (S\s\OO)^{d-k}_{k}$,
 \[M_1(x)=b_1^\star(m;S^{-1}x)-(-1)^{n-1}b_1^\star(S^{-1}x;m).\]
  In this case, there is no $\mu$ involved. Therefore, introducing the final extra sign $(-1)^i$ from the proof of \Cref{derivedmaps}, we get from \Cref{totsign} that
 \[\widetilde{M}_{i1}(x)=(-1)^i\sum_l((-1)^{id+i(d-1)} Sb_1(m_{il};S^{-1}x)-(-1)^{d-1+id+k}Sb_1(S^{-1}x;m_{il})),\] where $b_1$ is the brace on $\s\OO$. Simplifying signs we obtain
@@ -2380,11 +2359,11 @@ The isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\sigma
 
 In this setting we have the bigraded version of \Cref{theorem}. But before stating the theorem, for the sake of completeness let us state the definition of the Hochschild complex of a bigraded module.
 \begin{defin}
-We define the \emph{Hochschild cochain complex} of a bigraded module $A$ to be the bigraded module $S\s\End_A$. If $(A,d)$ is a vertical bicomplex, then the Hochschild complex has a differential given by $\partial(f)=[d,f]=d\circ f-(-1)^{q}f\circ d$, where $f$ has natural bidigree $(p,q)$ and $\circ$ is the plethysm corresponding to operadic insertions.
+We define the \emph{Hochschild cochain complex} of a bigraded module $A$ to be the bigraded module $S\s\End_A$. If $(A,d)$ is a vertical bicomplex, then the Hochschild complex has a vertical differential given by $\partial(f)=[d,f]=d\circ f-(-1)^{q}f\circ d$, where $f$ has natural bidigree $(p,q)$ and $\circ$ is the plethysm corresponding to operadic insertions.
 \end{defin}
 In particular, $S\s\End_{S\s\OO}$ is the Hochschild cochain complex of $S\s\OO$. If $\OO$ has a derived $A_\infty$-multiplication, then the differential of the Hochschild complex $S\s\End_{S\s\OO}$ is given by $\overline{M}_{01}$ from \Cref{barbimaps}.
 
-The following is the same as that of \Cref{theorem} but carrying the extra index $i$ and using the bigraded sign conventions.
+The following is the same as \Cref{theorem} but carrying the extra index $i$ and using the bigraded sign conventions.
 \begin{thm}\label{bigradedtheorem}
 The map $\Phi$ defined in diagram (\ref{derivedPhi}) above is a morphism of derived $A_\infty$-algebras, i.e. for all $i\geq 0$ and $j\geq 1$ the equation
 
@@ -2446,7 +2425,7 @@ We finish by outlining some questions that remain open after our research and th
 
 In \Cref{derivedmaps} we obtained a derived $A_\infty$-algebra structure on the bigraded module $A=S\s\OO$ for an operad $\OO$ with a derived $A_\infty$-multiplication. Since this structure was obtained from \Cref{whitehouse}, a crucial assumption for it to exist is that $A$ is horizontally bounded on the right. This was necessary to apply strict monoidality on $\Tot(A^{\otimes n})$. As a consequence, the components $m_{ij}$ of derived $A_\infty$-multiplication (\Cref{derivedmultiplication}) vanish for sufficiently large $i$. 
 
-As we mentioned in \Cref{boundednessremark}, this condition is satisfied in all known examples of derived $A_\infty$-algebras. These examples usually come as minimal models of dga's. So a first question that arises is the following.
+As we mentioned in \Cref{boundednessremark}, this condition is satisfied in all known examples of derived $A_\infty$-algebras. These examples usually come as minimal models of dgas. So a first question that arises is the following.
 
 %\textbf{Question 1.} ENVIRONMENT?
 \begin{question}{2}
