@@ -32,7 +32,7 @@ Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the 
 \end{tikzcd}
 \]
 
-We are inserting the second factor onto the first one, so the sign can be explained  by moving the power $e^m$ of degree $m-1$ to the $i$-th position of $e^n$ passing by $e_{n}$ through $e_{i+1}$. More compactly, \[e^n\circ_i e^m=(-1)^{(n-i)(m-1)}e^{n+m-1}.\] The unit of this operad is $e^1\in\Lambda(1)$. It can be checked by direct computation that $\Lambda$ satisfies the axioms of an operad of graded modules.
+We are inserting the second factor onto the first one, so the sign can be explained by moving the power $e^m$ of degree $m-1$ to the $i$-th position of $e^n$ passing by $e_{n}$ through $e_{i+1}$. More compactly, \[e^n\circ_i e^m=(-1)^{(n-i)(m-1)}e^{n+m-1}.\] The unit of this operad is $e^1\in\Lambda(1)$. It can be checked by direct computation that $\Lambda$ satisfies the axioms of an operad of graded modules.
 
 In a similar way we can define $\Lambda^-(n)=S^{1-n}R$, with the same insertion maps.
 
@@ -89,7 +89,7 @@ x\tilde{\circ}_iy=(-1)^{(n-1)(m-1)+(n-1)\deg(y)+(i-1)(m-1)}x\circ_i y.
 \end{proof}
 
 \begin{remark}
-The sign from \Cref{tilde} is exactly the sign in \cite[\S 1.2]{RW} from which the sign in the equation defining $A_\infty$-algebras, i.e. \Cref{ainftyequation} is derived. This means that if $m_s\in\OO(s)$ has degree $2-s$ and $m_{r+1+t}\in \OO(r+1+t)$ has degree $1-r-t$, we get (abusing notation) that
+The sign from \Cref{tilde} is exactly the sign in \cite[\S 1.2]{RW} from which the sign in the equation defining $A_\infty$-algebras, i.e. \Cref{ainftyequation} is derived. This means that if $m_s\in\OO(s)$ has degree $2-s$ and $m_{r+1+t}\in \OO(r+1+t)$ has degree $1-r-t$, abusing of notation we get
 
 \[m_{r+1+t}\tilde{\circ}_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s.\]
 \end{remark}
@@ -126,7 +126,7 @@ This shows that the elements $m_i$ determine a map $f:\mathcal{A}_\infty\to\OO$ 
 \end{proof}
 
 \begin{remark}\label{dg}
-If one works with dg-operads, then the definition of $\calA_\infty$ as a quasi-free operad should be used, see \Cref{internal}. In that case, similarly to \Cref{twisting}, the equation that an $A_\infty$-multiplication on $\OO$ satisfies is $\partial(m)+m\tilde{\circ} m = 0$, where $\partial$ is the differential on $\OO$ and $m$ is concentrated on arity at least 2. A similar analysis can be carried out from here, but we will stick to operads of graded modules for the most part.
+If one works with dg operads, then the definition of $\calA_\infty$ as a quasi-free operad should be used, see \Cref{internal}. In that case, similarly to \Cref{twisting}, the equation that an $A_\infty$-multiplication on $\OO$ satisfies is $\partial(m)+m\tilde{\circ} m = 0$, where $\partial$ is the differential on $\OO$ and $m$ is concentrated on arity at least 2. A similar analysis can be carried out from here, but we will stick to operads of graded modules for the most part.
 \end{remark}
 
 We can connect \Cref{ainftymult} with the existing literature. Recall that the Koszul dual cooperad $\mathcal{A}s^{¡}$ of the associative operad $\mathcal{A}s$ is $k\mu_n$ in arity $n$, where $\mu_n$ has degree $n-1$ for $n\geq 1$, see \cite[\S 7.1]{lodayvallette}. Thus, for a graded module $A$, we have the following operad isomorphisms, where the notation $(\geq 1)$ means that we are taking the reduced sub-operad with trivial arity 0 component.
@@ -138,7 +138,7 @@ The first operad is the convolution operad, see \cite[\S 6.4.1]{lodayvallette}, 
 
 \[f\star g=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(b)+(i-1)(m-1)}f\circ_i g=\sum_{i=1}^nf\tilde{\circ}_i g=f\tilde{\circ}g.\]
 
-It is known that $A_\infty$-structures on $A$ are determined by elements $\varphi\in\Hom(\mathcal{A}s^{¡},\End_A)$ of degree 1 such that $\varphi\star \varphi=0$ \cite[Proposition 10.1.3]{lodayvallette}. Since the convolution product coincides with the operation $\tilde{\circ}$, such an element $\varphi$ is sent via the above isomorphism to an element $m\in\s\End_A(\geq 1)$ of degree 1 satisfying $m\tilde{\circ}m=0$. Therefore, we see that this classical interpretation of $A_\infty$-algebras is equivalent to the one that \Cref{twisting} provides in the case of the operad $\End_A$. See \cite[Proposition 10.1.11]{lodayvallette} for more details about convolution operads and the more classical operadic interpretion of $A_\infty$-agebras,  taking into account that in the dg-setting the definition has to be modified slightly, see \Cref{dg}. There is also a difference in sign conventions that arises from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$, see \Cref{markl}.
+It is known that $A_\infty$-structures on $A$ are determined by elements $\varphi\in\Hom(\mathcal{A}s^{¡},\End_A)$ of degree 1 such that $\varphi\star \varphi=0$ \cite[Proposition 10.1.3]{lodayvallette}. Since the convolution product coincides with the operation $\tilde{\circ}$, such an element $\varphi$ is sent via the above isomorphism to an element $m\in\s\End_A(\geq 1)$ of degree 1 satisfying $m\tilde{\circ}m=0$. Therefore, we see that this classical interpretation of $A_\infty$-algebras is equivalent to the one that \Cref{twisting} provides in the case of the operad $\End_A$. See \cite[Proposition 10.1.11]{lodayvallette} for more details about convolution operads and the more classical operadic interpretation of $A_\infty$-agebras, taking into account that in the dg-setting the definition has to be modified slightly, see \Cref{dg}. There is also a difference in sign conventions that arises from the choice of the isomorphism $\End_{SA}\cong\s^{-1}\End_A$, see \Cref{markl}.
 
 What is more, replacing $\End_A$ by any operad $\OO$ and doing similar calculations to \cite[Proposition 10.1.11]{lodayvallette}, we retrieve the notion of $A_\infty$-multiplication on $\OO$ given by \Cref{ainftymult}.
 
@@ -199,11 +199,11 @@ Given a morphism of collections $f:\OO\to\mathcal{P}$, there is an obvious induc
 Since morphisms of collections preserve arity, this map is well defined because $e^n$ is the same for $x$ and $f(x)$. Note that if $f$ is homogeneous, the degree of $\s f$ is the same as that of $f$.
 
 \begin{lem}
-The assigment $\OO\mapsto \s\OO$ and $f\mapsto \s f$ is a functor on both the category $\mathrm{Col}$ of collections and the category $\mathrm{Op}$ of operads.
+The assignment $\OO\mapsto \s\OO$ and $f\mapsto \s f$ is a functor on both the category $\mathrm{Col}$ of collections and the category $\mathrm{Op}$ of operads.
 \end{lem}
 
 \begin{proof}
-The assigment preserves composition of maps. Indeed, given any $g:\mathcal{P}\to\CC$, by definition $\s(g\circ f)(x\otimes e^n)=g(f(x))\otimes e^n$, and also \[(\s g\circ \s f)(x\otimes e^n)=\s g (f(x)\otimes e^n)=g(f(x))\otimes e^n.\] This means that $\s$ defines an endofunctor on the category $\mathrm{Col}$ of collections.
+The assignment preserves composition of maps. Indeed, given any $g:\mathcal{P}\to\CC$, by definition $\s(g\circ f)(x\otimes e^n)=g(f(x))\otimes e^n$, and also \[(\s g\circ \s f)(x\otimes e^n)=\s g (f(x)\otimes e^n)=g(f(x))\otimes e^n.\] This means that $\s$ defines an endofunctor on the category $\mathrm{Col}$ of collections.
 
 
 We know that when $\mathcal{O}$ is an operad, $\mathfrak{s}\OO$ is again  an operad. What is more, if $f$ is a map of operads, then the map $\s f$ is again a map of operads, since for $a\in\OO(n)$ and $b\in\OO(m)$ we have
@@ -293,14 +293,14 @@ where
  \end{align*}
 
  This shows naturality of $\mu$. %Next, we have to show that $\mu$ and $\varepsilon$ satisfy the axioms of a lax monoidal functor. 
- Unitality follows directly from the definitions by direct computation. In the case of associativity, oberve that by the definition of $\mu$, the associativity axiom for $\mu$ is equivalent to the associativity of the operadic composition $\tilde{\gamma}$, which we know to be true. This shows that $\s$ is a lax monoidal functor.
+ Unitality follows directly from the definitions by direct computation. In the case of associativity, observe that by the definition of $\mu$, the associativity axiom for $\mu$ is equivalent to the associativity of the operadic composition $\tilde{\gamma}$, which we know to be true. This shows that $\s$ is a lax monoidal functor.
  
 In the case where the operads have trivial arity 0 component, we may define an inverse to the operadic composition on $\Lambda$ from \Cref{lambda} Namely, for $n>0$, we may define
 
 \[\Lambda(n)\to \bigoplus_{N\geq 0} \Lambda(N)\otimes\left(\bigoplus_{a_1+\cdots+a_N=n}\Lambda(a_1)\otimes\cdots\otimes\Lambda(a_N)\right)\]
 as the map
 \[e^n\mapsto\sum_{a_1+\cdots+a_N=n}(-1)^{\delta}e^N\otimes  e^{a_1}\otimes\cdots\otimes e^{a_N},\]
-where $\delta$ is the same sign that appears in the operadic composition on $\Lambda$ (see \Cref{bracesign}) and where $a_1,\dots,a_k>0$. Since there are only finitely many ways of decomponsing $n$ into $N$ positive integers, the sum is finite and thus the map is well defined. In fact, this map defines a cooperad structure on the reduced sub-operad of $\Lambda$ with trivial arity 0 component. This map induces the morphism $\mu^{-1}:\s(\OO\circ\PP)\to \s\OO\circ\s\PP$ that we are looking for.
+where $\delta$ is the same sign that appears in the operadic composition on $\Lambda$ (see \Cref{bracesign}) and where $a_1,\dots,a_k>0$. Since there are only finitely many ways of decomposing $n$ into $N$ positive integers, the sum is finite and thus the map is well defined. In fact, this map defines a cooperad structure on the reduced sub-operad of $\Lambda$ with trivial arity 0 component. This map induces the morphism $\mu^{-1}:\s(\OO\circ\PP)\to \s\OO\circ\s\PP$ that we are looking for.
 
 The unit morphism $\varepsilon$ is always an isomorphism, so this shows $\s$ is strong monoidal in the reduced case.
 \end{proof}
@@ -419,7 +419,7 @@ b_1(f;g)=\sum_i f\tilde{\circ}_i g=f\tilde{\circ}g,
 \]
 so the notation $f\tilde{\circ} g$ is suggestive for operadic suspension. The notation $f\circ g$ will still be used whenever the insertion maps are denoted by $\circ_i$.
 
-In \cite{RW}, the sign is computed using a strategy that we generalize in \Cref{rw}, see \Cref{eta}. The approach we have followed here has the advantage that the brace relation follows immediatly from the associativity axiom of operadic composition. This approach also works for any operad since the difference between $\gamma$ and $\tilde{\gamma}$ is always the same sign. 
+In \cite{RW}, the sign is computed using a strategy that we generalize in \Cref{rw}, see \Cref{eta}. The approach we have followed here has the advantage that the brace relation follows immediately from the associativity axiom of operadic composition. This approach also works for any operad since the difference between $\gamma$ and $\tilde{\gamma}$ is always the same sign. 
 
 \subsection{Reinterpretation of $\infty$-morphisms}\label{reinterpretation}
 As we mentioned before, we can show an alternative description of $\infty$-morphisms of $A_\infty$-algebras and their composition in terms of suspension of collections. Recall \Cref{inftymorphism} for the definition of these morphisms.
@@ -428,11 +428,11 @@ Defining the suspension $\mathfrak{s}$ at the level of collections as we did in 
 \[\End_B\circ \End^A_B\to \End^A_B\] given by compostion of maps 
 
 \[f\otimes g_1\otimes\cdots\otimes g_n\mapsto f(g_1\otimes\cdots\otimes g_n)\]
-for $f\in\End_B(n)$ and $g_i\in \End^A_B$, and also an infinitesimal right module structure over the operad  $\End_A$ 
+for $f\in\End_B(n)$ and $g_i\in \End^A_B$, and also an infinitesimal right module structure over the operad $\End_A$ 
 \[\End^A_B \circ_{(1)} \End_A\to \End^A_B\]
 given by insertion of maps
 
-\[f\otimes 1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1}\mapsto f(1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1})\] for $f\in \End^A_B(n)$ and $g\in \End_A$.  In addition, we have a composition $\End^B_C\circ \End^A_B\to\End^A_C$ analogous to the left module described above. They induce maps on the respective operadic suspensions which differ from the original ones by some signs that can be calculated in an analogous way to what we did on \Cref{bracesign}. These induced maps will give us the characterization of $\infty$-morphisms in \Cref{infinitymorphisms}.
+\[f\otimes 1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1}\mapsto f(1^{\otimes r}\otimes g\otimes 1^{\otimes n-r-1})\] for $f\in \End^A_B(n)$ and $g\in \End_A$. In addition, we have a composition $\End^B_C\circ \End^A_B\to\End^A_C$ analogous to the left module described above. They induce maps on the respective operadic suspensions which differ from the original ones by some signs that can be calculated in an analogous way to what we did on \Cref{bracesign}. These induced maps will give us the characterization of $\infty$-morphisms in \Cref{infinitymorphisms}.
 
 For these collections we also have $\mathfrak{s}^{-1}\End^A_B\cong \End^{SA}_{SB}$ in analogy with \Cref{markl}, and the proof is similar but shorter since we do not need to worry about insertions. 
 
@@ -453,7 +453,7 @@ From the definitions of the operations in the equation
 
 we know that this equation coincides with the one defining $\infty$-morphisms of $A_\infty$-algebras (\Cref{inftymorphism}) up to sign. The signs that appear in the above equation are obtained in a similar way to that on $\tilde{\gamma}$, see the proof of \Cref{bracesign}. Thus, it is enough to plug into the sign $\eta$ from \Cref{bracesign} the corresponding degrees and arities to obtain the desired result. The composition of $\infty$-morphisms follows similarly.
 \end{proof}
-Notice the similarity between this definition and the definitions given in \cite[Section 10.2.4]{lodayvallette}, taking into account the minor modifications to accommodate the dg-case.
+Notice the similarity between this definition and the definitions given in \cite[Section 10.2.4]{lodayvallette}, taking into account the minor modifications to accommodate the dg case.
 
 In the case that $f:A\to A$ is an $\infty$-endomorphism, \Cref{operadicmorphism} can be written in terms of operadic composition as $f\tilde{\circ}m=\tilde{\gamma}(m\circ f)$. 
 
@@ -585,7 +585,7 @@ where $\overline{B}_j$ denotes the brace map on $\s\End_{S\s\OO}$.
 We define the Hochschild complex as done by Ward in \cite{ward}.
 
 \begin{defin}
-The \emph{Hochschild cochains} of a graded module $A$ is defined to be the graded module $S\s\End_A$. If  $(A,d)$ is a chain complex, then $S\s\End_A$ is endowed with a differential \[\partial(f)=[d,f]=d\circ f -(-1)^{|f|}f\circ d\] where $|f|$ is the natural degree of $f$ and $\circ$ is the plethysm operation given by insertions.
+The \emph{Hochschild cochains} of a graded module $A$ are defined to be the graded module $S\s\End_A$. If $(A,d)$ is a chain complex, then $S\s\End_A$ is endowed with a differential \[\partial(f)=[d,f]=d\circ f -(-1)^{|f|}f\circ d\] where $|f|$ is the natural degree of $f$ and $\circ$ is the plethysm operation given by insertions.
 \end{defin}
 In particular, $S\s\End_{S\s\OO}$ is the module of Hochschild cochains of $S\s\OO$. If $\OO$ has an $A_\infty$-multiplication, then the differential of the Hochschild complex is $\overline{M}_1$ from \Cref{barmaps}.
 \begin{remark}
@@ -636,7 +636,7 @@ S\s\OO\arrow[rrrr, bend right=10, "\Phi"']\arrow[ur,red]& & & & S\s\End_{S\s\OO}
 \end{tikzcd}
 \end{equation}
 
-where the diagonal red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commutes. But these arrows are defined so that they commute whith the red and blue arrows, so it is enough to show that the inner blue diagram commutes, since the outer squares commute by definition. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}_j$ that we are going to define next, so it will be enough to show that the two squares commute. The commutativity of the  left square will be more involved as we will have to distinguish between different kinds of insertions.
+where the diagonal red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commutes. But these arrows are defined so that they commute with the red and blue arrows, so it is enough to show that the inner blue diagram commutes, since the outer squares commute by definition. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}_j$ that we are going to define next, so it will be enough to show that the two squares commute. The commutativity of the  left square will be more involved as we will have to distinguish between different kinds of insertions.
 
  The map 
 \[\mathcal{M}_j:(\End_{\s\OO})^{\otimes j}\to\End_{\s\OO}\]
@@ -649,7 +649,7 @@ is defined by
 \[B_j(f;f_1,\dots, f_j)=\sum_{k_0+\cdots+k_j=n-j}f(1^{\otimes k_0}\otimes f_1\otimes 1^{\otimes k_1}\otimes\cdots\otimes f_j\otimes 1^{\otimes k_j}).\]
  The $1$'s in the braces are identity maps. In the above definition, $|f|$ denotes the degree of $f$ as an element of $\End_{\s\OO}$, which is the same as the degree $\overline{\sigma}(f)\in \s\End_{S\s\OO}$ because $\overline{\sigma}$ is an isomorphism, as mentioned in \Cref{barsigma}.  %the degree as a map sO^n\to sO, which is computed by evaluating and computing arity +degree-1
  
- The inner square  of diagram (\ref{proofdiagram}) is divided into two halves, so we divide the proof into two as well, showing the commutativity of each half independently.
+ The inner square of diagram (\ref{proofdiagram}) is divided into two halves, so we divide the proof into two as well, showing the commutativity of each half independently.
  
  \subsection*{\centering{Commutativity of the right blue square}}
  Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and $M=\overline{\sigma}(M')$. Then we have for $j>1$
@@ -664,11 +664,10 @@ is defined by
  \overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))&=\overline{\sigma}(B_j(M';f_1,\dots, f_j))\\
 &=\overline{\sigma}(\mathcal{M}_j(f_1,\dots, f_j))
   \end{align*}
- and therefore the right blue square commutes for $j>1$. For $j=1$ the result follows analogously taking into account that the degree of $f$ in $\End_{\s\OO}$ is the same as the degree of $\overline{\sigma}(f)$ in $\s\End_{S\s\OO}$.\\
+ and therefore the right blue square commutes for $j>1$. For $j=1$ the result follows analogously taking into account that the degree of $f$ in $\End_{\s\OO}$ is the same as the degree of $\overline{\sigma}(f)$ in $\s\End_{S\s\OO}$.
  
 
-
-The proof that the left blue square commutes consists of several lenghty calculations so we are going to devote the next section to that. However, it is worth noting that the commutativity of the left square does not depend on the particular operad $\s\OO$, so it is still valid if $m$ satisfies $m\circ m=0$ for any circle operation defined in terms of insertions. This is essentialy the original statement in \cite{GV}.
+The proof that the left blue square commutes consists of several lenghty calculations so we are going to devote the next section to that. However, it is worth noting that the commutativity of the left square does not depend on the particular operad $\s\OO$, so it is still valid if $m$ satisfies $m\circ m=0$ for any circle operation defined in terms of insertions. This is essentially the original statement in \cite{GV}.
 \subsection*{\centering{Commutativity of the left blue square}}
 We are going to show here that the left blue square in diagram (\ref{proofdiagram}) commutes, i.e. that 
 
@@ -677,7 +676,6 @@ We are going to show here that the left blue square in diagram (\ref{proofdiagra
 \end{equation}
 
 for all $j\geq 1$. First we prove the case $j>1$. Let $x_1,\dots, x_j\in \s\OO^{\otimes j}$. We have on the one hand
-
 
 
 \begin{align*}
@@ -698,13 +696,13 @@ that is, $B_j(M'_l;\Phi'(x_1),\dots, \Phi'(x_j))$. By definition, this equals
 \sum_{i_1,\dots, i_j}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-).
 \end{align*}
 
-We are using hyphens instead of $1$'s to make the equality of both sides of the equation (\ref{commutative}) more apparent, and to make clear that when evaluating on elements those are the places where the elements go. %In this case, evaluating yields the same signs as in the other side of the equation. 
+We are using hyphens instead of $1$'s to make the equality of both sides of the \Cref{commutative} more apparent, and to make clear that when evaluating on elements those are the places where the elements go. %In this case, evaluating yields the same signs as in the other side of the equation. 
 
 For each tuple $(i_1,\dots, i_j)$ we can choose $n$ such that \[n-(i_1+\cdots+i_j)+j=l,\] so the above sum equals
 
 \[\underset{\mathclap{n-(i_1+\cdots+i_j)+j=l}}{\sum_{n,i_1,\dots, i_j}}\sum b_l(m;-,b_{i_1}(x_1;-),\cdots,b_{i_j}(x_j;-),-).\]
 
-So each $M'_l$ component for $l\geq j$ produces precisely the terms $b_l(m;\dots)$ appearing in $\Phi'(M'_j)$. Conversely, for every $n\geq 0$ there exists some tuple $(i_1,\dots, i_j)$ and some $l\geq j$ such that $n$ is the that $n-(i_1+\cdots+i_j)+j=l$, so we do get all the summands from the left hand side of the equation (\ref{commutative}), and thus we have the equality $\Phi'(M'_j)=\mathcal{M}_j((\Phi')^{\otimes j})$ for all $j>1$.
+So each $M'_l$ component for $l\geq j$ produces precisely the terms $b_l(m;\dots)$ appearing in $\Phi'(M'_j)$. Conversely, for every $n\geq 0$ there exists some tuple $(i_1,\dots, i_j)$ and some $l\geq j$ such that $n$ is the that $n-(i_1+\cdots+i_j)+j=l$, so we do get all the summands from the left hand side of the \Cref{commutative}, and thus we have the equality $\Phi'(M'_j)=\mathcal{M}_j((\Phi')^{\otimes j})$ for all $j>1$.
 
 It is worth treating the case $n=0$ separately since in that case we have the summand \[b_0(b_j(m;x_1,\dots, x_j))\] 
 in $\Phi'(b_j(m;x_1,\dots, x_j))$, where we cannot apply the brace relation. This summand is equal to 
@@ -740,8 +738,7 @@ so we focus on the first summand
 
 where the sum with no indices runs over all the positions in which $b_i(x;-)$ can be inserted (from $1$ to $n-i+1$ in this case). 
 
-
-On the other hand, since $|\Phi'(x)|=|x|$, the right hand side of equation (\ref{case1}) becomes
+On the other hand, since $|\Phi'(x)|=|x|$, the right hand side of \Cref{case1} becomes
 
 \begin{equation}\label{mphi}
 \mathcal{M}_1(\Phi'(x))=B_1(M';\Phi'(x))-(-1)^{|x|}B_1(\Phi'(x);M').
@@ -752,7 +749,7 @@ Again, we are focusing now on the first summand, but with the exception of the p
 
 \subsubsection*{Insertions in $x$}
 
-And now, let us study the insertions in $x$ that appear in equation (\ref{case1}). For that we will check that insertions in $x$ from the left hand side and right hand side cancel. Let us look first at the left hand side. From $\Phi'(M'_1(x))$ in \Cref{phim} we had 
+And now, let us study the insertions in $x$ that appear in \Cref{case1}. For that we will check that insertions in $x$ from the left hand side and right hand side cancel. Let us look first at the left hand side. From $\Phi'(M'_1(x))$ in \Cref{phim} we had 
 
 \[-(-1)^{|x|}\Phi'(b_1(x;m))=-(-1)^{|x|}\sum_n b_n(b_1(x;m);-).\]
 
@@ -934,13 +931,10 @@ The unindexed sum runs over all possible choices of non-negative integers that s
 In the sums we are setting $i_0=0$ and $i_{j+1}=n+1$. %not sure if it is worth using double bars
 %\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{\mathclap{1\leq t\leq l\leq j}}}||y_v||(||x_l||-k_l)
 %\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{\mathclap{1\leq t< l\leq j}}}||y_v||(||x_l||-k_l)
-
-
 %\begin{align*}
 %\varepsilon = \sum_{\mathclap{1\leq i< l\leq j}}k_v|x_l|+\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{\mathclap{1\leq t\leq l\leq j}}}(|y_v|+1)(|x_l|-k_l+1)+\underset{\mathclap{0\leq v< k_t}}{\sum_{\mathclap{1\leq t\leq j}}} (|y_{v+i_t}|+1)(k_v-v+1)\\
 %\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{\mathclap{1\leq t< l\leq j}}}(|y_v|+1)(|x_l|-k_l+1)+\sum_{\mathclap{0\leq v<l\leq j}}(i_{v+1}-i_v-k_v)(|x_l|-k_l+1)\\+\sum_{\mathclap{1\leq v\leq l\leq j}} |x_v|(i_{l+1}-i_l-k_l)
 %\end{align*}
-
 %\[
 %\varepsilon = \sum_{1\leq i< l\leq j}k_v|x_l|+\underset{\mathclap{i_{t-1}+k_{t-1}\leq v< i_t}}{\sum_{1\leq t\leq l\leq j}}(|y_v|+1)(|x_l|-k_l+1)+\underset{\mathclap{i_t\leq v< i_t+k_t}}{\sum_{1\leq t\leq j}} (|y_v|+1)(k_v-v)
 %\]
@@ -950,8 +944,6 @@ In the sums we are setting $i_0=0$ and $i_{j+1}=n+1$. %not sure if it is worth u
 %\[
 %\varepsilon = \sum_{\mathclap{1\leq i< l\leq j}}k_v|x_l|+\underset{\mathclap{1\leq v< i_t}}{\sum_{1\leq t\leq l\leq j}}(|y_v|+1)(|x_l|-k_l+1)+\underset{\mathclap{0\leq v< k_t}}{\sum_{\mathclap{1\leq t\leq j}}} (|y_{v+i_t}|+1)(k_v-v+1)
 %\]
-
-
 \end{defin}
 
 
@@ -1029,8 +1021,6 @@ Let us now focus on the second term of \Cref{twoterms} and let us omit the sign 
 \overline{B}_1(Sb_{k}(x;&S^{-k});M)=\\ &\underset{\mathclap{1\leq i_1\leq n-k+1}}{\sum_{l+k-1=n}}(-1)^{l(k-1)+k-i_1} Sb_k(x;S^{-(i_1-1)}, S^{-1}M_l, S^{-(k - i_1)}).
 \end{align*}
 The sign is computed using \Cref{bracesign} and the Koszul sign rule for the shifts. Notice that here we need to use the internal degree of $M_l\in\s\End_A$, that is, $2-l$. Finally, evaluating at $Sy_1,\dots, Sy_n$ and combining the resulting signs with the factor $(-1)^{\binom{k}{2}+|x|}$ produces the result.
-
-
 %\[
 %\sum_{v=1}^{i_1-1}(k-v+l)||y_v||+\sum_{v=i_1}^{i_1+l-1}(k-i_1)||y_v||+\sum_{v=i_1}^{n-l}(k-v)||y_{v+l}||
 %\]
@@ -1048,8 +1038,6 @@ The sign is computed using \Cref{bracesign} and the Koszul sign rule for the shi
 %\[
 %\sum_{v=1}^{i_1-1}(k-v)|y_v|+\sum_{v=1}^{i_1-1}l|y_v|+\sum_{v=i_1}^{i_1+l-1}(k-i_1)|y_v|+\sum_{v=i_1}^{n-l}(k-v)|y_{v+l}|
 %\]
-
-
 \end{proof}
 
 

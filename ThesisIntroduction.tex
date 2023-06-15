@@ -224,7 +224,7 @@ We collect some results about enriched categories from \cite{riehl} and \cite[\S
 
 \begin{defin}
 Let $\VV$ a monoidal category. A $\VV$-\emph{category} $\CC$, also called $\VV$-\emph{
-enriched catgory} or \emph{category enriched over} $\VV$, consists of
+enriched category} or \emph{category enriched over} $\VV$, consists of
 \begin{itemize}
 \item a set $\mathrm{Ob}(\CC)$ of objects in $\CC$,
 \item for each pair $(A,B)$ of objects in $\CC$ an object $\CC(A,B)\in\VV$ called the \emph{hom-object} or \emph{object of morphisms} from $A$ to $B$,
@@ -360,7 +360,7 @@ In the above diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX
 %We assume that the reader is familiar with the basic definitions regarding $A_{∞}$-algebras and operads, but 
 
 
-In the early sixties, J. Stasheff introduced $A_\infty$-spaces and $A_\infty$-algebras \cite{STASHEFFI}, \cite{STASHEFF} as a tool in the study of ‘group-like’ spaces. We are going to motivate them by explaining their topological origin and later we will give precise definitions. We will also recall minimal models to further motivate the study of $A_\infty$-algebras and their limitations. A more detailed survey can be found in \cite{keller} and in \cite{lodayvallette}.
+In the early sixties, J. Stasheff introduced $A_\infty$-spaces and $A_\infty$-algebras \cite{STASHEFFI}, \cite{STASHEFF} as a tool in the study of ``group-like'' spaces. We are going to motivate them by explaining their topological origin and later we will give precise definitions. We will also recall minimal models to further motivate the study of $A_\infty$-algebras and their limitations. A more detailed survey can be found in \cite{keller} and in \cite{lodayvallette}.
 
 \subsection{Topological origin}\label{origin}
 
@@ -653,7 +653,7 @@ The above equation will sometimes be referred to as the $A_\infty$-\emph{equatio
 m_1 m_2 = m_2 (m_1 \otimes 1 + 1 \otimes m_1)
 \]
 as maps $A^{\otimes 2}\to A$. Here 1 denotes the identity map on $A$. So $m_1$ is
-a (graded) derivation with respect to the multiplication $m_2$.
+a graded derivation with respect to the multiplication $m_2$.
 \item We have
 \[
 m_2(1\otimes m_2 − m_2\otimes 1)= m_1m_3 + m_3 (m_1\otimes 1\otimes 1 + 1\otimes m_1\otimes 1 + 1\otimes 1\otimes m_1)
@@ -761,11 +761,9 @@ where $\varepsilon = \deg(g)\sum_{i=0}^k\deg(x_i)(k-i)$ is the Koszul sign obtai
 
  %, TENSOR PRODUCT OF S-MODULES
 
-
-
 It is known that the category of collections with plethysm is a monoidal category, where the unit is the collection $I(1)=R$ and $I(n)=0$ for $n\neq 1$. The following lemma is a well-known fact that describes operads in terms of this monoidal structure, see \cite[\S 5]{lodayvallette} for more details. 
 \begin{lem}\label{monoid}
-An operad $\OO$ is equivalent to a monoid in the monoidal category of collections with plethysm, where the multiplication  map is given precisely by the composition $\gamma:\OO\circ\OO\to\OO$. 
+An operad $\OO$ is equivalent to a monoid in the monoidal category of collections with plethysm, where the multiplication map is given precisely by the composition $\gamma:\OO\circ\OO\to\OO$. 
 \end{lem}
 
 
@@ -1146,8 +1144,7 @@ A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules
 \end{defin}
 Note that some other sources may reverse inclusions in the above definition and consider $F_{p}A ⊆ F_{p+1}A$ instead. We denote by $\mathrm{C}_R$ the category of cochain complexes of $R$-modules.
 \begin{defin}\label{filteredcomplex}
-A \emph{filtered complex} $(K, d, F)$ is a cochain complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. A \emph{morphism} of filtered complex is given by
-a morphism of complexes $f : K → L$ compatible with filtrations, namely \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
+A \emph{filtered complex} $(K, d, F)$ is a cochain complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. A \emph{morphism} of filtered complex is given by a morphism of complexes $f : K → L$ compatible with filtrations, namely \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
 \end{defin}
 
 We denote by $\fmod$ and $\fc$ the categories of filtered modules and filtered complexes of $R$-modules, respectively. 
@@ -1245,8 +1242,7 @@ Let $(A, d^A_m)$ and $(B, d^B_m)$ be twisted complexes. A \emph{morphism of twis
 \[\sum_{i+j=m}d^B_if_j =\sum_{i+j=m}(−1)^if_id^A_j.\]
 The composition of morphisms is given by $(g \circ f)_m :=\sum_{i+j=m} g_if_j$.
 
-A morphism $f = \{f_m\}_{m≥0}$ is
-said to be \emph{strict} if $f_i = 0$ for all $i > 0$. The \emph{identity} morphism $1_A : A → A$ is the strict morphism
+A morphism $f = \{f_m\}_{m≥0}$ is said to be \emph{strict} if $f_i = 0$ for all $i > 0$. The \emph{identity} morphism $1_A : A → A$ is the strict morphism
 given by $(1_A)_0(x) = x.$ A morphism $f = \{f_i\}$ is an \emph{isomorphism} if and only if $f_0$ is an isomorphism of
 bigraded $R$-modules. 
 \end{defin}
@@ -1310,8 +1306,6 @@ For a filtered complex of the form $(\Tot(A),d,F)$ where $A = \{A^j_i \}$ is a b
 $d_m : A → A$ be the morphism of bidegree $(m,1-m)$ defined by 
 \[d_m(x) = (−1)^{nm}d(x)_{i+m},\] 
 where $x ∈ A^{n-i}_i$ and $d(x)_k$ denotes the $k$-th component of $d(x)$. Note that $d(x)_k$ lies in $A^{n+1-k}_k$.
-
-
 
 We will consider the following bounded categories since the totalization functor has better monoidal properties when restricted to them. 
 
@@ -1445,8 +1439,6 @@ The \emph{$\vbc$-enriched category of twisted complexes} $\utC$ is the enriched 
 $1 ∈ R$ to $1_A : A → A$, the strict morphism of twisted complexes given by the identity of $A$.
 \end{enumerate}
 \end{defin}
-
-
 
 
 The next tensor corresponds to $\underline{\otimes}$ in the categorical setting of \Cref{underline}, see \cite[Lemma 4.27]{whitehouse}.
