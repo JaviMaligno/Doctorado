@@ -251,18 +251,18 @@ Throughout the thesis we will also assume that there is a bifunctor $\uC(−,−
 bijections
 \[\Hom_\CC(C ∗ X, Y ) \cong \Hom_\VV (C,\uC(X, Y )).\]
 Under this assumption we get a $\VV$-enriched category $\uC$ with the same objects as $\CC$ and with hom-objects given by $\uC (−,−)$. The unit
-morphism $u_A : 1 → \uC (A,A)$ corresponds to the identity map in $\CC$ under the adjunction, and the
+morphism $u_X : 1 → \uC (X,X)$ corresponds to the identity map in $\CC$ under the adjunction, and the
 composition morphism is given by the adjoint of the composite
 
 %\[(\uC (B,C) ⊗ \uC (A,B)) ∗ A\cong \uC (B,C) ∗ (\uC (A,B) ∗ A)\xrightarrow{id∗ev_{AB}}\uC (B,C) ∗ B\xrightarrow{ev_{BC}} C,\]
 \[
 \begin{tikzcd}
-(\uC (B,C) ⊗ \uC (A,B)) ∗ A \arrow[r, phantom, "\isom"]& \uC (B,C) ∗ (\uC (A,B) ∗ A) \arrow[d, "id∗ev_{AB}"]&\\
- & \uC (B,C) ∗ B \arrow[r, "ev_{BC}"] & C
+(\uC (Z,Y) ⊗ \uC (X,Z)) ∗ X \arrow[r, phantom, "\isom"]& \uC (Z,Y) ∗ (\uC (X,Z) ∗ X) \arrow[d, "id∗ev_{XZ}"]&\\
+ & \uC (Z,Y) ∗ Z \arrow[r, "ev_{ZY}"] & Y
 \end{tikzcd}
 \]%[ar symbol/.style = {draw=none,"#1" description,sloped}, isomorphic/.style = {ar symbol={\cong}}]%isomorphic, shorten <= -.5em
 
-where $ev_{AB}$ is the adjoint of the identity $\uC (A,B) → \uC (A,B)$. Furthermore, $\uC$ is a monoidal $\VV$-enriched category, namely we have an
+where $ev_{XZ}$ is the adjoint of the identity $\uC (X,Z) → \uC (X,Z)$. Furthermore, $\uC$ is a monoidal $\VV$-enriched category, namely we have an
 enriched functor
 \[\underline{⊗} : \uC × \uC → \uC\]
 where $\uC × \uC$ is the enriched category with objects $\mathrm{Ob}(\CC ) × \mathrm{Ob}(\CC )$ and hom-objects
@@ -278,7 +278,7 @@ given by the adjoint of the composite
 \end{tikzcd}
 \]
 \end{remark}
-
+\pagebreak
 \begin{defin}
 Let $\CC$ and $\DD$ be monoidal categories over $\VV$. A \emph{lax functor over $\VV$} consists of a functor $F : \CC → \DD$ together with a natural transformation \[ν_F : − ∗_\DD F(−) ⇒ F(− ∗_\CC −)\]
 which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. See \cite[Proposition 10.1.5]{riehl} for explicit diagrams stating the coherence axioms. If $ν_F$ is a natural isomorphism
@@ -292,6 +292,8 @@ $\epsilon : 1_\DD → F(1_\CC)$ is a morphism in $\DD$ and
 is a natural transformation over $\VV$ satisfying the standard unit and associativity conditions. If $ν_F$
 and $μ$ are natural isomorphisms then we say that $F$ is \emph{monoidal over $\VV$}. 
 \end{defin}
+
+
 The following is \cite[Proposition 4.11]{whitehouse}.
 \pagebreak
 \begin{propo}\label{enrichedtrans}
@@ -343,7 +345,7 @@ We show that the above map is the inverse of the map (\ref{enrichedmap}). Consid
 \end{tikzcd}
 }
 \end{equation}
-
+% I believe this result is not true in full generality because the right unitor can be anything. In R-modules enriched over themselves, normally one would chose v -> vx1, but if you choose a unit u and instead do v -> uvx1=vxu, this is still an iso (forces the left unitor to be also like this for the triangle equality) and u is carried all the time
 
 In the above diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. In particular, diagram (5) is a decomposition of the identity map on $\uD(GX,Y)$. By commutativity, this means that the overall diagram composes to the identity, showing that the maps (\ref{enrichedmap}) and (\ref{enrichedmapinverse}) are mutually inverse.
 \end{proof}
@@ -365,29 +367,31 @@ In the early sixties, J. Stasheff introduced $A_\infty$-spaces and $A_\infty$-al
 \subsection{Topological origin}\label{origin}
 
 Let us consider the basic example. Let $(X, *)$ be a topological space with a base point $*$ and let $\Omega X$ denote the space of based loops in $X$: a point of 
-$\Omega X$ is thus a continuous map $f : S^ 1 \to X$ taking the base point of the circle to the base point $*$. We have the composition map
+$\Omega X$ is thus a continuous map $f : S^ 1 \to X$ taking the base point of the circle to the base point $*$. 
 
+We have the composition map
 \[
 m_2 : X ×X \to X
 \]
 sending a pair of loops $(f_1, f_2)$ to the loop $f_1 * f_2 = m_2(f_1, f_2)$ obtained by running through $f_1$ on the first half of the circle at twice the speed and through $f_2$ on the second half.
 
 \[
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale = 0.9]
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale = 0.7]
 \clip(-5,-3.) rectangle (5.,2.3);
 \draw(0.,0.) circle (1.5cm);
 \draw [-] (-1.6,0.) -- (-1.4,0);
 \draw [-] (1.6,0.) -- (1.4,0);
-\draw [->] (1.5,0.1) -- (1.45763388700826,0.36855617768030476);
-\draw [->] (-1.5,0.) -- (-1.4622984077406362,-0.33419061434935543);
-\draw (-0.3,2.118952883889729) node[anchor=north west] {$f_1$};
+\draw [->] (1.45,0.3) -- (1.4,0.55617768030476);
+\draw [->] (-1.5,-0.2) -- (-1.45,-0.419061434935543);
+\draw (-0.3,2.2883889729) node[anchor=north west] {$f_1$};
 \draw (-0.3,-1.5566913118092813) node[anchor=north west] {$f_2$};
-\draw (-3.49428016933844,0.311720973491667) node[anchor=north west] {$f_1*f_2$};
+\draw (-3.6,0.311720973491667) node[anchor=north west] {$f_1*f_2$};
 \end{tikzpicture}
 \]
 
 
 This composition is not associative: for three loops $f_1$, $f_2$, $f_3$, the composition $(f_1*f_2)*f_3$ runs through $f_1$ on the first quarter of the circle whereas the composition $f_1 * (f_2 * f_3)$ runs through $f_1$ on the first half of the circle. We symbolize the two possibilities by two binary trees with three leaves.
+
 \[
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 \clip(-4.175394430564892,-2.5911383046897085) rectangle (7.490400123879831,3.3976612960713135);
@@ -1376,7 +1380,7 @@ We define here some useful enriched categories and results from \cite[\S 4.3 and
 \begin{defin}\label{weirdenrichment}
 Let $A,B,C$ be bigraded modules. We denote by $\underline{\mathpzc{bgMod}_R}(A,B)$ the bigraded module given by
 \[\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u+j}\]
-where $[A,B]$ is the inner hom-object of bigraded modules. More precisely, $g ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ is given
+where $[A,B]$ is the internal hom-object of bigraded modules. More precisely, $g ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ is given
 by $g := (g_0, g_1, g_2, \dots )$, where $g_j : A → B$ is a map of bigraded modules of bidegree $(u + j, v − j)$.
 
 Moreover, we define a composition morphism
@@ -1585,7 +1589,7 @@ f & \mapsto \Tot^{-1}(f\circ \mu^{-1}).
 \end{lem}
 
 \begin{proof}
-The inverse is given by the composite
+The inverse is given by the following composite.
 
 \[
 \begin{tikzcd}[column sep = 1em]

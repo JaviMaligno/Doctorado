@@ -10,6 +10,7 @@
 %\begin{appendices}
 \appendix
 \setcounter{equation}{0}
+\renewcommand\theequation{\thesection\arabic{equation}}
 %\appendixpage
 \gdef\thesection{\Alph{section}}
 \section{Some proofs and details}\label{AppA}
@@ -28,8 +29,11 @@ Let us compute
 
 By definition, this equals
 
+\[\frac{(n+m-1)(n+m-2)}{2}+\frac{n(n-1)}{2}+\frac{m(m-1)}{2}+(n-1)(m-1)\]
+
+Let us expand the above expression into the following.
+
 \begin{align*}
-\frac{(n+m-1)(n+m-2)}{2}+\frac{n(n-1)}{2}+\frac{m(m-1)}{2}+(n-1)(m-1)&=\\
 \frac{n^2+2nm-2n+m^2-2m-n-m+2}{2}&+\\
 \frac{n^2-n+m^2-m+2(nm-n-m+1)}{2}&=\\
 n^2+2nm-3n+m^2-3m+2&=\\
@@ -220,7 +224,7 @@ where
 \begin{proof}
 Let us compute $\eta$ using the definition of $b_n$.
 \begin{align*}
-&\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])=\\ &=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ\\ 
+&\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)])\\ &=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ\\ 
 &(\sigma(f)(1^{\otimes k_0}\otimes \sigma(g_1)\otimes 1^{\otimes k_1}\otimes\cdots\otimes \sigma(g_n)\otimes 1^{\otimes k_n}))\circ S^{\otimes N-n+\sum a_j}\\
 &=(-1)^{\binom{N-n+\sum a_j}{2}}S^{-1}\circ S\circ f\circ (S^{-1})^{\otimes N}\circ \\ &\left(1^{\otimes k_0}\bigotimes ((S\circ g_i\circ (S^{-1})^{\otimes a_i})\otimes 1^{\otimes k_i})\right)\circ  S^{\otimes N-n+\sum a_j}\\
 &=(-1)^{\binom{N-n+\sum a_j}{2}}f\circ ((S^{-1})^{k_0}\otimes  S^{-1}\otimes\cdots \otimes  S^{-1}\otimes  (S^{-1})^{k_n})\circ\\ 
@@ -282,7 +286,7 @@ We are now going to simplify the sign to obtain the desired result. Notice that 
 in the following way. Note that all the $b_i$'s will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator. More precisely, we have the following equality mod 2.
 
 \[\binom{\sum b_i}{2}+\sum\binom{b_i}{2}=\sum_{i<j}b_ib_j\mod 2.\]
-The result of applying this to $\binom{N-n+\sum a_j}{2}$ and adding $\delta$ from \cref{delta} in our sign $\eta$ is
+The result of applying this to $\binom{N-n+\sum a_j}{2}$ and adding $\delta$ from \Cref{delta} in our sign $\eta$ is
 
 \begin{equation}\label{simply}
 \sum_{0\leq i<l\leq n}k_ik_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{i,j}k_ia_j.
