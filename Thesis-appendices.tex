@@ -209,7 +209,7 @@ For $g_j\in \End_A(a_j)^{q_j}$, let us write $f[g_1,\dots, g_n]$ for the map
 We define $b_n(f;g_1,\dots, g_n)\in \End_A(N-n+\sum a_j)^{i+\sum q_j}$ as
 \[b_n(f;g_1,\dots, g_n)=\sigma^{-1}(\sigma(f)[\sigma(g_1),\dots, \sigma(g_n)]).\]
 With this the definition we can prove the following.
-\begin{lem}
+\begin{lem}\label{rwversion}
  We have
 \[b_n(f;g_1,\dots,g_n)=\sum_{N-n=k_0+\cdots+k_n} (-1)^\eta
 f(1^{\otimes k_0}\otimes g_1\otimes \cdots\otimes g_n\otimes1^{\otimes k_n}),\]
@@ -389,6 +389,7 @@ Let us check now the cancellations with the signs. First, let us check that the 
 \[(-1)^{i+\langle b_1(m_{jl};x),m_{ik}\rangle+\langle x,m_{jl}\rangle}b_1(x;b_1(m_{jl};m_{ik})))\]
 can be added up to vanish. For that, we compute the sign \[\langle b_1(m_{jl};x),m_{ik}\rangle+\langle x,m_{jl}\rangle=\langle m_{jl},m_{ik}\rangle+\langle x,m_{ik}\rangle+\langle x,m_{jl}\rangle.\]
 Recall that the braces are defined on the operadic suspension, so that the bidegree of $m_{ik}$ is $(i,1-i)$. Therefore, writing the bidegree of $x$ as $(k,n-k)$, so that the total degree is $|x|=n$, the above equals 
+
 \begin{align*}
 &ji+(1-i)(1-j)+ki+(n-k)(1-i)+kj+(n-k)(1-j)\\
 &= 1+i+j + (i+j)k+(i+j)(n-k)\mod 2\\
