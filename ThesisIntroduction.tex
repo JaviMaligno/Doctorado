@@ -39,7 +39,7 @@
 \sloppy
 \chapter{Background and conventions}\label{Sec1}
 
-In this first chapter we establish the necessary background and conventions for the rest of the thesis. We start \Cref{back1} with some category theory background and results, including notions of enriched categories that will play an essential role connecting derived $A_\infty$-algebras with classical $A_\infty$-algebras. We recall the motivation  for the study of $A_\infty$-algebras as well as some definitions and well-known results in \Cref{back2}. In \Cref{back3} we recall the main definitions regarding operads, since that is the framework in which we will work with derived $A_\infty$-algebras. At last, in \Cref{categories} we list several categories that we will use in our study and introduce the totalization functor, which is essential to encode derived $A_\infty$-algebras.
+In this initial chapter we establish the necessary background and conventions for the rest of the thesis. We start \Cref{back1} with some category theory background and results, including notions of enriched categories that will play an essential role connecting derived $A_\infty$-algebras with classical $A_\infty$-algebras. We recall the motivation  for the study of $A_\infty$-algebras as well as some definitions and well-known results in \Cref{back2}. In \Cref{back3} we recall the main definitions regarding operads, since that is the framework in which we will work with derived $A_\infty$-algebras. At last, in \Cref{categories} we list several categories that we will use in our study and introduce the totalization functor, which is essential to encode derived $A_\infty$-algebras.
 
 %MAYBE THIS IS THE PLACE FOR FIXING R COMMUTATIVE WITH UNIT AND CHAR NOT 2 (POSSIBLY 0 OR NOT A FACTORIAL (representation theory things that I doubt I would need to clarify))
 %\begin{itemize}
@@ -174,7 +174,7 @@ for all $A,B\in\CC$ satisfying natural unitality, associativity and symmetry axi
 \begin{defin}
 Suppose $(F,\mu,\varepsilon)$ and $(F, \nu, \epsilon)$ are monoidal functors between the symmetric monoidal categories $\CC$ and $\DD$. Then a \emph{natural transformation} $\alpha:F\to G$ is \emph{monoidal} if the following diagrams commute.
 \[
-\begin{tikzcd}[column sep = 43pt]
+\begin{tikzcd}[column sep = 42pt]
 F(A)\otimes_\DD F(B)\arrow[r, "\alpha_A\otimes_\DD\alpha_B"]\arrow[d,"\mu_{A,B}"] & G(A)\otimes_\DD G(B)\arrow[d, "\nu_{A,B}"] & 1_\DD\arrow[d, "\varepsilon"]\arrow[dr, "\epsilon"]& \\
 F(A\otimes_\CC B)\arrow[r, "\alpha_{A\otimes_\CC B}"] & G(A\otimes_\CC B) & F(1)\arrow[r, "\alpha_1"] &  G(1)
 \end{tikzcd}

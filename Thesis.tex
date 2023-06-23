@@ -25,6 +25,7 @@ right = 40mm
 
 \renewcommand{\baselinestretch}{1,3}
 
+\newdateformat{monthyear}{\monthname[\THEMONTH] \THEYEAR}
 
 %Below to introduce ¡ in mathmode https://tex.stackexchange.com/questions/471464/inverted-exclamation-mark-in-mathmode
 \DeclareMathSymbol{\mathinvertedexclamationmark}{\mathclose}{operators}{'074}
@@ -54,7 +55,7 @@ right = 40mm
 
 
 
-\date{\emph{A thesis submitted to fulfil the requirements for the degree of Doctor of Philosophy in Mathematics}\\ [2\baselineskip] School of Mathematics, Statistics and Actuarial Sciences\\ University of Kent\\ [\baselineskip] \today}
+\date{\emph{A thesis submitted to fulfil the requirements for the degree of Doctor of Philosophy in Mathematics}\\ [2\baselineskip] School of Mathematics, Statistics and Actuarial Sciences\\ University of Kent\\ [\baselineskip] \monthyear\today}
 
 
 \maketitle
@@ -137,7 +138,7 @@ Here we used an operadic approach to obtain these signs in a more conceptual and
 
 Later in 2009, derived $A_\infty$-algebras were introduced by Savage \cite{sagave} as a bigraded generalization of $A_\infty$-algebras in order to bypass the projectivity requirements that are often imposed when working with classical $A_\infty$-algebras. We generalize the operadic description of classical $A_\infty$-algebras to the derived case by means of an operadic totalization inspired by the totalization functor described in \cite{whitehouse}. This way we obtain an operation similar to the star operation in \cite{LRW} and generalize the construction that has been done for $A_\infty$-algebras to more general derived $A_\infty$-algebras. This allows us to generalized the Deligne conjecture even further to obtain a \emph{derived} Deligne conjecture.
 
-The text is organized as follows. In \Cref{Sec1} we recall some basic definitions and establish some conventions for both the classical and the derived cases. In \Cref{Sec2} we define a device called \emph{operadic suspension} that will help us obtain the signs that we want and link this device to the classical operadic approach to $A_\infty$-algebras. We also take this construction to the level of the underlying collections of the operads to also obtain a nice description of $\infty$-morphisms of $A_\infty$-algebras. We then explore the functorial properties of operadic suspension, being monoidality (\Cref{monoidality}) the most remarkable of them. In \Cref{sectionbraces} we study the brace algebra induced by operadic suspension and obtain a relevant result, \Cref{bracesign}, which establishes a relation between the canonical brace structure on an operad and the one induced by its operadic suspension. We show that as a particular case of this result we obtain the Lie bracket from \cite{RW}.
+The text is organized as follows. In \Cref{Sec1} we recall some basic definitions and results, and establish some conventions for both the classical and the derived cases. In \Cref{Sec2} we define a device called \emph{operadic suspension} that will help us obtain the signs that we want and link this device to the classical operadic approach to $A_\infty$-algebras. We also take this construction to the level of the underlying collections of the operads to also obtain a nice description of $\infty$-morphisms of $A_\infty$-algebras. We then explore the functorial properties of operadic suspension, being monoidality (\Cref{monoidality}) the most remarkable of them. In \Cref{sectionbraces} we study the brace algebra induced by operadic suspension and obtain a relevant result, \Cref{bracesign}, which establishes a relation between the canonical brace structure on an operad and the one induced by its operadic suspension. We show that as a particular case of this result we obtain the Lie bracket from \cite{RW}.
 
 Following the terminology of \cite{GV}, if $\OO$ is an operad with an $A_\infty$-multiplication $m\in\OO$, it is natural to ask whether there are linear maps $M_j:\OO^{\otimes j}\to \OO$ satisfying the $A_\infty$-algebra axioms. In \Cref{sect2} we use the aforementioned brace structure to define such linear maps on a shifted version of the operadic suspension. We then iterate this process in Section \ref{sect3} to define an $A_\infty$-structure on the Hochschild complex of an operad with $A_\infty$-multiplication. This iteration process was inspired by the work of Getzler in \cite{getzler}.
 
