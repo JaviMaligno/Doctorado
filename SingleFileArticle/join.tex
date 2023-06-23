@@ -255,9 +255,7 @@ The above equation will sometimes be referred to as the $A_\infty$-\emph{equatio
 \begin{defin}\label{inftymorphism}
 An \emph{$\infty$-morphism} of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $1-n$ such that for all $n\geq 1$
 \[\sum_{r+s+t=n} (-1)^{rs+t}f_{r+1+t}(1^{\otimes r} \otimes m^A_s\otimes 1^{\otimes t})=\sum_{i_1+\cdots+i_k=n} (-1)^s m^B_k(f_{i_1}\otimes\cdots\otimes f_{i_k}),\]
-where
-
-\[s=\sum_{\alpha<\beta}i_\alpha(1-i_\beta).\]
+where $s=\sum_{\alpha<\beta}i_\alpha(1-i_\beta)$.
 The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by 
 
 \[(gf)_n=\sum_r\sum_{i_1+\cdots+i_r=n}(-1)^s g_r(f_{i_1}\otimes\cdots
@@ -342,13 +340,12 @@ First, we collect some definitions about filtered modules and filtered complexes
 
 \begin{defin}
 A \emph{filtered $R$-module} $(A, F)$ is given by a family of $R$-modules $\{F_pA\}_{p∈\Z}$ indexed by
-the integers such that $F_{p}A ⊆ F_{p-1}A$ for all $p ∈ \Z$ and $A = \bigcup_p F_pA$. A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules which is compatible with filtrations: 
-\[f(F_pA) ⊂ F_pB \text{ for all }p ∈ \Z.\]
+the integers such that $F_{p}A ⊆ F_{p-1}A$ for all $p ∈ \Z$ and $A = \bigcup_p F_pA$. A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules which is compatible with filtrations: $f(F_pA) ⊂ F_pB$ for all $p ∈ \Z$.
 \end{defin}
 We denote by $\mathrm{C}_R$ the category of cochain complexes of $R$-modules.
 \begin{defin}\label{filteredcomplex}
 A \emph{filtered complex} $(K, d, F)$ is a complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. Its morphisms are given by
-morphisms of complexes $f : K → L$ compatible with filtrations: \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
+morphisms of complexes $f : K → L$ compatible with filtrations.
 \end{defin}
 
 We denote by $\fmod$ and $\fc$ the categories of filtered modules and filtered complexes of $R$-modules, respectively.
@@ -392,10 +389,10 @@ tensor product.
 We introduce the following scalar product notation for bidegrees: for $x$, $y$ of bidegree $(x_1, x_2)$, $(y_1, y_2)$
 respectively, we let $\langle x, y\rangle = x_1y_1 + x_2y_2$.
 
-The symmetry isomorphism
-\[τ_{A⊗B} : A ⊗ B → B ⊗ A\]
-is given by
-\[x ⊗ y \mapsto (−1)^{\langle x,y\rangle}y ⊗ x.\]
+The symmetry isomorphism is given by
+\[τ_{A⊗B} : A ⊗ B → B ⊗ A,\ x ⊗ y \mapsto (−1)^{\langle x,y\rangle}y ⊗ x.\]
+%is given by
+%\[x ⊗ y \mapsto (−1)^{\langle x,y\rangle}y ⊗ x.\]
 We follow the Koszul sign rule: if $f : A → B$ and $g : C → D$ are bigraded morphisms, then the
 morphism $f ⊗ g : A ⊗ C → B ⊗ D$ is defined by
 \[(f ⊗ g)(x ⊗ z) \coloneqq (−1)^{\langle g,x\rangle}f(x) ⊗ g(z).\]
@@ -458,10 +455,9 @@ On objects it is given by $((A, d^A_m), (B, d^B_m)) → (A ⊗ B, d^A_m ⊗ 1 + 
 given by $(f, g) → f ⊗ g$, where $(f ⊗ g)_m :=\sum_{i+j=m} f_i ⊗ g_j$. In particular, by the Koszul sign rule we
 have that \[(f_i ⊗g_j)(x⊗z) = (−1)^{\langle g_j ,x\rangle}f_i(x)⊗g_j(z).\] The symmetry isomorphism is given by the strict
 morphism of twisted complexes
-\begin{align*}
-τ_{A⊗B} \colon &A ⊗ B → B ⊗ A\\
-&x ⊗ y\mapsto (−1)^{\langle x,y\rangle}y ⊗ x.
-\end{align*}
+\[
+τ_{A⊗B} \colon A ⊗ B → B ⊗ A,\ x ⊗ y\mapsto (−1)^{\langle x,y\rangle}y ⊗ x.
+\]
 \end{lem}
 
 The internal hom on bigraded modules can be extended to twisted complexes via the following lemma whose proof is in \cite[Lemma 3.4]{whitehouse}.
@@ -606,7 +602,7 @@ given by the adjoint of the composite
 
 \begin{defin}
 Let $\CC$ and $\DD$ be monoidal categories over $\VV$. A \emph{lax functor over $\VV$} consists of a functor $F : \CC → \DD$ together with a natural transformation \[ν_F : − ∗_\DD F(−) ⇒ F(− ∗_\CC −)\]
-which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. (See \cite[Proposition 10.1.5]{riehl} for explicit diagrams stating the coherence axioms.) If $ν_F$ is a natural isomorphism
+which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. See \cite[Proposition 10.1.5]{riehl} for explicit diagrams stating the coherence axioms. If $ν_F$ is a natural isomorphism
 we say $F$ is a \emph{functor over $\VV$}.
 Let $F,G : \CC → \DD$ be lax functors over $\VV$. A \emph{natural transformation over $\VV$} is a natural transformation
 $μ : F ⇒ G$ such that for any $C ∈ \VV$ and for any $X ∈ \CC$ we have
@@ -679,7 +675,6 @@ Let $A,B,C$ be bigraded modules. We denote by $\underline{\mathpzc{bgMod}_R}(A,B
 \[\underline{\mathpzc{bgMod}_R}(A,B)^v_u :=\prod_{j≥0}[A,B]^{v−j}_{u+j}\]
 where $[A,B]$ is the internal hom. More precisely, $g ∈ \underline{\mathpzc{bgMod}_R}(A,B)^v_u$ is given
 by the sequence $g := (g_0, g_1, g_2, \dots )$, where $g_j : A → B$ is a map of bigraded modules of bidegree $(u + j, v − j)$.
-
 Moreover, we define a composition morphism
 \[c : \underline{\mathpzc{bgMod}_R}(B,C) ⊗ \underline{\mathpzc{bgMod}_R}(A,B) → \underline{\mathpzc{bgMod}_R}(A,C)\]
 by
@@ -885,10 +880,16 @@ f & \mapsto \Tot^{-1}(f\circ \mu^{-1}).
 \end{lem}
 \begin{proof}
 The inverse is given by the composite
-\begin{align*}
-\uEnd_{\Tot(A)}(n)=\ufC(\Tot(A)^{\otimes n},\Tot(A))&\to \ufC(\Tot(A^{\otimes n}),\Tot(A))\\
-&\to\utC(A^{\otimes n},A)=\uEnd_A(n) 
-\end{align*}
+%\begin{align*}
+%\uEnd_{\Tot(A)}(n)=\ufC(\Tot(A)^{\otimes n},\Tot(A))&\to \ufC(\Tot(A^{\otimes n}),\Tot(A))\\
+%&\to\utC(A^{\otimes n},A)=\uEnd_A(n) 
+%\end{align*}
+\[
+\begin{tikzcd}[column sep = 1em, row sep = 1em]
+&\uEnd_{\Tot(A)}(n)=\ufC(\Tot(A)^{\otimes n},\Tot(A))\arrow[d]&\\
+& \ufC(\Tot(A^{\otimes n}),\Tot(A))\arrow[r]&\utC(A^{\otimes n},A)=\uEnd_A(n)
+\end{tikzcd}
+ \]
 
 The second map is given by $\mathfrak{Tot}^{-1}$ defined in \Cref{enrichedtot}. To describe the first map, let $R$ be concentrated in bidegree $(0,0)$ with trivial vertical differential. Then the first map is given by the following composite
 \begin{align*}
@@ -1036,11 +1037,9 @@ Let us expose the relation between operadic suspension and the usual suspension 
 \begin{thm}\label{markl}(\cite[Chapter 3, Lemma 3.16]{operads})
 Given a graded $R$-module $A$, there is an isomorphism of operads $\sigma^{-1}:\End_{S A}\cong \mathfrak{s}^{-1}\End_A$, where $\End_A$ is the endomorphism operad of $A$.
 \end{thm}
-The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit (see  \Cref{proofthm} for a detailed proof), but in the case of the operadic suspension defined above, the isomorphism is given by \[\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,\] where $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. The symbol $\circ$ here is just composition of maps.
-Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from \cite{RW}, where a twisted version of this map is the inverse of a map $\sigma$. Here, we define $\sigma:\End_A(n)\to\End_{SA}(n)$ as the map of graded modules given by
-\begin{equation}\label{sigma}
-\sigma(f)= S\circ f \circ (S^{-1})^{\otimes n}.
-\end{equation}
+The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit (see  \Cref{proofthm} for a detailed proof), but in the case of the operadic suspension defined above, the isomorphism is given by %\[\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,\] where 
+$\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. The symbol $\circ$ here is just composition of maps.
+Note that we are using the identification of elements of $\End_A$ with those in $\mathfrak{s}^{-1}\End_A$. The notation $\sigma^{-1}$ comes from \cite{RW}, where a twisted version of this map is the inverse of a map $\sigma$. Here, we define $\sigma:\End_A(n)\to\End_{SA}(n)$ as the map of graded modules given by $\sigma(f)= S\circ f \circ (S^{-1})^{\otimes n}$.
 
 In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(x)\circ_i\sigma(y))$. This can be interpreted as sending $x$ and $x$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (which is a map of graded modules, not of operads), and then applying the isomorphism induced by $\sigma^{-1}$. In the end this is the same as simply sending $x$ and $y$ to their images in $\mathfrak{s}^{-1}\End_A$.%, which is what has been done here.
 
@@ -1048,7 +1047,7 @@ Even though $\sigma$ is only a map of graded modules, it can be shown in a compl
 \begin{equation}\label{barsigma}
 \overline{\sigma}:\End_{A}\cong\mathfrak{s}\End_{SA}.
 \end{equation}
-This isomorphism can also  be proved in a more direct way using the isomorphism \[\s\s^{-1}\OO\cong\OO\] from \Cref{suspiso}, namely, since $\End_{SA}\cong \s^{-1}\End_A$, we have \[\s\End_{SA}\cong \s\s^{-1}\End_A\cong \End_A.\]
+This isomorphism can also be proved using the isomorphism $\s\s^{-1}\OO\cong\OO$ from \Cref{suspiso}, namely, since $\End_{SA}\cong \s^{-1}\End_A$, we have \[\s\End_{SA}\cong \s\s^{-1}\End_A\cong \End_A.\]
 In this case, the isomorphism map that we obtain goes in the opposite direction to $\overline{\sigma}$, and it is precisely its inverse.
 
 
@@ -1088,7 +1087,7 @@ The assignment $\OO\mapsto \s\OO$ and $f\mapsto \s f$ is a functor on both the c
 \end{lem}
 
 \begin{proof}
-The assignment preserves composition of maps. Indeed, given $g:\mathcal{P}\to\CC$, by definition $\s(g\circ f)(x\otimes e^n)=g(f(x))\otimes e^n$, and also $(\s g\circ \s f)(x\otimes e^n)=\s g (f(x)\otimes e^n)=g(f(x))\otimes e^n$. This means that $\s$ defines an endofunctor on the category $\mathrm{Col}$ of collections.
+The assignment preserves composition of maps. Indeed, given $g:\mathcal{P}\to\CC$, by definition $\s(g\circ f)(x\otimes e^n)=g(f(x))\otimes e^n$, and also \[(\s g\circ \s f)(x\otimes e^n)=\s g (f(x)\otimes e^n)=g(f(x))\otimes e^n.\] This means that $\s$ defines an endofunctor on the category $\mathrm{Col}$ of collections.
 
 
 We know that when $\mathcal{O}$ is an operad, $\mathfrak{s}\OO$ is again an operad. What is more, if $f$ is a map of operads, then the map $\s f$ is again a map of operads, since for $a\in\OO(n)$ and $b\in\OO(m)$ we have
@@ -1257,7 +1256,7 @@ is determined by the exponent
 \[(N-1)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.\]
 
 This equals
-\[(\sum_{j=0}^nk_j +n-1)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.\]
+\[\left(\sum_{j=0}^nk_j +n-1\right)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.\]
 
 After doing the operadic composition 
 \[\OO(N)\otimes(\bigotimes_{i=1}^n \OO(a_i))\otimes \Lambda(N)\otimes(\bigotimes_{i=1}^n \Lambda(a_i))\longrightarrow \OO(N-n+\sum_{i=1}^na_i)\otimes \Lambda(N-n+\sum_{i=1}^na_i)\]
@@ -1315,7 +1314,7 @@ From the definitions of the operations in the equation
 \rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),
 \end{equation} 
 
-we know that this equation coincides with the one defining $\infty$-morphisms of $A_\infty$-algebras (\Cref{inftymorphism}) up to sign. The signs that appear in the above equation are obtained in a similar way to that on $\tilde{\gamma}$ (see the proof of \Cref{bracesign}). Thus, it is enough to plug into the sign $\eta$ from \Cref{bracesign} the corresponding degrees and arities to obtain the desired result. The composition of $\infty$-morphisms follows similarly.
+we know that this equation coincides with the one defining $\infty$-morphisms of $A_\infty$-algebras (\Cref{inftymorphism}) up to sign. The signs that appear in the above equation are obtained in a similar way to that on $\tilde{\gamma}$, see the proof of \Cref{bracesign}. Thus, it is enough to plug into the sign $\eta$ from \Cref{bracesign} the corresponding degrees and arities to obtain the desired result. The composition of $\infty$-morphisms follows similarly.
 \end{proof}
 Notice the similarity between this definition and the definitions given in \cite[\S 10.2.4]{lodayvallette} taking into account the minor modifications to accommodate the dg-case.
 
@@ -1326,7 +1325,7 @@ In the case that $f:A\to A$ is an $\infty$-endomorphism, \Cref{operadicmorphism}
 \section{$A_\infty$-algebra structures on operads}\label{sect2}
 
 
-Let $\OO$ be an operad of graded $R$-modules and $\s\OO$ its operadic suspension. Let us consider the underlying graded module of the operad $\s\OO$, which we  call $\s\OO$ again by abuse of notation, i.e. \[\s\OO=\prod_n \s\OO(n)\] with grading given by its natural degree, i.e. $|x|=n+\deg(x)-1$ for $x\in \s\OO(n)$, where $\deg(x)$ is its internal degree. 
+Let $\OO$ be an operad of graded $R$-modules and $\s\OO$ its operadic suspension. Let us consider the underlying graded module of the operad $\s\OO$, which we call $\s\OO$ again by abuse of notation, i.e. $\s\OO=\prod_n \s\OO(n)$ with grading given by its natural degree, i.e. $|x|=n+\deg(x)-1$ for $x\in \s\OO(n)$, where $\deg(x)$ is its internal degree. 
 
 %For any operad $\OO$, recall the operation $\circ$ defined as
 %
@@ -1458,15 +1457,13 @@ The reader might find odd to define the Hochschild complex in this way instead o
  A natural question to ask is what relation there is between the $A_\infty$-algebra structure on $S\s\OO$ and the one on $S\s\End_{S\s\OO}$. In \cite{GV} it is claimed that given an operad $\OO$ with an $A_\infty$-multiplication, the map
 
 %I'M WRITING THIS BRACE WITH BAR BECAUSE WITHOUT BAR BECAUSE I WILL HAVE TO USE $B$ FOR THE BRACE IN THE ENDORMORPHISM OPERAD (NON OPERADIC-SUSPENDED). A POSSIBILITY TO BE CONSISTENT IS USING THE LETTER B FOR NON-SUSPENDED OPERADS AND BAR B FOR SUSPENDED OPERADS, INTRODUCING THE BAR WHEN IT IS THE ENDOMORPHISM OF ANOTHER OPERAD
-\begin{align*}
-&\OO \to \End_\OO\\
-&x\mapsto \sum_{n\geq 0}b_n(x;-)
-\end{align*}
+\[
+\OO \to \End_\OO,\, x\mapsto \sum_{n\geq 0}b_n(x;-)
+\]
 is a morphism of $A_\infty$-algebras. In the associative case, this result leads to the definition of homotopy $G$-algebras, which connects with the classical Deligne conjecture. We are going to adapt the statement of this claim to our context and prove it. This way we will obtain an $A_\infty$ version of homotopy $G$-algebras and consequently an $A_\infty$-version of the Deligne conjecture. Let $\Phi'$ the map defined as above but on $\s\OO$, i.e.
-\begin{align*}
-\Phi'\colon&\s\OO \to \End_{\s\OO}\\
-&x\mapsto \sum_{n\geq 0}b_n(x;-).
-\end{align*}
+\[
+\Phi'\colon\s\OO \to \End_{\s\OO},\, x\mapsto \sum_{n\geq 0}b_n(x;-).
+\]
 Let $\Phi:S\s\OO\to S\s\End_{S\s\OO}$ the map making the following diagram commute
 \begin{equation}\label{Phi}
 \begin{tikzcd}
@@ -1512,12 +1509,12 @@ is defined by
  The $1$'s in the braces are identity maps. In the above definition, $|f|$ denotes the degree of $f$ as an element of $\End_{\s\OO}$, which is the same as the degree $\overline{\sigma}(f)\in \s\End_{S\s\OO}$ because $\overline{\sigma}$ is an isomorphism, as mentioned in \Cref{barsigma}.  %the degree as a map sO^n\to sO, which is computed by evaluating and computing arity +degree-1
  
  The inner square of diagram (\ref{proofdiagram}) is divided into two halves, so we divide the proof into two as well, showing the commutativity of each half independently.
+ \pagebreak
  \subsection*{\centering{Commutativity of the right blue square} }
- Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and $M=\overline{\sigma}(M')$. Then we have for $j>1$
  
+ Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and $M=\overline{\sigma}(M')$. Then we have for $j>1$
  \[\overline{M}'_j(\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(M;\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j)).\]
  Now, since the brace structure is defined as an operadic composition, it commutes with $\overline{\sigma}$, so
- 
  \[\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{\sigma}(B_j(M';f_1,\dots, f_j))=\overline{\sigma}(\mathcal{M}_j(f_1,\dots, f_j)),\]
  and therefore the right blue square commutes for $j>1$. For $j=1$ the result follows analogously taking into account that the degree of $f$ in $\End_{\s\OO}$ is the same as the degree of $\overline{\sigma}(f)$ in $\s\End_{S\s\OO}$.
 
@@ -1556,7 +1553,7 @@ For each tuple $(i_1,\dots, i_j)$ we can choose $n$ such that $n-(i_1+\cdots+i_j
 
 So each $M'_l$ component for $l\geq j$ produces precisely the terms $b_l(m;\dots)$ appearing in $\Phi'(M'_j)$. Conversely, for every $n\geq 0$ there exists some tuple $(i_1,\dots, i_j)$ and some $l\geq j$ such that $n$ is the that $n-(i_1+\cdots+i_j)+j=l$, so we do get all the summands from the left hand side of \Cref{commutative}, and thus we have the equality $\Phi'(M'_j)=\mathcal{M}_j((\Phi')^{\otimes j})$ for all $j>1$.
 
-It is worth treating the case $n=0$ separately since in that case we have the summand \[b_0(b_j(m;x_1,\dots, x_j))\] 
+It is worth treating the case $n=0$ separately since in that case we have the summand $b_0(b_j(m;x_1,\dots, x_j))$
 in $\Phi'(b_j(m;x_1,\dots, x_j))$, where we cannot apply the brace relation. This summand is equal to \[B_j(M'_j;b_0(x_1),\dots, b_0(x_j))=M'_j(b_0(x_1),\dots, b_0(x_j))=b_j(m;b_0(x_1),\dots, b_0(x_j)),\] since by definition $b_0(x)=x$.% We obtained this map from $\overline{M}_1(\Phi(x))$. To see that the two maps are actually equal, apply them to $1\in k$ to output $b_1(m;x)$ in both cases. %Notice that the terms that $b_1(M_i;x)$ produces for $i>1$ appear using the brace relation in $b_k(b_1(m;x);-)$ when $k>0$, more precisely, in the summand $b_k(b_1(m_i;x);-)$. 
 
 Now we are going to show the case $j=1$, that is
@@ -1605,9 +1602,8 @@ The factor $-(-1)^{|x|}$ is going to appear everywhere, so we may cancel it. Thu
 We are going to evaluate each term of the sum, so let $z_1,\dots, z_n\in \s\OO$. We have by the brace relation that
 
 \begin{align}\label{insertionx1}
-b_n(b_1(x;m);z_1,\dots, z_n)&=\\
- &\sum_{l+j=n+1}\sum_{i=1}^{n-j+1}(-1)^{\varepsilon} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_n)+\nonumber\\
- &\sum_{i=1}^{n+1}(-1)^{\varepsilon}b_{n+1}(x;z_1,\dots, z_{i-1},m,z_i,\dots, z_n),\nonumber
+b_n(b_1(x;m);z_1,\dots, z_n)=\sum_{l+j=n+1}\smashoperator[l]{\sum_{i=1}^{n-j+1}}&(-1)^{\varepsilon} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_n)\nonumber\\
+ &+\sum_{i=1}^{n+1}(-1)^{\varepsilon}b_{n+1}(x;z_1,\dots, z_{i-1},m,z_i,\dots, z_n),
 \end{align}
 
 where $\varepsilon$ is the usual Koszul sign with respect to the grading in $\s\OO$. We have to check that the insertions in $x$ that appear in $\mathcal{M}_1(\Phi'(x))$ (right hand side of the \cref{case1}) are exactly those in \Cref{insertionx1} above (left hand side of \cref{case1}).
@@ -1642,7 +1638,7 @@ We are going to evaluate on $(z_1,\dots, z_n)$ to make this map more explicit, g
   
  In the case $n=0$, we have to note that $B_1(b_0(x);m)$ vanishes because of arity reasons: $b_0(x)$ is a map of arity 0, so we cannot insert any inputs. And this finishes the proof.
  \end{proof}
- 
+ \pagebreak
  \subsection{Explicit $A_\infty$-algebra structure and Deligne Conjecture}\label{sect4}
 
 We have given an implicit definition of the components of the $A_\infty$-algebra structure on $S\s\OO$, namely, \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
@@ -1669,17 +1665,11 @@ M_n(Sx_1,\dots, Sx_n)&=SM'_n((S^{\otimes n})^{-1})(Sx_1,\dots, Sx_n)\\
 \end{align*}
 
 Now, note that $\binom{n}{2}$ is even exactly when $n\equiv 0,1\mod 4$. In these cases, an even amount of $|x_i|$'s have an odd coefficient in the sum (when $n\equiv 0\mod 4$ these are the $|x_i|$ with even index, and when $n\equiv 1\mod 4$, the $|x_i|$ with odd index). This means that 1 is added on the exponent an even number of times, so the sign is not changed by the binomial coefficient nor by adding 1 on each term. Similarly, when $\binom{n}{2}$ is odd, i.e. when $n\equiv 2,3\mod 4$, there is an odd number of $|x_i|$ with odd coefficient, so the addition of 1 an odd number of times cancels the binomial coefficient. This means that the above expression equals
-
-\[(-1)^{\sum_{i=1}^n(n-i)|x_i|}SM'_n(x_1,\dots,x_n),\]
+$(-1)^{\sum_{i=1}^n(n-i)|x_i|}SM'_n(x_1,\dots,x_n)$,
 which by definition equals
 \[(-1)^{\sum_{i=1}^n(n-i)|x_i|}Sb_n(m;x_1,\dots,x_n).\]
 
-The case $n=1$ is analogous, one just has to note that 
-
-\[
-M'_1(x)=b_1(m;x)-(-1)^{|x|}b_1(x;m)
-\]
-and that $\overline{\sigma}$ is linear. 
+The case $n=1$ is analogous since $\overline{\sigma}$ is linear. 
 \end{proof}
 
 It is possible to show that the maps defined explicitly as we have just done satisfy the $A_\infty$-equation without relying on the fact that $\overline{\sigma}$ is a map of operads, but it is a lengthy and tedious calculation.
@@ -1927,10 +1917,12 @@ that is explicitly
 for $x=(x_i)_i\in \Tot(\OO(n))^{d_1}$ and $y=(y_j)_j\in \Tot(\OO(m))^{d_2}$.
 
 More generally, operadic composition $\bar{\gamma}$ is defined by the composite
-\begin{align*}
-\Tot(\OO(N))\otimes \Tot(\OO(a_1))\otimes\cdots\otimes \Tot(\OO(a_N))&\xrightarrow{\mu} \Tot(\OO(N)\otimes \OO(a_1)\otimes\cdots\otimes \OO(a_N))\\
-& \xrightarrow{\Tot(\gamma)} \Tot(\OO(\sum a_i)),
-\end{align*}
+\[
+\begin{tikzcd}[row sep = 1.5em]
+\Tot(\OO(N))\otimes \Tot(\OO(a_1))\otimes\cdots\otimes \Tot(\OO(a_N))\arrow[d, "\mu"]\\
+ \Tot(\OO(N)\otimes \OO(a_1)\otimes\cdots\otimes \OO(a_N))\arrow[r, "\Tot(\gamma)"]& \Tot\left(\OO\left(\sum a_i\right)\right),
+\end{tikzcd}
+\]
 This map can be computed explicitly by iteration of the insertion $\bar{\circ}$, giving the following.  %For simplicity, we abuse of notation by omitting sums
 
 \begin{lem}\label{totcomp}
@@ -1963,7 +1955,7 @@ The operad structure on the bigraded $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ is the s
 \]
 
 \begin{defin}
-Let $\mathcal{O}$ be a bigraded linear operad. The \emph{vertical operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of the operads $\OO$ and $\Lambda$, in other words, $\mathfrak{s}\OO(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition. Similarly, we define the \emph{vertical operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
+Let $\mathcal{O}$ be a bigraded linear operad. The \emph{vertical operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by $\mathfrak{s}\OO(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition. Similarly, we define the \emph{vertical operadic desuspension} $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
 \end{defin}
 
 
@@ -2004,7 +1996,6 @@ We also get the functorial properties that we studied for the single-graded case
 
 Now we are going to combine vertical operadic suspension and totalization. More precisely, the totalized vertical suspension a bigraded operad $\OO$ is the graded operad $\Tot(\s\OO)$. 
 
-
 This operad has an insertion map explicitly given by
 \begin{equation}\label{star}
 (x\star_{r+1} y)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(d_2-k_2-m+1)+(n-1)(m-1)+r(m-1)+k_1d_2}x_{k_1}\circ_{r+1}y_{k_2}
@@ -2013,17 +2004,15 @@ for $x=(x_i)_i\in \Tot(\s\OO(n))^{d_1}$ and $x=(x_j)_j\in \Tot(\s\OO(m))^{d_2}$.
 
 This star operation is precisely the star operation from \cite[\S 5.1]{LRW}, i.e. the convolution operation on $\Hom((dAs)^{!}, \End_A)$. In particular, we can recover the Lie bracket from in \cite{LRW}. We will do this in \Cref{biliebracket}.
 
-
 Before continuing, let us show a lemma that allows us to work only with the single-graded operadic suspension if needed.
 \begin{propo}\label{extrasign}
 For a bigraded operad $\OO$ we have an isomorphism $\Tot(\s\OO)\cong \s \Tot(\OO)$, where the suspension on the left hand side is the bigraded version and on the right hand side is the single-graded version. 
 \end{propo}
 \begin{proof}
  Note that we may identify each element $x=(x_k\otimes e^n )_k\in\Tot(\s\OO(n))$ with the element $x=(x_k)_k\otimes e^n\in\s\Tot(\OO(n))$. Thus, for an element $(x_k)_k\in \Tot(\s\OO(n))$ the isomorphism is given by
-\begin{align*}
-f:\Tot(\s\OO(n))&\cong \s \Tot(\OO(n))\\
-(x_k)_k&\mapsto ((-1)^{kn}x_k)_k
-\end{align*}
+\[
+f:\Tot(\s\OO(n))\cong \s \Tot(\OO(n)),\, (x_k)_k\mapsto ((-1)^{kn}x_k)_k
+\]
 Clearly, this map is bijective so we just need to check that it commutes with insertions. Recall from \Cref{star} that the insertion on $\Tot(\s\OO)$ is given by
 \begin{equation*}
 (x\star_{r+1} y)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(d_2-k_2-n+1)+(n-1)(m-1)+r(m-1)+k_1d_2}x_{k_1}\circ_{r+1}y_{k_2}
@@ -2055,22 +2044,22 @@ This is also a valid approach for our purposes and there is simply a sign differ
 \end{remark}
 
 
-Using the operadic structure on $\Tot(\s\OO)$, we can describe derived $A_\infty$-multipilcations in a new conceptual way.
+Using the operadic structure on $\Tot(\s\OO)$, we can describe derived $A_\infty$-multipilcations in a new conceptual way as we did in \Cref{twisting}, with analogous proof.
 
 \begin{lem}\label{mstar}
-A derived $A_\infty$-multiplication on a bigraded operad $\OO$ is equivalent to an element $m\in\Tot(\s\OO)$ of degree 1 concentrated in positive arity such that $m\star m = 0$. 
+A derived $A_\infty$-multiplication on a bigraded operad $\OO$ is equivalent to an element $m\in\Tot(\s\OO)$ of degree 1 concentrated in positive arity such that $m\star m = 0$. \qed
 %$m=\sum_{ij}m_{ij}$ where $m_{ij}\in\OO(j)^{2-i-j}_i$ for each $j\geq 1$ such that 
 %\[\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}\circ_{r+1} %m_{pq}=0.\]
 \end{lem}
-\begin{proof}
-A derived $A_\infty$-multiplication on $\OO$ is by \Cref{derivedmultiplication} a map 
-\[f:d\calA_\infty\to\OO.\]
-Since $\calA_\infty$ is generated by elements $\mu_{ij}$ of bidegree $(i,2-i-j)$, such a map is determined by the elements $m_{ij}=f(\mu_{ij})\in\OO^{2-i-j}_i(j)$. Consider $m_j = (m_{ij})_i\in\Tot(\s\OO(j))$. We have that $\deg(m_j)=1$ for all $j$. Therefore, let $m=m_1+m_2+\cdots\in\Tot(\s\OO)$. We may check that $m\star m=0$. For that we just need to check \Cref{star}. On arity $n$, this amounts to computing
-\[(m\star m)_k = \sum_{r=0}^{n-1}\underset{j+q=n-1}{\sum_{i+p=k}}(-1)^{rp+j-r-1+ pj}m_{ij}\circ_{r+1}m_{pq}=0.\]
-The above expression vanishes precisely because the elements $m_{ij}$ satisfy the derived $A_\infty$-equation.
+%\begin{proof}
 
-Conversely, let $m\in\Tot(\s\OO)$ of degree 1, is concentrated in positive arity and satisfying $m\star m=0$. We can split $m$ into its arity and horizontal degree components as $m=\sum_{i,j}m_{ij}$. As we have seen, the fact that $m\star m=0$ is equivalent to the elements $m_{ij}$ satisfying the derived $A_\infty$-equation, and therefore, a map $f:d\calA_\infty\to\OO$ is determined by $f(\mu_{ij})=m_{ij}$, which is of bidegree $(i,2-i-j)$. 
-\end{proof}
+%A derived $A_\infty$-multiplication on $\OO$ is by \Cref{derivedmultiplication} a map $f:d\calA_\infty\to\OO$.
+%Since $\calA_\infty$ is generated by elements $\mu_{ij}$ of bidegree $(i,2-i-j)$, such a map is determined by the elements $m_{ij}=f(\mu_{ij})\in\OO^{2-i-j}_i(j)$. Consider $m_j = (m_{ij})_i\in\Tot(\s\OO(j))$. We have that $\deg(m_j)=1$ for all $j$. Therefore, let $m=m_1+m_2+\cdots\in\Tot(\s\OO)$. We may check that $m\star m=0$. For that we just need to check \Cref{star}. On arity $n$, this amounts to computing
+%\[(m\star m)_k = \sum_{r=0}^{n-1}\underset{j+q=n-1}{\sum_{i+p=k}}(-1)^{rp+j-r-1+ pj}m_{ij}\circ_{r+1}m_{pq}=0.\]
+%The above expression vanishes precisely because the elements $m_{ij}$ satisfy the derived $A_\infty$-equation.
+%
+%Conversely, let $m\in\Tot(\s\OO)$ of degree 1, is concentrated in positive arity and satisfying $m\star m=0$. We can split $m$ into its arity and horizontal degree components as $m=\sum_{i,j}m_{ij}$. As we have seen, the fact that $m\star m=0$ is equivalent to the elements $m_{ij}$ satisfying the derived $A_\infty$-equation, and therefore, a map $f:d\calA_\infty\to\OO$ is determined by $f(\mu_{ij})=m_{ij}$, which is of bidegree $(i,2-i-j)$. 
+%\end{proof}
 
 
 From \Cref{mstar}, we can proceed as in the proof of \Cref{ainftystructure} to show that $m$ determines an $A_\infty$-algebra structure on $S\Tot(\s\OO)\cong S\s \Tot(\OO)$. 
@@ -2157,7 +2146,7 @@ In addition, the composition of $\infty$-morphisms is given by the natural compo
 %coincides up to signs with with the \Cref{dinftymaps}, the equation defining derived $\infty$-morphisms of derived $A_\infty$-algebras. The signs that appear in the above equation are obtained in a similar way to that on the brace $b_j^\star$, see \Cref{bracetot}. Thus, it is enough to plug in the sign provided by \Cref{bracetot} from the corresponding degrees and arities to obtain the desired result. The composition of derived $\infty$-morphisms follows similarly.
 %\end{proof}
 
-In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition can be written in terms of operadic composition as $f\star m=\gamma^\star(m\circ f)$, where $\gamma^*$ is the composition map derived from the operation $\star$, see \Cref{gammastar}. Here, $\circ$ is the plethysm of maps of collections, not to be confused with composition of maps. 
+In the case that $f:A\to A$ is an $\infty$-endomorphism, the above definition can be written in terms of operadic composition as $f\star m=\gamma^\star(m\circ f)$, where $\gamma^\star$ is the composition map derived from the operation $\star$, see \Cref{gammastar}. Here, $\circ$ is the plethysm of maps of collections, not to be confused with composition of maps. 
 
 
 \section{The derived $A_\infty$-structure on an operad}\label{derivedstructure}
@@ -2322,8 +2311,7 @@ defined as
 for $f$ of natural bidegree $(p,q)$, where $M_{i\bullet}=\sum_j M_{ij}$. We define 
 \[\overline{M}_{ij}:(S\s\End_{S\s\OO})^{\otimes j}\to S\s\End_{S\s\OO},\ \overline{M}_{ij} = \overline{\sigma}(M'_{ij})=S\circ M'_{ij}\circ (S^{\otimes n})^{-1}.\]
 
-As in the single-graded case we can define a map
-\[\Phi:S\s\OO\to S\s\End_{S\s\OO}\]
+As in the single-graded case we can define a map $\Phi:S\s\OO\to S\s\End_{S\s\OO}$
 as the map making the following diagram commute
 \begin{equation}\label{derivedPhi}
 \begin{tikzcd}
@@ -2332,10 +2320,9 @@ S\s\OO\arrow[rr, "\Phi"]\arrow[d] & & S\s\End_{S\s\OO}\\
 \end{tikzcd}
 \end{equation}
 where 
-\begin{align*}
-\Phi'\colon&\s\OO \to \End_{\s\OO}\\
-&x\mapsto \sum_{n\geq 0}b_n(x;-).
-\end{align*}
+\[
+\Phi'\colon\s\OO \to \End_{\s\OO},\, x\mapsto \sum_{n\geq 0}b_n(x;-).
+\]
 The isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\sigma}$.
 
 In this setting we have the bigraded version of \Cref{theorem}. But before stating the theorem, for the sake of completeness let us state the definition of the Hochschild complex of a bigraded module.
@@ -2349,7 +2336,7 @@ The following is the same as \Cref{theorem} but carrying the extra index $i$ and
 The map $\Phi$ defined in diagram (\ref{derivedPhi}) above is a morphism of derived $A_\infty$-algebras, i.e. for all $i\geq 0$ and $j\geq 1$ the equation
 
 \[\Phi(M_{ij})=\overline{M}_{ij}(\Phi^{\otimes j})\]
-holds.%, where the $M_{ij}$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\OO$ and $\overline{M}_j$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\End_{S\s\OO}$. 
+holds. \qed%, where the $M_{ij}$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\OO$ and $\overline{M}_j$ is the $j$-th component of the $A_\infty$-algebra structure on $S\s\End_{S\s\OO}$. 
 \end{thm}
 
 Now that we have \Cref{bigradedtheorem} and the explicit formulas for the derived $A_\infty$-structure on $S\s\OO$, we can deduce the derived $A_\infty$-version of the Deligne conjecture in an analogous way to how we obtained the $A_\infty$-version in \Cref{ainftydeligne}. In order to do that, we need to first introduce the derived $A_\infty$-version of homotopy $G$-algebras. To have a more succinct formulation we use the notation $\vdeg(x)$ for the vertical degree of $x$.
@@ -2613,7 +2600,7 @@ A^{\otimes N}\arrow[r,"f"] & A\arrow[u, "S"']
 Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in \End_A(N)^{i+N-1}$. 
 
 \begin{remark}
-In \cite{RW} there is a sign $(-1)^{N+i-1}$ in front of $f$, but it seems to be irrelevant for our purposes. Another fact to remark on is that the suspension of graded modules used here (and in \cite{RW}) is the opposite that we have used to define the operadic suspension in the sense that in \Cref{lambda} we used $SA^v=A^{v-1}$. This does not change the signs or the procedure, but in the statement of \Cref{markl}, operadic desuspension should be changed to operadic suspension. %My suspension is better because it gives the total degree
+In \cite{RW} there is a sign $(-1)^{N+i-1}$ in front of $f$, but it seems to be irrelevant for our purposes. Another fact to remark on is that the suspension of graded modules used here (and in \cite{RW}) is the opposite that we have used to define the operadic suspension in the sense that in \Cref{Sec2} we used $SA^v=A^{v-1}$. This does not change the signs or the procedure, but in the statement of \Cref{markl}, operadic desuspension should be changed to operadic suspension. %My suspension is better because it gives the total degree
 \end{remark}
 
 
@@ -2697,15 +2684,13 @@ This means that
 If the top number of a binomial coefficient is less than 2, then the coefficient is 0. In the case of arities or $k_j$ this is because $(S^{-1})^{\otimes 1}=(S^{\otimes 1})^{-1}$, and if the tensor is taken 0 times then it is the identity and the equality also holds, so there are no signs.
 \end{remark}
 
-We are now going to simplify the sign to obtain the desired result. Notice that $N-n+\sum_j a_j=\sum_i k_i +\sum_j a_j$. In general, consider a finite sum $\sum_i b_i$. We can simplify the binomial coefficients mod 2
+We are now going to simplify the sign to obtain the desired result. Notice that $N-n+\sum_j a_j=\sum_i k_i +\sum_j a_j$. In general, consider a finite sum $\sum_i b_i$. We can simplify the binomial coefficients mod 2 in the following way.
 
-\[\binom{\sum_i b_i}{2}+\sum_i\binom{b_i}{2}\]
+\[\binom{\sum_i b_i}{2}+\sum_i\binom{b_i}{2}=\sum_{i<j}b_ib_j\mod 2.\]
 
-\[\binom{\sum b_i}{2}+\sum\binom{b_i}{2}\]
+ %Note that all the $b_i$'s will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator. More precisely, we have the following equality mod 2.
 
-in the following way. Note that all the $b_i$'s will appear squared once in the big binomial coefficient and once in the sum, as so will do the terms themselves, so they will cancel. This will leave the double products which cancel out the 2 in the denominator. More precisely, we have the following equality mod 2.
-
-\[\binom{\sum b_i}{2}+\sum\binom{b_i}{2}=\sum_{i<j}b_ib_j.\]
+%\[\binom{\sum b_i}{2}+\sum\binom{b_i}{2}=\sum_{i<j}b_ib_j.\]
 The result of applying this to $\binom{N-n+\sum a_j}{2}$ and adding $\delta$ from \cref{delta} in our sign $\eta$ is
 \begin{equation}\label{simply}
 \sum_{0\leq i<l\leq n}k_ik_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{i,j}k_ia_j.
@@ -2749,22 +2734,16 @@ where $x\in (S\s\OO)^{n-k}_k$ and $\langle x,m_{il}\rangle=ik+(1-i)(n-1-k)$.
 
 
 Througout the proof we omit the shift maps. Let us first check the twisted complex equation up to signs, to give a conceptual proof before introducing the signs. Up to sign, the maps  $\{M_{i1}\}_{i\geq 0}$ must satisfy the equation
-
 \[\sum_{i+j=u} M_{i1}\circ M_{j1}=0,\]
 for all $u$, where $\circ$ is composition of maps. %I may or may not omit the sum to avoid writing too much, as it just means that the composition on every degree must vanish.
 
-Therefore, up to signs we have to compute compute 
-
+Therefore, up to signs we have to compute
 \begin{align*}
 \sum_{i+j=u}M_{i1}(M_{j1}(x))=&\sum_{i+j=u}M_{i1}\left(\sum_l b_1(m_{jl};x)+b_1(x;m_{jl})\right)\\
 =&\sum_{i+j=u}\sum_{l,k}\left(b_1(m_{ik}; b_1(m_{jl};x))+b_1(m_{ik};b_1(x;m_{jl}))\right.\\
 &\left.+b_1(b_1(m_{jl};x);m_{ik})+b_1(b_1(x;m_{jl});m_{ik})\right).
 \end{align*}
-
-
-
 Applying the brace relation we obtain
-
 \begin{align*}
 \sum_{i+j=u}\sum_{l,k}(b_1(m_{ik}; b_1(m_{jl};x))+b_1(m_{ik};b_1(x;m_{jl}))+\\
  b_2(m_{jl};x,m_{ik})+b_1(m_{jl};b_1(x;m_{ik}))+b_2(m_{jl};m_{ik},x)+\\
@@ -2775,8 +2754,6 @@ In the sum, all terms of the form $b_1(x;b_1(m_{jl};m_{ik}))$ that can be seen i
  Since $i$ and $j$ are interchangeable, i.e. for each pair $(i,j)$ there is the pair $(j,i)$, the terms $b_2(x;m_{jl},m_{ik})+b_2(x;m_{ik},m_{jl})$ in the last line should cancel as well. For this, we should have the pair $(j,i)$ with the opposite sign. Here it is also relevant that the sum runs through all possible values of $k$ and $l$, so that the pair $(j,i)$ appears with $l$ and $k$ interchanged as well. So far the entire last line vanishes up to sign.
 
 Then $b_1(m_{ik};b_1(x;m_{jl}))$ on the first line should cancel with $b_1(m_{jl};b_1(x;m_{ik}))$ on the second line, but from a different summand: the one where $i$ and $j$ are interchanged. Finally, the remaining terms $b_1(m_{ik}; b_1(m_{jl};x))+b_2(m_{jl};x,m_{ik})+b_2(m_{jl};m_{ik},x)$ add up to $b_1(b_1(m;m);x)$ up to sign. That would cancel everything.
-
-
 
 Let us now introduce the signs. We now compute for all $u$
 \[\sum_{i+j=u} (-1)^iM_{i1}\circ M_{j1}.\]
