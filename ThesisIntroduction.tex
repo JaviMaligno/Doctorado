@@ -347,7 +347,7 @@ We show that the above map is the inverse of the map (\ref{enrichedmap}). Consid
 \end{equation}
 % I believe this result is not true in full generality because the right unitor can be anything. In R-modules enriched over themselves, normally one would chose v -> vx1, but if you choose a unit u and instead do v -> uvx1=vxu, this is still an iso (forces the left unitor to be also like this for the triangle equality) and u is carried all the time
 
-In the above diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. In particular, diagram (5) is a decomposition of the identity map on $\uD(GX,Y)$. By commutativity, this means that the overall diagram composes to the identity, showing that the maps (\ref{enrichedmap}) and (\ref{enrichedmapinverse}) are mutually inverse.
+In the above diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an isomorphism. In particular, diagram (5) is a decomposition of the identity map on $\uD(GX,Y)$. By commutativity, this means that the overall diagram composes to the identity, showing that the maps (\ref{enrichedmap}) and (\ref{enrichedmapinverse}) are mutually inverse.
 \end{proof}
 
 
@@ -696,7 +696,7 @@ given by $f_2$.
 Again, the reader can find more details in \cite{keller} and \cite[\S 9.2]{lodayvallette}. We also need another, perhaps more intuitive, notion of morphism of $A_\infty$-algebras.
  
 \begin{defin}\label{inftyalgebramorphism}
-A \emph{morphism} of $A_\infty$-algebras is a map $f:A\to B$ such that
+A \emph{morphism} of $A_\infty$-algebras is a map of $R$-modules $f:A\to B$ such that
 \[f(m^A_j)=m^B_j\circ f^{\otimes j}.\]
 \end{defin}
 
@@ -1129,7 +1129,7 @@ F(\OO(n+m-1))\arrow[r, "F(f_{n+m-1})"] & F(\PP(n+m-1))
 
 %REDEFINE THINGS ACCORDING TO CONVENTIONS
 
-Now introduce some categories and conventions that we need in order to study derived $A_\infty$-algebras. Many results of $A_\infty$-algebras need $R$ to be a field because of projectivity, see \Cref{minimalmodels}. Thus, it is necessary to build in projective resolutions. In particular we need an extra degreed comaptible with derived $A_\infty$-setting. In order to do that, we need a way to connect a single graded category with a bigraded category. This is usually done through totalization. But in order to properly translate $A_\infty$-algebras into totalized derived $A_\infty$-algebras we need to go through several suitably enriched categories that are defined in this section. Most of the definitions come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
+Now introduce some categories and conventions that we need in order to study derived $A_\infty$-algebras. Many results of $A_\infty$-algebras need $R$ to be a field because of projectivity, see \Cref{minimalmodels}. Thus, it is necessary to build in projective resolutions. In particular we need an extra degreed compatible with derived $A_\infty$-setting. In order to do that, we need a way to connect a single graded category with a bigraded category. This is usually done through totalization. But in order to properly translate $A_\infty$-algebras into totalized derived $A_\infty$-algebras we need to go through several suitably enriched categories that are defined in this section. Most of the definitions come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
 
 %Let $\CC$ be a category and let $A$, $B$ be arbitrary
 %objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is
@@ -1535,7 +1535,7 @@ The following is \cite[Theorem 4.39]{whitehouse}.
 Let $A$, $B$ be twisted complexes. The assignments $\mathfrak{Tot}(A) := \Tot(A)$ and
 \begin{align*}
 \mathfrak{Tot}_{A,B} : \utC(A,B)& → \ufC(\Tot(A),\Tot(B))\\
-f &→ \Tot(f)
+f &\mapsto \Tot(f)
 \end{align*}
 define a $\vbc$-enriched functor $\mathfrak{Tot} : \utC → \ufC$ which restricts to an isomorphism onto its image. Furthermore, this functor restricts to a $\bgmod$-enriched functor \[\mathfrak{Tot} : \ubgMod → \ufMod\]
  which also restricts to an isomorphism onto its image.

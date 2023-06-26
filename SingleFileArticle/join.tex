@@ -180,11 +180,11 @@ There are a number of mathematical fields in which $A_\infty$-structures arise, 
 
 Another technique to describe $A_\infty$-structures comes from brace algebras \cite{GV},\cite{lada}, which often involves unwieldy sign calculations that are difficult to describe in a conceptual way.
 
-Here we used an operadic approach to obtain these signs in a more conceptual and consistent way. As a consequence, we will generalize the Lie bracket used in \cite{RW} and will give a very simple interpretation of $A_\infty$-algebras. The difference between our operadic approach and others mentioned before is that ours uses much more elementary tools and can be use to talk about $A_\infty$-structrures on any operad. We hope that this provides a useful way of thinking about $A_\infty$-structures.  A first application of this simple formulation is the generalization of the Deligne conjecture. The classical Deligne conjecture states that the Hochschild complex of an associative algebra has the structure of a homotopy $G$-algebra \cite{GV}. This result has its roots in the theory of topological operads \cite{delignehistory}. Since $A_\infty$-generalize associative algebras, it is natural to ask what sort of algebraic structure arises on their Hochschild complex. Thanks to the tools we develop, we are able to answer this question.
+Here we used an operadic approach to obtain these signs in a more conceptual and consistent way. As a consequence, we will generalize the Lie bracket used in \cite{RW} and will give a very simple interpretation of $A_\infty$-algebras. The difference between our operadic approach and others mentioned before is that ours uses much more elementary tools and can be used to talk about $A_\infty$-structrures on any operad. We hope that this provides a useful way of thinking about $A_\infty$-structures.  A first application of this simple formulation is the generalization of the Deligne conjecture. The classical Deligne conjecture states that the Hochschild complex of an associative algebra has the structure of a homotopy $G$-algebra \cite{GV}. This result has its roots in the theory of topological operads \cite{delignehistory}. Since $A_\infty$-generalize associative algebras, it is natural to ask what sort of algebraic structure arises on their Hochschild complex. Thanks to the tools we develop, we are able to answer this question.
 
-Later in 2009, derived $A_\infty$-algebras were introduced by Savage \cite{sagave} as a bigraded generalization of $A_\infty$-algebras in order to bypass the projectivity requirements that are often required when working with classical $A_\infty$-algebras. We generalize the operadic description of classical $A_\infty$-algebras to the derived case by means of an operadic totalization inspired by the totalization functor described in \cite{whitehouse}. This way we obtain an operation similar to the star operation in \cite{LRW} and generalize the construction that has been done for $A_\infty$-algebras to more general derived $A_\infty$-algebras.
+Later in 2009, derived $A_\infty$-algebras were introduced by Savage \cite{sagave} as a bigraded generalization of $A_\infty$-algebras in order to bypass the projectivity assumptions that are often required when working with classical $A_\infty$-algebras. We generalize the operadic description of classical $A_\infty$-algebras to the derived case by means of an operadic totalization inspired by the totalization functor described in \cite{whitehouse}. This way we obtain an operation similar to the star operation in \cite{LRW} and generalize the construction that has been done for $A_\infty$-algebras to more general derived $A_\infty$-algebras.
 
-The text is organized as follows. In Cref{Sec1} we recall some basic definitions and establish some conventions for both the classical and the derived cases. In \Cref{Sec2} we define a device called \emph{operadic suspension} that will help us obtain the signs that we want and link this device to the classical operadic approach to $A_\infty$-algebras. We also take this construction to the level of the underlying collections of the operads to also obtain a nice description of $\infty$-morphisms of $A_\infty$-algebras. We then explore the functorial properties of operadic suspension, being monoidality (\Cref{monoidality}) the most remarkable of them. In \Cref{sectionbraces} we study the brace algebra induced by operadic suspension and obtain a relevant result, \Cref{bracesign}, which establishes a relation between the canonical brace structure on an operad and the one induced by its operadic suspension. We show that as a particular case of this result we obtain the Lie bracket from \cite{RW}.
+The text is organized as follows. In \Cref{Sec1} we recall some basic definitions and establish some conventions for both the classical and the derived cases. In \Cref{Sec2} we define a device called \emph{operadic suspension} that will help us obtain the signs that we want and link this device to the classical operadic approach to $A_\infty$-algebras. We also take this construction to the level of the underlying collections of the operads to also obtain a nice description of $\infty$-morphisms of $A_\infty$-algebras. We then explore the functorial properties of operadic suspension, being monoidality (\Cref{monoidality}) the most remarkable of them. In \Cref{sectionbraces} we study the brace algebra induced by operadic suspension and obtain a relevant result, \Cref{bracesign}, which establishes a relation between the canonical brace structure on an operad and the one induced by its operadic suspension. We show that as a particular case of this result we obtain the Lie bracket from \cite{RW}.
 
 Following the terminology of \cite{GV}, if $\OO$ is an operad with an $A_\infty$-multiplication $m\in\OO$, it is natural to ask whether there are linear maps $M_j:\OO^{\otimes j}\to \OO$ satisfying the $A_\infty$-algebra axioms. In \Cref{sect2} we use the aforementioned brace structure to define such linear maps on a shifted version of the operadic suspension. We then iterate this process in \Cref{sect3} to define an $A_\infty$-structure on the Hochschild complex of an operad with $A_\infty$-multiplication. This iteration process was inspired by the work of Getzler in \cite{getzler}.
 
@@ -229,10 +229,9 @@ We assume that the reader is familiar with the basic definitions regarding $A_{�
 
 Our base category is the category of graded $R$-modules and linear maps, where $R$ is a fixed commutative ring with unit of characteristic not equal to 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$ and we use cohomological grading. The symmetry isomorphism is given by the following Koszul sign convention.
 
-\begin{align*}
-\tau_{A,B}:A\otimes B&\to B\otimes A\\
-x\otimes y &\mapsto (-1)^{\deg(x)\deg(y)}y\otimes x
-\end{align*}
+\[
+\tau_{A,B}:A\otimes B\to B\otimes A,\, x\otimes y \mapsto (-1)^{\deg(x)\deg(y)}y\otimes x
+\]
 
  A map $f:A\to B$ of degree $i$ satisfies $f(A^n)\subseteq B^{n+i}$ for all $n$. The $R$-modules $\Hom_R(A,B)$ are naturally graded by \[\Hom_R(A,B)^i=\prod_k\Hom_R(A^k,B^{k+i}).\]
 
@@ -263,7 +262,7 @@ The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by
 \end{defin}
 
 \begin{defin}
-A \emph{morphism} of $A_\infty$-algebras is a map $f:A\to B$ of degree 0 such that
+A \emph{morphism} of $A_\infty$-algebras is a map of $R$-modules $f:A\to B$ such that
 \[f(m^A_j)=m^B_j\circ f^{\otimes j}.\]
 \end{defin}
 
@@ -273,7 +272,7 @@ We will discuss these topics in the language of operads, for which we need some 
 
 \subsection{Operads}
 
-We define operads in terms of the underlying collections. Operads are a very common tool used to describe algebraic structures in terms of multilinear maps. Here we just recall them briefly. For a complete survey, we refer the reader to \cite{lodayvallete}. 
+We define operads in terms of the underlying collections. Operads are a very common tool used to describe algebraic structures in terms of multilinear maps. Here we just recall them briefly. For a complete survey, we refer the reader to \cite{lodayvallette}. 
 
 \begin{defin}\label{collections}
 A \emph{collection} is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules. We call the integer $n$ the \emph{arity}. When there is an action of the symmetric group $\Sigma_n$ on each $\OO(n)$ we say that the collection is an $\mathbb{S}-$module. A \emph{map of collections} $f:\OO\to\mathcal{P}$ is a family of maps $f_n:\OO(n)\to\mathcal{P}(n)$. A map of collections is a \emph{map of $\mathbb{S}-$modules} if it preserves the symmetric group action.
@@ -324,9 +323,7 @@ All the above definitions generalize to the bigraded case as well with no substa
 
 \subsection{For the study of derived $A_\infty$-algebras}\label{background}
 
-Now we move to the categories and conventions that we need in order to study derived $A_\infty$-algebras. The idea is that we would like to apply what we obtain in the setting of $A_\infty$-algebras a the derived setting. In order to do that, we need a way to connect a single graded category with a bigraded category. This is usually done through totalization. But in order to properly translate $A_\infty$-algebras into totalized derived $A_\infty$-algebras we need to go through several suitably enriched categories that are defined in this section.
-
-Most of the definitions come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
+Now we move to the categories and conventions that we need in order to study derived $A_\infty$-algebras. The idea is that we would like to apply what we obtain in the setting of $A_\infty$-algebras on the derived setting. In order to do that, we need a way to connect a single graded category with a bigraded category. This is usually done through totalization. But in order to properly translate $A_\infty$-algebras into totalized derived $A_\infty$-algebras we need to go through several suitably enriched categories that are defined in this section. Most of the definitions come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
 
 Let $\CC$ be a category and let $A$, $B$ be arbitrary
 objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is a
@@ -645,8 +642,8 @@ When $\mu$ is an isomorphism we may analogously define the following map
 \end{equation}
 
 We show that this map is the inverse of the map in \Cref{enrichedmap}.
-\label{complicateddiagram}
-\begin{equation}
+
+\begin{equation}\label{complicateddiagram}
 \adjustbox{scale=0.76,center}{%
 \begin{tikzcd}[column sep = 0pt, row sep = 20pt]
 {\uD(GX,Y) } \arrow[r, "\cong"] \arrow[rd, "(5)", phantom, bend left = 7]                 & {\uD(GX,Y)\otimes 1} \arrow[r, "1\otimes\umu_X"] \arrow[d, "1\otimes\alpha_X"] \arrow[rd, "(4)", phantom] & {\uD(GX,Y)\otimes\uD(FX,GX)} \arrow[r, "c"] \arrow[d, "\cong"]                                                                     & {\uD(FX,Y)} \arrow[ddd, "\cong"]                                               \\
@@ -658,7 +655,7 @@ We show that this map is the inverse of the map in \Cref{enrichedmap}.
 \end{equation}
 
 
-In the above diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an identity map. In particular, diagram (5) is a decomposition of the identity map on $\uD(GX,Y)$. By commutativity, this means that the overall diagram composes to the identity, showing that the maps (\ref{enrichedmap}) and (\ref{enrichedmapinverse}) are mutually inverse.
+In the above diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an isomorphism. In particular, diagram (5) is a decomposition of the identity map on $\uD(GX,Y)$. By commutativity, this means that the overall diagram composes to the identity, showing that the maps (\ref{enrichedmap}) and (\ref{enrichedmapinverse}) are mutually inverse.
 \end{proof}
 
 The following is \cite[Lemma 4.15]{whitehouse}.
@@ -822,10 +819,9 @@ where the last map is a projection and multiplication with the indicated sign.
 The following is \cite[Theorem 4.39]{whitehouse}.
 \begin{thm}\label{4.39}
 Let $A$, $B$ be twisted complexes. The assignments $\mathfrak{Tot}(A) := \Tot(A)$ and
-\begin{align*}
-\mathfrak{Tot}_{A,B} : \utC(A,B)& → \ufC(\Tot(A),\Tot(B))\\
-f &→ \Tot(f)
-\end{align*}
+\[
+\mathfrak{Tot}_{A,B} : \utC(A,B) → \ufC(\Tot(A),\Tot(B)),\,  f \mapsto \Tot(f)
+\]
 define a $\vbc$-enriched functor $\mathfrak{Tot} : \utC → \ufC$ which restricts to an isomorphism onto its image. Furthermore, this functor restricts to a $\bgmod$-enriched functor \[\mathfrak{Tot} : \ubgMod → \ufMod\]
  which also restricts to an isomorphism onto its image.
 \end{thm}
@@ -873,10 +869,9 @@ We are going to construct the inverse in the bounded case explicitly from \Cref{
 
 \begin{lem}\label{composition}
 In the conditions of \Cref{inverse} for the bounded case, the inverse is given by the map
-\begin{align*}
-\uEnd_{\Tot(A)}&\to\uEnd_A\\
-f & \mapsto \Tot^{-1}(f\circ \mu^{-1}).
-\end{align*}
+\[
+\uEnd_{\Tot(A)}\to\uEnd_A,\, f  \mapsto \Tot^{-1}(f\circ \mu^{-1}).
+\]
 \end{lem}
 \begin{proof}
 The inverse is given by the composite
@@ -898,15 +893,13 @@ The second map is given by $\mathfrak{Tot}^{-1}$ defined in \Cref{enrichedtot}. 
 \xrightarrow{c}\ufC(\Tot(A^{\otimes n}),\Tot(A)), 
 \end{align*}
 where $c$ is the composition in $\ufC$, defined in \Cref{ufMod}. The map $\underline{\mu}^{-1}$ is the adjoint of $\mu^{-1}$ under the bijection from \Cref{adjunction}. Explicitly,
-\begin{align*}
-\underline{\mu}^{-1}:R &\to \ufC(\Tot(A^{\otimes n}),\Tot(A)^{\otimes n})\\
-1 &\mapsto (a\mapsto \mu^{-1}(a)).
-\end{align*}
+\[
+\underline{\mu}^{-1}:R \to \ufC(\Tot(A^{\otimes n}),\Tot(A)^{\otimes n}),\, 1 \mapsto (a\mapsto \mu^{-1}(a)).
+\]
 Putting all this together, we get the map 
-\begin{align*}
-\uEnd_{\Tot(A)}&\to\uEnd_A\\
-f & \mapsto \Tot^{-1}(c(f, \mu^{-1})).
-\end{align*}
+\[
+\uEnd_{\Tot(A)}\to\uEnd_A,\, f  \mapsto \Tot^{-1}(c(f, \mu^{-1})).
+\]
 Since the total degree of $\mu^{-1}$ is 0, composition reduces to $c(f,\mu^{-1})=f\circ \mu^{-1}$ and we get the desired map.
 \end{proof}
 
@@ -933,7 +926,7 @@ We are inserting the second factor onto the first one, so the sign can be explai
 In a similar way we can define $\Lambda^-(n)=S^{1-n}R$, with the same insertion maps.
 
 \begin{defin}
-Let $\mathcal{O}$ be an operad. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by the Hadamard product of the operads $\OO$ and $\Lambda$, in other words, \[\mathfrak{s}\OO(n)=(\mathcal{O}\otimes\Lambda)(n)=\mathcal{O}(n)\otimes\Lambda(n)\] with diagonal composition. Similarly, we define the \emph{operadic desuspension} arity-wise as $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
+Let $\mathcal{O}$ be an operad. The \emph{operadic suspension} $\mathfrak{s}\OO$ of $\mathcal{O}$ is given arity-wise by $\mathfrak{s}\OO(n)=\mathcal{O}(n)\otimes\Lambda(n)$ with diagonal composition. Similarly, we define the \emph{operadic desuspension} arity-wise as $\mathfrak{s}^{-1}\OO(n)=\mathcal{O}(n)\otimes\Lambda^-(n)$.
 \end{defin}
 
 
@@ -979,7 +972,7 @@ so we conclude
 \[x\tilde{\circ}_iy=(-1)^{(n-1)(m-1)+(n-1)\deg(y)+(i-1)(m-1)}x\circ_i y.\]
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{maurercartan}
 The sign from \Cref{tilde} is exactly the sign in \cite{RW} from which the sign in the equation defining $A_\infty$-algebras (\cref{ainftyequation}) is derived. This means that if $m_s\in\OO(s)$ has degree $2-s$ and $m_{r+1+t}\in \OO(r+1+t)$ has degree $1-r-t$, abusing of notation we get
 
 \[m_{r+1+t}\tilde{\circ}_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s.\]
@@ -999,20 +992,26 @@ An $A_\infty$-multiplication on an operad $\OO$ is equivalent to an element $m\i
 \end{lem}
 \begin{proof}
 By definition, an $A_\infty$-multiplication on $\OO$ corresponds to a map of operads \[f:\mathcal{A}_\infty\to\OO.\] Such a map is determined by the images of the generators $\mu_i\in\mathcal{A}_\infty(i)$ of degree $2-i$. Whence, $f$ it is determined by $m_i=f(\mu_i)\in\OO(i)$. Let $m=m_1+m_2+\cdots$. Since \[\deg(m_i)=\deg(\mu_i)=2-i,\]
-we have that the image of $m_i$ in $\s\OO$ is of degree $2-i+i-1=1$. Therefore, $m\in\s\OO$ is homogeneous of degree 1. Now, let us check that $m\tilde{\circ}m=0$. Note that by \Cref{tildecircle} we have the operation $\tilde{\circ}$ defined as
-\[x\tilde{\circ}y=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(y)+(i-1)(m-1)}x\circ_i y\]
-for $x\in\OO(n)$ and $y\in\OO(m)$. Therefore, applying this definition to $m_{r+1+t}$ and $m_s$ we obtain that
-\begin{equation}\label{tildequation}
-m_{r+1+t}\tilde{\circ }_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1} m_s,
-\end{equation}
-which is the sign appearing in the definition of an $A_\infty$-algebra (\Cref{ainftyequation}). Since the elements $\mu_i$ satisfy the $A_\infty$-equation and $f$ is a map of operads, so do the elements $m_i=f(\mu_i)$. Therefore, we have
-\[0=\underset{r,t\geq 0,\ s\geq 1}{\sum_{r+s+t}}(-1)^{rs+t}m_{r+1+t}\circ_{r+1} m_s=\underset{r,t\geq 0,\ s\geq 1}{\sum_{r+s+t}}m_{r+1+t}\tilde{\circ}_{r+1}m_s=m\tilde{\circ}m.\] 
-%In the above sum, $r,t\geq 0$ and $s\geq 1$.
-Conversely, if $m\in\s\OO$ of degree 1 such that $m\tilde{\circ}m=0$, let $m_i$ be the component of $m$ lying in arity $i$. We have $m=m_1+m_2+\cdots$. By the usual identification, $m_i$ has degree $1-i+1=2-i$ in $\OO$. Now we can use \Cref{tildequation} to conclude that $m\tilde{\circ}m=0$ implies 
+we have that the image of $m_i$ in $\s\OO$ is of degree $2-i+i-1=1$. Therefore, $m\in\s\OO$ is homogeneous of degree 1. The fact that $m\tilde{\circ} m =0$ follows from \Cref{maurercartan} and $f$ being a map of operads.
+
+%Now, let us check that $m\tilde{\circ}m=0$. Note that by \Cref{tildecircle} we have the operation $\tilde{\circ}$ defined as
+%\[x\tilde{\circ}y=\sum_{i=1}^n(-1)^{(n-1)(m-1)+(n-1)\deg(y)+(i-1)(m-1)}x\circ_i y\]
+%for $x\in\OO(n)$ and $y\in\OO(m)$. Therefore, applying this definition to $m_{r+1+t}$ and $m_s$ we obtain that
+%\begin{equation}\label{tildequation}
+%m_{r+1+t}\tilde{\circ }_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1} m_s,
+%\end{equation}
+%which is the sign appearing in the definition of an $A_\infty$-algebra (\Cref{ainftyequation}). Since the elements $\mu_i$ satisfy the $A_\infty$-equation and $f$ is a map of operads, so do the elements $m_i=f(\mu_i)$. Therefore, we have
+%\[0=\underset{r,t\geq 0,\ s\geq 1}{\sum_{r+s+t}}(-1)^{rs+t}m_{r+1+t}\circ_{r+1} m_s=\underset{r,t\geq 0,\ s\geq 1}{\sum_{r+s+t}}m_{r+1+t}\tilde{\circ}_{r+1}m_s=m\tilde{\circ}m.\] 
+%%In the above sum, $r,t\geq 0$ and $s\geq 1$.
+Conversely, if $m\in\s\OO$ of degree 1 such that $m\tilde{\circ}m=0$, let $m_i$ be the component of $m$ lying in arity $i$. We have $m=m_1+m_2+\cdots$. By the usual identification, $m_i$ has degree $1-i+1=2-i$ in $\OO$. Now we can use \Cref{tildecircle} to conclude that $m\tilde{\circ}m=0$ implies 
 \[\underset{r,t\geq 0,\ s\geq 1}{\sum_{r+s+t}}(-1)^{rs+t}m_{r+1+t}\circ_{r+1} m_s=0.\]
 
 This shows that the elements $m_i$ determine a map $f:\mathcal{A}_\infty\to\OO$ defined on generators by $f(\mu_i)=m_i$, as desired. 
 \end{proof}
+
+\begin{remark}\label{multiplicationalgebra}
+An $A_\infty$-multiplication on the operad $\End_A$ is equivalent to an $A_\infty$-algebra structure on $A$.
+\end{remark}
 
 Recall that the Koszul dual cooperad $\mathcal{A}s^{¡}$ of the associative operad $\mathcal{A}s$ is $k\mu_n$ in arity $n$, where $\mu_n$ has degree $n-1$ for $n\geq 1$. Thus, for a graded module $A$, we have the following operad isomorphisms, where the notation $(\geq 1)$ means that we are taking the reduced sub-operad with trivial arity 0 component.
 
@@ -1035,7 +1034,7 @@ Above we needed to specify that only positive arity was considered. This is the 
 Let us expose the relation between operadic suspension and the usual suspension or shift of graded modules.
 
 \begin{thm}\label{markl}(\cite[Chapter 3, Lemma 3.16]{operads})
-Given a graded $R$-module $A$, there is an isomorphism of operads $\sigma^{-1}:\End_{S A}\cong \mathfrak{s}^{-1}\End_A$, where $\End_A$ is the endomorphism operad of $A$.
+Given a graded $R$-module $A$, there is an isomorphism of operads $\sigma^{-1}:\End_{S A}\cong \mathfrak{s}^{-1}\End_A$.%, where $\End_A$ is the endomorphism operad of $A$.
 \end{thm}
 The original statement is about vector spaces, but it is still true when $R$ is not a field. The proof in the original reference is not very explicit (see  \Cref{proofthm} for a detailed proof), but in the case of the operadic suspension defined above, the isomorphism is given by %\[\sigma^{-1}:\End_{S A}\to\mathfrak{s}^{-1}\End_A,\] where 
 $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$ for $F\in \End_{S A}(n)$. The symbol $\circ$ here is just composition of maps.
@@ -1047,7 +1046,7 @@ Even though $\sigma$ is only a map of graded modules, it can be shown in a compl
 \begin{equation}\label{barsigma}
 \overline{\sigma}:\End_{A}\cong\mathfrak{s}\End_{SA}.
 \end{equation}
-This isomorphism can also be proved using the isomorphism $\s\s^{-1}\OO\cong\OO$ from \Cref{suspiso}, namely, since $\End_{SA}\cong \s^{-1}\End_A$, we have \[\s\End_{SA}\cong \s\s^{-1}\End_A\cong \End_A.\]
+This isomorphism can also be proved using the isomorphism $\s\s^{-1}\OO\cong\OO$ from \Cref{suspiso}, namely, since $\End_{SA}\cong \s^{-1}\End_A$, we have $\s\End_{SA}\cong \s\s^{-1}\End_A\cong \End_A.$
 In this case, the isomorphism map that we obtain goes in the opposite direction to $\overline{\sigma}$, and it is precisely its inverse.
 
 
@@ -1080,7 +1079,7 @@ Given a morphism of collections $f:\OO\to\mathcal{P}$, there is an obvious induc
 \begin{equation}\label{sf}
 \s f:\s\OO\to\s\mathcal{P},\ \s f(x\otimes e^n)=f(x)\otimes e^n.
 \end{equation}
-Since morphisms of collections preserve arity, this map is well defined because $e^n$ is the same for $x$ and $f(x)$. Note that if $f$ is homogeneous, the degree of $\s f$ is the same as that of $f$.
+Since morphisms of collections preserve arity, this map is well defined because $e^n$ is the same for $x$ and $f(x)$. Note that if $f$ is homogeneous, $\deg(\s f)=\deg(f)$.
 
 \begin{lem}
 The assignment $\OO\mapsto \s\OO$ and $f\mapsto \s f$ is a functor on both the category $\mathrm{Col}$ of collections and the category $\mathrm{Op}$ of operads.
@@ -1114,7 +1113,7 @@ In particular, for $A_\infty$-algebras it is more convenient to work with $\s\OO
 \subsubsection{Monoidal properties of operadic suspension}\label{monoidalsusp}
 Now we are going to explore the monoidal properties of operadic suspension. Since operads are precisely monoids on the category $\mathrm{Col}$ of collections, we have the following.
 \begin{propo} %\mbox{}
-The endofunctor $\s:\mathrm{Col}\to\mathrm{Col}$ sends monoids to monoids and morphisms of monoids to morphisms of monoids, in other words, it induces a well-defined endofunctor on the category of monoids $\mathrm{Mon}(\mathrm{Col})$. \qed%is  lax monoidal with respect to the composition of $\mathbb{S}$-modules. 
+The endofunctor $\s:\mathrm{Col}\to\mathrm{Col}$ induces a well-defined endofunctor on the category of monoids of collections $\mathrm{Mon}(\mathrm{Col})$. \qed%is  lax monoidal with respect to the composition of $\mathbb{S}$-modules. 
 \end{propo}
 
 
@@ -1124,7 +1123,7 @@ In fact, we can show a stronger result.
 The functor $\s:\col\to \col$ defines a lax monoidal functor. When restricted to the subcategory of reduced operads, it is strong monoidal.
 \end{propo}
 \begin{proof}
-Firstly, we need to define the structure maps of a lax monoidal functor. Namely, we define the unit morphism $\varepsilon:I\to\s I$ to be the map $\varepsilon(n):I(n)\to I(n)\otimes S^{n-1}R$ to be the identity for $n\neq 1$ and the isomorphism $R\cong R\otimes R$ for $n=1$. We also need to define a natural transformation $\mu:\s\OO\circ\s\PP\to\s(\OO\circ\PP)$. To define it, observe that for $\PP=\OO$ we would want the map
+First, we need to define the structure maps of a lax monoidal functor. Namely, we define the unit morphism $\varepsilon:I\to\s I$ to be the map $\varepsilon(n):I(n)\to I(n)\otimes S^{n-1}R$ as the identity for $n\neq 1$ and the isomorphism $R\cong R\otimes R$ for $n=1$. We also need to define a natural transformation $\mu:\s\OO\circ\s\PP\to\s(\OO\circ\PP)$. To define it, observe that for $\PP=\OO$ we would want the map
 
 \[\s\OO\circ\s\OO\xrightarrow{\mu}\s(\OO\circ\OO)\xrightarrow{\s\gamma}\s\OO\]
  to coincide with the operadic composition $\tilde{\gamma}$ on $\s\OO$, where $\gamma$ is the composition on $\OO$. 
@@ -1247,10 +1246,12 @@ where $a(y_p)$ is the arity of $y_p$ (in this case $y_p$ is either $1$ or some $
 For this, recall that the degree of $\Lambda(a_i)$ is $a_i-1$ and that the generator of this space is inserted in the position $1+\sum_{j=0}^{i-1}k_j+\sum_{j=1}^{i-1}a_j$ of a wedge of $N+\sum_{j=1}^{i-1}a_j-i+1$ generators. Therefore, performing this insertion as described in the previous section yields the aforementioned sign. Now, since $N-n=k_0+\cdots+k_n$, we have that
 \[(a_i-1)(N-k_0+\cdots+k_{i-1}-i)=(a_i-1)(n-i+\sum_{l=i}^nk_l).\]
 
-Now we can compute the sign factor of a brace. For this, notice that the isomorphism $(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}$ does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
+Now we can compute the sign factor of a brace. For this, notice that the isomorphism $(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}$ does not produce any signs because of degree reasons. Therefore, the sign coming from the isomorphism
 
-\[\OO(N)\otimes\Lambda(N)\otimes (\OO(1)\otimes \Lambda(1))^{\otimes k_0}\otimes \bigotimes_{i=1}^n(\OO(a_i)\otimes\Lambda(a_i)\otimes(\OO(1)\otimes\Lambda(1))^{\otimes k_i}\]
-\[\cong \OO(N)\otimes\OO(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \OO(a_i)\otimes \OO(1)^{\otimes k_i})\otimes \Lambda(N)\otimes\Lambda(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \Lambda(a_i)\otimes \Lambda(1)^{\otimes k_i})\]
+\begin{align*}
+\OO(N)\otimes\Lambda(N)\otimes (\OO(1)\otimes \Lambda(1))^{\otimes k_0}\otimes \bigotimes_{i=1}^n(\OO(a_i)\otimes\Lambda(a_i)\otimes(\OO(1)\otimes\Lambda(1))^{\otimes k_i}\cong\\
+ \OO(N)\otimes\OO(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \OO(a_i)\otimes \OO(1)^{\otimes k_i})\otimes \Lambda(N)\otimes\Lambda(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \Lambda(a_i)\otimes \Lambda(1)^{\otimes k_i})
+\end{align*}
 is determined by the exponent
 
 \[(N-1)\sum_{i=1}^nq_i+\sum_{i=1}^n (a_i-1)\sum_{l>i}q_l.\]
@@ -1301,24 +1302,21 @@ For these collections we also have $\mathfrak{s}^{-1}\End^A_B\cong \End^{SA}_{SB
 
 
 \begin{lem}\label{infinitymorphisms}
-An $\infty$-morphism of $A_\infty$-algebras $A\to B$ with respective structure maps $m^A$ and $m^B$ is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that \[\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),\] 
+An $\infty$-morphism of $A_\infty$-algebras $A\to B$ with respective structure maps $m^A$ and $m^B$ is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that 
+\begin{equation}\label{operadicinftymorphism}
+\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),
+\end{equation}
 
 where \[\lambda:\mathfrak{s}\End_B\circ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the left module structure on $\End^A_B$ and \[\rho:\mathfrak{s}\End_B\circ_{(1)}\mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the right infinitesimal module structure on $\End^A_B$. 
 
 In addition, the composition of $\infty$-morphisms is given by the natural composition \[\s\End^B_C\circ \s\End^A_B\to \s\End^A_C.\]
 \end{lem}
 \begin{proof}
-From the definitions of the operations in the equation
-
-\begin{equation}\label{operadicmorphism}
-\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),
-\end{equation} 
-
-we know that this equation coincides with the one defining $\infty$-morphisms of $A_\infty$-algebras (\Cref{inftymorphism}) up to sign. The signs that appear in the above equation are obtained in a similar way to that on $\tilde{\gamma}$, see the proof of \Cref{bracesign}. Thus, it is enough to plug into the sign $\eta$ from \Cref{bracesign} the corresponding degrees and arities to obtain the desired result. The composition of $\infty$-morphisms follows similarly.
+From the definitions of the operations in \Cref{operadicinftymorphism}, we know that this equation coincides with the one defining $\infty$-morphisms of $A_\infty$-algebras (\Cref{inftymorphism}) up to sign. The signs that appear in the above equation are obtained in a similar way to that on $\tilde{\gamma}$, see the proof of \Cref{bracesign}. Thus, it is enough to plug into the sign $\eta$ from \Cref{bracesign} the corresponding degrees and arities to obtain the desired result. The composition of $\infty$-morphisms follows similarly.
 \end{proof}
 Notice the similarity between this definition and the definitions given in \cite[\S 10.2.4]{lodayvallette} taking into account the minor modifications to accommodate the dg-case.
 
-In the case that $f:A\to A$ is an $\infty$-endomorphism, \Cref{operadicmorphism} can be written in terms of operadic composition as $f\tilde{\circ}m=\tilde{\gamma}(m\circ f)$. 
+In the case that $f:A\to A$ is an $\infty$-endomorphism, \Cref{operadicinftymorphism} can be written in terms of operadic composition as $f\tilde{\circ}m=\tilde{\gamma}(m\circ f)$. 
 
 
 
@@ -1342,17 +1340,15 @@ Let $\OO$ be an operad of graded $R$-modules and $\s\OO$ its operadic suspension
 %\[x\tilde{\circ}_iy=(-1)^{(n-1)\deg(y)+(n-i)(m-1)}x\circ_i y.\]
 
 
-\begin{defin}\label{ainftymultiplication}
-Let $m\in\s\OO$ be of natural degree 1 and concentrated in positive arity such that $m\tilde{\circ}m=0$, or equivalently $m=m_1+m_2+\cdots$ is a formal sum of maps $m_j\in\OO(j)^{2-j}$ satisfying the usual $A_\infty$-equation for all $n\geq 1$
-\begin{equation}\label{Ainftyeq}
-\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0.
-\end{equation} 
-Such $m$ is an \emph{$A_\infty$-multiplication} on $\OO$. As we saw in \Cref{twisting}, its existence is equivalent to a map of operads $\mathcal{A}_\infty\to \OO$ from the operad $\mathcal{A}_\infty$ of $A_\infty$-algebras to $\OO$. We may call each $m_j$ the $j$-th \emph{component} of $m$.
-\end{defin}
+%\begin{defin}\label{ainftymultiplication}
+%Let $m\in\s\OO$ be of natural degree 1 and concentrated in positive arity such that $m\tilde{\circ}m=0$, or equivalently $m=m_1+m_2+\cdots$ is a formal sum of maps $m_j\in\OO(j)^{2-j}$ satisfying the usual $A_\infty$-equation for all $n\geq 1$
+%\begin{equation}\label{Ainftyeq}
+%\sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0.
+%\end{equation} 
+%Such $m$ is an \emph{$A_\infty$-multiplication} on $\OO$. As we saw in \Cref{twisting}, its existence is equivalent to a map of operads $\mathcal{A}_\infty\to \OO$ from the operad $\mathcal{A}_\infty$ of $A_\infty$-algebras to $\OO$. We may call each $m_j$ the $j$-th \emph{component} of $m$.
+%\end{defin}
 
-\begin{remark}\label{multiplicationalgebra}
-An $A_\infty$-multiplication on the operad $\End_A$ is equivalent to an $A_\infty$-algebra structure on $A$.
-\end{remark}
+
 
 Following \cite{GV} and \cite{getzler}, if we have an $A_\infty$ multiplication $m\in\OO$, one would define an $A_\infty$-algebra structure on $\s\OO$ using the maps 
 
@@ -1360,12 +1356,12 @@ Following \cite{GV} and \cite{getzler}, if we have an $A_\infty$ multiplication 
 M'_1(x)\coloneqq [m,x]=m\tilde{\circ} x-(-1)^{|x|}x\tilde{\circ}m, & &  \\
 M'_j(x_1,\dots, x_j)\coloneqq b_j(m;x_1,\dots, x_j),& &j>1.
 \end{align*}
-The prime notation here is used to indicate that these are not the definitive maps that we are going to take. Getzler shows in \cite{getzler} that $M'=M'_1+M'_2+\cdots$ satisfies the relation $M'\circ M'=0$ using that $m\circ m=0$, and the proof is independent of the operad in which $m$ is defined, so it is still valid if $m\tilde{\circ}m=0$. But we have two problems here. The equation $M'\circ M'=0$ does depend on how the circle operation is defined. More precisely, this circle operation in \cite{getzler} is the natural circle operation on the endomorphism operad, which does not have any additional signs, so $M'$ is not an $A_\infty$-structure under our convention. The other problem has to do with the degrees. We need $M'_j$ to be homogeneous of degree $2-j$ as a map $\s\OO^{\otimes j}\to \s\OO$, but we find that $M'_j$ is homogeneous of degree 1 instead as, the following lemma shows.
+The prime notation here is used to indicate that these are not the definitive maps that we are going to take. Getzler shows in \cite{getzler} that $M'=M'_1+M'_2+\cdots$ satisfies the relation $M'\circ M'=0$ using that $m\circ m=0$, and the proof is independent of the operad in which $m$ is defined, so it is still valid if $m\tilde{\circ}m=0$. But we have two problems here. The equation $M'\circ M'=0$ does depend on how the circle operation is defined. More precisely, this circle operation in \cite{getzler} is the natural circle operation on the endomorphism operad, which does not have any additional signs, so $M'$ is not an $A_\infty$-structure under our convention. The other problem has to do with the degrees. We need $M'_j$ to be homogeneous of degree $2-j$ as a map $\s\OO^{\otimes j}\to \s\OO$, but we find that $M'_j$ is homogeneous of degree 1 instead, as the following lemma shows.
 \begin{lem}\label{lemmadegree}
 For $x\in\s\OO$ we have that the degree of the map $b_j(x;-):\s\OO^{\otimes j}\to\s\OO$ of graded modules is precisely $|x|$.
 \end{lem}
 \begin{proof}
-Let $a(x)$ denote the arity of $x$, i.e. $a(x)=n$ whenever $x\in\s\OO(n)$. Also, let $\deg(x)$ be its internal degree in $\OO$. The natural degree of $b_j(x;x_1,\dots,x_j)$ for $a(x)\geq j$ is computed as follows. By definition, we have that the natural degree of $b_j(x;x_1,\dots,x_j)$ as an element of $\s\OO$ is
+Let $a(x)$ denote the arity of $x$, i.e. $a(x)=n$ whenever $x\in\s\OO(n)$. Also, let $\deg(x)$ be its internal degree in $\OO$. The natural degree of $b_j(x;x_1,\dots,x_j)$ for $a(x)\geq j$ as an element of $\s\OO$ by definition is
 
 \[|b_j(x;x_1,\dots,x_j)|=a(b_j(x;x_1,\dots,x_j))+\deg(b_j(x;x_1,\dots,x_j))-1.\]
 
@@ -1403,7 +1399,7 @@ are homogeneous of degree 1.
 For $j>1$ it is a direct consequence of \Cref{lemmadegree}. For $j=1$ we have the summand $b_1(m;x)$ whose degree follows as well from \Cref{lemmadegree}. The degree of the other summand, $b_1(x;m)$, can be computed in a similar way as in the proof \Cref{lemmadegree}, giving that $|b_1(x;m)|=1+|x|$. This concludes the proof.
 \end{proof}
 
-The problem we have encountered with the degrees can be resolved using shift maps as the following proposition shows. Recall that the \emph{shift} of a graded module $A$ is given by $SA^i=A^{i-1}$ and that we have maps $A\to SA$ of degree 1 given by the identity. 
+The problem we have encountered with the degrees can be resolved using shift maps as the following proposition shows. Recall that we have shift maps $A\to SA$ of degree 1 given by the identity. 
 
 \begin{propo}\label{ainftystructure}
 If $\OO$ is an operad with an $A_\infty$-multiplication $m\in\OO$, then there is an $A_\infty$-algebra structure on the shifted module $S\s\OO$. 
@@ -1460,7 +1456,7 @@ The reader might find odd to define the Hochschild complex in this way instead o
 \[
 \OO \to \End_\OO,\, x\mapsto \sum_{n\geq 0}b_n(x;-)
 \]
-is a morphism of $A_\infty$-algebras. In the associative case, this result leads to the definition of homotopy $G$-algebras, which connects with the classical Deligne conjecture. We are going to adapt the statement of this claim to our context and prove it. This way we will obtain an $A_\infty$ version of homotopy $G$-algebras and consequently an $A_\infty$-version of the Deligne conjecture. Let $\Phi'$ the map defined as above but on $\s\OO$, i.e.
+is a morphism of $A_\infty$-algebras. In the associative case, this result leads to the definition of homotopy $G$-algebras, which connects with the classical Deligne conjecture. We are going to adapt the statement of this claim to our context and prove it. This way we will obtain an $A_\infty$-version of homotopy $G$-algebras and consequently an $A_\infty$-version of the Deligne conjecture. Let $\Phi'$ the map defined as above but on $\s\OO$, i.e.
 \[
 \Phi'\colon\s\OO \to \End_{\s\OO},\, x\mapsto \sum_{n\geq 0}b_n(x;-).
 \]
@@ -1487,7 +1483,7 @@ holds, where the $M_j$ is the $j$-th component of the $A_\infty$-algebra structu
 Let us have a look at the following diagram
 
 \begin{equation}\label{proofdiagram}
-\begin{tikzcd}
+\begin{tikzcd}[row sep = 1.5em]
 (S\s\OO)^{\otimes j}\arrow[dr,red] \arrow[ddd, "M_j"']\arrow[rrrr, "\Phi^{\otimes j}"]& & & & (S\s\End_{S\s\OO})^{\otimes j}\arrow[ddd,  "\overline{M}_j"]\\
 &\s\OO^{\otimes j}\arrow[r,blue, "(\Phi')^{\otimes j}"]\arrow[d, blue, "M'_j"] & (\End_{\s\OO})^{\otimes j}\arrow[r, blue,"\overline{\sigma}^{\otimes j}"] \arrow[d, dashed, "\mathcal{M}_j",blue]& (\s\End_{S\s\OO})^{\otimes j}\arrow[ur,red]\arrow[d, "\overline{M}'_j",blue]& \\
 &\s\OO\arrow[r, blue, "\Phi'"]& \End_{\s\OO} \arrow[r, blue, "\overline{\sigma}"] & \s\End_{S\s\OO}\arrow[dr,red]& \\
@@ -1495,7 +1491,7 @@ S\s\OO\arrow[rrrr,  "\Phi"']\arrow[ur,red]& & & & S\s\End_{S\s\OO}
 \end{tikzcd}
 \end{equation}
 
-where the diagonal red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commutes. But these arrows are defined so that they commute with the red and blue arrows, so it is enough to show that the inner blue diagram commutes, since the outer squares commute by definition. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}_j$ that we are going to define next, so it will be enough to show that the two squares commute. The commutativity of the  left square will be more involved as we will have to distinguish between different kinds of insertions.
+where the diagonal red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commutes. But these arrows are defined so that they commute with the red and blue arrows, so it is enough to show that the inner blue diagram commutes. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}_j$ that we are going to define next, so it will be enough to show that the two squares commute. 
 
  The map 
 \[\mathcal{M}_j:(\End_{\s\OO})^{\otimes j}\to\End_{\s\OO}\]
@@ -1516,7 +1512,7 @@ is defined by
  \[\overline{M}'_j(\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(M;\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j)).\]
  Now, since the brace structure is defined as an operadic composition, it commutes with $\overline{\sigma}$, so
  \[\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{\sigma}(B_j(M';f_1,\dots, f_j))=\overline{\sigma}(\mathcal{M}_j(f_1,\dots, f_j)),\]
- and therefore the right blue square commutes for $j>1$. For $j=1$ the result follows analogously taking into account that the degree of $f$ in $\End_{\s\OO}$ is the same as the degree of $\overline{\sigma}(f)$ in $\s\End_{S\s\OO}$.
+ and therefore the right blue square commutes for $j>1$. For $j=1$ the result follows analogously.% taking into account that the degree of $f$ in $\End_{\s\OO}$ is the same as the degree of $\overline{\sigma}(f)$ in $\s\End_{S\s\OO}$.
 
 The proof that the left blue square commutes consists of several lengthy calculations so we are going to devote the next section to that. However, it is worth noting that the commutativity of the left square does not depend on the particular operad $\s\OO$, so it is still valid if $m$ satisfies $m\circ m=0$ for any circle operation defined in terms of insertions. This is essentially the original statement in \cite{GV}.
 \subsection*{\centering{Commutativity of the left blue square}}

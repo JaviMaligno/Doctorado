@@ -375,7 +375,7 @@ where $a(y_p)$ is the arity of $y_p$ (in this case $y_p$ is either $1$ or some $
 For this, recall that the degree of $\Lambda(a_i)$ is $a_i-1$ and that the generator of this space is inserted in the position $1+\sum_{j=0}^{i-1}k_j+\sum_{j=1}^{i-1}a_j$ of a wedge of $N+\sum_{j=1}^{i-1}a_j-i+1$ generators. Therefore, performing this insertion as described in the previous section yields the aforementioned sign. Now, since $N-n=k_0+\cdots+k_n$, we have that
 \[(a_i-1)(N-k_0+\cdots+k_{i-1}-i)=(a_i-1)\left(n-i+\sum_{l=i}^nk_l\right).\]
 
-Let us introduce for the rest of the proof the notation $a_0 = N$ for the sake of compactness of the formulas. Now we can compute the sign factor of a brace. For this, notice that the isomorphism \[(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}\] does not produce any signs because of degree reasons. Therefore, therefore the sign coming from the isomorphism
+Let us introduce for the rest of the proof the notation $a_0 = N$ for the sake of compactness of the formulas. Now we can compute the sign factor of a brace. For this, notice that the isomorphism \[(\OO(1)\otimes \Lambda(1))^{\otimes k}\cong \OO(1)^{\otimes k}\otimes \Lambda(1)^{\otimes k}\] does not produce any signs because of degree reasons. Therefore, the sign coming from the isomorphism
 
 %\[\OO(N)\otimes\Lambda(N)\otimes (\OO(1)\otimes \Lambda(1))^{\otimes k_0}\otimes \bigotimes_{i=1}^n(\OO(a_i)\otimes\Lambda(a_i)\otimes(\OO(1)\otimes\Lambda(1))^{\otimes k_i}\]
 %\[\cong \OO(N)\otimes\OO(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \OO(a_i)\otimes \OO(1)^{\otimes k_i})\otimes \Lambda(N)\otimes\Lambda(1)^{\otimes k_0}\otimes(\bigotimes_{i=1}^n \Lambda(a_i)\otimes \Lambda(1)^{\otimes k_i})\]
@@ -438,20 +438,17 @@ For these collections we also have $\mathfrak{s}^{-1}\End^A_B\cong \End^{SA}_{SB
 
 
 \begin{lem}\label{infinitymorphisms}
-An $\infty$-morphism of $A_\infty$-algebras $A\to B$ with respective structure maps $m^A$ and $m^B$ is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that \[\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),\] 
+An $\infty$-morphism of $A_\infty$-algebras $A\to B$ with respective structure maps $m^A$ and $m^B$ is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that
+\begin{equation}\label{operadicmorphism}
+\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),
+\end{equation} 
 
 where \[\lambda:\mathfrak{s}\End_B\circ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the left module structure on $\End^A_B$ and \[\rho:\mathfrak{s}\End_B\circ_{(1)}\mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the right infinitesimal module structure on $\End^A_B$. 
 
 In addition, the composition of $\infty$-morphisms is given by the natural composition \[\s\End^B_C\circ \s\End^A_B\to \s\End^A_C.\]
 \end{lem}
 \begin{proof}
-From the definitions of the operations in the equation
-
-\begin{equation}\label{operadicmorphism}
-\rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),
-\end{equation} 
-
-we know that this equation coincides with the one defining $\infty$-morphisms of $A_\infty$-algebras (\Cref{inftymorphism}) up to sign. The signs that appear in the above equation are obtained in a similar way to that on $\tilde{\gamma}$, see the proof of \Cref{bracesign}. Thus, it is enough to plug into the sign $\eta$ from \Cref{bracesign} the corresponding degrees and arities to obtain the desired result. The composition of $\infty$-morphisms follows similarly.
+From the definitions of the operations in \Cref{operadicmorphism}, we know that this equation coincides with the one defining $\infty$-morphisms of $A_\infty$-algebras (\Cref{inftymorphism}) up to sign. The signs that appear in the above equation are obtained in a similar way to that on $\tilde{\gamma}$, see the proof of \Cref{bracesign}. Thus, it is enough to plug into the sign $\eta$ from \Cref{bracesign} the corresponding degrees and arities to obtain the desired result. The composition of $\infty$-morphisms follows similarly.
 \end{proof}
 Notice the similarity between this definition and the definitions given in \cite[\S 10.2.4]{lodayvallette}, taking into account the minor modifications to accommodate the dg case.
 
@@ -600,7 +597,7 @@ The reader might find odd to define the Hochschild complex in this way instead o
 &\OO \to \End_\OO\\
 &x\mapsto \sum_{n\geq 0}b_n(x;-)
 \end{align*}
-is a morphism of $A_\infty$-algebras. In the associative case, this result leads to the definition of homotopy $G$-algebras, which connects with the classical Deligne conjecture. We are going to adapt the statement of this claim to our context and prove it. This way we will obtain an $A_\infty$ version of homotopy $G$-algebras and consequently an $A_\infty$-version of the Deligne conjecture. Let $\Phi'$ the map defined as above but on $\s\OO$, i.e.
+is a morphism of $A_\infty$-algebras. In the associative case, this result leads to the definition of homotopy $G$-algebras, which connects with the classical Deligne conjecture. We are going to adapt the statement of this claim to our context and prove it. This way we will obtain an $A_\infty$-version of homotopy $G$-algebras and consequently an $A_\infty$-version of the Deligne conjecture. Let $\Phi'$ the map defined as above but on $\s\OO$, i.e.
 \begin{align*}
 \Phi'\colon&\s\OO \to \End_{\s\OO}\\
 &x\mapsto \sum_{n\geq 0}b_n(x;-).
@@ -617,7 +614,7 @@ where the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given in \Cref{barsi
 \begin{remark}
 Notice that we have only used the operadic structure on $\s\OO$ to define an $A_\infty$-algebra structure on $S\s\OO$, so the constructions and results in these sections are valid if we replace $\s\OO$ by any graded module $A$ such that $SA$ is an $A_\infty$-algebra. 
 \end{remark}
-\pagebreak
+%\pagebreak
 \begin{thm}\label{theorem}
 The map $\Phi$ defined in diagram (\ref{Phi}) above is a morphism of $A_\infty$-algebras, i.e. for all $j\geq 1$ the equation
 
@@ -653,7 +650,8 @@ is defined by
  
  The inner square of diagram (\ref{proofdiagram}) is divided into two halves, so we divide the proof into two as well, showing the commutativity of each half independently.
  
- \subsection*{\centering{Commutativity of the right blue square}}
+\subsection*{\centering{Commutativity of the right blue square}}
+
  Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and $M=\overline{\sigma}(M')$. Then we have for $j>1$
  
  \begin{align*}
@@ -873,7 +871,7 @@ S&b_n(S^{-1}M_1(Sx);y_1,\dots, y_n)-M_1(Sb_n(x;y_1,\dots,y_n))\\
 Notice that our signs are slightly different to those in \cite{GV} as a consequence of our conventions. Our signs will be a particular case of those in \Cref{Jalgebras}, which are set so that \Cref{ainftydeligne} holds in consistent way with operadic suspension and all the shifts that the authors of \cite{GV} do not consider.
 
 We now introduce $J$-algebras as an $A_\infty$-generalization of homotopy $G$-algebras. This will allow us to generalize the Deligne conjecture to the $A_\infty$-setting. %We introduce now the notation $||x||=|x|+1$ in order to make the equations more compact.
-
+\pagebreak
 \begin{defin}\label{Jalgebras}
 A \emph{$J$-algebra} $V$ is an $A_\infty$-algebra with structure maps $\{M_j\}_{j\geq 1}$ such that the shift $S^{-1}V$ is a brace algebra. Furthermore, the braces and the $A_\infty$-structure satisfy the following compatibility relations. Let $x, x_1,\dots, x_j, y_1,\dots, y_n\in S^{-1}V$. For $n\geq 0$ we demand 
 \begin{align*}
