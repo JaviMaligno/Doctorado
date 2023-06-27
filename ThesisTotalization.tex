@@ -291,10 +291,7 @@ We also get the functorial properties that we studied for the single-graded case
 
 \subsection{Vertical suspension and totalization} 
 
-Now we are going to combine vertical operadic suspension and totalization. More precisely, the totalized vertical suspension a bigraded operad $\OO$ is the graded operad $\Tot(\s\OO)$. 
-
-
-This operad has an insertion map explicitly given by
+Now we are going to combine vertical operadic suspension and totalization. More precisely, the \emph{totalized vertical suspension} of a bigraded operad $\OO$ is the graded operad $\Tot(\s\OO)$. This operad has an insertion map explicitly given by
 \begin{equation}\label{star}
 (x\star_{r+1} y)_k=\sum_{k_1+k_2=k}(-1)^{(n-1)(d_2-k_2-m+1)+(n-1)(m-1)+r(m-1)+k_1d_2}x_{k_1}\circ_{r+1}y_{k_2}
 \end{equation}
@@ -340,7 +337,7 @@ as desired.
 \begin{remark}\label{othermu}
 As we mentioned in \Cref{heuristic}, there exist other possible ways of totalizing by varying the natural transformation $\mu$. For instance, we can choose the totalization functor $\Tot'$ which is the same as $\Tot$ but with a natural transformation $\mu'$ defined in such a way that the insertion on $\Tot'(\OO)$ is defined by \[(x\hat{\circ}y)_k=\sum_{k_1+k_2=k}(-1)^{k_2n_1}x_{k_1}\circ y_{k_2}.\] 
 
-This is also a valid approach for our purposes and there is simply a sign difference. But we have chosen our convention to be consistent with other conventions, like the derived $A_\infty$-equation. However, it can be verified that $\Tot'(\s\OO)=\s \Tot'(\OO)$. With the original totalization we have a non identity isomorphism given by \Cref{extrasign}. Similar relations can be found among the other alternatives mentioned in \Cref{heuristic}. %We will use this isomorphism later.
+This is also a valid approach for our purposes and there is simply a sign difference. But we have chosen our convention to be consistent with other conventions, such as the derived $A_\infty$-equation. However, it can be verified that $\Tot'(\s\OO)=\s \Tot'(\OO)$. With the original totalization we have a non identity isomorphism given by \Cref{extrasign}. Similar relations can be found among the other alternatives mentioned in \Cref{heuristic}. %We will use this isomorphism later.
 
 
 
@@ -368,9 +365,7 @@ Conversely, let $m\in\Tot(\s\OO)$ of degree 1, is concentrated in positive arity
 Similarly to \Cref{dg}, one can use the definition of $d\calA_\infty$ as an operad of vertical bicomplexes from \Cref{dainftyoperad}. In that case, one obtains in an analogous way to \Cref{mstar}, that a derived $A_\infty$-multiplication on of vertical bicomplexes $\OO$ with vertical differential $\partial$ is equivalent to an element of degree 1 concentrated on arity at least 2 satisfying the equation $\partial(m)+m\star m =0$. However, we stick to operads of bigraded modules for the sake of consistency.
 \end{remark}
 
-From \Cref{mstar}, since now $m$ is an $A_\infty$-multiplication on a single-graded operad, we can proceed as in the proof of \Cref{ainftystructure} to show that $m$ determines an $A_\infty$-algebra structure on $S\Tot(\s\OO)\cong S\s \Tot(\OO)$. 
-
-The goal now is showing that this $A_\infty$-structure on $S\Tot(\s\OO)$ is equivalent to a derived $A_\infty$-structure on $S\s \OO$ and compute the structure maps explicitly. We will do this in \Cref{derivedstructure}. 
+From \Cref{mstar}, since now $m$ is an $A_\infty$-multiplication on a single-graded operad, we can proceed as in the proof of \Cref{ainftystructure} to show that $m$ determines an $A_\infty$-algebra structure on $S\Tot(\s\OO)\cong S\s \Tot(\OO)$. The goal now is showing that this $A_\infty$-structure on $S\Tot(\s\OO)$ is equivalent to a derived $A_\infty$-structure on $S\s \OO$ and compute the structure maps explicitly. We will do this in \Cref{derivedstructure}. 
 
 Before that, let us explore the brace structures that appear from this new operadic constructions and use them to reinterpret derived $\infty$-morphisms and their composition.
 
@@ -436,7 +431,7 @@ for $x=(x_k)_k\in\Tot(\s\OO(N))^{d_0}$ and $x^i=(x^i_k)_k\in\Tot(\s\OO(a_i))^{d_
 for $f\in\Tot(\s\End_A)^N$ and $g\in\Tot(\s\End_A)^M$, is the same Lie bracket that was defined in \cite{LRW}. \qed
 \end{corollary}
 
-Notice that in \cite{LRW} the sign in the bracket is $(-1)^{(N+1)(M+1)}$, but this is because their total degree differs by 1 with respect to ours.
+Notice that in \cite{LRW} the sign in the bracket is $(-1)^{(N+1)(M+1)}$, but this is because their total degree differs by one with respect to ours.
 
 \subsection{Reinterpretation of derived $\infty$-morphisms}
 
