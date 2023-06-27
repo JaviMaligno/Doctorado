@@ -1321,7 +1321,7 @@ In the case that $f:A\to A$ is an $\infty$-endomorphism, \Cref{operadicinftymorp
 
 
 \section{$A_\infty$-algebra structures on operads}\label{sect2}
-
+In this section we use the previously described brace structures to prove \Cref{theorem}, which was originally claimed by Gerstenhaber and Voronov \cite{GV}. This leads us to our first new version of the Deligne conjecture, that we prove in \Cref{ainftydeligne}.
 
 Let $\OO$ be an operad of graded $R$-modules and $\s\OO$ its operadic suspension. Let us consider the underlying graded module of the operad $\s\OO$, which we call $\s\OO$ again by abuse of notation, i.e. $\s\OO=\prod_n \s\OO(n)$ with grading given by its natural degree, i.e. $|x|=n+\deg(x)-1$ for $x\in \s\OO(n)$, where $\deg(x)$ is its internal degree. 
 
@@ -2371,12 +2371,10 @@ We finish by outlining some questions that remain open after our research and th
 
 \subsection{Boundedness conditions}
 
-In \Cref{derivedmaps} we obtained a derived $A_\infty$-algebra structure on the bigraded module $A=S\s\OO$ for an operad $\OO$ with a derived $A_\infty$-multiplication. Since this structure was obtained from \Cref{whitehouse}, a crucial assumption for it to exist is that $A$ is horizontally bounded on the right. This was necessary to apply strict monoidality on $\Tot(A^{\otimes n})$. As a consequence, the components $m_{ij}$ of derived $A_\infty$-multiplication (\Cref{derivedmultiplication}) vanish for sufficiently large $i$. 
-
-As we mentioned in \Cref{boundednessremark}, this condition is satisfied in all known examples of derived $A_\infty$-algebras. These examples usually come as minimal models of dgas. So a first question that arises is the following.
+In \Cref{derivedmaps} we obtained a derived $A_\infty$-algebra structure on the bigraded module $A=S\s\OO$ for an operad $\OO$ with a derived $A_\infty$-multiplication. Since this structure was obtained from \Cref{whitehouse}, a crucial assumption for it to exist is that $A$ is horizontally bounded on the right. This was necessary to apply strict monoidality on $\Tot(A^{\otimes n})$. As a consequence, the components $m_{ij}$ of derived $A_\infty$-multiplication (\Cref{derivedmultiplication}) vanish for sufficiently large $i$. As we mentioned in \Cref{boundednessremark}, this condition is satisfied in all known examples of derived $A_\infty$-algebras. These examples usually come as minimal models of dgas. So a first question that arises is the following.
 
 %\textbf{Question 1.} ENVIRONMENT?
-\begin{question}{2}
+\begin{question}{1}
 Are there any conditions on a dga that guarantee that its minimal model is horizontally bounded on the right?
 \end{question}
 
@@ -2446,14 +2444,9 @@ By definition, this equals
 =n^2+2nm-3n+m^2-3m+2=n^2+m+m^2+m=0\mod 2
 \end{gather*}
 as desired, because $n^2=n\mod 2$.
-
-
 \end{proof}
 
-
-
-
-Recall that we define the \emph{suspension} or \emph{shift} of a graded module $A$ as the graded module $S A$ having degree components $(S A)^i=A^{i-1}$.
+%Recall that we define the \emph{suspension} or \emph{shift} of a graded module $A$ as the graded module $S A$ having degree components $(S A)^i=A^{i-1}$.
 
 \begin{thm}\label{proofthm}
 There is an isomorphism of (symmetric) operads $\End_{S A}\cong \mathfrak{s}^{-1}\End_A$.
@@ -2568,18 +2561,15 @@ The purpose of this last remark is not only review the Koszul sign rule but also
 
 In order to find the sign of the braces on $\s\End_A$, let us use an analogous strategy to the one used in \cite[Appendix]{RW} to find the signs of the Lie bracket $[f,g]$ on $\End_A$.
 
+Let $A$ be a graded module. Let $SA$ be the graded module with $SA^v=A^{v+1}$, and so the \emph{suspension} or \emph{shift} map $S:A\to SA$ given by the identity map has degree $-1$. Let $f\in \End_A(N)^i=\Hom_R(A^{\otimes N},A)^i$. Recall that $\sigma$ is the inverse of the map from \Cref{markl}, so that $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in \End_A(N)^{i+N-1}$. % $\sigma(f)$ is defined as the map making the following diagram commute.
+%\[
+%\begin{tikzcd}
+%SA^{\otimes N}\arrow[r, "\sigma(f)"]\arrow[d, "(S^{-1})^{\otimes N}"'] & SA\\
+%A^{\otimes N}\arrow[r,"f"] & A\arrow[u, "S"']
+%\end{tikzcd}
+%\]
 
-Let $A$ be a graded module. Let $SA$ be the graded module with $SA^v=A^{v+1}$, and so the \emph{suspension} or \emph{shift} map $S:A\to SA$ given by the identity map has internal degree $-1$.
-
- Let $f\in \End_A(N)^i=\Hom_R(A^{\otimes N},A)^i$. Recall that $\sigma$ is the inverse of the map from \Cref{markl}, so that $\sigma(f)$ is defined as the map making the following diagram commute.
-\[
-\begin{tikzcd}
-SA^{\otimes N}\arrow[r, "\sigma(f)"]\arrow[d, "(S^{-1})^{\otimes N}"'] & SA\\
-A^{\otimes N}\arrow[r,"f"] & A\arrow[u, "S"']
-\end{tikzcd}
-\]
-
-Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in \End_A(N)^{i+N-1}$. 
+%Explicitly, $\sigma(f)=S\circ f\circ (S^{-1})^{\otimes N}\in \End_A(N)^{i+N-1}$. 
 
 \begin{remark}
 In \cite{RW} there is a sign $(-1)^{N+i-1}$ in front of $f$, but it seems to be irrelevant for our purposes. Another fact to remark on is that the suspension of graded modules used here and in \cite{RW} is the opposite that we have used to define the operadic suspension in the sense that in \Cref{Sec2} we used $SA^v=A^{v-1}$. This does not change the signs or the procedure, but in the statement of \Cref{markl}, operadic desuspension should be changed to operadic suspension. %My suspension is better because it gives the total degree
@@ -2693,7 +2683,7 @@ So after adding the expression \ref{simply} modulo 2 we have only the terms that
 Let us move now to the $\varepsilon$ term in the sign to rewrite it. 
 $$\varepsilon=\sum_{j=1}^n (a_j+q_j-1)(n-j+\sum_j^n k_l)=\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l$$
 
-We may add this to what we had in \Cref{sofar} in such a way that the brace sign becomes
+We may add this to \Cref{sofar} in such a way that the brace sign becomes
 
 \begin{equation}\label{eta}
 \eta=\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l+\sum_{j=1}^n (a_j+q_j-1)(n-j)+\sum_{1\leq j\leq l\leq n} (a_j+q_j-1)k_l.
@@ -2716,7 +2706,6 @@ where $x\in (S\s\OO)^{n-k}_k$ and $\langle x,m_{il}\rangle=ik+(1-i)(n-1-k)$.
 Througout the proof we omit the shift maps. Let us first check the twisted complex equation up to signs, to give a conceptual proof before introducing the signs. Up to sign, the maps  $\{M_{i1}\}_{i\geq 0}$ must satisfy the equation
 \[\sum_{i+j=u} M_{i1}\circ M_{j1}=0,\]
 for all $u$, where $\circ$ is composition of maps. %I may or may not omit the sum to avoid writing too much, as it just means that the composition on every degree must vanish.
-
 Therefore, up to signs we have to compute
 \begin{align*}
 \sum_{i+j=u}M_{i1}(M_{j1}(x))=&\sum_{i+j=u}M_{i1}\left(\sum_l b_1(m_{jl};x)+b_1(x;m_{jl})\right)\\
