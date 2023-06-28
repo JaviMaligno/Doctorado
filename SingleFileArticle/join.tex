@@ -193,7 +193,7 @@ Next, we prove our first main result, \Cref{theorem}, which relates the $A_\inft
 \begin{manualtheorem}{A}
 There is a morphism of $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$.
 \end{manualtheorem} 
-This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we introduce a suitable context and prove it as \Cref{theorem}. We also draw a connection between our framework and the one from Gerstenhaber and Voronov. As a consequence of this theorem, if $A$ is an $A_\infty$-algebra and $\OO=\End_A$ its endomorphism operad, we obtain the following $A_\infty$-version of the Deligne Conjecture in \Cref{ainftydeligne}. 
+This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we introduce a suitable context and prove it as \Cref{theorem}. We also draw a connection between our framework and the one from Gerstenhaber and Voronov. As a consequence of this theorem, if $A$ is an $A_\infty$-algebra and $\OO=\End_A$ its endomorphism operad, we obtain the following $A_\infty$-version of the Deligne conjecture in \Cref{ainftydeligne}. 
 
 \begin{manualtheorem}{B}
 The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with an $A_\infty$-multiplication has a structure of a $J$-algebra.
@@ -208,7 +208,7 @@ The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with an $A_\infty$-multip
  \begin{manualtheorem}{D}
 There is a morphism of derived $A_\infty$-algebras $\Phi:S\s\OO\to S\s\End_{S\s\OO}$.
 \end{manualtheorem}
-As a consequence of this theorem we obtain a new version of the Deligne Conjecture, \Cref{dainftydeligne}, this time in the setting of derived $A_\infty$-algebras. For this we also introduce a derived version of $J$-algebras.
+As a consequence of this theorem we obtain a new version of the Deligne conjecture, \Cref{dainftydeligne}, this time in the setting of derived $A_\infty$-algebras. For this we also introduce a derived version of $J$-algebras.
 \begin{manualtheorem}{E}
 The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with a derived $A_\infty$-multiplication has a structure of derived $J$-algebra.
 \end{manualtheorem} 
@@ -1494,7 +1494,7 @@ S\s\OO\arrow[rrrr,  "\Phi"']\arrow[ur,red]& & & & S\s\End_{S\s\OO}
 where the diagonal red arrows are shifts of graded $R$-modules. We need to show that the diagram defined by the external black arrows commutes. But these arrows are defined so that they commute with the red and blue arrows, so it is enough to show that the inner blue diagram commutes. The blue diagram can be split into two different squares using the dashed arrow $\mathcal{M}_j$ that we are going to define next, so it will be enough to show that the two squares commute. 
 
  The map 
-\[\mathcal{M}_j:(\End_{\s\OO})^{\otimes j}\to\End_{\s\OO}\]
+$\mathcal{M}_j:(\End_{\s\OO})^{\otimes j}\to\End_{\s\OO}$
 is defined by 
 \begin{align*}
 &\mathcal{M}_j(f_1, \dots, f_j)=B_j(M';f_1,\dots, f_j) &\text{ for }j>1,\\
@@ -1505,11 +1505,11 @@ is defined by
  The $1$'s in the braces are identity maps. In the above definition, $|f|$ denotes the degree of $f$ as an element of $\End_{\s\OO}$, which is the same as the degree $\overline{\sigma}(f)\in \s\End_{S\s\OO}$ because $\overline{\sigma}$ is an isomorphism, as mentioned in \Cref{barsigma}.  %the degree as a map sO^n\to sO, which is computed by evaluating and computing arity +degree-1
  
  The inner square of diagram (\ref{proofdiagram}) is divided into two halves, so we divide the proof into two as well, showing the commutativity of each half independently.
- \pagebreak
+% \pagebreak
  \subsection*{\centering{Commutativity of the right blue square} }
- 
  Let us show now that the right square commutes. Recall that $\overline{\sigma}$ is an isomorphism of operads and $M=\overline{\sigma}(M')$. Then we have for $j>1$
  \[\overline{M}'_j(\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(M;\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j)).\]
+ 
  Now, since the brace structure is defined as an operadic composition, it commutes with $\overline{\sigma}$, so
  \[\overline{B}_j(\overline{\sigma}(M');\overline{\sigma}(f_1),\dots,\overline{\sigma}(f_j))=\overline{\sigma}(B_j(M';f_1,\dots, f_j))=\overline{\sigma}(\mathcal{M}_j(f_1,\dots, f_j)),\]
  and therefore the right blue square commutes for $j>1$. For $j=1$ the result follows analogously.% taking into account that the degree of $f$ in $\End_{\s\OO}$ is the same as the degree of $\overline{\sigma}(f)$ in $\s\End_{S\s\OO}$.
@@ -1634,11 +1634,11 @@ We are going to evaluate on $(z_1,\dots, z_n)$ to make this map more explicit, g
   
  In the case $n=0$, we have to note that $B_1(b_0(x);m)$ vanishes because of arity reasons: $b_0(x)$ is a map of arity 0, so we cannot insert any inputs. And this finishes the proof.
  \end{proof}
- \pagebreak
- \subsection{Explicit $A_\infty$-algebra structure and Deligne Conjecture}\label{sect4}
+ %\pagebreak
+ \subsection{Explicit $A_\infty$-algebra structure and Deligne conjecture}\label{sect4}
 
 We have given an implicit definition of the components of the $A_\infty$-algebra structure on $S\s\OO$, namely, \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
-but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$. We will need these explicit expressions to describe $J$-algebras, which are $A_\infty$-version of homotopy $G$-algebras. This way we can state the $A_\infty$-Deligne Conjecture in a more precise way. This explicit formulas will also clear up the connection with the work of Gerstenhaber and Voronov. We hope that these explicit expression can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
+but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$. We will need these explicit expressions to describe $J$-algebras, which are $A_\infty$-version of homotopy $G$-algebras. This way we can state the $A_\infty$-Deligne conjecture in a more precise way. This explicit formulas will also clear up the connection with the work of Gerstenhaber and Voronov. We hope that these explicit expression can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
 
 \begin{lem}\label{explicit}
 For $x,x_1,\dots,x_n\in\s\OO$, we have the following expressions.
@@ -1730,7 +1730,7 @@ In the sums we are setting $i_0=0$ and $i_{j+1}=n+1$.
 \end{defin}
 
 
-\begin{corollary}[The $A_\infty$-Deligne Conjecture]\label{ainftydeligne}
+\begin{corollary}[The $A_\infty$-Deligne conjecture]\label{ainftydeligne}
 If $A$ is an $A_\infty$-algebra, then its Hochschild complex $S\s\End_A$ is a $J$-algebra.
 \end{corollary}
 \begin{proof}
@@ -1816,9 +1816,9 @@ In this section we recall some definitions and results about derived $A_\infty$-
 
 
 \subsection{Derived $A_\infty$-algebras}
-
+In the following definition we use the notation in \cite{RW}.
   \begin{defin}
-  Using the notation in \cite{RW}, a \emph{derived $A_\infty$-algebra} on a $(\Z,\Z)$-bigraded $R$-module $A$ consist of a family of $R$-linear maps 
+  A {derived $A_\infty$-algebra} on a $(\Z,\Z)$-bigraded $R$-module $A$ consist of a family of $R$-linear maps 
 \[m_{ij}:A^{\otimes j}\to A\]
 of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
 \begin{equation}\label{dainftyequation}
@@ -2033,7 +2033,7 @@ This is also a valid approach for our purposes and there is simply a sign differ
 \end{remark}
 
 
-Using the operadic structure on $\Tot(\s\OO)$, we can describe derived $A_\infty$-multipilcations in a new conceptual way as we did in \Cref{twisting}, with analogous proof.
+Using the operadic structure on $\Tot(\s\OO)$, we can describe derived $A_\infty$-multiplications in a new conceptual way as we did in \Cref{twisting}, with analogous proof.
 
 \begin{lem}\label{mstar}
 A derived $A_\infty$-multiplication on a bigraded operad $\OO$ is equivalent to an element $m\in\Tot(\s\OO)$ of degree 1 concentrated in positive arity such that $m\star m = 0$. \qed
@@ -2172,12 +2172,9 @@ With these assumption, by \Cref{whitehouse} we can guarantee the existence of a 
 
 \begin{thm}\label{derivedmaps}
 Let $A=S\s\OO$ where $\OO$ is an operad horizontally bounded on the right with a derived $A_\infty$-multiplication $m=\sum_{ij}m_{ij}\in\OO$. Let $x_1\otimes\cdots\otimes x_j\in (A^{\otimes j})^{d-k}_k$ and let $x_v = Sy_v$ for $v=1,\dots, j$ and $y_v$ be of bidegree $(k_v,d_v-k_v)$. The following maps $M_{ij}$ for $j\geq 2$ determine a derived $A_\infty$-algebra structure on $A$.
-
-
 \[M_{ij}(x_1,\dots,x_j)= (-1)^{\sum_{v=1}^j(j-v)(d_v-k_v)}\sum_lSb_j(m_{il};y_1,\dots, y_j). \]
 \end{thm}
 Note that we abuse of notation and identify $x_1\otimes\cdots\otimes x_j$ with an element of $\Tot(A^{\otimes j})$ with only one non-zero component. For a general element, extend linearly.
-
 \begin{proof}
 Since $m$ is a derived $A_\infty$-multiplication $\OO$, we have that $m\star m=0$ when we view $m$ as an element of $\Tot(\s\OO)$. By \Cref{ainftystructure}, this defines an $A_\infty$-algebra structure on $S\Tot(\s\OO)$ given by maps
  %This isomorphism introduces some signs that will cancel with the signs introduced by the firts isomorphism of the cochain so we will omit them. 
@@ -2280,7 +2277,7 @@ where $\langle  m_{il},x\rangle=ik+(1-i)(d-1-k)$, as claimed.
 
 \subsection{Derived Deligne conjecture}
 
-Note that the maps given by \Cref{derivedmaps} and \Cref{mi1} formally look the same as their single-graded analogues in \Cref{explicit} but with an extra index that is fixed for each $M_{ij}$. This means that we can follow the same procedure as in \Cref{sect3} to define higher derived $A_\infty$-maps on the Hochschild complex of a derived $A_\infty$-algebra. More precisely, given an operad $\OO$ with a derived multiplication and $A=S\s\OO$, we will define a derived $A_\infty$-algebra structure on $S\s\End_A$. We will then connect the algebraic structure on $A$ with the structure on $S\s\End_A$ through braces. This connection will allow us to formulate and show a new version of the Deligne Conjecture.
+Note that the maps given by \Cref{derivedmaps} and \Cref{mi1} formally look the same as their single-graded analogues in \Cref{explicit} but with an extra index that is fixed for each $M_{ij}$. This means that we can follow the same procedure as in \Cref{sect3} to define higher derived $A_\infty$-maps on the Hochschild complex of a derived $A_\infty$-algebra. More precisely, given an operad $\OO$ with a derived multiplication and $A=S\s\OO$, we will define a derived $A_\infty$-algebra structure on $S\s\End_A$. We will then connect the algebraic structure on $A$ with the structure on $S\s\End_A$ through braces. This connection will allow us to formulate and show a new version of the Deligne conjecture.
 
 Let $\overline{B}_j$ be the bigraded brace map on $\s\End_{S\s\OO}$ and consider the maps
 \begin{equation}\label{barbimaps}
@@ -2676,7 +2673,7 @@ As we see, all the sums in the previous simplification appear in $\gamma$ so we 
 
 \[\sum_{0\leq j<l\leq n}k_jk_l+\sum_{0\leq j<l\leq n}k_ja_l+\sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j\leq l\leq n}a_jk_l+\sum_{1\leq j<l\leq n}a_ja_l+\sum_{1\leq j<l\leq n}a_jq_l.\]
 
-So after adding the expression \ref{simply} modulo 2 we have only the terms that include the internal degrees, i.e.
+So after adding the expression (\ref{simply}) modulo 2 we have only the terms that include the internal degrees, i.e.
 \begin{equation}\label{sofar}
 \sum_{0\leq j<l\leq n}k_jq_l+\sum_{1\leq j<l\leq n}a_jq_l.
 \end{equation}
