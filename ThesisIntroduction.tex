@@ -371,7 +371,7 @@ $\Omega X$ is thus a continuous map $f : S^ 1 \to X$ taking the base point of th
 
 We have the composition map
 \[
-m_2 : X ×X \to X
+m_2 : \Omega X × \Omega X \to \Omega X
 \]
 sending a pair of loops $(f_1, f_2)$ to the loop $f_1 * f_2 = m_2(f_1, f_2)$ obtained by running through $f_1$ on the first half of the circle at twice the speed and through $f_2$ on the second half.
 
@@ -434,7 +434,7 @@ This composition is not associative: for three loops $f_1$, $f_2$, $f_3$, the co
 
 There is a homotopy
 \[
-m_3 : [0, 1]×X × X \to X
+m_3 : [0, 1]× \Omega X × \Omega X \to \Omega X
 \]
 joining the two possibilities of composing three loops by a reparametrization. When we want to compose four
 loops, there are five possibilities corresponding to the five binary trees with four leaves. Using
@@ -627,7 +627,7 @@ x\otimes y &\mapsto (-1)^{\deg(x)\deg(y)}y\otimes x
 
 We also adopt the following Koszul sign convention: for $x\in A$, $y\in B$, $f\in\Hom_R(A,C)$ and $g\in\Hom_R(B,D)$,
 
-\[(f\otimes g)(a\otimes b)=(-1)^{\deg(x)\deg(g)}f(x)\otimes g(y).\]
+\[(f\otimes g)(x\otimes y)=(-1)^{\deg(x)\deg(g)}f(x)\otimes g(y).\]
 
 Recall that if $(A,\partial^A)$ and $(B,\partial^B)$ are (co)chain complexes, the module $\Hom_R(A,B)$ also becomes a (co)chain complex with differential
 \[\partial(f) = \partial^B\circ f +(-1)^{\deg(f)}f\circ\partial^A.\]
