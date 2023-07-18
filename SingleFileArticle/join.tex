@@ -199,7 +199,7 @@ This result was hinted at by Gerstenhaber and Voronov in \cite{GV}, but here we 
 The Hochschild complex $S\s\End_{S\s\OO}$ of an operad with an $A_\infty$-multiplication has a structure of a $J$-algebra.
 \end{manualtheorem} 
 
- In the above theorem, $J$-algebras play the role of homotopy $G$-algebras in the classical case \cite{GV}. After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras in \Cref{deriveddef}. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW}, which also defines a Lie Bracket.  From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our main results about derived $A_\infty$-algebras. The first one is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, the $A_\infty$-structure on totalization is equivalent to a derived $A_\infty$-algebra on $S\s\OO$.
+ In the above theorem, $J$-algebras play the role of homotopy $G$-algebras in the classical case \cite{GV}. After this, we move to the bigraded case. The goal for the bigraded section is showing that an operad $\OO$ with a derived $A_\infty$-multiplication $m\in\OO$ can be endowed with the structure of a derived $A_\infty$-algebra, just like in the classical case.  We start recalling some definitions of derived $A_\infty$-algebras and filtered $A_\infty$-algebras in \Cref{deriveddef}. In \Cref{operadic}, we define the totalization functor for operads and then the bigraded version of operadic suspension. We combine these two constructions to define an operation that allows us to understand a derived $A_\infty$-multiplication as a Maurer-Cartan element. As a consequence we obtain the star operation that was introduced in \cite{LRW}, which also defines a Lie Bracket. From this, we obtain in \Cref{sectionbibraces} a brace structure from which we can obtain a classical $A_\infty$-algebra on the graded operad $S\Tot(\s\OO)$. Finally, in \Cref{derivedstructure}, we prove our main results about derived $A_\infty$-algebras. The first one is \Cref{derivedmaps}, which shows that, under mild boundedness assumptions, the $A_\infty$-structure on totalization is equivalent to a derived $A_\infty$-algebra on $S\s\OO$.
  
  \begin{manualtheorem}{C}
 	For any operad $\OO$ with a derived $A_\infty$-multiplication there are linear maps $M_{ij}:(S\s\OO)^{\otimes j}\to S\s\OO$, satisfying the derived $A_\infty$-algebra axioms.
@@ -218,7 +218,7 @@ We finish the article in \Cref{future} by outlining some open question about der
 
 \section{Background and conventions}\label{Sec1}
 
-In this section we include all necessary background and the conventions we use throughout the article. It is divided in two parts, one corresponding to classical $A_\infty$-algebras and another one for derived $A_\infty$-algebras.
+This section includes all necessary background and the conventions we use throughout the article. It is divided in two parts, one corresponding to classical $A_\infty$-algebras and another one for derived $A_\infty$-algebras.
 
 \subsection{$A_\infty$-algebras}
 
@@ -2108,13 +2108,8 @@ Notice that in \cite{LRW} the sign in the bracket is $(-1)^{(N+1)(M+1)}$, but th
 
 \subsection{Reinterpretation of derived $\infty$-morphisms}
 
-Just like we did for graded modules on \Cref{reinterpretation}, for bigraded modules $A$ and $B$ we may define the collection $\End^A_B=\{\Hom(A^{\otimes n}, B)\}_{n\geq 1}$. Recall that this collection has a left module structure over $\End_B$
-\[\End_B\circ \End^A_B\to \End^A_B\]
-given by composition of maps. Similarly, given a bigraded module $C$, we can define composition maps
-\[\End^B_C\circ \End^A_B\to \End^A_C.\]
-The collection $\End^A_B$ also has an infinitesimal right module structure over $\End_A$
-\[\End^A_B\circ_{(1)}\End_A\to \End^A_B\]
-given by insertion of maps.
+Just like we did for graded modules on \Cref{reinterpretation}, for bigraded modules $A$ and $B$ we may define the collection $\End^A_B=\{\Hom(A^{\otimes n}, B)\}_{n\geq 1}$. Recall that this collection has a left module structure $\End_B\circ \End^A_B\to \End^A_B$ over $\End_B$ given by composition of maps. Similarly, given a bigraded module $C$, we can define composition maps $\End^B_C\circ \End^A_B\to \End^A_C.$
+The collection $\End^A_B$ also has an infinitesimal right module structure $\End^A_B\circ_{(1)}\End_A\to \End^A_B$ over $\End_A$ given by insertion of maps.
 
 Similarly to the single-graded case, we may describe derived $\infty$-morphisms in terms of the above operations, with analogous proof to \Cref{infinitymorphisms}.
 
@@ -2261,7 +2256,7 @@ is analogous to the last isomorphism of \Cref{whitehouse}, replacing the quasi-f
 According to \Cref{alternative}, if we have an $A_\infty$-algebra structure on $A = S\s\OO$, we can consider its arity 1 component $M_1\in\underline{\End}_{\Tot(A)}$ and split it into maps $M_{i1}\in \End_A$. Since these maps must satisfy the derived $A_\infty$-relations, they define a twisted complex structure on $A$. The next corollary describes the maps $M_{i1}$ explicitly.
 
 \begin{corollary}\label{mi1}
-Let $\OO$ be a bigraded operad with a derived $A_\infty$-multiplication and let \[M_{i1}:S\s\OO\to S\s\OO\] be the arity 1 derived $A_\infty$-algebra maps induced by \Cref{alternative} from \[M_1:\Tot(S\s\OO)\to \Tot(S\s\OO).\]
+Let $\OO$ be a bigraded operad with a derived $A_\infty$-multiplication and let $M_{i1}:S\s\OO\to S\s\OO$ be the arity 1 derived $A_\infty$-algebra maps induced by \Cref{alternative} from $M_1:\Tot(S\s\OO)\to \Tot(S\s\OO)$.
 Then \[M_{i1}(x)= \sum_l (Sb_1(m_{il};S^{-1}x)-(-1)^{\langle x,m_{il}\rangle}Sb_1(S^{-1}x;m_{il})),\]
 where $x\in (S\s\OO)^{d-k}_k$ and $\langle x,m_{il}\rangle=ik+(1-i)(d-1-k)$.
 \end{corollary}
@@ -2303,7 +2298,6 @@ where
 \[
 \Phi'\colon\s\OO \to \End_{\s\OO},\, x\mapsto \sum_{n\geq 0}b_n(x;-).
 \]
-The isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given by $\overline{\sigma}$.
 
 In this setting we have the bigraded version of \Cref{theorem}. But before stating the theorem, for the sake of completeness let us state the definition of the Hochschild complex of a bigraded module.
 \begin{defin}
@@ -2435,11 +2429,11 @@ Let us compute
 
 By definition, this equals
 
-\begin{gather*}
-\frac{(n+m-1)(n+m-2)}{2}+\frac{n(n-1)}{2}+\frac{m(m-1)}{2}+(n-1)(m-1)\\
-=\frac{(n^2+2nm-2n+m^2-2m-n-m+2)+(n^2-n)+(m^2-m)+2(nm-n-m+1)}{2}\\
-=n^2+2nm-3n+m^2-3m+2=n^2+m+m^2+m=0\mod 2
-\end{gather*}
+\begin{align*}
+&\frac{(n+m-1)(n+m-2)}{2}+\frac{n(n-1)}{2}+\frac{m(m-1)}{2}+(n-1)(m-1)\\
+&=\frac{(n^2+2nm-2n+m^2-2m-n-m+2)+(n^2-n)+(m^2-m)+2(nm-n-m+1)}{2}\\
+&=n^2+2nm-3n+m^2-3m+2=n^2+m+m^2+m=0\mod 2
+\end{align*}
 as desired, because $n^2=n\mod 2$.
 \end{proof}
 
@@ -2453,7 +2447,7 @@ For each $n$, we clearly have an isomorphism of graded modules
 
 \[\End_{S A}(n)=\Hom_R((S A)^{\otimes n},S A)\cong\Hom_R(A^{\otimes n},A)\otimes S^{1-n}sig_n= \mathfrak{s}^{-1}\End_A(n)\]
 
-given by the map $\sigma^{-1}$ defined before as \[\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n},\] where $\circ$ denotes the composition of maps. We must show that this map is an isomorphism of operads, in other words, it commutes with insertions and with the symmetric group action.
+given by the map $\sigma^{-1}$ defined before as $\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}$, where $\circ$ denotes the composition of maps. We must show that this map is an isomorphism of operads, in other words, it commutes with insertions and with the symmetric group action.
 
 Let us first check that $\sigma^{-1}$ commutes with insertions. For that, let $F\in \End_{S A}(n)$ and $G\in \End_{S A}(m)$. On the one had we have 
 
@@ -2512,15 +2506,8 @@ which indeed coincides with the sign on \Cref{secondmap}.
 If in the proof above we replace $S$ with $S^{-1}$, we have that the map
 
 \[\sigma^{-1}(F)=(-1)^{\binom{n}{2}}S^{-1}\circ F\circ S^{\otimes n}\]
- transforms into $(-1)^{\binom{n}{2}}S\circ F\circ (S^{-1})^{\otimes n}=S\circ F\circ (S^{\otimes n})^{-1}$. This is the map $\overline{\sigma}(F)$ from page 9 of \cite{RW}, and following the same proof we have done above but with this change of $S$ into $S^{-1}$ we get the isomorphism of operads
-
-\[
-\overline{\sigma}:\End_A\cong\s\End_{SA}.
-\]
+ transforms into $(-1)^{\binom{n}{2}}S\circ F\circ (S^{-1})^{\otimes n}=S\circ F\circ (S^{\otimes n})^{-1}$. This is the map $\overline{\sigma}(F)$ from page 9 of \cite{RW}, and following the same proof we have done above but with this change of $S$ into $S^{-1}$ we get the isomorphism of operads $\overline{\sigma}:\End_A\cong\s\End_{SA}$.
 \end{remark}
-
-
-
 
 \section{Koszul sign on operadic suspension}\label{koszulsigns}
 The purpose of this section is to clear up the procedure to apply the Koszul sign rule in situations in which operadic suspension is involved.
@@ -2528,7 +2515,6 @@ The purpose of this section is to clear up the procedure to apply the Koszul sig
 Let $\End_A$ be the endomorphism operad of some $R$-module $A$ and consider the operadic suspension $\s\End_A$. %We are going to make a few comments on the application of the Koszul rule when applying maps from $\s\End_A(n)$ to elements of $A^{\otimes n}$. 
 Let $f\otimes e^n\in\s\End_A(n)$ be of degree $\deg(f)+n-1$. %(do not be confuse with the notation that we used in Section \ref{functorial}, here $\s f$ is an element of an operad). 
 For $a\in A^{\otimes n}$ we have \[(f\otimes e^n)(a)=(-1)^{\deg(a)(n-1)}f(a)\otimes e^n\]
-
 because $\deg(e^n)=n-1$. Note that $f\otimes e^n=g\otimes e^n$ if and only if $f=g$. In addition, it is not possible that $f\otimes e^n=g\otimes e^m$ for $n\neq m$. %the 0  map is a different map oon arity n or m
 %The reader may notice that $f(a)\otimes  e^n\notin A$, but it can be identified with an element of $S^{n-1}A$. This is a reminiscence of the isomorphism $\s^{-1}\End_A\cong \End_{SA}$. %A map of degree d on SA^n->SA corresponds to a map of degree d-n+1 on A^n->A 
  
@@ -2543,7 +2529,7 @@ where $\varepsilon = \deg(a)(\deg(g)+m-1)+\deg(a)(n-1)+\deg(b)(m-1)$.
 The last remark that we want to make is the case of a map of the form 
 \[f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k})\otimes e^{m+n-1}\in\s\End_A(n+m-1),\] 
 such as those produced by the operadic insertion $\s f\tilde{\circ}_{k} \s g$. In this case, this map applied to $a_{k-1}\otimes b\otimes a_{n-k}\in A^{\otimes k-1}\otimes A^{\otimes m}\otimes A
-^{\otimes n-k}$ resulting in 
+^{\otimes n-k}$ results in 
 
 \begin{align*}
 (f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k})\otimes e^{m+n-1})(a_{k-1}\otimes b\otimes a_{n-k})=\\
