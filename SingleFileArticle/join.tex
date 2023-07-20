@@ -1071,7 +1071,7 @@ By \Cref{binom}, $f(x)=(-1)^{\binom{n}{2}}x$ is such an automorphism.
 \subsection{Functorial properties of operadic suspension}\label{functorial}
 
 
-Here we study operadic suspension at the level of the underlying collections as an endofunctor. Recall from \Cref{collections} that a collection is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules.
+Here we study operadic suspension at the level of the underlying collections as an endofunctor. Recall that a collection is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules.
 
 We define the suspension of a collection $\OO$ as $\mathfrak{s}\OO(n)=\OO(n)\otimes S^{n-1}R$, where $S^{n-1}R$ is the ground ring concentrated in degree $n-1$. We first show that $\s$ is a functor both on collections and on operads. %The ring $k[n-1]$ can of course be equipped with the sign action of the symmetric group, so we may have a diagonal action on the tensor product. 
 Given a morphism of collections $f:\OO\to\mathcal{P}$, there is an obvious induced morphism
@@ -1467,7 +1467,7 @@ S\s\OO\arrow[rr, "\Phi"]\arrow[d] & & S\s\End_{S\s\OO}\\
 \s\OO\arrow[r, "\Phi'"]& \End_{\s\OO}\arrow[r, "\cong"]& \s\End_{S\s\OO}\arrow[u]
 \end{tikzcd}
 \end{equation}
-where the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given in \Cref{barsigma}. Note that the degree of the map $\Phi$ is zero.
+where the isomorphism $\End_{\s\OO}\cong\s\End_{S\s\OO}$ is given in \Cref{barsigma}. 
 
 \begin{remark}
 Notice that we have only used the operadic structure on $\s\OO$ to define an $A_\infty$-algebra structure on $S\s\OO$, so the constructions and results in these sections are valid if we replace $\s\OO$ by any graded module $A$ such that $SA$ is an $A_\infty$-algebra. 
@@ -1638,7 +1638,7 @@ We are going to evaluate on $(z_1,\dots, z_n)$ to make this map more explicit, g
  \subsection{Explicit $A_\infty$-algebra structure and Deligne conjecture}\label{sect4}
 
 We have given an implicit definition of the components of the $A_\infty$-algebra structure on $S\s\OO$, namely, \[M_j=\overline{\sigma}(M'_j)=(-1)^{\binom{j}{2}}S\circ M'_j\circ(S^{-1})^{\otimes j},\]
-but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$. We will need these explicit expressions to describe $J$-algebras, which are $A_\infty$-version of homotopy $G$-algebras. This way we can state the $A_\infty$-Deligne conjecture in a more precise way. This explicit formulas will also clear up the connection with the work of Gerstenhaber and Voronov. We hope that these explicit expression can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
+but it is useful to have an explicit expression that determines how it is evaluated on elements of $S\s\OO$. We will need these explicit expressions to describe $J$-algebras, which are $A_\infty$-version of homotopy $G$-algebras. This way we can state the $A_\infty$-Deligne conjecture in a more precise way. These explicit formulas will also clear up the connection with the work of Gerstenhaber and Voronov. We hope that these explicit expressions can be useful to perform calculations in other mathematical contexts where $A_\infty$-algebras are used.
 
 \begin{lem}\label{explicit}
 For $x,x_1,\dots,x_n\in\s\OO$, we have the following expressions.
@@ -1904,7 +1904,7 @@ In this section we apply the totalization functor defined in \Cref{total} to ope
 
  We use \Cref{monoidal} and the fact that the image of an operad under a lax monoidal functor is also an operad \cite[Proposition 3.1.1(a)]{fresse} to guarantee that applying totalization on an operad will result again in an operad.
 
-Therefore, let $\OO$ be either a bigraded operad, i.e. an operad in te category of bigraded $R$-modules or an operad in twisted complexes. We define $\Tot(\OO)$ as the operad of graded $R$-modules (or cochain complexes) for which \[\Tot(\OO(n))^d=\bigoplus_{i<0}\OO(n)^{d-i}_i\oplus\prod_{i\geq 0} \OO(n)^{d-i}_i\] is the image of $\OO(n)$ under the totalization functor, and the insertion maps are given by the composition  
+Therefore, let $\OO$ be either a bigraded operad, i.e. an operad in te category of bigraded $R$-modules or an operad in twisted complexes. We define $\Tot(\OO)$ as the operad of graded $R$-modules (or cochain complexes) for which \[\Tot(\OO(n))^d=\bigoplus_{i<0}\OO(n)^{d-i}_i\oplus\prod_{i\geq 0} \OO(n)^{d-i}_i\] is the image of $\OO(n)$ under the totalization functor, and the insertion maps $\bar{\circ}_r$ are given by the composition  
 
 \begin{equation}\label{insertion}
 \Tot(\OO(n))\otimes \Tot(\OO(m))\xrightarrow{\mu} \Tot(\OO(n)\otimes \OO(m)) \xrightarrow{\Tot(\circ_r)} \Tot(\OO(n+m-1)),
@@ -1921,7 +1921,7 @@ More generally, operadic composition $\bar{\gamma}$ is defined by the composite
  \Tot(\OO(N)\otimes \OO(a_1)\otimes\cdots\otimes \OO(a_N))\arrow[r, "\Tot(\gamma)"]& \Tot\left(\OO\left(\sum a_i\right)\right),
 \end{tikzcd}
 \]
-This map can be computed explicitly by iteration of the insertion $\bar{\circ}$, giving the following.  %For simplicity, we abuse of notation by omitting sums
+This map can be computed explicitly by iteration of the insertions, giving the following.  
 
 \begin{lem}\label{totcomp}
 The operadic composition $\bar{\gamma}$ on $\Tot(\OO)$ is given by
@@ -2533,7 +2533,7 @@ such as those produced by the operadic insertion $\s f\tilde{\circ}_{k} \s g$. I
 
 \begin{align*}
 (f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k})\otimes e^{m+n-1})(a_{k-1}\otimes b\otimes a_{n-k})=\\
-(-1)^{(m+n)(\deg(a_{k-1})+\deg(b)+\deg(a_{n-k}))}(f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k}(a_{k-1}\otimes b\otimes a_{n-k}))\otimes e^{m+n-1}
+(-1)^{(m+n)(\deg(a_{k-1})+\deg(b)+\deg(a_{n-k}))}f(1^{\otimes k-1}\otimes g\otimes 1^{\otimes n-k})(a_{k-1}\otimes b\otimes a_{n-k})\otimes e^{m+n-1}
 \end{align*}
 To go from the first line to the second, we switch $e^{m+n-1}$ of degree $m+n-2$  with $a_{k-1}\otimes b\otimes a_{n-k}$. If we apply the usual sign rule for graded maps we obtain
 \[(-1)^{(m+n)(\deg(a_{k-1})+\deg(b)+\deg(a_{n-k}))+\deg(a_{k-1})\deg(g)}f(a_{k-1}\otimes g(b)\otimes a_{n-k})\otimes e^{m+n-1}.\]
