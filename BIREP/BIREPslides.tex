@@ -1,0 +1,145 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usetheme{Copenhagen}
+%\usepackage[spanish]{babel}
+\usepackage{multirow}
+%\usepackage{estilo-apuntes}
+\usepackage{braids}
+\usepackage[]{graphicx}
+\usepackage{rotating}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-cd}
+%\usepackage{empheq}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{xcolor}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{cd}
+\usetikzlibrary{babel}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{decorations.shapes}
+\pgfkeyssetvalue{/tikz/braid height}{1cm} %no parece hacer nada
+\pgfkeyssetvalue{/tikz/braid width}{1cm}
+\pgfkeyssetvalue{/tikz/braid start}{(0,0)}
+\pgfkeyssetvalue{/tikz/braid colour}{black}
+
+\theoremstyle{definition}
+
+\newtheorem{teorema}{Theorem}
+\newtheorem{defi}{Definition}
+\newtheorem{prop}[teorema]{Proposition}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\D}{\mathbb{D}}
+\providecommand{\gene}[1]{\langle{#1}\rangle}
+
+\DeclareMathOperator{\im}{im}
+
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    %\insertframenumber/\inserttotalframenumber
+}
+\setbeamercolor{footline}{fg=black}
+\setbeamerfont{footline}{series=\bfseries}
+
+\newcommand{\highlight}[1]{%
+	\colorbox{red!50}{$\displaystyle#1$}}
+
+\makeatletter
+\newcommand*{\encircled}[1]{\relax\ifmmode\mathpalette\@encircled@math{#1}\else\@encircled{#1}\fi}
+\newcommand*{\@encircled@math}[2]{\@encircled{$\m@th#1#2$}}
+\newcommand*{\@encircled}[1]{%
+	\tikz[baseline,anchor=base]{\node[draw,circle,outer sep=0pt,inner sep=.2ex] {#1};}}
+\makeatother
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+%-----------------------------------------------------------
+
+\title{Clustering with ToMATo}
+\author{Javier Aguilar Mart\'in}
+\institute{University of Kent}
+\date{}
+ 
+\begin{document}
+\frame{\titlepage}
+
+
+
+
+\setbeamercovered{highly dynamic}
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+
+\makeatletter
+\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\makeatother
+
+\resetcounteronoverlays{saveenumi}
+
+
+
+\section{Introduction}
+
+
+\begin{frame}[fragile]
+\frametitle{Introduction}
+INTRODUCE CLUSTERING AS A PROBLEM (ILL POSED)
+
+DENSITY BASED+MODE SEEKING+FIG 1 OR 2(MERGING PEAKS OF LOW PROMINENCE)
+
+GENERALITY AND EFFICIENCY
+
+\end{frame}
+
+\section{ToMATo}
+\begin{frame}[fragile]
+\frametitle{Continuous setting}
+ALL CONCEPTS AND DEFINITIONS
+\end{frame}
+
+\begin{frame}
+\frametitle{Discrete setting}
+INPUT, ALGORITHM WITH EXPLANATION, OUTPUT (MAYBE JUST WRITE DOWN THE ALGORITHM AND EXPLAIN IT IN WORDS, BUT MAKE SURE THE TWO PHASES ARE CLEARLY DISTINGUISHABLE) MAYBE PSEUDOCODE IMPLEMENTATION AS EXERCISE BUT IT'S LITERALLY ON THE PAPER
+COMPLEXITY
+\end{frame}
+
+\section{Parameter selection}
+\begin{frame}
+\frametitle{Parameter selection}
+VIETORIS RIPS MAINLY BECAUSE THERE ARE THEORETICAL RESULTS (EXPLAINED LATER)
+NOT MUCH ABOUT DENSITY ESTIMATION
+PROMINENCE PARAMETER: RUN TWICE AND OBSERVE PD (IT IS MENTIONED EARLIER IN THE PAPER BUT BETTER SAY JUST HERE)
+\end{frame}
+
+\section{Theoretical guarantees}
+\begin{frame}
+\frametitle{Theoretical guarantees}
+THE NON-TECHNICAL SECTION, IF THERE'S TIME GO MORE TECHNICAL AND USE THE NON-TECHNICAL AS EXPLANATION (MULTI-BIJECTIONS, INTERLEAVING DIAGRAMS -NO NEED TO DEFINE THEM, IT'S ON OTHER TOPICS, BUT INCLUDE A SLIDE JUST IN CASE)
+THE 4 POINTS OF SECTION 7 (NEED TO INCLUDE ASSUMPITON ON F AND ON THE MANIFOLD), THEOREM 7.2 (THIS IS RELATED TO THE QUARTERS) MAYBE MENTION THE TEXT BEFORE 7.3
+THEOREM 8.2 WITH FIG15 LEFT
+EXPLAIN THE DIFFERENT QUARTERS ACCORDING TO ALPHA
+USE DEF 9.1 FOR SEPARATED WITH 16 AND THM 9.2
+THM 10.1 WITH EXPLANATION BELOW
+\end{frame}
+
+\section{Experimental results}
+\begin{frame}
+\frametitle{Experimental results}
+THE RINGS FOR HIGH DIMENSIONAL STUFF AND IMAGE SEGMENTATION WITHOUT THE WEIRD BARS
+\end{frame}
+
+
+
+\end{document}
