@@ -54,4 +54,8 @@ rsconnect/
 *.vrb
 *.bbl
 *.blg
+*.bst
+/bst
+*.eps
+
 SmallProofs.tex

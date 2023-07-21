@@ -151,6 +151,7 @@
 \mathcode`!="8000
 \makeatother
 
+
 %--------------------------------------------------------
 
 
@@ -158,8 +159,7 @@
 \title{The derived Deligne conjecture}
 \author{Javier Aguilar Martín\, \orcidlink{0000-0001-9602-8240}}
 \address{University of Kent}
-%\email{javiecija96@gmail.com}
-\email{ja683@kent.ac.uk}
+\email{ja683@kent.ac.uk, javiecija96@gmail.com}
 \keywords{Operads, Derived $A_\infty-$algebras, Enriched categories, Deligne conjecture}
 \subjclass{18M70, 18M60, 18N70}
 
@@ -987,7 +987,7 @@ By \Cref{binom}, $f(x)=(-1)^{\binom{n}{2}}x$ is such an automorphism.
 \subsection{Functorial properties of operadic suspension}\label{functorial}
 
 
-Here we study operadic suspension at the level of the underlying collections as an endofunctor. Recall from \Cref{collections} that a collection is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules.
+Here we study operadic suspension at the level of the underlying collections as an endofunctor. Recall that a collection is a family $\OO=\{\OO(n)\}_{n\geq 0}$ of graded $R$-modules.
 
 We define the suspension of a collection $\OO$ as $\mathfrak{s}\OO(n)=\OO(n)\otimes S^{n-1}R$, where $S^{n-1}R$ is the ground ring concentrated in degree $n-1$. We first show that $\s$ is a functor both on collections and on operads. Given a morphism of collections $f:\OO\to\mathcal{P}$, there is an obvious induced morphism
 
@@ -1056,8 +1056,10 @@ We now show that $\mu$ is natural, or in other words, for $f:\OO\to\OO'$ and $g:
 \end{tikzcd}\]
  Let $c=x\otimes e^N\otimes x_1\otimes e^{a_1}\otimes\cdots\otimes x_N\otimes e^{a_N}\in \mathfrak{s}\mathcal{O}\circ\mathfrak{s}\mathcal{P}$ and let us compute $\s(f\circ g)(\mu(c))$. One has
  
-\[\s(f\circ g)(\mu(c))=\s(f\circ g)((-1)^{\sum_{j<l}a_j\deg(x_l)+\sum_{j=1}^N (a_j+\deg(x_j)-1)(N-j)} x\otimes x_1\otimes\cdots\otimes x_N \otimes e^n)=\]
-\[(-1)^{\nu}f(x)\otimes g(x_1)\otimes\cdots\otimes g(x_N) \otimes e^n\]
+\begin{align*}
+\s(f\circ g)(\mu(c))&=\s(f\circ g)((-1)^{\sum_{j<l}a_j\deg(x_l)+\sum_{j=1}^N (a_j+\deg(x_j)-1)(N-j)} x\otimes x_1\otimes\cdots\otimes x_N \otimes e^n)\\
+&=(-1)^{\nu}f(x)\otimes g(x_1)\otimes\cdots\otimes g(x_N) \otimes e^n
+\end{align*}
 where
 \[\nu=\sum_{j<l}a_j\deg(x_l)+\sum_{j=1}^N (\deg(x_j)+a_j-1)(N-j)+N\deg(g)\deg(x)+\deg(g)\sum_{j=1}^N\deg(x_j)(N-j).\]
 Now let us compute $\mu((\s f\circ \s  g)(c))$. We have
@@ -1867,7 +1869,7 @@ The other sign factor is produced by totalization. This was computed in \Cref{to
 \begin{lem}
 We have 
 \begin{equation}\label{bracetot}
-b_j^\star(x;x^1,\dots, x^N)_k=\underset{h_0+h_1+\cdots+h_N=j-N}{\sum_{k_0+k_1+\cdots+k_N=k}}(-1)^{\eta+\sum_{j=1}^m d_j\sum_{i=0}^{j-1}k_i}\gamma(x_{k_0};1^{h_0},x^1_{k_1},1^{h_1},\dots, x^N_{k_N},1^{h_N})
+b_j^\star(x;x^1,\dots, x^N)_k=\smashoperator[r]{\sum_{\substack{k_0+k_1+\cdots+k_N=k\\ h_0+h_1+\cdots+h_N=j-N}}}(-1)^{\eta+\sum_{j=1}^m d_j\sum_{i=0}^{j-1}k_i}\gamma(x_{k_0};1^{h_0},x^1_{k_1},1^{h_1},\dots, x^N_{k_N},1^{h_N})
 \end{equation}
 for $x=(x_k)_k\in\Tot(\s\OO(N))^{d_0}$ and $x^i=(x^i_k)_k\in\Tot(\s\OO(a_i))^{d_i}$, where $\eta$ is defined in \Cref{bigradedsign}. 
 \end{lem}
