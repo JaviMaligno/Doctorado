@@ -37,7 +37,7 @@
 \newcommand{\D}{\mathbb{D}}
 \providecommand{\gene}[1]{\langle{#1}\rangle}
 
-\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\argmax}{argmax}
 
 
 \addtobeamertemplate{navigation symbols}{}{%
@@ -136,6 +136,17 @@ piecewise-linear approximation $\tilde{f}$ of $f$; (c) superimposition of the PD
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+%to make more clear that the density is not the data
+\begin{figure}
+\includegraphics[scale=0.7]{ex}
+\caption{(a) estimation of the underlying density function $f$ at the data points;
+(b) initial clusters; (c) approximate PD showing 2 points far off the diagonal
+corresponding to the 2 prominent peaks of $f$; (d) final result obtained after merging the clusters of
+non-prominent peaks.}
+\end{figure}
+\end{frame}
+
 \section{ToMATo}
 \subsection{Continuous setting}
 \begin{frame}[fragile]
@@ -167,10 +178,62 @@ regions. These basins are our target clusters.
 
 \end{frame}
 
-\subsection{Discrete settibng}
+\subsection{Discrete setting}
 \begin{frame}
 \frametitle{Discrete setting}
-INPUT, ALGORITHM WITH EXPLANATION, OUTPUT (MAYBE JUST WRITE DOWN THE ALGORITHM AND EXPLAIN IT IN WORDS, BUT MAKE SURE THE TWO PHASES ARE CLEARLY DISTINGUISHABLE) MAYBE PSEUDOCODE IMPLEMENTATION AS EXERCISE BUT IT'S LITERALLY ON THE PAPER
+\begin{itemize}
+\item<1-> \textbf{Input}: unweighted simple graph $G$, whose
+vertex set represents the data points and whose edges connect the points that are similar. %that are close together, user-defined
+\begin{itemize}
+\item<1-> Each vertex $i$ of $G$ must be assigned a value $\tilde{f}(i)\geq 0$ corresponding to the estimated density at that point.
+\end{itemize}
+\item<1-> Merging parameter $\tau\geq 0$.
+\item<2-> \textbf{Output}: Subset of clusters $e$ whose root $r(e)$ are the peaks of $\tilde{f}$ with prominence at least $\tau$ and such that $\tilde{f}(r(e))\geq \tau$. %last bit to discard noise from sparse data that never gets merged
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithm}
+\textbf{Mode-seeking}
+
+\begin{itemize}
+\item<2-> Iterate over the vertices of $G$ sorted by decreasing $\tilde{f}$-values.
+\item<3-> Connect vertex $i$ to its neighbour with highest $\tilde{f}$-value if that value is higher than $\tilde{f}(i)$. Otherwise, $i$ is declared a peak of $\tilde{f}$. %it simulates the effect of the gradient of the underlying density function
+\end{itemize}  
+\begin{itemize}
+\item<4->[] The resulting collection of
+pseudo-gradient edges forms a spanning forest of the graph, and each tree in this
+forest is analogue to the ascending region of a peak of in the continuous setting.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Algorithm}
+\textbf{Merging}:
+\begin{itemize}
+\item<2-> Let $U$ be union-find data structure where each entry corresponds to a union of trees of the spanning forest.
+\item<3-> We call \emph{root} of an entry $e$, or $r(e)$, the vertex contained in $e$ whose $\tilde{f}$-value is highest.
+\item<4-> Iterate again over the vertices of $G$ in the same order: 
+\begin{itemize}
+\item<5-> If $i$ is a local peak of $\tilde{f}$, i.e. $i$ is the root of some tree $T$, create a new entry $e$ in $U$ containing $T$ and set $r(e)=i$.%bein a local peak of tilde f in G is the same as beeing the root of some tree
+\item<6-> Otherwise, let $e_i$ the entry of $U$ to which $i$ belongs. Compute the set of entries $E\subseteq U$ that contain the neighbours of $i$. For each $e\in E$, if $e\neq e_i$ and $\min\{\tilde{f}(e),\tilde{f}(e_i)\}<\tilde{f}(i)+\tau$, then merge $e$ and $e_i$ into $e\cup e_i$ in $U$ and set $r(e\cup e_i)=\argmax_{\{r(e),r(e_i)\}}\tilde{f}$. %this determines the prominence, because if a cluster is merged before reaching a vertex that is close in height to the root, the prominence is precisely that height difference because components are always bron at the peak and die when merged
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithm}
+ITEMIZE, PARAGRAPH ABOUT LIFESPANS
+Upon termination, the merged clusters stored in the entries of the union-find data
+structure $U$ form a partition of the vertex set of $G$, and their roots are the peaks of $\tilde{f}$
+of prominence at least $\tau$ within the graph. 
+
+The output of ToMATo is then the subset of this collection of clusters that is stored in those entries $e$ such that $\tilde{f}(r(e))\geq \tau$. 
+
+The rest of the data points is treated as
+background noise and discarded from the data set.
+\end{frame}
+
+\begin{frame}
 COMPLEXITY
 \end{frame}
 
