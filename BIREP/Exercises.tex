@@ -93,14 +93,22 @@ Give an example of a Morse function on a surface with at least one critical poin
 \end{exercise}
 
 \begin{exercise}
-Consider the following graph. Apply the ToMATo algorithm choosing a suitable value of the merging parameter $\tau$. Draw the persistence diagram and subdivided into two regions corresponding to the division between clusters and noise.
+Consider the following persistence diagram. Divide it into two regions corresponding to the division between signal and noise. Determine the number of clusters corresponding to your division.
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.7]{graphexercise}
+\includegraphics[scale=0.4]{diagramex}
 \end{figure}
 \end{exercise}
 
-\begin{exercise}[Bonus] Implement the ToMATo algorithm in a programming language of your choice and test it against some dataset.
+\begin{exercise}
+Consider the following graph with estimated density values on the vertices. Apply the ToMATo algorithm choosing a suitable value of the merging parameter $\tau$. 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{graphexercise}
+\end{figure}
 \end{exercise}
+%
+%\begin{exercise}[Bonus] Implement the ToMATo algorithm in a programming language of your choice and test it against some dataset.
+%\end{exercise}
 
 \end{document}

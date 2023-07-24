@@ -67,7 +67,7 @@
 
 \title{Clustering with ToMATo}
 \author{Javier Aguilar Mart\'in}
-\institute{University of Kent}
+\institute{BIREP}
 \date{}
  
 \begin{document}
@@ -222,19 +222,45 @@ forest is analogue to the ascending region of a peak of in the continuous settin
 
 \begin{frame}
 \frametitle{Algorithm}
-ITEMIZE, PARAGRAPH ABOUT LIFESPANS
-Upon termination, the merged clusters stored in the entries of the union-find data
+\begin{itemize}
+\item<1-> Upon termination, the merged clusters stored in the entries of the union-find data
 structure $U$ form a partition of the vertex set of $G$, and their roots are the peaks of $\tilde{f}$
 of prominence at least $\tau$ within the graph. 
 
-The output of ToMATo is then the subset of this collection of clusters that is stored in those entries $e$ such that $\tilde{f}(r(e))\geq \tau$. 
+\item<2-> The output of ToMATo is then the subset of this collection of clusters that is stored in those entries $e$ such that $\tilde{f}(r(e))\geq \tau$. 
 
-The rest of the data points is treated as
+\item<3-> The rest of the data points is treated as
 background noise and discarded from the data set.
+
+\item<4-> ToMATo can also output lifespans of all the entries: an entry is born when it is created with a single tree and dies when it is merged into another entry with higher root.
+\end{itemize}
+\end{frame}
+
+\subsection{Complexity}
+\begin{frame}
+\frametitle{Time complexity}
+Let $n$ be the number of vertices of $G$ and $m$ the number of edges.
+\begin{itemize}
+\item<1-> Mode-seeking and merging can be run simultaneously: for each vertex $i$ in $G$, compute the gradient at $i$,
+then perform merges in the union-find data structure $U$ as these involve only previously visited vertices.
+\item<2-> Mode-seeking phase takes a linear time in $n$ once the vertices have been sorted.
+\item<3-> Merging makes $O(n)$ union and $O(m)$ find queries to $U$. %union-find data structure
+\begin{itemize}
+\item <4->This is known to take $O(n \log n+m\alpha(n))$ where $\alpha$ is the inverse Ackerman function. %worst case scenario under an appropriate representation of U, gradients and roots stored in separate containers
+\end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}
-COMPLEXITY
+\frametitle{Space complexity}
+\begin{itemize}
+\item<1-> The graph $G$ does not have to be stored entirely in main memory: only the neighbourhood of vertex $i$ is involved at the
+$i$-th iteration of the clustering procedure. 
+
+\item<2-> The main memory usage is thus reduced to $O(n)$.
+
+\item<3-> The total space complexity remains $O(n + m)$ as the graph needs to be stored somewhere.
+\end{itemize}
 \end{frame}
 
 \section{Parameter selection}
@@ -242,7 +268,7 @@ COMPLEXITY
 \frametitle{Parameter selection}
 VIETORIS RIPS MAINLY BECAUSE THERE ARE THEORETICAL RESULTS (EXPLAINED LATER)
 NOT MUCH ABOUT DENSITY ESTIMATION
-PROMINENCE PARAMETER: RUN TWICE AND OBSERVE PD (IT IS MENTIONED EARLIER IN THE PAPER BUT BETTER SAY JUST HERE)
+PROMINENCE PARAMETER: RUN TWICE AND OBSERVE PD (IT IS MENTIONED EARLIER IN THE PAPER BUT BETTER SAY JUST HERE) MENTION ALSO THAT THE MERGIN CONDITION BECOMES TRIVIAL
 \end{frame}
 
 \section{Theoretical guarantees}
