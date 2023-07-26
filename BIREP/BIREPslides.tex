@@ -307,13 +307,62 @@ $i$-th iteration of the clustering procedure.
 \section{Theoretical guarantees}
 \begin{frame}
 \frametitle{Theoretical guarantees}
-THE NON-TECHNICAL SECTION, IF THERE'S TIME GO MORE TECHNICAL AND USE THE NON-TECHNICAL AS EXPLANATION (MULTI-BIJECTIONS, INTERLEAVING DIAGRAMS -NO NEED TO DEFINE THEM, IT'S ON OTHER TOPICS, BUT INCLUDE A SLIDE JUST IN CASE)
-THE 4 POINTS OF SECTION 7 (NEED TO INCLUDE ASSUMPITON ON F AND ON THE MANIFOLD), THEOREM 7.2 (THIS IS RELATED TO THE QUARTERS) MAYBE MENTION THE TEXT BEFORE 7.3t
-EXPLAIN THE DIFFERENT QUARTERS ACCORDING TO ALPHA
-USE DEF 9.1 FOR SEPARATED WITH 16 AND THM 9.2
-THM 10.1 WITH EXPLANATION BELOW
+\begin{itemize}
+\item<1-> Let $X$ be an $m$-dimensional Riemannian manifold with convexity radius $\rho>0$.
+\item<2-> Let $f : X \to \R$ a $c$-Lipschitz-continuous probability density function with respect to the $m$-dimensional Hausdorff measure. 
+\item<3-> Assume that the input data set $P$ has been sampled over $X$ according to $f$ in i.i.d. fashion, and that the values of $f$ at the data points and the geodesic distances in $X$ between the data points are known upt to small additive error. 
+\item<4-> Assume the input graph $G$ to be the $\delta$-Rips graph built over $P$ using the estimated geodesic distances for some $\delta$.
+%Recall that the convexity radius of X is the infimum over the points x in X of the supremum over the values
+%r >= 0 such that any geodesic ball of center x and radius r0 < r is geodesically convex, that is, any two points
+%in that ball are joined by a unique geodesic of length less than 2r0, and this geodesic is contained in the ball.
+\end{itemize}
 \end{frame}
 
+\begin{frame}
+\begin{definition}
+Given two values $d_2 > d_1 \geq 0$, the persistence diagram $D_0f$ is called $(d_1, d_2)$-separated if every point of $D_0f$ lies either in the region $D_1$ above the diagonal line $y = x - d_1$, or in the region $D_2$ below the diagonal line $y = x - d_2$ and to the right
+of the vertical line $x = d_2$.
+\end{definition}
+\begin{figure}
+\centering
+\includegraphics[scale=0.6]{separated}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{theorem}
+If $D_0f$ is $(d_1, d_2)$-separated and if $\delta<\min\{\rho, \frac{d_2-d_1}{5c}\}$, then for any $\tau\in (d_1 + 2c\delta, d_2 - 3c\delta)$ the number of clusters output by the algorithm is equal to the number of peaks of $f$ of prominence at least $\tau$ with probability at least $1 - e^{-\Omega(|P|)}$. %big Omega I think it is the one from number theory https://en.wikipedia.org/wiki/Big_O_notation#Family_of_Bachmann%E2%80%93Landau_notations
+\end{theorem}\pause
+The big-$\Omega$ notation hides a factor increasing monotonically with $c$ and $\delta$.
+\begin{itemize}
+\item<3-> The larger the prominence gap $d_2- d_1$, the
+larger the range of admissible values for $\tau$.
+\item<4-> The smaller $\delta$, the larger the range, but also the smaller
+the probability of success. %makes sense because small delta may cause more peaks
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+%Under the same hypotheses as previous theorem,
+\begin{theorem}
+ It holds with probability at least $1 - e^{-\Omega(n)}$ that for every point $p \in D_2$ the algorithm outputs
+a cluster $C$ such that \[C \cap F^\alpha = B_\tau (m_p) \cap P \cap F^\alpha\] for all $\alpha \in(\alpha_\tau (m_p) + d_1 +
+\frac{5}{2}c\delta, f(m_p)]$, where $m_p$ is the root of $p$, where $B_\tau (mp)$ denotes 
+the basin of attraction of $m_p$ in the underlying manifold $X$, and where $\alpha_\tau(m_p)$ is the first value of $\alpha$ at which $B_\tau(m_p)$ gets connected to the basin of attraction of another peak of
+$f$ of prominence at least $\tau$ in the superlevel-set $F^\alpha$.
+%m_p is the peak of f corresponding to p
+\end{theorem}\pause
+%We can approximate a stable part of the basins of attraction, even in the smooth case they are generally unstable
+As a consequence each basin of attraction is stable under small perturbations of the function $f$ between certain values of $f$. %the algorithm can be run multiple times with small perturbations of f
+\end{frame}
+%\begin{frame}
+%THE NON-TECHNICAL SECTION, IF THERE'S TIME GO MORE TECHNICAL AND USE THE NON-TECHNICAL AS EXPLANATION (MULTI-BIJECTIONS, INTERLEAVING DIAGRAMS -NO NEED TO DEFINE THEM, IT'S ON OTHER TOPICS, BUT INCLUDE A SLIDE JUST IN CASE)
+%THE 4 POINTS OF SECTION 7 (NEED TO INCLUDE ASSUMPITON ON F AND ON THE MANIFOLD), THEOREM 7.2 (THIS IS RELATED TO THE QUARTERS) MAYBE MENTION THE TEXT BEFORE 7.3t
+%EXPLAIN THE DIFFERENT QUARTERS ACCORDING TO ALPHA
+%USE DEF 9.1 FOR SEPARATED WITH 16 AND THM 9.2
+%THM 10.1 WITH EXPLANATION BELOW
+%\end{frame}
 \section{Experimental results}
 \begin{frame}
 \frametitle{Experimental results}
