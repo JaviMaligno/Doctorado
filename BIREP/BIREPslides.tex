@@ -266,17 +266,49 @@ $i$-th iteration of the clustering procedure.
 \section{Parameter selection}
 \begin{frame}
 \frametitle{Parameter selection}
-VIETORIS RIPS MAINLY BECAUSE THERE ARE THEORETICAL RESULTS (EXPLAINED LATER)
-NOT MUCH ABOUT DENSITY ESTIMATION
-PROMINENCE PARAMETER: RUN TWICE AND OBSERVE PD (IT IS MENTIONED EARLIER IN THE PAPER BUT BETTER SAY JUST HERE) MENTION ALSO THAT THE MERGIN CONDITION BECOMES TRIVIAL
+\textbf{Neighboorhood graph $G$}
+\begin{itemize}
+\item<1-> $\delta$-Rips graph connects two data points whenever they lie within distance $\delta$ of each other.
+\begin{itemize}
+\item<2-> Sound theoretical framework (to be seen later).
+\item<3-> The choice of a $\delta$ corresponds to the choice of a scale at which to inspect the data.
+\item<4-> Run the algorithm for several values of $\delta$. %small values produce to many small peaks, too large values misses the structure
+\end{itemize}
+\item<5-> $k$-nearest neighbour graph works in practice but lacks theoretical background. Need to choose $k$.
+\item<6-> Delaunay graph and variants. Parameter free but usually needs some tweaking.
+\end{itemize}
 \end{frame}
+
+\begin{frame}
+\frametitle{Parameter selection}
+\textbf{Density estimator $\tilde{f}$}
+\begin{itemize}
+\item<1-> The algorithm is agnostic to the choice of estimator. 
+\item<2-> Popular choice: truncated Gaussian kernel estimator. %review this in case someone asks, the other one is distance to a measure, but it is not popular, would have to check the reference
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Parameter selection}
+\textbf{Mergin parameter $\tau$}
+\begin{itemize}
+\item<1-> The choice of $\tau$ determines which peaks of $\tilde{f}$ are considered significant. %because peaks of less prominence are merged into more prominent peaks
+\item<2-> Run ToMATo twice: 
+\begin{itemize}
+\item<3-> For $\tau=+\infty$, the merging condition $\min\{\tilde{f}(e),\tilde{f}(e_i)\}<\tilde{f}(i)+\tau$ trivially holds and merges occur according to the persistence theory.
+\item<4-> The resulting PD can be used to choose $\tau$ for the second run.
+\item<5-> Sort the peaks by prominence value and look for the largest drop. %weighed by height to avoid squeezing
+\item<6-> Additional application-specific information can be used.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
 
 \section{Theoretical guarantees}
 \begin{frame}
 \frametitle{Theoretical guarantees}
 THE NON-TECHNICAL SECTION, IF THERE'S TIME GO MORE TECHNICAL AND USE THE NON-TECHNICAL AS EXPLANATION (MULTI-BIJECTIONS, INTERLEAVING DIAGRAMS -NO NEED TO DEFINE THEM, IT'S ON OTHER TOPICS, BUT INCLUDE A SLIDE JUST IN CASE)
-THE 4 POINTS OF SECTION 7 (NEED TO INCLUDE ASSUMPITON ON F AND ON THE MANIFOLD), THEOREM 7.2 (THIS IS RELATED TO THE QUARTERS) MAYBE MENTION THE TEXT BEFORE 7.3
-THEOREM 8.2 WITH FIG15 LEFT
+THE 4 POINTS OF SECTION 7 (NEED TO INCLUDE ASSUMPITON ON F AND ON THE MANIFOLD), THEOREM 7.2 (THIS IS RELATED TO THE QUARTERS) MAYBE MENTION THE TEXT BEFORE 7.3t
 EXPLAIN THE DIFFERENT QUARTERS ACCORDING TO ALPHA
 USE DEF 9.1 FOR SEPARATED WITH 16 AND THM 9.2
 THM 10.1 WITH EXPLANATION BELOW
