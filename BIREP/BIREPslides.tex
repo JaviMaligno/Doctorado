@@ -1,28 +1,20 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usetheme{Copenhagen}
-%\usepackage[spanish]{babel}
 \usepackage{multirow}
-%\usepackage{estilo-apuntes}
 \usepackage{braids}
 \usepackage[]{graphicx}
 \usepackage{rotating}
 \usepackage{pgf,tikz}
 \usepackage{pgfplots}
 \usepackage{tikz-cd}
-%\usepackage{empheq}
-%\usepackage[dvipsnames]{xcolor}
 \usepackage{xcolor}
 
 \usetikzlibrary{arrows}
 \usetikzlibrary{cd}
 \usetikzlibrary{babel}
 \pgfplotsset{compat=1.13}
-\usetikzlibrary{decorations.shapes}
-\pgfkeyssetvalue{/tikz/braid height}{1cm} %no parece hacer nada
-\pgfkeyssetvalue{/tikz/braid width}{1cm}
-\pgfkeyssetvalue{/tikz/braid start}{(0,0)}
-\pgfkeyssetvalue{/tikz/braid colour}{black}
+
 
 \theoremstyle{definition}
 
@@ -30,12 +22,8 @@
 \newtheorem{defi}{Definition}
 \newtheorem{prop}[teorema]{Proposition}
 
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\CC}{\mathcal{C}}
-\newcommand{\D}{\mathbb{D}}
-\providecommand{\gene}[1]{\langle{#1}\rangle}
+
 
 \DeclareMathOperator{\argmax}{argmax}
 
@@ -67,7 +55,7 @@
 
 \title{Clustering with ToMATo}
 \author{Javier Aguilar Mart\'in}
-\institute{BIREP}
+\institute{BIREP 2023}
 \date{}
  
 \begin{document}
@@ -92,10 +80,8 @@
 
 \section{Clustering}
 
-
-
 \begin{frame}
-\frametitle{clustering}
+\frametitle{Clustering}
 \begin{itemize}
 \item \textbf{Clustering} is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense) to each other than to those in other groups (clusters). %typically by distance %it is an ill posed problem in general
 
@@ -107,6 +93,7 @@
 
 \subsection{Classical methods}
 \begin{frame}
+\frametitle{Classical methods}
 \begin{itemize}
 \frametitle{}
 \item \textbf{Density clustering}: assume that data points are drawn from
@@ -120,11 +107,11 @@ of the superlevel-set $F^{\alpha} = f^{-1}([\alpha,+\infty))$ as clusters and th
 \begin{frame}
 \begin{figure}
 \includegraphics[scale=0.5]{basin}
-\caption{Basin of attraction}
+\caption{Basin of attraction.}
 \end{figure}
 \end{frame}
 
-\subsection{Topologicla persistence}
+\subsection{Topological persistence}
 \begin{frame}
 \begin{itemize}
 \item \textbf{Topological persistence}: Study the topology of the superlevel-sets $F^{\alpha} = f^{-1}([\alpha,+\infty))$ as $\alpha$ ranges from $+\infty$ to $-\infty$ to estimate the \emph{prominence} of the density peaks. %alpha goes backwards  %prominence is the lifespan of connected components
@@ -152,7 +139,7 @@ non-prominent peaks.}
 \begin{frame}[fragile]
 \frametitle{Continuous setting}
 \begin{itemize}
-\item<1-> Let $X$ be a $n$-dimensional Riemannian Mannifold without boundary and $f:X\to\R$ a bounded above and proper Morse function with finitely many critical points.
+\item<1-> Let $X$ be a $n$-dimensional Riemannian manifold without boundary and $f:X\to\R$ a bounded above and proper Morse function with finitely many critical points.
 \item<2-> Let $m$ be a critical point of $f$. The \textbf{ascending region} $A(m)$ is the set of points of $X$ that eventually reach $m$ moving along the gradient flow of $f$. For all $x\in A(m)$ we call $m=r(x)$ the \textbf{root} of $x$.
 
 \item<3-> For $\alpha\in\R$ let $F^\alpha=f^{-1}([\alpha,+\infty))$ be a superlevel-set. The family $\{F^\alpha\}_{\alpha\in\R}$ is called the \textbf{superlevel-set filtration} of $f$. Denote $C(x,\alpha)\subseteq F^\alpha$ the path-connected component of $F^\alpha$ containing $x$. %consider alpha varying from +infty to -infty
@@ -187,8 +174,8 @@ vertex set represents the data points and whose edges connect the points that ar
 \begin{itemize}
 \item<1-> Each vertex $i$ of $G$ must be assigned a value $\tilde{f}(i)\geq 0$ corresponding to the estimated density at that point.
 \end{itemize}
-\item<1-> Merging parameter $\tau\geq 0$.
-\item<2-> \textbf{Output}: Subset of clusters $e$ whose root $r(e)$ are the peaks of $\tilde{f}$ with prominence at least $\tau$ and such that $\tilde{f}(r(e))\geq \tau$. %last bit to discard noise from sparse data that never gets merged
+\item<2-> Merging parameter $\tau\geq 0$.
+\item<3-> \textbf{Output}: Subset of clusters $e$ whose root $r(e)$ are the peaks of $\tilde{f}$ with prominence at least $\tau$ and such that $\tilde{f}(r(e))\geq \tau$. %last bit to discard noise from sparse data that never gets merged
 \end{itemize}
 \end{frame}
 
@@ -215,7 +202,7 @@ forest is analogue to the ascending region of a peak of in the continuous settin
 \item<4-> Iterate again over the vertices of $G$ in the same order: 
 \begin{itemize}
 \item<5-> If $i$ is a local peak of $\tilde{f}$, i.e. $i$ is the root of some tree $T$, create a new entry $e$ in $U$ containing $T$ and set $r(e)=i$.%bein a local peak of tilde f in G is the same as beeing the root of some tree
-\item<6-> Otherwise, let $e_i$ the entry of $U$ to which $i$ belongs. Compute the set of entries $E\subseteq U$ that contain the neighbours of $i$. For each $e\in E$, if $e\neq e_i$ and $\min\{\tilde{f}(e),\tilde{f}(e_i)\}<\tilde{f}(i)+\tau$, then merge $e$ and $e_i$ into $e\cup e_i$ in $U$ and set $r(e\cup e_i)=\argmax_{\{r(e),r(e_i)\}}\tilde{f}$. %this determines the prominence, because if a cluster is merged before reaching a vertex that is close in height to the root, the prominence is precisely that height difference because components are always bron at the peak and die when merged
+\item<6-> Otherwise, let $e_i$ the entry of $U$ to which $i$ belongs. Compute the set of entries $E\subseteq U$ that contain the neighbours of $i$. For each $e\in E$, if $e\neq e_i$ and $\min\{\tilde{f}(e),\tilde{f}(e_i)\}<\tilde{f}(i)+\tau$, then merge $e$ and $e_i$ into $e\cup e_i$ in $U$ and set $r(e\cup e_i)=\argmax_{\{r(e),r(e_i)\}}\tilde{f}$. %this determines the prominence, because if a cluster is merged before reaching a vertex that is close in height to the root, the prominence is precisely that height difference because components are always born at the peak and die when merged
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -241,12 +228,12 @@ background noise and discarded from the data set.
 \frametitle{Time complexity}
 Let $n$ be the number of vertices of $G$ and $m$ the number of edges.
 \begin{itemize}
-\item<1-> Mode-seeking and merging can be run simultaneously: for each vertex $i$ in $G$, compute the gradient at $i$,
+\item<2-> Mode-seeking and merging can be run simultaneously: for each vertex $i$ in $G$, compute the gradient at $i$,
 then perform merges in the union-find data structure $U$ as these involve only previously visited vertices.
-\item<2-> Mode-seeking phase takes a linear time in $n$ once the vertices have been sorted.
-\item<3-> Merging makes $O(n)$ union and $O(m)$ find queries to $U$. %union-find data structure
+\item<3-> Mode-seeking phase takes a linear time in $n$ once the vertices have been sorted.
+\item<4-> Merging makes $O(n)$ union and $O(m)$ find queries to $U$. %union-find data structure
 \begin{itemize}
-\item <4->This is known to take $O(n \log n+m\alpha(n))$ where $\alpha$ is the inverse Ackerman function. %worst case scenario under an appropriate representation of U, gradients and roots stored in separate containers
+\item <5->This is known to take $O(n \log n+m\alpha(n))$ where $\alpha$ is the inverse Ackerman function. %worst case scenario under an appropriate representation of U, gradients and roots stored in separate containers
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -266,7 +253,7 @@ $i$-th iteration of the clustering procedure.
 \section{Parameter selection}
 \begin{frame}
 \frametitle{Parameter selection}
-\textbf{Neighboorhood graph $G$}
+\textbf{Neighbourhood graph $G$}
 \begin{itemize}
 \item<1-> $\delta$-Rips graph connects two data points whenever they lie within distance $\delta$ of each other.
 \begin{itemize}
@@ -284,13 +271,14 @@ $i$-th iteration of the clustering procedure.
 \textbf{Density estimator $\tilde{f}$}
 \begin{itemize}
 \item<1-> The algorithm is agnostic to the choice of estimator. 
-\item<2-> Popular choice: truncated Gaussian kernel estimator. %review this in case someone asks, the other one is distance to a measure, but it is not popular, would have to check the reference
+\item<2-> Popular choice: truncated Gaussian kernel estimator. %the other one is distance to a measure, but it is not popular, would have to check the reference
+%use truncated normal distribution as kernel, and then f(x) = K(x-x_i/h)/n
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Parameter selection}
-\textbf{Mergin parameter $\tau$}
+\textbf{Merging parameter $\tau$}
 \begin{itemize}
 \item<1-> The choice of $\tau$ determines which peaks of $\tilde{f}$ are considered significant. %because peaks of less prominence are merged into more prominent peaks
 \item<2-> Run ToMATo twice: 
@@ -331,7 +319,7 @@ of the vertical line $x = d_2$.
 
 \begin{frame}
 \begin{theorem}
-If $D_0f$ is $(d_1, d_2)$-separated and if $\delta<\min\{\rho, \frac{d_2-d_1}{5c}\}$, then for any $\tau\in (d_1 + 2c\delta, d_2 - 3c\delta)$ the number of clusters output by the algorithm is equal to the number of peaks of $f$ of prominence at least $\tau$ with probability at least $1 - e^{-\Omega(|P|)}$. %big Omega I think it is the one from number theory https://en.wikipedia.org/wiki/Big_O_notation#Family_of_Bachmann%E2%80%93Landau_notations
+If $D_0f$ is $(d_1, d_2)$-separated and if $\delta<\min\{\rho, \frac{d_2-d_1}{5c}\}$, then for any $\tau\in (d_1 + 2c\delta, d_2 - 3c\delta)$ the number of clusters output by the algorithm is equal to the number of peaks of $f$ of prominence at least $\tau$ with probability at least $1 - e^{-\Omega(n)}$. %big Omega I think it is the one from number theory https://en.wikipedia.org/wiki/Big_O_notation#Family_of_Bachmann%E2%80%93Landau_notations
 \end{theorem}\pause
 The big-$\Omega$ notation hides a factor increasing monotonically with $c$ and $\delta$.
 \begin{itemize}
@@ -340,15 +328,60 @@ larger the range of admissible values for $\tau$.
 \item<4-> The smaller $\delta$, the larger the range, but also the smaller
 the probability of success. %makes sense because small delta may cause more peaks
 \end{itemize}
-
 \end{frame}
 
+\begin{frame}
+\begin{definition}
+A \textbf{multi-bijection} between persistence diagrams $DX$ and $DY$ is a bijection
+\[
+\gamma:\bigcup_{p\in|DX|}\coprod_{i=1}^{\mu(p)}p\to \bigcup_{q\in|DY|}\coprod_{i=1}^{\mu(q)}q
+\]
+where $|DX|$ denotes the support of $DX$, i.e. the set $DX$ without any multiplicities, and where $\mu(p)$ denotes the multiplicity of point. 
+%the support is thoug to be a subset of R^2 (including infinities)
+\end{definition}\pause 
+Note that such bijections always exist since the points on the diagonal have
+infinite multiplicities. %so you can send the noise to the diagonal with no problem, and this doesn't measure the similarity, there is the bottleneck distance for that
+\end{frame}
+
+\begin{frame}
+\begin{definition}
+Given a subset $Y \subset X$ and $\varepsilon > 0$, $P$ is a \textbf{geodesic $\varepsilon$-
+sample} of $Y$ if every point of $Y$ lies within geodesic distance $\varepsilon$ of $P$.
+\end{definition}
+\begin{itemize}
+\item<2> Let $Q_\alpha^{NE}= (\alpha,+\infty]\times (\alpha,+\infty]$, $Q_\alpha^{SE}=(\alpha,+\infty]\times[-\infty,\alpha]$, $Q_\alpha^{SW}=[-\infty,\alpha]\times[-\infty,\alpha]$, and $Q_\alpha^{NE}=[-\infty,\alpha]\times(\alpha,+\infty]$. %quadrants
+
+\item<3-> Let $D_0R_\delta(P)$ be the persistence diagram obtained from the $\delta$-Rips graph obtained from $P$ as an approximation of $D_0f$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{theorem}
+For any positive $\delta < \rho$, for
+any $\alpha\in \R$ such that $P$ is a geodesic $\frac{\delta}{4}$-sample of $F^\alpha=f^{-1}((\alpha,+\infty])$, there is a multibijection $\gamma D_0f \to D_0R_\delta(P)$ such that:
+\begin{itemize}
+\item $\forall p\in D_0f\cap Q_\alpha^{NE}, ||p-\gamma(p)||_{\infty}\leq c\delta$.
+\item $\forall q\in D_0R_\delta(P)\cap Q_\alpha^{NE}, ||\gamma^{-1}(q)-q||_{\infty}\leq c\delta$.
+\item $\forall p\in D_0f\cap Q_\alpha^{SE}, |p_x-\gamma(p)_x|\leq c\delta$.
+\item $\forall q\in D_0R_\delta(P)\cap Q_\alpha^{SE}, |\gamma^{-1}(q)_x-q_x|\leq c\delta$.
+\end{itemize}
+%the reason is that outside the superlevelset we don't have control, and there is a quadrant where there are no points so it is not included
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[scale=0.8]{multibijection}
+\caption{Multibijection}
+\end{figure}
+\end{frame}
 \begin{frame}
 %Under the same hypotheses as previous theorem,
 \begin{theorem}
  It holds with probability at least $1 - e^{-\Omega(n)}$ that for every point $p \in D_2$ the algorithm outputs
 a cluster $C$ such that \[C \cap F^\alpha = B_\tau (m_p) \cap P \cap F^\alpha\] for all $\alpha \in(\alpha_\tau (m_p) + d_1 +
-\frac{5}{2}c\delta, f(m_p)]$, where $m_p$ is the root of $p$, where $B_\tau (mp)$ denotes 
+\frac{5}{2}c\delta, f(m_p)]$, where $m_p$ is the root of $p$, where $B_\tau (m_p)$ denotes 
 the basin of attraction of $m_p$ in the underlying manifold $X$, and where $\alpha_\tau(m_p)$ is the first value of $\alpha$ at which $B_\tau(m_p)$ gets connected to the basin of attraction of another peak of
 $f$ of prominence at least $\tau$ in the superlevel-set $F^\alpha$.
 %m_p is the peak of f corresponding to p
@@ -366,9 +399,28 @@ As a consequence each basin of attraction is stable under small perturbations of
 \section{Experimental results}
 \begin{frame}
 \frametitle{Experimental results}
-THE RINGS FOR HIGH DIMENSIONAL STUFF AND IMAGE SEGMENTATION WITHOUT THE WEIRD BARS
+\begin{figure}
+\centering
+\includegraphics[scale=1]{rings}
+\caption{Ring shaped clusters can also be detected.}
+\end{figure}
 \end{frame}
 
+\begin{frame}
+\frametitle{Image segmentation}
+Images must be mapped to a color space. %Luv space
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{segmentation}
+\end{figure}
+%tau can be chosen after checking different clustering results
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\Huge{Thank you very much!}
+\end{center}
+\end{frame}
 
 
 \end{document}
