@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{amsmath,accents}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{setspace}  
+\usepackage{amsthm}
+\usepackage{nccmath}
+\usepackage[UKenglish]{babel}
+\usepackage{multirow}
+\usepackage{enumerate}
+
+
+\renewcommand{\baselinestretch}{1,4}
+\setlength{\oddsidemargin}{0.5in}
+\setlength{\evensidemargin}{0.5in}
+\setlength{\textwidth}{5.4in}
+\setlength{\topmargin}{-0.25in}
+\setlength{\headheight}{0.5in}
+\setlength{\headsep}{0.6in}
+\setlength{\textheight}{8in}
+\setlength{\footskip}{0.75in}
+
+\theoremstyle{plain}
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\setcounter{exercise}{0}
+
+
+
+%--------------------------------------------------------
+\begin{document}
+
+\title{Clustering with ToMATo - Exercises }
+\author{Javier Aguilar Martín}
+\date{}
+\maketitle
+\begin{exercise}
+Give an example of a Morse function on a surface with at least one critical point and sketch its basins of attraction.
+\end{exercise}
+
+\begin{exercise}
+Consider the following persistence diagram. Divide it into two regions corresponding to the division between signal and noise. Determine the number of clusters corresponding to your division.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{diagramex}
+\end{figure}
+\end{exercise}
+
+\begin{exercise}
+Consider the following graph with estimated density values on the vertices. Apply the ToMATo algorithm choosing a suitable value of the merging parameter $\tau$. 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{graphexercise}
+\end{figure}
+\end{exercise}
+%
+%\begin{exercise}[Bonus] Implement the ToMATo algorithm in a programming language of your choice and test it against some dataset.
+%\end{exercise}
+
+\end{document}

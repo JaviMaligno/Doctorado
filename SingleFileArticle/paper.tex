@@ -129,6 +129,13 @@
 \theoremstyle{remark}
 \newtheorem{remark}[defin]{Remark}
 
+\newenvironment{acknowledgements}{%
+  \renewcommand{\abstractname}{Acknowledgements}% Rename Abstract to Acknowledgements
+  \begin{abstract}
+}{%
+  \end{abstract}
+}
+
 
 \newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
 
@@ -167,6 +174,11 @@
 \begin{abstract}
 We study the operad of derived $A_\infty$-algebras from a new point of view in order to find a derived version of the Deligne conjecture. We start by defining the brace structure on an operad of graded $R$-modules using operadic suspension, which we describe in depth for the first time as a functor, and use it to define $A_\infty$-algebra structures on certain operads, with the endomorphism operad as our main example. This construction provides us with an operadic context from which $A_\infty$-algebras arise in a natural way and allows us to generalize the Lie algebra structure on the Hochschild complex of an $A_\infty$-algebra. Next, we generalize these constructions to operads of bigraded $R$-modules, introducing a totalization functor. This allows us to generalize a Lie algebra structure on the total complex of a derived $A_\infty$-algebra. This construction and the use of some enriched categories allow us to obtain new versions of the Deligne conjecture.
 \end{abstract}
+
+\begin{acknowledgements}
+This paper is based on the author's PhD Thesis under the supervision of Constanze Roitzheim. This research was founded by a GTA scholarship at the University of Kent. The author would also like to thank Sarah Whitehouse for her contributions.
+\end{acknowledgements}
+
 
 \maketitle
 
@@ -1781,7 +1793,7 @@ Now we are going to combine vertical operadic suspension and totalization. More 
 \end{equation}
 for $x=(x_i)_i\in \Tot(\s\OO(n))^{d_1}$ and $x=(x_j)_j\in \Tot(\s\OO(m))^{d_2}$. As usual, denote \[x\star y=\sum_{r=0}^{m-1}x\star_{r+1}y.\]
 
-This star operation is precisely the star operation from \cite[\S 5.1]{LRW}, i.e. the convolution operation on $\Hom((dAs)^{!}, \End_A)$. In particular, we can recover the Lie bracket from in \cite{LRW}. We will do this in \Cref{biliebracket}.
+This star operation is precisely the star operation from \cite[\S 5.1]{LRW}, i.e. the convolution operation on $\Hom((dAs)^{¡}, \End_A)$. In particular, we can recover the Lie bracket from in \cite{LRW}. We will do this in \Cref{biliebracket}.
 
 Before continuing, let us show a lemma that allows us to work only with the single-graded operadic suspension if needed.
 \begin{propo}\label{extrasign}
