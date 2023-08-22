@@ -1,0 +1,928 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usetheme{Copenhagen}
+%\usepackage[spanish]{babel}
+\usepackage{multirow}
+%\usepackage{estilo-apuntes}
+\usepackage{braids}
+\usepackage[]{graphicx}
+\usepackage{rotating}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{tikz-cd}
+\usepackage{oplotsymbl} %filled pentagon go brrrr
+%\usepackage{empheq}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{xcolor}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{cd}
+\usetikzlibrary{babel}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{decorations.shapes}
+%\pgfkeyssetvalue{/tikz/braid height}{1cm} %no parece hacer nada
+%\pgfkeyssetvalue{/tikz/braid width}{1cm}
+%\pgfkeyssetvalue{/tikz/braid start}{(0,0)}
+%\pgfkeyssetvalue{/tikz/braid colour}{black}
+
+\theoremstyle{definition}
+
+\newtheorem{teorema}{Theorem}
+\newtheorem{defi}{Definition}
+\newtheorem{prop}[teorema]{Proposition}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\Tot}{\mathrm{Tot}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\s}{\mathfrak{s}}
+\providecommand{\gene}[1]{\langle{#1}\rangle}
+
+\DeclareMathOperator{\im}{im}
+
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    %\insertframenumber/\inserttotalframenumber
+}
+\setbeamercolor{footline}{fg=black}
+\setbeamerfont{footline}{series=\bfseries}
+
+\newcommand{\highlight}[1]{%
+	\colorbox{red!50}{$\displaystyle#1$}}
+
+\makeatletter
+\newcommand*{\encircled}[1]{\relax\ifmmode\mathpalette\@encircled@math{#1}\else\@encircled{#1}\fi}
+\newcommand*{\@encircled@math}[2]{\@encircled{$\m@th#1#2$}}
+\newcommand*{\@encircled}[1]{%
+	\tikz[baseline,anchor=base]{\node[draw,circle,outer sep=0pt,inner sep=.2ex] {#1};}}
+\makeatother
+
+
+%-----------------------------------------------------------
+
+\title{The derived Deligne conjecture}
+\author{Javier Aguilar Mart\'in}
+\institute{University of Kent}
+\date{}
+ 
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+AVOID OPERADS
+
+REVIEW OF CLASSICAL RESULTS ONLY ALGEBRA (HOCHSCHILD COHOMOLOGY, BRACES, MAP PHI)
+MOTIVATE AINFTY THROUGH TRANSFER (MAYBE) AND MINIMAL MODELS (MORE IMPORTANT)
+REPRESENT THE RELATIONS WITH ASSOCIAHEDRA TO BE MORE VISUAL (AND TO PROVIDE AN EXAMPLE THOUGH CHAINS)
+INFTY DELIGNE CONJECTURE (FIRST TIME COMPLETE LIST OF BRACE RELATIONS, PROBABLY KNOWN BUT DESCRIBED OTHER WAYS)
+MOTIVATE DERIVED AINFTY ALGEBRAS (MENTION LACK OF GEOMETRICAL MODEL)
+DERIVED DELIGNE CONJECTURE
+
+\end{frame}
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\section{Algebraic Deligne Conjecture}
+\subsection{Hochschild cohomology}
+\begin{frame}
+\frametitle{Hochschild cohomology of an associative algebra}
+DEFINE HOCHSCHILD COMPLEX AND COHOMOLOGY
+BRACES
+\end{frame}
+\begin{frame}
+\frametitle{Deligne conjecture}
+STRUCTURE ON HOCHSCHILD COMPLEX (MAYBE ALSO ON COHOMOLOGY)
+\end{frame}
+
+\section{$A_\infty$-algebras}
+%\section{Operads}
+%\begin{frame}
+%\frametitle{Operads}
+%
+%	\begin{itemize}
+%			\item<1-> An \emph{(non-symmetric) operad} is a collection of spaces  $\mathcal{O}=\{\mathcal{O}(n)\}_{n\geq 0}$, whose points are thought to be $n$-ary operations $X^n\to X$. %decir que pueden ser (topological spaces, vector spaces, other objects) siempre que los axiomas tengan sentido, es decir, comentar que esto se puede hacer en cualquier categoría monoidal simétrica diciendo por encima lo que es: producto, unidad y axiomas. Poner algo de todos modos en alguna diapositiva
+%			\item<2-> We represent $n$-ary operations as trees with the following shape
+%			\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+%			\clip(-2.13333333333334,-0.093333333333332) rectangle (12.006666666666668,3.5);
+%			\draw [line width=2.pt] (2.,0.)-- (2.,1.);
+%			\draw [line width=2.pt] (2.,1.)-- (0.3666666666666659,3.);
+%			\draw [line width=2.pt] (2.,1.)-- (1.,3.);
+%			\draw [line width=2.pt] (2.,1.)-- (1.7,3.);
+%			\draw [line width=2.pt] (2.,1.)-- (3.,3.);
+%			\draw (0.1,3.493333333333331) node[anchor=north west] {$1$};
+%			\draw (0.8,3.52) node[anchor=north west] {$2$};
+%			\draw (1.5,3.493333333333331) node[anchor=north west] {$3$};
+%			\draw (2.8,3.453333333333331) node[anchor=north west] {$n$};
+%			\draw (2.1,3.453333333333331) node[anchor=north west] {$\cdots$};
+%			\end{tikzpicture}
+%	\end{itemize}
+%
+%\end{frame}
+%
+%\begin{frame}
+%	\begin{itemize}
+%		\item There are \emph{composition maps} $\gamma : \mathcal{O}(n) \otimes \mathcal{O}(j_1) \otimes \cdots \otimes \mathcal{O}(j_n) \to \mathcal{O}(j_1+\cdots+j_s)$
+%		
+%		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+%		\clip(-0.7355555555555552,-0.3222222222222197) rectangle (9.486666666666668,4.);
+%		\draw [line width=1.2pt] (3.,0.)-- (3.,1.);
+%		\draw [line width=1.2pt] (3.,1.)-- (1.,2.);
+%		\draw [line width=1.2pt] (3.,1.)-- (5.,2.);
+%		\draw [line width=1.2pt] (3.,1.)-- (2.,2.);
+%		\draw [line width=1.2pt] (3.,1.)-- (4.,2.);
+%		\draw [line width=1.2pt] (1.,2.)-- (1.0066666666666673,2.593333333333333);
+%		\draw [line width=1.2pt] (1.0066666666666673,2.593333333333333)-- (0.5,3.5);
+%		\draw [line width=1.2pt] (1.0066666666666673,2.593333333333333)-- (1.,3.5);
+%		\draw [line width=1.2pt] (1.0066666666666673,2.593333333333333)-- (1.362222222222223,3.4822222222222172);
+%		\draw [line width=1.2pt] (2.,2.)-- (1.9933333333333343,2.6555555555555532);
+%		\draw [line width=1.2pt] (1.9933333333333343,2.6555555555555532)-- (1.6555555555555563,3.491111111111106);
+%		\draw [line width=1.2pt] (1.9933333333333343,2.6555555555555532)-- (2.,3.5);
+%		\draw [line width=1.2pt] (1.9933333333333343,2.6555555555555532)-- (2.3222222222222233,3.4733333333333287);
+%		\draw [line width=1.2pt] (5.,2.)-- (4.997777777777778,2.691111111111109);
+%		\draw [line width=1.2pt] (4.997777777777778,2.691111111111109)-- (4.633333333333335,3.491111111111106);
+%		\draw [line width=1.2pt] (4.997777777777778,2.691111111111109)-- (5.,3.5);
+%		\draw [line width=1.2pt] (4.997777777777778,2.691111111111109)-- (5.362222222222223,3.5);
+%		\draw [line width=1.2pt] (4.,2.)-- (4.0022222222222235,2.60222222222222);
+%		\draw [line width=1.2pt] (4.0022222222222235,2.60222222222222)-- (3.691111111111112,3.5);
+%		\draw [line width=1.2pt] (4.0022222222222235,2.60222222222222)-- (4.,3.5);
+%		\draw [line width=1.2pt] (4.0022222222222235,2.60222222222222)-- (4.2955555555555565,3.4644444444444398);
+%		\draw (2.4,0.9933333333333338) node[anchor=north west] {$f$};
+%		\draw (0.6,4) node[anchor=north west] {$g_1$};
+%		\draw (1.6,4) node[anchor=north west] {$g_2$};
+%		\draw (4.7,4) node[anchor=north west] {$g_n$};
+%		\draw (3.6222222222222234,4) node[anchor=north west] {$g_{n-1}$};
+%		\draw [line width=1.2pt,dash pattern=on 2pt off 2pt] (1.,2.) circle (0.2951626461026548cm);
+%		\draw [line width=1.2pt,dash pattern=on 2pt off 2pt] (2.,2.) circle (0.2953633460212008cm);
+%		\draw [line width=1.2pt,dash pattern=on 2pt off 2pt] (4.,2.) circle (0.27550178686879956cm);
+%		\draw [line width=1.2pt,dash pattern=on 2pt off 2pt] (5.,2.) circle (0.2752866071013681cm);
+%		\draw (2.5,2.22) node[anchor=north west] {$\cdots$};
+%		\draw (5.8066666666666675,2.5933333333333315) node[anchor=north west] {$=\gamma(f;g_1,\dots, g_n)$};
+%		\end{tikzpicture}
+%		
+%		%DIBUJO DE LA COMPOSICIÓN PEGANDO $n$ ARBOLITOS  $g_i$ A UNO $f$ Y PONIENDO $\gamma(f;g_1,\dots, g_n)$
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%	\begin{itemize}
+%		\item Composition is associative:
+%		 %DIBUJO DE COMPOSICIÓN EN DOS PASOS CON UNA IGUALDAD A CADA LADO SEÑALAR EL ORDEN DE ALGÚN MODO
+%		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+%		\clip(0.7133333333333343,-0.1) rectangle (11.62,6);
+%		\draw [line width=1.2pt,] (3.,0.)-- (3.0066666666666677,1.2333333333333327);
+%		\draw [line width=1.2pt,] (3.0066666666666677,1.2333333333333327)-- (1.98,2.18);
+%		\draw [line width=1.2pt,] (3.0066666666666677,1.2333333333333327)-- (4.006666666666668,2.1533333333333315);
+%		\draw [line width=1.2pt,] (1.98,2.18)-- (2.,3.);
+%		\draw [line width=1.2pt,] (2.,3.)-- (1.353333333333334,3.94);
+%		\draw [line width=1.2pt,] (2.,3.)-- (2.6466666666666674,3.9133333333333296);
+%		\draw [line width=1.2pt,] (4.006666666666668,2.1533333333333315)-- (4.,3.);
+%		\draw [line width=1.2pt,] (4.,3.)-- (3.446666666666667,3.9933333333333296);
+%		\draw [line width=1.2pt,] (4.,3.)-- (4.74,3.9133333333333296);
+%		\draw [line width=1.2pt,] (1.353333333333334,3.94)-- (1.353333333333334,4.62);
+%		\draw [line width=1.2pt,] (1.353333333333334,4.62)-- (0.8066666666666672,5.46);
+%		\draw [line width=1.2pt,] (1.353333333333334,4.62)-- (1.3666666666666674,5.446666666666661);
+%		\draw [line width=1.2pt,] (1.353333333333334,4.62)-- (1.8733333333333342,5.473333333333328);
+%		\draw [line width=1.2pt,] (2.6466666666666674,3.9133333333333296)-- (2.66,4.686666666666662);
+%		\draw [line width=1.2pt,] (2.66,4.686666666666662)-- (2.3666666666666676,5.473333333333328);
+%		\draw [line width=1.2pt,] (2.66,4.686666666666662)-- (2.9266666666666676,5.526666666666661);
+%		\draw [line width=1.2pt,] (3.446666666666667,3.9933333333333296)-- (3.446666666666667,4.62);
+%		\draw [line width=1.2pt,] (3.446666666666667,4.62)-- (3.3266666666666675,5.526666666666661);
+%		\draw [line width=1.2pt,] (3.446666666666667,4.62)-- (3.8066666666666675,5.5);
+%		\draw [line width=1.2pt,] (4.74,3.9133333333333296)-- (4.78,4.566666666666662);
+%		\draw [line width=1.2pt,] (4.78,4.566666666666662)-- (4.366666666666667,5.486666666666661);
+%		\draw [line width=1.2pt,] (4.78,4.566666666666662)-- (4.82,5.5);
+%		\draw [line width=1.2pt,] (4.78,4.566666666666662)-- (5.326666666666668,5.486666666666661);
+%		\draw (2.4866666666666672,1.18) node[anchor=north west] {$f$};
+%		\draw (1.3,3.) node[anchor=north west] {$g_1$};
+%		\draw (3.3,3.) node[anchor=north west] {$g_2$};
+%		\draw (0.67,4.6) node[anchor=north west] {$h_1$};
+%		\draw (2,4.6) node[anchor=north west] {$h_2$};
+%		\draw (2.9,4.6) node[anchor=north west] {$h_3$};
+%		\draw (4.1,4.6) node[anchor=north west] {$h_4$};
+%		\draw (4.956666666666667,3.3) node[anchor=north west] {$=\gamma(\gamma(f;g_1,g_2),h_1,h_2,h_3,h_4)$};
+%		\draw (4.953333333333334,2.3) node[anchor=north west] {$=\gamma(f;\gamma(g_1;h_1,h_2), \gamma(g_2;h_3,h_4))$};
+%		\end{tikzpicture}
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%	\begin{itemize}
+%		\item<1-> Identity element: 
+%	%UN ÁRBOL AL QUE SE LE METEN PALITOS CON 1 Y OTRO METIÉNDOSE EN EL 1 Y AL FINAL IGUAL AL ARBOL EN CUESTION
+%		
+%		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
+%\clip(-2.513333333333339,-0.699166666666667) rectangle (15.903333333333347,8.009166666666664);
+%\draw [line width=1.2pt,] (2.,0.)-- (2.,2.);
+%\draw [line width=1.2pt,] (2.,2.)-- (0.,4.);
+%\draw [line width=1.2pt,] (2.,2.)-- (1.,4.);
+%\draw [line width=1.2pt,] (2.,2.)-- (3.,4.);
+%\draw [line width=1.2pt,] (2.,2.)-- (4.,4.);
+%\draw [line width=1.2pt,] (0.,4.)-- (0.,6.);
+%\draw [line width=1.2pt,] (1.,4.)-- (1.,6.);
+%\draw [line width=1.2pt,] (3.,4.)-- (3.,6.);
+%\draw [line width=1.2pt,] (4.,4.)-- (4.,6.);
+%\draw (5.215833333333336,3.6133333333333337) node[anchor=north west] {$=f=$};
+%\draw (0.491666666666664,2.2175) node[anchor=north west] {$f$};
+%\draw (-0.5,7.050833333333333) node[anchor=north west] {$1$};
+%\draw (0.5,7.050833333333333) node[anchor=north west] {$1$};
+%\draw (2.5,7.050833333333333) node[anchor=north west] {$1$};
+%\draw (3.5,7.050833333333333) node[anchor=north west] {$1$};
+%\draw [line width=1.2pt,] (9.,0.)-- (9.,2.);
+%\draw [line width=1.2pt,] (9.,2.)-- (9.,4.);
+%\draw [line width=1.2pt,] (9.,4.)-- (7.,6.);
+%\draw [line width=1.2pt,] (9.,4.)-- (8.,6.);
+%\draw [line width=1.2pt,] (9.,4.)-- (10.,6.);
+%\draw [line width=1.2pt,] (9.,4.)-- (11.,6.);
+%\draw (9.465833333333338,3.9883333333333337) node[anchor=north west] {$f$};
+%\draw (9.445,1.5716666666666674) node[anchor=north west] {$1$};
+%\begin{scriptsize}
+%\draw [fill=black] (0.,4.) circle (2.pt);
+%\draw [fill=black] (1.,4.) circle (2.pt);
+%\draw [fill=black] (3.,4.) circle (2.pt);
+%\draw [fill=black] (4.,4.) circle (2.pt);
+%\draw [fill=black] (9.,2.) circle (2.pt);
+%\end{scriptsize}
+%\end{tikzpicture} %añadir un palo no cambia la forma delárbol
+%		
+%	\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%	Associativity and the existence of unit allows to understand compositions in terms of insertions $$f\circ_i g=\gamma(f;1,\dots, 1,\underbrace{g}_{i},1,\dots, 1)$$ \pause
+%	
+%	Composition of insertions is thought as grafting one tree at a time.
+%\end{frame}
+%\begin{frame}
+%	\begin{defi}
+%	 A \emph{map of operads} $f:\mathcal{O}\to \mathcal{O}'$ is a collection of maps $\mathcal{O}(n)\to \mathcal{O}'(n)$ such that:
+%		\begin{itemize}
+%			\item<1->   $f\circ 1_\mathcal{O}=1_{\mathcal{O}'}$.
+%			\item<2->  $f\circ \gamma_\mathcal{O}=\gamma_{\mathcal{O}'}\circ (f\otimes\cdots\otimes f)$.
+%		\end{itemize}
+%	\end{defi}
+%	
+%	
+%\end{frame}
+%%\begin{frame}
+%%	\frametitle{Symmetric monoidal  categories}
+%%	\begin{itemize}
+%%		\item<1-> A category where there is a notion of tensor product $\otimes $ of objects.
+%%		\item<2-> There exists an object $I$ such that $I\otimes A\cong A\cong A\otimes I$ for all object $A$.
+%%		\item<3-> The product is commutative: $A\otimes B\cong B\otimes A$.
+%%		\item<4-> The product is associative: $(A\otimes B)\otimes C\cong A\otimes (B\otimes C)$ for all objects.
+%%		\item<5-> Other coherence axioms.
+%%	\end{itemize}
+%%%	COMENTAR QUE ESTA DEFINICIÓN SE PUEDE HACER EN CUALQUIER CATEGORÍA MONOIDAL SIMÉTRICA, DICIENDO LOS COMPONENTES DE LA DEFINICIÓN Y QUIZÁ DESTACANDO ALGÚN AXIOMA
+%%	
+%%   %PONER EJEMPLOS
+%%\end{frame}
+%\subsection{Algebras over an operad}
+%\begin{frame}
+%	\frametitle{Endomorphism operad}
+%	%SI LA CATEGORÍA ES LO BASTANTE BUENA (CLOSED) TENEMOS LO SIGUIENTE, POR COMODIDAD LO DEFINIMOS EN ESTA CATEGORÍA
+%	\begin{defi}
+%		Let $V$ be a space. The \emph{endomorphism operad} $End_V = \{ \xi_V(n) \}_{n\geq 0}$ of $V$ consists of
+%		\begin{itemize}
+%			\item<1-> $\xi_V(n)=\hom(V^{\otimes n},V)
+%			$ the space of maps $V^{\otimes n} \to V$.
+%			\item<2-> composition $\gamma(f; g_1, \dots, g_n)= f(g_1\otimes\dots\otimes g_n)$
+%			\item<3-> identity $\operatorname{Id}_V$
+%		\end{itemize}
+%		 %(notice this is analogous to the fact that each ''R''-module structure on an abelian group ''M'' amounts to a ring homomorphism <math>R \to \operatorname{End}(M)</math>.)
+%	\end{defi}
+%\end{frame}
+%\begin{frame}
+%\begin{itemize}
+%\item<1->
+%If $\mathcal{O}$ is another operad, each map $\mathcal{O} \to End_V$ is called an \emph{algebra over} $\mathcal{O}$. 
+%\item<2->Equivalently, a $\mathcal{O}$-algebra is given by a sequence of maps $\mathcal{O}(n)\otimes V^{\otimes n}\to V$.
+%\item<3-> This is a realization of the operad as a space of operations.
+%\end{itemize}
+%\end{frame}
+
+\subsection{Algebraic structures on operads}
+\begin{frame}
+\frametitle{The circle operation}
+%the operation we have defined is not so arbitrary or ad hoc
+\begin{itemize}
+\item<1-> Define the \emph{circle operation} as $a\circ b = \sum_i a\circ_i b$. %even if it's not a suspension, the important thing is that we have an operad structure
+\item The circle operation defines a pre-Lie algebra structure, meaning that the bracket
+\[[a,b]=a\circ b-(-1)^{\deg(a)\deg(b)}b\circ a\]
+is a Lie bracket.
+\end{itemize}
+\end{frame}
+\subsubsection{Braces}
+\begin{frame}
+\frametitle{Braces}
+\begin{itemize}
+\item For $a\in\mathcal{O}(n)$ and $b_1,\dots,b_j\in\mathcal{O}$ ($j\leq n$), define maps called \emph{braces}
+\[a\{b_1,\dots,b_j\}_j=\sum \gamma(a;1,\dots, 1,b_1,1,\dots,1,b_j,1,\dots, 1)\]\pause %the sum runs over all order preserving insertions
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+		\clip(-2.8466666666666676,-1) rectangle (11.486666666666668,2.);
+		\draw[line width=1.pt] (2.833333333333334,0.) -- (2.833333333333334,0.5666666666666675) -- (7.006666666666668,0.5666666666666675) -- (7.,0.) -- cycle;
+		\draw[line width=1.pt] (3.193333333333334,1.) -- (4.,1.) -- (4.006666666666668,1.58) -- (3.193333333333334,1.58) -- cycle;
+		\draw[line width=1.pt] (6.,1.) -- (6.38,1.) -- (6.38,1.58) -- (5.593333333333335,1.5933333333333344) -- (5.606666666666667,1.) -- cycle;
+		\draw (-2.9,0.6) node[anchor=north west] {$a\{b_1,\dots, b_j\}_j=\displaystyle{\sum_{\text{all possible insertions}}}$};
+		\draw [line width=1.pt] (2.833333333333334,0.)-- (2.833333333333334,0.5666666666666675);
+		\draw [line width=1.pt] (2.833333333333334,0.5666666666666675)-- (7.006666666666668,0.5666666666666675);
+		\draw [line width=1.pt] (7.006666666666668,0.5666666666666675)-- (7.,0.);
+		\draw [line width=1.pt] (7.,0.)-- (2.833333333333334,0.);
+		\draw [line width=1.pt] (4.92,0.)-- (4.92,-0.36666666666666614);
+		\draw [line width=1.pt] (2.993333333333334,0.5666666666666675)-- (3.,2.);
+		\draw [line width=1.pt] (3.553333333333334,0.5666666666666675)-- (3.553333333333334,1.);
+		\draw [line width=1.pt] (4.273333333333334,0.5666666666666675)-- (4.273333333333334,1.9933333333333345);
+		\draw [line width=1.pt] (4.54,0.5666666666666675)-- (4.54,1.9933333333333345);
+		\draw [line width=1.pt] (5.993333333333334,0.5666666666666675)-- (6.,1.);
+		\draw [line width=1.pt] (6.62,0.5666666666666675)-- (6.62,1.9933333333333345);
+		\draw [line width=1.pt] (6.833333333333335,0.5666666666666675)-- (6.833333333333335,1.98);
+		\draw [line width=1.pt] (3.193333333333334,1.)-- (4.,1.);
+		\draw [line width=1.pt] (4.,1.)-- (4.006666666666668,1.58);
+		\draw [line width=1.pt] (4.006666666666668,1.58)-- (3.193333333333334,1.58);
+		\draw [line width=1.pt] (3.193333333333334,1.58)-- (3.193333333333334,1.);
+		\draw [line width=1.pt] (6.,1.)-- (6.38,1.);
+		\draw [line width=1.pt] (6.38,1.)-- (6.38,1.58);
+		\draw [line width=1.pt] (6.38,1.58)-- (5.593333333333335,1.5933333333333344);
+		\draw [line width=1.pt] (5.593333333333335,1.5933333333333344)-- (5.606666666666667,1.);
+		\draw [line width=1.pt] (5.606666666666667,1.)-- (6.,1.);
+		\draw [line width=1.pt] (3.5666666666666673,1.58)-- (3.58,2.);
+		\draw [line width=1.pt] (6.007451656136321,1.586314378709553)-- (6.,2.);
+		\draw [line width=1.pt] (5.4,0.5666666666666675)-- (5.4,2.);
+		\draw (3.3,1.5666666666666678) node[anchor=north west] {$b_1$};
+		\draw (5.65,1.58) node[anchor=north west] {$b_j$};
+		\draw (4.7,0.5) node[anchor=north west] {$a$};
+		\draw (4.59,1.5533333333333343) node[anchor=north west] {$\cdots$};
+		\end{tikzpicture}
+\pause
+
+\item Observe that $a\{b\}_1=a\circ b$. 
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Some examples}
+\begin{itemize}
+\item<1-> \emph{Associative operad in vector spaces} : $\mathcal{O}(2)=\mathbb{F} m_2$ where $\mathbb{F}$ is a field and $\mathcal{O}(n)=\mathbb{F}\mu_n$ for $n> 2$, $\mathcal{O}(1)=\mathbb{F}$, $\mathcal{O}(0)=0$.  %O(0)=F if there is a unit
+\item<2->  \emph{Associative operad in topological spaces} : $\mathcal{O}(2)=\{m_2\}$ and $\mathcal{O}(n)=\{\mu_n\}$ for $n> 2$, $\mathcal{O}(1)=\{*\}$, $\mathcal{O}(0)=\emptyset$. %O(0)=F if there is a unit
+
+%both have initial object in 0 and monoidal unit elsewhere
+\item<3-> Next we describe the operad of \emph{Stasheff associahedra}.
+\end{itemize}
+
+\end{frame}
+
+
+
+
+
+\section{Homotopy associativity}
+\begin{frame}
+%an example of A\infty-space
+\frametitle{Loop spaces}
+
+
+Let $(Y,*)$ a pointed topological space and $X = \Omega Y$ the spaces of based loops, i.e. maps $f:S^1\to Y$ such that $f(1,0)=*$.\pause %base point s a preferred point, like an origin
+
+We have a concatenation map $m:X\times  X\to  X$, where $m(x,y)=x*y$ is given by\pause
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-5,-3.) rectangle (5.,2.3);
+\draw(0.,0.) circle (1.5cm);
+\draw [->] (1.5,0.) -- (1.475763388700826,0.26855617768030476);
+\draw [->] (-1.5,0.) -- (-1.4622984077406362,-0.33419061434935543);
+\draw (-0.3,2.118952883889729) node[anchor=north west] {$x$};
+\draw (-0.3,-1.5566913118092813) node[anchor=north west] {$y$};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\frametitle{Homotopy-associative product}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-4.175394430564892,-2.5911383046897085) rectangle (7.490400123879831,3.3976612960713135);
+\draw(0.,2.) circle (1.cm);
+\draw(0.,-1.) circle (1.cm);
+\draw (-3.49428016933844,2.311720973491667) node[anchor=north west] {$(x*y)*z$};
+\draw (-3.496796110195476,-0.6773028846978557) node[anchor=north west] {$x*(y*z)$};
+\draw (-0.6057688157486263,1.1) node[anchor=north west] {$z$};
+\draw (0.2964512548334696,0.4) node[anchor=north west] {$x$};
+\draw (0.7431133461355,2.9675859207922457) node[anchor=north west] {$x$};
+\draw (-1.3,3.0105934583201526) node[anchor=north west] {$y$};
+\draw (-1.189603612937578,-1.4729423289641315) node[anchor=north west] {$y$};
+\draw (0.7489686163804383,-1.4729423289641315) node[anchor=north west] {$z$};
+\draw (2.,2.)-- (3.,1.);
+\draw (3.,1.)-- (4.,2.);
+\draw (3.,2.)-- (2.514225889472578,1.485774110527422);
+\draw (2.,-1.)-- (3.,-2.);
+\draw (3.,-2.)-- (4.,-1.);
+\draw (3.,-1.)-- (3.481998691455241,-1.518001308544759);
+\draw (1.7811495170502019,2.6342775049509677) node[anchor=north west] {$x$};
+\draw (2.8240823021019423,2.623525620568991) node[anchor=north west] {$y$};
+\draw (3.7487443589519387,2.5912699674230613) node[anchor=north west] {$z$};
+\draw (1.7811495170502019,-0.4085057751484382) node[anchor=north west] {$x$};
+\draw (2.8133304177199654,-0.4085057751484382) node[anchor=north west] {$y$};
+\draw (3.813255665243799,-0.4300095439123916) node[anchor=north west] {$z$};
+\draw [->] (1.,2.) -- (0.9776684310102762,2.2101533701987783);
+\draw [->] (0.,3.) -- (-0.2228209821222102,2.9748593795651215);
+\draw [->] (-1.,2.) -- (-0.9818938166599703,1.8105678675490438);
+\draw [->] (1.,-1.) -- (0.9832067635335799,-0.8175049037869153);
+\draw [->] (-1.,-1.) -- (-0.9827773938908082,-1.1847933820708718);
+\draw [->] (0.,-2.) -- (0.1987984337916885,-1.9800403985152712);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+The product $m$ is homotopy associative if $m(m\times 1)\simeq m(1\times m)$\pause 
+
+
+\[\Downarrow\] 
+
+\begin{center}
+There is a map $M_3:[0,1]\times X^3\to  X$ such that 
+\end{center}
+
+\[M_3(0,x,y,z)=(xy)z \text{ and }M_3(1,x,y,z)=x(yz)\]
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Homotopy coherence}
+Product of 4 elements
+\[
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.5,0.5) rectangle (5.2,4.6);
+\draw(1.,1.) -- (3.,1.) -- (3.618033988749895,2.9021130325903064) -- (2.,4.077683537175253) -- (0.3819660112501053,2.9021130325903073) -- cycle;
+\draw (1.,1.)-- (3.,1.);
+\draw (3.,1.)-- (3.618033988749895,2.9021130325903064);
+\draw (3.618033988749895,2.9021130325903064)-- (2.,4.077683537175253);
+\draw (2.,4.077683537175253)-- (0.3819660112501053,2.9021130325903073);
+\draw (0.3819660112501053,2.9021130325903073)-- (1.,1.);
+\draw (1.3,4.7) node[anchor=north west] {$x(y(zt))$};
+\draw (3.6,3.25) node[anchor=north west] {$x((yz)t)$};
+\draw (3,1.1) node[anchor=north west] {$(x(yz))t$};
+\draw (-0.5,1.1) node[anchor=north west] {((xy)z)t};
+\draw (-1.15,3.25) node[anchor=north west] {(xy)(zt)};
+\draw (2.8,3.8) node[anchor=north west] {$\simeq$};
+\draw (3.3333333333336,2.1) node[anchor=north west] {$\simeq$};
+\draw (1.8,0.8933333333333304) node[anchor=north west] {$\simeq$};
+\draw (0.15,2.1) node[anchor=north west] {$\simeq$};
+\draw (0.6,3.8) node[anchor=north west] {$\simeq$};
+\begin{scriptsize}
+\draw [fill=black] (1.,1.) circle (2.5pt);
+\draw [fill=black] (3.,1.) circle (2.5pt);
+\draw [fill=black] (3.618033988749895,2.9021130325903064) circle (2.5pt);
+\draw [fill=black] (2.,4.077683537175253) circle (2.5pt);
+\draw [fill=black] (0.3819660112501053,2.9021130325903073) circle (2.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\]
+
+If we can fill the pengaton with a homotopy $M_4=\pentagofill\times X^4\to X$ we say that the product is homotopy coherent. %there is a concatenation of homotopies and it makes sense to talk about homotopies between them, joining the points with paths
+\end{frame}
+\subsection{Stasheff Associahedra}
+
+\begin{frame}
+\frametitle{Associahedra}
+Multiplying 5 elements
+\[
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.63,-1.8) rectangle (4.,3);
+\draw(-0.5,0.) -- (0.,0.5) -- (-0.5,1.) -- (-1.,0.5) -- cycle;
+\draw (-0.5,0.)-- (0.,0.5);
+\draw (0.,0.5)-- (-0.5,1.);
+\draw (-0.5,1.)-- (-1.,0.5);
+\draw (-1.,0.5)-- (-0.5,0.);
+\draw (-0.5,1.)-- (-0.76,2.87);
+\draw (-0.76,2.87)-- (-2.13,1.59);
+\draw (-2.13,1.59)-- (-1.98,0.82);
+\draw (-2.13,1.59)-- (-2.5,1.);
+\draw (-2.5,1.)-- (-2.31,0.29);
+\draw (-2.31,0.29)-- (-1.98,0.82);
+\draw (-1.98,0.82)-- (-1.,0.5);
+\draw (0.,0.5)-- (0.93,0.89);
+\draw (0.93,0.89)-- (0.98,1.68);
+\draw (1.37,1.06)-- (0.98,1.68);
+\draw (-0.76,2.87)-- (0.98,1.68);
+\draw (-2.31,0.29)-- (-0.62,-1.3);
+\draw (-0.5,0.)-- (-0.62,-1.3);
+\draw (-0.62,-1.3)-- (1.22,0.35);
+\draw (0.93,0.89)-- (1.22,0.35);
+\draw (1.22,0.35)-- (1.37,1.06);
+\draw [dash pattern=on 2pt off 2pt] (-2.5,1.)-- (1.37,1.06);
+\end{tikzpicture}
+\]
+
+\end{frame}
+\subsection{$A_\infty$-spaces}
+\begin{frame}
+\begin{itemize}
+\item<1-> We get spaces $K_2=*$, $K_3=[0,1]$, $K_4=\pentagofill$, $K_5, \dots$ %a point cause there is only one way to multiply two elements, [0,1] parametrizes the homotopy, k5 is the previous slide
+\item<2-> And maps $M_n:K_n\times X^n\to X$ satisfying certain relations. %homotopy relation similar to what we explain with the polygons
+\item<3-> For instance, $M_3:[0,1]\times X^3\to X$ defines a homotopy between $M_2(M_2\times 1)$ and $M_2(1\times M_2)$. 
+\item<4-> $M_4:K_4\times X^4\to X$ allows us to fill the pentagon, on the boundary it is equal to $M_3$. %and so on
+\item<5->[]\begin{defi}
+If $M_n$ exists for all $n\geq 2$ we say that $X$ is an $A_\infty$-\emph{space}.
+\end{defi}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\begin{prop}
+Let $K_0=\emptyset$ and $K_1=\{*\}$. Then the collection $\{K_n\}_{n\geq 0}$ is an operad.
+\end{prop}\pause
+\begin{corollary}
+$A_\infty$-spaces are algebras over the operad $K=\{K_n\}$.
+\end{corollary}\pause
+\begin{exampleblock}{Proof of Proposition}
+We need to define insertion maps $\circ_i:K_r\times K_s\to K_{r+s-1}$. For this, we define a bijection between $K_n$ and (planar rooted) trees of $n$ leaves.
+\end{exampleblock}
+%another option is using that the faces of K_{r+s-1} are products of K_r\times K_s, so on thee faces it is defined by this identification and on the innterior just take the cone
+\end{frame}
+
+\begin{frame}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-4.4,-3.7033333333333225) rectangle (7.44,6);
+\draw(3.5,0.) -- (5.5,0.) -- (6.118033988749895,1.9021130325903064) -- (4.5,3.077683537175253) -- (2.881966011250105,1.9021130325903073) -- cycle;
+\draw (4.5,1.)-- (4.5,1.5);
+\draw (4.5,1.5)-- (3.748888888888889,2.0111111111111115);
+\draw (4.5,1.5)-- (4.2377777777777785,2.002222222222223);
+\draw (4.5,1.5)-- (4.735555555555557,2.002222222222223);
+\draw (4.5,1.5)-- (5.171111111111112,1.9933333333333338);
+\draw (4.5,3.5)-- (4.5,4.);
+\draw (4.5,4.)-- (3.5,4.5);
+\draw (3.841262580054896,4.329368709972552)-- (4.,4.5);
+\draw (4.173977257874788,4.1630113710626055)-- (4.5,4.5);
+\draw (4.5,4.)-- (5.,4.5);
+\draw [line width=1.6pt] (3.5,0.)-- (5.5,0.);
+\draw [line width=1.6pt] (5.5,0.)-- (6.118033988749895,1.9021130325903064);
+\draw [line width=1.6pt] (6.118033988749895,1.9021130325903064)-- (4.5,3.077683537175253);
+\draw [line width=1.6pt] (4.5,3.077683537175253)-- (2.881966011250105,1.9021130325903073);
+\draw [line width=1.6pt] (2.881966011250105,1.9021130325903073)-- (3.5,0.);
+\draw (2.5,1.5)-- (2.5,2.);
+\draw (2.5,2.)-- (1.7044444444444466,2.464444444444445);
+\draw (2.5,2.)-- (3.242222222222227,2.4822222222222226);
+\draw (2.1032829629629672,2.2316029629629615)-- (2.291111111111114,2.4911111111111115);
+\draw (2.8780385185185238,2.2456118518518537)-- (2.691111111111115,2.4911111111111115);
+\draw (6.5,1.5)-- (6.5,2.);
+\draw (6.5,2.)-- (5.802222222222222,2.5088888888888894);
+\draw (6.5,2.)-- (7.26,2.5);
+\draw (4.,-0.5)-- (3.,-1.);
+\draw (3.5022222222222226,-0.7488888888888887)-- (3.402222222222227,-0.4866666666666656);
+\draw (3.196444444444449,-0.9017777777777756)-- (3.,-0.5);
+\draw (3.,-1.)-- (2.5,-0.5);
+\draw (3.,-1.)-- (3.,-1.5);
+\draw (6.214595643598731,2.2081452153372316)-- (6.5,2.5);
+\draw (6.5,2.5)-- (6.148888888888899,2.802222222222223);
+\draw (6.5,2.5)-- (6.824444444444455,2.802222222222223);
+\draw (5.135555555555563,-0.5044444444444434)-- (6.,-1.);
+\draw (6.,-1.)-- (6.806666666666677,-0.5044444444444434);
+\draw (6.40225777777779,-0.752882962962958)-- (6.264444444444454,-0.49555555555555447);
+\draw (6.264444444444454,-0.49555555555555447)-- (5.917777777777787,-0.29111111111111004);
+\draw (6.264444444444454,-0.49555555555555447)-- (6.5933333333333435,-0.26444444444444337);
+\draw (6.,-1.)-- (6.,-1.5);
+\draw (-1.9766666666666668,4.443888888888889)-- (-1.972222222222222,5.013888888888889);
+\draw (-1.972222222222222,5.013888888888889)-- (-2.2961111111111117,5.477222222222244);
+\draw (-1.972222222222222,5.013888888888889)-- (-1.573888888888889,5.546666666666689);
+\draw [line width=1.6pt] (-4.,0.)-- (0.,0.);
+\draw (-4.008888888888889,0.485)-- (-4.004444444444445,1.005);
+\draw (-4.004444444444445,1.005)-- (-4.504444444444446,1.518888888888903);
+\draw (-4.284449471464683,1.2927829444374739)-- (-4.004444444444446,1.505);
+\draw (-4.004444444444445,1.005)-- (-3.56,1.4077777777777916);
+\draw (-0.4627777777777772,1.505)-- (0.,1.);
+\draw (0.,1.)-- (-0.004444444444443562,0.4077777777777945);
+\draw (0.,1.)-- (0.5233333333333345,1.4772222222222409);
+\draw (0.20730493434689184,1.1890392129554)-- (-0.004444444444443562,1.4772222222222409);
+\draw (-1.9533333333333338,0.34888888888888897)-- (-1.9488888888888891,0.9911111111111113);
+\draw (-1.9488888888888891,0.9911111111111113)-- (-2.31,1.435555555555571);
+\draw (-1.9488888888888891,0.9911111111111113)-- (-1.935,1.4772222222222378);
+\draw (-1.9488888888888891,0.9911111111111113)-- (-1.5044444444444445,1.4494444444444599);
+\draw (-2.4488888888888893,3.824444444444468) node[anchor=north west] {$K_2$};
+\draw (-2.4211111111111117,-0.2866666666666504) node[anchor=north west] {$K_3$};
+\draw (4.037222222222225,-0.87) node[anchor=north west] {$K_4$};
+\begin{scriptsize}
+\draw [fill=black] (3.5,0.) circle (3.0pt);
+\draw [fill=black] (5.5,0.) circle (3.0pt);
+\draw [fill=black] (6.118033988749895,1.9021130325903064) circle (3.0pt);
+\draw [fill=black] (4.5,3.077683537175253) circle (3.0pt);
+\draw [fill=black] (2.881966011250105,1.9021130325903073) circle (3.0pt);
+\draw [fill=black] (-2.,4.) circle (3.0pt);
+\draw [fill=black] (-4.,0.) circle (3.0pt);
+\draw [fill=black] (0.,0.) circle (3.0pt);
+\end{scriptsize}
+\end{tikzpicture}
+\end{frame}
+
+
+
+\section{$A_\infty$-algebras}
+\begin{frame}
+\frametitle{From $A_\infty$-spaces to $A_\infty$-algebras}
+\begin{itemize} %originally it was homology, but it is more common nowadays to use cohomological degree
+\item<1-> There is a map $C^*(X)\otimes C^*(Y)\to C^*(X\times Y)$ satisfying naturality and associativity axioms (Eilenberg-Zilber map).
+\item<2-> The maps $M_n:K_n\times X^n\to X$ induce maps $C^*(K_n)\otimes C^*(X)^{\otimes n}\to C^*(K_n\times  X^n)\to C^*(X)$. %esentially the induced map on chains but with extra step
+\item<3-> The collection $C^*(K)=\{C^*(K_n)\}$ is an operad of cochain complexes with insertion maps induced from those of $\{K_n\}$.
+\item<4-> $C^*(X)$ becomes a $C^*(K)$-algebra.
+\item<5-> The relations that satisfy the map $M_n$ induce the relations on $C^*(X)$ of what we call an $A_\infty$-algebra.
+\end{itemize}
+\end{frame}
+
+%\begin{frame}
+%\begin{itemize}
+%\item<1->$C_*(X)$ becomes a $C_*(K)$-algebra.
+%
+%
+%\item<2-> The relations that satisfy the map $M_n$ induce the relations of what we call an $A_\infty$-algebra.
+%\end{itemize}
+%\end{frame}
+\begin{frame}
+\frametitle{$A_\infty$-algebras}
+\begin{defi}
+An $A_\infty$-\emph{algebra} $A$ is a graded vector space equipped with a family of ``multiplications'' $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying the relation %MAYBE CHANGE CHAINS TO COCHAINS TO KEEP THE DEGREE 2-N, I WILL HAVE TO USE OPERADIC DESUSPENSION IN THIS CASE
+
+\[\sum_{r+s+t\geq 1}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes s})=0\] %we are composing every map with itself
+\end{defi}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Some particular cases}
+\begin{itemize}
+\item<1-> We always have $m_1m_1=0$, so in particular $A$ is a cochain complex.%CAN BE DEFINED ON THE CATEGORY OF CHAIN COMPLEX
+\item<2-> If $m_i=0$ for $i\neq 2$, the relation becomes $m_2(1\otimes m_2)=m_2(m_2\otimes 1)$, so $A$ is an associative algebra.
+\item<3->  We also have the relation \[m_1m_2=m_2(m_1\otimes 1)+m_2(1\otimes m_1)\]%DG %MONOID IN CHAIN COMPLEX ANALOGUE TO MONOID IN K-VECT
+\item[]<4-> This is the Leibniz rule, and $A$ is a differential graded (dg) algebra.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{$A_\infty$-algebras are homotopy associative algebras.}
+%how do they generalize associative algebras
+\begin{itemize}
+\item<1-> For $r+s+t=3$ we have the relation
+\begin{align*}
+&m_2(m_2\otimes 1)-m_2(1\otimes m_2)=\\ %the failure of m_2 to be associative
+&m_1m_3+m_3(m_1\otimes 1\otimes 1)+m_3(1\otimes m_1\otimes 1)+m_3(1\otimes 1\otimes m_1)
+\end{align*}
+\item[]<2-> $m_2$ is homotopy associative with homotopy given by $m_3$. %recall that m1 is a differential so on homology this vanishes
+\item<3-> The higher relations are a homotopy coherent extension of this fact. %m3 satisfies some relation up to homotopy given by m4 and so on
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Operad of $A_\infty$-algebras}
+%FORMULATE THIS DIFFERENTLY SINCE I HAVE ALREADY OBTAINED THE OPERAD OF AINFTY ALGEBRAS THIS SHOULD BE JUST WRITING IT DOWN EXPLICITLY AND THEN ENCODE IT WITH OPERADIC SUSPENSION (PROBABLY JUST TELL THE RESULT OF INSERTIONS AND DEGREE BECAUSE THERE IS NO TIME TO EXPLAIN IT ALL)
+\begin{itemize}
+\item<1-> The operad $C^*(K)$ is generated by $m_n$ with $m_n\in C^*(K_n)$ for $n\geq 2$ and $m_1=\partial$ such that 
+\[\sum_{r+s+t\geq 1}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0\]
+
+\item<2-> We would like to obtain the signs directly from operadic composition.
+\end{itemize}
+\end{frame}
+\subsection{Operadic suspension}
+\begin{frame}
+\frametitle{Operadic suspension}
+\begin{itemize}
+\item<1-> For a graded vector space $V=\bigoplus_{n\in\Z} V_i$ there is a \emph{suspension} operation $\Sigma V$ such that $(\Sigma V)_i=V_{i+1}$. \item<2-> $\Sigma V=V\otimes \mathbb{F}[-1]$.
+\item<3-> We define an analogue of suspension for operads.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Operadic suspension}
+\begin{itemize}
+\item<1-> Define $\Lambda(n)$ to be a 1-dimensional graded vector space concentrated in degree $n-1$.
+\item<2-> The \emph{operadic suspension} $\mathfrak{s}\mathcal{O}$ of an operad $\mathcal{O}$ is given by $\mathfrak{s}\mathcal{O}(n)=\mathcal{O}(n)\otimes \Lambda(n)$ and composition maps determined by the following fact
+\item[]<3->
+\begin{theorem}[Markl]
+There is an isomorphism of operads
+\[ \mathfrak{s}End_{\Sigma V}\cong End_V\]
+\end{theorem}
+%\item<1-> Let $\Lambda(n)$ be a graded vector space concentrated in degree $1-n$ and generated by $e^n=e_1\land\cdots\land e_n$.
+%\item<2-> Consider the sign action of the permutation group on $e^n$:
+%\[(i\ i+1)\cdot e^n=e_l\land\cdots\land e_{i+1}\land e_i\land\cdots\land e_n=-e^n\]
+%\item<3-> Define insertion maps $\circ_i:\Lambda(n)\otimes\Lambda(m)\to\Lambda(n+m-1)$ as
+%\[(e_1\land\cdots\land e_n)\otimes(e_1\land\cdots\land e_m)\mapsto  (-1)^{(n-i)(1-m)}e_1\land\cdots\land e_{n+m-1}\]
+%\item[]<4-> \[e^n\circ_i e^m= (-1)^{(n-i)(1-m)}e^{m+n-1}\]
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+
+\item<1-> We may identify each $x\in\mathcal{O}(n)$ with $x\otimes e^n\in \mathfrak{s}\mathcal{O}(n)$.
+%\item<2-> If $x$ has degree $p$ in $\mathcal{O}$, it has degree $p-n+1$ in $\mathfrak{s}\mathcal{O}$.
+\item<2-> Let $\circ_i$ be the $i$-th insertion on $\mathcal{O}$ and $\tilde{\circ}_i$ the $i$-th insertion on $\mathfrak{s}\mathcal{O}$ then
+\[a\tilde{\circ}_ib=(-1)^{(n-1)\deg(b)+(n-i)(m-1)}a\circ_i b.\]
+\item<3-> Applied to  $A_\infty$-maps 
+\[m_{r+1+t}\tilde{\circ}_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s\]
+\item[]<4-> The sign of the $A_\infty$-equation!
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\begin{itemize}
+\item<1-> This simplifies the equation to
+\[\sum_{r+s+t=n}m_{r+1+t}\tilde{\circ}_{r+1}m_s=0\] %but we can simplify it even more
+\item<2-> Let $a\tilde{\circ}b=\sum_{i}a\tilde{\circ}_ib$ and let $m=m_1+m_2+\cdots$. The equation becomes just
+\item[]<3-> \[m\tilde{\circ}m=0.\]
+\item<4-> In addition, $m_i$ becomes of degree $1$ in the operadic suspension for all $i$ $\Rightarrow$
+\item[]<5-> We can define an $A_\infty$-multiplication as an element $m\in\mathfrak{s}\mathcal{O}$ of degree $1$ such that $m\tilde{\circ}m=0$ (Maurer-Cartan element). 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item<1-> Since $m\tilde{\circ}m=0$, the Jacobi identity implies that $[m,[m,]]=0$ for the bracket induced by $\tilde{\circ}$.
+\item<2-> Since $m$ is of degree $1$, this implies that the map $[m,]:\mathfrak{s}\mathcal{O}\to\mathfrak{s}\mathcal{O}$ turns $\mathfrak{s}\mathcal{O}$ into a cochain complex.
+\item<3-> Indeed, it is possible to define an $A_\infty$-algebra structure on $\Sigma\mathfrak{s}\mathcal{O}$. %i don't have time for details
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{$A_\infty$-multiplications}
+\begin{theorem}[Getzler]
+Up to shifts, the following maps define an $A_\infty$-algebra structure on $\Sigma\mathfrak{s}\mathcal{O}$\pause
+\begin{align*}
+&M_1(x)=[m,x]\\
+&M_j(x_1,\dots, x_j)=m\{x_1,\dots, x_j\}_j
+\end{align*}
+\end{theorem}
+\end{frame}
+\begin{frame}
+
+\subsection{Minimal models}
+\frametitle{Morphisms of $A_\infty$-algebras}
+\begin{defi}
+A \emph{morphism} of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $n-1$ satisfying for all $n\geq 1$ the equation
+\begin{align*}
+\sum_{r+s+t=n} (-1)^{rs+t}f_{r+1+t}(1^{\otimes r} \otimes m^A_s\otimes 1^{\otimes t})=\\
+\sum_{i_1+\cdots+i_k=n} (-1)^s m^B_k(f_{i_1}\otimes\cdots\otimes f_{i_k}),
+\end{align*}
+where
+$s=\sum_{\alpha<\beta}i_\alpha(1-i_\beta)$.%The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by 
+%
+%\[(gf)_n=\sum_r\sum_{i_1+\cdots+i_r=n}(-1)^s g_r(f_{i_1}\otimes\cdots
+%\otimes f_{i_r}).\]
+\end{defi}
+
+\end{frame}
+\begin{frame}
+\begin{itemize}
+\item<1-> We have $f_1m_1 = m_1f_1$, i.e. $f_1$ is a morphism of complexes.
+\item<2-> We have
+\[
+f_1m_2 = m_2 (f_1\otimes f_1) + m_1f_2 + f_2 (m_1\otimes 1 + 1\otimes m_1),\]
+which means that $f_1$ commutes with the multiplication $m_2$ up to a homotopy
+given by $f_2$.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Uniqueness result}
+\begin{itemize}
+\item An $A_\infty$-algebra is \emph{minimal} if $m_1 = 0$. 
+\end{itemize}\pause
+\begin{theorem}[Kadeishvili]
+\begin{itemize}
+\item If $A$ is a dga over a field, its homology $H^*(A)$ is a minimal $A_\infty$-algebra with multiplication $m_2$ induced by the multiplication on $A$.
+\item There is a morphism of $A_\infty$-algebras $f:H^*(A)\to A$ such that $f_1$ is a quasi-isomorphism.
+\item Under certain homological conditions, any other dga $A'$ with $H^*(A')\cong H^*(A)$ is quasi-isomorphic to $A$. 
+\end{itemize}
+\end{theorem}\pause
+The $A_\infty$-algebra $H^*(A)$ is called the \emph{minimal model} of $A$.
+%nice enough = HH(A,A) vanishes on degree 2-n %Replaced  means equivalent  %essentially = up to quasi-iso
+We would like to extend this result to a ground ring that is not necessarily a field.
+\end{frame}
+
+\section{Derived $A_\infty$-algebras}
+
+\begin{frame}
+\frametitle{Derived $A_\infty$-algebras}
+\begin{defi}
+  A \emph{derived $A_\infty$-algebra} on a $(\Z,\Z)$-bigraded $R$-module $A$ consist of a family of $R$-linear maps 
+\[m_{ij}:A^{\otimes j}\to A\]
+of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
+\begin{equation}
+\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}(1^{\otimes r}\otimes m_{pq}\otimes 1^{\otimes t})=0
+\end{equation}
+for all $u\geq 0$ and $v\geq 1$. 
+\end{defi}
+\end{frame}
+
+\begin{frame}
+\frametitle{Particular cases}
+\begin{itemize}
+\item<1-> A $dA_\infty$-algebra where $m_{ij}=0$ for all $i>0$ is an $A_\infty$-algebra.
+\item<2-> A $dA_\infty$-algebra with $m_{ij}=0$ except for for $m_{01}$ and $m_{11}$ is a \emph{bicomplex}: 
+\[m_{01}m_{01}=0,\ m_{11}m_{11}=0,\ m_{01}m_{11}=m_{11}m_{01}\]
+\item<3-> A \emph{bidga} is a monoid in the category of bicomplexes, equivalently, a $dA_\infty$-algebra with $m_{ij}=0$ for $i+j\geq 3$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{defi}
+Let $A$ and $B$ be derived $A_\infty$-algebras with respective structure maps $m^A$ and $m^B$. A \emph{morphism of derived $A_\infty$-algebras} $f:A\to B$ is a family of maps $f_{st}:A^{\otimes t}\to B$ of bidegree $(s,1-s-t)$ satisfying
+\begin{align*}
+\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}f_{ij}(1^{\otimes r}\otimes m_{pq}^A\otimes 1^{\otimes s})=\\
+\underset{v=q_1+\cdots +q_j}{\sum_{u=i+p_1+\cdots +p_j}}(-1)^{\epsilon} m^B_{ij}(f_{p_1 q_1}\otimes\cdots\otimes f_{p_j q_j})
+\end{align*}
+for all $u\geq 0$ and $v\geq 1$, where
+$\epsilon = u + \sum_{1\leq w < l \leq j} q_w(1-p_l-q_l)  + \sum_{w=1}^j p_w(j-w)$.
+%I am confindent that this is the same as in RW, it is a matter of grouping differently (taking in to account how many times things are added up) and sometimes change w by j-w. But maybe I should write it down.
+\end{defi}
+\end{frame}
+
+\begin{frame}
+\frametitle{$E_2$-equivalences}
+\begin{itemize}
+\item<1-> Since $m_{01}m_{01}=0$, denote $H^*_{ver}(A)=H^*(A,m_{01})$. 
+\item<2-> Since $m_{21}m_{01} - m_{11}m_{11} + m_{01}m_{21} = 0$, we have that $m_{11}$ is a differential on $H^*_{ver}(A)$. Denote $H^*_{hor}(H^*_{ver}(A)) = H^*(H^*_{ver}(A);m_{11})$.
+\end{itemize}\pause
+\pause
+\begin{defi}
+A morphism $f : A \to B$ of derived $A_\infty$-algebras
+is called an \emph{$E_2$-equivalence} if $H^*_{hor}(H^*_{ver}(f_{01}))$
+is an isomorphism of $R$-modules.
+\end{defi}\pause
+\begin{defi}
+Let $A$ be a dga. A \emph{degreewise $R$-projective
+resolution} of $A$ is a degreewise $R$-projective
+bidga $P$ with $m_{01} = 0$ together with an $E_2$-equivalence $P \to A$.
+\end{defi}
+\end{frame}
+\subsection{Minimal models}
+\begin{frame}
+\frametitle{Minimal models}
+\begin{itemize}
+\item A $dA_\infty$-algebra is \emph{minimal} if $m_{01} = 0$. 
+\end{itemize}\pause
+\begin{theorem}[Sagave]
+Let $A$ be a dga over $R$. Then there is a degreewise
+$R$-projective derived $A_\infty$-algebra $E$ together with an $E_2$-equivalence $E \to A$ such that
+\begin{itemize}
+\item $E$ is minimal,
+\item $E$ is well-defined up to $E_2$-equivalence,
+\item together with the differential $m_{11}$ and the multiplication $m_{02}$, $E$ is a degreewise $R$-projective
+resolution of the graded algebra $H^*(A)$. 
+\end{itemize}
+\end{theorem}\pause
+Such $E$ is called a \emph{minimal model} of $A$.
+\end{frame}
+
+\subsection{Totalization}
+\begin{frame}
+\frametitle{Totalization}
+Consider only \emph{bounded on the right} bigraded modules $A$: there exist $i'$ such that $A_i^j=0$ for all $j$ and $i>i'$.\pause %monoidality reasons, not too restrictive in practice
+\begin{defi}
+The \emph{totalization} $\Tot(A)$ of a bigraded $R$-module $A = \{A^j_i \}$ the graded $R$-module is given by
+\[\Tot(A)^n =
+\bigoplus_{i}A^{n-i}_i \]%\oplus\prod_{i\geq 0}A^{n-i}_i .\]
+%The \emph{column filtration} of $\Tot(A)$ is the filtration given by \[F_p\Tot(A)^n \coloneqq\prod_{i\geq p} A^{n-i}_i .\]
+\end{defi}
+\end{frame}
+\begin{frame}
+\frametitle{Totalization of operads}
+\begin{itemize}
+\item<1-> If $\OO$ is a bigraded operad then $\Tot(\OO)$ is a graded operad with insertion
+\[x\bar{\circ}_ry=(-1)^{i(k+l)} x\circ_r y\]
+
+for $x$ of bidegree $(i,j)$ and $y$ of bidegree $(k,l)$.
+\item<2-> \emph{Vertical operadic suspension}: $\mathfrak{s}\OO = \OO\otimes \Lambda(n)$ with $\Lambda(n)$ concentrated in bidegree $(0,n-1)$.
+\item<3-> Write $\star$ for the circle operation on $\Tot(\s\OO)$: a $dA_\infty$-multiplication is an element $m\in\Tot(\s\OO)$ of degree 1 such that $m\star m = 0$.
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Connection to $A_\infty$-algebras}
+\begin{theorem}[Cirici, Santander, Livernet, Whitehouse]
+For a bigraded module $A$, there is a one to one correspondence between $A_\infty$-algebras on $\Tot(A)$ and $dA_\infty$-algebras on $A$.
+\end{theorem}\pause
+\begin{corollary}
+Up to shifts, the following maps define an $dA_\infty$-algebra structure on $\Sigma\mathfrak{s}\mathcal{O}$
+\begin{align*}
+&M_{i1}(x)=[m_{i\bullet},x]\\
+&M_{ij}(x_1,\dots, x_j)=m_{i\bullet}\{x_1,\dots, x_j\}_j
+\end{align*}
+\end{corollary}
+
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\Huge{Thank you very much!}
+\end{center}
+\end{frame}
+
+\end{document}
