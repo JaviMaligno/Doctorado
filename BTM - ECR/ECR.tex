@@ -10,10 +10,10 @@
 \usepackage{pgf,tikz}
 \usepackage{pgfplots}
 \usepackage{tikz-cd}
-\usepackage{oplotsymbl} %filled pentagon go brrrr
+%\usepackage{oplotsymbl} %filled pentagon go brrrr
 %\usepackage{empheq}
 %\usepackage[dvipsnames]{xcolor}
-\usepackage{xcolor}
+%\usepackage{xcolor}
 
 \usetikzlibrary{arrows}
 \usetikzlibrary{cd}
@@ -30,6 +30,7 @@
 \newtheorem{teorema}{Theorem}
 \newtheorem{defi}{Definition}
 \newtheorem{prop}[teorema]{Proposition}
+\newtheorem{lem}[teorema]{Lemma}
 
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -57,11 +58,11 @@
 	\colorbox{red!50}{$\displaystyle#1$}}
 
 \makeatletter
-\newcommand*{\encircled}[1]{\relax\ifmmode\mathpalette\@encircled@math{#1}\else\@encircled{#1}\fi}
-\newcommand*{\@encircled@math}[2]{\@encircled{$\m@th#1#2$}}
-\newcommand*{\@encircled}[1]{%
-	\tikz[baseline,anchor=base]{\node[draw,circle,outer sep=0pt,inner sep=.2ex] {#1};}}
-\makeatother
+%\newcommand*{\encircled}[1]{\relax\ifmmode\mathpalette\@encircled@math{#1}\else\@encircled{#1}\fi}
+%\newcommand*{\@encircled@math}[2]{\@encircled{$\m@th#1#2$}}
+%\newcommand*{\@encircled}[1]{%
+%	\tikz[baseline,anchor=base]{\node[draw,circle,outer sep=0pt,inner sep=.2ex] {#1};}}
+%\makeatother
 
 
 %-----------------------------------------------------------
@@ -90,11 +91,65 @@ DERIVED DELIGNE CONJECTURE
 \end{frame}
 
 \section{Algebraic Deligne Conjecture}
+\begin{frame}
+\begin{itemize}
+\item<1-> Let $A$ be a graded $R$-module and consider the module $C^n(A)=\hom_R(A^{\otimes n},A)$.  %if you know about operads this is obvious, but I want to avoid them
+\item<2-> For $f\in C^n(A)$ and $g_i\in C^{m_i}(A)$ ($i=1,\dots, j$) define the \emph{brace} $b_j(f;g) \in C^{n+\sum m_i-j}(A)$ as
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+		\clip(-2.8466666666666676,-1) rectangle (11.486666666666668,2.);
+		\draw[line width=1.pt] (2.833333333333334,0.) -- (2.833333333333334,0.5666666666666675) -- (7.006666666666668,0.5666666666666675) -- (7.,0.) -- cycle;
+		\draw[line width=1.pt] (3.193333333333334,1.) -- (4.,1.) -- (4.006666666666668,1.58) -- (3.193333333333334,1.58) -- cycle;
+		\draw[line width=1.pt] (6.,1.) -- (6.38,1.) -- (6.38,1.58) -- (5.593333333333335,1.5933333333333344) -- (5.606666666666667,1.) -- cycle;
+		\draw (-2.9,0.6) node[anchor=north west] {$b_j(f;g_1,\dots, g_j)=\displaystyle{\sum_{\text{ordering preserving insertions}}}$};
+		\draw [line width=1.pt] (2.833333333333334,0.)-- (2.833333333333334,0.5666666666666675);
+		\draw [line width=1.pt] (2.833333333333334,0.5666666666666675)-- (7.006666666666668,0.5666666666666675);
+		\draw [line width=1.pt] (7.006666666666668,0.5666666666666675)-- (7.,0.);
+		\draw [line width=1.pt] (7.,0.)-- (2.833333333333334,0.);
+		\draw [line width=1.pt] (4.92,0.)-- (4.92,-0.36666666666666614);
+		\draw [line width=1.pt] (2.993333333333334,0.5666666666666675)-- (3.,2.);
+		\draw [line width=1.pt] (3.553333333333334,0.5666666666666675)-- (3.553333333333334,1.);
+		\draw [line width=1.pt] (4.273333333333334,0.5666666666666675)-- (4.273333333333334,1.9933333333333345);
+		\draw [line width=1.pt] (4.54,0.5666666666666675)-- (4.54,1.9933333333333345);
+		\draw [line width=1.pt] (5.993333333333334,0.5666666666666675)-- (6.,1.);
+		\draw [line width=1.pt] (6.62,0.5666666666666675)-- (6.62,1.9933333333333345);
+		\draw [line width=1.pt] (6.833333333333335,0.5666666666666675)-- (6.833333333333335,1.98);
+		\draw [line width=1.pt] (3.193333333333334,1.)-- (4.,1.);
+		\draw [line width=1.pt] (4.,1.)-- (4.006666666666668,1.58);
+		\draw [line width=1.pt] (4.006666666666668,1.58)-- (3.193333333333334,1.58);
+		\draw [line width=1.pt] (3.193333333333334,1.58)-- (3.193333333333334,1.);
+		\draw [line width=1.pt] (6.,1.)-- (6.38,1.);
+		\draw [line width=1.pt] (6.38,1.)-- (6.38,1.58);
+		\draw [line width=1.pt] (6.38,1.58)-- (5.593333333333335,1.5933333333333344);
+		\draw [line width=1.pt] (5.593333333333335,1.5933333333333344)-- (5.606666666666667,1.);
+		\draw [line width=1.pt] (5.606666666666667,1.)-- (6.,1.);
+		\draw [line width=1.pt] (3.5666666666666673,1.58)-- (3.58,2.);
+		\draw [line width=1.pt] (6.007451656136321,1.586314378709553)-- (6.,2.);
+		\draw [line width=1.pt] (5.4,0.5666666666666675)-- (5.4,2.);
+		\draw (3.3,1.5666666666666678) node[anchor=north west] {$g_1$};
+		\draw (5.65,1.58) node[anchor=north west] {$g_j$};
+		\draw (4.7,0.5) node[anchor=north west] {$f$};
+		\draw (4.59,1.5533333333333343) node[anchor=north west] {$\cdots$};
+		\end{tikzpicture}
+\item<3-> Notation: $b_1(f;g)=f\circ g = \sum_i f\circ_i g$.
+\end{itemize}
+\end{frame}
+
 \subsection{Hochschild cohomology}
 \begin{frame}
 \frametitle{Hochschild cohomology of an associative algebra}
-DEFINE HOCHSCHILD COMPLEX AND COHOMOLOGY
-BRACES
+\begin{lem}
+The operation $[f,g]=f\circ g-(-1)^{\deg(f)}g\circ f$ defines a Lie bracket on $C^*(A)$. 
+\end{lem}\pause
+
+\begin{defi}
+Let $A$ be a dg algebra. Its \emph{Hochschild complex} is given by $C^n(A)=\hom_R(A^{\otimes n},A)$ with the differential %I like C^0 as R -> A
+\[
+Df = [d+m,f] = d\circ f - (-1)^{\deg(f)|}f\circ d + m\circ f - (-1)^{\deg(f)}f\circ m %the jacobi identity guarantees that this is a differential
+\]
+where $d$ and $m$ are the differential and multiplication on $A$.
+\end{defi}
+
+
 \end{frame}
 \begin{frame}
 \frametitle{Deligne conjecture}
@@ -307,80 +362,6 @@ STRUCTURE ON HOCHSCHILD COMPLEX (MAYBE ALSO ON COHOMOLOGY)
 %\end{itemize}
 %\end{frame}
 
-\subsection{Algebraic structures on operads}
-\begin{frame}
-\frametitle{The circle operation}
-%the operation we have defined is not so arbitrary or ad hoc
-\begin{itemize}
-\item<1-> Define the \emph{circle operation} as $a\circ b = \sum_i a\circ_i b$. %even if it's not a suspension, the important thing is that we have an operad structure
-\item The circle operation defines a pre-Lie algebra structure, meaning that the bracket
-\[[a,b]=a\circ b-(-1)^{\deg(a)\deg(b)}b\circ a\]
-is a Lie bracket.
-\end{itemize}
-\end{frame}
-\subsubsection{Braces}
-\begin{frame}
-\frametitle{Braces}
-\begin{itemize}
-\item For $a\in\mathcal{O}(n)$ and $b_1,\dots,b_j\in\mathcal{O}$ ($j\leq n$), define maps called \emph{braces}
-\[a\{b_1,\dots,b_j\}_j=\sum \gamma(a;1,\dots, 1,b_1,1,\dots,1,b_j,1,\dots, 1)\]\pause %the sum runs over all order preserving insertions
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-		\clip(-2.8466666666666676,-1) rectangle (11.486666666666668,2.);
-		\draw[line width=1.pt] (2.833333333333334,0.) -- (2.833333333333334,0.5666666666666675) -- (7.006666666666668,0.5666666666666675) -- (7.,0.) -- cycle;
-		\draw[line width=1.pt] (3.193333333333334,1.) -- (4.,1.) -- (4.006666666666668,1.58) -- (3.193333333333334,1.58) -- cycle;
-		\draw[line width=1.pt] (6.,1.) -- (6.38,1.) -- (6.38,1.58) -- (5.593333333333335,1.5933333333333344) -- (5.606666666666667,1.) -- cycle;
-		\draw (-2.9,0.6) node[anchor=north west] {$a\{b_1,\dots, b_j\}_j=\displaystyle{\sum_{\text{all possible insertions}}}$};
-		\draw [line width=1.pt] (2.833333333333334,0.)-- (2.833333333333334,0.5666666666666675);
-		\draw [line width=1.pt] (2.833333333333334,0.5666666666666675)-- (7.006666666666668,0.5666666666666675);
-		\draw [line width=1.pt] (7.006666666666668,0.5666666666666675)-- (7.,0.);
-		\draw [line width=1.pt] (7.,0.)-- (2.833333333333334,0.);
-		\draw [line width=1.pt] (4.92,0.)-- (4.92,-0.36666666666666614);
-		\draw [line width=1.pt] (2.993333333333334,0.5666666666666675)-- (3.,2.);
-		\draw [line width=1.pt] (3.553333333333334,0.5666666666666675)-- (3.553333333333334,1.);
-		\draw [line width=1.pt] (4.273333333333334,0.5666666666666675)-- (4.273333333333334,1.9933333333333345);
-		\draw [line width=1.pt] (4.54,0.5666666666666675)-- (4.54,1.9933333333333345);
-		\draw [line width=1.pt] (5.993333333333334,0.5666666666666675)-- (6.,1.);
-		\draw [line width=1.pt] (6.62,0.5666666666666675)-- (6.62,1.9933333333333345);
-		\draw [line width=1.pt] (6.833333333333335,0.5666666666666675)-- (6.833333333333335,1.98);
-		\draw [line width=1.pt] (3.193333333333334,1.)-- (4.,1.);
-		\draw [line width=1.pt] (4.,1.)-- (4.006666666666668,1.58);
-		\draw [line width=1.pt] (4.006666666666668,1.58)-- (3.193333333333334,1.58);
-		\draw [line width=1.pt] (3.193333333333334,1.58)-- (3.193333333333334,1.);
-		\draw [line width=1.pt] (6.,1.)-- (6.38,1.);
-		\draw [line width=1.pt] (6.38,1.)-- (6.38,1.58);
-		\draw [line width=1.pt] (6.38,1.58)-- (5.593333333333335,1.5933333333333344);
-		\draw [line width=1.pt] (5.593333333333335,1.5933333333333344)-- (5.606666666666667,1.);
-		\draw [line width=1.pt] (5.606666666666667,1.)-- (6.,1.);
-		\draw [line width=1.pt] (3.5666666666666673,1.58)-- (3.58,2.);
-		\draw [line width=1.pt] (6.007451656136321,1.586314378709553)-- (6.,2.);
-		\draw [line width=1.pt] (5.4,0.5666666666666675)-- (5.4,2.);
-		\draw (3.3,1.5666666666666678) node[anchor=north west] {$b_1$};
-		\draw (5.65,1.58) node[anchor=north west] {$b_j$};
-		\draw (4.7,0.5) node[anchor=north west] {$a$};
-		\draw (4.59,1.5533333333333343) node[anchor=north west] {$\cdots$};
-		\end{tikzpicture}
-\pause
-
-\item Observe that $a\{b\}_1=a\circ b$. 
-
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Some examples}
-\begin{itemize}
-\item<1-> \emph{Associative operad in vector spaces} : $\mathcal{O}(2)=\mathbb{F} m_2$ where $\mathbb{F}$ is a field and $\mathcal{O}(n)=\mathbb{F}\mu_n$ for $n> 2$, $\mathcal{O}(1)=\mathbb{F}$, $\mathcal{O}(0)=0$.  %O(0)=F if there is a unit
-\item<2->  \emph{Associative operad in topological spaces} : $\mathcal{O}(2)=\{m_2\}$ and $\mathcal{O}(n)=\{\mu_n\}$ for $n> 2$, $\mathcal{O}(1)=\{*\}$, $\mathcal{O}(0)=\emptyset$. %O(0)=F if there is a unit
-
-%both have initial object in 0 and monoidal unit elsewhere
-\item<3-> Next we describe the operad of \emph{Stasheff associahedra}.
-\end{itemize}
-
-\end{frame}
-
-
-
 
 
 \section{Homotopy associativity}
@@ -483,7 +464,7 @@ Product of 4 elements
 \end{tikzpicture}
 \]
 
-If we can fill the pengaton with a homotopy $M_4=\pentagofill\times X^4\to X$ we say that the product is homotopy coherent. %there is a concatenation of homotopies and it makes sense to talk about homotopies between them, joining the points with paths
+%If we can fill the pengaton with a homotopy $M_4=\pentagofill\times X^4\to X$ we say that the product is homotopy coherent. %there is a concatenation of homotopies and it makes sense to talk about homotopies between them, joining the points with paths
 \end{frame}
 \subsection{Stasheff Associahedra}
 
@@ -522,7 +503,7 @@ Multiplying 5 elements
 \subsection{$A_\infty$-spaces}
 \begin{frame}
 \begin{itemize}
-\item<1-> We get spaces $K_2=*$, $K_3=[0,1]$, $K_4=\pentagofill$, $K_5, \dots$ %a point cause there is only one way to multiply two elements, [0,1] parametrizes the homotopy, k5 is the previous slide
+\item<1-> %We get spaces $K_2=*$, $K_3=[0,1]$, $K_4=\pentagofill$, $K_5, \dots$ %a point cause there is only one way to multiply two elements, [0,1] parametrizes the homotopy, k5 is the previous slide
 \item<2-> And maps $M_n:K_n\times X^n\to X$ satisfying certain relations. %homotopy relation similar to what we explain with the polygons
 \item<3-> For instance, $M_3:[0,1]\times X^3\to X$ defines a homotopy between $M_2(M_2\times 1)$ and $M_2(1\times M_2)$. 
 \item<4-> $M_4:K_4\times X^4\to X$ allows us to fill the pentagon, on the boundary it is equal to $M_3$. %and so on
