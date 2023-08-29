@@ -10,6 +10,7 @@
 \usepackage{pgf,tikz}
 \usepackage{pgfplots}
 \usepackage{tikz-cd}
+\usepackage{mathtools}
 %\usepackage{oplotsymbl} %filled pentagon go brrrr
 %\usepackage{empheq}
 %\usepackage[dvipsnames]{xcolor}
@@ -93,7 +94,7 @@ DERIVED DELIGNE CONJECTURE
 \begin{frame}
 \begin{itemize}
 \item<1-> Let $A$ be a graded $R$-module and consider the module $C^n(A)=\hom_R(A^{\otimes n},A)$.  %if you know about operads this is obvious, but I want to avoid them
-\item<2-> For $f\in C^n(A)$ and $g_i\in C^{m_i}(A)$ ($i=1,\dots, j$) define the \emph{brace} $b_j(f;g) \in C^{n+\sum m_i-j}(A)$ as
+\item<2-> For $f\in C^n(A)$ and $g_i\in C^{m_i}(A)$ define the \emph{brace} $b_j(f;g_1,\dots, g_j) \in C^{n+\sum m_i-j}(A)$ as
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 		\clip(-2.8466666666666676,-1) rectangle (11.486666666666668,2.);
 		\draw[line width=1.pt] (2.833333333333334,0.) -- (2.833333333333334,0.5666666666666675) -- (7.006666666666668,0.5666666666666675) -- (7.,0.) -- cycle;
@@ -153,7 +154,7 @@ where $d$ and $m$ are the differential and multiplication on $A$.
 
 \begin{frame}
 \begin{itemize}
-\item $C^*(A)$ is also a DGA with multiplication %so we can consider its Hochschild complex and it has brace structure etc
+\item $C^*(A)$ is also a dga with multiplication %so we can consider its Hochschild complex and it has brace structure etc
 \[
 M(f_1,f_2) = (-1)^{|f|}b_2(m;f_1,f_2).
 \]
@@ -163,12 +164,12 @@ The map $C^*(A)\to C^*(C^*(A))$ given by
 \[
 x\mapsto \sum_{j\geq 0} b_j(x;-)
 \]
-is a map of DGAs.
+is a map of dgas.
 \end{prop}
 \end{frame}
 
 
-
+\subsection{Deligne conjecture}
 \begin{frame}
 \frametitle{Algebraic Deligne conjecture}
 %When you unravel what the above means
@@ -205,7 +206,7 @@ MAYBE ALSO STRUCTURE ON COHOMOLOGY
 \begin{frame}
 \frametitle{$A_\infty$-algebras}
 \begin{defi}
-An $A_\infty$-\emph{algebra} $A$ is a graded vector space equipped with a family of ``multiplications'' $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying the relation %MAYBE CHANGE CHAINS TO COCHAINS TO KEEP THE DEGREE 2-N, I WILL HAVE TO USE OPERADIC DESUSPENSION IN THIS CASE
+An $A_\infty$-\emph{algebra} $A$ is an $R$-module equipped with a family of ``multiplications'' $m_n:A^{\otimes n}\to A$ of degree $2-n$ satisfying the relation %MAYBE CHANGE CHAINS TO COCHAINS TO KEEP THE DEGREE 2-N, I WILL HAVE TO USE OPERADIC DESUSPENSION IN THIS CASE
 
 \[\sum_{r+s+t\geq 1}(-1)^{rs+t}m_{r+1+t}(1^{\otimes r}\otimes m_s\otimes 1^{\otimes s})=0\] %we are composing every map with itself
 \end{defi}
@@ -218,7 +219,7 @@ An $A_\infty$-\emph{algebra} $A$ is a graded vector space equipped with a family
 \item<1-> We always have $m_1m_1=0$, so in particular $A$ is a cochain complex.%CAN BE DEFINED ON THE CATEGORY OF CHAIN COMPLEX
 \item<2-> If $m_i=0$ for $i\neq 2$, the relation becomes $m_2(1\otimes m_2)=m_2(m_2\otimes 1)$, so $A$ is an associative algebra.
 \item<3->  We also have the relation \[m_1m_2=m_2(m_1\otimes 1)+m_2(1\otimes m_1)\]%DG %MONOID IN CHAIN COMPLEX ANALOGUE TO MONOID IN K-VECT
-\item[]<4-> This is the Leibniz rule, and $A$ is a differential graded (dg) algebra.
+\item[]<4-> This is the Leibniz rule, and $A$ is a dga.
 \end{itemize}
 \end{frame}
 
@@ -239,13 +240,120 @@ An $A_\infty$-\emph{algebra} $A$ is a graded vector space equipped with a family
 
 \begin{frame}
 MAYBE GEOMETRIC INTERPRETATION
-PROBABLY SAY SOMETHING ABOUT MINIMAL MODELS SO THAT DERIVED CAN BE MOTIVATED
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Morphisms of $A_\infty$-algebras}
+\begin{defi}
+An \emph{$\infty$-morphism} of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $n-1$ satisfying for all $n\geq 1$ the equation
+\begin{align*}
+\sum_{r+s+t=n} (-1)^{rs+t}f_{r+1+t}(1^{\otimes r} \otimes m^A_s\otimes 1^{\otimes t})=\\
+\sum_{i_1+\cdots+i_k=n} (-1)^s m^B_k(f_{i_1}\otimes\cdots\otimes f_{i_k}),
+\end{align*}
+where
+$s=\sum_{\alpha<\beta}i_\alpha(1-i_\beta)$.%The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by 
+%
+%\[(gf)_n=\sum_r\sum_{i_1+\cdots+i_r=n}(-1)^s g_r(f_{i_1}\otimes\cdots
+%\otimes f_{i_r}).\]
+\end{defi}
+
+\end{frame}
+\begin{frame}
+\begin{itemize}
+\item<1-> We have $f_1m_1 = m_1f_1$, i.e. $f_1$ is a morphism of complexes.
+\item<2-> We have
+\[
+f_1m_2 = m_2 (f_1\otimes f_1) + m_1f_2 + f_2 (m_1\otimes 1 + 1\otimes m_1),\]
+which means that $f_1$ commutes with the multiplication $m_2$ up to a homotopy
+given by $f_2$.
+\end{itemize}
+\end{frame}
+
+\subsection{Minimal models}
+\begin{frame}
+\frametitle{Minimal models}
+\begin{itemize}
+\item An $A_\infty$-algebra is \emph{minimal} if $m_1 = 0$. 
+\end{itemize}\pause
+\begin{theorem}[Kadeishvili]
+\begin{itemize}
+\item If $A$ is a dga over a field, its cohomology $H^*(A)$ is a minimal $A_\infty$-algebra with multiplication $m_2$ induced by the multiplication on $A$.
+\item There is an $\infty$-morphism of $A_\infty$-algebras $f:H^*(A)\to A$ such that $f_1$ is a quasi-isomorphism.
+\item Under certain homological conditions, any other dga $A'$ with $H^*(A')\cong H^*(A)$ is quasi-isomorphic to $A$. 
+\end{itemize}
+\end{theorem}\pause
+The $A_\infty$-algebra $H^*(A)$ is called the \emph{minimal model} of $A$. %This will be relevant later
+%nice enough = HH(A,A) vanishes on degree 2-n %Replaced  means equivalent  %essentially = up to quasi-iso
+%We would like to extend this result to a ground ring that is not necessarily a field.
+\end{frame}
+
+\subsection{Hochschild complex}
+\begin{frame}
+\frametitle{Structure on the Hochschild complex}
+Let $C^*(A)$ be the Hochschild module of $A$. %it can be turned into a complex with m1 but I'm not doing that because there's a better one
+\begin{itemize}
+\item<1-> Define a new circle operation for $f\in C^n(A)$ and $g\in C^m(A)$ %it has a reason but i'm not talking about operads
+\[f\tilde{\circ}_ig=(-1)^{(n-1)\deg(g)+(n-i)(m-1)}f\circ_i g.\]
+\item<2-> Applied to  $A_\infty$-maps 
+\[m_{r+1+t}\tilde{\circ}_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s\]
+\item[]<3-> The sign of the $A_\infty$-equation!
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\begin{itemize}
+\item<1-> This simplifies the equation to
+\[\sum_{r+s+t=n}m_{r+1+t}\tilde{\circ}_{r+1}m_s=0\] %but we can simplify it even more
+\item<2-> Let $a\tilde{\circ}b=\sum_{i}a\tilde{\circ}_ib$ and let $m=m_1+m_2+\cdots$. The equation becomes just
+\item[]<3-> \[m\tilde{\circ}m=0.\]
+\end{itemize}
 \end{frame}
 
 \begin{frame}
-NEW CIRCLE OPERATION GIVES RISE TO NEW BRACE(SAY IT HAS A REASON FOR THE SIGNS)
-THEN FORMULATE HOSCHSCHILD COMPLEX AND PROPOSITION (HINTED AT BY GV) AND DELIGNE (MAYBE MENTION THERE WERE OTHER PROOFS OF THE STRUCTURE)
+\begin{itemize}
+\item<1-> Since $m\tilde{\circ}m=0$, the Jacobi identity implies that $[m,[m,]]=0$ for the bracket induced by $\tilde{\circ}$.
+\item<2-> Since $|m|=1$ map $[m,]:C^*(A)\to C^*(A)$ turns $C^*(A)$ into a cochain complex.
+\item<3-> Indeed, it is possible to define an $A_\infty$-algebra structure on $C^*(A)$. %i don't have time for details
+\end{itemize}
 \end{frame}
+\begin{frame}
+\frametitle{$A_\infty$-multiplications}
+\begin{prop}[Getzler]
+Up to shifts, the following maps define an $A_\infty$-algebra structure on $C^*(A)$
+\begin{align*}
+&M_1(f)=[m,f]\\
+&M_j(f_1,\dots, f_j)=\tilde{b}_j(m;f_1,\dots, f_j) %the brace induced by the new circle
+\end{align*}
+%generalices the associative result
+\end{prop}\pause
+
+\begin{prop}[Hinted at by Gerstenhaber-Voronov]
+The map $\Phi:C^*(A)\to C^*(C^*(A))$ given by $Phi(x)= \sum_{j\geq 0} b_j(x;-)$ satisfies for all $j$
+\[\Phi(M_j) = M_j(\Phi^{\otimes j})\]
+%generalices the associative result
+\end{prop}
+\end{frame}
+
+
+\subsection{Deligne conjecture}
+\begin{frame}
+\frametitle{$A_\infty$-Deligne conjecture}
+\begin{theorem} %some structure was already known, but no complete set of brace relations 
+The Hochschild complex $C^*(A)$ has the structure of a $J$-algebra:
+\begin{align*}
+\tilde{b}_n&(M_j(f_1,\dots, f_j);g_1,\dots, g_n)=\\
+&\sum_{\mathclap{l,i_1,k_1,\dots, i_j,k_j}}(-1)^{\varepsilon}M_l(g_1,\dots, \tilde{b}_{k_1}(f_1;g_{i_1},\dots),\dots, \tilde{b}_{k_j}(f_j;g_{i_j},\dots),\dots, g_n).\\ 
+\\
+&\tilde{b}_j(M_1(f);g_1,\dots, g_j)=\\
+&\sum_{l,k,i_1}(-1)^{\varepsilon}M_l(g_1,\dots, \tilde{b}_{k}(f;g_{i_1},\dots),\dots, g_j)\\
+&-(-1)^{|f|}\sum_{l,k,i_1} (-1)^{\eta} \tilde{b}_k(f;g_1,\dots, M_l(g_{i_1},\dots,), \dots, g_j)
+\end{align*}
+\end{theorem}
+\end{frame}
+
 
 
 \section{Homotopy associativity}
@@ -384,95 +492,10 @@ There is an isomorphism of operads
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\begin{itemize}
-
-\item<1-> We may identify each $x\in\mathcal{O}(n)$ with $x\otimes e^n\in \mathfrak{s}\mathcal{O}(n)$.
-%\item<2-> If $x$ has degree $p$ in $\mathcal{O}$, it has degree $p-n+1$ in $\mathfrak{s}\mathcal{O}$.
-\item<2-> Let $\circ_i$ be the $i$-th insertion on $\mathcal{O}$ and $\tilde{\circ}_i$ the $i$-th insertion on $\mathfrak{s}\mathcal{O}$ then
-\[a\tilde{\circ}_ib=(-1)^{(n-1)\deg(b)+(n-i)(m-1)}a\circ_i b.\]
-\item<3-> Applied to  $A_\infty$-maps 
-\[m_{r+1+t}\tilde{\circ}_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s\]
-\item[]<4-> The sign of the $A_\infty$-equation!
-\end{itemize}
-\end{frame}
 
 
 
-\begin{frame}
-\begin{itemize}
-\item<1-> This simplifies the equation to
-\[\sum_{r+s+t=n}m_{r+1+t}\tilde{\circ}_{r+1}m_s=0\] %but we can simplify it even more
-\item<2-> Let $a\tilde{\circ}b=\sum_{i}a\tilde{\circ}_ib$ and let $m=m_1+m_2+\cdots$. The equation becomes just
-\item[]<3-> \[m\tilde{\circ}m=0.\]
-\item<4-> In addition, $m_i$ becomes of degree $1$ in the operadic suspension for all $i$ $\Rightarrow$
-\item[]<5-> We can define an $A_\infty$-multiplication as an element $m\in\mathfrak{s}\mathcal{O}$ of degree $1$ such that $m\tilde{\circ}m=0$ (Maurer-Cartan element). 
-\end{itemize}
-\end{frame}
 
-\begin{frame}
-\begin{itemize}
-\item<1-> Since $m\tilde{\circ}m=0$, the Jacobi identity implies that $[m,[m,]]=0$ for the bracket induced by $\tilde{\circ}$.
-\item<2-> Since $m$ is of degree $1$, this implies that the map $[m,]:\mathfrak{s}\mathcal{O}\to\mathfrak{s}\mathcal{O}$ turns $\mathfrak{s}\mathcal{O}$ into a cochain complex.
-\item<3-> Indeed, it is possible to define an $A_\infty$-algebra structure on $\Sigma\mathfrak{s}\mathcal{O}$. %i don't have time for details
-\end{itemize}
-\end{frame}
-\begin{frame}
-\frametitle{$A_\infty$-multiplications}
-\begin{theorem}[Getzler]
-Up to shifts, the following maps define an $A_\infty$-algebra structure on $\Sigma\mathfrak{s}\mathcal{O}$\pause
-\begin{align*}
-&M_1(x)=[m,x]\\
-&M_j(x_1,\dots, x_j)=m\{x_1,\dots, x_j\}_j
-\end{align*}
-\end{theorem}
-\end{frame}
-\begin{frame}
-
-\subsection{Minimal models}
-\frametitle{Morphisms of $A_\infty$-algebras}
-\begin{defi}
-A \emph{morphism} of $A_\infty$-algebras $A\to B$ is a family of maps \[f_n:A^{\otimes n}\to B\] of degree $n-1$ satisfying for all $n\geq 1$ the equation
-\begin{align*}
-\sum_{r+s+t=n} (-1)^{rs+t}f_{r+1+t}(1^{\otimes r} \otimes m^A_s\otimes 1^{\otimes t})=\\
-\sum_{i_1+\cdots+i_k=n} (-1)^s m^B_k(f_{i_1}\otimes\cdots\otimes f_{i_k}),
-\end{align*}
-where
-$s=\sum_{\alpha<\beta}i_\alpha(1-i_\beta)$.%The composition of $\infty$-morphisms $f:A\to B$ and  $g:B\to C$ is given by 
-%
-%\[(gf)_n=\sum_r\sum_{i_1+\cdots+i_r=n}(-1)^s g_r(f_{i_1}\otimes\cdots
-%\otimes f_{i_r}).\]
-\end{defi}
-
-\end{frame}
-\begin{frame}
-\begin{itemize}
-\item<1-> We have $f_1m_1 = m_1f_1$, i.e. $f_1$ is a morphism of complexes.
-\item<2-> We have
-\[
-f_1m_2 = m_2 (f_1\otimes f_1) + m_1f_2 + f_2 (m_1\otimes 1 + 1\otimes m_1),\]
-which means that $f_1$ commutes with the multiplication $m_2$ up to a homotopy
-given by $f_2$.
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Uniqueness result}
-\begin{itemize}
-\item An $A_\infty$-algebra is \emph{minimal} if $m_1 = 0$. 
-\end{itemize}\pause
-\begin{theorem}[Kadeishvili]
-\begin{itemize}
-\item If $A$ is a dga over a field, its homology $H^*(A)$ is a minimal $A_\infty$-algebra with multiplication $m_2$ induced by the multiplication on $A$.
-\item There is a morphism of $A_\infty$-algebras $f:H^*(A)\to A$ such that $f_1$ is a quasi-isomorphism.
-\item Under certain homological conditions, any other dga $A'$ with $H^*(A')\cong H^*(A)$ is quasi-isomorphic to $A$. 
-\end{itemize}
-\end{theorem}\pause
-The $A_\infty$-algebra $H^*(A)$ is called the \emph{minimal model} of $A$.
-%nice enough = HH(A,A) vanishes on degree 2-n %Replaced  means equivalent  %essentially = up to quasi-iso
-We would like to extend this result to a ground ring that is not necessarily a field.
-\end{frame}
 
 \section{Derived $A_\infty$-algebras}
 
