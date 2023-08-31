@@ -76,19 +76,6 @@
 \begin{document}
 \frame{\titlepage}
 
-\begin{frame}
-AVOID OPERADS
-
-MOTIVATE AINFTY THROUGH TRANSFER (MAYBE) AND MINIMAL MODELS (MORE IMPORTANT)
-REPRESENT THE RELATIONS WITH ASSOCIAHEDRA TO BE MORE VISUAL (AND TO PROVIDE AN EXAMPLE THROUGH CHAINS)
-INFTY DELIGNE CONJECTURE (FIRST TIME COMPLETE LIST OF BRACE RELATIONS, PROBABLY KNOWN BUT DESCRIBED OTHER WAYS)
-MOTIVATE DERIVED AINFTY ALGEBRAS (MENTION LACK OF GEOMETRICAL MODEL)
-DERIVED DELIGNE CONJECTURE
-
-\end{frame}
-\begin{frame}
-\tableofcontents
-\end{frame}
 
 \section{Algebraic Deligne Conjecture}
 \begin{frame}
@@ -196,10 +183,6 @@ is a map of dgas.
 \end{frame}
 
 
-\begin{frame}
-MAYBE ALSO STRUCTURE ON COHOMOLOGY
-\end{frame}
-
 \section{$A_\infty$-algebras}
 
 
@@ -236,10 +219,6 @@ An $A_\infty$-\emph{algebra} $A$ is an $R$-module equipped with a family of ``mu
 \item[]<2-> $m_2$ is homotopy associative with homotopy given by $m_3$. %recall that m1 is a differential so on homology this vanishes
 \item<3-> The higher relations are a homotopy coherent extension of this fact. %m3 satisfies some relation up to homotopy given by m4 and so on
 \end{itemize}
-\end{frame}
-
-\begin{frame}
-MAYBE GEOMETRIC INTERPRETATION
 \end{frame}
 
 
@@ -315,7 +294,7 @@ Let $C^*(A)$ be the Hochschild module of $A$. %it can be turned into a complex w
 \begin{frame}
 \begin{itemize}
 \item<1-> Since $m\tilde{\circ}m=0$, the Jacobi identity implies that $[m,[m,]]=0$ for the bracket induced by $\tilde{\circ}$.
-\item<2-> Since $|m|=1$ map $[m,]:C^*(A)\to C^*(A)$ turns $C^*(A)$ into a cochain complex.
+\item<2-> Since $|m|=1$, the map $[m,]:C^*(A)\to C^*(A)$ turns $C^*(A)$ into a cochain complex.
 \item<3-> Indeed, it is possible to define an $A_\infty$-algebra structure on $C^*(A)$. %i don't have time for details
 \end{itemize}
 \end{frame}
@@ -331,7 +310,7 @@ Up to shifts, the following maps define an $A_\infty$-algebra structure on $C^*(
 \end{prop}\pause
 
 \begin{prop}[Hinted at by Gerstenhaber-Voronov]
-The map $\Phi:C^*(A)\to C^*(C^*(A))$ given by $Phi(x)= \sum_{j\geq 0} b_j(x;-)$ satisfies for all $j$
+The map $\Phi:C^*(A)\to C^*(C^*(A))$ given by $\Phi(x)= \sum_{j\geq 0} \tilde{b}_j(x;-)$ satisfies for all $j$
 \[\Phi(M_j) = M_j(\Phi^{\otimes j})\]
 %generalices the associative result
 \end{prop}
@@ -342,7 +321,7 @@ The map $\Phi:C^*(A)\to C^*(C^*(A))$ given by $Phi(x)= \sum_{j\geq 0} b_j(x;-)$ 
 \begin{frame}
 \frametitle{$A_\infty$-Deligne conjecture}
 \begin{theorem} %some structure was already known, but no complete set of brace relations 
-The Hochschild complex $C^*(A)$ has the structure of a $J$-algebra:
+The Hochschild complex $C^*(A)$ has the structure of a \emph{$J$-algebra}:
 \begin{align*}
 \tilde{b}_n&(M_j(f_1,\dots, f_j);g_1,\dots, g_n)=\\
 &\sum_{\mathclap{l,i_1,k_1,\dots, i_j,k_j}}(-1)^{\varepsilon}M_l(g_1,\dots, \tilde{b}_{k_1}(f_1;g_{i_1},\dots),\dots, \tilde{b}_{k_j}(f_j;g_{i_j},\dots),\dots, g_n).\\ 
@@ -354,149 +333,6 @@ The Hochschild complex $C^*(A)$ has the structure of a $J$-algebra:
 \end{theorem}
 \end{frame}
 
-
-
-\section{Homotopy associativity}
-
-
-
-\begin{frame}
-The product $m$ is homotopy associative if $m(m\times 1)\simeq m(1\times m)$\pause 
-
-
-\[\Downarrow\] 
-
-\begin{center}
-There is a map $M_3:[0,1]\times X^3\to  X$ such that 
-\end{center}
-
-\[M_3(0,x,y,z)=(xy)z \text{ and }M_3(1,x,y,z)=x(yz)\]
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Homotopy coherence}
-Product of 4 elements
-\[
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-\clip(-1.5,0.5) rectangle (5.2,4.6);
-\draw(1.,1.) -- (3.,1.) -- (3.618033988749895,2.9021130325903064) -- (2.,4.077683537175253) -- (0.3819660112501053,2.9021130325903073) -- cycle;
-\draw (1.,1.)-- (3.,1.);
-\draw (3.,1.)-- (3.618033988749895,2.9021130325903064);
-\draw (3.618033988749895,2.9021130325903064)-- (2.,4.077683537175253);
-\draw (2.,4.077683537175253)-- (0.3819660112501053,2.9021130325903073);
-\draw (0.3819660112501053,2.9021130325903073)-- (1.,1.);
-\draw (1.3,4.7) node[anchor=north west] {$x(y(zt))$};
-\draw (3.6,3.25) node[anchor=north west] {$x((yz)t)$};
-\draw (3,1.1) node[anchor=north west] {$(x(yz))t$};
-\draw (-0.5,1.1) node[anchor=north west] {((xy)z)t};
-\draw (-1.15,3.25) node[anchor=north west] {(xy)(zt)};
-\draw (2.8,3.8) node[anchor=north west] {$\simeq$};
-\draw (3.3333333333336,2.1) node[anchor=north west] {$\simeq$};
-\draw (1.8,0.8933333333333304) node[anchor=north west] {$\simeq$};
-\draw (0.15,2.1) node[anchor=north west] {$\simeq$};
-\draw (0.6,3.8) node[anchor=north west] {$\simeq$};
-\begin{scriptsize}
-\draw [fill=black] (1.,1.) circle (2.5pt);
-\draw [fill=black] (3.,1.) circle (2.5pt);
-\draw [fill=black] (3.618033988749895,2.9021130325903064) circle (2.5pt);
-\draw [fill=black] (2.,4.077683537175253) circle (2.5pt);
-\draw [fill=black] (0.3819660112501053,2.9021130325903073) circle (2.5pt);
-\end{scriptsize}
-\end{tikzpicture}
-\]
-
-%If we can fill the pengaton with a homotopy $M_4=\pentagofill\times X^4\to X$ we say that the product is homotopy coherent. %there is a concatenation of homotopies and it makes sense to talk about homotopies between them, joining the points with paths
-\end{frame}
-\subsection{Stasheff Associahedra}
-
-\begin{frame}
-\frametitle{Associahedra}
-Multiplying 5 elements
-\[
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-\clip(-3.63,-1.8) rectangle (4.,3);
-\draw(-0.5,0.) -- (0.,0.5) -- (-0.5,1.) -- (-1.,0.5) -- cycle;
-\draw (-0.5,0.)-- (0.,0.5);
-\draw (0.,0.5)-- (-0.5,1.);
-\draw (-0.5,1.)-- (-1.,0.5);
-\draw (-1.,0.5)-- (-0.5,0.);
-\draw (-0.5,1.)-- (-0.76,2.87);
-\draw (-0.76,2.87)-- (-2.13,1.59);
-\draw (-2.13,1.59)-- (-1.98,0.82);
-\draw (-2.13,1.59)-- (-2.5,1.);
-\draw (-2.5,1.)-- (-2.31,0.29);
-\draw (-2.31,0.29)-- (-1.98,0.82);
-\draw (-1.98,0.82)-- (-1.,0.5);
-\draw (0.,0.5)-- (0.93,0.89);
-\draw (0.93,0.89)-- (0.98,1.68);
-\draw (1.37,1.06)-- (0.98,1.68);
-\draw (-0.76,2.87)-- (0.98,1.68);
-\draw (-2.31,0.29)-- (-0.62,-1.3);
-\draw (-0.5,0.)-- (-0.62,-1.3);
-\draw (-0.62,-1.3)-- (1.22,0.35);
-\draw (0.93,0.89)-- (1.22,0.35);
-\draw (1.22,0.35)-- (1.37,1.06);
-\draw [dash pattern=on 2pt off 2pt] (-2.5,1.)-- (1.37,1.06);
-\end{tikzpicture}
-\]
-
-\end{frame}
-\subsection{$A_\infty$-spaces}
-\begin{frame}
-\begin{itemize}
-\item<1-> %We get spaces $K_2=*$, $K_3=[0,1]$, $K_4=\pentagofill$, $K_5, \dots$ %a point cause there is only one way to multiply two elements, [0,1] parametrizes the homotopy, k5 is the previous slide
-\item<2-> And maps $M_n:K_n\times X^n\to X$ satisfying certain relations. %homotopy relation similar to what we explain with the polygons
-\item<3-> For instance, $M_3:[0,1]\times X^3\to X$ defines a homotopy between $M_2(M_2\times 1)$ and $M_2(1\times M_2)$. 
-\item<4-> $M_4:K_4\times X^4\to X$ allows us to fill the pentagon, on the boundary it is equal to $M_3$. %and so on
-\end{itemize}
-\end{frame}
-
-
-
-
-\begin{frame}
-\frametitle{Operad of $A_\infty$-algebras}
-%FORMULATE THIS DIFFERENTLY SINCE I HAVE ALREADY OBTAINED THE OPERAD OF AINFTY ALGEBRAS THIS SHOULD BE JUST WRITING IT DOWN EXPLICITLY AND THEN ENCODE IT WITH OPERADIC SUSPENSION (PROBABLY JUST TELL THE RESULT OF INSERTIONS AND DEGREE BECAUSE THERE IS NO TIME TO EXPLAIN IT ALL)
-\begin{itemize}
-\item<1-> The operad $C^*(K)$ is generated by $m_n$ with $m_n\in C^*(K_n)$ for $n\geq 2$ and $m_1=\partial$ such that 
-\[\sum_{r+s+t\geq 1}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0\]
-
-\item<2-> We would like to obtain the signs directly from operadic composition.
-\end{itemize}
-\end{frame}
-\subsection{Operadic suspension}
-\begin{frame}
-\frametitle{Operadic suspension}
-\begin{itemize}
-\item<1-> For a graded vector space $V=\bigoplus_{n\in\Z} V_i$ there is a \emph{suspension} operation $\Sigma V$ such that $(\Sigma V)_i=V_{i+1}$. \item<2-> $\Sigma V=V\otimes \mathbb{F}[-1]$.
-\item<3-> We define an analogue of suspension for operads.
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Operadic suspension}
-\begin{itemize}
-\item<1-> Define $\Lambda(n)$ to be a 1-dimensional graded vector space concentrated in degree $n-1$.
-\item<2-> The \emph{operadic suspension} $\mathfrak{s}\mathcal{O}$ of an operad $\mathcal{O}$ is given by $\mathfrak{s}\mathcal{O}(n)=\mathcal{O}(n)\otimes \Lambda(n)$ and composition maps determined by the following fact
-\item[]<3->
-\begin{theorem}[Markl]
-There is an isomorphism of operads
-\[ \mathfrak{s}End_{\Sigma V}\cong End_V\]
-\end{theorem}
-%\item<1-> Let $\Lambda(n)$ be a graded vector space concentrated in degree $1-n$ and generated by $e^n=e_1\land\cdots\land e_n$.
-%\item<2-> Consider the sign action of the permutation group on $e^n$:
-%\[(i\ i+1)\cdot e^n=e_l\land\cdots\land e_{i+1}\land e_i\land\cdots\land e_n=-e^n\]
-%\item<3-> Define insertion maps $\circ_i:\Lambda(n)\otimes\Lambda(m)\to\Lambda(n+m-1)$ as
-%\[(e_1\land\cdots\land e_n)\otimes(e_1\land\cdots\land e_m)\mapsto  (-1)^{(n-i)(1-m)}e_1\land\cdots\land e_{n+m-1}\]
-%\item[]<4-> \[e^n\circ_i e^m= (-1)^{(n-i)(1-m)}e^{m+n-1}\]
-\end{itemize}
-\end{frame}
-
-
-
-
-
-
 \section{Derived $A_\infty$-algebras}
 
 \begin{frame}
@@ -505,9 +341,9 @@ There is an isomorphism of operads
   A \emph{derived $A_\infty$-algebra} on a $(\Z,\Z)$-bigraded $R$-module $A$ consist of a family of $R$-linear maps 
 \[m_{ij}:A^{\otimes j}\to A\]
 of bidegree $(i,2-(i+j))$ for each $j\geq 1$, $i\geq 0$, satisfying the equation
-\begin{equation}
-\underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}m_{ij}(1^{\otimes r}\otimes m_{pq}\otimes 1^{\otimes t})=0
-\end{equation}
+\begin{equation*}
+\underset{j=r+1+t}{\sum_{\mathclap{u=i+p, v=j+q-1}}}(-1)^{rq+t+pj}m_{ij}(1^{\otimes r}\otimes m_{pq}\otimes 1^{\otimes t})=0
+\end{equation*}
 for all $u\geq 0$ and $v\geq 1$. 
 \end{defi}
 \end{frame}
@@ -524,7 +360,7 @@ for all $u\geq 0$ and $v\geq 1$.
 
 \begin{frame}
 \begin{defi}
-Let $A$ and $B$ be derived $A_\infty$-algebras with respective structure maps $m^A$ and $m^B$. A \emph{morphism of derived $A_\infty$-algebras} $f:A\to B$ is a family of maps $f_{st}:A^{\otimes t}\to B$ of bidegree $(s,1-s-t)$ satisfying
+Let $A$ and $B$ be derived $A_\infty$-algebras with respective structure maps $m^A$ and $m^B$. An \emph{$\infty$-morphism of derived $A_\infty$-algebras} $f:A\to B$ is a family of maps $f_{st}:A^{\otimes t}\to B$ of bidegree $(s,1-s-t)$ satisfying
 \begin{align*}
 \underset{j=r+1+t}{\sum_{u=i+p, v=j+q-1}}(-1)^{rq+t+pj}f_{ij}(1^{\otimes r}\otimes m_{pq}^A\otimes 1^{\otimes s})=\\
 \underset{v=q_1+\cdots +q_j}{\sum_{u=i+p_1+\cdots +p_j}}(-1)^{\epsilon} m^B_{ij}(f_{p_1 q_1}\otimes\cdots\otimes f_{p_j q_j})
@@ -543,7 +379,7 @@ $\epsilon = u + \sum_{1\leq w < l \leq j} q_w(1-p_l-q_l)  + \sum_{w=1}^j p_w(j-w
 \end{itemize}\pause
 \pause
 \begin{defi}
-A morphism $f : A \to B$ of derived $A_\infty$-algebras
+An $\infty$-morphism $f : A \to B$ of derived $A_\infty$-algebras
 is called an \emph{$E_2$-equivalence} if $H^*_{hor}(H^*_{ver}(f_{01}))$
 is an isomorphism of $R$-modules.
 \end{defi}\pause
@@ -575,44 +411,100 @@ Such $E$ is called a \emph{minimal model} of $A$.
 \subsection{Totalization}
 \begin{frame}
 \frametitle{Totalization}
-Consider only \emph{bounded on the right} bigraded modules $A$: there exist $i'$ such that $A_i^j=0$ for all $j$ and $i>i'$.\pause %monoidality reasons, not too restrictive in practice
+\begin{itemize}
+\item<1-> Consider only \emph{bounded on the right} bigraded modules $A$: there exist $i'$ such that $A_i^j=0$ for all $j$ and $i>i'$. %monoidality reasons, not too restrictive in practice
+\item<2-> We call $j$ the \emph{vertical degree}, $i$ the \emph{horizontal degree} and $d=i+j$ the \emph{total degree}.
+\item[]<3->
 \begin{defi}
 The \emph{totalization} $\Tot(A)$ of a bigraded $R$-module $A = \{A^j_i \}$ the graded $R$-module is given by
-\[\Tot(A)^n =
-\bigoplus_{i}A^{n-i}_i \]%\oplus\prod_{i\geq 0}A^{n-i}_i .\]
+\[\Tot(A)^d =
+\bigoplus_{i}A^{d-i}_i \]%\oplus\prod_{i\geq 0}A^{d-i}_i .\]
 %The \emph{column filtration} of $\Tot(A)$ is the filtration given by \[F_p\Tot(A)^n \coloneqq\prod_{i\geq p} A^{n-i}_i .\]
 \end{defi}
-\end{frame}
-\begin{frame}
-\frametitle{Totalization of operads}
-\begin{itemize}
-\item<1-> If $\OO$ is a bigraded operad then $\Tot(\OO)$ is a graded operad with insertion
-\[x\bar{\circ}_ry=(-1)^{i(k+l)} x\circ_r y\]
-
-for $x$ of bidegree $(i,j)$ and $y$ of bidegree $(k,l)$.
-\item<2-> \emph{Vertical operadic suspension}: $\mathfrak{s}\OO = \OO\otimes \Lambda(n)$ with $\Lambda(n)$ concentrated in bidegree $(0,n-1)$.
-\item<3-> Write $\star$ for the circle operation on $\Tot(\s\OO)$: a $dA_\infty$-multiplication is an element $m\in\Tot(\s\OO)$ of degree 1 such that $m\star m = 0$.
 \end{itemize}
 \end{frame}
+
+\subsection{Hochschild complex}
+
+\begin{frame}
+\frametitle{Structure on the Hochschild complex}
+Let $C^*(A)$ be the Hochschild module of $A$.
+\begin{itemize}
+\item<1-> Define $\tilde{\circ}_i$ by considering only vertical degree: for $f\in C^n(A)^j_i$ and $g\in C^m(A)^l_k$
+\[f\tilde{\circ}_rg=(-1)^{(n-1)l+(n-r)(m-1)}f\circ_r g.\]
+\item<2-> This produces a bigraded Lie bracket $[,]$ and braces $\tilde{b}_j$ that ignore horizontal degrees.
+
+\end{itemize}
+\end{frame}
+\begin{frame}
+
+Let $\Tot(C^*(A))$ be the totalization of the Hochschild module of $A$.
+\begin{itemize}
+\item<1-> For $f=\sum_i f_i\in \Tot(C^n(A))$ and $g=\sum_i g_i\in \Tot(C^m(A))$ define %it has a reason but i'm not talking about operads
+\begin{align*}
+(f\star_ig)_k&=\sum_{\mathclap{k_1+k_2=k}} (-1)^{(n-1)(\deg(g)-k_2)+(n-i)(m-1)+k_1\deg(g)}f_{k_1}\circ_i g_{k_2}\\
+             &= \sum_{\mathclap{k_1+k_2=k}} (-1)^{k_1\deg(g)}f_{k_1}\tilde{\circ}_i g_{k_2}
+\end{align*}
+
+\item<2-> If $m=\sum_{i,j} m_{ij}$, then the derived $A_\infty$-equation simplifies to 
+\[m\star m = 0.\]
+\item<3-> By previous constructions, $\Tot(C^*(A))$ is an $A_\infty$-algebra.
+\end{itemize}
+\end{frame}
+
+
 \begin{frame}
 \frametitle{Connection to $A_\infty$-algebras}
 \begin{theorem}[Cirici, Santander, Livernet, Whitehouse]
 For a bigraded module $A$, there is a one to one correspondence between $A_\infty$-algebras on $\Tot(A)$ and $dA_\infty$-algebras on $A$.
 \end{theorem}\pause
 \begin{corollary}
-Up to shifts, the following maps define an $dA_\infty$-algebra structure on $\Sigma\mathfrak{s}\mathcal{O}$
+Up to shifts, the following maps define an $dA_\infty$-algebra structure on $C^*(A)$
 \begin{align*}
-&M_{i1}(x)=[m_{i\bullet},x]\\
-&M_{ij}(x_1,\dots, x_j)=m_{i\bullet}\{x_1,\dots, x_j\}_j
+&M_{i1}(f)=[m_{i\bullet},f]\\
+&M_{ij}(f_1,\dots, f_j)=\tilde{b}_j(m_{i\bullet};f_1,\dots, f_j)
 \end{align*}
 \end{corollary}
 
 \end{frame}
 
 \begin{frame}
+\begin{corollary}
+The map $\Phi:C^*(A)\to C^*(C^*(A))$ given by $\Phi(x)= \sum_{j\geq 0} \tilde{b}_j(x;-)$ satisfies for all $j$
+\[\Phi(M_{ij}) = M_{ij}(\Phi^{\otimes j})\]
+%generalices the associative result
+\end{corollary}
+\end{frame}
+
+\subsection{Deligne conjecture}
+\begin{frame}
+\frametitle{Derived Deligne conjecture}
+\begin{theorem} %some structure was already known, but no complete set of brace relations 
+The Hochschild complex $C^*(A)$ is a \emph{derived $J$-algebra}:
+\begin{align*}
+\tilde{b}_n&(M_{ij}(f_1,\dots, f_j);g_1,\dots, g_n)=\\
+&\sum_{\mathclap{l,i_1,k_1,\dots, i_j,k_j}}(-1)^{\varepsilon}M_{il}(g_1,\dots, \tilde{b}_{k_1}(f_1;g_{i_1},\dots),\dots, \tilde{b}_{k_j}(f_j;g_{i_j},\dots),\dots, g_n).\\ 
+\\
+&\tilde{b}_j(M_{i1}(f);g_1,\dots, g_j)=\\
+&\sum_{l,k,i_1}(-1)^{\varepsilon}M_{il}(g_1,\dots, \tilde{b}_{k}(f;g_{i_1},\dots),\dots, g_j)\\
+&-(-1)^{|f|}\sum_{l,k,i_1} (-1)^{\eta} \tilde{b}_k(f;g_1,\dots, M_{il}(g_{i_1},\dots,), \dots, g_j)
+\end{align*}
+\end{theorem}
+\end{frame}
+
+
+
+\begin{frame}
 \begin{center}
 \Huge{Thank you very much!}
 \end{center}
 \end{frame}
+
+
+
+
+
+
+
 
 \end{document}
