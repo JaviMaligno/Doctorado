@@ -436,39 +436,46 @@ Such $E$ is called a \emph{minimal model} of $A$.
 \item<2-> We call $j$ the \emph{vertical degree}, $i$ the \emph{horizontal degree} and $d=i+j$ the \emph{total degree}.
 \item[]<3->
 \begin{defi}
-The \emph{totalization} $\Tot(A)$ of a bigraded $R$-module $A = \{A^j_i \}$ the graded $R$-module is given by
+The \emph{totalization} $\Tot(A)$ of $A = \{A^j_i \}$ is given by
 \[\Tot(A)^d =
 \bigoplus_{i}A^{d-i}_i \]%\oplus\prod_{i\geq 0}A^{d-i}_i .\]
 %The \emph{column filtration} of $\Tot(A)$ is the filtration given by \[F_p\Tot(A)^n \coloneqq\prod_{i\geq p} A^{n-i}_i .\]
-\end{defi}
+\end{defi}\pause
+%\item[]<4->
+\begin{prop}
+$\Tot$ induces a strict monoidal functor with natural transformation $\mu:\Tot(A)\otimes\Tot(B)\to\Tot(A\otimes B)$.
+\end{prop}
 \end{itemize}
 \end{frame}
 
-\subsection{Hochschild complex}
+\subsection{Vertical suspension}
 
 \begin{frame}
 \frametitle{Structure on the Hochschild complex}
-Let $C^*(A)$ be the Hochschild module of $A$.
+For a bigraded operad $\OO$ consider the vertical suspension $\s\OO$.
 \begin{itemize}
-\item<1-> Define $\tilde{\circ}_i$ by considering only vertical degree: for $f\in C^n(A)^j_i$ and $g\in C^m(A)^l_k$
+\item<1-> Define $\tilde{\circ}_i$ by considering only vertical degree: for $f\in \OO(n)^j_i$ and $g\in \OO(m)^l_k$
 \[f\tilde{\circ}_rg=(-1)^{(n-1)l+(n-r)(m-1)}f\circ_r g.\]
 \item<2-> This produces a bigraded Lie bracket $[,]$ and braces $\tilde{b}_j$ that ignore horizontal degrees.
 
 \end{itemize}
 \end{frame}
-\begin{frame}
 
-Let $\Tot(C^*(A))$ be the totalization of the Hochschild module of $A$.
+\subsection{Operadic totalization}
+
+
+\begin{frame}
+Let $\Tot(\OO)$ be the totalization of $\OO$.
 \begin{itemize}
-\item<1-> For $f=\sum_i f_i\in \Tot(C^n(A))$ and $g=\sum_i g_i\in \Tot(C^m(A))$ define %it has a reason but i'm not talking about operads
+\item<1-> For $f=\sum_i f_i\in \Tot(\s\OO(n))$ and $g=\sum_i g_i\in \Tot(\s\OO(m))$ define %it has a reason but i'm not talking about operads
 \begin{align*}
-(f\star_ig)_k&=\sum_{\mathclap{k_1+k_2=k}} (-1)^{(n-1)(\deg(g)-k_2)+(n-i)(m-1)+k_1\deg(g)}f_{k_1}\circ_i g_{k_2}\\
-             &= \sum_{\mathclap{k_1+k_2=k}} (-1)^{k_1\deg(g)}f_{k_1}\tilde{\circ}_i g_{k_2}
+(f\star_ig)_k&= \Tot(\tilde{\circ}_i)(\mu(f\otimes g))\\
+			 &=\sum_{\mathclap{k_1+k_2=k}} (-1)^{(n-1)(\deg(g)-k_2)+(n-i)(m-1)+k_1\deg(g)}f_{k_1}\circ_i g_{k_2}
 \end{align*}
 
 \item<2-> If $m=\sum_{i,j} m_{ij}$, then the derived $A_\infty$-equation simplifies to 
 \[m\star m = 0.\]
-\item<3-> By previous constructions, $\Tot(C^*(A))$ is an $A_\infty$-algebra.
+\item<3-> By previous constructions, $\Tot(\End_A)$ is an $A_\infty$-algebra.
 \end{itemize}
 \end{frame}
 
@@ -476,10 +483,10 @@ Let $\Tot(C^*(A))$ be the totalization of the Hochschild module of $A$.
 \begin{frame}
 \frametitle{Connection to $A_\infty$-algebras}
 \begin{theorem}[Cirici, Santander, Livernet, Whitehouse]
-For a bigraded module $A$, there is a one to one correspondence between $A_\infty$-algebras on $\Tot(A)$ and $dA_\infty$-algebras on $A$.
+For a bigraded module $A$ bounded on the right, there is a one to one correspondence between $A_\infty$-algebras on $\Tot(A)$ and $dA_\infty$-algebras on $A$.
 \end{theorem}\pause
 \begin{corollary}
-Up to shifts, the following maps define an $dA_\infty$-algebra structure on $C^*(A)$
+Up to shifts, the following maps define an $dA_\infty$-algebra structure on $\End_A$
 \begin{align*}
 &M_{i1}(f)=[m_{i\bullet},f]\\
 &M_{ij}(f_1,\dots, f_j)=\tilde{b}_j(m_{i\bullet};f_1,\dots, f_j)
@@ -490,7 +497,7 @@ Up to shifts, the following maps define an $dA_\infty$-algebra structure on $C^*
 
 \begin{frame}
 \begin{corollary}
-The map $\Phi:C^*(A)\to C^*(C^*(A))$ given by $\Phi(x)= \sum_{j\geq 0} \tilde{b}_j(x;-)$ satisfies for all $j$
+The map $\Phi:S\s\End_A\to S\s\End_{S\s\End_A}$ given by $\Phi(x)= \sum_{j\geq 0} \tilde{b}_j(x;-)$ satisfies for all $j$
 \[\Phi(M_{ij}) = M_{ij}(\Phi^{\otimes j})\]
 %generalices the associative result
 \end{corollary}
@@ -500,7 +507,7 @@ The map $\Phi:C^*(A)\to C^*(C^*(A))$ given by $\Phi(x)= \sum_{j\geq 0} \tilde{b}
 \begin{frame}
 \frametitle{Derived Deligne conjecture}
 \begin{theorem} %some structure was already known, but no complete set of brace relations 
-The Hochschild complex $C^*(A)$ is a \emph{derived $J$-algebra}:
+The Hochschild complex $S\s\End_A$ is a \emph{derived $J$-algebra}:
 \begin{align*}
 \tilde{b}_n&(M_{ij}(f_1,\dots, f_j);g_1,\dots, g_n)=\\
 &\sum_{\mathclap{l,i_1,k_1,\dots, i_j,k_j}}(-1)^{\varepsilon}M_{il}(g_1,\dots, \tilde{b}_{k_1}(f_1;g_{i_1},\dots),\dots, \tilde{b}_{k_j}(f_j;g_{i_j},\dots),\dots, g_n).\\ 
