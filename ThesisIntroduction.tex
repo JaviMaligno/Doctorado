@@ -313,7 +313,7 @@ We would like to thank Sarah Whitehouse for her contribution to the proof of thi
 
 \begin{proof}
 By \Cref{enrichedtrans} there is a $\VV$-enriched natural transformation 
-\[\underline{\mu}:\underline{F}\to\underline{G}\]
+\[\underline{\mu}:\underline{F}\Rightarrow\underline{G}\]
 that at each object $X$ evaluates to \[\underline{\mu}_X:1\to\uD(FX,GX)\] defined to be the adjoint of $\mu_X:FX\to GX$. We define the map $\uD(GX,Y)\to\uD(FX,Y)$ as the composite
 
 \begin{equation}\label{enrichedmap}
@@ -570,7 +570,7 @@ $m_3$, we obtain two concatenations of homotopies linking the compositions $(f_1
 %\end{scriptsize}
 %\end{tikzpicture}
 
-These two concatenations are homotopic. Denote an homotopy by
+These two concatenations are homotopic. Denote a homotopy by
 \[
 m_4 : K_4 × (\Omega X)^4 \to X
 \]
@@ -616,7 +616,7 @@ of an $A_\infty$-algebra \cite{STASHEFF}, which will formally introduce in the n
 
 In this section we first establish notation and assumptions about graded modules and sign conventions. We then briefly recall some of the basic definitions regarding $A_\infty$-algebras.
 
-Our base category is the category of $\Z$-graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct of 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$ and we use cohomological grading. The symmetry isomorphism is given by the following Koszul sign convention.
+Our base category is the category of $\Z$-graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct from 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$ and we use cohomological grading. The symmetry isomorphism is given by the following Koszul sign convention.
 
 \begin{align*}
 \tau_{A,B}:A\otimes B&\to B\otimes A\\
@@ -711,7 +711,7 @@ We now recall a definition and a theorem about minimal models of $A_\infty$-alge
 An $A_\infty$-algebra is called \emph{minimal} if $m_1 = 0$.
 \end{defin}
 
-Over a field, one can replace any $A_\infty$-algebra by a quasi-isomorphic minimal one, where by quasi-isomorphic we mean that there is an map that induces an isomorphism on cohomology with respect to $m_1$. This gives a very convenient way to describe a quasi-isomorphism class of an $A_\infty$-algebra. More precisely we have the following.
+Over a field, one can replace any $A_\infty$-algebra by a quasi-isomorphic minimal one, where by quasi-isomorphic we mean that there is a map that induces an isomorphism on cohomology with respect to $m_1$. This gives a very convenient way to describe a quasi-isomorphism class of an $A_\infty$-algebra. More precisely we have the following.
 
 \begin{thm}[Kadeishvili]\label{minimaltheorem} Let $A$ be a differential graded algebra over a field $k$, and let $H^*(A)$ be its cohomology module. Then $H^*(A)$ has an $A_\infty$-structure such that
 \begin{itemize}
@@ -863,7 +863,7 @@ Any symmetric lax monoidal functor $F:\CC\to\DD$ induces a functor $\underline{F
 
 %REFERENCE THE AXIOMS WHEN I WRITE THEM DOWN
 \begin{proof}
-We prove the result for operads, since for cooperads is dual. Let $\OO$ be an operad in $\CC$ and let $F:\CC\to\DD$ be a symmetric lax monoidal functor. On objects, we define $\underline{F}(\OO)(n)= F(\OO(n))$ and on morphisms we define $\underline{F}(f)_n=F(f_n)$ for $f:\OO\to\PP$. 
+We prove the result for operads, since for cooperads is analogous. Let $\OO$ be an operad in $\CC$ and let $F:\CC\to\DD$ be a symmetric lax monoidal functor. On objects, we define $\underline{F}(\OO)(n)= F(\OO(n))$ and on morphisms we define $\underline{F}(f)_n=F(f_n)$ for $f:\OO\to\PP$. 
 
 Let $\varepsilon: 1_\DD\to F(1_\CC)$ and $\mu\coloneqq\mu_{A,B}: F(A)\otimes F(B)\to F(A\otimes B)$ be the structure maps of the lax monoidal functor $F$. 
 
@@ -1125,11 +1125,11 @@ F(\OO(n+m-1))\arrow[r, "F(f_{n+m-1})"] & F(\PP(n+m-1))
 %Now we introduce some categories over which we will be working, specially in order to study derived $A_\infty$-algebras. 
 %We collect some preliminary definitions. 
 
-%Let us start by  fixing some notation and conventions. Fix a commutative ring with unit $R$ of characteristic distinct of $2$. All tensor products taken over $R$. %COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE. INCLUDING DEFINITION OF TWISTED COMPLEX
+%Let us start by  fixing some notation and conventions. Fix a commutative ring with unit $R$ of characteristic distinct from $2$. All tensor products taken over $R$. %COPY SECTION 2.2 OF DAINFTY AND THEIR HOMOTOPIES AS BACKGROUND, REFERENCES TO WHITEHOUSE. INCLUDING DEFINITION OF TWISTED COMPLEX
 
 %REDEFINE THINGS ACCORDING TO CONVENTIONS
 
-Now introduce some categories and conventions that we need in order to study derived $A_\infty$-algebras. Many results of $A_\infty$-algebras need $R$ to be a field because of projectivity, see \Cref{minimalmodels}. Thus, it is necessary to build in projective resolutions. In particular we need an extra degreed compatible with derived $A_\infty$-setting. In order to do that, we need a way to connect a single graded category with a bigraded category. This is usually done through totalization. But in order to properly translate $A_\infty$-algebras into totalized derived $A_\infty$-algebras we need to go through several suitably enriched categories that are defined in this section. Most of the definitions come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
+Now introduce some categories and conventions that we need in order to study derived $A_\infty$-algebras. Many results of $A_\infty$-algebras need $R$ to be a field because of projectivity, see \Cref{minimalmodels}. Thus, it is necessary to build in projective resolutions. In particular we need an extra degree compatible with derived $A_\infty$-setting. In order to do that, we need a way to connect a single graded category with a bigraded category. This is usually done through totalization. But in order to properly translate $A_\infty$-algebras into totalized derived $A_\infty$-algebras we need to go through several suitably enriched categories that are defined in this section. Most of the definitions come from \cite[\S 2]{whitehouse} but we adapt them here to our conventions.
 
 %Let $\CC$ be a category and let $A$, $B$ be arbitrary
 %objects in $\CC$. We denote by $\Hom_\CC(A,B)$ the set of morphisms from $A$ to $B$ in $\CC$. If $(\CC,⊗, 1)$ is
@@ -1148,7 +1148,7 @@ A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules
 \end{defin}
 Note that some other sources may reverse inclusions in the above definition and consider $F_{p}A ⊆ F_{p+1}A$ instead. We denote by $\mathrm{C}_R$ the category of cochain complexes of $R$-modules.
 \begin{defin}\label{filteredcomplex}
-A \emph{filtered complex} $(K, d, F)$ is a cochain complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. A \emph{morphism} of filtered complex is given by a morphism of complexes $f : K → L$ compatible with filtrations, namely \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
+A \emph{filtered complex} $(K, d, F)$ is a cochain complex $(K, d) ∈ \mathrm{C}_R$ together with a filtration $F$ of each $R$-module $K^n$ such that $d(F_pK^n) ⊂ F_pK^{n+1}$ for all $p, n ∈ \Z$. A \emph{morphism} of filtered complexes is given by a morphism of complexes $f : K → L$ compatible with filtrations, namely \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
 \end{defin}
 
 We denote by $\fmod$ and $\fc$ the categories of filtered modules and filtered complexes of $R$-modules, respectively. 
@@ -1158,7 +1158,7 @@ We denote by $\fmod$ and $\fc$ the categories of filtered modules and filtered c
 \begin{defin}\label{filteredtensor}
 The \emph{tensor product of two filtered $R$-modules} $(A, F)$ and $(B, F)$ is the filtered $R$-module
 with
- \[F_p(A ⊗ B) :=\bigoplus_{i+j=p}\Ima(F_iA ⊗ F_jB → A ⊗ B).\] %image so that we have have inclusions
+ \[F_p(A ⊗ B) :=\sum_{i+j=p}\Ima(F_iA ⊗ F_jB → A ⊗ B).\] %image so that we have have inclusions
 This makes the category of filtered $R$-modules into a symmetric monoidal category, where the unit is given by $R$ with the trivial filtration \[0 = F_{1}R ⊂ F_0R = R.\]
 \end{defin}
 
@@ -1221,7 +1221,7 @@ The category $\fc$ is monoidal over $\vbc$. By restriction, $\fmod$ is monoidal 
 Let $A,B$ be bigraded modules. We define $[A,B]^∗_∗$
 to be the bigraded module of morphisms of bigraded modules $A → B$. Furthermore, if $A,B$ are vertical bicomplexes, and $f ∈
 [A,B]^v_u$, we define
-\[δ(f) := d_Bf − (−1)^vfd_A.\]
+\[δ(f) := d^Bf − (−1)^vfd^A.\]
 \end{defin}
 
 \begin{lem}
@@ -1315,7 +1315,7 @@ We will consider the following bounded categories since the totalization functor
 
 \begin{defin}
 We let $\tc^b$, $\vbc^b$ and $\bgmod^b$ be the full subcategories of \emph{horizontally bounded on the right} graded twisted
-complexes, vertical bicomplexes and bigraded modules respectively. This means that if $A=\{A^j_i\}$ is an object of any of this categories, then there exists $i$ such that $A^j_{i'}=0$ for $i'>i$.
+complexes, vertical bicomplexes and bigraded modules respectively. This means that if $A=\{A^j_i\}$ is an object of any of these categories, then there exists $i$ such that $A^j_{i'}=0$ for $i'>i$.
 We let $\fmod^b$ and $\fc^b$ be the full subcategories of bounded filtered modules, respectively complexes, i.e.
 the full subcategories of objects $(K, F)$ such that there exists some $p$ with the property that $F_{p'}K^n = 0$ for all $p'>p$. We refer to all of these as the \emph{bounded subcategories} of $\tc$, $\vbc$, $\bgmod$, $\fmod$ and $\fc$ respectively.
 \end{defin}
@@ -1573,7 +1573,7 @@ Let $A$ be a twisted complex. Consider the operads $\uEnd_A(n)=\utC(A^{\otimes n
 which is an isomorphism of operads if $A$ is bounded. If $A$ is just a bigraded module, the same holds for the operads $\uEnd_A(n)=\ubgMod(A^{\otimes n},A)$ and $\uEnd_{\Tot(A)}(n)=\ufMod(\Tot(A)^{\otimes n},\Tot(A))$.
 \end{lem}
 \begin{proof}
-The proof of in the case of a $A$ beig a twisted complex can be found in \cite[Lemma 4.54]{whitehouse}. For the bigraded module case, we are going to do it analogously. First, by \Cref{4.39} we know that the functor $\mathfrak{Tot}:\ubgMod\to\ufMod$ is $\bgmod$-enriched. In fact, by \Cref{S4} it is lax monoidal in the enriched sense. In addition, both $\bgmod$ and $\fmod$ are monoidal over $\bgmod$. In the case of $\bgmod$ it is in the obvious way and for $\fmod$ is given by \Cref{4.15}. With all of this we may apply \Cref{S4} to the totalization functor $\mathfrak{Tot}:\ubgMod\to\ufMod$ to obtain the desired map
+The proof of in the case of a $A$ being a twisted complex can be found in \cite[Lemma 4.54]{whitehouse}. For the bigraded module case, we are going to do it analogously. First, by \Cref{4.39} we know that the functor $\mathfrak{Tot}:\ubgMod\to\ufMod$ is $\bgmod$-enriched. In fact, by \Cref{S4} it is lax monoidal in the enriched sense. In addition, both $\bgmod$ and $\fmod$ are monoidal over $\bgmod$. In the case of $\bgmod$ it is in the obvious way and for $\fmod$ is given by \Cref{4.15}. With all of this we may apply \Cref{S4} to the totalization functor $\mathfrak{Tot}:\ubgMod\to\ufMod$ to obtain the desired map
 \[\uEnd_A →\uEnd_{\Tot(A)}.\]
  The fact that it is an isomorphism in the bounded case is analogous to the twisted complex case. 
 \end{proof}

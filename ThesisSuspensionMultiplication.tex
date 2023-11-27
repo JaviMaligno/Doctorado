@@ -70,7 +70,7 @@ The symmetric monoidal structure produces the sign $(-1)^{(n-1)\deg(y)}$ in the 
 
 \[(x\otimes e^n)\tilde{\circ}_i(y\otimes e^m)=(-1)^{(n-1)\deg(y)+(n-i)(m-1)}(x\circ_i y)\otimes e^{n+m-1}.\]
 
-Abusing of notation, this can be written as
+Abusing notation, this can be written as
 
 \[
 x\tilde{\circ}_iy=(-1)^{(n-1)\deg(y)+(n-i)(m-1)}x\circ_i y.
@@ -89,7 +89,7 @@ x\tilde{\circ}_iy=(-1)^{(n-1)(m-1)+(n-1)\deg(y)+(i-1)(m-1)}x\circ_i y.
 \end{proof}
 
 \begin{remark}
-The sign from \Cref{tilde} is exactly the sign in \cite[\S 1.2]{RW} from which the sign in the equation defining $A_\infty$-algebras, i.e. \Cref{ainftyequation} is derived. This means that if $m_s\in\OO(s)$ has degree $2-s$ and $m_{r+1+t}\in \OO(r+1+t)$ has degree $1-r-t$, abusing of notation we get
+The sign from \Cref{tilde} is exactly the sign in \cite[\S 1.2]{RW} from which the sign in the equation defining $A_\infty$-algebras, i.e. \Cref{ainftyequation} is derived. This means that if $m_s\in\OO(s)$ has degree $2-s$ and $m_{r+1+t}\in \OO(r+1+t)$ has degree $1-r-t$, abusing notation we get
 
 \[m_{r+1+t}\tilde{\circ}_{r+1}m_s=(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s.\]
 \end{remark}
@@ -104,7 +104,7 @@ An operad $\OO$ has an \emph{$A_\infty$-multiplication} if there is a map $\math
  Therefore, we have the following. 
 
 \begin{lem}\label{twisting}
-An $A_\infty$-multiplication on an operad $\OO$ is equivalent to an element $m\in\s\OO$ of degree 1 concentrated in positive arity such that $m\tilde{\circ}m=0$, where $x\tilde{\circ} y=\sum_i x\tilde{\circ}_i y$. 
+An $A_\infty$-multiplication on an operad $\OO$ is equivalent to an element $m\in\s\OO$ of degree 1 trivial on arity 0 such that $m\tilde{\circ}m=0$, where $x\tilde{\circ} y=\sum_i x\tilde{\circ}_i y$. 
 \end{lem}
 \begin{proof}
 By definition, an $A_\infty$-multiplication on $\OO$ corresponds to a map of operads \[f:\mathcal{A}_\infty\to\OO.\] Such a map is determined by the images of the generators $\mu_i\in\mathcal{A}_\infty(i)$ of degree $2-i$. Whence, $f$ it is determined by $m_i=f(\mu_i)\in\OO(i)$. 
@@ -143,7 +143,7 @@ It is known that $A_\infty$-structures on $A$ are determined by elements $\varph
 What is more, replacing $\End_A$ by any operad $\OO$ and doing similar calculations to \cite[Proposition 10.1.11]{lodayvallette}, we retrieve the notion of $A_\infty$-multiplication on $\OO$ given by \Cref{ainftymult}.
 
 \begin{remark}
-Above we needed to specify that only positive arity was considered. This is the case in many situations in literature, but for our purposes, we cannot assume that operads have trivial component in arity 0 in general, and this is what forces us to specify that $A_\infty$-multiplications are concentrated in positive arity.
+Above we needed to specify that only positive arity was considered. This is the case in many situations in literature, but for our purposes, we cannot assume that operads have trivial component in arity 0 in general, and this is what forces us to specify that $A_\infty$-multiplications are trivial on arity 0.
 \end{remark}
 
 When we obtain the signs for the full operadic composition on operadic suspension we will be able to also give a new interpretation of $\infty$-morphisms %in terms of operadic suspension. 
@@ -158,7 +158,7 @@ Note that we are using the identification of elements of $\End_A$ with those in 
 \sigma(f)= S\circ f \circ (S^{-1})^{\otimes n}.
 \end{equation}
 
-In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(x)\circ_i\sigma(y))$. This can be interpreted as sending $x$ and $x$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (which is a map of graded modules, not of operads), and then applying the isomorphism induced by $\sigma^{-1}$. In the end this is the same as simply sending $x$ and $y$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what \Cref{markl} does.
+In \cite{RW} the sign for the insertion maps was obtained by computing $\sigma^{-1}(\sigma(x)\circ_i\sigma(y))$. This can be interpreted as sending $x$ and $y$ from $\End_A$ to $\End_{S A}$ via $\sigma$ (which is a map of graded modules, not of operads), and then applying the isomorphism induced by $\sigma^{-1}$. In the end this is the same as simply sending $x$ and $y$ to their images in $\mathfrak{s}^{-1}\End_A$, which is what \Cref{markl} does.
 
 Even though $\sigma$ is only a map of graded modules, it can be shown in a completely analogous way to Theorem \ref{markl} that $\overline{\sigma}=(-1)^{\binom{n}{2}}\sigma$ induces an isomorphism of operads
 \begin{equation}\label{barsigma}
@@ -224,7 +224,7 @@ Note that $\deg(x)+n-1$ is the degree of $x\otimes e^n$, and as we said before $
 
 
 
-The fact that $\s$ is a functor allows to describe algebras over operads using operadic suspension. For instance, an $A_\infty$-algebra is a map of operads $\OO\to\mathcal{P}$ where $\OO$ is an operad with $A_\infty$-multiplication. Since $\s$ is a functor, this map corresponds to a map $\s\OO\to\s\mathcal{P}$. Since in addition the map $\s\OO\to\s\mathcal{P}$ is fully determined by the original map $\OO\to\mathcal{P}$, this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In fact, using \Cref{suspiso}, it is not hard to show the following.
+The fact that $\s$ is a functor allows to describe algebras over operads using operadic suspension. For instance, an $A_\infty$-algebra is equivalent to a map of operads $\OO\to\End_A$ where $\OO$ is an operad with $A_\infty$-multiplication. Since $\s$ is a functor, this map corresponds to a map $\s\OO\to\s\End_A$. Since in addition the map $\s\OO\to\s\End_A$ is fully determined by the original map $\OO\to\End_A$, this correspondence is bijective, and algebras over $\OO$ are equivalent to algebras over $\s\OO$. In fact, using \Cref{suspiso}, it is not hard to show the following.
 
 \begin{propo}
 The functor $\s$ is an equivalence of categories both at the level of collections and at the level of operads. \qed %it is not an isomorphism because at the level of collections, not every collection is EQUAL to some suspension
@@ -438,7 +438,7 @@ For these collections we also have $\mathfrak{s}^{-1}\End^A_B\cong \End^{SA}_{SB
 
 
 \begin{lem}\label{infinitymorphisms}
-An $\infty$-morphism of $A_\infty$-algebras $A\to B$ with respective structure maps $m^A$ and $m^B$ is equivalent to an element $f\in\s\End^A_B$ of degree 0 concentrated in positive arity such that
+An $\infty$-morphism of $A_\infty$-algebras $A\to B$ with respective structure maps $m^A$ and $m^B$ is equivalent to an element $f\in\s\End^A_B$ of degree 0 trivial on arity 0 such that
 \begin{equation}\label{operadicmorphism}
 \rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),
 \end{equation} 
@@ -476,7 +476,7 @@ where
 \[x\tilde{\circ}_iy=(-1)^{(n-1)\deg(y)+(n-i)(m-1)}x\circ_i y.\]
 
 \begin{defin}\label{ainftymultiplication}
-Let $m\in\s\OO$ be of natural degree 1 and concentrated in positive arity such that $m\tilde{\circ}m=0$, or equivalently $m=m_1+m_2+\cdots$ is a formal sum of maps $m_j\in\OO(j)^{2-j}$ satisfying the usual $A_\infty$-equation for all $n\geq 1$
+Let $m\in\s\OO$ be of natural degree 1 and trivial on arity 0 such that $m\tilde{\circ}m=0$, or equivalently $m=m_1+m_2+\cdots$ is a formal sum of maps $m_j\in\OO(j)^{2-j}$ satisfying the usual $A_\infty$-equation for all $n\geq 1$
 \begin{equation}\label{Ainftyeq}
 \sum_{r+s+t=n}(-1)^{rs+t}m_{r+1+t}\circ_{r+1}m_s=0.
 \end{equation} 
