@@ -38,7 +38,7 @@ Let us define an operad structure on $\Lambda=\{\Lambda(n)\}_{n\geq 0}$ via the 
 \end{tikzcd}
 \]
 
-We are inserting the second factor onto the first one, so the sign can be explained by moving the power $e^m$ of degree $m-1$ to the $i$-th position of $e^n$ passing by $e_{n}$ through $e_{i+1}$. More compactly, \[e^n\circ_i e^m=(-1)^{(n-i)(m-1)}e^{n+m-1}.\] The unit of this operad is $e^1\in\Lambda(1)$. It can be checked by direct computation that $\Lambda$ satisfies the axioms of an operad of graded modules.
+We are inserting the second factor onto the first one by replacing $e_i$ in the first factor by a renumbered copy of the second factor. This way the sign can be explained by moving the power $e^m$ of degree $m-1$ to the $i$-th position of $e^n$ passing by $e_{n}$ through $e_{i+1}$. More compactly, \[e^n\circ_i e^m=(-1)^{(n-i)(m-1)}e^{n+m-1}.\] The unit of this operad is $e^1\in\Lambda(1)$. It can be checked by direct computation that $\Lambda$ satisfies the axioms of an operad of graded modules.
 
 In a similar way we can define $\Lambda^-(n)=S^{1-n}R$, with the same insertion maps.
 
@@ -434,7 +434,7 @@ Defining the suspension $\mathfrak{s}$ at the level of collections as we did in 
 \[\End_B\circ \End^A_B\to \End^A_B\] given by compostion of maps 
 
 \[f\otimes g_1\otimes\cdots\otimes g_n\mapsto f(g_1\otimes\cdots\otimes g_n)\]
-for $f\in\End_B(n)$ and $g_i\in \End^A_B$, and also an infinitesimal right module structure over the operad $\End_A$ 
+for $f\in\End_B(n)$ and $g_i\in \End^A_B$, and also an infinitesimal right module structure (see \cite[\S 6.1.4]{lodayvallette}) over the operad $\End_A$ 
 \[\End^A_B \circ_{(1)} \End_A\to \End^A_B\]
 given by insertion of maps
 
@@ -448,36 +448,27 @@ An $\infty$-morphism of $A_\infty$-algebras $A\to B$ with respective structure m
 \begin{equation}\label{operadicmorphism}
 \rho(f\circ_{(1)}m^A)=\lambda(m^B\circ f),
 \end{equation} 
-
-where \[\lambda:\mathfrak{s}\End_B\circ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the left module structure on $\End^A_B$ and \[\rho:\mathfrak{s}\End_B\circ_{(1)}\mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the right infinitesimal module structure on $\End^A_B$. 
-
-In addition, the composition of $\infty$-morphisms is given by the natural composition \[\s\End^B_C\circ \s\End^A_B\to \s\End^A_C.\]
+where \[\lambda:\mathfrak{s}\End_B\circ \ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the left module structure on $\End^A_B$ and \[\rho:\mathfrak{s}\End_B\circ_{(1)}\ \mathfrak{s}\End^A_B\to \mathfrak{s}\End^A_B\] is induced by the right infinitesimal module structure on $\End^A_B$. In addition, the composition of $\infty$-morphisms is given by the natural composition \[\s\End^B_C\circ\ \s\End^A_B\to \s\End^A_C.\]
 \end{lem}
 \begin{proof}
 From the definitions of the operations in \Cref{operadicmorphism}, we know that this equation coincides with the one defining $\infty$-morphisms of $A_\infty$-algebras (\Cref{inftymorphism}) up to sign. The signs that appear in the above equation are obtained in a similar way to that on $\tilde{\gamma}$, see the proof of \Cref{bracesign}. Thus, it is enough to plug into the sign $\eta$ from \Cref{bracesign} the corresponding degrees and arities to obtain the desired result. The composition of $\infty$-morphisms follows similarly.
 \end{proof}
-Notice the similarity between this definition and the definitions given in \cite[\S 10.2.4]{lodayvallette}, taking into account the minor modifications to accommodate the dg case.
-
-In the case that $f:A\to A$ is an $\infty$-endomorphism, \Cref{operadicmorphism} can be written in terms of operadic composition as $f\tilde{\circ}m=\tilde{\gamma}(m\circ f)$. 
+Notice the similarity between this definition and the definitions given in \cite[\S 10.2.4]{lodayvallette}, taking into account the minor modifications to accommodate the dg case. In the case that $f:A\to A$ is an $\infty$-endomorphism, \Cref{operadicmorphism} can be written in terms of operadic composition as $f\tilde{\circ}m=\tilde{\gamma}(m\circ f)$. 
 
 
 \section{$A_\infty$-algebra structures on operads}\label{sect2}
 
 
-Let $\OO$ be an operad of graded $R$-modules and $\s\OO$ its operadic suspension. Let us consider the underlying graded module of the operad $\s\OO$, which we call $\s\OO$ again by abuse of notation, i.e. \[\s\OO=\prod_n \s\OO(n)\] with grading given by its natural degree, i.e. $|x|=\deg(x)+n-1$ for $x\in \s\OO(n)$, where $\deg(x)$ is its internal degree, the degree in $\OO(n)$. 
-
-For any operad $\OO$, recall the operation $\circ$ defined as
+Let $\OO$ be an operad of graded $R$-modules and $\s\OO$ its operadic suspension. Let us consider the underlying graded module of the operad $\s\OO$, which we call $\s\OO$ again by abuse of notation, i.e. \[\s\OO=\prod_n \s\OO(n)\] with grading given by its natural degree, i.e. $|x|=\deg(x)+n-1$ for $x\in \s\OO(n)$, where $\deg(x)$ is its internal degree, the degree in $\OO(n)$. For any operad $\OO$, recall the operation $\circ$ defined as
 
 \[
 x\circ y=\sum_{i=1}^n x\circ_i y\in\OO(n+m-1)
 \]
-
 for $x\in\OO(n)$ and $y\in \OO(m)$. We write $x\tilde{\circ}y$ for the corresponding operation on $\s\OO$, namely
 
 \[
 x\tilde{\circ} y=\sum_{i=1}^n x\tilde{\circ}_i y=b_1(x;y)\in\s\OO(n+m-1)
 \]
-
 where
 \[x\tilde{\circ}_iy=(-1)^{(n-1)\deg(y)+(n-i)(m-1)}x\circ_i y.\]
 
@@ -507,15 +498,12 @@ For $x\in\s\OO$ we have that the degree of the map of graded modules $b_j(x;-):\
 Let $a(x)$ denote the arity of $x$, i.e. $a(x)=n$ whenever $x\in\s\OO(n)$. Also, let $\deg(x)$ be its internal degree in $\OO$. The natural degree of $b_j(x;x_1,\dots,x_j)$ for $a(x)\geq j$ is computed as follows. By definition, we have that the natural degree of $b_j(x;x_1,\dots,x_j)$ as an element of $\s\OO$ is
 
 \[|b_j(x;x_1,\dots,x_j)|=a(b_j(x;x_1,\dots,x_j))+\deg(b_j(x;x_1,\dots,x_j))-1.\]
-
 We have 
 
 \[a(b_j(x;x_1,\dots,x_j))=a(x)-j+\sum_i a(x_i)\]
-
 and 
 
 \[\deg(b_j(x;x_1,\dots,x_j)=\deg(x)+\sum_i\deg(x_i).\]
-
 Combining these two we obtain
 
 \begin{align*}
@@ -693,7 +681,6 @@ where $l=n-(i_1+\cdots+i_j)+j$. The sum with no subindex runs over all the possi
 \begin{align*}
 \mathcal{M}_j(\Phi'(x_1),\dots, \Phi'(x_j))=B_j(M';\Phi'(x_1),\dots, \Phi'(x_j))
 \end{align*}
-
 that is, $B_j(M'_l;\Phi'(x_1),\dots, \Phi'(x_j))$. By definition, this equals
 
 \begin{align*}
@@ -733,7 +720,6 @@ Let us first focus on the insertions in $m$ that appear in equation (\ref{case1}
 \begin{equation}\label{phim}
 \Phi'(M'_1(x))=\Phi'([m,x])=\Phi'(b_1(m;x))-(-1)^{|x|}\Phi'(b_1(x;m))
 \end{equation}
-
 so we focus on the first summand
 
 \begin{align*}
@@ -741,7 +727,6 @@ so we focus on the first summand
 &=\sum_n \underset{n\geq i}{\sum_i} \sum b_{n-i+1}(m;-, b_i(x;-),-)\\
 &=\smashoperator[r]{\sum_{\substack{n,i\\n-i+1> 0}}}\sum b_{n-i+1}(m;-, b_i(x;-),-)
 \end{align*}
-
 where the sum with no indices runs over all the positions in which $b_i(x;-)$ can be inserted (from $1$ to $n-i+1$ in this case). 
 
 On the other hand, since $|\Phi'(x)|=|x|$, the right hand side of \Cref{case1} becomes
@@ -760,10 +745,8 @@ And now, let us study the insertions in $x$ that appear in \Cref{case1}. For tha
 \[-(-1)^{|x|}\Phi'(b_1(x;m))=-(-1)^{|x|}\sum_n b_n(b_1(x;m);-).\]
 
 The factor $-(-1)^{|x|}$ is going to appear everywhere, so we may cancel it. Thus we just have
-
 \[\Phi'(b_1(x;m))=\sum_n b_n(b_1(x;m);-).\]
 We are going to evaluate each term of the sum, so let $z_1,\dots, z_n\in \s\OO$. We have by the brace relation that
-
 \begin{align}\label{insertionx1}
 b_n(b_1(x;m);z_1,\dots, z_n)&=\\
  \sum_{l+j=n+1}\sum_{i=1}^{n-j+1}&(-1)^{\varepsilon} b_l(x;z_1,\dots,b_j(m;z_{i},\dots, z_{i+j}),\dots, z_n)\nonumber\\

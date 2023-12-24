@@ -578,8 +578,8 @@ These two concatenations are homotopic. Denote a homotopy by
 \[
 m_4 : K_4 × (\Omega X)^4 \to X
 \]
-where $K_4$ denotes the pentagon bounded by the two paths. When we want to compose five loops, there are fourteen possibilities corresponding to the fourteen binary trees
-with five leaves. Using $m_4$ and $m_3$, we obtain homotopies linking the compositions and faces linking the homotopies. The resulting object is the boundary of the polytope $K_5$ depicted below.
+where $K_4$ denotes the pentagon bounded by the two paths depicted above. When we want to compose five loops, there are fourteen possibilities corresponding to the fourteen binary trees
+with five leaves. Using $m_4$ and $m_3$, we obtain homotopies linking the compositions and faces linking the homotopies. The geometrical representation of these homotopies is the boundary of the polytope $K_5$ depicted below.
 \[
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 \clip(-3.63,-1.3) rectangle (4.,2.9);
@@ -700,6 +700,7 @@ Again, the reader can find more details in \cite{keller} and \cite[\S 9.2]{loday
 \begin{defin}\label{inftyalgebramorphism}
 A \emph{morphism} of $A_\infty$-algebras is a map of $R$-modules $f:A\to B$ such that
 \[f(m^A_j)=m^B_j\circ f^{\otimes j}.\]
+Equivalently, it is an $\infty$-morphism where $f_n=0$ for $n>1$.
 \end{defin}
 
 Notice that working with $\Z$-graded modules forces every morphism of $A_\infty$-algebras to be of degree 0.
@@ -715,7 +716,7 @@ An $A_\infty$-algebra is called \emph{minimal} if $m_1 = 0$.
 
 Over a field, one can replace any $A_\infty$-algebra by a quasi-isomorphic minimal one, where by quasi-isomorphic we mean that there is a map that induces an isomorphism on cohomology with respect to $m_1$. This gives a very convenient way to describe a quasi-isomorphism class of an $A_\infty$-algebra. More precisely we have the following.
 
-\begin{thm}[Kadeishvili]\label{minimaltheorem} Let $A$ be a differential graded algebra over a field $k$, and let $H^*(A)$ be its cohomology module. Then $H^*(A)$ has an $A_\infty$-structure such that
+\begin{thm}[Kadeishvili]\label{minimaltheorem} Let $A$ be a differential graded algebra over a field $k$ of any characteristic, and let $H^*(A)$ be its cohomology module. Then $H^*(A)$ has an $A_\infty$-structure such that
 \begin{itemize}
 \item $m_1 = 0$ and the multiplication $m_2$ is induced by the multiplication on $A$,
 \item there is an $\infty$-morphism of $A_\infty$-algebras $f : H^*(A) \to A$ such that $f_1$ is a quasi-isomorphism.
@@ -745,8 +746,9 @@ A \emph{(non-symmetric) operad} is a collection $\OO=\{\OO(n)\}$ where there is 
 \[\circ_i:\OO(n)\otimes \OO(m)\to \OO(m+n-1)\]
 for each $1\leq i\leq n$ satisfying natural unitality and associativity axioms, see \cite[\S 1.1.2]{ward}. 
 
-Insertion maps can be iterated to define \emph{composition maps} \[\gamma(x;x_1,\dots, x_n)=(\cdots(x\circ_1 x_1)\circ_2 x_2\cdots
-)\circ_n x_n).\]
+Insertion maps can be iterated to define \emph{composition maps} \[\gamma(x;x_1,\dots, x_j)=(\cdots(x\circ_1 x_1)\circ_{1+m_1} x_2\cdots
+)\circ_{1+ m_1+\cdots m_{j-1}} x_j,\]%\sum_{i=1}^{n-1}
+where $x_i\in \OO(m_i)$. 
 If $\OO$ is an $\mathbb{S}-$module and the insertion maps satisfy some additional invariance axioms regarding the symmetric group action, we say that $\OO$ is a \emph{symmetric operad}, see \cite{lodayvallette} for more details.
 
 A \emph{map of operads} (resp. \emph{symmetric operads}) is a map of collections (resp. $\mathbb{S}-$modules) that is compatible with insertions.
@@ -757,7 +759,7 @@ Collections also come with the following algebraic operation that will provide a
 The \emph{plethysm} or \emph{composite} $\OO\circ\PP$ of two collections $\OO$ and $\PP$ given by
 \[(\OO\circ\PP)(n)=\bigoplus_{N\geq 0}\OO(N)\otimes \left(\bigoplus_{a_1+\cdots+a_k=n} \PP(a_1)\otimes\cdots\otimes \PP(a_k)\right).\]
 \end{defin}
-There is a definition of plethysm for $\mathbb{S}$-modules that requires some tools from the representation theory of symmetric groups that we are not going to introduce here. The reader is referred to \cite{lodayvallette} for the details. 
+There is a definition of plethysm for $\mathbb{S}$-modules that requires some tools from the representation theory of symmetric groups such as the induced representation that we are not going to introduce here. The reader is referred to \cite[\S 5.1]{lodayvallette} for the details. 
 
 \begin{defin}
 The \emph{plethysm} or \emph{composite} $f\circ g$ of maps $f:\OO\to\OO'$ and $g:\PP\to\PP'$ is given by
@@ -767,7 +769,7 @@ where $\varepsilon = \deg(g)\sum_{i=0}^k\deg(x_i)(k-i)$ is the Koszul sign obtai
 
  %, TENSOR PRODUCT OF S-MODULES
 
-It is known that the category of collections with plethysm is a monoidal category, where the unit is the collection $I(1)=R$ and $I(n)=0$ for $n\neq 1$. The following lemma is a well-known fact that describes operads in terms of this monoidal structure, see \cite[\S 5]{lodayvallette} for more details. 
+It is known that the category of collections with plethysm is a monoidal category, where the unit is the collection $I(1)=R$ and $I(n)=0$ for $n\neq 1$. The following lemma is a well-known fact that describes operads in terms of this monoidal structure, see \cite[\S 5.2]{lodayvallette} for more details. 
 \begin{lem}\label{monoid}
 An operad $\OO$ is equivalent to a monoid in the monoidal category of collections with plethysm, where the multiplication map is given precisely by the composition $\gamma:\OO\circ\OO\to\OO$. 
 \end{lem}
@@ -786,9 +788,8 @@ for $f\in\End_A(n)$ and $g\in\End_A(m)$. The identity element is given by the id
 \end{defin}
 The endomorphism operad also allows us to define algebras over any operad.
 \begin{defin}
-An \emph{algebra over an operad} $\OO$, or $\OO$-\emph{algebra}, is a map of operads $\OO\to\End_A$ for some $R$-module $A$. By adjunction, this is equivalent to a collection of maps $\OO(n)\otimes A^{\otimes n}\to A$ for each $n\geq 0$.  
+An \emph{algebra over an operad} $\OO$, or $\OO$-\emph{algebra}, is a map of operads $\OO\to\End_A$ for some $R$-module $A$. By the tensor-hom adjunction, this corresponds to a collection of maps $\OO(n)\otimes A^{\otimes n}\to A$ for each $n\geq 0$.  
 \end{defin}
-
 
 \begin{defin}\label{algebramorphism}
 A \emph{morphism of $\OO$-algebras} $A$ and $B$ is a map of operads $\End_A\to\End_B$ so that the diagram
@@ -1212,13 +1213,6 @@ We denote by $\vbc$ the category of vertical bicomplexes. The tensor product of 
 vertical differential \[d^{A⊗B} := d^A ⊗ 1 + 1 ⊗ d^B : (A ⊗ B)^v_u → (A ⊗ B)^{v+1}_u .\] This makes $\vbc$ into a
 symmetric monoidal category. The symmetric monoidal categories $(\mathrm{C}_R,⊗,R)$, $(\bgmod,⊗,R)$ and $(\vbc,⊗,R)$ are related by embeddings $\mathrm{C}_R\to\vbc$ and $\bgmod \to\vbc$ which are monoidal and full. 
 
-The following is \cite[Lemma 4.15]{whitehouse}.
-
-\begin{lem}\label{4.15}
-The category $\fc$ is monoidal over $\vbc$. By restriction, $\fmod$ is monoidal over $\bgmod$.
-\end{lem}
-
-
 \begin{defin}\label{delta1}
 Let $A,B$ be bigraded modules. We define $[A,B]^∗_∗$
 to be the bigraded module of morphisms of bigraded modules $A → B$. Furthermore, if $A,B$ are vertical bicomplexes, and $f ∈
@@ -1283,7 +1277,7 @@ for $i ≥ 0$ endows $[A,B]^∗_∗$ with the structure of a twisted complex.
 %DEFINITION WITH FILTRATION, DIFFERENTIAL, MONOIDALITY
 Here we recall the definition of the totalization functor from \cite{whitehouse} and some of the structure that it comes with. This functor and its enriched versions are key to establish a correspondence between $A_\infty$-algebras and derived $A_\infty$-algebras.
 
-\pagebreak
+%\pagebreak
 \begin{defin}\label{totdef}
 The \emph{totalization} of a bigraded $R$-module $A = \{A^j_i \}$ is the graded $R$-module $\Tot(A)$ given by
 \[\Tot(A)^n \coloneqq
@@ -1311,7 +1305,7 @@ and $f \mapsto \Tot(f)$ define a functor $\Tot : \tc \to \fc$ which is an isomor
 For a filtered complex of the form $(\Tot(A),d,F)$ where $A = \{A^j_i \}$ is a bigraded $R$-module, we can recover the twisted complex structure on  $A$ as follows. For all $m ≥ 0$, let
 $d_m : A → A$ be the morphism of bidegree $(m,1-m)$ defined by 
 \[d_m(x) = (−1)^{nm}d(x)_{i+m},\] 
-where $x ∈ A^{n-i}_i$ and $d(x)_k$ denotes the $k$-th component of $d(x)$. Note that $d(x)_k$ lies in $A^{n+1-k}_k$.
+where $x ∈ A^{n-i}_i$ and $d(x)_k$ denotes the $k$-th component of $d(x)$. Note that $d(x)_k$ lies in $A^{n+1-k}_k$. We can also recover the bidegree of an element because in totalization they are sorted by horizontal degree.
 
 We will consider the following bounded categories since the totalization functor has better monoidal properties when restricted to them. 
 
@@ -1339,6 +1333,11 @@ When restricted to the bounded case, $\Tot : \bgmod^b
 strong symmetric monoidal functors.
 \end{propo}
 
+Using totalization it is possible to show the following, which is \cite[Lemma 4.15]{whitehouse}.
+
+\begin{lem}\label{4.15}
+The category $\fc$ is monoidal over $\vbc$. By restriction, $\fmod$ is monoidal over $\bgmod$.
+\end{lem}
 
 \begin{remark}\label{heuristic}
 There is a certain heuristic to obtain the sign appearing in the definition of $\mu$ in \Cref{monoidal}. In the bounded case, we can write \[\Tot(A)=\bigoplus_i A_i^{n-i}.\]
@@ -1377,6 +1376,8 @@ The general case follows inductively.
 \end{proof}
 \pagebreak
 \section{Enriched categories and totalization}
+
+
 
 We define here some useful enriched categories and results from \cite[\S 4.3 and \S 4.4]{whitehouse}. Each of these categories will be a piece in \Cref{whitehouse}, which establishes a connection between $A_\infty$-algebras and derived $A_\infty$-algebras. Some of them have been modified according to our conventions. 
 \begin{defin}\label{weirdenrichment}
