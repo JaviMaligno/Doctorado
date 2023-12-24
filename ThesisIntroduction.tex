@@ -293,9 +293,13 @@ is a natural transformation over $\VV$ satisfying the standard unit and associat
 and $μ$ are natural isomorphisms then we say that $F$ is \emph{monoidal over $\VV$}. 
 \end{defin}
 
+Another notion of natural transformation in the enriched setting is given below, see \cite[Definition 3.5.8]{riehl} for the detailed diagrams.
+\begin{defin}
+A \emph{$\VV$-enriched natural transformation} $\underline{\mu}:\underline{F}\Rightarrow\underline{G}$ between a pair of $\VV$-enriched functors $F,G:\CC\to\DD$ consists of a morphism $\underline{\mu}_X:1\to\DD(FX, GX)$ in $\VV$ for each $X\in \CC$ satisfying certain naturality conditions with respect to the external product and enriched composition.
+\end{defin}
 
 The following is \cite[Proposition 4.11]{whitehouse}.
-\pagebreak
+%\pagebreak
 \begin{propo}\label{enrichedtrans}
 Let $F,G : \CC → \DD$ be lax functors over $\VV$. Then $F$ and $G$ extend to $\VV$-enriched
 functors
@@ -312,7 +316,7 @@ Let $F,G:\CC\to\DD$ lax functors over $\VV$ and let $\mu : F\Rightarrow G$ a nat
 We would like to thank Sarah Whitehouse for her contribution to the proof of this result.
 
 \begin{proof}
-By \Cref{enrichedtrans} there is a $\VV$-enriched natural transformation 
+By \Cref{enrichedtrans} $\mu$ extends to a $\VV$-enriched natural transformation 
 \[\underline{\mu}:\underline{F}\Rightarrow\underline{G}\]
 that at each object $X$ evaluates to \[\underline{\mu}_X:1\to\uD(FX,GX)\] defined to be the adjoint of $\mu_X:FX\to GX$. We define the map $\uD(GX,Y)\to\uD(FX,Y)$ as the composite
 
