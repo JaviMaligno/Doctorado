@@ -237,7 +237,7 @@ All this data is subject to associativity and unitality constrains that can be s
 \end{defin}
 
 \begin{defin}
-Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a \emph{monoidal category over $\VV$} if we have an \emph{external tensor product} $∗ :\VV × \CC → \CC$ such that we have the following natural isomorphisms.%\pagebreak
+Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a \emph{monoidal category over $\VV$} if there is an \emph{external (tensor) product} $∗ :\VV × \CC → \CC$ such that the following natural isomorphisms hold.%\pagebreak
 \begin{itemize}
 %\begin{enumerate}%[$\bullet$]
 \item  $1 ∗ X \cong X$ for all $X ∈ \CC$,
@@ -265,11 +265,11 @@ composition morphism is given by the adjoint of the composite
 where $ev_{XZ}$ is the adjoint of the identity $\uC (X,Z) → \uC (X,Z)$. Furthermore, $\uC$ is a monoidal $\VV$-enriched category, namely we have an
 enriched functor
 \[\underline{⊗} : \uC × \uC → \uC\]
-where $\uC × \uC$ is the enriched category with objects $\mathrm{Ob}(\CC ) × \mathrm{Ob}(\CC )$ and hom-objects
+where $\uC × \uC$ is the enriched category whose objects are $\mathrm{Ob}(\CC ) × \mathrm{Ob}(\CC )$ and whose hom-objects are defined as
 \[(\uC × \uC) ((X, Y ), (W,Z)) \coloneqq \uC (X,W) ⊗ \uC (Y,Z).\]
-In particular, we get maps in $\VV$
+As a consequence, we get maps in $\VV$
 \[\uC (X,W) ⊗ \uC (Y,Z) → \uC (X ⊗ Y,W ⊗ Z),\]
-given by the adjoint of the composite
+by considering the adjoint of the composite
 %\[(\uC (X,W) ⊗ \uC (Y,Z)) ∗ (X ⊗ Y )\cong (\uC (X,W) ∗ X) ⊗ (\uC (Y,Z) ∗ Y )\xrightarrow{ev_{XW}⊗ev_{Y Z}} W ⊗ Z.\]
 \[
 \begin{tikzcd}[column sep = 1.2em]
@@ -280,20 +280,24 @@ given by the adjoint of the composite
 \end{remark}
 \pagebreak
 \begin{defin}
-Let $\CC$ and $\DD$ be monoidal categories over $\VV$. A \emph{lax functor over $\VV$} consists of a functor $F : \CC → \DD$ together with a natural transformation \[ν_F : − ∗_\DD F(−) ⇒ F(− ∗_\CC −)\]
-which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. See \cite[Proposition 10.1.5]{riehl} for explicit diagrams stating the coherence axioms. If $ν_F$ is a natural isomorphism
-we say $F$ is a \emph{functor over $\VV$}.
+Let $\CC$ and $\DD$ be monoidal categories over $\VV$. A \emph{lax functor over $\VV$} consists of a functor $F : \CC → \DD$ along with a natural transformation \[ν_F : − ∗_\DD F(−) ⇒ F(− ∗_\CC −)\]
+which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. The coherence axioms for $ν_F$ are detailed in \cite[Proposition 10.1.5]{riehl}. If $ν_F$ is a natural isomorphism, then $F$ is said to be a \emph{functor over $\VV$}.
+\end{defin}
+\begin{defin}
 Let $F,G : \CC → \DD$ be lax functors over $\VV$. A \emph{natural transformation over $\VV$} is a natural transformation
 $μ : F ⇒ G$ such that for any $C ∈ \VV$ and for any $X ∈ \CC$ we have
 \[ν_G \circ (1 ∗_\DD μ_X) = μ_{C∗_\CC X} \circ ν_F .\]
+\end{defin}
+\begin{defin}
 A \emph{lax monoidal functor over $\VV$} is a triple $(F, \epsilon, μ)$, where $F : \CC → \DD$ is a lax functor over $\VV$,
 $\epsilon : 1_\DD → F(1_\CC)$ is a morphism in $\DD$ and
 \[μ : F(−) ⊗ F(−) ⇒ F(− ⊗ −)\]
-is a natural transformation over $\VV$ satisfying the standard unit and associativity conditions. If $ν_F$
-and $μ$ are natural isomorphisms then we say that $F$ is \emph{monoidal over $\VV$}. 
+is a natural transformation over $\VV$ satisfying the usual unit and associativity conditions. If $ν_F$
+and $μ$ are natural isomorphisms then $F$ is said to be \emph{monoidal over $\VV$}. 
 \end{defin}
 
 Another notion of natural transformation in the enriched setting is given below, see \cite[Definition 3.5.8]{riehl} for the detailed diagrams.
+\pagebreak
 \begin{defin}
 A \emph{$\VV$-enriched natural transformation} $\underline{\mu}:\underline{F}\Rightarrow\underline{G}$ between a pair of $\VV$-enriched functors $F,G:\CC\to\DD$ consists of a morphism $\underline{\mu}_X:1\to\DD(FX, GX)$ in $\VV$ for each $X\in \CC$ satisfying certain naturality conditions with respect to the external product and enriched composition.
 \end{defin}
