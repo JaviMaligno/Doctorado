@@ -1437,7 +1437,7 @@ by the following data.
 \begin{enumerate}[(1)]
 \item The objects of $\ubgMod$ are bigraded modules.
 \item For any bigraded modules $A$ and $B$ the hom-object is the bigraded module $\ubgMod(A,B)$.
-\item The composition morphism \[c:\ubgMod(B,C) ⊗ \ubgMod(A,B) → \ubgMod(A,C)\] is defined in \Cref{weirdenrichment}.
+\item The composition map \[c:\ubgMod(B,C) ⊗ \ubgMod(A,B) → \ubgMod(A,C)\] is defined in \Cref{weirdenrichment}.
 \item The unit morphism $R → \ubgMod(A,A)$ is the morphism of bigraded modules that
 sends $1 ∈ R$ to $1_A : A → A$, the strict morphism given by the identity of $A$.
 \end{enumerate}
@@ -1448,7 +1448,7 @@ We denote by $\utC$ the \emph{$\vbc$-enriched category of twisted complexes} giv
 \begin{enumerate}[(1)]
 \item The objects of $\utC$ are twisted complexes.
 \item For any twisted complexes $A$ and $B$ the hom-object is the vertical bicomplex $\utC(A,B)$.
-\item The composition morphism $c : \utC(B,C)⊗\utC(A,B) → \utC(A,C)$ is defined in \Cref{weirdenrichment}.
+\item The composition map $c : \utC(B,C)⊗\utC(A,B) → \utC(A,C)$ is defined in \Cref{weirdenrichment}.
 \item The unit morphism $R → \utC(A,A)$ is given by the morphism of vertical bicomplexes sending
 $1 ∈ R$ to $1_A : A → A$, the strict morphism of twisted complexes given by the identity of $A$.
 \end{enumerate}
@@ -1478,15 +1478,15 @@ We denote by $\ufMod$ the \emph{$\bgmod$-enriched category of filtered modules} 
 %\end{enumerate}
 %\begin{enumerate}
 %\setcounter{enumi}{2}
-\item The composition morphism is given by $c(f, g) = (−1)^{u|g|}fg$, where $u$ is the horizontal degree of $f$.
-\item The unit morphism is given by the map $R → \ufMod(K,K)$ given by $1 → 1_K$.
+\item The composition map is given by $c(f, g) = (−1)^{u|g|}fg$, where $u$ is the horizontal degree of $f$.
+\item The unit morphism is given by the map $R → \ufMod(K,K)$ sending $1 → 1_K$.
 \end{enumerate}
 \end{defin}
 
 
 \begin{defin}\label{fmoddifferential}
 Let $(K, d^K, F)$ and $(L, d^L, F)$ be filtered complexes. We define $\ufC(K,L)$ to be the
-vertical bicomplex whose underlying bigraded module is $\ufMod(K,L)$ with vertical differential
+vertical bicomplex whose underlying bigraded module is $\ufMod(K,L)$ and the vertical differential is
 \[δ(f) := c(d^L, f) − (−1)^{\langle f,d^K\rangle}c(f, d^K) = d^Lf − (−1)^{|f|}fd^K\] %= d^Lf − (−1)^{v+u}fd^K 
 for $f ∈ \ufMod(K,L)^v_u$, where $c$ is the composition map from \Cref{ufMod}.
 \end{defin}
@@ -1498,11 +1498,10 @@ by the following data.
 \begin{enumerate}[(1)]
 \item The objects of $\ufC$ are filtered complexes.
 \item For $K,L$ filtered complexes the hom-object is the vertical bicomplex $\ufC(K,L)$.
-\item The composition morphism is given as in $\ufMod$ in \Cref{ufMod}. 
-\item The unit morphism is given by the map $R → \ufC(K,K)$ given by $1 → 1_K$.
-We denote by $\usfC$ the full subcategory of $\ufC$ whose objects are split filtered complexes.
-
+\item The composition map is given as in $\ufMod$ in \Cref{ufMod}. 
+\item The unit morphism is given by the map $R → \ufC(K,K)$ sending $1 → 1_K$.
 \end{enumerate}
+We write $\usfC$ to denote the full subcategory of $\ufC$ whose objects are in the image of the totalization functor.
 \end{defin}
 
 The enriched monoidal structure is given as follows and can be found in \cite[Lemma 4.36]{whitehouse}.
@@ -1524,31 +1523,31 @@ $f\mapsto \tilde{f}: a\mapsto (k\mapsto f(a\otimes k))$.
 
 We now define an enriched version of the totalization functor. 
 \begin{defin}\label{enrichedtot}
-Let $A$, $B$ be bigraded modules. We define
+Let $A$ and $B$ be bigraded modules. We define
 
 \[\Tot(f) ∈ \ufMod(\Tot(A),\Tot(B))^v_u\]
 for $f ∈ \ubgMod (A,B)^v_u$ to be given on any $x ∈ \Tot(A)^n$ by
 \[(\Tot(f)(x)))_{j+u} :=
 \sum_{m≥0}(−1)^{(m+u)n}f_m(x_{j-m}) ∈ B^{n-j+v}_{j+u} ⊂ \Tot(B)^{n+u+v}.\]
-Let $K = \Tot(A)$, $L = \Tot(B)$ and $g ∈ \ufMod(K,L)^v_u$. We define
+We also define an inverse as follows. Let $K = \Tot(A)$, $L = \Tot(B)$ and $g ∈ \ufMod(K,L)^v_u$. We define
 \[f := \Tot^{−1}(g) ∈ \ubgMod(A,B)^v_u\]
-to be $f := (f_0, f_1,\dots)$ where $f_i$ is given on each $A^{m+j}_j$ by the composite
+to be given by $f := (f_0, f_1,\dots)$ where $f_i$ is defined on each $A^{m+j}_j$ by the composite
 \begin{align*}
 f_i : A^{m-j}_j \hookrightarrow\prod_{k\geq j}A^{m-k}_k &= F_j(\Tot(A)^m)\xrightarrow{g}F_{j+u}(\Tot(B)^{m+u+v})\\
 &=\prod_{l\geq j+u}B^{m+u+v-l}_l\xrightarrow{×(−1)^{(i+u)m}} B^{m-j+v−i}_{j+u+i} ,
 \end{align*}
-where the last map is a projection and multiplication with the indicated sign.
+where the last map is a projection and multiplication by the indicated sign factor.
 \end{defin} 
 
 The following is \cite[Theorem 4.39]{whitehouse}.
 \begin{thm}\label{4.39}
-Let $A$, $B$ be twisted complexes. The assignments $\mathfrak{Tot}(A) := \Tot(A)$ and
+Let $A$ and $B$ be twisted complexes. The assignments $\mathfrak{Tot}(A) := \Tot(A)$ and
 \begin{align*}
 \mathfrak{Tot}_{A,B} : \utC(A,B)& → \ufC(\Tot(A),\Tot(B))\\
 f &\mapsto \Tot(f)
 \end{align*}
-define a $\vbc$-enriched functor $\mathfrak{Tot} : \utC → \ufC$ which restricts to an isomorphism onto its image. Furthermore, this functor restricts to a $\bgmod$-enriched functor \[\mathfrak{Tot} : \ubgMod → \ufMod\]
- which also restricts to an isomorphism onto its image.
+define a $\vbc$-enriched functor $\mathfrak{Tot} : \utC → \ufC$ which restricts to an isomorphism onto its image. Furthermore, this functor restricts to a $\bgmod$-enriched functor \[\mathfrak{Tot} : \ubgMod → \ufMod\] 
+which also restricts to an isomorphism onto its image.
 \end{thm}
 
 We now present an enriched endomorphism operad. The precise operad structure is shown in \cite[Lemma 4.41]{whitehouse}. 
@@ -1558,7 +1557,7 @@ to be the collection in $\mathscr{V}$ given by
 \[\uEnd_A(n) \coloneqq \uC (A^{⊗n},A) \text{ for }n ≥ 1.\]
 \end{defin}
 
-The following contains Proposition 4.40, Lemma 4.43 and Proposition 4.46 from \cite{whitehouse}.\pagebreak
+The following contains Proposition 4.40, Lemma 4.43 and Proposition 4.46 from \cite{whitehouse}.%\pagebreak
 
 \begin{propo}\label{S4}\
 %The following hold.
