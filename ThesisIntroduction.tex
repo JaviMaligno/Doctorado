@@ -624,7 +624,7 @@ of an $A_\infty$-algebra \cite{STASHEFF}, which will be formally introduced in t
 
 In this section we first establish notation and assumptions about graded modules and sign conventions. We then briefly recall some of the basic definitions regarding $A_\infty$-algebras.
 
-Our base category is the category of $\Z$-graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct from 2. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$ and we use cohomological grading. The symmetry isomorphism is given by the following Koszul sign convention.
+Our base category is the category of $\Z$-graded $R$-modules and linear maps, where $R$ is a commutative ring with unit of characteristic distinct from 2, so that the sign calculations are not trivial. All tensor products are taken over $R$. We denote the $i$-th degree component of $A$ as $A^i$. If $x\in A^i$ we write $\deg(x)=i$ and we use cohomological grading. The symmetry isomorphism is given by the following Koszul sign convention.
 
 \begin{align*}
 \tau_{A,B}:A\otimes B&\to B\otimes A\\
@@ -723,7 +723,7 @@ Over a field, one can replace any $A_\infty$-algebra by a quasi-isomorphic minim
 \begin{thm}[Kadeishvili]\label{minimaltheorem} Let $A$ be a differential graded algebra over a field $k$ of any characteristic, and let $H^*(A)$ be its cohomology module. Then $H^*(A)$ has an $A_\infty$-structure such that
 \begin{itemize}
 \item $m_1 = 0$ and the multiplication $m_2$ is induced by the multiplication on $A$,
-\item there is an $\infty$-morphism of $A_\infty$-algebras $f : H^*(A) \to A$ such that $f_1$ is a quasi-isomorphism.
+\item there is an $\infty$-morphism of $A_\infty$-algebras $f : H^*(A) \to A$ such that $f_1$ is a quasi-isomorphism lifting the identity.
 \end{itemize}
 This $A_\infty$-algebra $H^*(A)$ is called the \emph{minimal model} of $A$.
 \end{thm}
@@ -1315,7 +1315,7 @@ and $f \mapsto \Tot(f)$ define a functor $\Tot : \tc \to \fc$ which is an isomor
 For a filtered complex of the form $(\Tot(A),d,F)$ where $A = \{A^j_i \}$ is a bigraded $R$-module, we can recover the twisted complex structure on  $A$ as follows. For all $m ≥ 0$, let
 $d_m : A → A$ be the morphism of bidegree $(m,1-m)$ defined by 
 \[d_m(x) = (−1)^{nm}d(x)_{i+m},\] 
-where $x ∈ A^{n-i}_i$ and $d(x)_k$ denotes the $k$-th component of $d(x)$. Note that $d(x)_k$ lies in $A^{n+1-k}_k$. We can also recover the bidegree of an element because in totalization they are sorted by horizontal degree.
+where $x ∈ A^{n-i}_i$ and $d(x)_k$ denotes the $k$-th component of $d(x)$. Note that $d(x)_k$ lies in $A^{n+1-k}_k$. We can also recover the bidegree of an element because in totalization they are sorted by horizontal degree and the non-negative horizontal degree components belong to the direct product factor, so we can locate the zero horizontal degree component if we represent the elements accordingly.
 
 We will consider the following bounded categories since the totalization functor has better monoidal properties when restricted to them. 
 
