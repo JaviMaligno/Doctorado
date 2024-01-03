@@ -203,7 +203,7 @@ If $\CC$ and $\DD$ are symmetric monoidal categories, a lax monoidal functor $F:
 \end{defin}
 
 \begin{defin}
-A symmetric monoidal category $\CC$ is \emph{closed} if for every object $A\in\CC$ the tensor product functor $A\otimes -:\CC\to\CC$ has a right adjoint functor $[A,-]:\CC\to\CC$. In other words, for all $A,B,C\in \CC$ we have a natural bijection between the morphism sets
+A symmetric monoidal category $\CC$ is \emph{closed} if for every object $A\in\CC$ the tensor product functor $A\otimes -:\CC\to\CC$ has a right adjoint functor $[A,-]:\CC\to\CC$. In other words, for all $A,B$ and $C\in \CC$ we have a natural bijection between the morphism sets
 \[\Hom_\CC(A\otimes B, C)\cong \Hom_\CC(A, [B,C])\]
 natural in all arguments. The object $[A,B]$ is called the \emph{internal hom}.
 \end{defin}
@@ -237,7 +237,7 @@ All this data is subject to associativity and unitality constrains that can be s
 \end{defin}
 
 \begin{defin}
-Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a monoidal category. We say that $\CC$ is a \emph{monoidal category over $\VV$} if there is an \emph{external (tensor) product} $∗ :\VV × \CC → \CC$ such that the following natural isomorphisms hold.%\pagebreak
+Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and $(\CC,⊗, 1)$ a monoidal category. The category $\CC$ is a \emph{monoidal category over $\VV$} if there is an \emph{external (tensor) product} $∗ :\VV × \CC → \CC$ satisfying the following natural isomorphisms.%\pagebreak
 \begin{itemize}
 %\begin{enumerate}%[$\bullet$]
 \item  $1 ∗ X \cong X$ for all $X ∈ \CC$,
@@ -247,12 +247,10 @@ Let $(\VV ,⊗, 1)$ be a symmetric monoidal category and let $(\CC,⊗, 1)$ be a
 \end{itemize}
 \end{defin}
 \begin{remark}\label{underline}
-Throughout the thesis we will also assume that there is a bifunctor $\uC(−,−) : \CC^{op} × \CC → \VV$ such that we have natural
+Throughout the thesis we will also assume that there is a bifunctor $\uC(−,−) : \CC^{op} × \CC → \VV$ such that there are natural
 bijections
 \[\Hom_\CC(C ∗ X, Y ) \cong \Hom_\VV (C,\uC(X, Y )).\]
-Under this assumption we get a $\VV$-enriched category $\uC$ with the same objects as $\CC$ and with hom-objects given by $\uC (−,−)$. The unit
-morphism $u_X : 1 → \uC (X,X)$ corresponds to the identity map in $\CC$ under the adjunction, and the
-composition morphism is given by the adjoint of the composite
+Under the given assumption, we obtain a $\VV$-enriched category $\uC$ with the same objects as $\CC$, and the hom-objects are given by $\uC (−,−)$. The unit morphism $u_X : 1 → \uC (X,X)$ corresponds to the identity map in $\CC$ under the adjunction. The composition morphism is determined by the adjoint of the composite
 
 %\[(\uC (B,C) ⊗ \uC (A,B)) ∗ A\cong \uC (B,C) ∗ (\uC (A,B) ∗ A)\xrightarrow{id∗ev_{AB}}\uC (B,C) ∗ B\xrightarrow{ev_{BC}} C,\]
 \[
@@ -281,19 +279,19 @@ by considering the adjoint of the composite
 \pagebreak
 \begin{defin}
 Let $\CC$ and $\DD$ be monoidal categories over $\VV$. A \emph{lax functor over $\VV$} consists of a functor $F : \CC → \DD$ along with a natural transformation \[ν_F : − ∗_\DD F(−) ⇒ F(− ∗_\CC −)\]
-which is associative and unital with respect to the monoidal structures over $\VV$ of $\CC$ and $\DD$. The coherence axioms for $ν_F$ are detailed in \cite[Proposition 10.1.5]{riehl}. If $ν_F$ is a natural isomorphism, then $F$ is said to be a \emph{functor over $\VV$}.
+that respects the associativity and unital structures of the monoidal categories over $\VV$ of $\CC$ and $\DD$. The coherence axioms for $ν_F$ are detailed in \cite[Proposition 10.1.5]{riehl}. If $ν_F$ is a natural isomorphism, then $F$ is said to be a \emph{functor over $\VV$}.
 \end{defin}
 \begin{defin}
 Let $F,G : \CC → \DD$ be lax functors over $\VV$. A \emph{natural transformation over $\VV$} is a natural transformation
-$μ : F ⇒ G$ such that for any $C ∈ \VV$ and for any $X ∈ \CC$ we have
+$μ : F ⇒ G$ such that for any $C ∈ \VV$ and for any $X ∈ \CC$ the following equality holds
 \[ν_G \circ (1 ∗_\DD μ_X) = μ_{C∗_\CC X} \circ ν_F .\]
 \end{defin}
 \begin{defin}
 A \emph{lax monoidal functor over $\VV$} is a triple $(F, \epsilon, μ)$, where $F : \CC → \DD$ is a lax functor over $\VV$,
 $\epsilon : 1_\DD → F(1_\CC)$ is a morphism in $\DD$ and
 \[μ : F(−) ⊗ F(−) ⇒ F(− ⊗ −)\]
-is a natural transformation over $\VV$ satisfying the usual unit and associativity conditions. If $ν_F$
-and $μ$ are natural isomorphisms then $F$ is said to be \emph{monoidal over $\VV$}. 
+is a natural transformation over $\VV$ that satisfies the standard unit and associativity conditions. If $ν_F$
+and $μ$ are both natural isomorphisms then $F$ is said to be \emph{monoidal over $\VV$}. 
 \end{defin}
 
 Another notion of natural transformation in the enriched setting is given below, see \cite[Definition 3.5.8]{riehl} for the detailed diagrams.
@@ -305,13 +303,13 @@ A \emph{$\VV$-enriched natural transformation} $\underline{\mu}:\underline{F}\Ri
 The following is \cite[Proposition 4.11]{whitehouse}.
 %\pagebreak
 \begin{propo}\label{enrichedtrans}
-Let $F,G : \CC → \DD$ be lax functors over $\VV$. Then $F$ and $G$ extend to $\VV$-enriched
+If $F,G : \CC → \DD$ are lax functors over $\VV$, then $F$ and $G$ extend to $\VV$-enriched
 functors
 \[\underline{F},\underline{G} : \uC → \uD\]
-where $\uC$ and $\uD$ denote the $\VV$-enriched categories corresponding to $\CC$ and $\DD$ as described in \Cref{underline}. Moreover, any natural transformation $μ : F ⇒ G$ over $\VV$ also extends to a $\VV$-enriched natural
+where $\uC$ and $\uD$ denote the $\VV$-enriched categories corresponding to $\CC$ and $\DD$ as described in \Cref{underline}. Furthermore, any natural transformation $μ : F ⇒ G$ over $\VV$ also extends to a $\VV$-enriched natural
 transformation
 \[\underline{μ} : \underline{F} ⇒ \underline{G}.\]
-In particular, if $F$ is lax monoidal over $\VV$,  then $\underline{F}$ is lax monoidal in the enriched sense, where the monoidal structure on $\uC × \uC$ is described in \Cref{underline}.
+In particular, if $F$ is lax monoidal over $\VV$,  then $\underline{F}$ is lax monoidal with respecto to the monoidal structure on $\uC × \uC$ described in \Cref{underline}.
 \end{propo}
 
 \begin{lem}
@@ -1155,12 +1153,12 @@ A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules
 %A \emph{filtered $R$-module} $(A, F)$ is given by a family of $R$-modules $\{F_pA\}_{p∈\Z}$ indexed by
 %the integers such that $F_{p}A ⊆ F_{p-1}A$ for all $p ∈ \Z$ and $A = \bigcup_p F_pA$. 
 %
-%A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules which is compatible with filtrations, namely 
+%A \emph{morphism of filtered modules} is a morphism $f : A \to B$ of $R$-modules that preserves filtrations, namely 
 %\[f(F_pA) ⊂ F_pB \text{ for all }p ∈ \Z.\]
 %\end{defin}
 Note that some other sources may reverse inclusions in the above definition and consider $F_{p}A ⊆ F_{p+1}A$ instead. We denote by $\mathrm{C}_R$ the category of cochain complexes of $R$-modules.
 \begin{defin}\label{filteredcomplex}
-A \emph{filtered complex} $(K, d, F)$ is given by a cochain complex $(K, d) ∈ \mathrm{C}_R$ coupled with a filtration $F$ applied to each $R$-module $K^n$ satisfying the condition $d(F_pK^n) ⊂ F_pK^{n+1}$ for all integers $p$ and $n$. A \emph{morphism} of filtered complex is morphism of complexes $f : K → L$ that is compatible with filtrations, i.e., \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
+A \emph{filtered complex} $(K, d, F)$ is given by a cochain complex $(K, d) ∈ \mathrm{C}_R$ coupled with a filtration $F$ applied to each $R$-module $K^n$ satisfying the condition $d(F_pK^n) ⊂ F_pK^{n+1}$ for all integers $p$ and $n$. A \emph{morphism} of filtered complex is morphism of complexes $f : K → L$ that preserves filtrations, i.e., \[f(F_pK) ⊂ F_pL\text{ for all }p ∈ \Z.\]
 \end{defin}
 
 %\begin{defin}\label{filteredcomplex}
@@ -1204,9 +1202,8 @@ as the \emph{horizontal degree} and $j$ as the \emph{vertical degree}. The \emph
 \begin{defin}
 A \emph{morphism of bidegree $(p, q)$} is a morphism of modules that takes $A^j_i$ to $A^{j+q}_{i+p}$. The tensor product of two bigraded $R$-modules $A$ and $B$ is the bigraded $R$-module $A ⊗ B$ defined in terms of bidegree components as \[(A ⊗ B)^j_i \coloneqq \bigoplus_{p,q}A^q_p ⊗ B^{j−q}_{i−p}.\]
 \end{defin}
-We denote by $\bgmod$ the category whose objects are bigraded $R$-modules and whose morphisms
-are morphisms of bigraded $R$-modules of bidegree $(0, 0)$. It is symmetric monoidal with the above
-tensor product.
+
+We use the notation $\bgmod$ to represent the category with objects being bigraded $R$-modules and morphisms being morphisms of bigraded $R$-modules of bidegree $(0, 0)$. This category is equipped with a symmetric monoidal structure defined by the tensor product described above.
 
 We introduce a scalar product for bidegrees, where for elements $x$ and $y$ with bidegrees $(x_1, x_2)$ and $(y_1, y_2)$, respectively, the notation $\langle x, y\rangle = x_1y_1 + x_2y_2$ is employed.
 
@@ -1245,12 +1242,12 @@ of morphisms $\{d_m : A → A\}_{m≥0}$ of bidegree $(m,1−m )$ satisfying for
 \end{defin}
 
 \begin{defin}\label{twistedmorphisms}
-Let $(A, d^A_m)$ and $(B, d^B_m)$ be twisted complexes. A \emph{morphism of twisted complexes} $f : (A, d^A_m) → (B, d^B_m)$ is given by a family of morphisms of $R$-modules $\{f_m : A → B\}_{m≥0}$ of bidegree $(m,−m)$ satisfying for all $m ≥ 0$ the compatibility condition
+Let $(A, d^A_m)$ and $(B, d^B_m)$ be twisted complexes. A \emph{morphism of twisted complexes} $f : (A, d^A_m) → (B, d^B_m)$ is given by a family of morphisms of $R$-modules $\{f_m : A → B\}_{m≥0}$ of bidegree $(m,−m)$. This family must satisfy, for all $m ≥ 0$, the compatibility condition
 \[\sum_{i+j=m}d^B_if_j =\sum_{i+j=m}(−1)^if_id^A_j.\]
-The composition of morphisms is given by $(g \circ f)_m :=\sum_{i+j=m} g_if_j$.
+The composition of such morphisms is given by $(g \circ f)_m :=\sum_{i+j=m} g_if_j$.
 
 A morphism $f = \{f_m\}_{m≥0}$ is called \emph{strict} if $f_i = 0$ for all $i > 0$. The \emph{identity} morphism $1_A : A → A$ is the strict morphism
-given by $(1_A)_0(x) = x.$ 
+defined by $(1_A)_0(x) = x.$ 
 \end{defin}
 It is not hard to see that a morphism $f = \{f_i\}$ is an isomorphism of twisted complexes if and only if $f_0$ is an isomorphism of bigraded $R$-modules. Note that if $f$ is an isomorphism, then an inverse of $f$ is obtained from an inverse of $f_0$ by solving a triangular system of linear equations.
 
@@ -1300,7 +1297,7 @@ The \emph{totalization} of a bigraded $R$-module $A = \{A^j_i \}$ is the graded 
 The \emph{column filtration} of $\Tot(A)$ is the filtration defined as \[F_p\Tot(A)^n \coloneqq\prod_{i\geq p} A^{n-i}_i .\]
 \end{defin}
 
-For a twisted complex $(A, d_m)$, define a map $d : \Tot(A) → \Tot(A)$ of degree $1$ by setting \[d(x)_j \coloneqq \sum_{m≥0}(-1)^{mn}d_m(x_{j-m})\] for $x = (x_i)_{i∈\Z} ∈ \Tot(A)^n$. Here, $x_i ∈ A^{n-i}_i$ represents the $i$-th component of $x$, and $d(x)_j$ denotes the $j$-th component of $d(x)$. It is important to note that, for a given $j ∈ \Z$, there exists a sufficiently large $m ≥ 0$ such that $x_{j-m′} = 0$ for all $m′ ≥ m$. Consequently, $d(x)_j$ is expressed as a finite sum. Moreover, for sufficiently large negative $j$, one observes that $x_{j-m} = 0$ for all $m ≥ 0$, leading to $d(x)_j = 0$.
+For a twisted complex $(A, d_m)$, we can define a map $d : \Tot(A) → \Tot(A)$ of degree $1$ by setting \[d(x)_j \coloneqq \sum_{m≥0}(-1)^{mn}d_m(x_{j-m})\] for $x = (x_i)_{i∈\Z} ∈ \Tot(A)^n$. Here, $x_i ∈ A^{n-i}_i$ represents the $i$-th component of $x$, and $d(x)_j$ denotes the $j$-th component of $d(x)$. It is important to note that, for any given $j ∈ \Z$, there exists a sufficiently large $m ≥ 0$ such that $x_{j-m′} = 0$ for all $m′ ≥ m$. Consequently, $d(x)_j$ is expressed as a finite sum. Moreover, for sufficiently negative $j$, one observes that $x_{j-m} = 0$ for all $m ≥ 0$, leading to $d(x)_j = 0$.
 
 For a morphism $f : (A, d_m) → (B, d_m)$ of twisted complexes, define the \emph{totalization of $f$} be the map $\Tot(f) : \Tot(A) → \Tot(B)$ of degree 0 given by
 \[(\Tot(f)(x))_j \coloneqq \sum_{m≥0}(−1)^{mn}f_m(x_{j-m})\]
@@ -1308,8 +1305,8 @@ For a morphism $f : (A, d_m) → (B, d_m)$ of twisted complexes, define the \emp
  
  The following is \cite[Theorem 3.8]{whitehouse}.
 \begin{thm}
-The assignments $(A, d_m) \mapsto (\Tot(A), d, F)$, where $F$ is the column filtration of $\Tot(A)$,
-and $f \mapsto \Tot(f)$ define a functor $\Tot : \tc \to \fc$ which is an isomorphism when restricted to its image.
+The assignments $(A, d_m) \mapsto (\Tot(A), d, F)$, where $F$ denotes the column filtration of $\Tot(A)$,
+and $f \mapsto \Tot(f)$ establish a functor $\Tot : \tc \to \fc$. This functor restricts to an isomorphism onto its image.
 \end{thm}
 
 For a filtered complex of the form $(\Tot(A),d,F)$ where $A = \{A^j_i \}$ is a bigraded $R$-module, we can recover the twisted complex structure on  $A$ as follows. For all $m ≥ 0$, let
@@ -1414,20 +1411,21 @@ More explicitly,
 \[(δ(f))_m :=\sum_{i+j=m}(−1)^{i|f|}d^B_if_j − (−1)^{v+i}f_id^A_j.\]
 \end{defin}
 
-The following lemma justifies the above definition. For a proof see \cite[Lemma 4.18]{whitehouse}.
+A justification for the above definition can be found in \cite[Lemma 4.18]{whitehouse}.
+%The following lemma justifies the above definition. For a proof see \cite[Lemma 4.18]{whitehouse}.
 
-\begin{lem}
-The following equations hold.
-\begin{align*}
-&c(d^A, d^A) = 0\\
-&δ^2 = 0\\
-&δ(c(f, g)) = c(δ(f), g) + (−1)^v c(f, δ(g))
-\end{align*}
-where $v$ is the vertical degree of $f$. Furthermore, $f ∈ \ubgMod(A,B)$ is a map of twisted complexes if and
-only if $δ(f) = 0$. In particular, $f$ is a morphism in $\tc$ if and only if the bidegree of $f$ is $(0, 0)$ and
-$δ(f) = 0$. Moreover, given two morphisms $f$ and $g$ in $\tc$, we have that $c(f, g) = f\circ g$, where the latter is the
-composition in $\tc$.
-\end{lem}
+%\begin{lem}
+%The following equations hold.
+%\begin{align*}
+%&c(d^A, d^A) = 0\\
+%&δ^2 = 0\\
+%&δ(c(f, g)) = c(δ(f), g) + (−1)^v c(f, δ(g))
+%\end{align*}
+%where $v$ is the vertical degree of $f$. Furthermore, $f ∈ \ubgMod(A,B)$ is a morphism of twisted complexes if and
+%only if $δ(f) = 0$. In particular, $f$ is a morphism in $\tc$ if and only if the bidegree of $f$ is $(0, 0)$ and
+%$δ(f) = 0$. Moreover, given two morphisms $f$ and $g$ in $\tc$, we have that $c(f, g) = f\circ g$, where the latter is the
+%composition in $\tc$.
+%\end{lem}
 
 \begin{defin}
 Let $A$ and $B$ be twisted complexes. We define $\underline{t\mathcal{C}_R}(A,B)$ to be the vertical bicomplex
@@ -1463,7 +1461,7 @@ The next tensor corresponds to $\underline{\otimes}$ in the categorical setting 
 
 
 \begin{lem}\label{tensorenriched}
-The monoidal structure of $\utC$ is given by the following map of vertical bicomplexes.
+The monoidal on $\utC$ is given by the following map of vertical bicomplexes.
 \[\underline{⊗}: \utC(A,B) ⊗ \utC(A′,B′) → \utC(A ⊗ A′,B ⊗ B′)\]
 \[(f, g) → (f\underline{⊗}g)_m :=\sum_{i+j=m}(−1)^{ij}f_i ⊗ g_j\]
 The monoidal structure of $\ubgMod$ is given by the restriction of this map.
@@ -1540,7 +1538,7 @@ to be given by $f := (f_0, f_1,\dots)$ where $f_i$ is defined on each $A^{m+j}_j
 f_i : A^{m-j}_j \hookrightarrow\prod_{k\geq j}A^{m-k}_k &= F_j(\Tot(A)^m)\xrightarrow{g}F_{j+u}(\Tot(B)^{m+u+v})\\
 &=\prod_{l\geq j+u}B^{m+u+v-l}_l\xrightarrow{×(−1)^{(i+u)m}} B^{m-j+v−i}_{j+u+i} ,
 \end{align*}
-where the last map is a projection and multiplication by the indicated sign factor.
+the last map being a projection followed by a multiplication by the indicated sign factor.
 \end{defin} 
 
 The following is \cite[Theorem 4.39]{whitehouse}.
@@ -1550,13 +1548,14 @@ Let $A$ and $B$ be twisted complexes. The assignments $\mathfrak{Tot}(A) := \Tot
 \mathfrak{Tot}_{A,B} : \utC(A,B)& → \ufC(\Tot(A),\Tot(B))\\
 f &\mapsto \Tot(f)
 \end{align*}
-define a $\vbc$-enriched functor $\mathfrak{Tot} : \utC → \ufC$ which restricts to an isomorphism onto its image. Furthermore, this functor restricts to a $\bgmod$-enriched functor \[\mathfrak{Tot} : \ubgMod → \ufMod\] 
-which also restricts to an isomorphism onto its image.
+define a $\vbc$-enriched functor $\mathfrak{Tot} : \utC → \ufC$ which restricts to an isomorphism onto its image. Moreover, this functor, when restricted further, becomes a $\bgmod$-enriched functor
+\[\mathfrak{Tot} : \ubgMod → \ufMod,\]
+also restricting to an isomorphism onto its image.
 \end{thm}
 
 We now present an enriched endomorphism operad. The precise operad structure is shown in \cite[Lemma 4.41]{whitehouse}. 
 \begin{defin}
-Let $\underline{\mathscr{C}}$ be a monoidal $\mathscr{V}$-enriched category and $A$ an object of $\uC$. We define $\uEnd_A$
+Let $\underline{\mathscr{C}}$ be a monoidal $\mathscr{V}$-enriched category and $A$ an object of $\uC$. We define the \emph{enriched endomorphism operad} $\uEnd_A$
 to be the collection in $\mathscr{V}$ given by
 \[\uEnd_A(n) \coloneqq \uC (A^{⊗n},A) \text{ for }n ≥ 1.\]
 \end{defin}
@@ -1568,11 +1567,11 @@ The following contains Proposition 4.40, Lemma 4.43 and Proposition 4.46 from \c
 \begin{itemize}
 \item The enriched functors %\label{4.40}
 \[\mathfrak{Tot} : \ubgMod  → \ufMod ,\hspace{1cm} \mathfrak{Tot} : \utC → \ufC\]
-are lax symmetric monoidal in the enriched sense and when restricted to the bounded case they are strong symmetric monoidal in the enriched sense.
+are lax symmetric monoidal in the enriched sense and when restricted to the bounded case they become strong symmetric monoidal in the enriched sense.
 \item For $A\in\uC$, the collection $\uEnd_A$ defines an operad in $\VV$. %4.43
 
 \item Let $\CC$ and $\DD$ be monoidal categories over $\VV$. Let %\label{morphism} 4.46
-$F : \CC → \DD$ be a lax monoidal functor over $\VV$. Then for any $X ∈ \CC$ there is an operad morphism
+$F : \CC → \DD$ be a lax monoidal functor over $\VV$. Then for any $X ∈ \CC$ there is a morphism of operads
 \[\uEnd_X→\uEnd_{F(X)}.\]
 
 \end{itemize}
