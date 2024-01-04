@@ -356,6 +356,9 @@ We show that the above map is the inverse of the map (\ref{enrichedmap}). Consid
 In the above diagram (\ref{complicateddiagram}), $\alpha_X$ is adjoint to $1_{GX}:GX\to GX$. Diagrams (1) and (2) clearly commute. Diagram (3) commutes by associativity of $c$. Diagram (4) commutes because $\umui_X$ and $\umu_X$ are adjoint to mutual inverses, so their composition results in the adjoint of the identity. Finally, diagram (5) commutes because we are composing with an isomorphism. In particular, diagram (5) is a decomposition of the identity map on $\uD(GX,Y)$. By commutativity, this means that the overall diagram composes to the identity, showing that the maps (\ref{enrichedmap}) and (\ref{enrichedmapinverse}) are mutually inverse.
 \end{proof}
 
+\begin{remark}
+In the above proof, the fact that $\underline{\mu}$ is induced by $\mu$ is only essential when finding the inverse of the map $\uD(GX,Y)\to\uD(FX,Y)$, but similar constructions can be made for more general $\VV$-enriched natural transformation.
+\end{remark}
 
 \section{$A_\infty$-algebras}\label{back2}
 
@@ -382,7 +385,7 @@ m_2 : \Omega X × \Omega X \to \Omega X
 sending a pair of loops $(f_1, f_2)$ to the loop $f_1 * f_2 = m_2(f_1, f_2)$ obtained by running through $f_1$ on the first half of the circle at twice the speed and through $f_2$ on the second half.
 
 \[
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale = 0.7]
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale = 0.65]
 \clip(-5,-3.) rectangle (5.,2.3);
 \draw(0.,0.) circle (1.5cm);
 \draw [-] (-1.6,0.) -- (-1.4,0);
@@ -399,7 +402,7 @@ sending a pair of loops $(f_1, f_2)$ to the loop $f_1 * f_2 = m_2(f_1, f_2)$ obt
 This composition is not associative: for three loops $f_1$, $f_2$, $f_3$, the composition $(f_1*f_2)*f_3$ runs through $f_1$ on the first quarter of the circle whereas the composition $f_1 * (f_2 * f_3)$ runs through $f_1$ on the first half of the circle. We symbolize the two possibilities by two binary trees with three leaves.
 
 \[
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale = 0.9]
 \clip(-4.175394430564892,-2.5911383046897085) rectangle (7.490400123879831,3.3976612960713135);
 \draw(0.,2.) circle (1.cm);
 \draw [-] (-1.1,2.) -- (-0.9,2);
@@ -449,7 +452,7 @@ $m_3$, we obtain two concatenations of homotopies linking the compositions $(f_1
 
 \definecolor{dcrutc}{rgb}{0.39215686274509803,0.39215686274509803,0.39215686274509803}
 \[
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale = 0.96]
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale = 0.85]
 \clip(-3.0601652892561972,-1.4) rectangle (5.063801652892563,3.1);
 \fill[color=dcrutc,fill=dcrutc,fill opacity=0.10000000149011612] (2.5,2.5) -- (0.5,2.5) -- (-0.1180339887498949,0.5978869674096935) -- (1.5,-0.5776835371752531) -- (3.118033988749895,0.5978869674096927) -- cycle;
 \draw (2.5,2.5)-- (0.5,2.5);
@@ -576,7 +579,7 @@ $m_3$, we obtain two concatenations of homotopies linking the compositions $(f_1
 %\end{scriptsize}
 %\end{tikzpicture}
 
-These two concatenations are homotopic. Denote a homotopy by
+These two concatenations are homotopic via reparametrization. Denote a homotopy by
 \[
 m_4 : K_4 × (\Omega X)^4 \to X
 \]
@@ -763,7 +766,7 @@ The \emph{plethysm} or \emph{composite} $\OO\circ\PP$ of two collections $\OO$ a
 \end{defin}
 There is a definition of plethysm for $\mathbb{S}$-modules that requires some tools from the representation theory of symmetric groups such as the induced representation that we are not going to introduce here. The reader is referred to \cite[\S 5.1]{lodayvallette} for the details. 
 
-\begin{defin}
+\begin{defin}\label{plethysm}
 The \emph{plethysm} or \emph{composite} $f\circ g$ of maps $f:\OO\to\OO'$ and $g:\PP\to\PP'$ is given by
 \[(f\circ g)(x_0\otimes x_1\otimes\cdots\otimes x_k)=(-1)^{\varepsilon} f(x_0)\otimes g(x_1)\otimes\cdots\otimes g(x_k),\]
 where $\varepsilon = \deg(g)\sum_{i=0}^k\deg(x_i)(k-i)$ is the Koszul sign obtained from swapping each $g$ by the corresponding elements. 
@@ -843,12 +846,8 @@ Notice that this operad can now be described with no other relations than the di
 
 The monoidal definition of operad from \Cref{monoid} allows to define the dual notion of a cooperad.
 
-
-
 \begin{defin}
-Let $\OO$ be a collection. A \emph{cooperad} is a structure of comonoid on $\OO$ in the monoidal category $(\col, \bar{\circ},I)$, where \[(\PP\bar{\circ}\mathcal{Q})(n) \coloneqq
-\bigoplus_r \bigoplus_{n=i_1+\cdots+i_r}(\PP(r)\otimes \QQ(i_1)\otimes\cdots\otimes \QQ(i_r)),\]
-and  $I$ is the collection such that $I(0)=R$ and is trivial elsewhere.
+Let $\OO$ be a collection. A \emph{cooperad} is a structure of comonoid on $\OO$ in the monoidal category $(\col, \circ, I)$, where $\circ$ is the plethysm defined in \Cref{plethysm} and  $I$ is the collection such that $I(0)=R$ and is trivial elsewhere.
 See \cite[\S 5.7.1]{lodayvallette} for more details and the symmetric version.
 \end{defin}
 
@@ -1268,6 +1267,7 @@ Denote by $\tc$ the category of twisted complexes. The following construction en
 %&x ⊗ y\mapsto (−1)^{\langle x,y\rangle}y ⊗ x.
 %\end{align*}
 %\end{lem}
+\pagebreak
 \begin{lem}\label{tensortwisted}
 The category $(\tc,⊗,R)$ is endowed with a symmetric monoidal structure, where the bifunctor \[⊗ : \tc × \tc → \tc\] operates on objects according to \[((A, d^A_m), (B, d^B_m)) → (A ⊗ B, d^A_m ⊗ 1 + 1 ⊗ d^B_m)\] and on morphisms as $(f, g) → f ⊗ g$, with \[(f ⊗ g)_m :=\sum_{i+j=m} f_i ⊗ g_j.\] 
  In particular, the Koszul sign rule implies
